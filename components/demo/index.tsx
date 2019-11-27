@@ -70,8 +70,8 @@ export class ButtonComponent implements Component<ButtonProps>  {
             if(item.name === 'className') {
              item.value = `${value}-btn`;
             }
-          }); 
-          return props;     
+          });
+          return props;
         }
       },{
         name: 'className', //字段名称
