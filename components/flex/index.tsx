@@ -11,7 +11,7 @@ interface FlexProps {
   alignContent:string,
 }
 
-export default class MetaFlex implements Component {
+export default class MetaFlex implements Component<FlexProps> {
   manifest = {
     name: 'Flex',
     label: 'flex布局',
@@ -126,7 +126,7 @@ export default class MetaFlex implements Component {
         },
       },
     ],
-    children: ['button'],//可放置哪些子组件,暂时只支持数组,不支持方法
+    children: ['button','card','progress','wingBlank'],//可放置哪些子组件,暂时只支持数组,不支持方法
     // parent: ['button']//可放置哪些父组件中,暂时只支持数组,不支持方法
   }
 
