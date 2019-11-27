@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { List, Stepper } from 'antd-mobile';
-import { Component, Props, FieldTypes,EditTypes } from '@metaui/extension';
+import { Component, Props, FieldTypes,EditTypes, ReactWrapper } from '@metaui/extension';
 interface StepperProps {
   label: string
   min: number
@@ -20,7 +20,7 @@ class CustomStepperComponent extends React.Component<any>{
   render () {
       return (
         <List.Item extra={<Stepper {...this.props}/>}>
-          {this.props.label}           
+          {this.props.label}
         </List.Item>
       );
   }
@@ -128,5 +128,5 @@ export class StepperComponent implements Component<StepperProps>  {
       ],
       children: []
     }
-  render = (props:any) => <CustomStepperComponent {...props}/>
+  render = ReactWrapper((props:any) => <CustomStepperComponent {...props}/>)
 }

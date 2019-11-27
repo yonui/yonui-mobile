@@ -5,7 +5,7 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "build": "extension-packager build .",
+    "build": "rm -rf build && extension-packager build .",
     "lib": "rm -rf lib && tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts,.tsx",
@@ -33,7 +33,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@metaui/extension-packager": "0.0.3",
+    "@metaui/extension-packager": "0.0.4",
     "@types/react": "^16.9.13",
     "@types/react-dom": "^16.9.4",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
@@ -49,7 +49,7 @@
     "typescript": "^3.7.2"
   },
   "dependencies": {
-    "@metaui/extension": "^0.3.2",
+    "@metaui/extension": "^0.4.0",
     "antd-mobile": "^2.3.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"

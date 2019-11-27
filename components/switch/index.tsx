@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { List, Switch } from 'antd-mobile';
-import { Component, Props, FieldTypes,EditTypes } from '@metaui/extension';
+import { Component, Props, FieldTypes,EditTypes, ReactWrapper } from '@metaui/extension';
 interface SwitchProps {
   checked: boolean
   disabled: boolean
@@ -18,7 +18,7 @@ class CustomSwitchComponent extends React.Component<any>{
   render () {
       return (
         <List.Item extra={<Switch {...this.props}/>}>
-          {this.props.label}           
+          {this.props.label}
         </List.Item>
       );
   }
@@ -109,5 +109,5 @@ export class SwitchComponent implements Component<SwitchProps>  {
       ],
       children: []
     }
-  render = (props:any) => <CustomSwitchComponent {...props}/>
+  render = ReactWrapper((props:any) => <CustomSwitchComponent {...props}/>)
 }

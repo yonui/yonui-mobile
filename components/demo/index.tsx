@@ -1,6 +1,6 @@
 // demo
 import React  from 'react';
-import { Component, Props, EditTypes, FieldTypes } from '@metaui/extension';
+import { Component, Props, EditTypes, FieldTypes, ReactWrapper } from '@metaui/extension';
 import './index.css';
 import './test.less';
 interface ButtonProps {
@@ -93,7 +93,7 @@ export default class ButtonComponent implements Component<ButtonProps>  {
     parent: ['button']//可放置哪些父组件中,暂时只支持数组,不支持方法
   }
 
-  render = (props?: ButtonProps) => {
+  render = ReactWrapper((props?: ButtonProps) => {
     let value = props ? props.text : '按钮';
     let onClick = (event: object) => {
       props && props.onClick(event);
@@ -102,5 +102,5 @@ export default class ButtonComponent implements Component<ButtonProps>  {
     return (
       <button className={props&&props.className} onClick={onClick.bind(this)}>{value}</button>
     );
-  }
+  })
 }

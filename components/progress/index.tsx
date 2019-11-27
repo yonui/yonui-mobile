@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { Component, FieldTypes, EditTypes } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper } from '@metaui/extension'
 import { Progress } from 'antd-mobile'
+
 export default class MetaProgress implements Component {
   manifest = {
     name: 'Progress',
@@ -20,5 +21,5 @@ export default class MetaProgress implements Component {
     }]
   }
 
-  render = (props: any) => (<Progress {...props} />)
+  render = ReactWrapper((props: any) => (<Progress {...props} />))
 }

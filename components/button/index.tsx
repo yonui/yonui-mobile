@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd-mobile';
-import { Component, Props, FieldTypes,EditTypes } from '@metaui/extension';
+import { Component, Props, FieldTypes,EditTypes, ReactWrapper } from '@metaui/extension';
 interface ButtonProps {
     name: string
     type: 'primary' | 'ghost' | 'warning'
@@ -15,7 +15,7 @@ interface ButtonProps {
     icon: string
     prefixCls: string
     className: string
-} 
+}
 export default class ButtonComponent implements Component<ButtonProps>  {
     manifest = {
       name: 'Button',//自定义组件名称
@@ -157,5 +157,5 @@ export default class ButtonComponent implements Component<ButtonProps>  {
       children: [],//可放置哪些子组件,暂时只支持数组,不支持方法
       parent: []
     }
-  render = (props:any) => <Button {...props}>{props.name}</Button>
+  render = ReactWrapper((props:any) => <Button {...props}>{props.name}</Button>)
 }

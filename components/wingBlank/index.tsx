@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Component} from '@metaui/extension'
-import { EditTypes, FieldTypes } from '@metaui/extension';
+import { EditTypes, FieldTypes, ReactWrapper } from '@metaui/extension';
 import { WingBlank } from 'antd-mobile'
 
 interface WingBlankProps {
@@ -37,5 +37,5 @@ export default class MetaWingBlank implements Component<WingBlankProps> {
     children: ['Button','Card','Progress','Flex'],//可放置哪些子组件,暂时只支持数组,不支持方法
   }
 
-render = (props: any) => (<WingBlank {...props}></WingBlank>)
+render = ReactWrapper((props: any) => (<WingBlank {...props}></WingBlank>))
 }

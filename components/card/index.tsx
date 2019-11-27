@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from 'antd-mobile';
-import { Component, Props, FieldTypes,EditTypes } from '@metaui/extension';
+import { Component, Props, FieldTypes,EditTypes, ReactWrapper } from '@metaui/extension';
 interface CardProps {
   full: boolean
 }
@@ -25,5 +25,5 @@ export class CardComponent implements Component<CardProps>  {
       ],
       children: ['CardHeader','CardBody','CardFooter']//应该还可以放别的组件-不知道有哪些
     }
-  render = (props:any) => <Card {...props}>{props.children}</Card>
+  render = ReactWrapper((props:any) => <Card {...props}>{props.children}</Card>)
 }

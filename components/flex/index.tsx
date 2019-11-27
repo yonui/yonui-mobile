@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Component,Props} from '@metaui/extension'
-import { EditTypes, FieldTypes } from '@metaui/extension';
+import { EditTypes, FieldTypes, ReactWrapper } from '@metaui/extension';
 import { Flex } from 'antd-mobile'
 
 interface FlexProps {
@@ -130,5 +130,5 @@ export default class MetaFlex implements Component<FlexProps> {
     // parent: ['button']//可放置哪些父组件中,暂时只支持数组,不支持方法
   }
 
-render = (props: any) => (<Flex {...props}></Flex>)
+render = ReactWrapper((props: any) => (<Flex {...props}></Flex>))
 }
