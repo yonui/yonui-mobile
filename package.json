@@ -5,7 +5,8 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "build": "rm -rf lib && tsc",
+    "build": "npx @metaui/extension-packager build .",
+    "lib": "rm -rf lib && tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:quiet": "npm run lint -- --quiet",
@@ -47,8 +48,9 @@
     "typescript": "^3.7.2"
   },
   "dependencies": {
-    "@metaui/extension": "^0.3.1",
+    "@metaui/extension": "^0.3.2",
     "antd-mobile": "^2.3.1",
-    "react": "^16.12.0"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   }
 }
