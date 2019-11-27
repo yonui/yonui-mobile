@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Component,Props} from '@metaui/extension'
-import { MetaTypes } from '@metaui/extension/lib/types/meta';
+import { EditTypes, FieldTypes } from '@metaui/extension';
 import { Flex } from 'antd-mobile'
 
 interface FlexProps {
@@ -12,7 +12,7 @@ interface FlexProps {
 }
 
 export default class MetaFlex implements Component {
- 
+
   manifest = {
     name: 'Flex',
     label: 'flex布局',
@@ -20,38 +20,38 @@ export default class MetaFlex implements Component {
     props: [//adapter适配层数据
       {
         name: 'code', //字段名称
-        type: String, //字段类型
+        type: FieldTypes.string, //字段类型
         defaultValue: '', //字段默认值
         value:'',//字段的值
         showDesign: true, //是否展示在适配层
         designConfig: { //当时showDesign值为true需要此字段
-          type: MetaTypes.Text,// 适配层的可选视图类型(枚举项)
+          type: EditTypes.Text,// 适配层的可选视图类型(枚举项)
           isRequired: true,//是否时必填项
-          props: {},//和type相关联,当type是MetaTypes的select,refer,IframeModal等需要添加props
+          props: {},//和type相关联,当type是EditTypes的select,refer,IframeModal等需要添加props
           label: '编码',//在适配层页面显示的文本
           labelStyle: JSON.stringify({color: 'red'}),//在适配层页面显示的样式
           help: '这是编码字段'//提示信息
         },
       },{
         name: 'name', //字段名称
-        type: String, //字段类型
+        type: FieldTypes.string, //字段类型
         defaultValue: '', //字段默认值
         value:'',//字段的值
         showDesign: true, //是否展示在适配层
         designConfig: { //当时showDesign值为true需要此字段
-          type: MetaTypes.Text,// 适配层的可选视图类型(枚举项)
+          type: EditTypes.Text,// 适配层的可选视图类型(枚举项)
           isRequired: false,//是否时必填项
-          props: {},//和type相关联,当type是MetaTypes的select,refer,IframeModal等需要添加props
+          props: {},//和type相关联,当type是EditTypes的select,refer,IframeModal等需要添加props
           label: '名称',//在适配层页面显示的文本
         },
       },{
         name: 'direction',
-        type: String,
+        type: FieldTypes.string,
         defaultValue: '',
         value:'',
         showDesign: true,
         designConfig: {
-          type: MetaTypes.Select,
+          type: EditTypes.Select,
           props: {
             options:
             [
