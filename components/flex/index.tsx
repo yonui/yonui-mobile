@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Component,Props} from '@metaui/extension'
-import { MetaTypes } from '@metaui/extension/lib/types/meta';
+import { EditTypes, FieldTypes } from '@metaui/extension';
 import { Flex } from 'antd-mobile'
 
 interface FlexProps {
@@ -12,7 +12,6 @@ interface FlexProps {
 }
 
 export default class MetaFlex implements Component {
- 
   manifest = {
     name: 'Flex',
     label: 'flex布局',
@@ -20,12 +19,12 @@ export default class MetaFlex implements Component {
     props: [//adapter适配层数据
       {
         name: 'direction',
-        type: String,
+        type: FieldTypes.string,
         defaultValue: '',
         value:'',
         showDesign: true,
         designConfig: {
-          type: MetaTypes.Select,
+          type: EditTypes.Select,
           props: {
             options:
             [
@@ -41,12 +40,12 @@ export default class MetaFlex implements Component {
       },
       {
         name: 'wrap',
-        type: String,
+        type: FieldTypes.string,
         defaultValue: '',
         value:'',
         showDesign: true,
         designConfig: {
-          type: MetaTypes.Select,
+          type: EditTypes.Select,
           props: {
             options:
             [
@@ -61,12 +60,12 @@ export default class MetaFlex implements Component {
       },
       {
         name: 'justify',
-        type: String,
+        type: FieldTypes.string,
         defaultValue: '',
         value:'',
         showDesign: true,
         designConfig: {
-          type: MetaTypes.Select,
+          type: EditTypes.Select,
           props: {
             options:
             [
@@ -83,12 +82,12 @@ export default class MetaFlex implements Component {
       },
       {
         name: 'align',
-        type: String,
+        type: FieldTypes.string,
         defaultValue: '',
         value:'',
         showDesign: true,
         designConfig: {
-          type: MetaTypes.Select,
+          type: EditTypes.Select,
           props: {
             options:
             [
@@ -105,12 +104,12 @@ export default class MetaFlex implements Component {
       },
       {
         name: 'alignContent',
-        type: String,
+        type: FieldTypes.string,
         defaultValue: '',
         value:'',
         showDesign: true,
         designConfig: {
-          type: MetaTypes.Select,
+          type: EditTypes.Select,
           props: {
             options:
             [

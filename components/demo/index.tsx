@@ -8,7 +8,7 @@ interface ButtonProps {
   className:string
   onClick: ((event: Object) => void)
 }
-export class ButtonComponent implements Component<ButtonProps>  {
+export default class ButtonComponent implements Component<ButtonProps>  {
   manifest = {
     name: 'button',//自定义组件名称
     label: '按钮',//自定义组件文本
