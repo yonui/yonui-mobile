@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button } from 'antd-mobile';
-import { Component, Props, FieldTypes } from '@metaui/extension';
-import { EditTypes } from '@metaui/extension/lib/types/meta';
+import { Component, Props, FieldTypes,EditTypes } from '@metaui/extension';
 interface ButtonProps {
     type: 'primary' | 'ghost' | 'warning'
     size: 'large' | 'small'
