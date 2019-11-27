@@ -16,7 +16,7 @@ interface ButtonProps {
     prefixCls: string
     className: string
 } 
-export class ButtonComponent implements Component<ButtonProps>  {
+export default class ButtonComponent implements Component<ButtonProps>  {
     manifest = {
       name: 'Button',//自定义组件名称
       label: '按钮',//自定义组件文本

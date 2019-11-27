@@ -126,7 +126,7 @@ export default class MetaFlex implements Component<FlexProps> {
         },
       },
     ],
-    children: ['button','card','progress','wingBlank'],//可放置哪些子组件,暂时只支持数组,不支持方法
+    children: ['Button','Card','Progress','WingBlank'],//可放置哪些子组件,暂时只支持数组,不支持方法
     // parent: ['button']//可放置哪些父组件中,暂时只支持数组,不支持方法
   }
 

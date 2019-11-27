@@ -1,3 +1,5 @@
+export { default as Button } from './components/button'
 export { default as Flex } from './components/flex'
+export { default as WingBlank } from './components/wingBlank'
 export { default as Demo } from './components/demo'
 export { default as Progress } from './components/progress'
