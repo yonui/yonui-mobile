@@ -8,10 +8,10 @@
     "build": "rm -rf build && extension-packager build .",
     "lib": "rm -rf lib && tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint . --ext .ts,.tsx",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:quiet": "npm run lint -- --quiet",
     "lint:fix": "npm run lint -- --quiet --fix",
-    "lint:git": "git diff --cached --name-only --diff-filter=ACM | grep '\\.jsx\\?$' | xargs eslint"
+    "lint:git": "git diff --cached --name-only --diff-filter=ACM | grep '\\.[jt]sx\\?$' | xargs eslint"
   },
   "husky": {
     "hooks": {
@@ -33,7 +33,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@metaui/extension-packager": "0.0.4",
+    "@metaui/extension-packager": "^0.1.0",
     "@types/react": "^16.9.13",
     "@types/react-dom": "^16.9.4",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
@@ -51,6 +51,7 @@
   "dependencies": {
     "@metaui/extension": "^0.4.0",
     "antd-mobile": "^2.3.1",
+    "eslint-plugin-react": "^7.16.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }
