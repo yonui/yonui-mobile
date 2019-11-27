@@ -34,7 +34,7 @@ export default class MetaWingBlank implements Component<WingBlankProps> {
         },
       }
     ],
-    children: ['button','card','progress','flex','wingBlank'],//可放置哪些子组件,暂时只支持数组,不支持方法
+    children: ['button','card','progress','flex',' '],//可放置哪些子组件,暂时只支持数组,不支持方法
   }
 
 render = (props: any) => (<WingBlank {...props}></WingBlank>)
