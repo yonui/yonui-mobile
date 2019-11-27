@@ -34,7 +34,7 @@ export class StepperComponent implements Component<StepperProps>  {
         {
           name: 'label',
           type: FieldTypes.string,
-          defaultValue: '',
+          defaultValue: '步进器',
           showDesign: true,
           designConfig: {
             type: EditTypes.Icon,

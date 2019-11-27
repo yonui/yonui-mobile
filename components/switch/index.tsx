@@ -68,7 +68,7 @@ export class SwitchComponent implements Component<SwitchProps>  {
         {
           name: 'label',
           type: FieldTypes.string,
-          defaultValue: '',
+          defaultValue: '开关',
           showDesign: true,
           designConfig: {
             type: EditTypes.Icon,

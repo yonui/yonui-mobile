@@ -25,7 +25,7 @@ export class ButtonComponent implements Component<ButtonProps>  {
         {
           name: 'name',
           type: FieldTypes.string,
-          defaultValue: '',
+          defaultValue: '按钮',
           showDesign: true,
           designConfig: {
             type: EditTypes.Icon,
