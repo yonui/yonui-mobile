@@ -1,0 +1,51 @@
+{
+  "name": "@metaui/antd-mobile",
+  "version": "0.0.0",
+  "description": "Metaui for Antd Mobile",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "build": "rm -rf lib && tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:quiet": "npm run lint -- --quiet",
+    "lint:fix": "npm run lint -- --quiet --fix",
+    "lint:git": "git diff --cached --name-only --diff-filter=ACM | grep '\\.jsx\\?$' | xargs eslint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint:git",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.yonyou.com:mdf-5.0/extension.git"
+  },
+  "files": [
+    "README.md",
+    "package.json",
+    "lib"
+  ],
+  "author": "Yudu Ban <banyd@yonyou.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@types/react": "^16.9.13",
+    "@typescript-eslint/eslint-plugin": "^2.8.0",
+    "@typescript-eslint/parser": "^2.8.0",
+    "eslint": "^6.7.0",
+    "eslint-config-standard-with-typescript": "^11.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.2.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^3.1.0",
+    "tsc": "^1.20150623.0",
+    "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "react": "^16.12.0"
+  }
+}
