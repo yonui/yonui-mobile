@@ -12,5 +12,5 @@ export class CardBodyComponent implements Component<CardBodyProps>  {
       props: [],
       children: []//不确定可以放哪些组件
     }
-    render = (props:any) => <CardBody {...props}></CardBody>
+  render = (props:any) => <CardBody {...props}>{props.children}</CardBody>
 }

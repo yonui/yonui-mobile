@@ -36,7 +36,7 @@ export class ButtonComponent implements Component<ButtonProps>  {
                 { value: "warning", text: '警告红' }
               ]
             },
-            label: '按钮类型',
+            label: '按钮类型'
           }
         },
         {
@@ -53,7 +53,7 @@ export class ButtonComponent implements Component<ButtonProps>  {
                 { value: "small", text: '小' }
               ]
             },
-            label: '按钮大小',
+            label: '按钮大小'
           }
         },
         {
@@ -65,7 +65,7 @@ export class ButtonComponent implements Component<ButtonProps>  {
               type: EditTypes.Text,
               isRequired: true,
               props: {},
-              label: '点击反馈的自定义类名',
+              label: '点击反馈的自定义类名'
             }
         },
         {
@@ -89,7 +89,7 @@ export class ButtonComponent implements Component<ButtonProps>  {
               type: EditTypes.Bool,
               isRequired: true,
               props: {},
-              label: '行内按钮',
+              label: '行内按钮'
             }
         },
         {
@@ -101,7 +101,7 @@ export class ButtonComponent implements Component<ButtonProps>  {
               type: EditTypes.Bool,
               isRequired: true,
               props: {},
-              label: '按钮载入状态',
+              label: '按钮载入状态'
             }
         },
         {
@@ -125,7 +125,7 @@ export class ButtonComponent implements Component<ButtonProps>  {
               type: EditTypes.Text,
               isRequired: true,
               props: {},
-              label: 'class前缀',
+              label: 'class前缀'
             }
         },
         {
@@ -137,9 +137,9 @@ export class ButtonComponent implements Component<ButtonProps>  {
               type: EditTypes.Text,
               isRequired: true,
               props: {},
-              label: '样式类名',
+              label: '样式类名'
             }
-        },
+        }
       ],
       children: [],//可放置哪些子组件,暂时只支持数组,不支持方法
       parent: []
