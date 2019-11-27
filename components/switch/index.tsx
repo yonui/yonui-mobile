@@ -7,18 +7,19 @@ import { Component, Props, FieldTypes,EditTypes } from '@metaui/extension';
 interface SwitchProps {
   checked: boolean
   disabled: boolean
-  onChange: (checked: boolean)=>void //没配置
   color: string
+  label: string
   name: string
   platform: string
-  onClick: (checked: boolean)=>void //没配置
+  onClick?: (checked: boolean)=>void //没配置
+  onChange?: (checked: boolean)=>void //没配置
 }
-class CustomSwitchComponent extends React.Component{
+class CustomSwitchComponent extends React.Component<any>{
   render () {
       return (
-        <List.Item
-          extra={<Switch {...this.props}/>}
-        >Off</List.Item>
+        <List.Item extra={<Switch {...this.props}/>}>
+          {this.props.label}           
+        </List.Item>
       );
   }
 }
@@ -58,11 +59,23 @@ export class SwitchComponent implements Component<SwitchProps>  {
             defaultValue: '',
             showDesign: true,
             designConfig: {
-              type: EditTypes.Icon,
+              type: EditTypes.Color,
               isRequired: true,
               props: {},
               label: '开关打开后的颜色'
             }
+        },
+        {
+          name: 'label',
+          type: FieldTypes.string,
+          defaultValue: '',
+          showDesign: true,
+          designConfig: {
+            type: EditTypes.Icon,
+            isRequired: true,
+            props: {},
+            label: '标题文本'
+          }
         },
         {
             name: 'name',

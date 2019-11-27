@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from 'antd-mobile';
 import { Component, Props, FieldTypes,EditTypes } from '@metaui/extension';
 interface ButtonProps {
+    name: string
     type: 'primary' | 'ghost' | 'warning'
     size: 'large' | 'small'
     activeStyle : object //没配置
@@ -21,6 +22,18 @@ export class ButtonComponent implements Component<ButtonProps>  {
       label: '按钮',//自定义组件文本
       description: '',//描述
       props: [
+        {
+          name: 'name',
+          type: FieldTypes.string,
+          defaultValue: '',
+          showDesign: true,
+          designConfig: {
+            type: EditTypes.Icon,
+            isRequired: true,
+            props: {},
+            label: '名称'
+          }
+        },
         {
           name: 'type',
           type: FieldTypes.string,
@@ -144,5 +157,5 @@ export class ButtonComponent implements Component<ButtonProps>  {
       children: [],//可放置哪些子组件,暂时只支持数组,不支持方法
       parent: []
     }
-    render = (props:any) => <Button {...props}></Button>
+  render = (props:any) => <Button {...props}>{props.name}</Button>
 }
