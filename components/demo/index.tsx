@@ -1,7 +1,7 @@
 // demo
 import React  from 'react';
-import { Component, Props } from '../index';
-import { MetaTypes } from '../types/MetaTypes';
+import { Component, Props } from '@metaui/extension';
+import { MetaTypes } from '@metaui/extension/lib/types/meta';
 import './index.css';
 import './test.less';
 interface ButtonProps {
