@@ -19,32 +19,6 @@ export default class MetaFlex implements Component {
     description: '实现css flex布局',//描述
     props: [//adapter适配层数据
       {
-        name: 'code', //字段名称
-        type: String, //字段类型
-        defaultValue: '', //字段默认值
-        value:'',//字段的值
-        showDesign: true, //是否展示在适配层
-        designConfig: { //当时showDesign值为true需要此字段
-          type: MetaTypes.Text,// 适配层的可选视图类型(枚举项)
-          isRequired: true,//是否时必填项
-          props: {},//和type相关联,当type是MetaTypes的select,refer,IframeModal等需要添加props
-          label: '编码',//在适配层页面显示的文本
-          labelStyle: JSON.stringify({color: 'red'}),//在适配层页面显示的样式
-          help: '这是编码字段'//提示信息
-        },
-      },{
-        name: 'name', //字段名称
-        type: String, //字段类型
-        defaultValue: '', //字段默认值
-        value:'',//字段的值
-        showDesign: true, //是否展示在适配层
-        designConfig: { //当时showDesign值为true需要此字段
-          type: MetaTypes.Text,// 适配层的可选视图类型(枚举项)
-          isRequired: false,//是否时必填项
-          props: {},//和type相关联,当type是MetaTypes的select,refer,IframeModal等需要添加props
-          label: '名称',//在适配层页面显示的文本
-        },
-      },{
         name: 'direction',
         type: String,
         defaultValue: '',
@@ -65,11 +39,97 @@ export default class MetaFlex implements Component {
           help: '项目定位方向'
         },
       },
-
+      {
+        name: 'wrap',
+        type: String,
+        defaultValue: '',
+        value:'',
+        showDesign: true,
+        designConfig: {
+          type: MetaTypes.Select,
+          props: {
+            options:
+            [
+              { value: "nowrap", text: 'nowrap' },
+              { value: "wrap", text: 'wrap' },
+              { value: "wrap-reverse", text: 'wrap-reverse' },
+            ]
+          },
+          label: '子元素的换行方式',
+          help: '子元素的换行方式'
+        },
+      },
+      {
+        name: 'justify',
+        type: String,
+        defaultValue: '',
+        value:'',
+        showDesign: true,
+        designConfig: {
+          type: MetaTypes.Select,
+          props: {
+            options:
+            [
+              { value: "start", text: 'start' },
+              { value: "end", text: 'end' },
+              { value: "between", text: 'between' },
+              { value: "center", text: 'center' },
+              { value: "around", text: 'around' },
+            ]
+          },
+          label: '子元素在主轴上的对齐方式',
+          help: '子元素在主轴上的对齐方式'
+        },
+      },
+      {
+        name: 'align',
+        type: String,
+        defaultValue: '',
+        value:'',
+        showDesign: true,
+        designConfig: {
+          type: MetaTypes.Select,
+          props: {
+            options:
+            [
+              { value: "start", text: 'start' },
+              { value: "end", text: 'end' },
+              { value: "center", text: 'center' },
+              { value: "baseline", text: 'baseline' },
+              { value: "stretch", text: 'stretch' },
+            ]
+          },
+          label: '子元素在交叉轴上的对齐方式',
+          help: '子元素在交叉轴上的对齐方式'
+        },
+      },
+      {
+        name: 'alignContent',
+        type: String,
+        defaultValue: '',
+        value:'',
+        showDesign: true,
+        designConfig: {
+          type: MetaTypes.Select,
+          props: {
+            options:
+            [
+              { value: "start", text: 'start' },
+              { value: "end", text: 'end' },
+              { value: "between", text: 'between' },
+              { value: "center", text: 'center' },
+              { value: "around", text: 'around' },
+              { value: "strech", text: 'strech' },
+            ]
+          },
+          label: '有多根轴线时的对齐方式',
+          help: '有多根轴线时的对齐方式'
+        },
+      },
     ],
     children: ['button'],//可放置哪些子组件,暂时只支持数组,不支持方法
     // parent: ['button']//可放置哪些父组件中,暂时只支持数组,不支持方法
   }
 
-  render = (props: any) => (<Flex {...props} />)
+render = (props: any) => (<Flex {...props}></Flex>)
 }
