@@ -11,8 +11,8 @@ interface SwitchProps {
   label: string
   name: string
   platform: string
-  onClick?: (checked: boolean)=>void //没配置
-  onChange?: (checked: boolean)=>void //没配置
+  onClick: (checked: boolean)=>void //没配置
+  onChange: (checked: boolean)=>void //没配置
 }
 class CustomSwitchComponent extends React.Component<any>{
   render () {
