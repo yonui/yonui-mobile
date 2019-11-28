@@ -194,7 +194,7 @@ const manifest: ComponentManifest = {
 
   ]
 }
-export class DatePickerComponent implements Component<PropsType> {
+export default class DatePickerComponent implements Component<PropsType> {
   manifest = manifest
   render = ReactWrapper((props: any) => <DatePicker {...props}/>)
 }

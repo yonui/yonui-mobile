@@ -138,7 +138,7 @@ const manifest: ComponentManifest = {
 
   ]
 }
-export class InputItemComponent implements Component<InputItemProps> {
+export default class InputItemComponent implements Component<InputItemProps> {
   manifest = manifest
   render = ReactWrapper((props: any) => <InputItem {...props}/>)
 }

@@ -125,7 +125,7 @@ const manifest: ComponentManifest = {
     }
   ]
 }
-export class ImagePickerComponent implements Component<ImagePickerPropTypes> {
+export default class ImagePickerComponent implements Component<ImagePickerPropTypes> {
   manifest = manifest
   render = ReactWrapper((props: any) => <ImagePicker {...props}/>)
 }
