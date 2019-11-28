@@ -19,12 +19,12 @@ const manifest: ComponentManifest = {
         type: EditTypes.Select,
         props: {
           options:
-          [
-            { value: 'row', text: 'row' },
-            { value: 'row-reverse', text: 'row-reverse' },
-            { value: 'column', text: 'column' },
-            { value: 'column-reverse', text: 'column-reverse' }
-          ]
+            [
+              { value: 'row', text: 'row' },
+              { value: 'row-reverse', text: 'row-reverse' },
+              { value: 'column', text: 'column' },
+              { value: 'column-reverse', text: 'column-reverse' }
+            ]
         },
         label: '项目定位方向',
         help: '项目定位方向'
@@ -40,11 +40,11 @@ const manifest: ComponentManifest = {
         type: EditTypes.Select,
         props: {
           options:
-          [
-            { value: 'nowrap', text: 'nowrap' },
-            { value: 'wrap', text: 'wrap' },
-            { value: 'wrap-reverse', text: 'wrap-reverse' }
-          ]
+            [
+              { value: 'nowrap', text: 'nowrap' },
+              { value: 'wrap', text: 'wrap' },
+              { value: 'wrap-reverse', text: 'wrap-reverse' }
+            ]
         },
         label: '子元素的换行方式',
         help: '子元素的换行方式'
@@ -60,13 +60,13 @@ const manifest: ComponentManifest = {
         type: EditTypes.Select,
         props: {
           options:
-          [
-            { value: 'start', text: 'start' },
-            { value: 'end', text: 'end' },
-            { value: 'between', text: 'between' },
-            { value: 'center', text: 'center' },
-            { value: 'around', text: 'around' }
-          ]
+            [
+              { value: 'start', text: 'start' },
+              { value: 'end', text: 'end' },
+              { value: 'between', text: 'between' },
+              { value: 'center', text: 'center' },
+              { value: 'around', text: 'around' }
+            ]
         },
         label: '子元素在主轴上的对齐方式',
         help: '子元素在主轴上的对齐方式'
@@ -82,13 +82,13 @@ const manifest: ComponentManifest = {
         type: EditTypes.Select,
         props: {
           options:
-          [
-            { value: 'start', text: 'start' },
-            { value: 'end', text: 'end' },
-            { value: 'center', text: 'center' },
-            { value: 'baseline', text: 'baseline' },
-            { value: 'stretch', text: 'stretch' }
-          ]
+            [
+              { value: 'start', text: 'start' },
+              { value: 'end', text: 'end' },
+              { value: 'center', text: 'center' },
+              { value: 'baseline', text: 'baseline' },
+              { value: 'stretch', text: 'stretch' }
+            ]
         },
         label: '子元素在交叉轴上的对齐方式',
         help: '子元素在交叉轴上的对齐方式'
@@ -104,14 +104,14 @@ const manifest: ComponentManifest = {
         type: EditTypes.Select,
         props: {
           options:
-          [
-            { value: 'start', text: 'start' },
-            { value: 'end', text: 'end' },
-            { value: 'between', text: 'between' },
-            { value: 'center', text: 'center' },
-            { value: 'around', text: 'around' },
-            { value: 'strech', text: 'strech' }
-          ]
+            [
+              { value: 'start', text: 'start' },
+              { value: 'end', text: 'end' },
+              { value: 'between', text: 'between' },
+              { value: 'center', text: 'center' },
+              { value: 'around', text: 'around' },
+              { value: 'strech', text: 'strech' }
+            ]
         },
         label: '有多根轴线时的对齐方式',
         help: '有多根轴线时的对齐方式'
@@ -123,5 +123,5 @@ const manifest: ComponentManifest = {
 }
 export default class MetaFlex implements Component<FlexProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<Flex {...props}></Flex>))
+  render = ReactWrapper((props: any) => (<Flex {...props}>{props.children}</Flex>))
 }
