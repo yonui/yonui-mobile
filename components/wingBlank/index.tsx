@@ -2,11 +2,7 @@ import * as React from 'react'
 import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
 
 import { WingBlank } from 'antd-mobile'
-
-interface WingBlankProps {
-  size: string
-}
-
+import { WingBlankProps } from 'antd-mobile/lib/wing-blank'
 const manifest: ComponentManifest = {
   name: 'WingBlank',
   label: '两翼留白',

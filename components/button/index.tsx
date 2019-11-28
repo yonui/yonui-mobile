@@ -1,21 +1,11 @@
 import React from 'react'
 import { Button } from 'antd-mobile'
+import { ButtonProps } from 'antd-mobile/lib/button'
 import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
-interface ButtonProps {
+interface CustomsButtonProps extends ButtonProps {
   name: string
-  type: 'primary' | 'ghost' | 'warning'
-  size: 'large' | 'small'
-  activeStyle: object // 没配置
-  activeClassName: string
-  disabled: boolean
-  onClick: (e: object) => void// 没配置
-  style: object // 没配置
-  inline: boolean
-  loading: boolean
-  icon: string
-  prefixCls: string
-  className: string
 }
+// todo 未配置 style activeStyle
 const manifest: ComponentManifest = {
   name: 'Button', // 自定义组件名称
   label: '按钮', // 自定义组件文本
@@ -156,7 +146,7 @@ const manifest: ComponentManifest = {
   children: [], // 可放置哪些子组件,暂时只支持数组,不支持方法
   parent: []
 }
-export default class ButtonComponent implements Component<ButtonProps> {
+export default class ButtonComponent implements Component<CustomsButtonProps> {
   manifest = manifest
   render = ReactWrapper((props: any) => <Button {...props}>{props.name}</Button>)
 }

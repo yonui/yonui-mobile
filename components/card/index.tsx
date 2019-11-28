@@ -1,9 +1,7 @@
 import React from 'react'
 import { Card } from 'antd-mobile'
+import { CardProps } from 'antd-mobile/lib/card'
 import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
-interface CardProps {
-  full: boolean
-}
 const manifest: ComponentManifest = {
   name: 'Card',
   label: '卡片',

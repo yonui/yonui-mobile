@@ -2,27 +2,10 @@
  * rc-from是否需要增加,如果增加rc-from,需要写一个from组件
  */
 import React from 'react'
-import { List, Switch } from 'antd-mobile'
+import { Switch } from 'antd-mobile'
+import { SwitchProps } from 'antd-mobile/lib/switch'
 import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
-interface SwitchProps {
-  checked: boolean
-  disabled: boolean
-  color: string
-  label: string
-  name: string
-  platform: string
-  onClick: (checked: boolean) => void // 没配置
-  onChange: (checked: boolean) => void // 没配置
-}
-class CustomSwitchComponent extends React.Component<any> {
-  render () {
-    return (
-      <List.Item extra={<Switch {...this.props}/>}>
-        {this.props.label}
-      </List.Item>
-    )
-  }
-}
+// todo 未配置 onClick onChange
 const manifest: ComponentManifest = {
   name: 'Switch',
   label: '滑动开关',
@@ -77,18 +60,6 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'name',
-      type: FieldTypes.string,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Icon,
-        isRequired: true,
-        props: {},
-        label: '名称'
-      }
-    },
-    {
       name: 'platform',
       type: FieldTypes.string,
       defaultValue: 'ios',
@@ -110,5 +81,5 @@ const manifest: ComponentManifest = {
 }
 export class SwitchComponent implements Component<SwitchProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <CustomSwitchComponent {...props}/>)
+  render = ReactWrapper((props: any) => <Switch {...props}/>)
 }

@@ -2,14 +2,7 @@ import * as React from 'react'
 import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
 
 import { Flex } from 'antd-mobile'
-
-interface FlexProps {
-  direction: string
-  wrap: string
-  justify: string
-  align: string
-  alignContent: string
-}
+import { FlexProps } from 'antd-mobile/lib/flex/Flex'
 
 const manifest: ComponentManifest = {
   name: 'Flex',

@@ -1,13 +1,8 @@
 import React from 'react'
 import { Card } from 'antd-mobile'
+import { CardHeaderProps } from 'antd-mobile/lib/card/CardHeader'
 import { Component, FieldTypes, EditTypes } from '@metaui/extension'
 const CardHeader = Card.Header
-interface CardHeaderProps {
-  title: string
-  thumb: string
-  thumbStyle: object// 未配置
-  extra: string
-}
 export class CardHeaderComponent implements Component<CardHeaderProps> {
   manifest = {
     name: 'CardHeader',

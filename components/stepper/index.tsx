@@ -2,46 +2,15 @@
  * rc-from是否需要增加,如果增加rc-from,需要写一个from组件
  */
 import React from 'react'
-import { List, Stepper } from 'antd-mobile'
+import { Stepper } from 'antd-mobile'
+import { StepProps } from 'antd-mobile/lib/stepper'
 import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
-interface StepperProps {
-  label: string
-  min: number
-  max: number
-  value: number
-  step: number | string
-  defaultValue: number
-  disabled: boolean
-  readOnly: boolean
-  showNumber: boolean
-  onChange: () => void // 没配置
-}
-class CustomStepperComponent extends React.Component<any> {
-  render () {
-    return (
-      <List.Item extra={<Stepper {...this.props}/>}>
-        {this.props.label}
-      </List.Item>
-    )
-  }
-}
+// todo 未配置 onChange
 const manifest: ComponentManifest = {
   name: 'Stepper',
   label: '步进器',
   description: '',
   props: [
-    {
-      name: 'label',
-      type: FieldTypes.string,
-      defaultValue: '步进器',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Icon,
-        isRequired: true,
-        props: {},
-        label: '标题文本'
-      }
-    },
     {
       name: 'min',
       type: FieldTypes.number,
@@ -127,7 +96,7 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export class StepperComponent implements Component<StepperProps> {
+export class StepperComponent implements Component<StepProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <CustomStepperComponent {...props}/>)
+  render = ReactWrapper((props: any) => <Stepper {...props}/>)
 }

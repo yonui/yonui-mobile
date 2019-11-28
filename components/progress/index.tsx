@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
 import { Progress } from 'antd-mobile'
-
+import { ProgressProps } from 'antd-mobile/lib/progress'
 const manifest: ComponentManifest = {
   name: 'Progress',
   label: '进度条',
@@ -20,7 +20,7 @@ const manifest: ComponentManifest = {
   }]
 }
 
-export default class MetaProgress implements Component {
+export default class MetaProgress implements Component<ProgressProps> {
   manifest = manifest
   render = ReactWrapper((props: any) => (<Progress {...props} />))
 }
