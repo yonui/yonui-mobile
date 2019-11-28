@@ -186,9 +186,10 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: ['Button', 'Card', 'Progress', 'Flex']// 可放置哪些子组件,暂时只支持数组,不支持方法
+  children: ['Button', 'Calendar', 'Card', 'Checkbox', 'Flex', 'NavBar', 'Progress', 'Stepper', 'Switch', 'WhiteSpace', 'WingBlank']// 可放置哪些子组件,暂时只支持数组,不支持方法
 }
 
+// 这边需要做的处理：需要生成sidebar然后传给<Drawer></Drawer>
 export default class MetaDrawer implements Component<DrawerWebProps> {
   manifest = manifest
   render = ReactWrapper((props: any) => (<Drawer {...props}>{props.children}</Drawer>))

@@ -31,7 +31,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: ['Button', 'Card', 'Progress', 'Flex']// 可放置哪些子组件,暂时只支持数组,不支持方法
+  children: []// 可放置哪些子组件,暂时只支持数组,不支持方法
 }
 
 export default class MetaWhiteSpace implements Component<WhiteSpaceProps> {
