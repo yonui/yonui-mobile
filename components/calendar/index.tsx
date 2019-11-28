@@ -196,7 +196,7 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export class CalendarComponent implements Component<CalendarProps> {
+export default class CalendarComponent implements Component<CalendarProps> {
   manifest = manifest
   render = ReactWrapper((props: any) => <Calendar {...props}/>)
 }

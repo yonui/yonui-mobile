@@ -22,7 +22,7 @@ const manifest: ComponentManifest = {
   ],
   children: ['CardHeader', 'CardBody', 'CardFooter']// 应该还可以放别的组件-不知道有哪些
 }
-export class CardComponent implements Component<CardProps> {
+export default class CardComponent implements Component<CardProps> {
   manifest = manifest
   render = ReactWrapper((props: any) => <Card {...props}>{props.children}</Card>)
 }

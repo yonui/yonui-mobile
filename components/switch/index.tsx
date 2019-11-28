@@ -79,7 +79,7 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export class SwitchComponent implements Component<SwitchProps> {
+export default class SwitchComponent implements Component<SwitchProps> {
   manifest = manifest
   render = ReactWrapper((props: any) => <Switch {...props}/>)
 }

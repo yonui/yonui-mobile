@@ -96,7 +96,7 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export class StepperComponent implements Component<StepProps> {
+export default class StepperComponent implements Component<StepProps> {
   manifest = manifest
   render = ReactWrapper((props: any) => <Stepper {...props}/>)
 }
