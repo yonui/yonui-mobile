@@ -24,7 +24,7 @@ const manifest: ComponentManifest = {
               { value: 'lg', text: 'lg' }
             ]
         },
-        label: '两翼留白的间距',
+        label: '两翼留白',
         help: '两翼留白的间距'
       }
     }
@@ -34,5 +34,5 @@ const manifest: ComponentManifest = {
 
 export default class MetaWingBlank implements Component<WingBlankProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<WingBlank {...props}></WingBlank>))
+  render = ReactWrapper((props: any) => (<WingBlank {...props}>{props.children}</WingBlank>))
 }
