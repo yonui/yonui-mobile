@@ -5,7 +5,7 @@ import { FlexItemPropsType } from 'antd-mobile/lib/flex/PropsType'
 
 const manifest: ComponentManifest = {
   name: 'FlexItem',
-  label: 'flex布局下行元素FlexItem',
+  label: 'FlexItem',
   description: '实现css flex布局', // 描述
   props: [// adapter适配层数据
   ],

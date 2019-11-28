@@ -12,7 +12,7 @@ const manifest: ComponentManifest = {
     {
       name: 'direction',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: 'row',
       value: '',
       showDesign: true,
       designConfig: {
@@ -33,7 +33,7 @@ const manifest: ComponentManifest = {
     {
       name: 'wrap',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: 'nowrap',
       value: '',
       showDesign: true,
       designConfig: {
@@ -46,14 +46,14 @@ const manifest: ComponentManifest = {
               { value: 'wrap-reverse', text: 'wrap-reverse' }
             ]
         },
-        label: '子元素的换行方式',
+        label: '换行方式',
         help: '子元素的换行方式'
       }
     },
     {
       name: 'justify',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: 'start',
       value: '',
       showDesign: true,
       designConfig: {
@@ -68,14 +68,14 @@ const manifest: ComponentManifest = {
               { value: 'around', text: 'around' }
             ]
         },
-        label: '子元素在主轴上的对齐方式',
+        label: '主轴对齐方式',
         help: '子元素在主轴上的对齐方式'
       }
     },
     {
       name: 'align',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: 'center',
       value: '',
       showDesign: true,
       designConfig: {
@@ -90,14 +90,14 @@ const manifest: ComponentManifest = {
               { value: 'stretch', text: 'stretch' }
             ]
         },
-        label: '子元素在交叉轴上的对齐方式',
+        label: '交叉轴对齐方式',
         help: '子元素在交叉轴上的对齐方式'
       }
     },
     {
       name: 'alignContent',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: 'strech',
       value: '',
       showDesign: true,
       designConfig: {
@@ -113,7 +113,7 @@ const manifest: ComponentManifest = {
               { value: 'strech', text: 'strech' }
             ]
         },
-        label: '有多根轴线时的对齐方式',
+        label: '多根轴线对齐方式',
         help: '有多根轴线时的对齐方式'
       }
     }

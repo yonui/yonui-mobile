@@ -11,7 +11,7 @@ const manifest: ComponentManifest = {
     {
       name: 'size',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: 'lg',
       value: '',
       showDesign: true,
       designConfig: {

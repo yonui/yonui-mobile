@@ -5,13 +5,13 @@ import { WhiteSpace } from 'antd-mobile'
 import { WhiteSpaceProps } from 'antd-mobile/lib/white-space'
 const manifest: ComponentManifest = {
   name: 'WhiteSpace',
-  label: '两翼留白',
-  description: '两翼留白', // 描述
+  label: '上下留白',
+  description: '上下留白', // 描述
   props: [// adapter适配层数据
     {
       name: 'size',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: 'md',
       value: '',
       showDesign: true,
       designConfig: {
@@ -26,8 +26,8 @@ const manifest: ComponentManifest = {
               { value: 'xl', text: 'xl' }
             ]
         },
-        label: '两翼留白',
-        help: '两翼留白的间距'
+        label: '上下留白',
+        help: '上下留白的间距'
       }
     }
   ],

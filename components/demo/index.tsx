@@ -9,8 +9,8 @@ interface ButtonProps {
   onClick: ((event: Object) => void)
 }
 const manifest: ComponentManifest = {
-  name: 'button', // 自定义组件名称
-  label: '按钮', // 自定义组件文本
+  name: 'Demo', // 自定义组件名称
+  label: 'Demo', // 自定义组件文本
   description: '', // 描述
   props: [// adapter适配层数据
     {
