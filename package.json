@@ -1,6 +1,6 @@
 {
   "name": "@metaui/antd-mobile",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Metaui for Antd Mobile",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
