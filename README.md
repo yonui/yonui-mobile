@@ -204,3 +204,12 @@ export default class ButtonComponent implements Component<CustomsButtonProps> {
 暂时不支持传入自定义配置。
 
 如果开发的时候用到了 Antd/AntdMobile/MaterialUI 等UI组件库，又想实现按需加载。就需要使用 babel-plugin-import 或 ts-import-plugin。目前在webpack中已经集成了ts-import-plugin，只需要在 tsconfig.json 中设置 `module: 'esnext'` 即可实现。
+
+
+## 一些关键设计思想
+
+## 注意事项
+
+为了支持设计器中的拖拽功能，需要在组件中有 nid / uitype 这种 custom attribute，设计器会将相关信息通过 props 传给组件，需要组件将其映射到dom结构上。
+
+目前默认的实现方式，是在组件的外面包一层div，在div上设置custom attribute。
