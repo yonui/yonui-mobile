@@ -19,9 +19,11 @@ const manifest: ComponentManifest = {
         props: {
           options:
             [
+              { value: 'xs', text: 'xs' },
               { value: 'sm', text: 'sm' },
               { value: 'md', text: 'md' },
-              { value: 'lg', text: 'lg' }
+              { value: 'lg', text: 'lg' },
+              { value: 'xl', text: 'xl' }
             ]
         },
         label: '两翼留白',
