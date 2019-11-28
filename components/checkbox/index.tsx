@@ -44,11 +44,22 @@ const manifest: ComponentManifest = {
         props: {},
         label: '是否禁用'
       }
+    },
+    {
+      name: 'onChange',
+      type: FieldTypes.action,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: '改变回调'
+      }
     }
   ],
   children: []
 }
 export default class CheckboxComponent implements Component<CheckboxProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Checkbox.CheckboxItem {...props}/>)
+  render = ReactWrapper((props: any) => <Checkbox {...props}/>)
 }

@@ -7,8 +7,7 @@ import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } fro
 import { CalendarProps } from 'antd-mobile/lib/calendar/PropsType'
 /**
  * todo,未配置
- * onCancel,onConfirm,renderShortcut,renderHeader
- * getDateExtra,onSelect,onSelectHasDisableDate,defaultValue
+ * renderShortcut,renderHeader,getDateExtra,onSelectHasDisableDate,defaultValue
  */
 const manifest: ComponentManifest = {
   name: 'Calendar',
@@ -191,6 +190,39 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '默认时间选择值'
+      }
+    },
+    {
+      name: 'onCancel',
+      type: FieldTypes.action,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: '返回事件'
+      }
+    },
+    {
+      name: 'onConfirm',
+      type: FieldTypes.action,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: '确认事件'
+      }
+    },
+    {
+      name: 'onSelect',
+      type: FieldTypes.action,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: '选中回调'
       }
     }
   ],

@@ -83,6 +83,17 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'onClick',
+      type: FieldTypes.action,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequire: false,
+        props: {},
+        label: '点击事件'
+      }
+    },
+    {
       name: 'inline',
       type: FieldTypes.boolean,
       defaultValue: false,
