@@ -181,7 +181,7 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'onOk',
+      name: 'onDismiss',
       type: FieldTypes.action,
       showDesign: true,
       designConfig: {
