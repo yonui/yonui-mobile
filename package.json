@@ -6,6 +6,7 @@
   "types": "./lib/index.d.ts",
   "scripts": {
     "build": "rm -rf build && extension-packager build .",
+    "postversion": "git push && git push --tags && npm run build && ynpm publish",
     "lib": "rm -rf lib && tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
@@ -26,7 +27,10 @@
   "files": [
     "README.md",
     "package.json",
-    "lib"
+    "lib",
+    "build",
+    "components",
+    "index.tsx"
   ],
   "author": "Yudu Ban <banyd@yonyou.com>",
   "license": "MIT",
