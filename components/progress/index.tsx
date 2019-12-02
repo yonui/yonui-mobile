@@ -16,7 +16,53 @@ const manifest: ComponentManifest = {
       label: '百分比',
       props: {}
     }
-    // TODO: 添加其它属性
+  },
+  {
+    name: 'position',
+    type: FieldTypes.string,
+    showDesign: true,
+    defaultValue: 'fixed',
+    designConfig: {
+      type: EditTypes.Number,
+      label: '进度条的位置',
+      props: {
+        option: [
+          { value: 'fixed', text: '最顶层' },
+          { value: 'normal', text: '普通' }
+        ]
+      }
+    }
+  },
+  {
+    name: 'unfilled',
+    type: FieldTypes.boolean,
+    showDesign: true,
+    defaultValue: true,
+    designConfig: {
+      type: EditTypes.Bool,
+      label: '是否显示未填充的轨道',
+      props: {}
+    }
+  },
+  {
+    name: 'style',
+    type: FieldTypes.object,
+    showDesign: true,
+    designConfig: {
+      type: EditTypes.Json,
+      label: '进度条样式',
+      props: {}
+    }
+  },
+  {
+    name: 'barStyle',
+    type: FieldTypes.object,
+    showDesign: true,
+    designConfig: {
+      type: EditTypes.Json,
+      label: '进度样式',
+      props: {}
+    }
   }]
 }
 
