@@ -29,7 +29,7 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'data',
-      type: FieldTypes.string, // 备注：这里应该是数组
+      type: FieldTypes.array, // 备注：这里应该是数组
       defaultValue: '',
       value: '',
       showDesign: true,
@@ -42,7 +42,7 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'value',
-      type: FieldTypes.string, // 备注：这里应该是数组
+      type: FieldTypes.array, // 备注：这里应该是数组
       defaultValue: '',
       value: '',
       showDesign: true,

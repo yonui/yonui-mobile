@@ -30,7 +30,7 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'current',
-      type: FieldTypes.number, // 备注：这里应该是数组
+      type: FieldTypes.array, // 备注：这里应该是数组
       defaultValue: 1,
       value: '',
       showDesign: true,
@@ -43,7 +43,7 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'total',
-      type: FieldTypes.number, // 备注：这里应该是数组
+      type: FieldTypes.array, // 备注：这里应该是数组
       defaultValue: 0,
       value: '',
       showDesign: true,

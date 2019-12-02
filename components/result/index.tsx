@@ -10,7 +10,7 @@ const manifest: ComponentManifest = {
   props: [// adapter适配层数据
     {
       name: 'imgUrl',
-      type: FieldTypes.string, // 备注：这里应该是数组
+      type: FieldTypes.array, // 备注：这里应该是数组
       defaultValue: '',
       value: '',
       showDesign: true,
@@ -65,7 +65,7 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'buttonText',
-      type: FieldTypes.string, // 备注：这里应该是数组
+      type: FieldTypes.array, // 备注：这里应该是数组
       defaultValue: '',
       value: '',
       showDesign: true,
@@ -78,7 +78,7 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'buttonType',
-      type: FieldTypes.string, // 备注：这里应该是数组
+      type: FieldTypes.array, // 备注：这里应该是数组
       defaultValue: '',
       value: '',
       showDesign: true,
