@@ -12,7 +12,7 @@ const manifest: ComponentManifest = {
   // description: '',//描述
   props: [
     {
-      name: 'name',
+      name: 'text',
       type: FieldTypes.string,
       defaultValue: '按钮',
       showDesign: true,
@@ -159,5 +159,5 @@ const manifest: ComponentManifest = {
 }
 export default class ButtonComponent implements Component<CustomsButtonProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Button {...props}>{props.name}</Button>)
+  render = ReactWrapper((props: any) => <Button {...props}>{props.text}</Button>)
 }
