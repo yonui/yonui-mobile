@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { Calendar } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { CalendarProps } from 'antd-mobile/lib/calendar/PropsType'
 /**
  * todo,未配置

@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { Checkbox } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { CheckboxProps } from 'antd-mobile/lib/checkbox/Checkbox'
 const manifest: ComponentManifest = {
   name: 'CheckboxItem',

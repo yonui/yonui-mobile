@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'antd-mobile'
 import { ButtonProps } from 'antd-mobile/lib/button'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 interface CustomsButtonProps extends ButtonProps {
   name: string
 }

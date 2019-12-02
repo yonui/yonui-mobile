@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card } from 'antd-mobile'
 import { CardFooterProps } from 'antd-mobile/lib/card/CardFooter'
-import { Component, FieldTypes, EditTypes } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes } from '@libraui/extension'
 const CardFooter = Card.Footer
 export class CardFooterComponent implements Component<CardFooterProps> {
   manifest = {

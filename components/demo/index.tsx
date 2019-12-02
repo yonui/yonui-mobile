@@ -1,6 +1,6 @@
 // demo
 import React from 'react'
-import { Component, Props, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, Props, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import './index.css'
 import './test.less'
 interface ButtonProps {

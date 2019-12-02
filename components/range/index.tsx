@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { Range } from 'antd-mobile'
 import { RangeProps } from 'antd-mobile/lib/range'
 // todo onAfterChange marks dots included count allowCross pushable handleStyle trackStyle railStyle

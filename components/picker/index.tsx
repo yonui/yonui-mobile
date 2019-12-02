@@ -1,6 +1,6 @@
 import React from 'react'
 import { Picker } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { PickerPropsType } from 'antd-mobile/lib/picker/PropsType'
 /**
  * todo

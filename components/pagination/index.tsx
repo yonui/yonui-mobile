@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 import { Pagination } from 'antd-mobile'
 import { PaginationPropsType } from 'antd-mobile/lib/pagination/PropsType'

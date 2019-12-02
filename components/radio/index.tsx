@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { Radio } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { RadioProps } from 'antd-mobile/lib/radio/Radio'
 
 // todo 未配置 onChange

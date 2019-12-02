@@ -4,7 +4,7 @@
 import React from 'react'
 import { Switch } from 'antd-mobile'
 import { SwitchProps } from 'antd-mobile/lib/switch'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 // todo 未配置 onClick onChange
 const manifest: ComponentManifest = {
   name: 'Switch',

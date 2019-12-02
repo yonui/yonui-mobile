@@ -1,6 +1,6 @@
 import React from 'react'
 import { Icon } from 'antd-mobile'
-import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { IconProps } from 'antd-mobile/lib/icon'
 const manifest: ComponentManifest = {
   name: 'Icon',

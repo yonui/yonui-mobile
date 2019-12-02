@@ -1,6 +1,6 @@
 import React from 'react'
 import { TextareaItem } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { TextareaItemProps } from 'antd-mobile/lib/textarea-item'
 /**
  * todo

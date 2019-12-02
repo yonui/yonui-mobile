@@ -1,6 +1,6 @@
 import React from 'react'
 import { DatePickerView } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { DatePickerProps } from 'antd-mobile/lib/date-picker-view/PropsType'
 
 const manifest: ComponentManifest = {

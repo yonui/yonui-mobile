@@ -1,6 +1,6 @@
 import React from 'react'
 import { SearchBar } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { SearchBarProps } from 'antd-mobile/lib/search-bar'
 /**
  * todo

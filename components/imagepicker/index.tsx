@@ -1,6 +1,6 @@
 import React from 'react'
 import { ImagePicker } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { ImagePickerPropTypes } from 'antd-mobile/lib/image-picker'
 // todo files
 const manifest: ComponentManifest = {

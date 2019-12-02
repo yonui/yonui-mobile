@@ -1,6 +1,6 @@
-# @metaui/antd-mobile
+# @libraui/antd-mobile
 
-Metaui 扩展包，适配 Antd Mobile
+Libraui 扩展包，适配 Antd Mobile
 
 ## 贡献代码
 
@@ -14,7 +14,7 @@ Metaui 扩展包，适配 Antd Mobile
 
 开发组件的时候，需要按照约定写符合规范的Manifest定义。但是其结构比较复杂，容易写错。
 
-用Typescript的话，可以引入定义好的Manifest类型定义 ` import { ComponentManifest, Component } from '@metaui/extension' `，基于它的提示和相应的报错，实现轻松编写Manifest的目的。
+用Typescript的话，可以引入定义好的Manifest类型定义 ` import { ComponentManifest, Component } from '@libraui/extension' `，基于它的提示和相应的报错，实现轻松编写Manifest的目的。
 
 另外示例组件是用Typescript开发的，相关流程会比Javascript测试更多一些，质量相对更可靠一些。
 
@@ -44,7 +44,7 @@ export { default as Button } from './components/button'
 import React from 'react'
 import { Button } from 'antd-mobile'
 import { ButtonProps } from 'antd-mobile/lib/button'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 interface CustomsButtonProps extends ButtonProps {
   name: string
 }
@@ -199,7 +199,7 @@ export default class ButtonComponent implements Component<CustomsButtonProps> {
 
 现在的打包方式是基于webpack的方式。
 
-打包时使用了一个工具 `@metaui/extension-packager`，内部集成了 *webpack*、*babel* 以及其它各种 webpack plugin 和 loader。
+打包时使用了一个工具 `@libraui/extension-packager`，内部集成了 *webpack*、*babel* 以及其它各种 webpack plugin 和 loader。
 
 暂时不支持传入自定义配置。
 

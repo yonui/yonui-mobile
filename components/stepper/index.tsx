@@ -4,7 +4,7 @@
 import React from 'react'
 import { Stepper } from 'antd-mobile'
 import { StepProps } from 'antd-mobile/lib/stepper'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 // todo 未配置 onChange
 const manifest: ComponentManifest = {
   name: 'Stepper',

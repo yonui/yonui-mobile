@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 import { Flex } from 'antd-mobile'
 import { FlexProps } from 'antd-mobile/lib/flex/Flex'

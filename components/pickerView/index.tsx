@@ -1,6 +1,6 @@
 import React from 'react'
 import { PickerView } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { IPickerView } from 'antd-mobile/lib/picker-view/PickerView'
 /**
  * todo

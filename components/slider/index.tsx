@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { Slider } from 'antd-mobile'
 import { SliderProps } from 'antd-mobile/lib/slider'
 /**

@@ -4,7 +4,7 @@
 import React from 'react'
 import { SegmentedControl } from 'antd-mobile'
 import { SegmentedControlProps } from 'antd-mobile/lib/segmented-control'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 // todo 未配置 onChange
 const manifest: ComponentManifest = {
   name: 'SegmentedControl',

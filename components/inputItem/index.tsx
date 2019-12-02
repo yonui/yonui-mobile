@@ -1,6 +1,6 @@
 import React from 'react'
 import { InputItem } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { InputItemProps } from 'antd-mobile/lib/input-item'
 /**
  * todo

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card } from 'antd-mobile'
 import { CardBodyProps } from 'antd-mobile/lib/card/CardBody'
-import { Component, ComponentManifest } from '@metaui/extension'
+import { Component, ComponentManifest } from '@libraui/extension'
 const CardBody = Card.Body
 const manifest: ComponentManifest = {
   name: 'CardBody',
