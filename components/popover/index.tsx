@@ -4,7 +4,7 @@
 import React from 'react'
 import { Popover } from 'antd-mobile'
 import { PopOverPropsType } from 'antd-mobile/lib/popover'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 // todo 未配置 onChange
 const manifest: ComponentManifest = {
   name: 'Popover',
