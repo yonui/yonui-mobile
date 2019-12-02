@@ -122,7 +122,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: ['TabBarItem', 'ListView']
+  children: ['TabBarItem']
 }
 export default class MetaTabBar implements Component<AntTabbarProps> {
   manifest = manifest

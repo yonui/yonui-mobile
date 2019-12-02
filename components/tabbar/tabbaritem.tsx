@@ -129,7 +129,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: []
+  children: ['ListView', 'Button', 'Calendar', 'Card', 'Checkbox', 'Drawer', 'Flex', 'NavBar', 'Progress', 'Stepper', 'Switch', 'WhiteSpace', 'WingBlank']
 }
 export default class MetaTabBarItem implements Component<AntTabbarProps> {
   manifest = manifest
