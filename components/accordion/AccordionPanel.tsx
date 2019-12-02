@@ -42,5 +42,5 @@ const manifest: ComponentManifest = {
 }
 export default class MetaAccordionPanel implements Component<AccordionProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <AccordionPanel {...props}>{props.text}</AccordionPanel>)
+  render = ReactWrapper((props: any) => <AccordionPanel {...props}>{props.children}</AccordionPanel>)
 }
