@@ -88,7 +88,7 @@ const manifest: ComponentManifest = {
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
-        isRequire: false,
+        isRequired: false,
         props: {},
         label: '点击事件'
       }
