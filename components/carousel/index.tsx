@@ -38,7 +38,7 @@ const manifest: ComponentManifest = {
       defaultValue: 0,
       showDesign: true,
       designConfig: {
-        type: EditTypes.number,
+        type: EditTypes.Number,
         props: {},
         label: '当前索引',
         help: '手动设置当前显示的索引'
@@ -50,7 +50,7 @@ const manifest: ComponentManifest = {
       defaultValue: 3000,
       showDesign: true,
       designConfig: {
-        type: EditTypes.number,
+        type: EditTypes.Number,
         props: {},
         label: '切换间隔',
         help: '自动切换的时间间隔'
@@ -137,7 +137,7 @@ const manifest: ComponentManifest = {
       defaultValue: 3000,
       showDesign: true,
       designConfig: {
-        type: EditTypes.number,
+        type: EditTypes.Number,
         props: {},
         label: '间距',
         help: '项目之间的间距，以px为单位'
@@ -149,7 +149,7 @@ const manifest: ComponentManifest = {
       defaultValue: 12,
       showDesign: true,
       designConfig: {
-        type: EditTypes.number,
+        type: EditTypes.Number,
         props: {},
         label: '滑动灵敏度',
         help: '滑动灵敏度'

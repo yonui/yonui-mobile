@@ -4,7 +4,7 @@
 import React from 'react'
 import { Tabs } from 'antd-mobile'
 import TabsProps from 'antd-mobile/lib/tabs/PropsType'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 // todo 未配置 onChange
 const manifest: ComponentManifest = {

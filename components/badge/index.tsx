@@ -33,7 +33,7 @@ const manifest: ComponentManifest = {
       defaultValue: 0,
       showDesign: true,
       designConfig: {
-        type: EditTypes.number,
+        type: EditTypes.Number,
         props: {},
         label: '展示的数字',
         help: '展示的数字或文案，当为数字时候，大于 overflowCount时显示为 overflowCount，为 0 时隐藏'
@@ -45,7 +45,7 @@ const manifest: ComponentManifest = {
       defaultValue: 99,
       showDesign: true,
       designConfig: {
-        type: EditTypes.number,
+        type: EditTypes.Number,
         props: {},
         label: '封顶数字值',
         help: '展示封顶的数字值'

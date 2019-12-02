@@ -4,7 +4,7 @@
 import React from 'react'
 import { TabBar } from 'antd-mobile'
 import { AntTabbarProps } from 'antd-mobile/lib/tab-bar'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@metaui/extension'
+import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 // todo 未配置 onChange
 const manifest: ComponentManifest = {
