@@ -92,6 +92,17 @@ const manifest: ComponentManifest = {
         props: {},
         label: '是否显示数值'
       }
+    },
+    {
+      name: 'onChange',
+      type: FieldTypes.action,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: '是否显示数值'
+      }
     }
   ],
   children: []
