@@ -57,6 +57,18 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'labelNumber',
+      type: FieldTypes.number,
+      defaultValue: 5,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Number,
+        isRequired: true,
+        props: {},
+        label: '定宽枚举值'
+      }
+    },
+    {
       name: 'value',
       type: FieldTypes.string,
       showDesign: true,
