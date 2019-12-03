@@ -17,7 +17,7 @@ const manifest: ComponentManifest = {
       defaultValue: '按钮',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Icon,
+        type: EditTypes.Text,
         isRequired: true,
         props: {},
         label: '名称'
