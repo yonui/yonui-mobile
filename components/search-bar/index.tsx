@@ -70,6 +70,7 @@ const manifest: ComponentManifest = {
     {
       name: 'showCancelButton',
       type: FieldTypes.boolean,
+      defaultValue: false,
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
