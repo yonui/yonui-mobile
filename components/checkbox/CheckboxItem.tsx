@@ -58,7 +58,7 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export default class CheckboxComponent implements Component<CheckboxProps> {
+export default class CheckboxItemComponent implements Component<CheckboxProps> {
   manifest = manifest
   render = ReactWrapper((props: any) => <Checkbox.CheckboxItem {...props}/>)
 }

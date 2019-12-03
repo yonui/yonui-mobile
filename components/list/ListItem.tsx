@@ -140,7 +140,7 @@ const manifest: ComponentManifest = {
     }
   ]
 }
-export default class ListComponent implements Component<ListItemProps> {
+export default class ListItemComponent implements Component<ListItemProps> {
   manifest = manifest
   render = ReactWrapper((props: any) => (<List.Item {...props}/>))
 }
