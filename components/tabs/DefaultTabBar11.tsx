@@ -2,10 +2,11 @@
  * rc-from是否需要增加,如果增加rc-from,需要写一个from组件
  */
 import React from 'react'
-import { DefaultTabBar } from 'antd-mobile/lib/tabs'
+import { Tabs } from 'antd-mobile'
 import TabsProps from 'antd-mobile/lib/tabs/PropsType'
 import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
+const DefaultTabBar = Tabs.DefaultTabBar
 // todo 未配置 onChange
 const manifest: ComponentManifest = {
   name: 'DefaultTabBar',

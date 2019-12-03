@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { Component, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 import { Flex } from 'antd-mobile'
 import { FlexItemPropsType } from 'antd-mobile/lib/flex/PropsType'
 
-const FlexItem  = Flex.FlexItem;
+const FlexItem = Flex.Item
 
 const manifest: ComponentManifest = {
   name: 'FlexItem',
