@@ -4,7 +4,7 @@ import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } fro
 import { SearchBarProps } from 'antd-mobile/lib/search-bar'
 /**
  * todo
- * onCancel cancelText maxLength
+ * maxLength
  */
 const manifest: ComponentManifest = {
   name: 'SearchBar',
@@ -42,6 +42,29 @@ const manifest: ComponentManifest = {
         isRequired: true,
         props: {},
         label: '背景提示'
+      }
+    },
+    {
+      name: 'cancelText',
+      type: FieldTypes.string,
+      defaultValue: '取消',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: '取消按钮文字'
+      }
+    },
+    {
+      name: 'maxLength',
+      type: FieldTypes.number,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Number,
+        isRequired: true,
+        props: {},
+        label: '最多输入字符数'
       }
     },
     {
@@ -119,6 +142,17 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: 'blur回调'
+      }
+    },
+    {
+      name: 'onCancel',
+      type: FieldTypes.action,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '取消触发'
       }
     }
   ]
