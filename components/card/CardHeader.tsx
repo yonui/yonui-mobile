@@ -3,7 +3,7 @@ import { Card } from 'antd-mobile'
 import { CardHeaderProps } from 'antd-mobile/lib/card/CardHeader'
 import { Component, FieldTypes, EditTypes } from '@libraui/extension'
 const CardHeader = Card.Header
-export class CardHeaderComponent implements Component<CardHeaderProps> {
+export default class CardHeaderComponent implements Component<CardHeaderProps> {
   manifest = {
     name: 'CardHeader',
     label: '卡片头部',

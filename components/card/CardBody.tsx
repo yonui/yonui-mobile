@@ -10,7 +10,7 @@ const manifest: ComponentManifest = {
   props: [],
   children: []// 不确定可以放哪些组件
 }
-export class CardBodyComponent implements Component<CardBodyProps> {
+export default class CardBodyComponent implements Component<CardBodyProps> {
   manifest = manifest
 
   render = (props: any) => <CardBody {...props}>{props.children}</CardBody>

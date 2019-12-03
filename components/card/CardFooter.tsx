@@ -3,7 +3,7 @@ import { Card } from 'antd-mobile'
 import { CardFooterProps } from 'antd-mobile/lib/card/CardFooter'
 import { Component, FieldTypes, EditTypes } from '@libraui/extension'
 const CardFooter = Card.Footer
-export class CardFooterComponent implements Component<CardFooterProps> {
+export default class CardFooterComponent implements Component<CardFooterProps> {
   manifest = {
     name: 'CardFooter',
     label: '卡片底部',
