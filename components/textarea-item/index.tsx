@@ -4,12 +4,58 @@ import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } fro
 import { TextareaItemProps } from 'antd-mobile/lib/textarea-item'
 /**
  * todo
- * error  autoHeight labelNumber name prefixListCls title rows count
+ * error labelNumber  prefixListCls
  */
 const manifest: ComponentManifest = {
   name: 'TextareaItem',
   label: '多行输入',
   props: [
+    {
+      name: 'name',
+      type: FieldTypes.string,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: 'textarea 的 name'
+      }
+    },
+    {
+      name: 'title',
+      type: FieldTypes.string,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: '文案说明'
+      }
+    },
+    {
+      name: 'rows',
+      type: FieldTypes.number,
+      defaultValue: 1,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Number,
+        isRequired: true,
+        props: {},
+        label: '显示几行'
+      }
+    },
+    {
+      name: 'count',
+      type: FieldTypes.number,
+      defaultValue: 0,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Number,
+        isRequired: true,
+        props: {},
+        label: '计数功能'
+      }
+    },
     {
       name: 'value',
       type: FieldTypes.string,
@@ -57,6 +103,19 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'autoHeight',
+      type: FieldTypes.boolean,
+      showDesign: true,
+      defaultValue: false,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '高度自适应',
+        help: '高度自适应, autoHeight 和 rows 请二选一'
+      }
+    },
+    {
       name: 'disabled',
       type: FieldTypes.boolean,
       defaultValue: false,
@@ -99,7 +158,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: 'blur回调'
+        label: '点击报错 icon 触发的回调'
       }
     },
     {
