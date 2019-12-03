@@ -2,6 +2,7 @@ import React from 'react'
 import { Icon } from 'antd-mobile'
 import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { IconProps } from 'antd-mobile/lib/icon'
+// todo
 const manifest: ComponentManifest = {
   name: 'Icon',
   label: '图标',
