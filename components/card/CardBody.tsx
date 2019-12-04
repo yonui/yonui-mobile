@@ -9,7 +9,7 @@ const manifest: ComponentManifest = {
   description: '',
   type: 'DataDisplay',
   props: [],
-  children: []// 不确定可以放哪些组件
+  children: ['Button']// 不确定可以放哪些组件
 }
 export default class CardBodyComponent implements Component<CardBodyProps> {
   manifest = manifest
