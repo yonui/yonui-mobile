@@ -104,5 +104,5 @@ const manifest: ComponentManifest = {
 }
 export default class TagComponent implements Component<TagProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<Tag {...props}/>), { manifest })
+  render = ReactWrapper((props: any) => (<Tag {...props}>{props.name}</Tag>), { manifest })
 }
