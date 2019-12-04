@@ -5,7 +5,7 @@ import { Pagination } from 'antd-mobile'
 import { PaginationPropsType } from 'antd-mobile/lib/pagination/PropsType'
 const manifest: ComponentManifest = {
   name: 'Pagination',
-  label: '菜单',
+  label: '分页',
   description: '在一个临时的面板上显示一组操作', // 描述
   type: 'Navigation',
   props: [// adapter适配层数据
