@@ -1,7 +1,7 @@
 export { default as Button } from './components/button'
 export { default as Calendar } from './components/calendar'
 export { default as Card } from './components/card'
-export { default as CheckBox } from './components/checkbox'
+export { default as Checkbox } from './components/checkbox'
 // export { default as Demo } from './components/demo'
 export { default as Progress } from './components/progress'
 export { default as Stepper } from './components/stepper'

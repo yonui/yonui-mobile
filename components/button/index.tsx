@@ -121,7 +121,7 @@ const manifest: ComponentManifest = {
     {
       name: 'icon',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: false, // 改成false才是默认没有svg
       showDesign: true,
       designConfig: {
         type: EditTypes.Icon,
