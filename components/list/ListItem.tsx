@@ -10,6 +10,7 @@ const manifest: ComponentManifest = {
     {
       name: 'thumb',
       type: FieldTypes.string,
+      defaultValue: 'https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png',
       showDesign: true,
       designConfig: {
         label: '缩略图',
@@ -19,8 +20,21 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'leftContent',
+      type: FieldTypes.string,
+      defaultValue: '左侧内容',
+      showDesign: true,
+      designConfig: {
+        label: '左边内容',
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {}
+      }
+    },
+    {
       name: 'extra',
       type: FieldTypes.string,
+      defaultValue: '右侧内容',
       showDesign: true,
       designConfig: {
         label: '右边内容',
@@ -49,6 +63,7 @@ const manifest: ComponentManifest = {
     {
       name: 'align',
       type: FieldTypes.string,
+      defaultValue: 'middle',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
@@ -143,5 +158,5 @@ const manifest: ComponentManifest = {
 }
 export default class ListItemComponent implements Component<ListItemProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<List.Item {...props}/>))
+  render = ReactWrapper((props: any) => (<List.Item {...props}>{props.leftContent}</List.Item>))
 }

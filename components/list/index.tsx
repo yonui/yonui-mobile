@@ -29,7 +29,8 @@ const manifest: ComponentManifest = {
         props: {}
       }
     }
-  ]
+  ],
+  children: ['ListItem']
 }
 export default class ListComponent implements Component<ListProps> {
   manifest = manifest
