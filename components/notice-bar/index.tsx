@@ -8,6 +8,18 @@ const manifest: ComponentManifest = {
   type: 'DataDisplay',
   props: [
     {
+      name: 'content',
+      type: FieldTypes.string,
+      defaultValue: 'Notice: The default notice',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '内容区'
+      }
+    },
+    {
       name: 'mode',
       type: FieldTypes.string,
       defaultValue: '',
@@ -72,5 +84,5 @@ const manifest: ComponentManifest = {
 }
 export default class NoticeBarComponent implements Component<NoticeWebProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <NoticeBar {...props}/>)
+  render = ReactWrapper((props: any) => <NoticeBar {...props}>{props.content}</NoticeBar>)
 }
