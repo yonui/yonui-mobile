@@ -13,7 +13,7 @@ export default class CardFooterComponent implements Component<CardFooterProps> {
       {
         name: 'content',
         type: FieldTypes.string,
-        defaultValue: false,
+        defaultValue: 'footer content',
         showDesign: true,
         designConfig: {
           type: EditTypes.Text,
@@ -25,7 +25,7 @@ export default class CardFooterComponent implements Component<CardFooterProps> {
       {
         name: 'extra',
         type: FieldTypes.string,
-        defaultValue: false,
+        defaultValue: 'extra footer content',
         showDesign: true,
         designConfig: {
           type: EditTypes.Text,

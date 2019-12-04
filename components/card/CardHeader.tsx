@@ -13,7 +13,7 @@ export default class CardHeaderComponent implements Component<CardHeaderProps> {
       {
         name: 'title',
         type: FieldTypes.string,
-        defaultValue: false,
+        defaultValue: 'This is title',
         showDesign: true,
         designConfig: {
           type: EditTypes.Text,
@@ -25,7 +25,7 @@ export default class CardHeaderComponent implements Component<CardHeaderProps> {
       {
         name: 'thumb',
         type: FieldTypes.string,
-        defaultValue: false,
+        defaultValue: 'https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg',
         showDesign: true,
         designConfig: {
           type: EditTypes.Text,
@@ -37,7 +37,7 @@ export default class CardHeaderComponent implements Component<CardHeaderProps> {
       {
         name: 'extra',
         type: FieldTypes.string,
-        defaultValue: false,
+        defaultValue: 'this is extra',
         showDesign: true,
         designConfig: {
           type: EditTypes.Text,
