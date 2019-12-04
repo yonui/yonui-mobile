@@ -8,6 +8,18 @@ const manifest: ComponentManifest = {
   type: 'DataDisplay',
   props: [
     {
+      name: 'name',
+      type: FieldTypes.string,
+      defaultValue: '标签',
+      showDesign: true,
+      designConfig: {
+        label: '内容',
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {}
+      }
+    },
+    {
       name: 'small',
       type: FieldTypes.boolean,
       defaultValue: false,
