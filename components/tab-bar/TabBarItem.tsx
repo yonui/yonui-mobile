@@ -134,5 +134,5 @@ const manifest: ComponentManifest = {
 }
 export default class MetaTabBarItem implements Component<AntTabbarProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <TabBarItem {...props}></TabBarItem>)
+  render = ReactWrapper((props: any) => <TabBarItem {...props}></TabBarItem>, { manifest })
 }

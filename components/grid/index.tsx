@@ -156,5 +156,5 @@ const manifest: ComponentManifest = {
 }
 export default class MetaGrid implements Component<GridProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Grid {...props}></Grid>)
+  render = ReactWrapper((props: any) => <Grid {...props}></Grid>, { manifest })
 }

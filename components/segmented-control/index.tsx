@@ -128,5 +128,5 @@ const manifest: ComponentManifest = {
 }
 export default class MetaSegmentedControl implements Component<SegmentedControlProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <SegmentedControl {...props}/>)
+  render = ReactWrapper((props: any) => <SegmentedControl {...props}/>, { manifest })
 }

@@ -186,5 +186,5 @@ const manifest: ComponentManifest = {
 }
 export default class MetaCarousel implements Component<CarouselProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Carousel {...props}>{props.children}</Carousel>)
+  render = ReactWrapper((props: any) => <Carousel {...props}>{props.children}</Carousel>, { manifest })
 }

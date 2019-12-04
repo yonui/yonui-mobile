@@ -113,5 +113,5 @@ const manifest: ComponentManifest = {
 // 这边需要做的处理：需要生成sidebar然后传给<Pagination></Pagination>
 export default class MetaPagination implements Component<PaginationPropsType> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<Pagination {...props}></Pagination>))
+  render = ReactWrapper((props: any) => (<Pagination {...props}></Pagination>), { manifest })
 }

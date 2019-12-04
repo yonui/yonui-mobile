@@ -95,5 +95,5 @@ const manifest: ComponentManifest = {
 }
 export default class MetaBadge implements Component<BadgeProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Badge {...props}>{props.children}</Badge>)
+  render = ReactWrapper((props: any) => <Badge {...props}>{props.children}</Badge>, { manifest })
 }

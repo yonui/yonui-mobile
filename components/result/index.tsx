@@ -109,5 +109,5 @@ const manifest: ComponentManifest = {
 
 export default class MetaResult implements Component<ResultProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<Result {...props}>{props.children}</Result>))
+  render = ReactWrapper((props: any) => (<Result {...props}>{props.children}</Result>), { manifest })
 }

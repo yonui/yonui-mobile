@@ -37,5 +37,5 @@ const manifest: ComponentManifest = {
 
 export default class MetaWhiteSpace implements Component<WhiteSpaceProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<WhiteSpace {...props}></WhiteSpace>))
+  render = ReactWrapper((props: any) => (<WhiteSpace {...props}></WhiteSpace>), { manifest })
 }

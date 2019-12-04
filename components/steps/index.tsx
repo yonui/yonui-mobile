@@ -71,5 +71,5 @@ const manifest: ComponentManifest = {
 }
 export default class StepsComponent implements Component<StepsProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<Steps {...props}/>))
+  render = ReactWrapper((props: any) => (<Steps {...props}/>), { manifest })
 }

@@ -84,5 +84,5 @@ const manifest: ComponentManifest = {
 }
 export default class NoticeBarComponent implements Component<NoticeWebProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <NoticeBar {...props}>{props.content}</NoticeBar>)
+  render = ReactWrapper((props: any) => <NoticeBar {...props}>{props.content}</NoticeBar>, { manifest })
 }

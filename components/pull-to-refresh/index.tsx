@@ -80,5 +80,5 @@ const manifest: ComponentManifest = {
 
 export default class PullToRefreshComponent implements Component<PropsType> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<PullToRefresh {...props} />))
+  render = ReactWrapper((props: any) => (<PullToRefresh {...props} />), { manifest })
 }

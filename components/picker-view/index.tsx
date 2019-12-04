@@ -73,5 +73,5 @@ const manifest: ComponentManifest = {
 }
 export default class PickerViewComponent implements Component<IPickerView> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <PickerView {...props}/>)
+  render = ReactWrapper((props: any) => <PickerView {...props}/>, { manifest })
 }

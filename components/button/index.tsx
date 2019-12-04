@@ -160,5 +160,5 @@ const manifest: ComponentManifest = {
 }
 export default class ButtonComponent implements Component<CustomsButtonProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Button {...props}>{props.text}</Button>)
+  render = ReactWrapper((props: any) => <Button {...props}>{props.text}</Button>, { manifest })
 }

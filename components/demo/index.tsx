@@ -101,5 +101,5 @@ export default class ButtonComponent implements Component<ButtonProps> {
     return (
       <button className={props && props.className} onClick={onClick.bind(this)}>{value}</button>
     )
-  })
+  }, { manifest })
 }

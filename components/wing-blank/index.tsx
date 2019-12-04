@@ -35,5 +35,5 @@ const manifest: ComponentManifest = {
 
 export default class MetaWingBlank implements Component<WingBlankProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<WingBlank {...props}>{props.children}</WingBlank>))
+  render = ReactWrapper((props: any) => (<WingBlank {...props}>{props.children}</WingBlank>), { manifest })
 }

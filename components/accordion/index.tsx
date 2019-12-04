@@ -78,5 +78,5 @@ const manifest: ComponentManifest = {
 }
 export default class MetaAccordion implements Component<AccordionProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Accordion {...props}>{props.text}</Accordion>)
+  render = ReactWrapper((props: any) => <Accordion {...props}>{props.text}</Accordion>, { manifest })
 }

@@ -193,5 +193,5 @@ const manifest: ComponentManifest = {
 // 这边需要做的处理：需要生成sidebar然后传给<Drawer></Drawer>
 export default class MetaDrawer implements Component<DrawerWebProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<Drawer {...props}>{props.children}</Drawer>))
+  render = ReactWrapper((props: any) => (<Drawer {...props}>{props.children}</Drawer>), { manifest })
 }

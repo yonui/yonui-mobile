@@ -329,5 +329,5 @@ const manifest: ComponentManifest = {
 }
 export default class MetaTabs implements Component<TabsProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Tabs {...props}> {props.children} </Tabs>)
+  render = ReactWrapper((props: any) => <Tabs {...props}> {props.children} </Tabs>, { manifest })
 }

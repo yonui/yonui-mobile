@@ -136,5 +136,5 @@ const manifest: ComponentManifest = {
 // 这边需要做的处理：需要生成sidebar然后传给<Menu></Menu>
 export default class MetaMenu implements Component<MenuProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<Menu {...props}>{props.children}</Menu>))
+  render = ReactWrapper((props: any) => (<Menu {...props}>{props.children}</Menu>), { manifest })
 }

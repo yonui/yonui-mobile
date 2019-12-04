@@ -64,5 +64,5 @@ const manifest: ComponentManifest = {
 }
 export default class ActivityIndicatorComponent implements Component<ActivityIndicatorProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<ActivityIndicator {...props}/>))
+  render = ReactWrapper((props: any) => (<ActivityIndicator {...props}/>), { manifest })
 }

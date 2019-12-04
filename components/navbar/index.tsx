@@ -87,5 +87,5 @@ const manifest: ComponentManifest = {
 }
 export default class MetaNavBar implements Component<NavBarProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<NavBar {...props}>{props.children}</NavBar>))
+  render = ReactWrapper((props: any) => (<NavBar {...props}>{props.children}</NavBar>), { manifest })
 }

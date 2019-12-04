@@ -104,5 +104,5 @@ const manifest: ComponentManifest = {
 }
 export default class SwitchComponent implements Component<SwitchProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Switch {...props}/>)
+  render = ReactWrapper((props: any) => <Switch {...props}/>, { manifest })
 }

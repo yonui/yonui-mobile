@@ -196,5 +196,5 @@ const manifest: ComponentManifest = {
 }
 export default class ModalComponent implements Component<ModalProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<Modal {...props}>{props.children}</Modal>))
+  render = ReactWrapper((props: any) => (<Modal {...props}>{props.children}</Modal>), { manifest })
 }

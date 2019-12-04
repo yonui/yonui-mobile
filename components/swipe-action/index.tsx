@@ -91,5 +91,5 @@ const manifest: ComponentManifest = {
 
 export default class SwipeActionComponent implements Component<SwipeActionProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<SwipeAction {...props} />))
+  render = ReactWrapper((props: any) => (<SwipeAction {...props} />), { manifest })
 }

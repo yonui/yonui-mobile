@@ -126,5 +126,5 @@ const manifest: ComponentManifest = {
 }
 export default class MetaFlex implements Component<FlexProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<Flex {...props}>{props.children}</Flex>))
+  render = ReactWrapper((props: any) => (<Flex {...props}>{props.children}</Flex>), { manifest })
 }

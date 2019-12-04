@@ -69,5 +69,5 @@ const manifest: ComponentManifest = {
 
 export default class MetaProgress implements Component<ProgressProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<Progress {...props} />))
+  render = ReactWrapper((props: any) => (<Progress {...props} />), { manifest })
 }
