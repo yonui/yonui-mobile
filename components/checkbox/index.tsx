@@ -63,5 +63,5 @@ const manifest: ComponentManifest = {
 }
 export default class CheckboxComponent implements Component<CheckboxProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Checkbox {...props}/>)
+  render = ReactWrapper((props: any) => <Checkbox {...props}/>, { manifest })
 }

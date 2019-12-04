@@ -105,5 +105,5 @@ const manifest: ComponentManifest = {
 
 export default class SliderComponent implements Component<SliderProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<Slider {...props} />))
+  render = ReactWrapper((props: any) => (<Slider {...props} />), { manifest })
 }

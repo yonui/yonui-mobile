@@ -25,5 +25,5 @@ const manifest: ComponentManifest = {
 }
 export default class CardComponent implements Component<CardProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Card {...props}>{props.children}</Card>)
+  render = ReactWrapper((props: any) => <Card {...props}>{props.children}</Card>, { manifest })
 }

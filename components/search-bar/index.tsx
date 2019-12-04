@@ -161,5 +161,5 @@ const manifest: ComponentManifest = {
 }
 export default class SearchBarComponent implements Component<SearchBarProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <SearchBar {...props}/>)
+  render = ReactWrapper((props: any) => <SearchBar {...props}/>, { manifest })
 }

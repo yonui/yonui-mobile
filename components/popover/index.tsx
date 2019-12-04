@@ -104,5 +104,5 @@ const manifest: ComponentManifest = {
 }
 export default class MetaPopover implements Component<PopOverPropsType> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Popover {...props}> {props.children} </Popover>)
+  render = ReactWrapper((props: any) => <Popover {...props}> {props.children} </Popover>, { manifest })
 }

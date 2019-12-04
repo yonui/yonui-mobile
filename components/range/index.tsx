@@ -97,5 +97,5 @@ export default class RangeComponent implements Component<RangeProps> {
   manifest = manifest
   render = ReactWrapper((props: any) => {
     return <Range {...props} />
-  })
+  }, { manifest })
 }

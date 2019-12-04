@@ -101,7 +101,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Select,
         isRequired: false,
         props: {
-          option: [
+          options: [
             { value: 'slide-down', text: '向下' },
             { value: 'slide-up', text: '向上' },
             { value: 'fade', text: '逐渐消失' },
@@ -141,7 +141,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Select,
         isRequired: false,
         props: {
-          option: [
+          options: [
             { value: 'android', text: '安卓' },
             { value: 'ios', text: '苹果' }
           ]
@@ -196,5 +196,5 @@ const manifest: ComponentManifest = {
 }
 export default class ModalComponent implements Component<ModalProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<Modal {...props}>{props.children}</Modal>))
+  render = ReactWrapper((props: any) => (<Modal {...props}>{props.children}</Modal>), { manifest })
 }

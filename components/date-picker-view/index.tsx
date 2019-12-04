@@ -122,5 +122,5 @@ const manifest: ComponentManifest = {
 }
 export default class DatePickerViewComponent implements Component<DatePickerProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <DatePickerView {...props}/>)
+  render = ReactWrapper((props: any) => <DatePickerView {...props}/>, { manifest })
 }

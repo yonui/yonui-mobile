@@ -53,7 +53,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Select,
         isRequired: false,
         props: {
-          option: [
+          options: [
             { value: 'small', text: '小' },
             { value: 'large', text: '大' }
           ]
@@ -64,5 +64,5 @@ const manifest: ComponentManifest = {
 }
 export default class ActivityIndicatorComponent implements Component<ActivityIndicatorProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<ActivityIndicator {...props}/>))
+  render = ReactWrapper((props: any) => (<ActivityIndicator {...props}/>), { manifest })
 }

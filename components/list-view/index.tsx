@@ -315,5 +315,5 @@ const manifest: ComponentManifest = {
 }
 export default class MetaListView implements Component<ListViewProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <ListView {...props}></ListView>)
+  render = ReactWrapper((props: any) => <ListView {...props}></ListView>, { manifest })
 }

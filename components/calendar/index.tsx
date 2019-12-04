@@ -231,5 +231,5 @@ const manifest: ComponentManifest = {
 }
 export default class CalendarComponent implements Component<CalendarProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Calendar {...props} defaultDate={props.defaultDate ? new Date(props.defaultDate) : new Date()}/>)
+  render = ReactWrapper((props: any) => <Calendar {...props}/>, { manifest })
 }

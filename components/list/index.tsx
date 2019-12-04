@@ -29,9 +29,10 @@ const manifest: ComponentManifest = {
         props: {}
       }
     }
-  ]
+  ],
+  children: ['ListItem']
 }
 export default class ListComponent implements Component<ListProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<List {...props}/>))
+  render = ReactWrapper((props: any) => (<List {...props}/>), { manifest })
 }

@@ -201,5 +201,5 @@ const manifest: ComponentManifest = {
 }
 export default class TextareaItemComponent implements Component<TextareaItemProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <TextareaItem {...props}/>)
+  render = ReactWrapper((props: any) => <TextareaItem {...props}/>, { manifest })
 }

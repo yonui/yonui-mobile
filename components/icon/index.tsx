@@ -57,5 +57,5 @@ const manifest: ComponentManifest = {
 }
 export default class IconComponent implements Component<IconProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<Icon {...props}/>))
+  render = ReactWrapper((props: any) => (<Icon {...props}/>), { manifest })
 }

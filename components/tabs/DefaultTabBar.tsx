@@ -122,5 +122,5 @@ const manifest: ComponentManifest = {
 }
 export default class MetaDefaultTabBar implements Component<TabsProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <DefaultTabBar {...props} />)
+  render = ReactWrapper((props: any) => <DefaultTabBar {...props} />, { manifest })
 }

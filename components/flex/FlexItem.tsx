@@ -17,5 +17,5 @@ const manifest: ComponentManifest = {
 }
 export default class metaFlexItem implements Component<FlexItemPropsType> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <FlexItem > {props.children}</FlexItem>)
+  render = ReactWrapper((props: any) => <FlexItem > {props.children}</FlexItem>, { manifest })
 }

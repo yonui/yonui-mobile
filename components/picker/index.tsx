@@ -188,5 +188,5 @@ const manifest: ComponentManifest = {
 }
 export default class PickerComponent implements Component<PickerPropsType> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Picker {...props}/>)
+  render = ReactWrapper((props: any) => <Picker {...props}/>, { manifest })
 }

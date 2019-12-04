@@ -55,11 +55,12 @@ const manifest: ComponentManifest = {
       name: 'direction',
       type: FieldTypes.string,
       defaultValue: 'vertical',
+      showDesign: true,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
         props: {
-          option: [
+          options: [
             { value: 'horizontal', text: '水平' },
             { value: 'vertical', text: '垂直' }
           ]
@@ -67,9 +68,10 @@ const manifest: ComponentManifest = {
         label: '方向'
       }
     }
-  ]
+  ],
+  children: ['Step']
 }
 export default class StepsComponent implements Component<StepsProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<Steps {...props}/>))
+  render = ReactWrapper((props: any) => (<Steps {...props}>{props.children}</Steps>), { manifest })
 }
