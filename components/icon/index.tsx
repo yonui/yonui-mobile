@@ -6,6 +6,7 @@ import { IconProps } from 'antd-mobile/lib/icon'
 const manifest: ComponentManifest = {
   name: 'Icon',
   label: '图标',
+  type: 'DataDisplay',
   props: [
     {
       name: 'color',

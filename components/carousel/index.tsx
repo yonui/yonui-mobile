@@ -8,6 +8,7 @@ const manifest: ComponentManifest = {
   name: 'Carousel', // 自定义组件名称
   label: '走马灯', // 自定义组件文本
   description: '走马灯，轮播图。', // 描述
+  type: 'DataDisplay',
   props: [
     {
       name: 'className',

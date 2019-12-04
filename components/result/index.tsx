@@ -7,6 +7,7 @@ const manifest: ComponentManifest = {
   name: 'Result',
   label: '结果页',
   description: '在整张页面中组织插画、图标、文字等内容，向用户反馈操作结果。', // 描述
+  type: 'Combination',
   props: [// adapter适配层数据
     {
       name: 'imgUrl',

@@ -7,6 +7,7 @@ const manifest: ComponentManifest = {
   name: 'WhiteSpace',
   label: '上下留白',
   description: '上下留白', // 描述
+  type: 'Layout',
   props: [// adapter适配层数据
     {
       name: 'size',

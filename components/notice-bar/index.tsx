@@ -5,6 +5,7 @@ import { NoticeWebProps } from 'antd-mobile/lib/notice-bar'
 const manifest: ComponentManifest = {
   name: 'NoticeBar',
   label: '通告栏',
+  type: 'DataDisplay',
   props: [
     {
       name: 'mode',

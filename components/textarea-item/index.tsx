@@ -9,6 +9,7 @@ import { TextareaItemProps } from 'antd-mobile/lib/textarea-item'
 const manifest: ComponentManifest = {
   name: 'TextareaItem',
   label: '多行输入',
+  type: 'DataEntry',
   props: [
     {
       name: 'name',

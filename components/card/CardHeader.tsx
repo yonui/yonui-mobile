@@ -8,6 +8,7 @@ export default class CardHeaderComponent implements Component<CardHeaderProps> {
     name: 'CardHeader',
     label: '卡片头部',
     description: '',
+    type: 'DataDisplay',
     props: [
       {
         name: 'title',

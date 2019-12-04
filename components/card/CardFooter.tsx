@@ -8,6 +8,7 @@ export default class CardFooterComponent implements Component<CardFooterProps> {
     name: 'CardFooter',
     label: '卡片底部',
     description: '',
+    type: 'DataDisplay',
     props: [
       {
         name: 'content',

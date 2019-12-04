@@ -6,6 +6,7 @@ const manifest: ComponentManifest = {
   name: 'Card',
   label: '卡片',
   description: '',
+  type: 'DataDisplay',
   props: [
     {
       name: 'full',

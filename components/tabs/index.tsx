@@ -11,6 +11,7 @@ const manifest: ComponentManifest = {
   name: 'Tabs',
   label: '标签页',
   description: '用于让用户在不同的视图中进行切换。',
+  type: 'Navigation',
   props: [
     {
       name: 'prefixCls',

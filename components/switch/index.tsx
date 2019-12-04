@@ -10,6 +10,7 @@ const manifest: ComponentManifest = {
   name: 'Switch',
   label: '滑动开关',
   description: '',
+  type: 'DataEntry',
   props: [
     {
       name: 'checked',

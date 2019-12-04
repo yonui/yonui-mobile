@@ -12,6 +12,7 @@ import { InputItemProps } from 'antd-mobile/lib/input-item'
 const manifest: ComponentManifest = {
   name: 'InputItem ',
   label: '文本输入',
+  type: 'DataEntry',
   props: [
     {
       name: 'type',

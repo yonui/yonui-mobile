@@ -6,6 +6,7 @@ const manifest: ComponentManifest = {
   name: 'Progress',
   label: '进度条',
   description: '进度条',
+  type: 'Feedback',
   props: [{
     name: 'percent',
     type: FieldTypes.number,

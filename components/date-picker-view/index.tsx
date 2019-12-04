@@ -6,6 +6,7 @@ import { DatePickerProps } from 'antd-mobile/lib/date-picker-view/PropsType'
 const manifest: ComponentManifest = {
   name: 'DatePickerView ',
   label: '日期选择器',
+  type: 'DataEntry',
   props: [
     {
       name: 'mode',

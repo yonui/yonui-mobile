@@ -7,6 +7,7 @@ import { FlexProps } from 'antd-mobile/lib/flex/Flex'
 const manifest: ComponentManifest = {
   name: 'Flex',
   label: 'flex布局',
+  type: 'Layout',
   description: '实现css flex布局', // 描述
   props: [// adapter适配层数据
     {

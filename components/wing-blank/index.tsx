@@ -7,6 +7,7 @@ const manifest: ComponentManifest = {
   name: 'WingBlank',
   label: '两翼留白',
   description: '两翼留白', // 描述
+  type: 'Layout',
   props: [// adapter适配层数据
     {
       name: 'size',

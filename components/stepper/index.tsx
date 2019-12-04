@@ -10,6 +10,7 @@ const manifest: ComponentManifest = {
   name: 'Stepper',
   label: '步进器',
   description: '',
+  type: 'DataEntry',
   props: [
     {
       name: 'min',

@@ -5,6 +5,7 @@ import { ListItemProps } from 'antd-mobile/lib/list/ListItem'
 const manifest: ComponentManifest = {
   name: 'ListItem',
   label: '列表项',
+  type: 'DataDisplay',
   props: [
     {
       name: 'thumb',

@@ -9,6 +9,7 @@ import { PickerPropsType } from 'antd-mobile/lib/picker/PropsType'
 const manifest: ComponentManifest = {
   name: 'Picker ',
   label: '日期选择',
+  type: 'DataEntry',
   props: [
     {
       name: 'data',

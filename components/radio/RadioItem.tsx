@@ -10,6 +10,7 @@ const manifest: ComponentManifest = {
   name: 'RadioItem',
   label: '单选项',
   description: '',
+  type: 'DataEntry',
   props: [
     {
       name: 'name',

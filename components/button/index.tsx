@@ -10,6 +10,7 @@ const manifest: ComponentManifest = {
   name: 'Button', // 自定义组件名称
   label: '按钮', // 自定义组件文本
   // description: '',//描述
+  type: 'DataEntry',
   props: [
     {
       name: 'text',

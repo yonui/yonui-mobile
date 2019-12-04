@@ -9,6 +9,7 @@ const manifest: ComponentManifest = {
   name: 'ListView', // 自定义组件名称
   label: '长列表', // 自定义组件文本
   description: '适用于显示同类的长列表数据类型，对渲染性能有一定的优化效果。', // 描述
+  type: 'Combination',
   props: [
     {
       name: 'quickSearchBarTop',

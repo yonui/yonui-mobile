@@ -7,6 +7,7 @@ const manifest: ComponentManifest = {
   name: 'SwipeAction',
   label: '滑动操作',
   description: '滑动操作',
+  type: 'Gesture',
   props: [{
     name: 'style',
     type: FieldTypes.object,

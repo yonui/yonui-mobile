@@ -5,6 +5,7 @@ import { TagProps } from 'antd-mobile/lib/tag'
 const manifest: ComponentManifest = {
   name: 'Tag',
   label: '标签',
+  type: 'DataDisplay',
   props: [
     {
       name: 'small',

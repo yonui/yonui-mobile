@@ -5,6 +5,7 @@ import { ListProps } from 'antd-mobile/lib/list'
 const manifest: ComponentManifest = {
   name: 'List',
   label: '列表',
+  type: 'DataDisplay',
   props: [
     {
       name: 'renderHeader',

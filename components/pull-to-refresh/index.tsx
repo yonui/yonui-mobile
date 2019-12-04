@@ -6,6 +6,7 @@ const manifest: ComponentManifest = {
   name: 'PullToRefresh',
   label: '拉动刷新',
   description: '拉动刷新',
+  type: 'Gesture',
   props: [{
     name: 'distanceToRefresh',
     type: FieldTypes.number,

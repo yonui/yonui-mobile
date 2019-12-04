@@ -8,6 +8,7 @@ const manifest: ComponentManifest = {
   name: 'Grid', // 自定义组件名称
   label: '宫格', // 自定义组件文本
   description: '在水平和垂直方向，将布局切分成若干等大的区块。', // 描述
+  type: 'DataDisplay',
   props: [
     {
       name: 'data',

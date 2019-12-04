@@ -11,6 +11,7 @@ const manifest: ComponentManifest = {
   name: 'TabBar',
   label: '标签栏',
   description: '位于 APP 底部，方便用户在不同功能模块之间进行快速切换。',
+  type: 'Navigation',
   props: [
     {
       name: 'prefixCls',

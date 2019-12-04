@@ -7,6 +7,7 @@ const manifest: ComponentManifest = {
   name: 'CardBody',
   label: '卡片内容',
   description: '',
+  type: 'DataDisplay',
   props: [],
   children: []// 不确定可以放哪些组件
 }

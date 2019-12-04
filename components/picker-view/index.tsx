@@ -9,6 +9,7 @@ import { IPickerView } from 'antd-mobile/lib/picker-view/PickerView'
 const manifest: ComponentManifest = {
   name: 'PickerView ',
   label: '日期选择',
+  type: 'DataEntry',
   props: [
     {
       name: 'data',

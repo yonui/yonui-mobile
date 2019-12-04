@@ -13,6 +13,7 @@ const manifest: ComponentManifest = {
   name: 'Calendar',
   label: '日历',
   description: '',
+  type: 'DataEntry',
   props: [
     {
       name: 'enterDirection',

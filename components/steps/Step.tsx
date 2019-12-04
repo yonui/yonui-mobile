@@ -5,6 +5,7 @@ import { StepsProps } from 'antd-mobile/lib/steps'
 const manifest: ComponentManifest = {
   name: 'Step',
   label: '步骤项',
+  type: 'DataDisplay',
   props: [
     {
       name: 'status',

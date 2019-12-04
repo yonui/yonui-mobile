@@ -6,6 +6,7 @@ import { ImagePickerPropTypes } from 'antd-mobile/lib/image-picker'
 const manifest: ComponentManifest = {
   name: 'ImagePicker ',
   label: '图片选择器',
+  type: 'DataEntry',
   props: [
     {
       name: 'onChange',

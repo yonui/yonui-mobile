@@ -5,6 +5,7 @@ import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } fro
 const manifest: ComponentManifest = {
   name: 'ActivityIndicator',
   label: '活动指示器',
+  type: 'Feedback',
   props: [
     {
       name: 'animating',

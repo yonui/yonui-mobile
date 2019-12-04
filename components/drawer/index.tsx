@@ -7,6 +7,7 @@ const manifest: ComponentManifest = {
   name: 'Drawer',
   label: '抽屉',
   description: '用于在屏幕边缘显示应用导航等内容的面板。', // 描述
+  type: 'Navigation',
   props: [// adapter适配层数据
     {
       name: 'sidebar',

@@ -8,6 +8,7 @@ const manifest: ComponentManifest = {
   name: 'Accordion', // 自定义组件名称
   label: '手风琴', // 自定义组件文本
   description: '可以折叠/展开的内容区域。', // 描述
+  type: 'DataDisplay',
   props: [
     {
       name: 'activeKey',

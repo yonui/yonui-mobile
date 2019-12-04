@@ -5,6 +5,7 @@ import { ModalProps } from 'antd-mobile/lib/modal/Modal'
 const manifest: ComponentManifest = {
   name: 'Modal',
   label: '对话框',
+  type: 'Feedback',
   props: [
     {
       name: 'visible',

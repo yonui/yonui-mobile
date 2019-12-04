@@ -9,6 +9,7 @@ import { SearchBarProps } from 'antd-mobile/lib/search-bar'
 const manifest: ComponentManifest = {
   name: 'SearchBar',
   label: '搜索栏',
+  type: 'DataEntry',
   props: [
     {
       name: 'value',
