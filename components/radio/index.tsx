@@ -5,8 +5,8 @@ import React from 'react'
 import { Radio } from 'antd-mobile'
 import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { RadioProps } from 'antd-mobile/lib/radio/Radio'
-
-// todo 未配置 onChange
+import * as styles from './index.less'
+// todo
 const manifest: ComponentManifest = {
   name: 'Radio',
   label: '单选框',
@@ -74,5 +74,5 @@ const manifest: ComponentManifest = {
 }
 export default class RadioComponent implements Component<RadioProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Radio {...props}/>)
+  render = ReactWrapper((props: any) => <Radio className={styles.myRadio} {...props}>{props.name}</Radio>)
 }

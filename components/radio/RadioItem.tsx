@@ -73,5 +73,5 @@ const manifest: ComponentManifest = {
 }
 export default class RadioItemComponent implements Component<RadioProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Radio.RadioItem {...props}/>)
+  render = ReactWrapper((props: any) => <Radio.RadioItem {...props}>{props.name}</Radio.RadioItem>)
 }
