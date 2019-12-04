@@ -9,7 +9,7 @@ const manifest: ComponentManifest = {
   props: [
     {
       name: 'mode',
-      type: FieldTypes.action,
+      type: FieldTypes.string,
       defaultValue: '',
       showDesign: true,
       designConfig: {
