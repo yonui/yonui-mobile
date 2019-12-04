@@ -1,6 +1,6 @@
 {
   "name": "@libraui/antd-mobile",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Libra ui for Antd Mobile",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
