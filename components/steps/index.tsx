@@ -57,7 +57,7 @@ const manifest: ComponentManifest = {
       defaultValue: 'vertical',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Select,
         isRequired: true,
         props: {
           options: [
