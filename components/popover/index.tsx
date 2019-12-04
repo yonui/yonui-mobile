@@ -99,7 +99,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: ['Icon']// 可放置哪些子组件,暂时只支持数组,不支持方法
+  children: ['Icon']
 }
 export default class MetaPopover implements Component<PopOverPropsType> {
   manifest = manifest

@@ -37,8 +37,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: ['List'], // 可放置哪些子组件,暂时只支持数组,不支持方法
-  parent: []
+  children: ['List']
 }
 export default class MetaAccordionPanel implements Component<AccordionProps> {
   manifest = manifest

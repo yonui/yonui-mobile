@@ -186,7 +186,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: ['Button', 'Calendar', 'Card', 'Checkbox', 'Flex', 'NavBar', 'Progress', 'Stepper', 'Switch', 'WhiteSpace', 'WingBlank']// 可放置哪些子组件,暂时只支持数组,不支持方法
+  children: ['Button', 'Calendar', 'Card', 'Checkbox', 'Flex', 'NavBar', 'Progress', 'Stepper', 'Switch', 'WhiteSpace', 'WingBlank']
 }
 
 // 这边需要做的处理：需要生成sidebar然后传给<Drawer></Drawer>

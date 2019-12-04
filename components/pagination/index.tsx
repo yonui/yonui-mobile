@@ -106,7 +106,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: []// 可放置哪些子组件,暂时只支持数组,不支持方法
+  children: []
 }
 
 // 这边需要做的处理：需要生成sidebar然后传给<Pagination></Pagination>

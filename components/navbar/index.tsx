@@ -82,7 +82,7 @@ const manifest: ComponentManifest = {
     }
 
   ],
-  children: ['Button', 'Card', 'Progress', 'WingBlank']// 可放置哪些子组件,暂时只支持数组,不支持方法
+  children: ['Button', 'Card', 'Progress', 'WingBlank']
 }
 export default class MetaNavBar implements Component<NavBarProps> {
   manifest = manifest

@@ -87,9 +87,7 @@ const manifest: ComponentManifest = {
       }
     }
 
-  ],
-  children: ['button'], // 可放置哪些子组件,暂时只支持数组,不支持方法
-  parent: ['button']// 可放置哪些父组件中,暂时只支持数组,不支持方法
+  ]
 }
 
 export default class ButtonComponent implements Component<ButtonProps> {

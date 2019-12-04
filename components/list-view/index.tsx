@@ -309,8 +309,8 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: [], // 可放置哪些子组件,暂时只支持数组,不支持方法
-  parent: []
+  children: []
+
 }
 export default class MetaListView implements Component<ListViewProps> {
   manifest = manifest

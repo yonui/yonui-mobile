@@ -12,7 +12,7 @@ const manifest: ComponentManifest = {
   description: '实现css flex布局', // 描述
   props: [// adapter适配层数据
   ],
-  children: ['Button', 'Calendar', 'Card', 'Checkbox', 'Drawer', 'Flex', 'NavBar', 'Progress', 'Stepper', 'Switch', 'WhiteSpace', 'WingBlank']// 可放置哪些子组件,暂时只支持数组,不支持方法
+  children: ['Button', 'Calendar', 'Card', 'Checkbox', 'Drawer', 'Flex', 'NavBar', 'Progress', 'Stepper', 'Switch', 'WhiteSpace', 'WingBlank']
 }
 export default class metaFlexItem implements Component<FlexItemPropsType> {
   manifest = manifest
