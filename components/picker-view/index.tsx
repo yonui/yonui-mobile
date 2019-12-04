@@ -7,8 +7,8 @@ import { IPickerView } from 'antd-mobile/lib/picker-view/PickerView'
  * itemStyle indicatorStyle pickerPrefixCls prefixCls
  */
 const manifest: ComponentManifest = {
-  name: 'PickerView ',
-  label: '日期选择',
+  name: 'PickerView',
+  label: '选择器',
   type: 'DataEntry',
   props: [
     {

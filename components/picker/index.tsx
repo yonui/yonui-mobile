@@ -7,8 +7,8 @@ import { PickerPropsType } from 'antd-mobile/lib/picker/PropsType'
  * itemStyle indicatorStyle children
  */
 const manifest: ComponentManifest = {
-  name: 'Picker ',
-  label: '日期选择',
+  name: 'Picker',
+  label: '选择器弹框',
   type: 'DataEntry',
   props: [
     {

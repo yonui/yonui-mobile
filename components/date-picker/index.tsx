@@ -4,7 +4,7 @@ import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } fro
 import { PropsType } from 'antd-mobile/lib/date-picker'
 
 const manifest: ComponentManifest = {
-  name: 'DatePicker ',
+  name: 'DatePicker',
   label: '日期选择',
   type: 'DataEntry',
   props: [
