@@ -67,9 +67,10 @@ const manifest: ComponentManifest = {
         label: '方向'
       }
     }
-  ]
+  ],
+  children: ['Step']
 }
 export default class StepsComponent implements Component<StepsProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<Steps {...props}/>), { manifest })
+  render = ReactWrapper((props: any) => (<Steps {...props}>{props.children}</Steps>), { manifest })
 }
