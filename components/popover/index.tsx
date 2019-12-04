@@ -2,7 +2,7 @@
  * rc-from是否需要增加,如果增加rc-from,需要写一个from组件
  */
 import React from 'react'
-import { Popover } from 'antd-mobile'
+import { Popover, Icon } from 'antd-mobile'
 import { PopOverPropsType } from 'antd-mobile/lib/popover'
 import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 // todo 未配置 onChange
@@ -104,5 +104,8 @@ const manifest: ComponentManifest = {
 }
 export default class MetaPopover implements Component<PopOverPropsType> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Popover {...props}> {props.children} </Popover>, { manifest })
+  render = ReactWrapper((props: any) => {
+    console.log('props children is: ', props.children)
+    return <Popover {...props}>{props.children ? props.children[0] : <Icon type="ellipsis" />}</Popover>
+  }, { manifest })
 }
