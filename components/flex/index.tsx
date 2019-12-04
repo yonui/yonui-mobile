@@ -4,6 +4,8 @@ import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } fro
 import { Flex } from 'antd-mobile'
 import { FlexProps } from 'antd-mobile/lib/flex/Flex'
 
+import './index.less'
+
 const manifest: ComponentManifest = {
   name: 'Flex',
   label: 'flex布局',

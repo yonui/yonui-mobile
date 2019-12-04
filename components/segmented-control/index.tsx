@@ -88,7 +88,7 @@ const manifest: ComponentManifest = {
     {
       name: 'values',
       type: FieldTypes.array,
-      defaultValue: [],
+      defaultValue: ['test1', 'test2'],
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,

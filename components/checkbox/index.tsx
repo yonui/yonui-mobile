@@ -15,6 +15,7 @@ const manifest: ComponentManifest = {
     {
       name: 'defaultChecked',
       type: FieldTypes.boolean,
+      defaultValue: true,
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,

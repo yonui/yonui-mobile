@@ -10,7 +10,7 @@ import { InputItemProps } from 'antd-mobile/lib/input-item'
  * moneyKeyboardHeader locale autoAdjustHeight disabledKeys
  */
 const manifest: ComponentManifest = {
-  name: 'InputItem ',
+  name: 'InputItem',
   label: '文本输入',
   type: 'DataEntry',
   props: [

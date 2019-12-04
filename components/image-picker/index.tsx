@@ -4,7 +4,7 @@ import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } fro
 import { ImagePickerPropTypes } from 'antd-mobile/lib/image-picker'
 // todo files
 const manifest: ComponentManifest = {
-  name: 'ImagePicker ',
+  name: 'ImagePicker',
   label: '图片选择器',
   type: 'DataEntry',
   props: [
