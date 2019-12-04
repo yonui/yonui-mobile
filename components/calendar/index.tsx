@@ -47,7 +47,7 @@ const manifest: ComponentManifest = {
     {
       name: 'prefixCls',
       type: FieldTypes.string,
-      defaultValue: 'rmc-calendar',
+      defaultValue: 'am-calendar',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -98,7 +98,7 @@ const manifest: ComponentManifest = {
     {
       name: 'visible',
       type: FieldTypes.boolean,
-      defaultValue: false,
+      defaultValue: true, // 设计器默认展示，实际antd默认false
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
@@ -231,5 +231,5 @@ const manifest: ComponentManifest = {
 }
 export default class CalendarComponent implements Component<CalendarProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Calendar {...props}/>)
+  render = ReactWrapper((props: any) => <Calendar {...props} defaultDate={props.defaultDate ? new Date(props.defaultDate) : new Date()}/>)
 }

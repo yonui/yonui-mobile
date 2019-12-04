@@ -14,6 +14,16 @@ const manifest: ComponentManifest = {
     {
       name: 'data',
       type: FieldTypes.array,
+      defaultValue: [
+        {
+          label: 'test1',
+          value: 'test1'
+        },
+        {
+          label: 'test2',
+          value: 'test2'
+        }
+      ],
       showDesign: true,
       designConfig: {
         type: EditTypes.Json,
