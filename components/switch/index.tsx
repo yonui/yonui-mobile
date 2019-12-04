@@ -53,7 +53,7 @@ const manifest: ComponentManifest = {
       defaultValue: '开关',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Icon,
+        type: EditTypes.Text,
         isRequired: true,
         props: {},
         label: '标题文本'
@@ -74,6 +74,28 @@ const manifest: ComponentManifest = {
           ]
         },
         label: '手机平台'
+      }
+    },
+    {
+      name: 'onClick',
+      type: FieldTypes.action,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '点击方法'
+      }
+    },
+    {
+      name: 'onChange',
+      type: FieldTypes.action,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '改变回调'
       }
     }
   ],
