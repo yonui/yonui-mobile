@@ -101,7 +101,7 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: '图片捕获设置',
+      name: 'capture',
       type: FieldTypes.boolean,
       defaultValue: false,
       showDesign: true,
@@ -109,7 +109,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: false,
         props: {},
-        label: '是否支持多选'
+        label: '图片捕获设置'
       }
     },
     {
