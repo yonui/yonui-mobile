@@ -46,6 +46,7 @@ const manifest: ComponentManifest = {
   {
     name: 'value',
     type: FieldTypes.array,
+    defaultValue: JSON.stringify([0, 10]),
     showDesign: true,
     designConfig: {
       type: EditTypes.Json,
@@ -58,7 +59,7 @@ const manifest: ComponentManifest = {
     name: 'defaultValue',
     type: FieldTypes.array,
     showDesign: true,
-    defaultValue: [0, 0],
+    defaultValue: JSON.stringify([0, 0]),
     designConfig: {
       type: EditTypes.Json,
       label: '默认值',
@@ -93,5 +94,9 @@ const manifest: ComponentManifest = {
 
 export default class RangeComponent implements Component<RangeProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<Range {...props} />))
+  render = ReactWrapper((props: any) => {
+    props.defaultValue = JSON.parse(props.defaultValue)
+    props.value = JSON.parse(props.value)
+    return <Range {...props} />
+  })
 }
