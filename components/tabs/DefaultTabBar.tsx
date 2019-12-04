@@ -12,6 +12,7 @@ const manifest: ComponentManifest = {
   name: 'DefaultTabBar',
   label: 'DefaultTabBar',
   description: '用于让用户在不同的视图中进行切换。',
+  type: 'Navigation',
   props: [
     {
       name: 'prefixCls',

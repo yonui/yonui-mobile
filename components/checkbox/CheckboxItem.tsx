@@ -9,6 +9,7 @@ const manifest: ComponentManifest = {
   name: 'CheckboxItem',
   label: '复选框',
   description: '',
+  type: 'DataEntry',
   props: [
     {
       name: 'defaultChecked',
