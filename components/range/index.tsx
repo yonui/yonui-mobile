@@ -96,8 +96,8 @@ const manifest: ComponentManifest = {
 export default class RangeComponent implements Component<RangeProps> {
   manifest = manifest
   render = ReactWrapper((props: any) => {
-    props.defaultValue = JSON.parse(props.defaultValue)
-    props.value = JSON.parse(props.value)
+    props.defaultValue = Array.isArray(props.defaultValue) ? props.defaultValue : JSON.parse(props.defaultValue)
+    props.value = Array.isArray(props.value) ? props.value : JSON.parse(props.value)
     return <Range {...props} />
   })
 }
