@@ -31,7 +31,7 @@ const manifest: ComponentManifest = {
     {
       name: 'data',
       type: FieldTypes.array, // 备注：这里应该是数组
-      defaultValue: [{
+      defaultValue: JSON.stringify([{
         value: '1',
         label: 'test1'
       }, {
@@ -42,7 +42,7 @@ const manifest: ComponentManifest = {
         value: '3',
         label: 'tes2',
         isLeaf: true
-      }],
+      }]),
       value: '',
       showDesign: true,
       designConfig: {

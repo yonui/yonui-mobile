@@ -16,7 +16,7 @@ const manifest: ComponentManifest = {
     {
       name: 'prefixCls',
       type: FieldTypes.string,
-      defaultValue: 'am-segment',
+      defaultValue: 'rmc-tabs',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -40,7 +40,7 @@ const manifest: ComponentManifest = {
     {
       name: 'tabs',
       type: FieldTypes.array,
-      defaultValue: [],
+      defaultValue: JSON.stringify([{ title: 'First Tab' }]),
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -223,7 +223,7 @@ const manifest: ComponentManifest = {
     {
       name: 'tabBarUnderlineStyle',
       type: FieldTypes.object,
-      defaultValue: {},
+      defaultValue: JSON.stringify({}),
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -275,7 +275,7 @@ const manifest: ComponentManifest = {
     {
       name: 'tabBarUnderlineStyle',
       type: FieldTypes.object,
-      defaultValue: {},
+      defaultValue: JSON.stringify({}),
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -327,7 +327,10 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
+
 export default class MetaTabs implements Component<TabsProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Tabs {...props}> {props.children} </Tabs>, { manifest })
+  render = ReactWrapper((props: any) => <Tabs {...props}>
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
+      Content of first tab</div> </Tabs>, { manifest })
 }

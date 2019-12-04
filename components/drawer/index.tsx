@@ -11,7 +11,7 @@ const manifest: ComponentManifest = {
   props: [// adapter适配层数据
     {
       name: 'sidebar',
-      type: FieldTypes.string,
+      type: FieldTypes.string, // 备注 需要修改成child
       defaultValue: '',
       value: '',
       showDesign: true,
@@ -193,5 +193,5 @@ const manifest: ComponentManifest = {
 // 这边需要做的处理：需要生成sidebar然后传给<Drawer></Drawer>
 export default class MetaDrawer implements Component<DrawerWebProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<Drawer {...props}>{props.children}</Drawer>), { manifest })
+  render = ReactWrapper((props: any) => (<Drawer {...props} sidebar={<div dangerouslySetInnerHTML={{ __html: props.sidebar }} /> }>{props.children || <div>drawer</div>}</Drawer>), { manifest })
 }

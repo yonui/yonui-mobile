@@ -14,7 +14,7 @@ const manifest: ComponentManifest = {
     {
       name: 'data',
       type: FieldTypes.array,
-      defaultValue: [
+      defaultValue: JSON.stringify([
         {
           label: 'test1',
           value: 'test1'
@@ -23,7 +23,7 @@ const manifest: ComponentManifest = {
           label: 'test2',
           value: 'test2'
         }
-      ],
+      ]),
       showDesign: true,
       designConfig: {
         type: EditTypes.Json,

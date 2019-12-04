@@ -29,7 +29,7 @@ const manifest: ComponentManifest = {
     {
       name: 'tabs',
       type: FieldTypes.array,
-      defaultValue: [],
+      defaultValue: JSON.stringify([]),
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
