@@ -30,6 +30,7 @@ const manifest: ComponentManifest = {
     {
       name: 'title',
       type: FieldTypes.child,
+      showDesign: true,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
@@ -40,6 +41,7 @@ const manifest: ComponentManifest = {
     {
       name: 'description',
       type: FieldTypes.child,
+      showDesign: true,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
@@ -50,6 +52,7 @@ const manifest: ComponentManifest = {
     {
       name: 'icon',
       type: FieldTypes.child || FieldTypes.object,
+      showDesign: true,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,

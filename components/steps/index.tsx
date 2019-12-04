@@ -55,6 +55,7 @@ const manifest: ComponentManifest = {
       name: 'direction',
       type: FieldTypes.string,
       defaultValue: 'vertical',
+      showDesign: true,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
