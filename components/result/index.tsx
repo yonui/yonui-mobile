@@ -12,7 +12,7 @@ const manifest: ComponentManifest = {
     {
       name: 'imgUrl',
       type: FieldTypes.array, // 备注：这里应该是数组
-      defaultValue: '',
+      defaultValue: 'http://design.yonyoucloud.com/static/tinper-bee/logo/iuapdesign.svg', // 占位
       value: '',
       showDesign: true,
       designConfig: {
@@ -40,7 +40,7 @@ const manifest: ComponentManifest = {
     {
       name: 'title',
       type: FieldTypes.child,
-      defaultValue: 0,
+      defaultValue: '设计器结果页',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,

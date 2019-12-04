@@ -30,11 +30,11 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'text',
-      type: FieldTypes.number,
-      defaultValue: 0,
+      type: FieldTypes.string,
+      defaultValue: 'text',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Number,
+        type: EditTypes.Text,
         props: {},
         label: '展示的数字',
         help: '展示的数字或文案，当为数字时候，大于 overflowCount时显示为 overflowCount，为 0 时隐藏'

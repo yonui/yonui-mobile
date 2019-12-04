@@ -1,4 +1,7 @@
-.am-flexbox [uitype='FlexItem'] { //设计器包装一层
+:global(.am-flexbox [uitype='FlexItem']:first-child) {
+  margin-left: 0;
+}
+:global(.am-flexbox [uitype='FlexItem']) { //设计器包装一层
   flex: 1;
   box-sizing: border-box;
   -webkit-box-flex: 1;
