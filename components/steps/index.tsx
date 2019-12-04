@@ -59,7 +59,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: true,
         props: {
-          option: [
+          options: [
             { value: 'horizontal', text: '水平' },
             { value: 'vertical', text: '垂直' }
           ]

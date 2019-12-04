@@ -53,7 +53,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Select,
         isRequired: false,
         props: {
-          option: [
+          options: [
             { value: 'small', text: '小' },
             { value: 'large', text: '大' }
           ]

@@ -27,7 +27,7 @@ const manifest: ComponentManifest = {
       type: EditTypes.Number,
       label: '进度条的位置',
       props: {
-        option: [
+        options: [
           { value: 'fixed', text: '最顶层' },
           { value: 'normal', text: '普通' }
         ]

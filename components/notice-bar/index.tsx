@@ -28,7 +28,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Select,
         isRequired: false,
         props: {
-          option: [
+          options: [
             { value: 'closable', text: '关闭' },
             { value: 'link', text: '链接' }
           ]

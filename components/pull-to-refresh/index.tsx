@@ -27,7 +27,7 @@ const manifest: ComponentManifest = {
       type: EditTypes.Number,
       label: '拉动方向',
       props: {
-        option: [
+        options: [
           { value: 'up', text: '向上' },
           { value: 'down', text: '向下' }
         ]

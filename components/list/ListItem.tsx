@@ -146,7 +146,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Select,
         isRequired: false,
         props: {
-          option: [
+          options: [
             { value: 'android', text: '安卓' },
             { value: 'ios', text: '苹果' },
             { value: 'cross', text: '自动检测设备' }
