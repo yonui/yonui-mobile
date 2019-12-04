@@ -12,8 +12,9 @@ const manifest: ComponentManifest = {
   props: [
     {
       name: 'dataSource',
-      type: FieldTypes.action,
-      defaultValue: '',
+      type: FieldTypes.object,
+      // defaultValue 要求是 ListView.DataSource的实例，暂时无法实现
+      defaultValue: JSON.stringify(new ListView.DataSource({ rowHasChanged: () => false })),
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -169,7 +170,7 @@ const manifest: ComponentManifest = {
     {
       name: 'contentContainerStyle',
       type: FieldTypes.object,
-      defaultValue: {},
+      defaultValue: JSON.stringify({}),
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,

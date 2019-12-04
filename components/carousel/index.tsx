@@ -109,7 +109,7 @@ const manifest: ComponentManifest = {
     {
       name: 'dotStyle',
       type: FieldTypes.object,
-      defaultValue: {},
+      defaultValue: JSON.stringify({}),
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -122,7 +122,7 @@ const manifest: ComponentManifest = {
     {
       name: 'dotActiveStyle',
       type: FieldTypes.object,
-      defaultValue: {},
+      defaultValue: JSON.stringify({}),
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,

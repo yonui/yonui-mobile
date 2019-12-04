@@ -39,7 +39,7 @@ const manifest: ComponentManifest = {
     {
       name: 'style',
       type: FieldTypes.object,
-      defaultValue: {},
+      defaultValue: JSON.stringify({}),
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,

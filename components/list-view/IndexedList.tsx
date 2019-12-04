@@ -12,9 +12,23 @@ const manifest: ComponentManifest = {
   type: 'Combination',
   props: [
     {
+      name: 'dataSource',
+      type: FieldTypes.object,
+      // defaultValue 要求是 ListView.DataSource的实例，暂时无法实现
+      defaultValue: JSON.stringify(new ListView.DataSource({ rowHasChanged: () => false })),
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '源数据',
+        help: '通过ListViewDataSource初始化的源数据'
+      }
+    },
+    {
       name: 'quickSearchBarTop',
       type: FieldTypes.object,
-      defaultValue: { value: '#', label: '#' },
+      defaultValue: JSON.stringify({ value: '#', label: '#' }),
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -27,7 +41,7 @@ const manifest: ComponentManifest = {
     {
       name: 'quickSearchBarStyle',
       type: FieldTypes.object,
-      defaultValue: {},
+      defaultValue: JSON.stringify({}),
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,

@@ -62,7 +62,7 @@ const manifest: ComponentManifest = {
     {
       name: 'openAnimation',
       type: FieldTypes.object,
-      defaultValue: {},
+      defaultValue: JSON.stringify({}),
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
