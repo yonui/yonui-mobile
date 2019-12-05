@@ -16,7 +16,7 @@ const manifest: ComponentManifest = {
     {
       name: 'prefixCls',
       type: FieldTypes.string,
-      defaultValue: 'am-segment',
+      defaultValue: 'am-tab-bar',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -127,5 +127,9 @@ const manifest: ComponentManifest = {
 }
 export default class MetaTabBar implements Component<AntTabbarProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <TabBar {...props}> {props.children} </TabBar>, { manifest })
+  render = ReactWrapper((props: any) => <TabBar {...props}>{props.children || <TabBar.Item
+    icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
+    selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
+    title="tabbar-children-affix"
+    key="tabbar-children-affix"></TabBar.Item>}</TabBar>, { manifest })
 }

@@ -5,7 +5,7 @@ import React from 'react'
 import { TabBar } from 'antd-mobile'
 import { AntTabbarProps } from 'antd-mobile/lib/tab-bar'
 import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-var TabBarItem = TabBar.Item
+// var TabBarItem = TabBar.Item
 // todo 未配置 onChange
 const manifest: ComponentManifest = {
   name: 'TabBarItem',
@@ -65,9 +65,9 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'Icon',
-      type: FieldTypes.child,
-      defaultValue: '',
+      name: 'icon',
+      type: FieldTypes.object,
+      defaultValue: JSON.stringify({ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }),
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -79,8 +79,8 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'selectedIcon',
-      type: FieldTypes.child,
-      defaultValue: '',
+      type: FieldTypes.object,
+      defaultValue: JSON.stringify({ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }),
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -93,7 +93,7 @@ const manifest: ComponentManifest = {
     {
       name: 'title',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: 'tarbaritem',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -130,9 +130,9 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: ['ListView', 'Button', 'Calendar', 'Card', 'Checkbox', 'Drawer', 'Flex', 'NavBar', 'Progress', 'Stepper', 'Switch', 'WhiteSpace', 'WingBlank']
+  children: []
 }
 export default class MetaTabBarItem implements Component<AntTabbarProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <TabBarItem {...props}></TabBarItem>, { manifest })
+  render = ReactWrapper((props: any) => <TabBar.Item {...props}></TabBar.Item>, { manifest })
 }
