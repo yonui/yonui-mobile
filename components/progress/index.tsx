@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { Progress } from 'antd-mobile'
 import { ProgressProps } from 'antd-mobile/lib/progress'
+import './index.less'
 const manifest: ComponentManifest = {
   name: 'Progress',
   label: '进度条',
