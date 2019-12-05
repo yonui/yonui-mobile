@@ -15,6 +15,7 @@ const manifest: ComponentManifest = {
     {
       name: 'name',
       type: FieldTypes.child,
+      defaultValue: '单选项',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
