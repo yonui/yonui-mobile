@@ -193,7 +193,8 @@ const manifest: ComponentManifest = {
         props: {}
       }
     }
-  ]
+  ],
+  child: ['Card']
 }
 export default class ModalComponent implements Component<ModalProps> {
   manifest = manifest
