@@ -34,7 +34,7 @@ const manifest: ComponentManifest = {
     {
       name: 'text',
       type: FieldTypes.string,
-      defaultValue: false,
+      defaultValue: 'load',
       showDesign: true,
       designConfig: {
         label: 'loading文本',
