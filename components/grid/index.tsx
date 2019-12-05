@@ -87,7 +87,7 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'renderItem',
-      type: FieldTypes.child,
+      type: FieldTypes.action,
       defaultValue: '',
       showDesign: true,
       designConfig: {
