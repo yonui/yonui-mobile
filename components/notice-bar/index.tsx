@@ -9,7 +9,7 @@ const manifest: ComponentManifest = {
   props: [
     {
       name: 'content',
-      type: FieldTypes.string,
+      type: FieldTypes.child,
       defaultValue: 'Notice: The default notice',
       showDesign: true,
       designConfig: {

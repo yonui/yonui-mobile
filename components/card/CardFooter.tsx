@@ -11,7 +11,7 @@ const manifest = {
   props: [
     {
       name: 'content',
-      type: FieldTypes.string,
+      type: FieldTypes.child,
       defaultValue: 'footer content',
       showDesign: true,
       designConfig: {
@@ -23,7 +23,7 @@ const manifest = {
     },
     {
       name: 'extra',
-      type: FieldTypes.string,
+      type: FieldTypes.child,
       defaultValue: 'extra footer content',
       showDesign: true,
       designConfig: {

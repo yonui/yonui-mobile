@@ -21,7 +21,7 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'leftContent',
-      type: FieldTypes.string,
+      type: FieldTypes.child,
       defaultValue: '左侧内容',
       showDesign: true,
       designConfig: {
