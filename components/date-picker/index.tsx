@@ -197,5 +197,5 @@ const manifest: ComponentManifest = {
 }
 export default class DatePickerComponent implements Component<PropsType> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <DatePicker {...props}><div className='picker-trigger-click'>datepicker-children-affix</div></DatePicker>, { manifest })
+  render = ReactWrapper((props: any) => <DatePicker {...props}><div className='picker-trigger-click' style={{ minHeight: 32 }}>datepicker-弹框</div></DatePicker>, { manifest })
 }

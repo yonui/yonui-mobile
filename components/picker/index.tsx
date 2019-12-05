@@ -210,5 +210,5 @@ const manifest: ComponentManifest = {
 }
 export default class PickerComponent implements Component<PickerPropsType> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Picker {...props}><div className='picker-trigger-click'>picker-children-affix</div></Picker>, { manifest })
+  render = ReactWrapper((props: any) => <Picker {...props}><div className='picker-trigger-click' style={{ minHeight: 32 }}>picker-弹框</div></Picker>, { manifest })
 }

@@ -64,7 +64,7 @@ const manifest: ComponentManifest = {
       name: 'isCarousel',
       type: FieldTypes.boolean,
       defaultValue: false,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Bool,
         isRequired: false,
