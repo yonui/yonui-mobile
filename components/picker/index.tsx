@@ -14,6 +14,28 @@ const manifest: ComponentManifest = {
     {
       name: 'data',
       type: FieldTypes.array,
+      defaultValue: JSON.stringify([
+        [
+          {
+            label: '2013',
+            value: '2013'
+          },
+          {
+            label: '2014',
+            value: '2014'
+          }
+        ],
+        [
+          {
+            label: '春',
+            value: '春'
+          },
+          {
+            label: '夏',
+            value: '夏'
+          }
+        ]
+      ]),
       showDesign: true,
       designConfig: {
         type: EditTypes.Json,
@@ -188,5 +210,5 @@ const manifest: ComponentManifest = {
 }
 export default class PickerComponent implements Component<PickerPropsType> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Picker {...props}/>, { manifest })
+  render = ReactWrapper((props: any) => <Picker {...props}><div className='picker-trigger-click'>picker-children-affix</div></Picker>, { manifest })
 }
