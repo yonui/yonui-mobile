@@ -136,6 +136,7 @@ const manifest: ComponentManifest = {
       name: 'platform',
       type: FieldTypes.string,
       showDesign: true,
+      defaultValue: 'ios',
       designConfig: {
         label: '平台',
         type: EditTypes.Select,
@@ -165,7 +166,7 @@ const manifest: ComponentManifest = {
       showDesign: true,
       designConfig: {
         label: 'mask 动画 className',
-        type: EditTypes.Select,
+        type: EditTypes.Text,
         isRequired: false,
         props: {}
       }
@@ -176,7 +177,7 @@ const manifest: ComponentManifest = {
       showDesign: true,
       designConfig: {
         label: '手动设置 Modal 的 className',
-        type: EditTypes.Select,
+        type: EditTypes.Text,
         isRequired: false,
         props: {}
       }
@@ -187,7 +188,7 @@ const manifest: ComponentManifest = {
       showDesign: true,
       designConfig: {
         label: '手动设置 Modal wrap 的 className',
-        type: EditTypes.Select,
+        type: EditTypes.Text,
         isRequired: false,
         props: {}
       }
