@@ -122,7 +122,7 @@ const manifest: ComponentManifest = {
     }
   ],
   children: () => true,
-  parent: (p: ComponentManifest) => p.type === 'layout'
+  parent: (p: ComponentManifest) => p.type === 'Layout'
 }
 export default class MetaFlex implements Component<FlexProps> {
   manifest = manifest
