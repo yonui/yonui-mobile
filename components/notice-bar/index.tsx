@@ -41,7 +41,7 @@ const manifest: ComponentManifest = {
       type: FieldTypes.child,
       showDesign: true,
       designConfig: {
-        type: EditTypes.Json,
+        type: EditTypes.child,
         isRequired: false,
         props: {},
         label: '图标'
@@ -63,7 +63,7 @@ const manifest: ComponentManifest = {
       type: FieldTypes.child,
       showDesign: true,
       designConfig: {
-        type: EditTypes.Json,
+        type: EditTypes.Text,
         isRequired: false,
         props: {},
         label: '用于替换操作 icon 的文案'
