@@ -113,7 +113,7 @@ const manifest: ComponentManifest = {
     {
       name: 'title',
       type: FieldTypes.child,
-      default: '标题',
+      defaultValue: '标题',
       showDesign: true,
       designConfig: {
         label: '标题',
