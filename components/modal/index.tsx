@@ -194,7 +194,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  child: ['Card']
+  children: ['Card']
 }
 export default class ModalComponent implements Component<ModalProps> {
   manifest = manifest
