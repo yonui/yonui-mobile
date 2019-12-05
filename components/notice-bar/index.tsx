@@ -41,7 +41,7 @@ const manifest: ComponentManifest = {
       type: FieldTypes.child,
       showDesign: true,
       designConfig: {
-        type: EditTypes.child,
+        type: EditTypes.Text,
         isRequired: false,
         props: {},
         label: '图标'
