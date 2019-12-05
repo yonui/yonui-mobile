@@ -23,7 +23,7 @@ const manifest: ComponentManifest = {
     {
       name: 'type',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: 'check-circle',
       showDesign: true,
       designConfig: {
         label: '内置 icon 名称',

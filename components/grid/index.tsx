@@ -13,7 +13,7 @@ const manifest: ComponentManifest = {
     {
       name: 'data',
       type: FieldTypes.array,
-      defaultValue: [],
+      defaultValue: JSON.stringify([{ text: 1 }, { text: 2 }]),
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
