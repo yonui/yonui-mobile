@@ -14,7 +14,7 @@ const manifest: ComponentManifest = {
   props: [
     {
       name: 'name',
-      type: FieldTypes.string,
+      type: FieldTypes.child,
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
