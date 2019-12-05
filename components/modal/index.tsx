@@ -22,7 +22,7 @@ const manifest: ComponentManifest = {
     {
       name: 'closable',
       type: FieldTypes.boolean,
-      defaultValue: false,
+      defaultValue: true,
       showDesign: true,
       designConfig: {
         label: '是否显示关闭按钮',
@@ -70,7 +70,7 @@ const manifest: ComponentManifest = {
     {
       name: 'transparent',
       type: FieldTypes.boolean,
-      defaultValue: false,
+      defaultValue: true,
       showDesign: true,
       designConfig: {
         label: '是否背景透明',
@@ -113,6 +113,7 @@ const manifest: ComponentManifest = {
     {
       name: 'title',
       type: FieldTypes.child,
+      defaultValue: '标题',
       showDesign: true,
       designConfig: {
         label: '标题',
@@ -124,6 +125,7 @@ const manifest: ComponentManifest = {
     {
       name: 'footer',
       type: FieldTypes.array,
+      defaultValue: JSON.stringify([{ text: '确认' }, { text: '取消' }]),
       showDesign: true,
       designConfig: {
         label: '底部内容',
@@ -136,6 +138,7 @@ const manifest: ComponentManifest = {
       name: 'platform',
       type: FieldTypes.string,
       showDesign: true,
+      defaultValue: 'ios',
       designConfig: {
         label: '平台',
         type: EditTypes.Select,
@@ -165,7 +168,7 @@ const manifest: ComponentManifest = {
       showDesign: true,
       designConfig: {
         label: 'mask 动画 className',
-        type: EditTypes.Select,
+        type: EditTypes.Text,
         isRequired: false,
         props: {}
       }
@@ -176,7 +179,7 @@ const manifest: ComponentManifest = {
       showDesign: true,
       designConfig: {
         label: '手动设置 Modal 的 className',
-        type: EditTypes.Select,
+        type: EditTypes.Text,
         isRequired: false,
         props: {}
       }
@@ -187,12 +190,13 @@ const manifest: ComponentManifest = {
       showDesign: true,
       designConfig: {
         label: '手动设置 Modal wrap 的 className',
-        type: EditTypes.Select,
+        type: EditTypes.Text,
         isRequired: false,
         props: {}
       }
     }
-  ]
+  ],
+  children: ['Card']
 }
 export default class ModalComponent implements Component<ModalProps> {
   manifest = manifest

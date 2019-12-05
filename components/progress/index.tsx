@@ -11,7 +11,7 @@ const manifest: ComponentManifest = {
     name: 'percent',
     type: FieldTypes.number,
     showDesign: true,
-    defaultValue: 0,
+    defaultValue: 50,
     designConfig: {
       type: EditTypes.Number,
       label: '百分比',
@@ -48,6 +48,7 @@ const manifest: ComponentManifest = {
   {
     name: 'style',
     type: FieldTypes.object,
+    defaultValue: JSON.stringify({}),
     showDesign: true,
     designConfig: {
       type: EditTypes.Json,
@@ -58,6 +59,7 @@ const manifest: ComponentManifest = {
   {
     name: 'barStyle',
     type: FieldTypes.object,
+    defaultValue: JSON.stringify({}),
     showDesign: true,
     designConfig: {
       type: EditTypes.Json,

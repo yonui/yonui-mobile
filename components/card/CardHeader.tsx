@@ -11,7 +11,7 @@ const manifest = {
   props: [
     {
       name: 'title',
-      type: FieldTypes.string,
+      type: FieldTypes.child,
       defaultValue: 'This is title',
       showDesign: true,
       designConfig: {
@@ -35,20 +35,8 @@ const manifest = {
     },
     {
       name: 'extra',
-      type: FieldTypes.string,
+      type: FieldTypes.child,
       defaultValue: 'this is extra',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: '标题辅助内容'
-      }
-    },
-    {
-      name: 'extra',
-      type: FieldTypes.string,
-      defaultValue: false,
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
