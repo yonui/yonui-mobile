@@ -24,7 +24,7 @@ const manifest: ComponentManifest = {
     showDesign: true,
     defaultValue: 'fixed',
     designConfig: {
-      type: EditTypes.Number,
+      type: EditTypes.Select,
       label: '进度条的位置',
       props: {
         options: [
