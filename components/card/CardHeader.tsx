@@ -23,7 +23,7 @@ const manifest = {
     },
     {
       name: 'thumb',
-      type: FieldTypes.child,
+      type: FieldTypes.string,
       defaultValue: 'https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg',
       showDesign: true,
       designConfig: {
