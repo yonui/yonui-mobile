@@ -3,17 +3,18 @@
 @font-size-label-normal: 14 * @hd;
 @font-size-label-large: 16 * @hd;
 @labelPrefixCls: label;
-
-
 :global(.@{labelPrefixCls}) {
-  font-size: @font-size-label-normal;
+  .mixin(@font-size-label-normal);
   &-small {
-    font-size: @font-size-label-small;
+    .mixin(@font-size-label-small);
   }
   &-normal {
-    font-size: @font-size-label-normal;
+    .mixin(@font-size-label-normal);
   }
   &-large {
-    font-size: @font-size-label-large;
+    .mixin(@font-size-label-large);
   }
+}
+.mixin(@font-size) {
+  font-size: @font-size;
 }
