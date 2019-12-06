@@ -1,3 +1,4 @@
+export { default as Label } from './components/label'
 export { default as Button } from './components/button'
 export { default as Calendar } from './components/calendar'
 export { default as Card } from './components/card'

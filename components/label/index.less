@@ -1,0 +1,19 @@
+@hd: 1px;
+@font-size-label-small: 12 * @hd;
+@font-size-label-normal: 14 * @hd;
+@font-size-label-large: 16 * @hd;
+@labelPrefixCls: label;
+
+
+:global(.@{labelPrefixCls}) {
+  font-size: @font-size-label-normal;
+  &-small {
+    font-size: @font-size-label-small;
+  }
+  &-normal {
+    font-size: @font-size-label-normal;
+  }
+  &-large {
+    font-size: @font-size-label-large;
+  }
+}
