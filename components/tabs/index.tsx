@@ -48,7 +48,7 @@ const manifest: ComponentManifest = {
       defaultValue: JSON.stringify([{ title: 'First Tab' }, { title: 'Second Tab' }]),
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         isRequired: true,
         props: {},
         label: 'tab数据',

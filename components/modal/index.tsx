@@ -13,7 +13,8 @@ const manifest: ComponentManifest = {
       defaultValue: true,
       showDesign: true,
       designConfig: {
-        label: '对话框是否可见',
+        help: '对话框是否可见',
+        label: '可见',
         type: EditTypes.Bool,
         isRequired: false,
         props: {}
@@ -25,7 +26,8 @@ const manifest: ComponentManifest = {
       defaultValue: true,
       showDesign: true,
       designConfig: {
-        label: '是否显示关闭按钮',
+        help: '是否显示关闭按钮',
+        label: '关闭按钮',
         type: EditTypes.Bool,
         isRequired: false,
         props: {}
@@ -37,7 +39,8 @@ const manifest: ComponentManifest = {
       defaultValue: true,
       showDesign: true,
       designConfig: {
-        label: '点击蒙层是否允许关闭',
+        label: '蒙层关闭',
+        help: '点击蒙层是否允许关闭',
         type: EditTypes.Bool,
         isRequired: false,
         props: {}
@@ -49,7 +52,8 @@ const manifest: ComponentManifest = {
       defaultValue: false,
       showDesign: true,
       designConfig: {
-        label: 'Modal 完全关闭后的回调',
+        label: 'afterClose',
+        help: 'Modal 完全关闭后的回调',
         type: EditTypes.Text,
         isRequired: false,
         props: {}
@@ -61,7 +65,8 @@ const manifest: ComponentManifest = {
       defaultValue: false,
       showDesign: true,
       designConfig: {
-        label: '点击 x 或 mask 回调',
+        label: 'onClose',
+        help: '点击 x 或 mask 回调',
         type: EditTypes.Text,
         isRequired: false,
         props: {}
@@ -73,7 +78,7 @@ const manifest: ComponentManifest = {
       defaultValue: true,
       showDesign: true,
       designConfig: {
-        label: '是否背景透明',
+        label: '背景透明',
         type: EditTypes.Bool,
         isRequired: false,
         props: {}
@@ -85,7 +90,7 @@ const manifest: ComponentManifest = {
       defaultValue: false,
       showDesign: true,
       designConfig: {
-        label: '是否弹窗模式',
+        label: '弹窗模式',
         type: EditTypes.Bool,
         isRequired: false,
         props: {}
@@ -156,8 +161,9 @@ const manifest: ComponentManifest = {
       type: FieldTypes.string,
       showDesign: true,
       designConfig: {
-        label: 'Modal 主内容动画 className',
-        type: EditTypes.Select,
+        label: 'modal动画',
+        help: 'Modal 主内容动画 className',
+        type: EditTypes.Text,
         isRequired: false,
         props: {}
       }
@@ -167,7 +173,8 @@ const manifest: ComponentManifest = {
       type: FieldTypes.string,
       showDesign: true,
       designConfig: {
-        label: 'mask 动画 className',
+        label: 'mask动画',
+        help: 'mask 动画 className',
         type: EditTypes.Text,
         isRequired: false,
         props: {}
@@ -178,7 +185,8 @@ const manifest: ComponentManifest = {
       type: FieldTypes.string,
       showDesign: true,
       designConfig: {
-        label: '手动设置 Modal 的 className',
+        label: 'className',
+        help: '手动设置 Modal 的 className',
         type: EditTypes.Text,
         isRequired: false,
         props: {}
@@ -189,7 +197,8 @@ const manifest: ComponentManifest = {
       type: FieldTypes.string,
       showDesign: true,
       designConfig: {
-        label: '手动设置 Modal wrap 的 className',
+        label: 'wrapClassName',
+        help: '手动设置 Modal wrap 的 className',
         type: EditTypes.Text,
         isRequired: false,
         props: {}

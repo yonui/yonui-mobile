@@ -16,7 +16,7 @@ const manifest: ComponentManifest = {
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         props: {},
         label: '插图url',
         help: '插图url'
@@ -71,7 +71,7 @@ const manifest: ComponentManifest = {
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         props: {},
         label: '按钮文案',
         help: '按钮文案'
@@ -84,7 +84,7 @@ const manifest: ComponentManifest = {
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         props: {},
         label: 'button设置',
         help: '请参考 button 的配置'

@@ -91,7 +91,7 @@ const manifest: ComponentManifest = {
       defaultValue: JSON.stringify(['test1', 'test2']),
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         isRequired: false,
         props: {},
         label: '选项',

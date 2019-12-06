@@ -32,7 +32,7 @@ const manifest: ComponentManifest = {
       defaultValue: JSON.stringify([]),
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         isRequired: true,
         props: {},
         label: 'tab数据',
