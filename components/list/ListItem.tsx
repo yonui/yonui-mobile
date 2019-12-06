@@ -33,7 +33,7 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'extra',
-      type: FieldTypes.string,
+      type: FieldTypes.child,
       defaultValue: '右侧内容',
       showDesign: true,
       designConfig: {
