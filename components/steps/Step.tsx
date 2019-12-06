@@ -30,6 +30,7 @@ const manifest: ComponentManifest = {
     {
       name: 'title',
       type: FieldTypes.child,
+      defaultValue: 'title',
       showDesign: true,
       designConfig: {
         type: EditTypes.Textarea,
@@ -41,6 +42,7 @@ const manifest: ComponentManifest = {
     {
       name: 'description',
       type: FieldTypes.child,
+      defaultValue: 'description',
       showDesign: true,
       designConfig: {
         type: EditTypes.Textarea,
