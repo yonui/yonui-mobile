@@ -122,7 +122,7 @@ const manifest: ComponentManifest = {
       showDesign: true,
       designConfig: {
         label: '标题',
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: false,
         props: {}
       }

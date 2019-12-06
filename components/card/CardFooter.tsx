@@ -15,7 +15,7 @@ const manifest = {
       defaultValue: 'footer content',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: false,
         props: {},
         label: '尾部内容'
@@ -27,7 +27,7 @@ const manifest = {
       defaultValue: 'extra footer content',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: false,
         props: {},
         label: '尾部辅助内容'

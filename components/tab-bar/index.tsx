@@ -31,7 +31,7 @@ const manifest: ComponentManifest = {
       defaultValue: 'white',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Color,
         isRequired: false,
         props: {},
         label: '背景色',
@@ -44,7 +44,7 @@ const manifest: ComponentManifest = {
       defaultValue: '#108ee9',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Color,
         isRequired: false,
         props: {},
         label: '选中字体颜色',
@@ -77,19 +77,19 @@ const manifest: ComponentManifest = {
         help: '是否隐藏'
       }
     },
-    {
-      name: 'noRenderContent',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: false,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '不渲染',
-        help: '不渲染内容部分'
-      }
-    },
+    // {
+    //   name: 'noRenderContent',
+    //   type: FieldTypes.boolean,
+    //   defaultValue: false,
+    //   showDesign: false,
+    //   designConfig: {
+    //     type: EditTypes.Bool,
+    //     isRequired: false,
+    //     props: {},
+    //     label: '不渲染',
+    //     help: '不渲染内容部分'
+    //   }
+    // },
     {
       name: 'prerenderingSiblingsNumber',
       type: FieldTypes.number,
@@ -130,6 +130,6 @@ export default class MetaTabBar implements Component<AntTabbarProps> {
   render = ReactWrapper((props: any) => <TabBar {...props}>{props.children || <TabBar.Item
     icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
     selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
-    title="tabbar-children-affix"
-    key="tabbar-children-affix"></TabBar.Item>}</TabBar>, { manifest })
+    title="占位"
+    key="default"></TabBar.Item>}</TabBar>, { manifest })
 }

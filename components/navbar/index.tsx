@@ -32,11 +32,11 @@ const manifest: ComponentManifest = {
     {
       name: 'icon',
       type: FieldTypes.child,
-      defaultValue: '',
+      defaultValue: '<img src="https://gw.alipayobjects.com/zos/rmsportal/HWuSTipkjJRfTWekgTUG.svg" class="spe am-icon am-icon-md" alt="">',
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         props: {},
         label: '最左边图标',
         help: '出现在最左边的图标占位符'
@@ -44,27 +44,27 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'leftContent',
-      type: FieldTypes.string,
-      defaultValue: '',
+      type: FieldTypes.child,
+      defaultValue: 'left',
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         props: {},
-        label: '导航左边内容',
+        label: '左边内容',
         help: '导航左边内容'
       }
     },
     {
       name: 'rightContent',
-      type: FieldTypes.string,
-      defaultValue: '',
+      type: FieldTypes.child,
+      defaultValue: '右边内容',
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         props: {},
-        label: '导航右边内容',
+        label: '右边内容',
         help: '导航右边内容'
       }
     },
@@ -77,7 +77,7 @@ const manifest: ComponentManifest = {
       designConfig: {
         type: EditTypes.Text,
         props: {},
-        label: '左边回调',
+        label: 'onLeftClick',
         help: '导航左边点击回调'
       }
     }

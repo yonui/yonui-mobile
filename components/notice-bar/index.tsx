@@ -13,7 +13,7 @@ const manifest: ComponentManifest = {
       defaultValue: ' Notice: Auld lang syneAuld lang syneAuld lang syneAuld lang syneAuld lang syne',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: false,
         props: {},
         label: '内容区'
@@ -42,7 +42,7 @@ const manifest: ComponentManifest = {
       defaultValue: 'icon',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: false,
         props: {},
         label: '图标，在左侧展示'
@@ -67,7 +67,7 @@ const manifest: ComponentManifest = {
       defaultValue: 'action',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: false,
         props: {},
         label: '右侧',

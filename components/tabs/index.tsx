@@ -76,19 +76,19 @@ const manifest: ComponentManifest = {
         help: 'TabBar位置'
       }
     },
-    {
-      name: 'renderTabBar',
-      type: FieldTypes.action,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: '替换TabBar',
-        help: '替换TabBar'
-      }
-    },
+    // {
+    //   name: 'renderTabBar',
+    //   type: FieldTypes.action,
+    //   defaultValue: '',
+    //   showDesign: false,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     isRequired: false,
+    //     props: {},
+    //     label: 'renderTabBar',
+    //     help: '替换TabBar'
+    //   }
+    // },
     {
       name: 'initialPage',
       type: FieldTypes.number,
@@ -163,7 +163,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: 'tab变化回调',
+        label: 'onChange',
         help: 'tab变化时触发'
       }
     },
@@ -176,7 +176,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: 'tab点击回调',
+        label: 'onTabClick',
         help: 'tab 被点击的回调'
       }
     },
@@ -189,7 +189,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Number,
         isRequired: false,
         props: {},
-        label: '切换阈值',
+        label: '切换的阈值',
         help: '滑动切换阈值(宽度比例)'
       }
     },
@@ -231,7 +231,7 @@ const manifest: ComponentManifest = {
       defaultValue: JSON.stringify({}),
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         isRequired: false,
         props: {},
         label: '下划线样式',
@@ -244,7 +244,7 @@ const manifest: ComponentManifest = {
       defaultValue: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Color,
         isRequired: false,
         props: {},
         label: '背景色',
@@ -257,7 +257,7 @@ const manifest: ComponentManifest = {
       defaultValue: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Color,
         isRequired: false,
         props: {},
         label: '激活文字颜色',
@@ -270,7 +270,7 @@ const manifest: ComponentManifest = {
       defaultValue: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Color,
         isRequired: false,
         props: {},
         label: '非激活文字颜色',
@@ -283,26 +283,26 @@ const manifest: ComponentManifest = {
       defaultValue: JSON.stringify({}),
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         isRequired: false,
         props: {},
         label: '文字样式',
         help: 'tabBar文字样式'
       }
     },
-    {
-      name: 'renderTab',
-      type: FieldTypes.action,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: '替换TabBar的Tab',
-        help: '替换TabBar的Tab'
-      }
-    },
+    // {
+    //   name: 'renderTab', // 备注：导致tab头部不展示
+    //   type: FieldTypes.action,
+    //   defaultValue: '',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     isRequired: false,
+    //     props: {},
+    //     label: 'renderTab',
+    //     help: '替换TabBar的Tab'
+    //   }
+    // },
     {
       name: 'destroyInactiveTab',
       type: FieldTypes.boolean,
@@ -325,7 +325,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '预加载',
+        label: '预加载数量',
         help: '预加载两侧Tab数量'
       }
     }
@@ -335,5 +335,5 @@ const manifest: ComponentManifest = {
 
 export default class MetaTabs implements Component<TabsProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Tabs {...props} renderTab={tab => <span>{tab.title}</span>}>{!props.tabs ? <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>Content of first tab</div> : getChildrenDom(props.tabs)}</Tabs>, { manifest })
+  render = ReactWrapper((props: any) => <Tabs {...props}>{getChildrenDom(props.tabs)}</Tabs>, { manifest })
 }

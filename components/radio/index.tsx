@@ -19,7 +19,7 @@ const manifest: ComponentManifest = {
       defaultValue: '单选框',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: false,
         props: {},
         label: '名称'
