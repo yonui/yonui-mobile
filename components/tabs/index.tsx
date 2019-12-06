@@ -5,7 +5,12 @@ import React from 'react'
 import { Tabs } from 'antd-mobile'
 import TabsProps from 'antd-mobile/lib/tabs/PropsType'
 import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-
+const getChildrenDom = function (tabs: any) {
+  if (!Array.isArray(tabs)) return null
+  return tabs.map((item, index) => {
+    return <div key={index} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>Content of {index} tab</div>
+  })
+}
 // todo 未配置 onChange
 const manifest: ComponentManifest = {
   name: 'Tabs',
@@ -16,7 +21,7 @@ const manifest: ComponentManifest = {
     {
       name: 'prefixCls',
       type: FieldTypes.string,
-      defaultValue: 'rmc-tabs',
+      defaultValue: 'am-tabs',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -40,7 +45,7 @@ const manifest: ComponentManifest = {
     {
       name: 'tabs',
       type: FieldTypes.array,
-      defaultValue: JSON.stringify([{ title: 'First Tab' }]),
+      defaultValue: JSON.stringify([{ title: 'First Tab' }, { title: 'Second Tab' }]),
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -330,7 +335,5 @@ const manifest: ComponentManifest = {
 
 export default class MetaTabs implements Component<TabsProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <Tabs {...props}>
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
-      Content of first tab</div> </Tabs>, { manifest })
+  render = ReactWrapper((props: any) => <Tabs {...props} renderTab={tab => <span>{tab.title}</span>}>{!props.tabs ? <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>Content of first tab</div> : getChildrenDom(props.tabs)}</Tabs>, { manifest })
 }

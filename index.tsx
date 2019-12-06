@@ -28,7 +28,7 @@ export { default as SegmentedControl } from './components/segmented-control'
 export { default as TabBar } from './components/tab-bar'
 export { default as TabBarItem } from './components/tab-bar/TabBarItem'
 export { default as Tabs } from './components/tabs'
-export { default as DefaultTabBar } from './components/tabs/DefaultTabBar'
+// export { default as DefaultTabBar } from './components/tabs/DefaultTabBar'
 
 export { default as CardHeader } from './components/card/CardHeader'
 export { default as CardBody } from './components/card/CardBody'
