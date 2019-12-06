@@ -7,7 +7,11 @@
  */
 import React from 'react'
 import './index.less'
-import { LabelProps } from './propType'
+export interface LabelProps {
+  type?: string
+  label?: string
+  style?: object
+}
 export default class Label extends React.Component<LabelProps> {
   render () {
     const { type, label, style } = this.props

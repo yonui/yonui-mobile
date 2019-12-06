@@ -1,7 +1,6 @@
 import React from 'react'
 import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import { LabelProps } from './propType'
-import Label from './Label'
+import Label, { LabelProps } from './Label'
 // todo
 const manifest: ComponentManifest = {
   name: 'Label',
