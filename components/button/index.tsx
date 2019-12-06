@@ -13,6 +13,30 @@ const manifest: ComponentManifest = {
   type: 'DataEntry',
   props: [
     {
+      name: 'prefixCls',
+      type: FieldTypes.string,
+      defaultValue: 'am-button',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: 'class前缀'
+      }
+    },
+    {
+      name: 'className',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: '样式类名'
+      }
+    },
+    {
       name: 'text',
       type: FieldTypes.string,
       defaultValue: '按钮',
@@ -63,7 +87,7 @@ const manifest: ComponentManifest = {
       name: 'activeClassName',
       type: FieldTypes.string,
       defaultValue: '',
-      showDesign: true,
+      showDesign: false, // 备注：暂不展示
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
@@ -115,7 +139,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '按钮载入状态'
+        label: '载入状态'
       }
     },
     {
@@ -128,30 +152,6 @@ const manifest: ComponentManifest = {
         isRequired: true,
         props: {},
         label: '图标'
-      }
-    },
-    {
-      name: 'prefixCls',
-      type: FieldTypes.string,
-      defaultValue: 'am-button',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: true,
-        props: {},
-        label: 'class前缀'
-      }
-    },
-    {
-      name: 'className',
-      type: FieldTypes.string,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: true,
-        props: {},
-        label: '样式类名'
       }
     }
   ],

@@ -89,7 +89,7 @@ const manifest: ComponentManifest = {
       type: EditTypes.Text,
       isRequired: true,
       props: {},
-      label: '改变回调'
+      label: 'onChange'
     }
   }]
 }

@@ -85,7 +85,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '点击方法'
+        label: 'onClick'
       }
     },
     {
@@ -96,7 +96,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '改变回调'
+        label: 'onChange'
       }
     }
   ],

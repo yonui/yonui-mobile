@@ -48,6 +48,7 @@ const manifest: ComponentManifest = {
       name: 'value',
       type: FieldTypes.array,
       showDesign: true,
+      defaultValue: JSON.stringify(['2014', '夏']),
       designConfig: {
         type: EditTypes.Json,
         isRequired: true,
@@ -86,7 +87,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '选中后的回调'
+        label: 'onChange'
       }
     },
     {
@@ -97,7 +98,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '数据选择变化后的回调函数'
+        label: 'onPickerChange',
+        help: '数据选择变化后的回调函数'
       }
     },
     {
@@ -108,7 +110,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '显隐状态变化时回调函数'
+        label: 'onVisibleChange',
+        help: '显隐状态变化时回调函数'
       }
     },
     {
@@ -120,7 +123,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '选中的文案'
+        label: '确认文案'
       }
     },
     {
@@ -132,7 +135,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '取消选中的文案'
+        label: '取消文案'
       }
     },
     {
@@ -143,7 +146,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '选中回调'
+        label: 'onOk',
+        help: '选中回调'
       }
     },
     {
@@ -154,7 +158,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '取消回调'
+        label: 'onDismiss',
+        help: '取消回调'
       }
     },
     {
@@ -196,7 +201,7 @@ const manifest: ComponentManifest = {
     {
       name: 'cascade',
       type: FieldTypes.boolean,
-      defaultValue: true,
+      defaultValue: false,
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,

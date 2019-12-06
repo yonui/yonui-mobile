@@ -25,7 +25,7 @@ const manifest: ComponentManifest = {
             { value: 'month', text: '月' }
           ]
         },
-        label: '选择的类型'
+        label: '选择类型'
       }
     },
     {
@@ -36,7 +36,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Date,
         isRequired: true,
         props: {},
-        label: '当前选中时间'
+        label: '选中时间'
       }
     },
     {
@@ -82,7 +82,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Number,
         isRequired: false,
         props: {},
-        label: '分钟数递增步长设置'
+        label: '递增步长',
+        help: '分钟数递增步长设置'
       }
     },
     {
@@ -93,7 +94,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: false,
         props: {},
-        label: '是否禁用'
+        label: '禁用'
       }
     },
     {
@@ -104,7 +105,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: 'change方法'
+        label: 'onChange'
       }
     },
     {
@@ -115,7 +116,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '每列picker改变时的回调'
+        label: 'onValueChange',
+        help: '每列picker改变时的回调'
       }
     },
     {
@@ -132,7 +134,8 @@ const manifest: ComponentManifest = {
             { value: 'YYYY-MM-DD HH:mm', text: '日期区间' }
           ]
         },
-        label: '格式化选中的值'
+        label: 'format',
+        help: '格式化选中的值'
       }
     },
     {
@@ -143,7 +146,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '弹框的标题'
+        label: '弹框标题'
       }
     },
     {
@@ -178,7 +181,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '选中回调'
+        label: 'onOk',
+        help: '选中回调'
       }
     },
     {
@@ -189,7 +193,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '取消回调'
+        label: 'onDismiss',
+        help: '取消回调'
       }
     }
 

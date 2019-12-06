@@ -71,7 +71,7 @@ const manifest: ComponentManifest = {
     {
       name: 'title',
       type: FieldTypes.string,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
@@ -199,9 +199,9 @@ const manifest: ComponentManifest = {
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
-        isRequired: true,
+        isRequired: false,
         props: {},
-        label: '返回事件'
+        label: 'cancel回调'
       }
     },
     {
@@ -212,7 +212,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '确认事件'
+        label: 'confirm回调'
       }
     },
     {
@@ -223,7 +223,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '选中回调'
+        label: 'select回调'
       }
     }
   ],

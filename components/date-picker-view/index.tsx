@@ -115,7 +115,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '每列picker改变时的回调'
+        label: 'onValueChange',
+        help: '每列picker改变时的回调'
       }
     }
   ]

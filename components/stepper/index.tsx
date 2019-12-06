@@ -50,6 +50,7 @@ const manifest: ComponentManifest = {
     {
       name: 'defaultValue',
       type: FieldTypes.number,
+      defaultValue: 0,
       showDesign: true,
       designConfig: {
         type: EditTypes.Number,

@@ -16,7 +16,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '改变回调'
+        label: 'onChange'
       }
     },
     {
@@ -27,7 +27,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '点击图片触发的回调'
+        label: 'onImageClick',
+        help: '点击图片触发的回调'
       }
     },
     {
@@ -38,7 +39,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '自定义选择图片的方法'
+        label: 'onAddImageClick',
+        help: '自定义选择图片的方法'
       }
     },
     {
@@ -49,7 +51,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '选择失败'
+        label: 'onFail',
+        help: '选择失败'
       }
     },
     {
@@ -61,7 +64,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: false,
         props: {},
-        label: '是否显示添加按钮'
+        label: '添加按钮',
+        help: '显示添加按钮'
       }
     },
     {
@@ -73,7 +77,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: false,
         props: {},
-        label: '是否支持多选'
+        label: '支持多选'
       }
     },
     {
@@ -97,7 +101,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text || EditTypes.Number,
         isRequired: true,
         props: {},
-        label: '单行的图片数量'
+        label: '单行数量',
+        help: '单行的图片数量'
       }
     },
     {
@@ -109,7 +114,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: false,
         props: {},
-        label: '图片捕获设置'
+        label: '捕获设置',
+        help: '图片捕获设置'
       }
     },
     {
@@ -121,7 +127,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: false,
         props: {},
-        label: '是否隐藏删除按钮'
+        label: '隐藏删除',
+        help: '是否隐藏删除按钮'
       }
     }
   ]

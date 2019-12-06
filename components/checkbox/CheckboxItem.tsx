@@ -19,7 +19,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '初始是否选中'
+        label: '初始值'
       }
     },
     {
@@ -30,7 +30,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '指定当前是否选中'
+        label: '值'
       }
     },
     {
@@ -42,7 +42,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '是否禁用'
+        label: '禁用'
       }
     },
     {
@@ -53,7 +53,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '改变回调'
+        label: 'onChange'
       }
     }
   ],
