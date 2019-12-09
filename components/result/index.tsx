@@ -15,7 +15,7 @@ const manifest: ComponentManifest = {
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Json,
+        type: EditTypes.Text,
         props: {},
         label: '插图url',
         help: '插图url'
@@ -65,12 +65,12 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'buttonText',
-      type: FieldTypes.array, // 备注：这里应该是数组
+      type: FieldTypes.string,
       defaultValue: '',
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Json,
+        type: EditTypes.Text,
         props: {},
         label: '按钮文案',
         help: '按钮文案'
@@ -78,12 +78,12 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'buttonType',
-      type: FieldTypes.array, // 备注：这里应该是数组
+      type: FieldTypes.string,
       defaultValue: '',
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Json,
+        type: EditTypes.Text,
         props: {},
         label: 'button设置',
         help: '请参考 button 的配置'
