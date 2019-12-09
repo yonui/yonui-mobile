@@ -24,7 +24,8 @@ const manifest: ComponentManifest = {
             { value: 'error', text: '错误' }
           ]
         },
-        label: '当前步骤的状态'
+        label: 'status',
+        help: '当前步骤的状态'
       }
     },
     {
@@ -48,12 +49,14 @@ const manifest: ComponentManifest = {
         type: EditTypes.Textarea,
         isRequired: true,
         props: {},
-        label: '步骤的详情描述'
+        label: '详情描述',
+        help: '步骤的详情描述'
       }
     },
     {
       name: 'icon',
       type: FieldTypes.child || FieldTypes.object,
+      defaultValue: '<span>1</span>',
       showDesign: true,
       designConfig: {
         type: EditTypes.Textarea,

@@ -48,7 +48,8 @@ const manifest: ComponentManifest = {
             { value: 'error', text: '错误' }
           ]
         },
-        label: '当前步骤的状态'
+        label: '步骤状态',
+        help: '当前步骤的状态'
       }
     },
     {
@@ -71,7 +72,14 @@ const manifest: ComponentManifest = {
   ],
   children: ['Step']
 }
+
+function getTabBarItems (children: any) {
+  if (!Array.isArray(children) || children.length === 0) return <Steps.Step title="第一步" />
+  return children.map((item, index) => {
+    return <Steps.Step {...item.props.children.props} key={index}></Steps.Step>
+  })
+}
 export default class StepsComponent implements Component<StepsProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => (<Steps {...props}>{props.children}</Steps>), { manifest })
+  render = ReactWrapper((props: any) => (<Steps {...props}>{getTabBarItems(props.children)}</Steps>), { manifest })
 }

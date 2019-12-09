@@ -125,11 +125,21 @@ const manifest: ComponentManifest = {
   ],
   children: ['TabBarItem']
 }
+function getTabBarItems (children: any) {
+  if (!Array.isArray(children) || children.length === 0) {
+    return (
+      <TabBar.Item
+        icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
+        selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
+        title="占位"
+        key="default"></TabBar.Item>
+    )
+  }
+  return children.map((item, index) => {
+    return <TabBar.Item {...item.props.children.props} key={index}></TabBar.Item>
+  })
+}
 export default class MetaTabBar implements Component<AntTabbarProps> {
   manifest = manifest
-  render = ReactWrapper((props: any) => <TabBar {...props}>{props.children || <TabBar.Item
-    icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
-    selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
-    title="占位"
-    key="default"></TabBar.Item>}</TabBar>, { manifest })
+  render = ReactWrapper((props: any) => <TabBar {...props}>{getTabBarItems(props.children)}</TabBar>, { manifest })
 }
