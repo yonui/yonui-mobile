@@ -25,7 +25,7 @@ const manifest: ComponentManifest = {
     {
       name: 'img',
       type: FieldTypes.child,
-      defaultValue: '<img src="https://gw.alipayobjects.com/zos/rmsportal/HWuSTipkjJRfTWekgTUG.svg" className="spe am-icon am-icon-md" alt="" />',
+      defaultValue: '<img src="https://gw.alipayobjects.com/zos/rmsportal/HWuSTipkjJRfTWekgTUG.svg" style="width:60px;" className="spe am-icon am-icon-md" alt="" />',
       showDesign: true,
       designConfig: {
         type: EditTypes.Textarea,

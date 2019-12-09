@@ -8,7 +8,7 @@ import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } fro
 const getChildrenDom = function (tabs: any) {
   if (!Array.isArray(tabs)) return null
   return tabs.map((item, index) => {
-    return <div key={index} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>Content of {index} tab</div>
+    return <div key={index} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>Content of {index + 1} tab</div>
   })
 }
 // todo 未配置 onChange
