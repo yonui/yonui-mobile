@@ -26,7 +26,7 @@ const manifest: ComponentManifest = {
       showDesign: true,
       designConfig: {
         label: '左边内容',
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: false,
         props: {}
       }

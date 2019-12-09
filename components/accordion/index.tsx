@@ -16,7 +16,7 @@ const manifest: ComponentManifest = {
       defaultValue: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         isRequired: true,
         props: {},
         label: '激活的tab',

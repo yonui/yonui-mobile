@@ -25,7 +25,7 @@ const manifest: ComponentManifest = {
     showDesign: true,
     designConfig: {
       isRequired: false,
-      type: EditTypes.Text,
+      type: EditTypes.Json,
       label: '左侧按钮组',
       props: {}
     }
@@ -36,7 +36,7 @@ const manifest: ComponentManifest = {
     showDesign: true,
     designConfig: {
       isRequired: false,
-      type: EditTypes.Text,
+      type: EditTypes.Json,
       label: '右侧按钮组',
       props: {}
     }

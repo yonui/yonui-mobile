@@ -30,7 +30,7 @@ const manifest: ComponentManifest = {
       defaultValue: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: true,
         props: {},
         label: '面板头内容',

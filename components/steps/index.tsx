@@ -22,7 +22,7 @@ const manifest: ComponentManifest = {
     {
       name: 'size',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: 'small',
       showDesign: true,
       designConfig: {
         label: '尺寸',
@@ -61,8 +61,8 @@ const manifest: ComponentManifest = {
         isRequired: true,
         props: {
           options: [
-            { value: 'horizontal', text: '水平' },
-            { value: 'vertical', text: '垂直' }
+            { value: 'horizontal', text: 'horizontal' },
+            { value: 'vertical', text: 'vertical' }
           ]
         },
         label: '方向'

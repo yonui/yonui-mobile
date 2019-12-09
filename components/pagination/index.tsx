@@ -85,7 +85,7 @@ const manifest: ComponentManifest = {
       type: FieldTypes.object,
       defaultValue: '',
       value: '',
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         props: {},
@@ -102,7 +102,7 @@ const manifest: ComponentManifest = {
       designConfig: {
         type: EditTypes.Text,
         props: {},
-        label: '选择回调',
+        label: 'onChange',
         help: '选择后的回调函数'
       }
     }

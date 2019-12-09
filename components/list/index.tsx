@@ -12,7 +12,8 @@ const manifest: ComponentManifest = {
       type: FieldTypes.action,
       showDesign: true,
       designConfig: {
-        label: 'list heder',
+        label: 'renderHeader',
+        help: '渲染list header',
         type: EditTypes.Text,
         isRequired: false,
         props: {}
@@ -23,7 +24,8 @@ const manifest: ComponentManifest = {
       type: FieldTypes.action,
       showDesign: true,
       designConfig: {
-        label: 'list footer',
+        label: 'renderFooter',
+        help: '渲染list footer',
         type: EditTypes.Text,
         isRequired: false,
         props: {}

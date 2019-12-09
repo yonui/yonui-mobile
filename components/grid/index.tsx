@@ -16,7 +16,7 @@ const manifest: ComponentManifest = {
       defaultValue: JSON.stringify([{ text: 1 }, { text: 2 }]),
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         isRequired: false,
         props: {},
         label: '菜单数据',
@@ -32,7 +32,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '回调函数',
+        label: 'onClick',
         help: '点击每个菜单的回调函数'
       }
     },
@@ -64,7 +64,7 @@ const manifest: ComponentManifest = {
       name: 'isCarousel',
       type: FieldTypes.boolean,
       defaultValue: false,
-      showDesign: false,
+      showDesign: false, // 会调用antd的slider相关组件，涉及ref
       designConfig: {
         type: EditTypes.Bool,
         isRequired: false,
@@ -120,7 +120,7 @@ const manifest: ComponentManifest = {
       designConfig: {
         type: EditTypes.Text,
         props: {},
-        label: '点击反馈的样式',
+        label: 'activeStyle',
         help: '点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)'
       }
     },
@@ -133,7 +133,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '点击反馈的类名',
+        label: 'activeClassName',
         help: '点击反馈的自定义类名'
       }
     },
@@ -146,7 +146,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '格子样式',
+        label: 'itemStyle',
         help: '每个格子自定义样式'
       }
     }

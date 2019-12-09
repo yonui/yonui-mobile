@@ -71,7 +71,7 @@ const manifest: ComponentManifest = {
     name: 'defaultValue',
     type: FieldTypes.array,
     showDesign: true,
-    defaultValue: 0,
+    defaultValue: 10,
     designConfig: {
       type: EditTypes.Number,
       label: '默认值',
@@ -99,7 +99,7 @@ const manifest: ComponentManifest = {
       type: EditTypes.Text,
       isRequired: true,
       props: {},
-      label: '改变回调'
+      label: 'onChange'
     }
   }]
 }

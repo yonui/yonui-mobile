@@ -15,7 +15,7 @@ const manifest: ComponentManifest = {
     {
       name: 'visible',
       type: FieldTypes.boolean,
-      defaultValue: false,
+      defaultValue: true, // 备注：与antd相反，为了展示
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
@@ -27,7 +27,7 @@ const manifest: ComponentManifest = {
     {
       name: 'mask',
       type: FieldTypes.boolean,
-      defaultValue: false,
+      defaultValue: true, // 备注：与antd相反，为了展示
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
@@ -64,10 +64,10 @@ const manifest: ComponentManifest = {
     {
       name: 'overlay',
       type: FieldTypes.child,
-      defaultValue: '',
+      defaultValue: 'overlayContent',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: false,
         props: {},
         label: '内容',
@@ -83,7 +83,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '显隐回调函数',
+        label: 'onVisibleChange',
         help: '当显隐状态变化时回调函数'
       }
     },
@@ -96,7 +96,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '选中回调函数'
+        label: 'onSelect',
+        help: '选中回调函数'
       }
     }
   ],

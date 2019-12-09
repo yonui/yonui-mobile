@@ -37,7 +37,7 @@ const manifest: ComponentManifest = {
       defaultValue: false,
       showDesign: true,
       designConfig: {
-        label: '是否不可用',
+        label: '不可用',
         type: EditTypes.Bool,
         isRequired: false,
         props: {}
@@ -61,7 +61,7 @@ const manifest: ComponentManifest = {
       defaultValue: false,
       showDesign: true,
       designConfig: {
-        label: '是否默认选中',
+        label: '默认选中',
         type: EditTypes.Bool,
         isRequired: false,
         props: {}
@@ -75,7 +75,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '切换选中回调函数'
+        label: 'onChange',
+        help: '切换选中回调函数'
       }
     },
     {
@@ -86,7 +87,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '点关闭时的回调函数'
+        label: 'onClose',
+        help: '点关闭时的回调函数'
       }
     },
     {
@@ -97,7 +99,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '关闭后的回调'
+        label: 'afterClose',
+        help: '关闭后的回调'
       }
     }
   ]

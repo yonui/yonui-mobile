@@ -42,7 +42,7 @@ const manifest: ComponentManifest = {
       defaultValue: JSON.stringify({}),
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         isRequired: false,
         props: {},
         label: '自定义样式'
@@ -54,7 +54,7 @@ const manifest: ComponentManifest = {
       defaultValue: '#2DB7F5',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Color,
         isRequired: false,
         props: {},
         label: '组件主色调'
@@ -91,7 +91,7 @@ const manifest: ComponentManifest = {
       defaultValue: JSON.stringify(['test1', 'test2']),
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         isRequired: false,
         props: {},
         label: '选项',
@@ -107,7 +107,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '回调函数',
+        label: 'onClick',
         help: '其中e.nativeEvent.selectedSegmentIndex是选中项索引, e.nativeEvent.value是选中的值'
       }
     },
@@ -120,7 +120,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '回调函数'
+        label: 'onValueChange'
       }
     }
   ],

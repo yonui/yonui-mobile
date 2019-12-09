@@ -10,10 +10,10 @@ const manifest: ComponentManifest = {
     {
       name: 'content',
       type: FieldTypes.child,
-      defaultValue: 'Notice: The default notice',
+      defaultValue: ' Notice: Auld lang syneAuld lang syneAuld lang syneAuld lang syneAuld lang syne',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: false,
         props: {},
         label: '内容区'
@@ -39,34 +39,39 @@ const manifest: ComponentManifest = {
     {
       name: 'icon',
       type: FieldTypes.child,
+      defaultValue: 'icon',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: false,
         props: {},
-        label: '图标'
+        label: '图标，在左侧展示'
       }
     },
     {
       name: 'marqueeProps',
       type: FieldTypes.object,
+      defaultValue: JSON.stringify({ loop: true, style: { padding: '0 7.5px' } }),
       showDesign: true,
       designConfig: {
         type: EditTypes.Json,
         isRequired: false,
         props: {},
-        label: 'marquee 参数'
+        label: 'marquee',
+        help: 'marqueeProps参数'
       }
     },
     {
       name: 'action',
       type: FieldTypes.child,
+      defaultValue: 'action',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: false,
         props: {},
-        label: '用于替换操作 icon 的文案'
+        label: '右侧',
+        help: '用于替换操作 icon 的文案，在右侧展示'
       }
     },
     {
@@ -77,7 +82,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '点击关闭或者操作区域的回调函数'
+        label: 'onClick',
+        help: '点击关闭或者操作区域的回调函数'
       }
     }
   ]

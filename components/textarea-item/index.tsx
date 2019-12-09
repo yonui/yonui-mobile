@@ -19,12 +19,14 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: 'textarea 的 name'
+        label: 'name属性',
+        help: 'textarea 的 name'
       }
     },
     {
       name: 'title',
       type: FieldTypes.string,
+      defaultValue: '标题',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -83,6 +85,7 @@ const manifest: ComponentManifest = {
     {
       name: 'defaultValue',
       type: FieldTypes.string,
+      defaultValue: 'defaultValue',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -94,7 +97,7 @@ const manifest: ComponentManifest = {
     {
       name: 'placeholder',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: 'placeholder',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -112,7 +115,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: false,
         props: {},
-        label: '是否可编辑'
+        label: '可编辑'
       }
     },
     {
@@ -137,7 +140,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: false,
         props: {},
-        label: '是否禁用'
+        label: '禁用'
       }
     },
     {
@@ -149,7 +152,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: false,
         props: {},
-        label: '是否带清除功能'
+        label: '清除功能'
       }
     },
     {
@@ -160,7 +163,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: 'change方法'
+        label: 'onChange'
       }
     },
     {
@@ -171,7 +174,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '点击报错 icon 触发的回调'
+        label: 'onErrorClick',
+        help: '点击报错 icon 触发的回调'
       }
     },
     {
@@ -182,7 +186,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: 'focus回调'
+        label: 'onFocus'
       }
     },
     {
@@ -193,7 +197,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: 'blur回调'
+        label: 'onBlur'
       }
     }
 

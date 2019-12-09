@@ -96,7 +96,7 @@ const manifest: ComponentManifest = {
       defaultValue: 0,
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: false,
         props: {},
         label: 'loading',

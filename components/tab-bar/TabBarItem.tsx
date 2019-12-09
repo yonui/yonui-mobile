@@ -57,7 +57,7 @@ const manifest: ComponentManifest = {
       defaultValue: 'white',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Color,
         isRequired: false,
         props: {},
         label: '背景色',
@@ -70,10 +70,10 @@ const manifest: ComponentManifest = {
       defaultValue: JSON.stringify({ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }),
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         isRequired: false,
         props: {},
-        label: '默认展示图片',
+        label: '默认展示',
         help: '默认展示图片'
       }
     },
@@ -83,10 +83,10 @@ const manifest: ComponentManifest = {
       defaultValue: JSON.stringify({ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }),
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         isRequired: false,
         props: {},
-        label: '选中后展示图片',
+        label: '选中后',
         help: '选中后展示图片'
       }
     },
@@ -106,7 +106,7 @@ const manifest: ComponentManifest = {
     {
       name: 'key',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: JSON.stringify(Math.random().toFixed(5)),
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -119,13 +119,12 @@ const manifest: ComponentManifest = {
     {
       name: 'onPress',
       type: FieldTypes.action,
-      defaultValue: '',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '点击回调',
+        label: 'onPress',
         help: 'bar 点击触发，需要自己改变组件 state & selecte={true}'
       }
     }

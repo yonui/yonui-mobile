@@ -30,9 +30,10 @@ const manifest: ComponentManifest = {
     {
       name: 'title',
       type: FieldTypes.child,
+      defaultValue: 'title',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: true,
         props: {},
         label: '标题'
@@ -41,9 +42,10 @@ const manifest: ComponentManifest = {
     {
       name: 'description',
       type: FieldTypes.child,
+      defaultValue: 'description',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: true,
         props: {},
         label: '步骤的详情描述'
@@ -54,7 +56,7 @@ const manifest: ComponentManifest = {
       type: FieldTypes.child || FieldTypes.object,
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: true,
         props: {},
         label: '步骤图标'

@@ -50,6 +50,7 @@ const manifest: ComponentManifest = {
     {
       name: 'defaultValue',
       type: FieldTypes.string,
+      defaultValue: 'defaultValue',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -100,7 +101,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: false,
         props: {},
-        label: '是否带清除功能'
+        label: '清除功能'
       }
     },
     {
@@ -111,7 +112,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: 'change方法'
+        label: 'onChange'
       }
     },
     {
@@ -122,7 +123,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: 'blur回调'
+        label: 'onBlur'
       }
     },
     {
@@ -133,7 +134,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: 'focus回调'
+        label: 'onFocus'
       }
     }
 

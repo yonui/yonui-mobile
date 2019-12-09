@@ -15,10 +15,10 @@ const manifest: ComponentManifest = {
     {
       name: 'name',
       type: FieldTypes.child,
-      defaultValue: '单选项',
+      defaultValue: '选项1',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: false,
         props: {},
         label: '名称'
@@ -32,7 +32,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '初始是否选中'
+        label: '初始值'
       }
     },
     {
@@ -43,7 +43,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '指定当前是否选中'
+        label: '是否选中'
       }
     },
     {
@@ -66,7 +66,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '改变回调'
+        label: 'onChange'
       }
     }
   ],

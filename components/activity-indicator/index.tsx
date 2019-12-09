@@ -25,7 +25,8 @@ const manifest: ComponentManifest = {
       defaultValue: false,
       showDesign: true,
       designConfig: {
-        label: 'loading样式类型',
+        help: 'loading样式类型',
+        label: 'loading类型',
         type: EditTypes.Bool,
         isRequired: false,
         props: {}
@@ -37,7 +38,8 @@ const manifest: ComponentManifest = {
       defaultValue: 'load',
       showDesign: true,
       designConfig: {
-        label: 'loading文本',
+        help: 'loading文本',
+        label: '文本',
         type: EditTypes.Text,
         isRequired: false,
         props: {}
@@ -49,7 +51,8 @@ const manifest: ComponentManifest = {
       defaultValue: 'small',
       showDesign: true,
       designConfig: {
-        label: 'spinner大小',
+        label: '大小',
+        help: 'spinner大小',
         type: EditTypes.Select,
         isRequired: false,
         props: {

@@ -11,12 +11,11 @@ const manifest: ComponentManifest = {
   props: [// adapter适配层数据
     {
       name: 'imgUrl',
-      type: FieldTypes.array, // 备注：这里应该是数组
-      defaultValue: 'http://design.yonyoucloud.com/static/tinper-bee/logo/iuapdesign.svg', // 占位
+      type: FieldTypes.string, // 备注：这里应该是数组
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         props: {},
         label: '插图url',
         help: '插图url'
@@ -26,10 +25,10 @@ const manifest: ComponentManifest = {
     {
       name: 'img',
       type: FieldTypes.child,
-      defaultValue: 0,
+      defaultValue: '<img src="https://gw.alipayobjects.com/zos/rmsportal/HWuSTipkjJRfTWekgTUG.svg" className="spe am-icon am-icon-md" alt="" />',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: false,
         props: {},
         label: '插图元素',
@@ -43,7 +42,7 @@ const manifest: ComponentManifest = {
       defaultValue: '设计器结果页',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: false,
         props: {},
         label: 'title',
@@ -54,10 +53,10 @@ const manifest: ComponentManifest = {
     {
       name: 'message',
       type: FieldTypes.child,
-      defaultValue: 0,
+      defaultValue: '<div>998.00元 <del>1098元</del></div>',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         isRequired: false,
         props: {},
         label: 'message',
@@ -71,7 +70,7 @@ const manifest: ComponentManifest = {
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         props: {},
         label: '按钮文案',
         help: '按钮文案'
@@ -84,7 +83,7 @@ const manifest: ComponentManifest = {
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         props: {},
         label: 'button设置',
         help: '请参考 button 的配置'
