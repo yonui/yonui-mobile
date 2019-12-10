@@ -2,10 +2,10 @@
   "name": "@libraui/base-mobile",
   "version": "0.1.0",
   "description": "Libra ui for Antd Mobile",
-  "main": "./lib/index.js",
+  "main": "./dist/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "build": "rm -rf build && extension-packager build .",
+    "build": "rm -rf dist && extension-packager build .",
     "postversion": "git push && git push --tags && npm run lib && npm run build && ynpm publish",
     "lib": "rm -rf lib && tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -37,7 +37,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@libraui/extension-packager": "^0.2.1",
+    "@libraui/extension-packager": "^0.3.2",
     "@types/react": "^16.9.13",
     "@types/react-dom": "^16.9.4",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
