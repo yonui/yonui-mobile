@@ -1,7 +1,6 @@
 import React from 'react'
 import { Card } from 'antd-mobile'
-import { CardFooterProps } from 'antd-mobile/lib/card/CardFooter'
-import { Component, FieldTypes, EditTypes, ReactWrapper } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper } from '@libraui/extension'
 const CardFooter = Card.Footer
 const manifest = {
   name: 'CardFooter',
@@ -36,7 +35,4 @@ const manifest = {
   ]
 }
 
-export default class CardFooterComponent implements Component<CardFooterProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <CardFooter {...props}></CardFooter>, { manifest })
-}
+export default ReactWrapper((props: any) => <CardFooter {...props}></CardFooter>, manifest)

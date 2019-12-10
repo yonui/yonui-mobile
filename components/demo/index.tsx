@@ -1,6 +1,6 @@
 // demo
 import React from 'react'
-import { Component, Props, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { Props, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import './index.css'
 import './test.less'
 interface ButtonProps {
@@ -90,16 +90,13 @@ const manifest: ComponentManifest = {
   ]
 }
 
-export default class ButtonComponent implements Component<ButtonProps> {
-  manifest = manifest
-  render = ReactWrapper((props?: ButtonProps) => {
-    const value = props ? props.text : '按钮'
-    const onClick = (event: object) => {
-      props && props.onClick(event)
-      console.log(event)
-    }
-    return (
-      <button className={props && props.className} onClick={onClick.bind(this)}>{value}</button>
-    )
-  }, { manifest })
-}
+export default ReactWrapper((props?: ButtonProps) => {
+  const value = props ? props.text : '按钮'
+  const onClick = (event: object) => {
+    props && props.onClick(event)
+    console.log(event)
+  }
+  return (
+    <button className={props && props.className} onClick={onClick}>{value}</button>
+  )
+}, manifest)

@@ -1,7 +1,6 @@
 import React from 'react'
 import { ActivityIndicator } from 'antd-mobile'
-import { ActivityIndicatorProps } from 'antd-mobile/lib/activity-indicator'
-import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 const manifest: ComponentManifest = {
   name: 'ActivityIndicator',
   label: '活动指示器',
@@ -65,7 +64,4 @@ const manifest: ComponentManifest = {
     }
   ]
 }
-export default class ActivityIndicatorComponent implements Component<ActivityIndicatorProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => (<ActivityIndicator {...props}/>), { manifest })
-}
+export default ReactWrapper((props: any) => (<ActivityIndicator {...props}/>), manifest)

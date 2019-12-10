@@ -1,7 +1,6 @@
 import React from 'react'
 import { Steps } from 'antd-mobile'
-import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import { StepsProps } from 'antd-mobile/lib/steps'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 const manifest: ComponentManifest = {
   name: 'Step',
   label: '步骤项',
@@ -67,7 +66,5 @@ const manifest: ComponentManifest = {
     }
   ]
 }
-export default class StepComponent implements Component<StepsProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => (<Steps.Step {...props}/>), { manifest })
-}
+
+export default ReactWrapper((props: any) => (<Steps.Step {...props}/>), manifest)

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Badge } from 'antd-mobile'
-import { BadgeProps } from 'antd-mobile/lib/badge'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 // todo 未配置 style activeStyle
 const manifest: ComponentManifest = {
@@ -93,7 +92,5 @@ const manifest: ComponentManifest = {
   children: ['AccordionPanel']
 
 }
-export default class MetaBadge implements Component<BadgeProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <Badge {...props}>{props.children}</Badge>, { manifest })
-}
+
+export default ReactWrapper((props: any) => <Badge {...props}>{props.children}</Badge>, manifest)

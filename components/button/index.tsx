@@ -1,10 +1,7 @@
 import React from 'react'
 import { Button } from 'antd-mobile'
-import { ButtonProps } from 'antd-mobile/lib/button'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-interface CustomsButtonProps extends ButtonProps {
-  name: string
-}
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+
 // todo 未配置 style activeStyle
 const manifest: ComponentManifest = {
   name: 'Button', // 自定义组件名称
@@ -158,9 +155,7 @@ const manifest: ComponentManifest = {
   children: []
 
 }
-export default class ButtonComponent implements Component<CustomsButtonProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => {
-    return <Button {...props}>{props.text}</Button>
-  }, { manifest, excludeNidAndUiType: true })
-}
+
+export default ReactWrapper((props: any) => {
+  return <Button {...props}>{props.text}</Button>
+}, manifest, { excludeNidAndUiType: true })

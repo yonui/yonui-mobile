@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 import { NavBar } from 'antd-mobile'
-import { NavBarProps } from 'antd-mobile/lib/nav-bar/PropsType'
 
 const manifest: ComponentManifest = {
   name: 'NavBar',
@@ -85,7 +84,5 @@ const manifest: ComponentManifest = {
   ],
   children: ['Button', 'Card', 'Progress', 'WingBlank']
 }
-export default class MetaNavBar implements Component<NavBarProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => (<NavBar {...props}>{props.children}</NavBar>), { manifest })
-}
+
+export default ReactWrapper((props: any) => (<NavBar {...props}>{props.children}</NavBar>), manifest)

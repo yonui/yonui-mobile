@@ -1,7 +1,6 @@
 import React from 'react'
 import { Picker } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import { PickerPropsType } from 'antd-mobile/lib/picker/PropsType'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 /**
  * todo
  * itemStyle indicatorStyle children
@@ -213,7 +212,5 @@ const manifest: ComponentManifest = {
 
   ]
 }
-export default class PickerComponent implements Component<PickerPropsType> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <Picker {...props}>{props.children || <div className='picker-trigger-click' style={{ minHeight: 32 }}>picker-弹框</div>}</Picker>, { manifest })
-}
+
+export default ReactWrapper((props: any) => <Picker {...props}>{props.children || <div className='picker-trigger-click' style={{ minHeight: 32 }}>picker-弹框</div>}</Picker>, manifest)

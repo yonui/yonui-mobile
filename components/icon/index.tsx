@@ -1,7 +1,6 @@
 import React from 'react'
 import { Icon } from 'antd-mobile'
-import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import { IconProps } from 'antd-mobile/lib/icon'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 // todo
 const manifest: ComponentManifest = {
   name: 'Icon',
@@ -55,7 +54,5 @@ const manifest: ComponentManifest = {
     }
   ]
 }
-export default class IconComponent implements Component<IconProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => (<Icon {...props}/>), { manifest })
-}
+
+export default ReactWrapper((props: any) => (<Icon {...props}/>), manifest)

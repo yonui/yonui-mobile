@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { Component, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 import { Flex } from 'antd-mobile'
-import { FlexItemPropsType } from 'antd-mobile/lib/flex/PropsType'
 
 const FlexItem = Flex.Item
 
@@ -15,7 +14,4 @@ const manifest: ComponentManifest = {
   ],
   children: ['Button', 'Calendar', 'Card', 'Checkbox', 'Drawer', 'Flex', 'NavBar', 'Progress', 'Stepper', 'Switch', 'WhiteSpace', 'WingBlank']
 }
-export default class metaFlexItem implements Component<FlexItemPropsType> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <FlexItem > {props.children}</FlexItem>, { manifest })
-}
+export default ReactWrapper((props: any) => <FlexItem > {props.children}</FlexItem>, manifest)

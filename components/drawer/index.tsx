@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 import { Drawer } from 'antd-mobile'
-import { DrawerWebProps } from 'antd-mobile/lib/drawer/PropsType'
 const manifest: ComponentManifest = {
   name: 'Drawer',
   label: '抽屉',
@@ -191,7 +190,4 @@ const manifest: ComponentManifest = {
 }
 
 // 这边需要做的处理：需要生成sidebar然后传给<Drawer></Drawer>
-export default class MetaDrawer implements Component<DrawerWebProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => (<Drawer {...props} sidebar={<div dangerouslySetInnerHTML={{ __html: props.sidebar }} /> }>{props.children || <div>drawer</div>}</Drawer>), { manifest })
-}
+export default ReactWrapper((props: any) => (<Drawer {...props} sidebar={<div dangerouslySetInnerHTML={{ __html: props.sidebar }} /> }>{props.children || <div>drawer</div>}</Drawer>), manifest)

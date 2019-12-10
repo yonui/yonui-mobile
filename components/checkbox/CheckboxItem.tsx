@@ -3,8 +3,7 @@
  */
 import React from 'react'
 import { Checkbox } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import { CheckboxProps } from 'antd-mobile/lib/checkbox/Checkbox'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 const manifest: ComponentManifest = {
   name: 'CheckboxItem',
   label: '复选框',
@@ -59,7 +58,4 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export default class CheckboxItemComponent implements Component<CheckboxProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <Checkbox.CheckboxItem {...props}/>, { manifest })
-}
+export default ReactWrapper((props: any) => <Checkbox.CheckboxItem {...props}/>, manifest)

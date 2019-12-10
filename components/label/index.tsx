@@ -1,6 +1,6 @@
 import React from 'react'
-import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import Label, { LabelProps } from './Label'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import Label from './Label'
 // todo
 const manifest: ComponentManifest = {
   name: 'Label',
@@ -51,7 +51,5 @@ const manifest: ComponentManifest = {
     }
   ]
 }
-export default class LabelComponent implements Component<LabelProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => (<Label {...props}/>), { manifest })
-}
+
+export default ReactWrapper((props: any) => (<Label {...props}/>), manifest)

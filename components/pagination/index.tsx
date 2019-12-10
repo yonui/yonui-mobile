@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 import { Pagination } from 'antd-mobile'
-import { PaginationPropsType } from 'antd-mobile/lib/pagination/PropsType'
 const manifest: ComponentManifest = {
   name: 'Pagination',
   label: '分页',
@@ -111,7 +110,5 @@ const manifest: ComponentManifest = {
 }
 
 // 这边需要做的处理：需要生成sidebar然后传给<Pagination></Pagination>
-export default class MetaPagination implements Component<PaginationPropsType> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => (<Pagination {...props}></Pagination>), { manifest })
-}
+
+export default ReactWrapper((props: any) => (<Pagination {...props}></Pagination>), manifest)

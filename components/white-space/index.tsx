@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 import { WhiteSpace } from 'antd-mobile'
-import { WhiteSpaceProps } from 'antd-mobile/lib/white-space'
 const manifest: ComponentManifest = {
   name: 'WhiteSpace',
   label: '上下留白',
@@ -35,7 +34,4 @@ const manifest: ComponentManifest = {
   children: []
 }
 
-export default class MetaWhiteSpace implements Component<WhiteSpaceProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => (<WhiteSpace {...props}></WhiteSpace>), { manifest })
-}
+export default ReactWrapper((props: any) => (<WhiteSpace {...props}></WhiteSpace>), manifest)

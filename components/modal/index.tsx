@@ -1,7 +1,6 @@
 import React from 'react'
 import { Modal } from 'antd-mobile'
-import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import { ModalProps } from 'antd-mobile/lib/modal/Modal'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 const manifest: ComponentManifest = {
   name: 'Modal',
   label: '对话框',
@@ -207,7 +206,5 @@ const manifest: ComponentManifest = {
   ],
   children: ['Card']
 }
-export default class ModalComponent implements Component<ModalProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => (<Modal {...props}>{props.children}</Modal>), { manifest })
-}
+
+export default ReactWrapper((props: any) => (<Modal {...props}>{props.children}</Modal>), manifest)

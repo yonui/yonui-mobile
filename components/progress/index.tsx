@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { Progress } from 'antd-mobile'
-import { ProgressProps } from 'antd-mobile/lib/progress'
 import './index.less'
 const manifest: ComponentManifest = {
   name: 'Progress',
@@ -70,7 +69,4 @@ const manifest: ComponentManifest = {
   }]
 }
 
-export default class MetaProgress implements Component<ProgressProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => (<Progress {...props} />), { manifest })
-}
+export default ReactWrapper((props: any) => (<Progress {...props} />), manifest)

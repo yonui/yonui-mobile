@@ -1,7 +1,6 @@
 import React from 'react'
 import { NoticeBar } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import { NoticeWebProps } from 'antd-mobile/lib/notice-bar'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 const manifest: ComponentManifest = {
   name: 'NoticeBar',
   label: '通告栏',
@@ -88,7 +87,5 @@ const manifest: ComponentManifest = {
     }
   ]
 }
-export default class NoticeBarComponent implements Component<NoticeWebProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <NoticeBar {...props}>{props.content}</NoticeBar>, { manifest })
-}
+
+export default ReactWrapper((props: any) => <NoticeBar {...props}>{props.content}</NoticeBar>, manifest)

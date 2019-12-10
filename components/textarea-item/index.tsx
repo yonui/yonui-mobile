@@ -1,7 +1,6 @@
 import React from 'react'
 import { TextareaItem } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import { TextareaItemProps } from 'antd-mobile/lib/textarea-item'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 /**
  * todo
  * error labelNumber  prefixListCls
@@ -203,7 +202,5 @@ const manifest: ComponentManifest = {
 
   ]
 }
-export default class TextareaItemComponent implements Component<TextareaItemProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <TextareaItem {...props}/>, { manifest })
-}
+
+export default ReactWrapper((props: any) => <TextareaItem {...props}/>, manifest)

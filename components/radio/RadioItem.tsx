@@ -3,8 +3,7 @@
  */
 import React from 'react'
 import { Radio } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import { RadioProps } from 'antd-mobile/lib/radio/Radio'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 // todo 未配置 onChange
 const manifest: ComponentManifest = {
   name: 'RadioItem',
@@ -72,7 +71,5 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export default class RadioItemComponent implements Component<RadioProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <Radio.RadioItem {...props}>{props.name}</Radio.RadioItem>, { manifest })
-}
+
+export default ReactWrapper((props: any) => <Radio.RadioItem {...props}>{props.name}</Radio.RadioItem>, manifest)

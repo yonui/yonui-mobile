@@ -1,7 +1,6 @@
 import React from 'react'
 import { Carousel } from 'antd-mobile'
-import { CarouselProps } from 'antd-mobile/lib/carousel'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 // todo 未配置 style activeStyle
 const manifest: ComponentManifest = {
@@ -184,7 +183,4 @@ const manifest: ComponentManifest = {
   children: []
 
 }
-export default class MetaCarousel implements Component<CarouselProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <Carousel {...props}>{props.children}</Carousel>, { manifest })
-}
+export default ReactWrapper((props: any) => <Carousel {...props}>{props.children}</Carousel>, manifest)

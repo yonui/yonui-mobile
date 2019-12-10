@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 import { Result } from 'antd-mobile'
-import { ResultProps } from 'antd-mobile/lib/result'
 const manifest: ComponentManifest = {
   name: 'Result',
   label: '结果页',
@@ -106,7 +105,4 @@ const manifest: ComponentManifest = {
   children: []
 }
 
-export default class MetaResult implements Component<ResultProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => (<Result {...props}>{props.children}</Result>), { manifest })
-}
+export default ReactWrapper((props: any) => (<Result {...props}>{props.children}</Result>), manifest)

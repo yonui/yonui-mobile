@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { PullToRefresh } from 'antd-mobile'
-import { PropsType } from 'rmc-pull-to-refresh/lib/PropsType'
 const manifest: ComponentManifest = {
   name: 'PullToRefresh',
   label: '拉动刷新',
@@ -78,7 +77,4 @@ const manifest: ComponentManifest = {
   }]
 }
 
-export default class PullToRefreshComponent implements Component<PropsType> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => (<PullToRefresh {...props} />), { manifest })
-}
+export default ReactWrapper((props: any) => (<PullToRefresh {...props} />), manifest)

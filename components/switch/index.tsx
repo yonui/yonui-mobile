@@ -3,8 +3,7 @@
  */
 import React from 'react'
 import { Switch } from 'antd-mobile'
-import { SwitchProps } from 'antd-mobile/lib/switch'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 // todo 未配置 onClick onChange
 const manifest: ComponentManifest = {
   name: 'Switch',
@@ -102,7 +101,5 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export default class SwitchComponent implements Component<SwitchProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <Switch {...props}/>, { manifest })
-}
+
+export default ReactWrapper((props: any) => <Switch {...props}/>, manifest)

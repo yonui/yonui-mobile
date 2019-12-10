@@ -3,8 +3,7 @@
  */
 import React from 'react'
 import { Calendar } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import { CalendarProps } from 'antd-mobile/lib/calendar/PropsType'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 /**
  * todo,未配置
  * renderShortcut,renderHeader,getDateExtra,onSelectHasDisableDate,defaultValue
@@ -229,7 +228,5 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export default class CalendarComponent implements Component<CalendarProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <Calendar {...props}/>, { manifest })
-}
+
+export default ReactWrapper((props: any) => <Calendar {...props}/>, manifest)
