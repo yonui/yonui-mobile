@@ -28,7 +28,7 @@
     "README.md",
     "package.json",
     "lib",
-    "build",
+    "dist",
     "components",
     "index.tsx"
   ],
