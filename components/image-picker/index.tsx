@@ -1,4 +1,3 @@
-import React from 'react'
 import { ImagePicker } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 // todo files
@@ -132,4 +131,4 @@ const manifest: ComponentManifest = {
     }
   ]
 }
-export default ReactWrapper((props: any) => <ImagePicker {...props}/>, manifest)
+export default ReactWrapper(ImagePicker, manifest)

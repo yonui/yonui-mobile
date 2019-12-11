@@ -1,4 +1,3 @@
-import React from 'react'
 import { Grid } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
@@ -153,4 +152,4 @@ const manifest: ComponentManifest = {
   children: []
 
 }
-export default ReactWrapper((props: any) => <Grid {...props}></Grid>, manifest)
+export default ReactWrapper(Grid, manifest)

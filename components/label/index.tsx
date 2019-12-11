@@ -1,4 +1,3 @@
-import React from 'react'
 import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import Label from './Label'
 // todo
@@ -52,4 +51,4 @@ const manifest: ComponentManifest = {
   ]
 }
 
-export default ReactWrapper((props: any) => (<Label {...props}/>), manifest)
+export default ReactWrapper(Label, manifest)

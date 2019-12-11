@@ -1,4 +1,3 @@
-import React from 'react'
 import { Steps } from 'antd-mobile'
 import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 const manifest: ComponentManifest = {
@@ -67,4 +66,4 @@ const manifest: ComponentManifest = {
   ]
 }
 
-export default ReactWrapper((props: any) => (<Steps.Step {...props}/>), manifest)
+export default ReactWrapper(Steps.Step, manifest)

@@ -1,4 +1,3 @@
-import React from 'react'
 import { PickerView } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 /**
@@ -81,4 +80,4 @@ const manifest: ComponentManifest = {
   ]
 }
 
-export default ReactWrapper((props: any) => <PickerView {...props}/>, manifest)
+export default ReactWrapper(PickerView, manifest)

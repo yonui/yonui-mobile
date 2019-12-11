@@ -1,7 +1,6 @@
 /**
  * rc-from是否需要增加,如果增加rc-from,需要写一个from组件
  */
-import React from 'react'
 import { Tabs } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
@@ -120,4 +119,4 @@ const manifest: ComponentManifest = {
   children: []
 }
 
-export default ReactWrapper((props: any) => <DefaultTabBar {...props} />, manifest)
+export default ReactWrapper(DefaultTabBar, manifest)

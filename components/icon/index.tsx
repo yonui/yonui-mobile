@@ -1,4 +1,3 @@
-import React from 'react'
 import { Icon } from 'antd-mobile'
 import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 // todo
@@ -55,4 +54,4 @@ const manifest: ComponentManifest = {
   ]
 }
 
-export default ReactWrapper((props: any) => (<Icon {...props}/>), manifest)
+export default ReactWrapper(Icon, manifest)

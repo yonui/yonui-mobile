@@ -1,4 +1,3 @@
-import React from 'react'
 import { Card } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper } from '@libraui/extension'
 const CardHeader = Card.Header
@@ -47,4 +46,4 @@ const manifest = {
   ]
 }
 
-export default ReactWrapper((props: any) => <CardHeader {...props}></CardHeader>, manifest)
+export default ReactWrapper(CardHeader, manifest)

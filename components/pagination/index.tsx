@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 import { Pagination } from 'antd-mobile'
@@ -111,4 +110,4 @@ const manifest: ComponentManifest = {
 
 // 这边需要做的处理：需要生成sidebar然后传给<Pagination></Pagination>
 
-export default ReactWrapper((props: any) => (<Pagination {...props}></Pagination>), manifest)
+export default ReactWrapper(Pagination, manifest)

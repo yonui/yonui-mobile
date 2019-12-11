@@ -1,4 +1,3 @@
-import React from 'react'
 import { List } from 'antd-mobile'
 import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 const manifest: ComponentManifest = {
@@ -34,4 +33,4 @@ const manifest: ComponentManifest = {
   children: ['ListItem']
 }
 
-export default ReactWrapper((props: any) => (<List {...props}/>), manifest)
+export default ReactWrapper(List, manifest)

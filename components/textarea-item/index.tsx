@@ -1,4 +1,3 @@
-import React from 'react'
 import { TextareaItem } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 /**
@@ -203,4 +202,4 @@ const manifest: ComponentManifest = {
   ]
 }
 
-export default ReactWrapper((props: any) => <TextareaItem {...props}/>, manifest)
+export default ReactWrapper(TextareaItem, manifest)

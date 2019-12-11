@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { Slider } from 'antd-mobile'
 import './index.less'
@@ -103,4 +102,4 @@ const manifest: ComponentManifest = {
   }]
 }
 
-export default ReactWrapper((props: any) => (<Slider {...props} />), manifest)
+export default ReactWrapper(Slider, manifest)

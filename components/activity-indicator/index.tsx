@@ -1,4 +1,3 @@
-import React from 'react'
 import { ActivityIndicator } from 'antd-mobile'
 import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 const manifest: ComponentManifest = {
@@ -64,4 +63,4 @@ const manifest: ComponentManifest = {
     }
   ]
 }
-export default ReactWrapper((props: any) => (<ActivityIndicator {...props}/>), manifest)
+export default ReactWrapper(ActivityIndicator, manifest)

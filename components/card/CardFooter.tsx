@@ -1,4 +1,3 @@
-import React from 'react'
 import { Card } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper } from '@libraui/extension'
 const CardFooter = Card.Footer
@@ -35,4 +34,4 @@ const manifest = {
   ]
 }
 
-export default ReactWrapper((props: any) => <CardFooter {...props}></CardFooter>, manifest)
+export default ReactWrapper(CardFooter, manifest)

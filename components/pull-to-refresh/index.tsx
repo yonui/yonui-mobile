@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { PullToRefresh } from 'antd-mobile'
 const manifest: ComponentManifest = {
@@ -77,4 +76,4 @@ const manifest: ComponentManifest = {
   }]
 }
 
-export default ReactWrapper((props: any) => (<PullToRefresh {...props} />), manifest)
+export default ReactWrapper(PullToRefresh, manifest)

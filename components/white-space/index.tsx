@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 import { WhiteSpace } from 'antd-mobile'
@@ -34,4 +33,4 @@ const manifest: ComponentManifest = {
   children: []
 }
 
-export default ReactWrapper((props: any) => (<WhiteSpace {...props}></WhiteSpace>), manifest)
+export default ReactWrapper(WhiteSpace, manifest)

@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { SwipeAction } from 'antd-mobile'
 
@@ -88,4 +87,4 @@ const manifest: ComponentManifest = {
   }]
 }
 
-export default ReactWrapper((props: any) => (<SwipeAction {...props} />), manifest)
+export default ReactWrapper(SwipeAction, manifest)

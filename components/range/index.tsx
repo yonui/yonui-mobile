@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { Range } from 'antd-mobile'
 import './index.less'
@@ -93,6 +92,4 @@ const manifest: ComponentManifest = {
   }]
 }
 
-export default ReactWrapper((props: any) => {
-  return <Range {...props} />
-}, manifest)
+export default ReactWrapper(Range, manifest)

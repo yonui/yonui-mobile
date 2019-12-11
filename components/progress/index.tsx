@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { Progress } from 'antd-mobile'
 import './index.less'
@@ -69,4 +68,4 @@ const manifest: ComponentManifest = {
   }]
 }
 
-export default ReactWrapper((props: any) => (<Progress {...props} />), manifest)
+export default ReactWrapper(Progress, manifest)
