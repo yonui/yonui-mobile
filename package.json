@@ -1,6 +1,6 @@
 {
   "name": "@libraui/base-mobile",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Libra ui for Antd Mobile",
   "main": "./dist/index.js",
   "module": "./lib/index.js",
