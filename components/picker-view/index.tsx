@@ -1,7 +1,5 @@
-import React from 'react'
 import { PickerView } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import { IPickerView } from 'antd-mobile/lib/picker-view/PickerView'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 /**
  * todo
  * itemStyle indicatorStyle pickerPrefixCls prefixCls
@@ -81,7 +79,5 @@ const manifest: ComponentManifest = {
 
   ]
 }
-export default class PickerViewComponent implements Component<IPickerView> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <PickerView {...props}/>, { manifest })
-}
+
+export default ReactWrapper(PickerView, manifest)

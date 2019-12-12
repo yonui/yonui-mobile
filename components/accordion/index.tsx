@@ -1,7 +1,6 @@
 import React from 'react'
 import { Accordion } from 'antd-mobile'
-import { AccordionProps } from 'antd-mobile/lib/accordion'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 // todo 未配置 style activeStyle
 const manifest: ComponentManifest = {
@@ -76,18 +75,5 @@ const manifest: ComponentManifest = {
   children: ['AccordionPanel']
 
 }
-export default class MetaAccordion implements Component<AccordionProps> {
-  manifest = manifest
-  // render = ReactWrapper((props: any) => <Accordion {...props}><Accordion.Panel header="Title 1">
-  //   <List className="my-list">
-  //     <List.Item>content 1</List.Item>
-  //     <List.Item>content 2</List.Item>
-  //     <List.Item>content 3</List.Item>
-  //   </List>
-  // </Accordion.Panel>
-  // <Accordion.Panel header="Title 2" className="pad">this is panel content2 or other</Accordion.Panel>
-  // <Accordion.Panel header="Title 3" className="pad">
-  //     text text text text text text text text text text text text text text text
-  // </Accordion.Panel></Accordion>, { manifest })
-  render = ReactWrapper((props: any) => <Accordion {...props}>{props.children}</Accordion>, { manifest })
-}
+
+export default ReactWrapper((props: any) => <Accordion {...props}>{props.children}</Accordion>, manifest)

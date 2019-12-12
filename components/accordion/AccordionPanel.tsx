@@ -1,7 +1,6 @@
 import React from 'react'
 import { Accordion } from 'antd-mobile'
-import { AccordionProps } from 'antd-mobile/lib/accordion'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 var AccordionPanel = Accordion.Panel
 // todo 未配置 style activeStyle
@@ -40,7 +39,4 @@ const manifest: ComponentManifest = {
   ],
   children: ['List']
 }
-export default class MetaAccordionPanel implements Component<AccordionProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <AccordionPanel {...props}>{props.children || <h1>accordion-chidlren-affix</h1>}</AccordionPanel>, { manifest })
-}
+export default ReactWrapper((props: any) => <AccordionPanel {...props}>{props.children || <h1>accordion-chidlren-affix</h1>}</AccordionPanel>, manifest)

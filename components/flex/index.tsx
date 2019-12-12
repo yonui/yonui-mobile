@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 import { Flex } from 'antd-mobile'
-import { FlexProps } from 'antd-mobile/lib/flex/Flex'
 
 import './index.less'
 
@@ -124,7 +123,5 @@ const manifest: ComponentManifest = {
   children: () => true,
   parent: (p: ComponentManifest) => p.type === 'Layout'
 }
-export default class MetaFlex implements Component<FlexProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => (<Flex {...props}>{props.children}</Flex>), { manifest })
-}
+
+export default ReactWrapper((props: any) => (<Flex {...props}>{props.children}</Flex>), manifest)

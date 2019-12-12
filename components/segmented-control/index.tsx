@@ -1,10 +1,8 @@
 /**
  * rc-from是否需要增加,如果增加rc-from,需要写一个from组件
  */
-import React from 'react'
 import { SegmentedControl } from 'antd-mobile'
-import { SegmentedControlProps } from 'antd-mobile/lib/segmented-control'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 // todo 未配置 onChange
 const manifest: ComponentManifest = {
   name: 'SegmentedControl',
@@ -126,7 +124,5 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export default class MetaSegmentedControl implements Component<SegmentedControlProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <SegmentedControl {...props}/>, { manifest })
-}
+
+export default ReactWrapper(SegmentedControl, manifest)

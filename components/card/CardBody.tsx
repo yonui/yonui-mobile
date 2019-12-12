@@ -1,7 +1,6 @@
 import React from 'react'
 import { Card } from 'antd-mobile'
-import { CardBodyProps } from 'antd-mobile/lib/card/CardBody'
-import { Component, ComponentManifest, ReactWrapper } from '@libraui/extension'
+import { ComponentManifest, ReactWrapper } from '@libraui/extension'
 const CardBody = Card.Body
 const manifest: ComponentManifest = {
   name: 'CardBody',
@@ -12,8 +11,5 @@ const manifest: ComponentManifest = {
   children: () => true,
   parent: (p: ComponentManifest) => p.type === 'Layout'
 }
-export default class CardBodyComponent implements Component<CardBodyProps> {
-  manifest = manifest
 
-  render = ReactWrapper((props: any) => <CardBody {...props}>{props.children}</CardBody>, { manifest })
-}
+export default ReactWrapper((props: any) => <CardBody {...props}>{props.children}</CardBody>, manifest)

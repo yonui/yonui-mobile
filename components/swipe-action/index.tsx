@@ -1,7 +1,5 @@
-import * as React from 'react'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { SwipeAction } from 'antd-mobile'
-import { SwipeActionProps } from 'antd-mobile/lib/swipe-action'
 
 const manifest: ComponentManifest = {
   name: 'SwipeAction',
@@ -89,7 +87,4 @@ const manifest: ComponentManifest = {
   }]
 }
 
-export default class SwipeActionComponent implements Component<SwipeActionProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => (<SwipeAction {...props} />), { manifest })
-}
+export default ReactWrapper(SwipeAction, manifest)

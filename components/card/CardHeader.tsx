@@ -1,7 +1,5 @@
-import React from 'react'
 import { Card } from 'antd-mobile'
-import { CardHeaderProps } from 'antd-mobile/lib/card/CardHeader'
-import { Component, FieldTypes, EditTypes, ReactWrapper } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper } from '@libraui/extension'
 const CardHeader = Card.Header
 const manifest = {
   name: 'CardHeader',
@@ -48,7 +46,4 @@ const manifest = {
   ]
 }
 
-export default class CardHeaderComponent implements Component<CardHeaderProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <CardHeader {...props}></CardHeader>, { manifest })
-}
+export default ReactWrapper(CardHeader, manifest)

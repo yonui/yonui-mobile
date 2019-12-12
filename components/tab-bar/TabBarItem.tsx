@@ -3,8 +3,7 @@
  */
 import React from 'react'
 import { TabBar } from 'antd-mobile'
-import { AntTabbarProps } from 'antd-mobile/lib/tab-bar'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 var TabBarItem = TabBar.Item
 // todo 未配置 onChange
 const manifest: ComponentManifest = {
@@ -131,7 +130,5 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export default class MetaTabBarItem implements Component<AntTabbarProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <TabBarItem {...props} ></TabBarItem>, { manifest, excludeNidAndUiType: true })
-}
+
+export default ReactWrapper((props: any) => <TabBarItem {...props} ></TabBarItem>, manifest, { excludeNidAndUiType: true })

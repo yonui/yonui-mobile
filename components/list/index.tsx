@@ -1,7 +1,5 @@
-import React from 'react'
 import { List } from 'antd-mobile'
-import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import { ListProps } from 'antd-mobile/lib/list'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 const manifest: ComponentManifest = {
   name: 'List',
   label: '列表',
@@ -34,7 +32,5 @@ const manifest: ComponentManifest = {
   ],
   children: ['ListItem']
 }
-export default class ListComponent implements Component<ListProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => (<List {...props}/>), { manifest })
-}
+
+export default ReactWrapper(List, manifest)

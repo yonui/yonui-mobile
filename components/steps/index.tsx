@@ -1,7 +1,6 @@
 import React from 'react'
 import { Steps } from 'antd-mobile'
-import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import { StepsProps } from 'antd-mobile/lib/steps'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 const manifest: ComponentManifest = {
   name: 'Steps',
   label: '步骤条',
@@ -79,7 +78,5 @@ function getTabBarItems (children: any) {
     return <Steps.Step {...item.props.children.props} key={index}></Steps.Step>
   })
 }
-export default class StepsComponent implements Component<StepsProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => (<Steps {...props}>{getTabBarItems(props.children)}</Steps>), { manifest })
-}
+
+export default ReactWrapper((props: any) => (<Steps {...props}>{getTabBarItems(props.children)}</Steps>), manifest)

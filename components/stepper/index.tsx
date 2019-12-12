@@ -1,10 +1,8 @@
 /**
  * rc-from是否需要增加,如果增加rc-from,需要写一个from组件
  */
-import React from 'react'
 import { Stepper } from 'antd-mobile'
-import { StepProps } from 'antd-mobile/lib/stepper'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 // todo 未配置 onChange
 const manifest: ComponentManifest = {
   name: 'Stepper',
@@ -109,7 +107,5 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export default class StepperComponent implements Component<StepProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <Stepper {...props}/>, { manifest })
-}
+
+export default ReactWrapper(Stepper, manifest)

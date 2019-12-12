@@ -1,7 +1,6 @@
 import React from 'react'
 import { Tag } from 'antd-mobile'
-import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import { TagProps } from 'antd-mobile/lib/tag'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 const manifest: ComponentManifest = {
   name: 'Tag',
   label: '标签',
@@ -105,7 +104,4 @@ const manifest: ComponentManifest = {
     }
   ]
 }
-export default class TagComponent implements Component<TagProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => (<Tag {...props}>{props.name}</Tag>), { manifest })
-}
+export default ReactWrapper((props: any) => (<Tag {...props}>{props.name}</Tag>), manifest)

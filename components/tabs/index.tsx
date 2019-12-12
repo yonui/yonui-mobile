@@ -3,8 +3,7 @@
  */
 import React from 'react'
 import { Tabs } from 'antd-mobile'
-import TabsProps from 'antd-mobile/lib/tabs/PropsType'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 const getChildrenDom = function (tabs: any) {
   if (!Array.isArray(tabs)) return null
   return tabs.map((item, index) => {
@@ -333,7 +332,4 @@ const manifest: ComponentManifest = {
   children: []
 }
 
-export default class MetaTabs implements Component<TabsProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <Tabs {...props}>{getChildrenDom(props.tabs)}</Tabs>, { manifest })
-}
+export default ReactWrapper((props: any) => <Tabs {...props}>{getChildrenDom(props.tabs)}</Tabs>, manifest)

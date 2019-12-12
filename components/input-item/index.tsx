@@ -1,7 +1,5 @@
-import React from 'react'
 import { InputItem } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import { InputItemProps } from 'antd-mobile/lib/input-item'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 /**
  * todo
  * maxLength error onErrorClick extra onExtraClick
@@ -140,7 +138,5 @@ const manifest: ComponentManifest = {
 
   ]
 }
-export default class InputItemComponent implements Component<InputItemProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <InputItem {...props}/>, { manifest })
-}
+
+export default ReactWrapper(InputItem, manifest)

@@ -3,8 +3,7 @@
  */
 import React from 'react'
 import { Radio } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import { RadioProps } from 'antd-mobile/lib/radio/Radio'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import * as styles from './index.less'
 // todo
 const manifest: ComponentManifest = {
@@ -73,7 +72,5 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export default class RadioComponent implements Component<RadioProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <Radio className={styles.myRadio} {...props}>{props.name}</Radio>, { manifest })
-}
+
+export default ReactWrapper((props: any) => <Radio className={styles.myRadio} {...props}>{props.name}</Radio>, manifest)

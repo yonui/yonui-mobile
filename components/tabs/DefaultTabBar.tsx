@@ -1,10 +1,8 @@
 /**
  * rc-from是否需要增加,如果增加rc-from,需要写一个from组件
  */
-import React from 'react'
 import { Tabs } from 'antd-mobile'
-import TabsProps from 'antd-mobile/lib/tabs/PropsType'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 const DefaultTabBar = Tabs.DefaultTabBar
 // todo 未配置 onChange
@@ -120,7 +118,5 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export default class MetaDefaultTabBar implements Component<TabsProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <DefaultTabBar {...props} />, { manifest })
-}
+
+export default ReactWrapper(DefaultTabBar, manifest)

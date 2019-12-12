@@ -1,7 +1,6 @@
 import React from 'react'
 import { ListView } from 'antd-mobile'
-import { MIndexedListProps } from 'antd-mobile/lib/list-view/Indexed'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 const IndexedList = ListView.IndexedList
 // todo 未配置 style activeStyle
@@ -107,7 +106,5 @@ const manifest: ComponentManifest = {
   children: []
 
 }
-export default class MetaIndexedList implements Component<MIndexedListProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <IndexedList {...props}></IndexedList>)
-}
+
+export default ReactWrapper((props: any) => <IndexedList {...props}></IndexedList>, manifest)

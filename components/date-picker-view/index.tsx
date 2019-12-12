@@ -1,7 +1,5 @@
-import React from 'react'
 import { DatePickerView } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import { DatePickerProps } from 'antd-mobile/lib/date-picker-view/PropsType'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 const manifest: ComponentManifest = {
   name: 'DatePickerView',
@@ -121,7 +119,4 @@ const manifest: ComponentManifest = {
     }
   ]
 }
-export default class DatePickerViewComponent implements Component<DatePickerProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <DatePickerView {...props}/>, { manifest })
-}
+export default ReactWrapper(DatePickerView, manifest)

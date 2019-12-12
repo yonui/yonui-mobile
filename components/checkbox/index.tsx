@@ -1,10 +1,8 @@
 /**
  * rc-from是否需要增加,如果增加rc-from,需要写一个from组件
  */
-import React from 'react'
 import { Checkbox } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import { CheckboxProps } from 'antd-mobile/lib/checkbox/Checkbox'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 // todo 未配置 onChange
 const manifest: ComponentManifest = {
   name: 'Checkbox',
@@ -61,7 +59,4 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export default class CheckboxComponent implements Component<CheckboxProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <Checkbox {...props}/>, { manifest })
-}
+export default ReactWrapper(Checkbox, manifest)

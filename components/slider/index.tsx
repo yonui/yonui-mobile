@@ -1,7 +1,5 @@
-import * as React from 'react'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 import { Slider } from 'antd-mobile'
-import { SliderProps } from 'antd-mobile/lib/slider'
 import './index.less'
 /**
  * todo
@@ -104,7 +102,4 @@ const manifest: ComponentManifest = {
   }]
 }
 
-export default class SliderComponent implements Component<SliderProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => (<Slider {...props} />), { manifest })
-}
+export default ReactWrapper(Slider, manifest)

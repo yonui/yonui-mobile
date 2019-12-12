@@ -1,7 +1,5 @@
-import React from 'react'
 import { SearchBar } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import { SearchBarProps } from 'antd-mobile/lib/search-bar'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 /**
  * todo
  * maxLength
@@ -168,7 +166,4 @@ const manifest: ComponentManifest = {
     }
   ]
 }
-export default class SearchBarComponent implements Component<SearchBarProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <SearchBar {...props}/>, { manifest })
-}
+export default ReactWrapper(SearchBar, manifest)

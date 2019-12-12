@@ -1,7 +1,5 @@
-import React from 'react'
 import { Grid } from 'antd-mobile'
-import { GridProps } from 'antd-mobile/lib/grid'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 // todo 未配置 style activeStyle
 const manifest: ComponentManifest = {
@@ -154,7 +152,4 @@ const manifest: ComponentManifest = {
   children: []
 
 }
-export default class MetaGrid implements Component<GridProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <Grid {...props}></Grid>, { manifest })
-}
+export default ReactWrapper(Grid, manifest)

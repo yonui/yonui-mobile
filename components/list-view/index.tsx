@@ -1,7 +1,5 @@
-import React from 'react'
 import { ListView } from 'antd-mobile'
-import { ListViewProps } from 'antd-mobile/lib/list-view'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 // todo 未配置 style activeStyle
 const manifest: ComponentManifest = {
@@ -314,7 +312,5 @@ const manifest: ComponentManifest = {
   children: []
 
 }
-export default class MetaListView implements Component<ListViewProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <ListView {...props}></ListView>, { manifest })
-}
+
+export default ReactWrapper(ListView, manifest)

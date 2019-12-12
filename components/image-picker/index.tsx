@@ -1,7 +1,5 @@
-import React from 'react'
 import { ImagePicker } from 'antd-mobile'
-import { Component, FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import { ImagePickerPropTypes } from 'antd-mobile/lib/image-picker'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 // todo files
 const manifest: ComponentManifest = {
   name: 'ImagePicker',
@@ -133,7 +131,4 @@ const manifest: ComponentManifest = {
     }
   ]
 }
-export default class ImagePickerComponent implements Component<ImagePickerPropTypes> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => <ImagePicker {...props}/>, { manifest })
-}
+export default ReactWrapper(ImagePicker, manifest)

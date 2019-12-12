@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { Component, EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 import { WingBlank } from 'antd-mobile'
-import { WingBlankProps } from 'antd-mobile/lib/wing-blank'
 const manifest: ComponentManifest = {
   name: 'WingBlank',
   label: '两翼留白',
@@ -33,7 +32,4 @@ const manifest: ComponentManifest = {
   children: ['Button', 'Calendar', 'Card', 'Checkbox', 'Drawer', 'Flex', 'NavBar', 'Progress', 'Stepper', 'Switch', 'WhiteSpace', 'WingBlank', 'Slider', 'Range']
 }
 
-export default class MetaWingBlank implements Component<WingBlankProps> {
-  manifest = manifest
-  render = ReactWrapper((props: any) => (<WingBlank {...props}>{props.children}</WingBlank>), { manifest })
-}
+export default ReactWrapper((props: any) => (<WingBlank {...props}>{props.children}</WingBlank>), manifest)
