@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
-import { Drawer } from 'antd-mobile'
+import { Drawer, List } from 'antd-mobile'
 const manifest: ComponentManifest = {
   name: 'Drawer',
   label: '抽屉',
@@ -10,12 +10,12 @@ const manifest: ComponentManifest = {
   props: [// adapter适配层数据
     {
       name: 'sidebar',
-      type: FieldTypes.string, // 备注 需要修改成child
+      type: FieldTypes.child, // 备注 需要修改成child
       defaultValue: '',
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Textarea,
         props: {},
         label: '内容',
         help: '抽屉里的内容'
@@ -186,8 +186,8 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: ['Button', 'Calendar', 'Card', 'Checkbox', 'Flex', 'NavBar', 'Progress', 'Stepper', 'Switch', 'WhiteSpace', 'WingBlank']
+  children: []
 }
 
 // 这边需要做的处理：需要生成sidebar然后传给<Drawer></Drawer>
-export default ReactWrapper((props: any) => (<Drawer {...props} sidebar={<div dangerouslySetInnerHTML={{ __html: props.sidebar }} /> }>{props.children || <div>drawer</div>}</Drawer>), manifest)
+export default ReactWrapper((props: any) => (<Drawer {...props} style={{ minHeight: document.documentElement.clientHeight }} sidebar={<List><List.Item thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png" multipleLine >Category</List.Item></List>}></Drawer>), manifest)
