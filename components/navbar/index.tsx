@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 import { NavBar } from 'antd-mobile'
@@ -85,4 +84,4 @@ const manifest: ComponentManifest = {
   children: ['Button', 'Card', 'Progress', 'WingBlank']
 }
 
-export default ReactWrapper((props: any) => (<NavBar {...props}>{props.children}</NavBar>), manifest)
+export default ReactWrapper(NavBar, manifest)

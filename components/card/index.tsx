@@ -1,4 +1,3 @@
-import React from 'react'
 import { Card } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 const manifest: ComponentManifest = {
@@ -22,4 +21,4 @@ const manifest: ComponentManifest = {
   ],
   children: ['CardHeader', 'CardBody', 'CardFooter']// 应该还可以放别的组件-不知道有哪些
 }
-export default ReactWrapper((props: any) => <Card {...props}>{props.children}</Card>, manifest)
+export default ReactWrapper(Card, manifest)

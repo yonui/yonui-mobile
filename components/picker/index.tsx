@@ -1,4 +1,3 @@
-import React from 'react'
 import { Picker } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 /**
@@ -213,4 +212,4 @@ const manifest: ComponentManifest = {
   ]
 }
 
-export default ReactWrapper((props: any) => <Picker {...props}>{props.children || <div className='picker-trigger-click' style={{ minHeight: 32 }}>picker-弹框</div>}</Picker>, manifest)
+export default ReactWrapper(Picker, manifest)

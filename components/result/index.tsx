@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 import { Result } from 'antd-mobile'
@@ -105,4 +104,4 @@ const manifest: ComponentManifest = {
   children: []
 }
 
-export default ReactWrapper((props: any) => (<Result {...props}>{props.children}</Result>), manifest)
+export default ReactWrapper(Result, manifest)

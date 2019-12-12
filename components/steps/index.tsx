@@ -1,4 +1,3 @@
-import React from 'react'
 import { Steps } from 'antd-mobile'
 import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 const manifest: ComponentManifest = {
@@ -72,11 +71,4 @@ const manifest: ComponentManifest = {
   children: ['Step']
 }
 
-function getTabBarItems (children: any) {
-  if (!Array.isArray(children) || children.length === 0) return <Steps.Step title="第一步" />
-  return children.map((item, index) => {
-    return <Steps.Step {...item.props.children.props} key={index}></Steps.Step>
-  })
-}
-
-export default ReactWrapper((props: any) => (<Steps {...props}>{getTabBarItems(props.children)}</Steps>), manifest)
+export default ReactWrapper(Steps, manifest)

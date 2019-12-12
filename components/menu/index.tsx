@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 import { Menu } from 'antd-mobile'
@@ -192,4 +191,4 @@ const manifest: ComponentManifest = {
 
 // 这边需要做的处理：需要生成sidebar然后传给<Menu></Menu>
 
-export default ReactWrapper((props: any) => (<Menu {...props}>{props.children}</Menu>), manifest)
+export default ReactWrapper(Menu, manifest)

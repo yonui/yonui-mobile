@@ -1,4 +1,3 @@
-import React from 'react'
 import { Accordion } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
@@ -76,4 +75,4 @@ const manifest: ComponentManifest = {
 
 }
 
-export default ReactWrapper((props: any) => <Accordion {...props}>{props.children}</Accordion>, manifest)
+export default ReactWrapper(Accordion, manifest)

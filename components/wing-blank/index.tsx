@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 import { WingBlank } from 'antd-mobile'
@@ -32,4 +31,4 @@ const manifest: ComponentManifest = {
   children: ['Button', 'Calendar', 'Card', 'Checkbox', 'Drawer', 'Flex', 'NavBar', 'Progress', 'Stepper', 'Switch', 'WhiteSpace', 'WingBlank', 'Slider', 'Range']
 }
 
-export default ReactWrapper((props: any) => (<WingBlank {...props}>{props.children}</WingBlank>), manifest)
+export default ReactWrapper(WingBlank, manifest)

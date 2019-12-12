@@ -1,7 +1,6 @@
 /**
  * rc-from是否需要增加,如果增加rc-from,需要写一个from组件
  */
-import React from 'react'
 import { TabBar } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
@@ -124,19 +123,4 @@ const manifest: ComponentManifest = {
   ],
   children: ['TabBarItem']
 }
-function getTabBarItems (children: any) {
-  if (!Array.isArray(children) || children.length === 0) {
-    return (
-      <TabBar.Item
-        icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
-        selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
-        title="占位"
-        key="default"></TabBar.Item>
-    )
-  }
-  return children.map((item, index) => {
-    return <TabBar.Item {...item.props.children.props} key={index}></TabBar.Item>
-  })
-}
-
-export default ReactWrapper((props: any) => <TabBar {...props}>{getTabBarItems(props.children)}</TabBar>, manifest)
+export default ReactWrapper(TabBar, manifest)

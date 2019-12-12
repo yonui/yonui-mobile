@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 import { Flex } from 'antd-mobile'
@@ -124,4 +123,4 @@ const manifest: ComponentManifest = {
   parent: (p: ComponentManifest) => p.type === 'Layout'
 }
 
-export default ReactWrapper((props: any) => (<Flex {...props}>{props.children}</Flex>), manifest)
+export default ReactWrapper(Flex, manifest)

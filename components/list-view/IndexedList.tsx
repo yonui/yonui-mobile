@@ -1,4 +1,3 @@
-import React from 'react'
 import { ListView } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
@@ -107,4 +106,4 @@ const manifest: ComponentManifest = {
 
 }
 
-export default ReactWrapper((props: any) => <IndexedList {...props}></IndexedList>, manifest)
+export default ReactWrapper(IndexedList, manifest)

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Accordion } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
@@ -39,4 +38,4 @@ const manifest: ComponentManifest = {
   ],
   children: ['List']
 }
-export default ReactWrapper((props: any) => <AccordionPanel {...props}>{props.children || <h1>accordion-chidlren-affix</h1>}</AccordionPanel>, manifest)
+export default ReactWrapper(AccordionPanel, manifest)

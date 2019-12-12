@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { ReactWrapper, ComponentManifest } from '@libraui/extension'
 
 import { Flex } from 'antd-mobile'
@@ -14,4 +13,4 @@ const manifest: ComponentManifest = {
   ],
   children: ['Button', 'Calendar', 'Card', 'Checkbox', 'Drawer', 'Flex', 'NavBar', 'Progress', 'Stepper', 'Switch', 'WhiteSpace', 'WingBlank']
 }
-export default ReactWrapper((props: any) => <FlexItem > {props.children}</FlexItem>, manifest)
+export default ReactWrapper(FlexItem, manifest)

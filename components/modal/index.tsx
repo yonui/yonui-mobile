@@ -1,4 +1,3 @@
-import React from 'react'
 import { Modal } from 'antd-mobile'
 import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 const manifest: ComponentManifest = {
@@ -207,4 +206,4 @@ const manifest: ComponentManifest = {
   children: ['Card']
 }
 
-export default ReactWrapper((props: any) => (<Modal {...props}>{props.children}</Modal>), manifest)
+export default ReactWrapper(Modal, manifest)

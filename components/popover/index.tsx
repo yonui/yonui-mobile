@@ -104,6 +104,5 @@ const manifest: ComponentManifest = {
 }
 
 export default ReactWrapper((props: any) => {
-  console.log('props children is: ', props.children)
   return <Popover {...props}>{props.children ? props.children[0] : <Icon type="ellipsis" />}</Popover>
 }, manifest)

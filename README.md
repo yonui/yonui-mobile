@@ -187,6 +187,9 @@ const manifest: ComponentManifest = {
 }
 
 export default ReactWrapper((props: any) => <Button {...props}>{props.name}</Button>, manifest)
+
+// 如果不需要转换，直接封装即可
+export default ReactWrapper(Button, manifest)
 ```
 
 ### 项目构建配置

@@ -1,7 +1,6 @@
 /**
  * rc-from是否需要增加,如果增加rc-from,需要写一个from组件
  */
-import React from 'react'
 import { TabBar } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 var TabBarItem = TabBar.Item
@@ -72,7 +71,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Json,
         isRequired: false,
         props: {},
-        label: '默认展示',
+        label: 'icon',
         help: '默认展示图片'
       }
     },
@@ -131,4 +130,4 @@ const manifest: ComponentManifest = {
   children: []
 }
 
-export default ReactWrapper((props: any) => <TabBarItem {...props} ></TabBarItem>, manifest, { excludeNidAndUiType: true })
+export default ReactWrapper(TabBarItem, manifest, { excludeNidAndUiType: true })

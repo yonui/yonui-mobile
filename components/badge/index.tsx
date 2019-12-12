@@ -1,4 +1,3 @@
-import React from 'react'
 import { Badge } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
@@ -93,4 +92,4 @@ const manifest: ComponentManifest = {
 
 }
 
-export default ReactWrapper((props: any) => <Badge {...props}>{props.children}</Badge>, manifest)
+export default ReactWrapper(Badge, manifest)

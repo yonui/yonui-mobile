@@ -1,4 +1,3 @@
-import React from 'react'
 import { Card } from 'antd-mobile'
 import { ComponentManifest, ReactWrapper } from '@libraui/extension'
 const CardBody = Card.Body
@@ -12,4 +11,4 @@ const manifest: ComponentManifest = {
   parent: (p: ComponentManifest) => p.type === 'Layout'
 }
 
-export default ReactWrapper((props: any) => <CardBody {...props}>{props.children}</CardBody>, manifest)
+export default ReactWrapper(CardBody, manifest)
