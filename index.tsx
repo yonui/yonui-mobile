@@ -59,5 +59,5 @@ export { default as Step } from './components/steps/Step'
 export { default as ActivityIndicator } from './components/activity-indicator'
 export { default as Modal } from './components/modal'
 
-export { default as PullToRefresh } from './components/pull-to-refresh'
+// export { default as PullToRefresh } from './components/pull-to-refresh'
 // export { default as SwipeAction } from './components/swipe-action'
