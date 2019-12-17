@@ -50,13 +50,14 @@ const manifest: ComponentManifest = {
     {
       name: 'type',
       type: FieldTypes.string,
-      defaultValue: 'primary',
+      defaultValue: '',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
         isRequired: true,
         props: {
           options: [
+            { value: '', text: '默认' },
             { value: 'primary', text: '主按钮' },
             { value: 'ghost', text: '透明' },
             { value: 'warning', text: '警告红' }

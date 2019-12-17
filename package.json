@@ -1,6 +1,6 @@
 {
   "name": "@libraui/base-mobile",
-  "version": "0.1.7",
+  "version": "0.1.10",
   "description": "Libra ui for Antd Mobile",
   "main": "./dist/index.js",
   "module": "./lib/index.js",
@@ -14,7 +14,8 @@
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:quiet": "npm run lint -- --quiet",
     "lint:fix": "npm run lint -- --quiet --fix",
-    "lint:git": "git diff --cached --name-only --diff-filter=ACM | grep '\\.[jt]sx\\?$' | xargs eslint"
+    "lint:git": "git diff --cached --name-only --diff-filter=ACM | grep '\\.[jt]sx\\?$' | xargs eslint",
+    "sync": "npm run build && cp -r dist/* ../viewer/public/componentLib && cp dist/manifest.json ../adapter/src/data/manifest.json"
   },
   "husky": {
     "hooks": {
@@ -39,7 +40,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@libraui/extension-packager": "^0.3.2",
+    "@libraui/extension-packager": "^0.4.0",
     "@types/react": "^16.9.13",
     "@types/react-dom": "^16.9.4",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
