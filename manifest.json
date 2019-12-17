@@ -18,6 +18,8 @@
     "radius-xs": "3px",
     "radius-sm": "3px",
     "radius-md": "3px",
-    "radius-lg": "3px"
+    "radius-lg": "3px",
+    "warning-button-fill": "#ffffff",
+    "warning-button-fill-tap": "#ffffff"
   }
 }
