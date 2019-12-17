@@ -1,11 +1,12 @@
 @import '../../style/default.less';
 @buttonPrefixCls: am-button;
 :global(.@{buttonPrefixCls}-warning ){ 
-  color: @color-text-button-waring;
+  color: @color-text-button-warning;
   &:global(.@{buttonPrefixCls}-active) {
-    color: fade(@color-text-button-waring, 30%);
+    color: fade(@color-text-button-warning, 30%);
   }
-  &:global(@{buttonPrefixCls}-disabled) {
-    color: fade(@color-text-button-waring, 60%);
+  &:global(.@{buttonPrefixCls}-disabled) {
+    color: fade(@color-text-button-warning, 60%);
+    opacity: 0.4;
   }
 }

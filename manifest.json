@@ -21,7 +21,8 @@
     "radius-lg": "3px",
     "warning-button-fill": "#ffffff",
     "warning-button-fill-tap": "#ffffff",
-    "hd":"1rem",
-    "color-text-button-waring":"#E14C46"
+    "color-text-button-waring":"#E14C46",
+    "hd":"0.02rem"
+    
   }
 }
