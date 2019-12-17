@@ -15,7 +15,7 @@
     "lint:quiet": "npm run lint -- --quiet",
     "lint:fix": "npm run lint -- --quiet --fix",
     "lint:git": "git diff --cached --name-only --diff-filter=ACM | grep '\\.[jt]sx\\?$' | xargs eslint",
-    "sync": "npm run build && cp dist/* ../viewer/public/componentLib && cp dist/manifest.json ../adapter/src/data/manifest.json"
+    "sync": "npm run build && cp -r dist/* ../viewer/public/componentLib && cp dist/manifest.json ../adapter/src/data/manifest.json"
   },
   "husky": {
     "hooks": {
