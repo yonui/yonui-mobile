@@ -25,9 +25,19 @@ const manifest: ComponentManifest = {
       showDesign: true,
       designConfig: {
         label: '内置 icon 名称',
-        type: EditTypes.Icon,
+        // type: EditTypes.Icon,
         isRequired: false,
-        props: {}
+        // props: {},
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: 'http://localhost:3005/IconSelect',
+          iframeId: 'iconSelectIframe',
+          message: true,
+          footer: true
+        }
       }
     },
     {

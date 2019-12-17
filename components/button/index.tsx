@@ -1,6 +1,8 @@
 import React from 'react'
 import { Button } from 'antd-mobile'
+
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import '../../theme/yonyou.less'
 
 // todo 未配置 style activeStyle
 const manifest: ComponentManifest = {
@@ -145,10 +147,20 @@ const manifest: ComponentManifest = {
       defaultValue: false, // 改成false才是默认没有svg
       showDesign: true,
       designConfig: {
-        type: EditTypes.Icon,
-        isRequired: true,
-        props: {},
-        label: '图标'
+        // type: EditTypes.Icon,
+        isRequired: false,
+        // props: {},
+        label: '图标',
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: 'http://localhost:3005/IconSelect',
+          iframeId: 'iconSelectIframe',
+          message: true,
+          footer: true
+        }
       }
     }
   ],
