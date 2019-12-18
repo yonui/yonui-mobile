@@ -33,7 +33,8 @@
     "lib",
     "dist",
     "components",
-    "index.tsx"
+    "index.tsx",
+    "style"
   ],
   "author": "Yudu Ban <banyd@yonyou.com>",
   "license": "MIT",
