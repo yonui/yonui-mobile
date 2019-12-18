@@ -1,4 +1,3 @@
-import React from 'react'
 import { DatePicker } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
 
@@ -199,4 +198,4 @@ const manifest: ComponentManifest = {
 
   ]
 }
-export default ReactWrapper((props: any) => <DatePicker {...props}><div className='picker-trigger-click' style={{ minHeight: 32 }}>datepicker-弹框</div></DatePicker>, manifest)
+export default ReactWrapper(DatePicker, manifest)
