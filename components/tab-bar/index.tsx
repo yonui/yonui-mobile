@@ -39,7 +39,7 @@ const manifest: ComponentManifest = {
     {
       name: 'tintColor',
       type: FieldTypes.string,
-      defaultValue: '#108ee9',
+      defaultValue: '#E14C46',
       showDesign: true,
       designConfig: {
         type: EditTypes.Color,
@@ -52,7 +52,7 @@ const manifest: ComponentManifest = {
     {
       name: 'unselectedTintColor',
       type: FieldTypes.string,
-      defaultValue: '#888',
+      defaultValue: '#555555',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
