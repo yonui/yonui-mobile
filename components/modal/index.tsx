@@ -128,7 +128,7 @@ const manifest: ComponentManifest = {
     {
       name: 'footer',
       type: FieldTypes.array,
-      defaultValue: JSON.stringify([{ text: '确认' }, { text: '取消' }]),
+      defaultValue: JSON.stringify([{ text: '取消' }, { text: '确定' }]),
       showDesign: true,
       designConfig: {
         label: '底部内容',
