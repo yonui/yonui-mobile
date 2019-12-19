@@ -22,7 +22,9 @@
     "warning-button-fill": "#ffffff",
     "warning-button-fill-tap": "#ffffff",
     "color-text-button-waring":"#E14C46",
-    "hd":"0.02rem"
+    "hd":"0.02rem",
+    "notice-bar-fill": "rgba(17,17,17,0.5)",
+    "notice-bar-color": "#ffffff"
     
   }
 }
