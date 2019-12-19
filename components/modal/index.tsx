@@ -1,5 +1,6 @@
 import { Modal } from 'antd-mobile'
 import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import './index.less'
 const manifest: ComponentManifest = {
   name: 'Modal',
   label: '对话框',
