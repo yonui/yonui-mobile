@@ -4,6 +4,7 @@
 import React from 'react'
 import { Popover, Icon } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import './index.less'
 // todo 未配置 onChange
 const manifest: ComponentManifest = {
   name: 'Popover',
@@ -61,16 +62,23 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'overlay',
-      type: FieldTypes.child,
-      defaultValue: 'overlayContent',
+      name: 'type',
+      type: FieldTypes.string,
+      defaultValue: 'ellipsis',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Textarea,
+        label: '图标',
         isRequired: false,
-        props: {},
-        label: '内容',
-        help: '弹出层内容'
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: '/IconSelect',
+          iframeId: 'iconSelectIframe',
+          message: true,
+          footer: true
+        }
       }
     },
     {
@@ -87,6 +95,18 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'dark',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '深色模式'
+      }
+    },
+    {
       name: 'onSelect',
       type: FieldTypes.action,
       defaultValue: '',
@@ -100,9 +120,10 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: ['Icon']
+  children: ['PopoverItem']
 }
 
 export default ReactWrapper((props: any) => {
-  return <Popover {...props}>{props.children ? props.children[0] : <Icon type="ellipsis" />}</Popover>
+  const overlayClassName = props.dark ? 'dark' : ''
+  return <Popover {...props} overlayClassName={overlayClassName} overlay={props.children}><Icon type={props.type} /></Popover>
 }, manifest)
