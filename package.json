@@ -9,7 +9,7 @@
     "build": "rm -rf dist && extension-packager build .",
     "assets": "cpx \"./components/**/*.{less,css,html,png,jpg,jpeg,gif}\" lib/components",
     "postversion": "git push && git push --tags && npm run lib && npm run build && ynpm publish",
-    "lib": "rm -rf lib && tsc && npm run assets",
+    "lib": "rm -rf lib && npm run assets && tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:quiet": "npm run lint -- --quiet",
