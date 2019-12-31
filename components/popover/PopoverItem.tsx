@@ -59,5 +59,5 @@ const manifest: ComponentManifest = {
 }
 
 export default ReactWrapper((props: any) => {
-  return <Popover.Item {...props} icon={<Icon type={props.type}/>}>{props.label}</Popover.Item>
+  return <Popover.Item {...props} icon={<Icon type={props.type}/>}>{props.label || props.children}</Popover.Item>
 }, manifest)

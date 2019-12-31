@@ -156,4 +156,4 @@ const manifest: ComponentManifest = {
   ]
 }
 
-export default ReactWrapper((props: any) => (<List.Item {...props}>{props.leftContent}</List.Item>), manifest)
+export default ReactWrapper((props: any) => (<List.Item {...props}>{props.leftContent || props.children}</List.Item>), manifest)

@@ -88,4 +88,4 @@ const manifest: ComponentManifest = {
   ]
 }
 
-export default ReactWrapper((props: any) => <NoticeBar {...props}>{props.content}</NoticeBar>, manifest)
+export default ReactWrapper((props: any) => <NoticeBar {...props}>{props.content || props.children}</NoticeBar>, manifest)

@@ -32,5 +32,4 @@ const manifest: ComponentManifest = {
   ],
   children: ['ListItem']
 }
-
 export default ReactWrapper(List, manifest)
