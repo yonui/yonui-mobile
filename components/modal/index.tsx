@@ -206,5 +206,8 @@ const manifest: ComponentManifest = {
   ],
   children: ['Card']
 }
-
+const { alert, prompt, operation } = Modal
+Modal.alert = alert
+Modal.prompt = prompt
+Modal.operation = operation
 export default ReactWrapper(Modal, manifest)
