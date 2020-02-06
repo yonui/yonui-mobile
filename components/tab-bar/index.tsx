@@ -3,6 +3,7 @@
  */
 import { TabBar } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import TabBarItem from './TabBarItem'
 
 // todo 未配置 onChange
 const manifest: ComponentManifest = {
@@ -123,4 +124,7 @@ const manifest: ComponentManifest = {
   ],
   children: ['TabBarItem']
 }
-export default ReactWrapper(TabBar, manifest)
+const WrappedTabBar = ReactWrapper(TabBar, manifest)
+WrappedTabBar.Item = TabBarItem
+
+export default WrappedTabBar
