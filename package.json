@@ -6,6 +6,7 @@
   "module": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
+    "start": "cross-env PORT=3063 react-scripts start",
     "build": "rm -rf dist && extension-packager build .",
     "assets": "copyfiles -e \"**/*.tsx\" \"./components/**/*\" lib",
     "postversion": "git push && git push --tags && npm run lib && npm run build && ynpm publish",
@@ -39,6 +40,8 @@
   "author": "Yudu Ban <banyd@yonyou.com>",
   "license": "MIT",
   "devDependencies": {
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "@libraui/extension-packager": "^0.4.0",
@@ -46,7 +49,9 @@
     "@types/react-dom": "^16.9.4",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
     "@typescript-eslint/parser": "^2.8.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "copyfiles": "^2.1.1",
+    "cross-env": "^6.0.3",
     "eslint": "^6.7.0",
     "eslint-config-standard-with-typescript": "^11.0.1",
     "eslint-plugin-import": "^2.18.2",
@@ -54,6 +59,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "husky": "^3.1.0",
+    "react-scripts": "^3.3.0",
     "tsc": "^1.20150623.0",
     "typescript": "^3.7.2"
   },
@@ -63,5 +69,17 @@
     "eslint-plugin-react": "^7.16.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
