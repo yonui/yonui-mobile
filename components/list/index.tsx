@@ -1,5 +1,6 @@
 import { List } from 'antd-mobile'
 import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import ListItem from './ListItem'
 const manifest: ComponentManifest = {
   name: 'List',
   label: '列表',
@@ -32,5 +33,6 @@ const manifest: ComponentManifest = {
   ],
   children: ['ListItem']
 }
-
-export default ReactWrapper(List, manifest)
+const WrappedList = ReactWrapper(List, manifest)
+WrappedList.Item = ListItem
+export default WrappedList

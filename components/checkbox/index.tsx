@@ -3,6 +3,7 @@
  */
 import { Checkbox } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import CheckboxItem from './CheckboxItem'
 // todo 未配置 onChange
 const manifest: ComponentManifest = {
   name: 'Checkbox',
@@ -59,4 +60,6 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export default ReactWrapper(Checkbox, manifest)
+const WrappedCheckbox = ReactWrapper(Checkbox, manifest)
+WrappedCheckbox.CheckboxItem = CheckboxItem
+export default WrappedCheckbox
