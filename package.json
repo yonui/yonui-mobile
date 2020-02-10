@@ -1,5 +1,5 @@
 {
-  "name": "@libraui/base-mobile",
+  "name": "tinper-libraui",
   "version": "0.1.34",
   "description": "Libra ui for Antd Mobile",
   "main": "./dist/index.js",
