@@ -4,7 +4,7 @@
 import React from 'react'
 import { Radio } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-import * as styles from './index.less'
+// import * as styles from './index.less'
 // todo
 const manifest: ComponentManifest = {
   name: 'Radio',
@@ -72,4 +72,4 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export default ReactWrapper((props: any) => <Radio className={styles.myRadio} {...props}>{props.name || props.children}</Radio>, manifest)
+export default ReactWrapper((props: any) => <Radio {...props}>{props.name || props.children}</Radio>, manifest)

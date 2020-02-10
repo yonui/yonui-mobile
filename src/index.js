@@ -2,19 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
 
-import { Button } from 'antd-mobile';
+import Button from "./components/button";
 
 const data = {
-  mode: "orderApply",
-  leftIcon: "left",
-  rightIcon1:"search",
-  rightIcon2:"check",
-  rightIcon3:"ellipsis",
-  onRight1Click:() => alert("right1"),
-  onLeftClick: () => alert("返回"),
-  title: "默认标题"
+  text: '文本'
 };
-ReactDOM.render(<Button />, document.getElementById("root"));
+console.log(Button)
+ReactDOM.render(<Button {...data}></Button>, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
