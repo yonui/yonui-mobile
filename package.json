@@ -8,9 +8,10 @@
   "scripts": {
     "build": "rm -rf dist && extension-packager build .",
     "assets": "copyfiles -e \"**/*.tsx\" \"./components/**/*\" lib",
-    "postversion": "git push && git push --tags && npm run lib && npm run build && ynpm publish",
+    "postversion": "git push --follow-tags",
+    "prepublishOnly": "npm run lib && npm run build",
     "lib": "rm -rf lib && tsc && npm run assets",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo no test",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:quiet": "npm run lint -- --quiet",
     "lint:fix": "npm run lint -- --quiet --fix",
