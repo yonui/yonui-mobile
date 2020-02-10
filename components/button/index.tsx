@@ -170,5 +170,5 @@ const manifest: ComponentManifest = {
 }
 
 export default ReactWrapper((props: any) => {
-  return <Button {...props}>{props.text}</Button>
+  return <Button {...props}>{props.text || props.children}</Button>
 }, manifest, { excludeNidAndUiType: true })

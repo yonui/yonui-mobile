@@ -206,5 +206,4 @@ const manifest: ComponentManifest = {
   ],
   children: ['Card']
 }
-
 export default ReactWrapper(Modal, manifest)

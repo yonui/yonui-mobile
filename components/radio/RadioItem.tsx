@@ -72,4 +72,4 @@ const manifest: ComponentManifest = {
   children: []
 }
 
-export default ReactWrapper((props: any) => <Radio.RadioItem {...props}>{props.name}</Radio.RadioItem>, manifest)
+export default ReactWrapper((props: any) => <Radio.RadioItem {...props}>{props.name || props.children}</Radio.RadioItem>, manifest)

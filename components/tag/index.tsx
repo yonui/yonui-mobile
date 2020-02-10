@@ -104,4 +104,4 @@ const manifest: ComponentManifest = {
     }
   ]
 }
-export default ReactWrapper((props: any) => (<Tag {...props}>{props.name}</Tag>), manifest)
+export default ReactWrapper((props: any) => (<Tag {...props}>{props.name || props.children}</Tag>), manifest)
