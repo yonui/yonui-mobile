@@ -1,6 +1,6 @@
 {
   "name": "tinper-libraui",
-  "version": "0.1.34",
+  "version": "0.2.0",
   "description": "Libra ui for Antd Mobile",
   "main": "./dist/index.js",
   "module": "./lib/index.js",
