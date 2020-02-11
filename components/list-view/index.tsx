@@ -313,4 +313,6 @@ const manifest: ComponentManifest = {
 
 }
 
-export default ReactWrapper(ListView, manifest)
+const WrappedListView = ReactWrapper(ListView, manifest)
+WrappedListView.DataSource = ListView.DataSource
+export default WrappedListView

@@ -4,12 +4,12 @@
 import React from 'react'
 import { Tabs } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
-const getChildrenDom = function (tabs: any) {
-  if (!Array.isArray(tabs)) return null
-  return tabs.map((item, index) => {
-    return <div key={index} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>Content of {index + 1} tab</div>
-  })
-}
+// const getChildrenDom = function (tabs: any) {
+//   if (!Array.isArray(tabs)) return null
+//   return tabs.map((item, index) => {
+//     return <div key={index} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>Content of {index + 1} tab</div>
+//   })
+// }
 // todo 未配置 onChange
 const manifest: ComponentManifest = {
   name: 'Tabs',
@@ -332,4 +332,4 @@ const manifest: ComponentManifest = {
   children: []
 }
 
-export default ReactWrapper((props: any) => <Tabs {...props}>{getChildrenDom(props.tabs)}</Tabs>, manifest)
+export default ReactWrapper((props: any) => <Tabs {...props}/>, manifest)
