@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'antd-mobile'
 
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
 import './index.less'
 
 // todo 未配置 style activeStyle

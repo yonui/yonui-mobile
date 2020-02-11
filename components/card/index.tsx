@@ -1,5 +1,5 @@
 import { Card } from 'antd-mobile'
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'Card',
   label: '卡片',

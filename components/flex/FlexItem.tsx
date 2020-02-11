@@ -1,4 +1,4 @@
-import { ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { ReactWrapper, ComponentManifest } from 'libraui-extension'
 
 import { Flex } from 'antd-mobile'
 

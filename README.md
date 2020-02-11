@@ -196,7 +196,7 @@ export default ReactWrapper(Button, manifest)
 
 现在的打包方式是基于webpack的方式。
 
-打包时使用了一个工具 `@libraui/extension-packager`，内部集成了 *webpack*、*babel* 以及其它各种 webpack plugin 和 loader。
+打包时使用了一个工具 `libraui-extension-packager`，内部集成了 *webpack*、*babel* 以及其它各种 webpack plugin 和 loader。
 
 暂时不支持传入自定义配置。
 

@@ -1,5 +1,5 @@
 import { List } from 'antd-mobile'
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
 import ListItem from './ListItem'
 const manifest: ComponentManifest = {
   name: 'List',

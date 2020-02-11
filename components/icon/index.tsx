@@ -1,5 +1,5 @@
 import { Icon } from 'antd-mobile'
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
 // todo
 const manifest: ComponentManifest = {
   name: 'Icon',

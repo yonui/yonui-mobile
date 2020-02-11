@@ -2,7 +2,7 @@
  * rc-from是否需要增加,如果增加rc-from,需要写一个from组件
  */
 import { TabBar } from 'antd-mobile'
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
 var TabBarItem = TabBar.Item
 // todo 未配置 onChange
 const manifest: ComponentManifest = {

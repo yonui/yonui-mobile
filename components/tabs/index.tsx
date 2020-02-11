@@ -2,7 +2,7 @@
  * rc-from是否需要增加,如果增加rc-from,需要写一个from组件
  */
 import { Tabs } from 'antd-mobile'
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
 import DefaultTabBar from './DefaultTabBar'
 // const getChildrenDom = function (tabs: any) {
 //   if (!Array.isArray(tabs)) return null

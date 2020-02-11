@@ -1,5 +1,5 @@
 import { Card } from 'antd-mobile'
-import { FieldTypes, EditTypes, ReactWrapper } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper } from 'libraui-extension'
 const CardHeader = Card.Header
 const manifest = {
   name: 'CardHeader',

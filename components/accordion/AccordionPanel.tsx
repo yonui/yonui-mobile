@@ -1,5 +1,5 @@
 import { Accordion } from 'antd-mobile'
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
 
 var AccordionPanel = Accordion.Panel
 // todo 未配置 style activeStyle

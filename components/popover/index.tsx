@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { Popover, Icon } from 'antd-mobile'
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
 import PopoverItem from './PopoverItem'
 import './index.less'
 // todo 未配置 onChange
