@@ -1,6 +1,6 @@
-# @libraui/antd-mobile
+# tinper-libraui
 
-Libraui 扩展包，适配 Antd Mobile
+Libraui 基础组件包，基于 antd-mobile，做了封装，用于适配到页面设计器。
 
 ## 贡献代码
 
@@ -14,7 +14,7 @@ Libraui 扩展包，适配 Antd Mobile
 
 开发组件的时候，需要按照约定写符合规范的Manifest定义。但是其结构比较复杂，容易写错。
 
-用Typescript的话，可以引入定义好的Manifest类型定义 ` import { ComponentManifest, Component } from '@libraui/extension' `，基于它的提示和相应的报错，实现轻松编写Manifest的目的。
+用Typescript的话，可以引入定义好的Manifest类型定义 ` import { ComponentManifest, Component } from 'libraui-extension' `，基于它的提示和相应的报错，实现轻松编写Manifest的目的。
 
 另外示例组件是用Typescript开发的，相关流程会比Javascript测试更多一些，质量相对更可靠一些。
 
@@ -43,7 +43,7 @@ export { default as Button } from './components/button'
 ```typescript
 import React from 'react'
 import { Button } from 'antd-mobile'
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
 // todo 未配置 style activeStyle
 const manifest: ComponentManifest = {
   name: 'Button', // 自定义组件名称
