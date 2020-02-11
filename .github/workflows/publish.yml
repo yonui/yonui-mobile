@@ -25,6 +25,6 @@ jobs:
         registry-url: https://registry.npmjs.org/
     - run: npm i
     - run: npm publish
-    - run: npm i -g ynpm-tool && ynpm sync tinper-libraui
       env:
         NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+    - run: npm i -g ynpm-tool && ynpm sync tinper-libraui
