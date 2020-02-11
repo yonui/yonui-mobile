@@ -11,7 +11,8 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: 12
-    - run: npm i
+    - run: npm i -g ynpm-tool
+    - run: ynpm i
     - run: npm test
 
   publish-npm:
