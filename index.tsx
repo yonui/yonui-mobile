@@ -64,4 +64,4 @@ export { default as Modal } from './components/modal'
 
 export { default as PullToRefresh } from './components/pull-to-refresh'
 export { default as SwipeAction } from './components/swipe-action'
-export { ActionSheet } from 'antd-mobile'
+export { ActionSheet, Toast } from 'antd-mobile'
