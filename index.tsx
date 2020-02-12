@@ -8,7 +8,7 @@ export { default as Checkbox } from './components/checkbox/CheckBox'
 export { default as CheckboxItem } from './components/checkbox/CheckboxItem'
 // export { default as Demo } from './components/demo'
 export { default as Progress } from './components/progress'
-// export { default as Stepper } from './components/stepper'
+export { default as Stepper } from './components/stepper'
 export { default as Switch } from './components/switch'
 
 export { default as WhiteSpace } from './components/white-space'
