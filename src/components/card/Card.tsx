@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, Icon } from 'antd-mobile'
 import classnames from 'classnames'
 export interface CardProps {
+    prefixCls?: string
     full?: boolean
     content?: React.ReactElement
     showHeader?: boolean
@@ -16,6 +17,7 @@ export interface CardProps {
 }
 export default class MDFCard extends React.Component<CardProps, any> {
     static defaultProps = {
+        prefixCls: 'am-card',
         full: false,
         content: <div>This is content of `Card`</div>,
         showHeader: true,
@@ -30,19 +32,23 @@ export default class MDFCard extends React.Component<CardProps, any> {
         super(props)
     }
     renderHeader() { // 判断是否渲染card header
+        const { showHeader, headerTitle, headerThumb, onHeaderExtraClick, headerExtra } = this.props
+
         return (
-            this.props.showHeader ? <Card.Header
-                title={this.props.headerTitle}
-                thumb={this.props.headerThumb}
-                extra={<span onClick={this.props.onHeaderExtraClick}>{this.props.headerExtra}</span>}
+            showHeader ? <Card.Header
+                title={headerTitle}
+                thumb={headerThumb}
+                extra={<span onClick={onHeaderExtraClick}>{headerExtra}</span>}
             /> : ''
         )
     }
     renderBody() { // 在没有header或者footer的情况下需要上下padding
+        const { prefixCls, showHeader, showFooter } = this.props
         const classes:any = classnames({
-            [`am-card-body-padding-top`]: !this.props.showHeader,
-            [`am-card-body-padding-bottom`]: !this.props.showFooter
+            [`${prefixCls}-body-padding-top`]: !showHeader,
+            [`${prefixCls}-body-padding-bottom`]: !showFooter
         })
+
         return (
             <Card.Body className={classes}>
                 {this.props.content}
@@ -50,10 +56,12 @@ export default class MDFCard extends React.Component<CardProps, any> {
         )
     }
     renderFooter() { // 判断是否渲染card footer
+        const { footerContent, footerExtra, showFooter, onFooterExtraClick } = this.props
+
         return (
-            this.props.showFooter ? <Card.Footer 
-                content={this.props.footerContent}
-                extra={<span onClick={this.props.onFooterExtraClick}>{this.props.footerExtra}</span>}
+            showFooter ? <Card.Footer 
+                content={footerContent}
+                extra={<span onClick={onFooterExtraClick}>{footerExtra}</span>}
             /> : ''
         )
     }
