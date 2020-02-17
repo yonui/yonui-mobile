@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
 import { TextareaItem } from 'antd-mobile'
-export default class MyComponent extends Component {
-    constructor(props) {
-        super(props)
-    
-        this.state = {
-             
-        }
+import {TextAreaItemPropsType} from 'antd-mobile/lib/textarea-item/PropsType'
+export default class MyComponent extends Component<TextAreaItemPropsType> {
+    constructor(props:TextAreaItemPropsType) {
+      super(props)
     }
-    
+
     render() {
         return (
             <TextareaItem {...this.props}/>
