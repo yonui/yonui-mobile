@@ -4,7 +4,6 @@
 import React from 'react'
 import { Radio } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
-// import * as styles from './index.less'
 // todo
 const manifest: ComponentManifest = {
   name: 'Radio',
