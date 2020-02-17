@@ -1,0 +1,56 @@
+@import '~_style/index.less';
+
+@cardPrefixCls: am-card;
+
+.@{cardPrefixCls} {
+    padding-bottom: 0;
+
+    &:not(.@{cardPrefixCls}-full) {
+        margin: @hd * 12.5;
+        border-radius: @hd * 6;
+        .hairline('all', transparent, @radius-md);
+    }
+    &-header {
+        position: relative;
+        overflow: hidden;
+        font-size: @hd * 16;
+        .thumb {
+            position: absolute;
+            width: @hd * 8;
+            left: -@hd * 4;
+            height: @hd * 20;
+            background-color: @brand-primary;
+            background: linear-gradient(180deg, #E14C46 0%, #E87672 100%);
+            border-radius: @hd * 10;
+        }
+
+        &-content {
+            flex: 2;
+            .ellipsis();
+        }
+
+
+        &-extra {
+            font-size: @hd * 16;
+            display: contents;
+            align-content: center;
+        }
+    }
+
+    &-body {
+        .hairline('top', transparent);
+        padding: 0 @h-spacing-lg 0;
+        &-padding {
+            &-top {
+                padding-top: @v-spacing-md;
+            }
+            &-bottom {
+                padding-bottom: @v-spacing-md;
+            }
+        }
+    }
+
+    &-footer {
+        padding: @v-spacing-md @h-spacing-lg;
+    }
+}
