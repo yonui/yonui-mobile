@@ -1,24 +1,5 @@
-import { Card } from 'antd-mobile'
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
-const manifest: ComponentManifest = {
-  name: 'Card',
-  label: '卡片',
-  description: '',
-  type: 'DataDisplay',
-  props: [
-    {
-      name: 'full',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '是否通栏'
-      }
-    }
-  ],
-  children: ['CardHeader', 'CardBody', 'CardFooter']// 应该还可以放别的组件-不知道有哪些
-}
-export default ReactWrapper(Card, manifest)
+import { ReactWrapper } from 'libraui-extension'
+import MDFCard from './Card'
+import manifest from './manifest'
+
+export default ReactWrapper(MDFCard, manifest)
