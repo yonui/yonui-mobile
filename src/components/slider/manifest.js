@@ -1,19 +1,6 @@
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
-import { Slider } from 'antd-mobile'
-import './index.less'
-/**
- * todo
- * onAfterChange
- * marks
- * dots
- * included
- * maximumTrackStyle
- * minimumTrackStyle
- * handleStyle
- * trackStyle
- * railStyle
- */
-const manifest: ComponentManifest = {
+// todo 未配置 onClick onChange
+const manifest = {
   name: 'Slider',
   label: '滑动输入条',
   description: '滑动输入条',
@@ -101,5 +88,4 @@ const manifest: ComponentManifest = {
     }
   }]
 }
-
-export default ReactWrapper(Slider, manifest)
+export {manifest,ReactWrapper}
