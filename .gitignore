@@ -26,3 +26,7 @@ yarn-error.log*
 /lib
 package-lock.json
 /demo/build
+
+.libraui
+libra.config.override.json
+manifest.override.json

@@ -4,6 +4,7 @@
   "id": "antd-mobile",
   "version": "1.0.0",
   "index": "./index.tsx",
+  "keyword": "demo library metaui-mobile",
   "lessVars": {
     "color-text-base": "#212121",
     "fill-disabled": "#DFE1E6",
@@ -25,6 +26,8 @@
     "hd":"0.02rem",
     "notice-bar-fill": "rgba(17,17,17,0.5)",
     "notice-bar-color": "#ffffff"
-    
+  },
+  "components": {
+    "Button": "./src/components/button"
   }
 }

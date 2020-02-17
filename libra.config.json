@@ -1,0 +1,11 @@
+{
+  "port": "8090",
+  "autoTemplate": true,
+  "sourcePath": "./src/components",
+  "type": "ts",
+  "lib": [],
+  "extraImport": {
+      "js": "",
+      "css": ""
+  }
+}
