@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Icon } from 'antd-mobile'
+import classnames from 'classnames'
 export interface CardProps {
     full?: boolean
     content?: React.ReactElement
@@ -8,10 +9,10 @@ export interface CardProps {
     headerTitle?: string
     headerThumb?: React.ReactElement | string
     headerExtra?: React.ReactElement | string
-    onHeaderExtraClick?: Function
+    onHeaderExtraClick?: React.MouseEventHandler<HTMLAnchorElement>
     footerContent?: React.ReactElement | string
     footerExtra?: React.ReactElement | string
-    onFooterExtraClick?: Function
+    onFooterExtraClick?: React.MouseEventHandler<HTMLAnchorElement>
 }
 export default class MDFCard extends React.Component<CardProps, any> {
     static defaultProps = {
@@ -28,51 +29,37 @@ export default class MDFCard extends React.Component<CardProps, any> {
     constructor(props: CardProps) {
         super(props)
     }
-    onHeaderExtraClick = () => {
-        if(this.props.onHeaderExtraClick) {
-            this.props.onHeaderExtraClick(this)
-        }
-    }
-    onFooterExtraClick = () => {
-        if(this.props.onFooterExtraClick) {
-            this.props.onFooterExtraClick(this)
-        }
-    }
-    renderHeader() { // 判断是否渲染cardheader
+    renderHeader() { // 判断是否渲染card header
         return (
             this.props.showHeader ? <Card.Header
                 title={this.props.headerTitle}
                 thumb={this.props.headerThumb}
-                extra={<span onClick={this.onHeaderExtraClick}>{this.props.headerExtra}</span>}
+                extra={<span onClick={this.props.onHeaderExtraClick}>{this.props.headerExtra}</span>}
             /> : ''
         )
     }
     renderBody() { // 在没有header或者footer的情况下需要上下padding
-        let classes:any = []
-        if(!this.props.showHeader) {
-            classes.push('am-card-body-padding-top')
-        }
-        if(!this.props.showFooter) {
-            classes.push('am-card-body-padding-bottom')
-        }
+        const classes:any = classnames({
+            [`am-card-body-padding-top`]: !this.props.showHeader,
+            [`am-card-body-padding-bottom`]: !this.props.showFooter
+        })
         return (
             <Card.Body className={classes}>
                 {this.props.content}
             </Card.Body>
         )
     }
-    renderFooter() { // 判断是否渲染cardfooter
+    renderFooter() { // 判断是否渲染card footer
         return (
             this.props.showFooter ? <Card.Footer 
                 content={this.props.footerContent}
-                extra={<span onClick={this.onFooterExtraClick}>{this.props.footerExtra}</span>}
+                extra={<span onClick={this.props.onFooterExtraClick}>{this.props.footerExtra}</span>}
             /> : ''
         )
     }
     render() {
         return (
-            <Card 
-                full={this.props.full}>
+            <Card full={this.props.full}>
                 {this.renderHeader()}
                 {this.renderBody()}
                 {this.renderFooter()}

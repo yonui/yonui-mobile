@@ -10,8 +10,8 @@ export default class Demo1 extends Component {
     render() {
         return (
             <div>
-                <Card />
-                <Card />
+                <Card full={true}/>
+                <Card full={false} onHeaderExtraClick={()=>{console.log('onHeaderExtraClick')}}/>
             </div>
         )
     }
