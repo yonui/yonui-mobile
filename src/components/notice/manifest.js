@@ -17,6 +17,18 @@ const manifest = {
       }
     },
     {
+      name: 'title',
+      type: FieldTypes.string,
+      defaultValue: 'Title',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '弹框通告标题区'
+      }
+    },
+    {
       name: 'mode',
       type: FieldTypes.string,
       defaultValue: 'link',
@@ -27,7 +39,9 @@ const manifest = {
         props: {
           options: [
             { value: 'closable', text: '关闭' },
-            { value: 'link', text: '链接' }
+            { value: 'link', text: '链接' },
+            { value: 'modal', text: '弹框通告' },
+            { value: 'pop', text: 'pop公告' }
           ]
         },
         label: '提示类型'

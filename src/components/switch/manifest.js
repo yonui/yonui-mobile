@@ -43,15 +43,15 @@ const manifest = {
       }
     },
     {
-      name: 'label',
+      name: 'name',
       type: FieldTypes.string,
-      defaultValue: '开关',
+      defaultValue: '',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '标题文本'
+        label: 'switch 的 name'
       }
     },
     {

@@ -14,7 +14,7 @@ export default class Demo1 extends Component {
     }
     render() {
         return (
-            <div>
+            <div style={{marginTop:10}}>
                 <MyComponent defaultValue={80}/>
             </div>
         )

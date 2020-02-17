@@ -3,10 +3,9 @@
  * @description: Demo Description
  */
 import React, { Component } from 'react';
-// import Radio from '../index';
+import Radio from '../index';
 import '../style';
 import './demo.less';
-import { Radio } from 'antd-mobile'
 const RadioItem = Radio.RadioItem
 export default class Demo1 extends Component {
     constructor(props) {
@@ -29,7 +28,7 @@ export default class Demo1 extends Component {
         return (
             <div>
 
-                <h3>RadioItem</h3>
+                <span style={{ fontSize: 14 }}>RadioItem</span>
                 <div>
                     {data.map(i => (
                         <RadioItem key={i.value} checked={this.state.value === i.value} onChange={() => this.onChange(i.value)}>
@@ -38,8 +37,8 @@ export default class Demo1 extends Component {
                     ))}
                 </div>
                 <hr></hr>
-                <h3> Custoemd Radio</h3>
-                <Radio className="my-radio-customed" onChange={e => console.log('checkbox', e)}>Radio Message</Radio>
+                <span style={{ fontSize: 14 }}> Custoemd Radio</span>
+                <Radio className="my-radio" onChange={e => console.log('checkbox', e)}>Agree</Radio>
             </div>
         )
     }

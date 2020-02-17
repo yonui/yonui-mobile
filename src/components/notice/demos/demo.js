@@ -10,14 +10,16 @@ import './demo.less';
 export default class Demo1 extends Component {
     render() {
         return (
-           <div className="notice-demo">
-               <span>mode='link'</span>
-               <MyComponent mode='link' >防范疫情，2月5日～2月7日远程办公</MyComponent>
-               <span>mode="closable"</span>
-               <MyComponent mode="closable" icon={null} >防范疫情，2月5日～2月7日远程办公</MyComponent>
-               <span>mode='modal'</span>
-               <MyComponent mode='modal' >防范疫情，2月5日～2月7日远程办公</MyComponent>
-           </div>
+            <div className="notice-demo">
+                <span style={{ fontSize: 14 }}>弹框通告</span>
+                <MyComponent mode='modal' title={'弹框通告'}>防范疫情，2月5日～2月7日远程办公</MyComponent>
+                <span style={{ fontSize: 14 }}>链接通告</span>
+                <MyComponent mode="link" onClick={() => alert('onclick')} >防范疫情，2月5日～2月7日远程办公</MyComponent>
+                <span style={{ fontSize: 14 }}>可关闭通告</span>
+                <MyComponent mode="closable" icon={null} onClick={() => alert('onclick')} >防范疫情，2月5日～2月7日远程办公</MyComponent>
+                <span style={{ fontSize: 14 }}>POP通告</span>
+                <MyComponent mode='pop' >防范疫情，2月5日～2月7日远程办公</MyComponent>
+            </div>
         )
     }
 }
