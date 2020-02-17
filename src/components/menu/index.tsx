@@ -1,4 +1,4 @@
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
 
 import { Menu } from 'antd-mobile'
 const menuData = [

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Tag } from 'antd-mobile'
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'Tag',
   label: '标签',

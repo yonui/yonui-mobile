@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
 import { Range } from 'antd-mobile'
 import './index.less'
 // todo onAfterChange marks dots included count allowCross pushable handleStyle trackStyle railStyle

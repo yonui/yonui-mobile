@@ -1,5 +1,5 @@
 import { Card } from 'antd-mobile'
-import { ComponentManifest, ReactWrapper } from '@libraui/extension'
+import { ComponentManifest, ReactWrapper } from 'libraui-extension'
 const CardBody = Card.Body
 const manifest: ComponentManifest = {
   name: 'CardBody',

@@ -1,5 +1,5 @@
 import { Steps } from 'antd-mobile'
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'Step',
   label: '步骤项',

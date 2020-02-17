@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
 
 import { Drawer, List } from 'antd-mobile'
 const manifest: ComponentManifest = {

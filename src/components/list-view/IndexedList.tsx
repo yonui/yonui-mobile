@@ -1,5 +1,5 @@
 import { ListView } from 'antd-mobile'
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
 
 const IndexedList = ListView.IndexedList
 // todo 未配置 style activeStyle

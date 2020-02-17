@@ -1,4 +1,4 @@
-import { ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { ReactWrapper, ComponentManifest } from 'libraui-extension'
 
 import { Checkbox } from 'antd-mobile'
 

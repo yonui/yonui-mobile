@@ -64,7 +64,6 @@
     "eslint-plugin-standard": "^4.0.1",
     "highlight.js": "^9.18.1",
     "husky": "^3.1.0",
-    "libraui-extension": "^0.6.6",
     "marked": "^0.8.0",
     "react-highlight": "^0.12.0",
     "react-scripts": "^3.3.0",
@@ -73,6 +72,7 @@
   },
   "dependencies": {
     "@libraui/extension": "^0.6.1",
+    "libraui-extension": "^0.6.6",
     "antd-mobile": "^2.3.1",
     "eslint-plugin-react": "^7.16.0",
     "react": "^16.12.0",

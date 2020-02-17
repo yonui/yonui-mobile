@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { Radio } from 'antd-mobile'
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
 // todo 未配置 onChange
 const manifest: ComponentManifest = {
   name: 'RadioItem',

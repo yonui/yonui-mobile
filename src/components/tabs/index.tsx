@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { Tabs } from 'antd-mobile'
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from '@libraui/extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
 const getChildrenDom = function (tabs: any) {
   if (!Array.isArray(tabs)) return null
   return tabs.map((item, index) => {
