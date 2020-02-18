@@ -28,6 +28,9 @@
     "notice-bar-color": "#ffffff"
   },
   "components": {
-    "Button": "./src/components/button"
+    "TextareaItem":"./src/components/textarea-item",
+    "Input":"./src/components/input",
+    "Grid":"./src/components/grid",
+    "Card": "./src/components/card"
   }
 }
