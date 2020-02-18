@@ -1,6 +1,6 @@
 /**
- * @name: Button
- * @description: sss
+ * @name: NavBar
+ * @description: 顶部导航栏
  */
 import React, { Component } from "react";
 import NavBar from "../index";

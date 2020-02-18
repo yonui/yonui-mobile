@@ -1,6 +1,6 @@
 /**
- * @name: Button
- * @description: sss
+ * @name: Flex
+ * @description: 布局容器
  */
 import React, { Component } from "react";
 import Flex from "../index";
@@ -12,7 +12,6 @@ import Result from "../../result";
 
 import "../style";
 import "./demo.less";
-import { FlexItem } from "../../../..";
 export default class Demo1 extends Component {
   render() {
     return (
