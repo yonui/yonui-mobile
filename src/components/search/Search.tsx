@@ -22,6 +22,7 @@ export interface SearchProps {
   placeholder?: string
   maxLength?: number
   autoFocus?: boolean
+  disabled?: boolean
   color?: string
   backgroundColor?: string
   searchIconColor?: string
@@ -44,11 +45,12 @@ export default class Search extends React.Component<SearchProps, any> {
     placeholder: '输入进行搜索',
     maxLength: '',
     autoFocus: false,
-    color: '#111111',
-    backgroundColor: '#F6F6F6',
-    searchIconColor: '#bfbfbf',
-    clearIconColor: '#888888',
-    voiceIconColor: '#888888'
+    disabled: false,
+    color: '',
+    backgroundColor: '',
+    searchIconColor: '',
+    clearIconColor: '',
+    voiceIconColor: ''
   }
 
   inputRef: HTMLInputElement | null
@@ -120,6 +122,7 @@ export default class Search extends React.Component<SearchProps, any> {
     const {
       prefixCls,
       maxLength,
+      disabled,
       color,
       searchIconColor,
       backgroundColor,
@@ -136,8 +139,8 @@ export default class Search extends React.Component<SearchProps, any> {
     return (
       <div className={prefixCls}
         style={{
-          backgroundColor: backgroundColor,
-          color: color
+          backgroundColor,
+          color
         }}>
         <span
           className={`${prefixCls}-icon`}
@@ -152,6 +155,7 @@ export default class Search extends React.Component<SearchProps, any> {
           className={`${prefixCls}-input`}
           placeholder="search bar"
           value={value}
+          disabled={disabled}
           maxLength={maxLength}
           onChange={this.onChange}
           onFocus={this.onFocus}

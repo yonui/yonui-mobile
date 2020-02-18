@@ -10,8 +10,8 @@
     background-color: #F6F6F6;
     border-radius: @hd * 4;
     padding: 0;
-    color: #111111;
-    
+    color: @color-text-base;
+
     .icon () {
         display: flex;
         position: absolute;
@@ -31,7 +31,7 @@
         .icon();
         z-index: 3;
         right: @search-bar-height;
-        color: #888;
+        color: @color-text-caption;
         opacity: 0;
         transition: .3s opacity;
         &-show {
@@ -42,7 +42,7 @@
         .icon();
         z-index: 3;
         right: 0;
-        color: #888;
+        color: @color-text-caption;
     }
     &-input {
         z-index: 2;
