@@ -41,7 +41,8 @@ const manifest = {
             { value: 'closable', text: '关闭' },
             { value: 'link', text: '链接' },
             { value: 'modal', text: '弹框通告' },
-            { value: 'pop', text: 'pop公告' }
+            { value: 'pop', text: 'pop公告' },
+            { value: 'light', text: '背景白通告' }
           ]
         },
         label: '提示类型'

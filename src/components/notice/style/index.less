@@ -6,26 +6,48 @@
 // notice-bar
 @notice-bar-color: rgba(255,255,255,1);
 @notice-bar-fill:rgba(17, 17, 17, 0.5);
+@notice-bar-height: 40 * @hd;
+
+@font-size-base:12* @hd;
+//notice-bar-pop
 @notice-bar-pop-fill:rgba(17, 17, 17, 0.8);
+
+@notice-bar-light-fill: rgba(255,255,255,1);
+@notice-bar-light-height: 44 * @hd;
+@notice-bar-light-color:rgba(17, 17, 17, 1);
 
 .@{noticeBarPrefixCls} {
   background-color: @notice-bar-fill;
   color: @notice-bar-color;
-  &.am-notice-bar-pop{
+  height:@notice-bar-height;
+  &.@{noticeBarPrefixCls}-pop{
     //新增的notice的类型
     background-color: @notice-bar-pop-fill;
     color: @notice-bar-color;
-   
+    font-size: @font-size-base;
   }
-  
+  .am-icon-md{
+    width:19* @hd;
+    height : 19 * @hd;
+  }
+
 }
 
-.notice-bar-pop-container{
+//新增pop通告
+.@{noticeBarPrefixCls}-pop-container{
   position: relative;
-  span.notice-bar-pop-triangle {
+  .@{noticeBarPrefixCls}-pop{
+    height: 44 * @hd;
+    width: 182 * @hd;
+    border-radius: 5 * @hd;
+    .@{noticeBarPrefixCls}-pop-img{
+        width: 24 * @hd;;
+    }
+  }
+  span.@{noticeBarPrefixCls}-pop-triangle {
     font-size: 0;
     line-height: 0;
-    border-width: 6px;
+    border-width: 6 * @hd;
     border-color: @notice-bar-pop-fill;
     border-top-width: 0;
     border-style: dashed;
@@ -33,6 +55,39 @@
     border-left-color: transparent;
     border-right-color: transparent;
     display: block;
-    width: 6px;
+    width: 6 * @hd;
+    margin-left: 22 * @hd;
+  }
+}
+
+
+//新增light通告
+
+.@{noticeBarPrefixCls}-light-container{
+  //新增的notice的类型
+  .@{noticeBarPrefixCls}-light{
+    border-radius: 6 * @hd;
+    background-color: @notice-bar-light-fill;
+    height: @notice-bar-light-height;
+    line-height: @notice-bar-light-height;
+    color: @notice-bar-light-color;
+    .@{noticeBarPrefixCls}-light-img{
+      width: 24 * @hd;;
+    }
+    .@{noticeBarPrefixCls}-marquee{
+      padding-left: 10 * @hd;
+      margin-left: 10 * @hd;
+      &:before{
+        display: block;
+        content: '';
+        width: 1 * @hd;
+        height: 15 * @hd;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        background: rgba(238, 238, 238, 1);
+        transform: translate(-50%, -50%);
+      }
+    }
   }
 }

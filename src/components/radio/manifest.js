@@ -1,21 +1,43 @@
 import { FieldTypes, EditTypes, ReactWrapper } from 'libraui-extension'
 // todo 未配置 onClick onChange
 const manifest = {
-  name: 'Switch',
-  label: '滑动开关',
+  name: 'Radio',
+  label: '单选',
   description: '',
   type: 'DataEntry',
   props: [
     {
-      name: 'checked',
+      name: 'name',
+      type: FieldTypes.child,
+      defaultValue: '选项1',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Textarea,
+        isRequired: false,
+        props: {},
+        label: '名称'
+      }
+    },
+    {
+      name: 'defaultChecked',
       type: FieldTypes.boolean,
-      defaultValue: false,
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '是否默认选中'
+        label: '初始值'
+      }
+    },
+    {
+      name: 'checked',
+      type: FieldTypes.boolean,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: true,
+        props: {},
+        label: '是否选中'
       }
     },
     {
@@ -27,59 +49,7 @@ const manifest = {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '设置禁用'
-      }
-    },
-    {
-      name: 'color',
-      type: FieldTypes.string,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Color,
-        isRequired: true,
-        props: {},
-        label: '开关打开后的颜色'
-      }
-    },
-    {
-      name: 'label',
-      type: FieldTypes.string,
-      defaultValue: '开关',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: true,
-        props: {},
-        label: '标题文本'
-      }
-    },
-    {
-      name: 'platform',
-      type: FieldTypes.string,
-      defaultValue: 'ios',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Select,
-        isRequired: true,
-        props: {
-          options: [
-            { value: 'ios', text: '苹果' },
-            { value: 'android', text: '安卓' }
-          ]
-        },
-        label: '手机平台'
-      }
-    },
-    {
-      name: 'onClick',
-      type: FieldTypes.action,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: 'onClick'
+        label: '是否禁用'
       }
     },
     {
@@ -88,9 +58,25 @@ const manifest = {
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
-        isRequired: false,
+        isRequired: true,
         props: {},
         label: 'onChange'
+      }
+    },
+    {
+      name: 'mode',
+      type: FieldTypes.string,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        isRequired: true,
+        props: {
+          options: [
+            { value: '', text: '默认' },
+            { value: 'circle', text: 'circle' },
+          ]
+        },
+        label: 'raido类型'
       }
     }
   ],
