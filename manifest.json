@@ -1,6 +1,6 @@
 {
-  "name": "Antd Mobile",
-  "description": "适配Antd Mobile",
+  "name": "TinperLibraui",
+  "description": "TinperLibraui组件库",
   "id": "antd-mobile",
   "version": "1.0.0",
   "index": "./index.tsx",
@@ -28,6 +28,9 @@
     "notice-bar-color": "#ffffff"
   },
   "components": {
-    "Button": "./src/components/button"
+    "TextareaItem":"./src/components/textarea-item",
+    "Input":"./src/components/input",
+    "Grid":"./src/components/grid",
+    "Card": "./src/components/card"
   }
 }
