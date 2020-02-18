@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Grid } from 'antd-mobile' 
 import { GridPropsType } from 'antd-mobile/lib/grid/PropsType'
-import './style'
 export interface GridProps extends GridPropsType {
   outContent?: boolean
 }
