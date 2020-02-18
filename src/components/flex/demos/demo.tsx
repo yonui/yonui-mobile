@@ -4,10 +4,7 @@
  */
 import React, { Component } from "react";
 import Flex from "../index";
-import Card from "../../card/Card";
 import Button from "../../button/index";
-import NavigateBar from "../../navbar";
-import Result from "../../result";
 
 
 import "../style";
