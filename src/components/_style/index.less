@@ -4,12 +4,12 @@
 // 表单项-必填样式-*
 .form-label-required {
   content: "*";
-  color: red;
+  color: @brand-primary;
   font-family: SimSun;
-  padding-left: @hd * 4;
+  padding-left: 4*@hd;
 }
-
-.form-label {
+.form-label{
+  color: @color-text-base;
   &.required::after {
     .form-label-required
   }
