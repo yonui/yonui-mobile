@@ -4,6 +4,7 @@ import { Flex, Icon, InputItem }  from 'antd-mobile'
 import List from '../list'
 import { CalendarProps } from 'antd-mobile/lib/calendar/PropsType'
 import { dateFormat } from '../../utils/utils'
+import './style'
 export declare type SelectDateType = [Date, Date] | [Date];
 export interface ListCalendarProps extends CalendarProps {
   label?: string
@@ -79,7 +80,7 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
             </Flex.Item>
           </Flex>
         </div>}
-        <Calendar {...this.props} visible={visible} onCancel={this.onCancel} onConfirm={this.onConfirm}/>
+        <Calendar {...this.props} visible={visible} onCancel={this.onCancel} onConfirm={this.onConfirm} defaultValue={value}/>
       </List>
     )
   }
