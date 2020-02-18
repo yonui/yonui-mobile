@@ -1,10 +1,6 @@
-/**
- * rc-from是否需要增加,如果增加rc-from,需要写一个from组件
- */
-import { Switch } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
 // todo 未配置 onClick onChange
-const manifest: ComponentManifest = {
+const manifest = {
   name: 'Switch',
   label: '滑动开关',
   description: '',
@@ -47,15 +43,15 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'label',
+      name: 'name',
       type: FieldTypes.string,
-      defaultValue: '开关',
+      defaultValue: '',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '标题文本'
+        label: 'switch 的 name'
       }
     },
     {
@@ -101,4 +97,4 @@ const manifest: ComponentManifest = {
   children: []
 }
 
-export default ReactWrapper(Switch, manifest)
+export {manifest,ReactWrapper}

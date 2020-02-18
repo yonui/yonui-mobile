@@ -1,0 +1,38 @@
+@import '~_style/index.less';
+
+@noticeBarPrefixCls: am-notice-bar;
+
+
+// notice-bar
+@notice-bar-color: rgba(255,255,255,1);
+@notice-bar-fill:rgba(17, 17, 17, 0.5);
+@notice-bar-pop-fill:rgba(17, 17, 17, 0.8);
+
+.@{noticeBarPrefixCls} {
+  background-color: @notice-bar-fill;
+  color: @notice-bar-color;
+  &.am-notice-bar-pop{
+    //新增的notice的类型
+    background-color: @notice-bar-pop-fill;
+    color: @notice-bar-color;
+   
+  }
+  
+}
+
+.notice-bar-pop-container{
+  position: relative;
+  span.notice-bar-pop-triangle {
+    font-size: 0;
+    line-height: 0;
+    border-width: 6px;
+    border-color: @notice-bar-pop-fill;
+    border-top-width: 0;
+    border-style: dashed;
+    border-bottom-style: solid;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    display: block;
+    width: 6px;
+  }
+}
