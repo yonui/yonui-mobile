@@ -1,2 +1,16 @@
 @import '~antd-mobile/dist/antd-mobile.less';
 @import './theme/default.less';
+
+// 表单项-必填样式-*
+.form-label-required {
+  content: "*";
+  color: red;
+  font-family: SimSun;
+  padding-left: @hd * 4;
+}
+
+.form-label {
+  &.required::after {
+    .form-label-required
+  }
+}

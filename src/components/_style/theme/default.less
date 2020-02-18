@@ -1,4 +1,4 @@
-@hd: 1px; 
+@hd: 0.02rem;
 
 // 支付宝钱包默认主题
 // https://github.com/ant-design/ant-design-mobile/wiki/设计变量表及命名规范
@@ -212,15 +212,3 @@
 @popup-zindex: 999;
 @modal-zindex: 999; // modal.alert 应该最大，其他应该较小
 @tabs-pagination-zindex: 999;
-// 表单项-必填样式-*
-.form-label-required {
-  content: "*";
-  color: red;
-  font-family: SimSun;
-  padding-left: 4*@hd;
-}
-.form-label{
-  &.required::after {
-    .form-label-required
-  }
-}
