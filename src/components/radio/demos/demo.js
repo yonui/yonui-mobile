@@ -40,9 +40,9 @@ export default class Demo1 extends Component {
                 <div>
                 <Radio defaultChecked onChange={e => console.log('checkbox', e)}>Agree1</Radio>
                 </div>
-                <hr></hr>
+                {/* <hr></hr>
                 <span style={{ fontSize: 14 ,paddingTop:20,display:'inline-block'}}> circle Radio</span>
-                <Radio mode='circle' onChange={e => console.log('checkbox', e)}>Agree</Radio>
+                <Radio mode='circle' onChange={e => console.log('checkbox', e)}>Agree</Radio> */}
             </div>
         )
     }

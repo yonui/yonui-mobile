@@ -1,32 +1,21 @@
-import { FieldTypes, EditTypes, ReactWrapper } from 'libraui-extension'
-// todo 未配置 onClick onChange
-const manifest = {
-  name: 'Radio',
-  label: '单选',
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+
+const manifest: ComponentManifest = {
+  name: 'Checkbox',
+  label: '复选框',
   description: '',
   type: 'DataEntry',
   props: [
     {
-      name: 'name',
-      type: FieldTypes.child,
-      defaultValue: '选项1',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Textarea,
-        isRequired: false,
-        props: {},
-        label: '名称'
-      }
-    },
-    {
       name: 'defaultChecked',
       type: FieldTypes.boolean,
+      defaultValue: true,
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '初始值'
+        label: '初始是否选中'
       }
     },
     {
@@ -37,7 +26,7 @@ const manifest = {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '是否选中'
+        label: '指定当前是否选中'
       }
     },
     {
@@ -60,48 +49,19 @@ const manifest = {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: 'onChange'
+        label: '改变回调'
       }
-    },
-    // {
-    //   name: 'mode',
-    //   type: FieldTypes.string,
-    //   showDesign: true,
-    //   designConfig: {
-    //     type: EditTypes.Select,
-    //     isRequired: true,
-    //     props: {
-    //       options: [
-    //         { value: '', text: '默认' },
-    //         { value: 'circle', text: 'circle' },
-    //       ]
-    //     },
-    //     label: 'raido类型'
-    //   }
-    // }
+    }
   ],
   children: []
 }
 
-// todo 未配置 onChange
-const manifestRaidoItem = {
-  name: 'RadioItem',
-  label: '单选项',
+const manifestCheckBoxItem: ComponentManifest = {
+  name: 'CheckboxItem',
+  label: '复选框',
   description: '',
   type: 'DataEntry',
   props: [
-    {
-      name: 'name',
-      type: FieldTypes.child,
-      defaultValue: '选项1',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Textarea,
-        isRequired: false,
-        props: {},
-        label: '名称'
-      }
-    },
     {
       name: 'defaultChecked',
       type: FieldTypes.boolean,
@@ -121,7 +81,7 @@ const manifestRaidoItem = {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '是否选中'
+        label: '值'
       }
     },
     {
@@ -133,7 +93,7 @@ const manifestRaidoItem = {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '是否禁用'
+        label: '禁用'
       }
     },
     {
@@ -151,4 +111,17 @@ const manifestRaidoItem = {
   children: []
 }
 
-export {manifest,manifestRaidoItem,ReactWrapper}
+const manifestAgreeItem: ComponentManifest = {
+  name: 'AgreeItem',
+  label: 'AgreeItem',
+  description: '', // 描述
+  type: 'DataEntry',
+  props: [// adapter适配层数据
+  ]
+}
+export{
+  manifest,
+  ReactWrapper,
+  manifestCheckBoxItem,
+  manifestAgreeItem
+}

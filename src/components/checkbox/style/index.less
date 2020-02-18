@@ -1,0 +1,16 @@
+@import '../../_style/index.less';
+
+@checkboxWarpPrefixCls: am-checkbox;
+.@{checkboxWarpPrefixCls}-square{
+  .@{checkboxWarpPrefixCls} {
+    &-inner {
+      width:@icon-size-xs;
+      height:@icon-size-xs;
+      border-radius: @radius-xs;
+      &:after {
+        top: 0;
+      }
+    }
+  }
+  
+}
