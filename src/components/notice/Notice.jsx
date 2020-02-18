@@ -19,7 +19,7 @@ class Notice extends React.Component {
   render() {
     const props = this.props;
     let classNameProps = props.className || ''
-    classNameProps += `${noticeBarPrefixCls}-${props.mode}`
+    classNameProps += `${noticeBarPrefixCls}-${props.mode}-container`
     if (props.mode && props.mode === 'modal') {
       return (
         <Modal
@@ -36,14 +36,14 @@ class Notice extends React.Component {
     }
    
     if(props.mode && props.mode === 'pop'){
-      return <div className={`${noticeBarPrefixCls}-pop-container`}>
+      return <div className={classNameProps}>
         <span className={`${noticeBarPrefixCls}-pop-triangle`}></span>
         <NoticeBar  icon={<img className={`${noticeBarPrefixCls}-pop-img`} src={PNG} />}  {...props} className={classNameProps}>{props.children || props.content}</NoticeBar>
       </div>
     }
 
     if(props.mode && props.mode === 'light'){
-      return <div className={`${noticeBarPrefixCls}-light-container`}>
+      return <div className={classNameProps}>
         <NoticeBar icon={<img className={`${noticeBarPrefixCls}-light-img`} src={PNG} />}  {...props} className={classNameProps}>{props.children || props.content}</NoticeBar>
       </div>
     }
