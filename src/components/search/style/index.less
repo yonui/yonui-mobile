@@ -1,5 +1,59 @@
 @import '../../_style/index.less';
 
-.color {
-    font-size: @hd * 12;
+@searchPrefixCls: mdf-search;
+.@{searchPrefixCls} {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: @search-bar-height;
+    overflow: hidden;
+    background-color: #F6F6F6;
+    border-radius: @hd * 4;
+    padding: 0;
+    color: #111111;
+    
+    .icon () {
+        display: flex;
+        position: absolute;
+        width: @search-bar-height;
+        height: @search-bar-height;
+        top: 0;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+    }
+    &-icon {
+        .icon();
+        left: 0;
+        color: #bfbfbf;
+    }
+    &-clear {
+        .icon();
+        z-index: 3;
+        right: @search-bar-height;
+        color: #888;
+        opacity: 0;
+        transition: .3s opacity;
+        &-show {
+            opacity: 1;
+        }
+    }
+    &-voice {
+        .icon();
+        z-index: 3;
+        right: 0;
+        color: #888;
+    }
+    &-input {
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        text-align: left;
+        display: block;
+        color: currentColor;
+        font-size: @hd * 14;
+        background-color: transparent;
+        border: 0;
+        padding: 0 @search-bar-height * 2 0 @search-bar-height;
+    }
 }

@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import classnames from 'classnames'
 import {  Icon } from 'antd-mobile'
 
@@ -15,39 +15,49 @@ import {  Icon } from 'antd-mobile'
 //         window.clearTimeout(nextFrameId);
 //     }
 // }
+export interface SearchProps {
+    value?: string
+    defaultValue?: string
+    placeholder?: string
+    maxLength?: number
+    autoFocus?: boolean
+    color?: string
+    backgroundColor?: string
+    searchIconColor?: string
+    clearIconColor?: string
+    voiceIconColor?: string
+    focus?: Function
+    clear?: Function
+}
 
-export default class Search extends Component {
-    constructor(props) {
+export default class Search extends React.Component<SearchProps, any> {
+    static defaultProps = {
+        value: '',
+        defaultValue: '',
+        placeholder: '输入进行搜索',
+        maxLength: '',
+        autoFocus: false,
+        color: '#111111',
+        backgroundColor: '#F6F6F6',
+        searchIconColor: '#bfbfbf',
+        clearIconColor: '#888888',
+        voiceIconColor: '#888888'
+    }
+
+    private input: any
+
+    constructor(props: any) {
         super(props)
-        const initState = {
-            value: props.value || props.defaultValue || '',
-            placeholder: props.placeholder || '',
-            maxLength: props.maxLength || '',
-            autoFocus: !!props.autoFocus,
-            color: props.color || '#111111',
-            backgroundColor: props.backgroundColor || '#F6F6F6',
-            searchIconColor: props.searchIconColor || '#bfbfbf',
-            clearIconColor: props.clearIconColor || '#888888',
-            voiceIconColor: props.voiceIconColor || '#888888',
-            // onChange: (value) => { 
-            //     console.log('onChange value', value)
-            // },
-            // onClear: () => {
-            //     console.log('onClear value', '')
-            // },
-            // onFocus: () => {
-            //     console.log('onFocus value', '')
-            // },
-            // onBlur: () => {
-            //     console.log('onBlur value', '')
-            // },
+
+        console.log(props)
+
+        this.state = {
+            value: props.value || props.defaultValue,
             focus: false
         }
-
-        this.state = initState
     }
     // props
-    onChange = (e) => {
+    onChange = (e: any) => {
         if (!this.state.focus) {
             this.setState({
                 focus: true
@@ -101,7 +111,6 @@ export default class Search extends Component {
     }
     render() {
         const {
-          focus,
           value,
           maxLength,
           color,
@@ -109,7 +118,7 @@ export default class Search extends Component {
           backgroundColor,
           clearIconColor,
           voiceIconColor
-        } = this.state
+        } = this.props
         const prefixCls = 'mdf-search'
         const clearCls = classnames(`${prefixCls}-clear`, {
             [`${prefixCls}-clear-show`]: !!(focus && value && value.length > 0),
