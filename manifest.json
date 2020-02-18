@@ -1,6 +1,6 @@
 {
-  "name": "Antd Mobile",
-  "description": "适配Antd Mobile",
+  "name": "TinperLibraui",
+  "description": "TinperLibraui组件库",
   "id": "antd-mobile",
   "version": "1.0.0",
   "index": "./index.tsx",
