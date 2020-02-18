@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import { Result } from 'antd-mobile'
-import './style';
+// import './style';
 
 export interface EmptyProps {
 
@@ -44,7 +44,7 @@ export default class Empty extends Component<EmptyProps>{
     return (
       <Result
         className='empty-page'
-        img={<img src={src} alt="" />}
+        imgUrl={src}
         message={message || msg}
       />
     )
