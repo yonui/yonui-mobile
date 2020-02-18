@@ -28,7 +28,7 @@ export default class Demo1 extends Component {
         return (
             <div>
 
-                <span style={{ fontSize: 14 }}>RadioItem</span>
+                <span style={{ fontSize: 14 ,paddingTop:20,display:'inline-block'}}>RadioItem</span>
                 <div>
                     {data.map(i => (
                         <RadioItem key={i.value} checked={this.state.value === i.value} onChange={() => this.onChange(i.value)}>
@@ -36,9 +36,13 @@ export default class Demo1 extends Component {
                         </RadioItem>
                     ))}
                 </div>
-                <hr></hr>
-                <span style={{ fontSize: 14 }}> Custoemd Radio</span>
-                <Radio className="my-radio" onChange={e => console.log('checkbox', e)}>Agree</Radio>
+                <span style={{ fontSize: 14 ,paddingTop:20,display:'inline-block'}}>默认选中</span>
+                <div>
+                <Radio defaultChecked onChange={e => console.log('checkbox', e)}>Agree1</Radio>
+                </div>
+                {/* <hr></hr>
+                <span style={{ fontSize: 14 ,paddingTop:20,display:'inline-block'}}> circle Radio</span>
+                <Radio mode='circle' onChange={e => console.log('checkbox', e)}>Agree</Radio> */}
             </div>
         )
     }

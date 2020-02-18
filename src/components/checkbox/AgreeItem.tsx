@@ -1,15 +1,16 @@
-import { ReactWrapper, ComponentManifest } from 'libraui-extension'
 
+import React from 'react'
 import { Checkbox } from 'antd-mobile'
+import {manifestAgreeItem as manifest,ReactWrapper} from './manifest'
+import {getClassName} from './util';
 
 const AgreeItem = Checkbox.AgreeItem
-
-const manifest: ComponentManifest = {
-  name: 'AgreeItem',
-  label: 'AgreeItem',
-  description: '', // 描述
-  type: 'DataEntry',
-  props: [// adapter适配层数据
-  ]
+function AgreeItemControl(props:any){
+  if(props.mode){
+    let _className = getClassName(props);
+    return <AgreeItem {...props} className={_className}></AgreeItem>
+  }
+  return <AgreeItem {...props}></AgreeItem>
 }
-export default ReactWrapper(AgreeItem, manifest)
+
+export default ReactWrapper(AgreeItemControl, manifest)
