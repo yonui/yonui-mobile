@@ -15,6 +15,7 @@ export interface CarouselProps {
   slideWidth?: string
   easing?: () => void
   swipeSpeed?: number
+  ratio?: string
 }
 export default class MDFCarousel extends React.Component<CarouselProps, any> {
   static defaultProps = {
@@ -29,16 +30,26 @@ export default class MDFCarousel extends React.Component<CarouselProps, any> {
     frameOverflow: 'hidden',
     cellSpacing: 0,
     slideWidth: 1,
-    // easing: () => { return 'easeOutCirc' },
     swipeSpeed: 12,
     ratio: "4:2"
   }
   constructor(props: CarouselProps) {
     super(props)
   }
+  getPaddingBottom() {
+    const { ratio = '4:2' } = this.props
+    const reg =  /[0-9]\:[0-9]/
+    if(reg.test(ratio)) {
+      const result:any = ratio.split(':')
+      return result[1]/result[0] * 100 + '%'
+    }
+    return '50%'
+  }
   render() {
     return (
-      <Carousel {...this.props}>{this.props.children}</Carousel>
+      <Carousel style={{
+        paddingBottom: this.getPaddingBottom()
+      }} {...this.props}>{this.props.children}</Carousel>
     )
   }
 }

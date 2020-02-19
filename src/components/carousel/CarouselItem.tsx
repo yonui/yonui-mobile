@@ -7,7 +7,7 @@ export default class CarouselItem extends Component<any, any> {
     prefixCls: 'am-carousel-item',
     backgroundColor: 'transparent',
     backgroundImage: '',
-    ratio: '4:2'
+    backgroundSize: 'cover'
   }
 
   divRef: HTMLDivElement | null
@@ -27,32 +27,21 @@ export default class CarouselItem extends Component<any, any> {
       </a>
     )
   }
-  getItemHeight() {
-    const { ratio } = this.props
-    const reg =  /[0-9]\:[0-9]/
-    if(reg.test(ratio)) {
-      const arr = ratio.split(':')
-      return arr[1]/arr[0] * 100 + '%'
-    }
-    return '50%'
-  }
   componentDidMount() {
     console.log(this.divRef)
   }
   render() {
-    console.log(this.getItemHeight())
-
-    const {
+    let {
       prefixCls,
       backgroundColor,
-      backgroundImage
+      backgroundImage,
+      backgroundSize
     } = this.props
     return (
       <div className={prefixCls} ref={el => this.divRef = el} style={{
         backgroundColor,
         backgroundImage,
-        height: 200,
-        paddingBottom: this.getItemHeight()
+        backgroundSize
       }}>
         <div className={`${prefixCls}-content`}>
           {this.props.children ? this.props.children : this.renderDefaultItem()}

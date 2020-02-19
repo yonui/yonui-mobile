@@ -1,7 +1,6 @@
 import React from 'react'
-import { Button, Icon } from 'antd-mobile'
+import { Button } from 'antd-mobile'
 import classnames from 'classnames'
-import { any } from 'prop-types'
 export interface ButtonProps {
     prefixCls?: string
     type?: string
@@ -14,35 +13,31 @@ export interface ButtonProps {
     onClick?: React.MouseEventHandler<HTMLAnchorElement>
 }
 export default class mButton extends React.Component<ButtonProps, any> {
-    static defaultProps = {
-        prefixCls: 'am-button',
-        type: 'default',
-        size: 'large',
-        loading:false,// 是否显示加载图标
-        content: <div>Button</div>,
-        disabled: false,
-        inline: false,
-        ghost: false
-    }
-    constructor(props: ButtonProps) {
-        super(props)
-        this.renderButton = this.renderButton.bind(this);
-    }
-    renderButton() { 
-        const { type, size,loading,content, ghost, inline, disabled } = this.props
-       if(size === 'large') {
-        return 
-       }else{
+  static defaultProps = {
+    prefixCls: 'am-button',
+    type: 'default',
+    size: 'large',
+    loading:false,// 是否显示加载图标
+    content: <div>Button</div>,
+    disabled: false,
+    inline: false,
+    ghost: false
+  }
+  constructor(props: ButtonProps) {
+      super(props)
+  }
+  renderButton = ()=> {
+    const { type, size,loading,content, ghost, inline, disabled } = this.props
+    if (size === 'large') {
+      return
+    } else {
 
-       }
-    
     }
-
-    render() {
-        return (
-            <Button >
-            </Button>
-        )
-    }
+  }
+  render() {
+      return (
+        <Button></Button>
+      )
+  }
 }
 

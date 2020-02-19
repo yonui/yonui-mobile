@@ -10,7 +10,7 @@
   cursor: pointer;
   border-radius: 4px;
   text-align: center;
- 
+
 }
 
 .small-button-common{
@@ -24,15 +24,15 @@
   cursor: pointer;
   border-radius: 4px;
   text-align: center;
-  
+
 }
 
 @buttonPrefixCls: am-button;
-.@{buttonPrefixCls}-primary { 
+.@{buttonPrefixCls}-primary {
   .large-button-common;
   color: @button-font-primary-color;
   background-color: @button-background-primary-color;
-  
+
   &-active {
     background-color: fade(@button-background-primary-color, 10%);
   }
@@ -40,10 +40,10 @@
     background-color: fade(@button-background-primary-color, 40%);
   }
 }
-.@{buttonPrefixCls}-default { 
+.@{buttonPrefixCls}-default {
   .large-button-common;
-  
-  border: 1px solid #DCDCDC; 
+
+  border: 1px solid #DCDCDC;
   color: @button-font-default-color;
   background-color: @button-background-default-color;
 
@@ -54,9 +54,9 @@
     background-color: fade(@button-background-default-color, 40%);
   }
 }
-.@{buttonPrefixCls}-danger { 
+.@{buttonPrefixCls}-danger {
   .large-button-common;
-  border: 1px solid #DCDCDC; 
+  border: 1px solid #DCDCDC;
   color: @button-font-danger-color;
   background-color: @button-background-danger-color;
   &-active {
@@ -68,9 +68,9 @@
 }
 
 //  small button style
-.@{buttonPrefixCls}-primary-small { 
+.@{buttonPrefixCls}-primary-small {
   .small-button-common;
- 
+
   color: @button-font-primary-color;
   background-color: @button-background-primary-color;
   &-active {
@@ -80,11 +80,11 @@
     background-color: fade(@button-background-primary-color, 40%);
   }
 }
-.@{buttonPrefixCls}-default-small { 
+.@{buttonPrefixCls}-default-small {
   .small-button-common;
-  
-  border: 1px solid #BFBFBF; 
-  
+
+  border: 1px solid #BFBFBF;
+
   color: @button-font-default-color;
   background-color: @button-background-default-color;
 
@@ -95,9 +95,9 @@
     background-color: fade(@button-background-default-color, 40%);
   }
 }
-.@{buttonPrefixCls}-danger-small { 
+.@{buttonPrefixCls}-danger-small {
   .small-button-common;
-  border: 1px solid #BFBFBF; 
+  border: 1px solid #BFBFBF;
   color: @button-font-danger-color;
   background-color: @button-background-danger-color;
   &-active {
@@ -108,9 +108,9 @@
   }
 }
 
-.@{buttonPrefixCls}-ghost { 
+.@{buttonPrefixCls}-ghost {
   .small-button-common;
-  border: 1px solid #E14C46; 
+  border: 1px solid #E14C46;
   color: #E14C46;
   background-color: #FFFFFF;
   &-active {

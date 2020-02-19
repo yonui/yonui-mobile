@@ -10,7 +10,7 @@ export default class Demo1 extends Component {
     render() {
         return (
             <Carousel>
-              <Carousel.item>123</Carousel.item>
+              <Carousel.item></Carousel.item>
               <Carousel.item></Carousel.item>
               <Carousel.item></Carousel.item>
             </Carousel>
