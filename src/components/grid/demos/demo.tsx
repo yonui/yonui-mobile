@@ -19,15 +19,36 @@ export default class Demo1 extends Component {
     return (
       <div className='grid-demo'>
         <div className="sub-title">默认,无边框,通栏,itemSize 大</div>
-        < MyComponent data={data} hasLine={false} columnNum={4} full={true} itemSize='lg'/> 
+        < MyComponent
+          data={data}
+          hasLine={false}
+          columnNum={4}
+          full={true}
+          itemSize='lg'/> 
         <div className="sub-title">默认,无边框,通栏,itemSize 中</div>
-        < MyComponent data={data} hasLine={false} columnNum={4} full={true} itemSize='md'/> 
+        < MyComponent
+          data={data}
+          hasLine={false}
+          columnNum={4}
+          full={true}
+          itemSize='md'/> 
         <div className="sub-title">默认,无边框,通栏,itemSize 小</div>
-        < MyComponent data={data} hasLine={false} columnNum={4} full={true}/> 
+        < MyComponent
+          data={data}
+          hasLine={false}
+          columnNum={4}
+          full={true}/> 
         <div className="sub-title">有外框内容</div>
-        < MyComponent data={data1} columnNum={5} hasLine={false} outContent={true}/>
+        < MyComponent
+          data={data1}
+          columnNum={5}
+          hasLine={false}
+          outContent={true}/>
         <div className="sub-title">默认,无边框</div>
-        < MyComponent data={data} hasLine={false} columnNum={5}/>
+        < MyComponent 
+          data={data}
+          hasLine={false}
+          columnNum={5}/>
       </div>
     )
   }

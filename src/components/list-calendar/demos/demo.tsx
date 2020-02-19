@@ -22,8 +22,26 @@ export default class Demo1 extends Component<any,any> {
   render() {
     return (
       <div>
-        <MyComponent label="日历组件" arrow={true} onConfirm={(startDateTime: Date, endDateTime: Date)=>{this.onConfirm(startDateTime,endDateTime,'value')}} value={this.state.value}/>
-        <MyComponent label="日历组件" type='range' onConfirm={(startDateTime: Date, endDateTime: Date)=>{this.onConfirm(startDateTime,endDateTime,'value1')}} value={this.state.value1}/>
+        <div className="sub-title">单选日历</div>
+        <MyComponent 
+          label="日历组件"
+          arrow={true}
+          onConfirm={
+            (startDateTime: Date, endDateTime: Date) => {
+              this.onConfirm(startDateTime,endDateTime,'value')
+            }
+          }
+          value={this.state.value}/>
+        <div className="sub-title">日历范围</div>  
+        <MyComponent
+          label="日历组件"
+          type='range'
+          onConfirm={
+            (startDateTime: Date, endDateTime: Date) => { 
+              this.onConfirm(startDateTime,endDateTime,'value1')
+            }
+          }
+          value={this.state.value1}/>
       </div>
     )
   }
