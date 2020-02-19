@@ -169,6 +169,6 @@ const manifest: ComponentManifest = {
 export default ReactWrapper((props: any) => {
   console.log(props)
   let _className = getClassName(props);
-  return <Button {...props}className={_className} ></Button>
+  return <Button {...props} className={_className} ></Button>
 
 }, manifest, { excludeNidAndUiType: true })

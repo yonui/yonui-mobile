@@ -1,9 +1,38 @@
 @import '../../_style/index.less';
+.large-button-common{
+  font-size:@button-font-size;
+  width:@button-width;
+  // height:@button-height;
+  padding: 12px 0px 13px 0px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+ 
+}
+
+.small-button-common{
+  font-size:@button-font-size-sm;
+  width:@button-width-sm;
+  // height:@button-height-sm;
+  padding: 9px 0px 9px 0px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+  
+}
+
 @buttonPrefixCls: am-button;
 .@{buttonPrefixCls}-primary { 
-  font-size:@button-font-size;
+  .large-button-common;
   color: @button-font-primary-color;
   background-color: @button-background-primary-color;
+  
   &-active {
     background-color: fade(@button-background-primary-color, 10%);
   }
@@ -12,7 +41,9 @@
   }
 }
 .@{buttonPrefixCls}-default { 
-  font-size:@button-font-size;
+  .large-button-common;
+  
+  border: 1px solid #DCDCDC; 
   color: @button-font-default-color;
   background-color: @button-background-default-color;
 
@@ -24,7 +55,8 @@
   }
 }
 .@{buttonPrefixCls}-danger { 
-  font-size:@button-font-size;
+  .large-button-common;
+  border: 1px solid #DCDCDC; 
   color: @button-font-danger-color;
   background-color: @button-background-danger-color;
   &-active {
@@ -34,3 +66,59 @@
     background-color: fade(@button-background-danger-color, 40%);
   }
 }
+
+//  small button style
+.@{buttonPrefixCls}-primary-small { 
+  .small-button-common;
+ 
+  color: @button-font-primary-color;
+  background-color: @button-background-primary-color;
+  &-active {
+    background-color: fade(@button-background-primary-color, 10%);
+  }
+  &-disabled {
+    background-color: fade(@button-background-primary-color, 40%);
+  }
+}
+.@{buttonPrefixCls}-default-small { 
+  .small-button-common;
+  
+  border: 1px solid #BFBFBF; 
+  
+  color: @button-font-default-color;
+  background-color: @button-background-default-color;
+
+  &-active {
+    background-color: fade(@button-background-default-color, 10%);
+  }
+  &-disabled {
+    background-color: fade(@button-background-default-color, 40%);
+  }
+}
+.@{buttonPrefixCls}-danger-small { 
+  .small-button-common;
+  border: 1px solid #BFBFBF; 
+  color: @button-font-danger-color;
+  background-color: @button-background-danger-color;
+  &-active {
+    background-color: fade(@button-background-danger-color, 10%);
+  }
+  &-disabled {
+    background-color: fade(@button-background-danger-color, 40%);
+  }
+}
+
+.@{buttonPrefixCls}-ghost { 
+  .small-button-common;
+  border: 1px solid #E14C46; 
+  color: #E14C46;
+  background-color: #FFFFFF;
+  &-active {
+    background-color: fade( #FFFFFF, 10%);
+  }
+  &-disabled {
+    background-color: fade( #FFFFFF, 40%);
+  }
+}
+
+
