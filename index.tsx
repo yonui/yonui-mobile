@@ -3,7 +3,7 @@ export { default as Label } from './src/components/label'
 export { default as Button } from './src/components/button'
 export { default as Calendar } from './src/components/calendar'
 
-export { default as Card } from './src/components/card/'
+export { default as Card } from './src/components/card'
 export { default as Checkbox } from './src/components/checkbox/CheckBox'
 export { default as CheckboxItem } from './src/components/checkbox/CheckboxItem'
 // export { default as Demo } from './src/components/demo'

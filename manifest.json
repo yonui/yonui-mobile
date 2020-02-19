@@ -29,7 +29,6 @@
   },
   "components": {
     "Button":"./src/components/button",
-    "Calendar":"./src/components/calendar",
     "Card": "./src/components/card",
     "Carousel": "./src/components/carousel",
     "CheckBox": "./src/components/checkbox",

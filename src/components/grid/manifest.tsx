@@ -164,7 +164,7 @@ const manifest: ComponentManifest = {
         },
         label: 'item上icon的大小'
       }
-    },  
+    },
     {
       name: 'itemStyle',
       type: FieldTypes.string,

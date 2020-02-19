@@ -1,5 +1,4 @@
-import { ReactWrapper } from 'libraui-extension'
 import Card from './Card'
-import manifest from './manifest'
+import {ReactWrapper, manifest} from './manifest'
 
 export default ReactWrapper(Card, manifest)

@@ -1,9 +1,10 @@
-import { FieldTypes, EditTypes, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, ReactWrapper, UITable } from 'libraui-extension'
 
 const manifest: ComponentManifest = {
   name: 'Card',
   label: '卡片',
-  type: 'Layout',
+  type: 'Containers',
+  uiTable: UITable.BillTplGroupBase,
   props: [
     {
       name: 'full',
@@ -44,7 +45,7 @@ const manifest: ComponentManifest = {
     {
       name: 'headerThumb',
       type: FieldTypes.string,
-      defaultValue: `<span className='thumb'></span>`,
+      defaultValue: 'thumb',
       showDesign: true,
       designConfig: {
         type: EditTypes.Textarea,
@@ -102,7 +103,10 @@ const manifest: ComponentManifest = {
       }
     },
   ],
-  children: []
+  children: () => true
 }
 
-export default manifest
+export {
+  ReactWrapper,
+  manifest
+}

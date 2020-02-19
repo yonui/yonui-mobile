@@ -12,7 +12,6 @@ export default class Demo1 extends Component {
         return (
 
             <MyComponent>
-              <Button type="primary">123</Button>
             </MyComponent>
         )
     }
