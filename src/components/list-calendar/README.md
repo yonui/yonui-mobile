@@ -26,7 +26,7 @@
 |onSelectHasDisableDate | 选择区间包含不可用日期 | (date: Date[]) => void | | false|
 |rowSize | 行大小 | 'normal' \| 'xl' | | false|
 |value | 日历选择范围的值 | \[Date, Date\] \| \[Date\] | | false|
-|defaultValue | 默认日历选择范围 | \[Date, Date\] \| \[Date\] | | false|
 |defaultTimeValue | 默认时间选择值 | Date | | false|
 | required | boolean | false | 是否必填 |
 | arrow | boolean | false| 是否显示右侧箭头|
+| format| string | 'yyyy-MM-dd' |设置日期格式|

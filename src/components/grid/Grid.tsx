@@ -5,7 +5,7 @@ import classnames from 'classnames'
 export interface GridProps extends GridPropsType {
   outContent?: boolean
   full?: boolean
-  prefixCls?: string,
+  prefixCls?: string
   itemSize?: string
 }
 export default class GridComponent extends Component<GridProps> {
@@ -15,7 +15,7 @@ export default class GridComponent extends Component<GridProps> {
     itemSize: 'sm'
   }
   renderItem = (dataItem: any) => {
-    const { icon, text } = dataItem;
+    const { icon, text } = dataItem
     return (
       <React.Fragment>
         <div className='custom-item'>
@@ -27,7 +27,7 @@ export default class GridComponent extends Component<GridProps> {
       </React.Fragment>)
   }
   render() {
-    const { outContent, prefixCls, full, itemSize } = this.props;
+    const { outContent, prefixCls, full, itemSize } = this.props
     const cusCls:any = classnames({
       [`${prefixCls}-full`]: full,
       [`${prefixCls}-outContent`]: outContent,
