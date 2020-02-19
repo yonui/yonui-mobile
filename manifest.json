@@ -28,9 +28,25 @@
     "notice-bar-color": "#ffffff"
   },
   "components": {
-    "TextareaItem":"./src/components/textarea-item",
-    "Input":"./src/components/input",
+    "Button":"./src/components/button",
+    "Calendar":"./src/components/calendar",
+    "Card": "./src/components/card",
+    "Carousel": "./src/components/carousel",
+    "CheckBox": "./src/components/checkbox",
+    "Empty": "./src/components/empty",
+    "Flex": "./src/components/flex",
     "Grid":"./src/components/grid",
-    "Card": "./src/components/card"
+    "Icon":"./src/components/icon",
+    "Input":"./src/components/input",
+    "ListCalendar":"./src/components/list-calendar",
+    "NavBar":"./src/components/navbar",
+    "Notice":"./src/components/notice",
+    "Radio":"./src/components/radio",
+    "Result":"./src/components/result",
+    "Search":"./src/components/search",
+    "Slider":"./src/components/slider",
+    "Switch":"./src/components/switch",
+    "Tag":"./src/components/tag",
+    "TextareaItem":"./src/components/textarea-item"
   }
 }
