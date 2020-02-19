@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { List, InputItem } from 'antd-mobile'
 import { InputItemPropsType } from 'antd-mobile/lib/input-item/PropsType'
-import './style'
 export interface InputProps extends InputItemPropsType {
   label?: string
   required?: boolean
