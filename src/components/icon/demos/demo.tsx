@@ -9,7 +9,7 @@ import './demo.less';
 export default class Demo1 extends Component {
   render () {
     return (
-      <div> 这是一个icon组件！
+      <div> 
         <MyComponent  size= 'xxs'>Icon</MyComponent>
       </div>
       
