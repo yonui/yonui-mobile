@@ -27,11 +27,11 @@ export default class Demo1 extends Component {
         
         <MyComponent type='danger'>dangerButton</MyComponent>
        
-        <MyComponent type= 'primary' size = 'small'> smPrimary</MyComponent>
+        <MyComponent type= 'primary' size = 'small'>smPrimary</MyComponent>
 
-        <MyComponent type='default' size = 'small'> smDefault</MyComponent>
+        <MyComponent type='default' size = 'small'>smDefault</MyComponent>
         
-        <MyComponent type='danger' size = 'small'> smDanger</MyComponent>
+        <MyComponent type='danger' size = 'small'>smDanger</MyComponent>
      
         <MyComponent  ghost = {true} >ghostButton</MyComponent>
        

@@ -48,7 +48,9 @@ export default class mButton extends React.Component<ButtonProps, any> {
   render() {
     let _className =this.getClassName();
       return (
-        <Button className = {_className}></Button>
+        <Button className = {_className}>
+          {this.props.children}
+        </Button>
 
       )
     
