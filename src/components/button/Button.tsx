@@ -35,8 +35,9 @@ export default class mButton extends React.Component<ButtonProps, any> {
     }
   }
   render() {
+      console.log(this.props)
       return (
-        <Button></Button>
+        <Button {...this.props}>{this.props.content || this.props.children}</Button>
       )
   }
 }
