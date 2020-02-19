@@ -4,8 +4,15 @@
   "sourcePath": "./src/components",
   "type": "ts",
   "lib": [],
+  "plugins": [
+    ["import",{"libraryName":"antd-mobile","style":true}]
+  ],
   "extraImport": {
       "js": "",
       "css": ""
+  },
+  "buildImport": {
+    "js":[],
+    "css":[]
   }
 }
