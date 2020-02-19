@@ -1,20 +1,22 @@
-import React from 'react'
-import { Button } from 'antd-mobile'
-import classnames from 'classnames'
+import React from 'react';
+import { Button } from 'antd-mobile';
+import classnames from 'classnames';
 export interface ButtonProps {
-    prefixCls?: string
-    type?: string
-    size?: string
-    loading?: boolean
-    content?: React.ReactElement| string
-    disabled?: boolean
-    inline?: boolean
-    ghost?: boolean
-    onClick?: React.MouseEventHandler<HTMLAnchorElement>
+    prefixCls?: string;
+    className?: string;
+    type?: string;
+    size?: string;
+    loading?: boolean;
+    content?: React.ReactElement| string;
+    disabled?: boolean;
+    inline?: boolean;
+    ghost?: boolean;
+    onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }
+const _prefixCls='am-button';
 export default class mButton extends React.Component<ButtonProps, any> {
   static defaultProps = {
-    prefixCls: 'am-button',
+    prefixCls: {_prefixCls},
     type: 'default',
     size: 'large',
     loading:false,// 是否显示加载图标
@@ -26,18 +28,28 @@ export default class mButton extends React.Component<ButtonProps, any> {
   constructor(props: ButtonProps) {
       super(props)
   }
-  renderButton = ()=> {
-    const { type, size,loading,content, ghost, inline, disabled } = this.props
-    if (size === 'large') {
-      return
-    } else {
-
+    getClassName = () => {
+      const { type, size,loading,content, ghost, inline, disabled } = this.props
+    debugger;
+    let _className;
+    if (ghost) {
+      return classnames(this.props.className, `${ _prefixCls}-'ghost'`)
     }
+    if (size === 'small') {
+      _className = classnames(this.props.className, `${_prefixCls}-${this.props.type}-${this.props.size}`)
+    } else {
+      _className = classnames(this.props.className, `${_prefixCls}-${this.props.type}`)
+    }
+    return _className
   }
+
   render() {
+    let _className =this.getClassName();
       return (
-        <Button></Button>
+        <Button className = {_className}></Button>
+
       )
+    
   }
 }
 
