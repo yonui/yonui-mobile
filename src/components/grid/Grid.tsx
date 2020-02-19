@@ -12,7 +12,8 @@ export default class GridComponent extends Component<GridProps> {
   static defaultProps = {
     prefixCls: 'am-grid',
     full: false,
-    itemSize: 'sm'
+    itemSize: 'sm',
+    hasLine: false
   }
   renderItem = (dataItem: any) => {
     const { icon, text } = dataItem

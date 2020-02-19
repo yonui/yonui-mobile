@@ -8,7 +8,7 @@
 |data	|传入的菜单数据|	Array<{icon, text}>|	[]|
 |onClick|	点击每个菜单的回调函数|	(el: Object, index: number): void	|-|
 |columnNum|	列数|	number|	4|
-|hasLine|	是否有边框|	boolean	|true|
+|hasLine|	是否有边框|	boolean	|false|
 |outContent| 是否有外框内容,注(当outContent为true,renderItem方法无效) | boolean | false |
 |full|是否通栏| boolean | false |
 |isCarousel	|是否跑马灯|	boolean|	false|
