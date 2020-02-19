@@ -10,7 +10,9 @@
 |columnNum|	列数|	number|	4|
 |hasLine|	是否有边框|	boolean	|true|
 |outContent| 是否有外框内容,注(当outContent为true,renderItem方法无效) | boolean | false |
+|full|是否通栏| boolean | false |
 |isCarousel	|是否跑马灯|	boolean|	false|
+|itemSize|item上icon的大小,可选sm,md,lg [小,中,大]| string | 'sm' |
 |carouselMaxRow	|如果是跑马灯, 一页跑马灯需要展示的行数|	number|	2|
 |renderItem	|自定义每个 grid 条目的创建函数	|(el, index) => React.Node	|-|
 |square|	每个格子是否固定为正方形|	boolean	|true|

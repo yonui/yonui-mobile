@@ -1,8 +1,30 @@
 @import '../../_style/index.less';
 @gridPrefixCls: am-grid;
 .@{gridPrefixCls} {
-  &.@{gridPrefixCls}-outContent .am-flexbox {
-    background: transparent;
+  &.@{gridPrefixCls}-full{
+    margin: 0 12.5*@hd;
+    background: #fff;
+    border-radius: 5*@hd;
+  }
+  &.@{gridPrefixCls}-sm{
+    .am-grid-item .am-grid-item-inner-content .am-grid-icon {
+      width: 28%!important;
+    }
+  }
+  &.@{gridPrefixCls}-md {
+    .am-grid-item .am-grid-item-inner-content .am-grid-icon {
+      width: 48%!important;
+    }
+  }
+  &.@{gridPrefixCls}-lg {
+    .am-grid-item .am-grid-item-inner-content .am-grid-icon {
+      width: 68%!important;
+    }
+  }
+  &.@{gridPrefixCls}-outContent, &.@{gridPrefixCls}-full{
+    .am-flexbox {
+      background: transparent;
+    }
   }
   .am-flexbox-item{
     &.@{gridPrefixCls}-item {
@@ -18,8 +40,8 @@
     height: 100%;
   }
   .out-content {
-    width: 60%;
-    height: 70%;
+    width: 70%;
+    height: 80%;
     border-radius: 4*@hd;
     background: #fff;
     color: #333;

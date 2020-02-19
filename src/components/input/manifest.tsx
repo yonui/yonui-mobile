@@ -1,6 +1,7 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension';
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension';
 const manifest: ComponentManifest = {
     name: 'Input',
+    uiTable: UITable.BillItemBase,
     label: '文本输入',
     type: 'basic',
     props: [
