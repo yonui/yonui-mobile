@@ -1,10 +1,11 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, UITable } from 'libraui-extension'
 // todo 未配置 onClick onChange
 const manifest = {
   name: 'Slider',
   label: '滑动输入条',
   description: '滑动输入条',
   type: 'DataEntry',
+  uiTable:UITable.BillItemBase,
   props: [{
     name: 'min',
     type: FieldTypes.number,

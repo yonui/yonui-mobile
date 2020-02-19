@@ -1,8 +1,9 @@
-import { FieldTypes, EditTypes, ReactWrapper } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper ,UITable} from 'libraui-extension'
 const manifest = {
   name: 'Notice',
   label: '通告栏',
   type: 'DataDisplay',
+  uiTable:UITable.BillItemBase,
   props: [
     {
       name: 'content',
