@@ -10,12 +10,11 @@ export interface CarouselProps {
   infinite?: boolean
   dotStyle?: object
   dotActiveStyle?: object
-  frameOverflow?: string
-  cellSpacing?: string
+  frameOverflow?: 'visible' | 'hidden'
+  cellSpacing?: number
   slideWidth?: string
-  easing?: Function | string
-  swipeSpeed?: number,
-  children?: any
+  easing?: () => void
+  swipeSpeed?: number
 }
 export default class MDFCarousel extends React.Component<CarouselProps, any> {
   static defaultProps = {
@@ -26,12 +25,13 @@ export default class MDFCarousel extends React.Component<CarouselProps, any> {
     autoplayInterval: 3000,
     infinite: false,
     dotStyle: {},
-    // dotActiveStyle: {},
-    // frameOverflow: 'hidden',
-    // cellSpacing: '',
-    // slideWidth: '',
-    // easing: 'easeOutCirc',
-    // swipeSpeed: 12
+    dotActiveStyle: {},
+    frameOverflow: 'hidden',
+    cellSpacing: 0,
+    slideWidth: 1,
+    // easing: () => { return 'easeOutCirc' },
+    swipeSpeed: 12,
+    ratio: "4:2"
   }
   constructor(props: CarouselProps) {
     super(props)
