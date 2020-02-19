@@ -7,9 +7,18 @@ import MyComponent from '../index';
 import '../style';
 import './demo.less';
 export default class Demo1 extends Component {
-  render () {
+  render() {
     return (
-      <MyComponent type='primary'>Button</MyComponent>
+      <div >
+
+        <div>primary mode</div>
+        <MyComponent type='primary'>Button</MyComponent>
+
+        <div>default mode</div>
+        <MyComponent type='default'>Button</MyComponent>
+        <div>danger mode</div>
+        <MyComponent type='danger'>Button</MyComponent>
+      </div>
     )
   }
 }

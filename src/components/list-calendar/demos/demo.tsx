@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: ListCalendar
+ * @description: 列表项日历组件
  */
 import React, { Component } from 'react';
 import MyComponent from '../index';

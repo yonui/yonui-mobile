@@ -1,12 +1,36 @@
 @import '../../_style/index.less';
 @buttonPrefixCls: am-button;
-:global(.@{buttonPrefixCls}-warning ){ 
-  color: @color-text-button-warning;
-  &:global(.@{buttonPrefixCls}-active) {
-    color: fade(@color-text-button-warning, 30%);
+.@{buttonPrefixCls}-primary { 
+  font-size:@button-font-size;
+  color: @button-font-primary-color;
+  background-color: @button-background-primary-color;
+  &-active {
+    background-color: fade(@button-background-primary-color, 10%);
   }
-  &:global(.@{buttonPrefixCls}-disabled) {
-    color: fade(@color-text-button-warning, 60%);
-    opacity: 0.4;
+  &-disabled {
+    background-color: fade(@button-background-primary-color, 40%);
+  }
+}
+.@{buttonPrefixCls}-default { 
+  font-size:@button-font-size;
+  color: @button-font-default-color;
+  background-color: @button-background-default-color;
+
+  &-active {
+    background-color: fade(@button-background-default-color, 10%);
+  }
+  &-disabled {
+    background-color: fade(@button-background-default-color, 40%);
+  }
+}
+.@{buttonPrefixCls}-danger { 
+  font-size:@button-font-size;
+  color: @button-font-danger-color;
+  background-color: @button-background-danger-color;
+  &-active {
+    background-color: fade(@button-background-danger-color, 10%);
+  }
+  &-disabled {
+    background-color: fade(@button-background-danger-color, 40%);
   }
 }
