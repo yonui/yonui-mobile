@@ -30,16 +30,18 @@ export default class mButton extends React.Component<ButtonProps, any> {
   }
     getClassName = () => {
       const { type, size,loading,content, ghost, inline, disabled } = this.props
-    debugger;
+   
     let _className;
+    debugger;
     if (ghost) {
-      return classnames(this.props.className, `${ _prefixCls}-'ghost'`)
+      return classnames(this.props.className, `${ _prefixCls}-ghost`)
     }
     if (size === 'small') {
       _className = classnames(this.props.className, `${_prefixCls}-${this.props.type}-${this.props.size}`)
     } else {
       _className = classnames(this.props.className, `${_prefixCls}-${this.props.type}`)
     }
+    debugger;
     return _className
   }
 
