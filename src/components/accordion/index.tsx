@@ -1,8 +1,9 @@
 import { Accordion } from 'antd-mobile'
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
 
 // todo 未配置 style activeStyle
 const manifest: ComponentManifest = {
+  uiTable: UITable.BillTplGroupBase, // 容器组件
   name: 'Accordion', // 自定义组件名称
   label: '手风琴', // 自定义组件文本
   description: '可以折叠/展开的内容区域。', // 描述

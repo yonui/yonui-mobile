@@ -4,7 +4,7 @@ import classnames from 'classnames'
 export interface CardProps {
     prefixCls?: string
     full?: boolean
-    content?: React.ReactElement
+    content?: React.ReactElement | string
     showHeader?: boolean
     showFooter?: boolean
     headerTitle?: string
@@ -51,7 +51,7 @@ export default class MDFCard extends React.Component<CardProps, any> {
 
         return (
             <Card.Body className={classes}>
-                {this.props.content}
+                {this.props.content || this.props.children}
             </Card.Body>
         )
     }
@@ -59,7 +59,7 @@ export default class MDFCard extends React.Component<CardProps, any> {
         const { footerContent, footerExtra, showFooter, onFooterExtraClick } = this.props
 
         return (
-            showFooter ? <Card.Footer 
+            showFooter ? <Card.Footer
                 content={footerContent}
                 extra={<span onClick={onFooterExtraClick}>{footerExtra}</span>}
             /> : ''

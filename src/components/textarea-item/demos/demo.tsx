@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: TextareaItem
+ * @description: 多行输入
  */
 import React, { Component } from 'react';
 import MyComponent from '../index';

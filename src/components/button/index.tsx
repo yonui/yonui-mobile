@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from 'antd-mobile'
-
+import { getClassName } from './util'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
 // todo 未配置 style activeStyle
 const manifest: ComponentManifest = {
@@ -166,8 +166,9 @@ const manifest: ComponentManifest = {
   children: []
 
 }
-
 export default ReactWrapper((props: any) => {
   console.log(props)
-  return <Button {...props}>{props.text || props.children}</Button>
+  let _className = getClassName(props);
+  return <Button {...props}className={_className} ></Button>
+
 }, manifest, { excludeNidAndUiType: true })
