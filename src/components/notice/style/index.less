@@ -36,10 +36,11 @@
 //新增pop通告
 .@{noticeBarPrefixCls}-pop-container{
   position: relative;
-  .@{noticeBarPrefixCls}-pop{
+  .@{noticeBarPrefixCls}{
     height: 44 * @hd;
     width: 182 * @hd;
     border-radius: 5 * @hd;
+    background-color: @notice-bar-pop-fill;
     .@{noticeBarPrefixCls}-pop-img{
         width: 24 * @hd;;
     }
@@ -65,7 +66,7 @@
 
 .@{noticeBarPrefixCls}-light-container{
   //新增的notice的类型
-  .@{noticeBarPrefixCls}-light{
+  .@{noticeBarPrefixCls}{
     border-radius: 6 * @hd;
     background-color: @notice-bar-light-fill;
     height: @notice-bar-light-height;

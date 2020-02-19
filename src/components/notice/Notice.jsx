@@ -36,15 +36,15 @@ class Notice extends React.Component {
     }
    
     if(props.mode && props.mode === 'pop'){
-      return <div className={classNameProps}>
+      return <div className={classNameProps} >
         <span className={`${noticeBarPrefixCls}-pop-triangle`}></span>
-        <NoticeBar  icon={<img className={`${noticeBarPrefixCls}-pop-img`} src={PNG} />}  {...props} className={classNameProps}>{props.children || props.content}</NoticeBar>
+        <NoticeBar  icon={<img className={`${noticeBarPrefixCls}-pop-img`} src={PNG} />}  {...props} >{props.children || props.content}</NoticeBar>
       </div>
     }
 
     if(props.mode && props.mode === 'light'){
-      return <div className={classNameProps}>
-        <NoticeBar icon={<img className={`${noticeBarPrefixCls}-light-img`} src={PNG} />}  {...props} className={classNameProps}>{props.children || props.content}</NoticeBar>
+      return <div className={classNameProps} >
+        <NoticeBar icon={<img className={`${noticeBarPrefixCls}-light-img`} src={PNG} />}  {...props} >{props.children || props.content}</NoticeBar>
       </div>
     }
 
