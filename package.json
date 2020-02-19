@@ -75,9 +75,9 @@
   },
   "dependencies": {
     "antd-mobile": "^2.3.1",
-    "eslint-plugin-react": "^7.16.0",
     "classnames": "^2.2.1",
-    "libraui-extension": "^0.6.6",
+    "eslint-plugin-react": "^7.16.0",
+    "libraui-extension": "^0.7.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
