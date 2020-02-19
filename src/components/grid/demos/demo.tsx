@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: Grid
+ * @description: 宫格组件
  */
 import React, { Component } from 'react';
 import MyComponent from '../index';
