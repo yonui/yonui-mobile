@@ -4,7 +4,6 @@ import { Flex, Icon, InputItem }  from 'antd-mobile'
 import List from '../list'
 import { CalendarProps } from 'antd-mobile/lib/calendar/PropsType'
 import { dateFormat } from '../_utils'
-import './style'
 export declare type SelectDateType = [Date, Date] | [Date];
 export interface ListCalendarProps extends CalendarProps {
   label?: string
