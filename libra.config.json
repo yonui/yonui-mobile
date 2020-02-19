@@ -5,7 +5,7 @@
   "type": "ts",
   "lib": [],
   "plugins": [
-    ["import",{"libraryName":"antd-mobile","style":true}]
+    ["import",{"libraryName":"antd-mobile","style":false}]
   ],
   "extraImport": {
       "js": "",

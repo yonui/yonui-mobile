@@ -8,15 +8,17 @@ export declare type SelectDateType = [Date, Date] | [Date];
 export interface ListCalendarProps extends CalendarProps {
   label?: string
   required?: boolean
-  value?: SelectDateType,
+  value?: SelectDateType
   arrow?: boolean
+  format?: string
 }
 interface ListCalendarStates {
   visible?: boolean
 }
 export default class ListCalendar extends React.Component<ListCalendarProps, ListCalendarStates> {
   static defaultProps = {
-    type: 'one'
+    type: 'one',
+    format: 'yyyy-MM-dd'
   }
   constructor (props: ListCalendarProps) {
     super(props)
@@ -46,16 +48,14 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
   onConfirm = (startDateTime: Date, endDateTime: Date) => {
     this.props.onConfirm && this.props.onConfirm(startDateTime, endDateTime)
     this.setState({
-      visible: false,
+      visible: false
     })
   }
   render () {
-    const format = 'yyyy-MM-dd';
     const { visible } = this.state
-    const { label, required, type, arrow , value} = this.props
-    const start = (value&&value.length)?dateFormat(value[0], format):'';
-    const end = (value&&value.length&&value[1])?dateFormat(value[1], format):'';
-   
+    const { label, required, type, arrow, value, format} = this.props
+    const start = (value && value.length) ? dateFormat(value[0], format || 'yyyy-MM-dd') :''
+    const end = (value && value.length && value[1]) ? dateFormat(value[1], format || 'yyyy-MM-dd') : ''
     const requiredCls = required ? 'required' : ''
     return (
       <List className='list-calendar'>
@@ -74,12 +74,17 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
           <Flex className='calendar-range' onClick={this.handClick.bind(this)}>
             <Flex.Item>
               <InputItem placeholder='开始日期' disabled clear value={start}/>
-            </Flex.Item> - <Flex.Item>
+              </Flex.Item> - <Flex.Item>
               <InputItem placeholder='结束日期' disabled clear value={end}/> 
             </Flex.Item>
           </Flex>
         </div>}
-        <Calendar {...this.props} visible={visible} onCancel={this.onCancel} onConfirm={this.onConfirm} defaultValue={value}/>
+        <Calendar 
+          {...this.props} 
+          visible={visible}
+          onCancel={this.onCancel}
+          onConfirm={this.onConfirm}
+          defaultValue={value}/>
       </List>
     )
   }

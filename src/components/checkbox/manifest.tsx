@@ -1,10 +1,11 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
 
 const manifest: ComponentManifest = {
   name: 'Checkbox',
   label: '复选框',
   description: '',
   type: 'DataEntry',
+  uiTable:UITable.BillItemBase,
   props: [
     {
       name: 'defaultChecked',
@@ -61,6 +62,7 @@ const manifestCheckBoxItem: ComponentManifest = {
   label: '复选框',
   description: '',
   type: 'DataEntry',
+  uiTable:UITable.BillItemBase,
   props: [
     {
       name: 'defaultChecked',
@@ -116,6 +118,7 @@ const manifestAgreeItem: ComponentManifest = {
   label: 'AgreeItem',
   description: '', // 描述
   type: 'DataEntry',
+  uiTable:UITable.BillItemBase,
   props: [// adapter适配层数据
   ]
 }

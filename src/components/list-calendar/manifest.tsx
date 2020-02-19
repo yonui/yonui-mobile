@@ -101,6 +101,18 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'format',
+      type: FieldTypes.string,
+      defaultValue: 'yyyy-MM-dd',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '设置日期格式'
+      }
+    },
+    {
       name: 'defaultDate',
       type: FieldTypes.date,
       defaultValue: new Date(),
@@ -145,19 +157,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Json,
         isRequired: false,
         props: {},
-        label: '值'
-      }
-    },
-    {
-      name: 'defaultValue',
-      type: FieldTypes.array,
-      defaultValue: JSON.stringify([]),
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Json,
-        isRequired: false,
-        props: {},
-        label: '默认日历选择范围'
+        label: '日期选择的值'
       }
     },
     {

@@ -1,10 +1,11 @@
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
 
 const manifest: ComponentManifest = {
   name: 'Flex',
   label: 'flex布局',
   type: 'Layout',
   description: '实现css flex布局', // 描述
+  uiTable: UITable.BillTplGroupBase,
   props: [// adapter适配层数据
     {
       name: 'direction',

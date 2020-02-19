@@ -47,7 +47,7 @@ const manifest: ComponentManifest = {
     {
       name: 'hasLine',
       type: FieldTypes.boolean,
-      defaultValue: true,
+      defaultValue: false,
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,

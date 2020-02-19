@@ -1,10 +1,11 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, UITable } from 'libraui-extension'
 // todo 未配置 onClick onChange
 const manifest = {
   name: 'Switch',
   label: '滑动开关',
   description: '',
   type: 'DataEntry',
+  uiTable:UITable.BillItemBase,
   props: [
     {
       name: 'checked',

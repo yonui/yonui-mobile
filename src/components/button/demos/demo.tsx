@@ -1,6 +1,6 @@
 /**
  * @name: Button
- * @description: sss
+ * @description: 按钮demo
  */
 import React, { Component } from 'react';
 import MyComponent from '../index';
@@ -14,7 +14,7 @@ export default class Demo1 extends Component {
       type: 'primary',
       size: 'large',
       loading: false,// 是否显示加载图标
-      content: <div>Button</div>,
+      content: 'primaryButton',
       disabled: false,
       inline: false,
       ghost: false
@@ -22,19 +22,19 @@ export default class Demo1 extends Component {
     return (
       <div >
         <MyComponent {...props}> primaryButton</MyComponent>
-        <br />
+
         <MyComponent type='default'>defaultButton</MyComponent>
-        <br />
+
         <MyComponent type='danger'>dangerButton</MyComponent>
-        <br />
-        <MyComponent type='primary' size='small'> smPrimary</MyComponent>
-        <br />
-        <MyComponent type='default' size='small'> smDefault</MyComponent>
-        <br />
-        <MyComponent type='danger' size='small'> smDanger</MyComponent>
-        <br />
-        <MyComponent type='ghost' ghost='true' >ghostButton</MyComponent>
-        <br />
+
+        <MyComponent type= 'primary' size = 'small'>smPrimary</MyComponent>
+
+        <MyComponent type='default' size = 'small'>smDefault</MyComponent>
+
+        <MyComponent type='danger' size = 'small'>smDanger</MyComponent>
+
+        <MyComponent  ghost = {true} >ghostButton</MyComponent>
+
       </div>
     )
   }

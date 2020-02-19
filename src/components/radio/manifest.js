@@ -1,10 +1,11 @@
-import { FieldTypes, EditTypes, ReactWrapper } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, UITable } from 'libraui-extension'
 // todo 未配置 onClick onChange
 const manifest = {
   name: 'Radio',
   label: '单选',
   description: '',
   type: 'DataEntry',
+  uiTable:UITable.BillItemBase,
   props: [
     {
       name: 'name',

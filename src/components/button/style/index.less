@@ -5,7 +5,7 @@
   width:@button-width;
   // height:@button-height;
   padding: 12px 0px 13px 0px;
-  text-decoration: none;
+  // text-decoration: none;
   display: inline-block;
   margin: 4px 2px;
   cursor: pointer;
@@ -19,8 +19,7 @@
   width:@button-width-sm;
   // height:@button-height-sm;
   padding: 9px 0px 9px 0px;
-  text-decoration: none;
-  display: inline-block;
+  // display: inline-block;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 4px;
@@ -43,11 +42,9 @@
 }
 .@{buttonPrefixCls}-default {
   .large-button-common;
-
   border: 1px solid #DCDCDC;
   color: @button-font-default-color;
   background-color: @button-background-default-color;
-
   &-active {
     background-color: fade(@button-background-default-color, 10%);
   }
@@ -71,7 +68,6 @@
 //  small button style
 .@{buttonPrefixCls}-primary-small {
   .small-button-common;
-
   color: @button-font-primary-color;
   background-color: @button-background-primary-color;
   &-active {
@@ -83,12 +79,9 @@
 }
 .@{buttonPrefixCls}-default-small {
   .small-button-common;
-
   border: 1px solid #BFBFBF;
-
   color: @button-font-default-color;
   background-color: @button-background-default-color;
-
   &-active {
     background-color: fade(@button-background-default-color, 10%);
   }
