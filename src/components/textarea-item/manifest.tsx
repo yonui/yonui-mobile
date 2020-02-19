@@ -1,6 +1,7 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension';
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension';
 const manifest: ComponentManifest = {
   name: 'TextareaItem',
+  uiTable: UITable.BillItemBase,
   label: '多行输入',
   type: 'DataEntry',
   props: [

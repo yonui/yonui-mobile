@@ -28,9 +28,19 @@
     "notice-bar-color": "#ffffff"
   },
   "components": {
-    "TextareaItem":"./src/components/textarea-item",
-    "Input":"./src/components/input",
+    "Button":"./src/components/button",
+    "Calendar":"./src/components/calendar",
+    "Card": "./src/components/card",
+    "Carousel": "./src/components/carousel",
+    "CheckBox": "./src/components/checkbox",
+    "Flex": "./src/components/flex",
     "Grid":"./src/components/grid",
-    "Card": "./src/components/card"
+    "Icon":"./src/components/icon",
+    "Input":"./src/components/input",
+    "ListCalendar":"./src/components/list-calendar",
+    "NavBar":"./src/components/navbar",
+    "Result":"./src/components/result",
+    "Tag":"./src/components/tag",
+    "TextareaItem":"./src/components/textarea-item"
   }
 }

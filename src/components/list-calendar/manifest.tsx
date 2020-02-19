@@ -1,7 +1,8 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
 const now = new Date()
 const manifest: ComponentManifest = {
   name: 'ListCalendar',
+  uiTable: UITable.BillItemBase,
   label: '列表项日历',
   description: '',
   type: 'DataEntry',

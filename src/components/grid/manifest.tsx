@@ -1,6 +1,7 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension';
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension';
 const manifest: ComponentManifest = {
   name: 'Grid',
+  uiTable: UITable.BillTplGroupBase,
   label: '宫格',
   description: '在水平和垂直方向，将布局切分成若干等大的区块。',
   type: 'Containers',
@@ -145,6 +146,25 @@ const manifest: ComponentManifest = {
         help: '点击反馈的自定义类名'
       }
     },
+    {
+      name: 'itemSize',
+      type: FieldTypes.string,
+      defaultValue: 'sm',
+      value: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        props: {
+          options:
+            [
+              { value: 'sm', text: 'sm' },
+              { value: 'md', text: 'md' },
+              { value: 'lg', text: 'lg' }
+            ]
+        },
+        label: 'item上icon的大小'
+      }
+    },  
     {
       name: 'itemStyle',
       type: FieldTypes.string,
