@@ -6,18 +6,20 @@ export interface InputProps extends InputItemPropsType {
   required?: boolean
 }
 export default class Input extends Component<InputProps> {
-    constructor(props: InputProps) {
-        super(props)
-    } 
-    render () {
-        const { label, required } = this.props
-        const requiredCls = required ? 'required' : ''
-        return (
-            <List className='mdf-input'>
-              <InputItem {...this.props}>
-                <div className={`form-label ${requiredCls}`}>{label}</div>
-              </InputItem>
-            </List>
-        )
-    }
+  constructor (props: InputProps) {
+    super(props)
+    this.state = {}
+  }
+
+  render () {
+    const { label, required } = this.props
+    const requiredCls = required ? 'required' : ''
+    return (
+      <List className='mdf-input'>
+        <InputItem {...this.props}>
+          <div className={`form-label ${requiredCls}`}>{label}</div>
+        </InputItem>
+      </List>
+    )
+  }
 }
