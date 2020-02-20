@@ -24,15 +24,15 @@ export default class MDFIcon extends React.Component<IconProps, any> {
   }
     getClassName = () => {
       const { type, size,loading,name } = this.props
-   
+
     let _className;
-    debugger;
+    // debugger;
     if (size === 'small') {
       _className = classnames(this.props.className, `${_prefixCls}-${this.props.type}-${this.props.size}`)
     } else {
       _className = classnames(this.props.className, `${_prefixCls}-${this.props.type}`)
     }
-    debugger;
+    // debugger;
     return _className
   }
 
@@ -44,7 +44,7 @@ export default class MDFIcon extends React.Component<IconProps, any> {
         </Icon>
 
       )
-    
+
   }
 }
 

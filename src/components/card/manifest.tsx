@@ -3,7 +3,7 @@ import { FieldTypes, EditTypes, ComponentManifest, ReactWrapper, UITable } from 
 const manifest: ComponentManifest = {
   name: 'Card',
   label: '卡片',
-  type: 'Containers',
+  type: 'Layout',
   uiTable: UITable.BillTplGroupBase,
   props: [
     {
