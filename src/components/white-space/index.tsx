@@ -1,4 +1,4 @@
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
 
 import { WhiteSpace } from 'antd-mobile'
 const manifest: ComponentManifest = {
@@ -6,6 +6,7 @@ const manifest: ComponentManifest = {
   label: '上下留白',
   description: '上下留白', // 描述
   type: 'Layout',
+  uiTable: UITable.BillTplGroupBase,
   props: [// adapter适配层数据
     {
       name: 'size',

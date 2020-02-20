@@ -8,7 +8,7 @@ const manifest = {
     {
       name: 'content',
       type: FieldTypes.child,
-      defaultValue: ' Notice: Auld lang syneAuld lang syneAuld lang syneAuld lang syneAuld lang syne',
+      defaultValue: 'Notice-content',
       showDesign: true,
       designConfig: {
         type: EditTypes.Textarea,
@@ -32,7 +32,7 @@ const manifest = {
     {
       name: 'mode',
       type: FieldTypes.string,
-      defaultValue: 'link',
+      defaultValue: 'light',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
@@ -52,7 +52,7 @@ const manifest = {
     {
       name: 'icon',
       type: FieldTypes.child,
-      defaultValue: 'icon',
+      defaultValue: null,
       showDesign: true,
       designConfig: {
         type: EditTypes.Textarea,
@@ -77,7 +77,6 @@ const manifest = {
     {
       name: 'action',
       type: FieldTypes.child,
-      defaultValue: 'action',
       showDesign: true,
       designConfig: {
         type: EditTypes.Textarea,

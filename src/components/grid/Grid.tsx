@@ -32,8 +32,7 @@ export default class GridComponent extends Component<GridProps> {
   }
 
   render () {
-    const { outContent, prefixCls, full, itemSize, data, className } = this.props
-    const dataSource = (!Array.isArray(data)) ? data && JSON.parse(data) : data
+    const { outContent, prefixCls, full, itemSize, className } = this.props
     const cusCls: any = classnames({
       [`${prefixCls}-full`]: full,
       [`${prefixCls}-outContent`]: outContent,
@@ -43,7 +42,6 @@ export default class GridComponent extends Component<GridProps> {
     return (
       <Grid {...this.props}
         className={cusCls}
-        data={dataSource}
         renderItem={outContent ? this.renderItem : this.props.renderItem}/>
     )
   }

@@ -156,7 +156,7 @@ const carouselManifest: ComponentManifest = {
 const carouselItemManifest: ComponentManifest = {
   name: 'CarouselItem',
   label: '走马灯Item',
-  // uiTable: UITable.BillTplGroupBase,
+  uiTable: UITable.BillTplGroupBase,
   type: 'Layout',
   props: [
     {
@@ -210,8 +210,7 @@ const carouselItemManifest: ComponentManifest = {
       }
     }
   ],
-  children: () => true,
-  parent: ['Carousel']
+  children: () => true
 }
 
 

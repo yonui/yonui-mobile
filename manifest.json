@@ -35,6 +35,8 @@
     "Flex": "./src/components/flex",
     "Grid":"./src/components/grid",
     "Input":"./src/components/input",
-    "Result":"./src/components/result"
+    "Result":"./src/components/result",
+    "WhiteSpace": "./src/components/white-space",
+    "WingBlank": "./src/components/wing-blank"
   }
 }

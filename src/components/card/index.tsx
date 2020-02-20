@@ -1,4 +1,4 @@
 import Card from './Card'
 import { ReactWrapper, manifest } from './manifest'
 
-export default ReactWrapper(Card, manifest, { excludeNidAndUiType: true })
+export default ReactWrapper(Card, manifest)

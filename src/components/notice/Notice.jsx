@@ -30,7 +30,7 @@ class Notice extends React.Component {
           className={classNameProps}
           footer={[{ text: '确定', onPress: () => { this.onClose(); } }]}
         >
-          {props.children || props.content}
+          {props.content ||props.children}
         </Modal>
       )
     }
@@ -38,17 +38,17 @@ class Notice extends React.Component {
     if(props.mode && props.mode === 'pop'){
       return <div className={classNameProps} >
         <span className={`${noticeBarPrefixCls}-pop-triangle`}></span>
-        <NoticeBar  icon={<img className={`${noticeBarPrefixCls}-pop-img`} src={PNG} />}  {...props} >{props.children || props.content}</NoticeBar>
+        <NoticeBar  icon={<img className={`${noticeBarPrefixCls}-pop-img`} src={PNG} />}  {...props} >{props.content || props.children}</NoticeBar>
       </div>
     }
 
     if(props.mode && props.mode === 'light'){
       return <div className={classNameProps} >
-        <NoticeBar icon={<img className={`${noticeBarPrefixCls}-light-img`} src={PNG} />} {...props} mode='link' >{props.children || props.content}</NoticeBar>
+        <NoticeBar icon={<img className={`${noticeBarPrefixCls}-light-img`} src={PNG} />} {...props} mode='link' >{props.content || props.children}</NoticeBar>
       </div>
     }
 
-    return (<NoticeBar {...props} className={classNameProps}>{props.children || props.content}</NoticeBar>)
+    return (<NoticeBar {...props} className={classNameProps}>{props.content || props.children}</NoticeBar>)
   }
 }
 export default ReactWrapper(Notice, manifest)

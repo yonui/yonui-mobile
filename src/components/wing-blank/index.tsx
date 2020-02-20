@@ -1,4 +1,4 @@
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
 
 import { WingBlank } from 'antd-mobile'
 const manifest: ComponentManifest = {
@@ -6,6 +6,7 @@ const manifest: ComponentManifest = {
   label: '两翼留白',
   description: '两翼留白', // 描述
   type: 'Layout',
+  uiTable: UITable.BillTplGroupBase,
   props: [// adapter适配层数据
     {
       name: 'size',
@@ -28,7 +29,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: ['Button', 'Calendar', 'Card', 'Checkbox', 'Drawer', 'Flex', 'NavBar', 'Progress', 'Stepper', 'Switch', 'WhiteSpace', 'WingBlank', 'Slider', 'Range']
+  children: () => true
 }
 
 export default ReactWrapper(WingBlank, manifest)

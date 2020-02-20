@@ -1,4 +1,2 @@
-import Flex from './index'
-import FlexItem from './FlexItem'
-Flex.Item = FlexItem
-export default Flex
+import { Flex } from 'antd-mobile'
+export default Flex.Item
