@@ -1,5 +1,12 @@
 @import '../../_style/index.less';
 
-@resultPrefixCls: am-flexbox-item;
+@flexItemPrefixCls: am-flexbox-item-flex;
 
+@autoItemPrefixCls: am-flexbox-item-auto;
 
+.@{flexItemPrefixCls} {
+  flex: 1;
+}
+.@{autoItemPrefixCls} {
+  flex: auto;
+}

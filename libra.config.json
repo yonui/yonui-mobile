@@ -12,7 +12,10 @@
       "css": ""
   },
   "buildImport": {
-    "js":[],
-    "css":[]
+    "js":["import * as AntdMobile from 'antd-mobile/lib/index'"],
+    "css":[],
+    "export":[
+      "AntdMobile"
+    ]
   }
 }

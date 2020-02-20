@@ -15,15 +15,10 @@ export default class Demo1 extends Component {
     return (
       <div>
         <Flex>
-          <Button className="item-width">按钮1 </Button>
-          <Button className="item-width">按钮2 </Button>
-          <Button className="item-width">按钮3 </Button>
           <Button className="item-width">按钮4 </Button>
         </Flex>
 
         <Flex direction="column">
-          <Button >按钮1 </Button>
-          <Button >按钮2 </Button>
           <Card></Card>
         </Flex>
       </div>
