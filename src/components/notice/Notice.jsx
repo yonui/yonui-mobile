@@ -44,7 +44,7 @@ class Notice extends React.Component {
 
     if(props.mode && props.mode === 'light'){
       return <div className={classNameProps} >
-        <NoticeBar icon={<img className={`${noticeBarPrefixCls}-light-img`} src={PNG} />}  {...props} >{props.children || props.content}</NoticeBar>
+        <NoticeBar icon={<img className={`${noticeBarPrefixCls}-light-img`} src={PNG} />} {...props} mode='link' >{props.children || props.content}</NoticeBar>
       </div>
     }
 
