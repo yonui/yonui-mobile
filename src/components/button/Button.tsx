@@ -32,7 +32,7 @@ export default class MDFButton extends React.Component<ButtonProps, any> {
       const { type, size,loading,content, ghost, inline, disabled } = this.props
 
     let _className;
-    debugger;
+    // debugger;
     if (ghost) {
       return classnames(this.props.className, `${ _prefixCls}-ghost`)
     }
@@ -41,7 +41,7 @@ export default class MDFButton extends React.Component<ButtonProps, any> {
     } else {
       _className = classnames(this.props.className, `${_prefixCls}-${this.props.type}`)
     }
-    debugger;
+    // debugger;
     return _className
   }
 
