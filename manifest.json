@@ -31,15 +31,9 @@
     "Button":"./src/components/button",
     "Card": "./src/components/card",
     "Carousel": "./src/components/carousel",
-    "CheckBox": "./src/components/checkbox",
     "Flex": "./src/components/flex",
     "Grid":"./src/components/grid",
-    "Icon":"./src/components/icon",
     "Input":"./src/components/input",
-    "ListCalendar":"./src/components/list-calendar",
-    "NavBar":"./src/components/navbar",
-    "Result":"./src/components/result",
-    "Tag":"./src/components/tag",
-    "TextareaItem":"./src/components/textarea-item"
+    "Result":"./src/components/result"
   }
 }

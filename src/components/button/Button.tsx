@@ -49,7 +49,7 @@ export default class MDFButton extends React.Component<ButtonProps, any> {
     let _className =this.getClassName();
       return (
         <Button className = {_className}>
-          {this.props.children}
+          {this.props.content || this.props.children}
         </Button>
 
       )

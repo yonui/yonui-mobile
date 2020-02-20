@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
 export interface CarouselProps {
   selectedIndex?: number
   dots?: boolean
@@ -18,6 +18,7 @@ export interface CarouselProps {
 const carouselManifest: ComponentManifest = {
   name: 'Carousel',
   label: '走马灯',
+  uiTable: UITable.BillTplGroupBase,
   type: 'Layout',
   props: [
     {

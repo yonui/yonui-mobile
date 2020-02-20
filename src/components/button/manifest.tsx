@@ -32,15 +32,15 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'text',
+      name: 'content',
       type: FieldTypes.string,
-      defaultValue: '按钮',
+      defaultValue: 'Button',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '名称'
+        label: '按钮文本'
       }
     },
     {
@@ -161,7 +161,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: []
+  children: () => true
 
 }
 
