@@ -1,4 +1,8 @@
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension';
+const data = Array.from(new Array(9)).map((_val, i) => ({
+  icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
+  text: `name${i}`,
+}));
 const manifest: ComponentManifest = {
   name: 'Grid',
   uiTable: UITable.BillTplGroupBase,
@@ -9,7 +13,7 @@ const manifest: ComponentManifest = {
     {
       name: 'data',
       type: FieldTypes.array,
-      defaultValue: JSON.stringify([{ text: 1 }, { text: 2 }]),
+      defaultValue: JSON.stringify(data),
       showDesign: true,
       designConfig: {
         type: EditTypes.Json,
@@ -70,10 +74,22 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'full',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '是否通栏'
+      }
+    },
+    {
       name: 'isCarousel',
       type: FieldTypes.boolean,
       defaultValue: false,
-      showDesign: false, // 会调用antd的slider相关组件，涉及ref
+      showDesign: true, // 会调用antd的slider相关组件，涉及ref
       designConfig: {
         type: EditTypes.Bool,
         isRequired: false,
@@ -162,7 +178,7 @@ const manifest: ComponentManifest = {
               { value: 'lg', text: 'lg' }
             ]
         },
-        label: 'item上icon的大小'
+        label: 'item上icon的大小,当outContent为false,该值不生效'
       }
     },
     {

@@ -53,7 +53,7 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
   }
   render () {
     const { visible } = this.state
-    const { label, required, type, arrow, value, format} = this.props
+    const { label, required, type, arrow, value, format } = this.props
     const start = (value && value.length) ? dateFormat(value[0], format || 'yyyy-MM-dd') :''
     const end = (value && value.length && value[1]) ? dateFormat(value[1], format || 'yyyy-MM-dd') : ''
     const requiredCls = required ? 'required' : ''
@@ -79,12 +79,12 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
             </Flex.Item>
           </Flex>
         </div>}
-        <Calendar 
-          {...this.props} 
+        <Calendar
           visible={visible}
           onCancel={this.onCancel}
           onConfirm={this.onConfirm}
-          defaultValue={value}/>
+          defaultValue={value}
+          {...this.props}/>
       </List>
     )
   }

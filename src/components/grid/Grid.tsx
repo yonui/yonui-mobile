@@ -7,13 +7,15 @@ export interface GridProps extends GridPropsType {
   full?: boolean
   prefixCls?: string
   itemSize?: string
+  className?: string
 }
 export default class GridComponent extends Component<GridProps> {
   static defaultProps = {
     prefixCls: 'am-grid',
     full: false,
     itemSize: 'sm',
-    hasLine: false
+    hasLine: false,
+    outContent: false
   }
   renderItem = (dataItem: any) => {
     const { icon, text } = dataItem
@@ -28,14 +30,18 @@ export default class GridComponent extends Component<GridProps> {
       </React.Fragment>)
   }
   render() {
-    const { outContent, prefixCls, full, itemSize } = this.props
+    const { outContent, prefixCls, full, itemSize, data, className } = this.props
+    const dataSource = (!Array.isArray(data))?data&&JSON.parse(data):data
     const cusCls:any = classnames({
       [`${prefixCls}-full`]: full,
       [`${prefixCls}-outContent`]: outContent,
-      [`${prefixCls}-${itemSize}`]: [`${prefixCls}-${itemSize}`]
+      [`${prefixCls}-${itemSize}`]: [`${prefixCls}-${itemSize}`],
+      className
     })
     return (
-      <Grid className={cusCls} {...this.props} 
+      <Grid {...this.props} 
+        className={cusCls} 
+        data={dataSource}
         renderItem={outContent?this.renderItem:this.props.renderItem}/>
     )
   }
