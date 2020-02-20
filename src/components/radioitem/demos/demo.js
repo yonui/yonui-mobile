@@ -3,10 +3,9 @@
  * @description: Demo Description
  */
 import React, { Component } from 'react';
-import Radio from '../index';
+import RadioItem from '../index';
 import '../style';
 import './demo.less';
-const RadioItem = Radio.RadioItem
 export default class Demo1 extends Component {
     constructor(props) {
         super(props);
@@ -27,11 +26,13 @@ export default class Demo1 extends Component {
         ];
         return (
             <div>
-
-                
-                <span style={{ fontSize: 14 ,paddingTop:20,display:'inline-block'}}>默认选中</span>
+                <span style={{ fontSize: 14 ,paddingTop:20,display:'inline-block'}}>RadioItem</span>
                 <div>
-                <Radio defaultChecked onChange={e => console.log('checkbox', e)}>默认选中</Radio>
+                    {data.map(i => (
+                        <RadioItem key={i.value} checked={this.state.value === i.value} onChange={() => this.onChange(i.value)}>
+                            {i.label}
+                        </RadioItem>
+                    ))}
                 </div>
             </div>
         )

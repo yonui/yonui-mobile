@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension';
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'TextareaItem',
   uiTable: UITable.BillItemBase,
@@ -20,7 +20,7 @@ const manifest: ComponentManifest = {
     {
       name: 'title',
       type: FieldTypes.string,
-      defaultValue: '标题',
+      defaultValue: false,
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -32,7 +32,7 @@ const manifest: ComponentManifest = {
     {
       name: 'rows',
       type: FieldTypes.number,
-      defaultValue: 1,
+      defaultValue: 5,
       showDesign: true,
       designConfig: {
         type: EditTypes.Number,
@@ -91,13 +91,13 @@ const manifest: ComponentManifest = {
     {
       name: 'placeholder',
       type: FieldTypes.string,
-      defaultValue: 'placeholder',
+      defaultValue: '预设内容',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '背景提示'
+        label: '提示文案'
       }
     },
     {

@@ -56,7 +56,6 @@ const manifest = {
   {
     name: 'defaultValue',
     type: FieldTypes.array,
-    showDesign: true,
     defaultValue: 10,
     designConfig: {
       type: EditTypes.Number,
@@ -74,7 +73,7 @@ const manifest = {
       type: EditTypes.Bool,
       isRequired: true,
       props: {},
-      label: '是否禁用'
+      label: '禁用'
     }
   },
   {

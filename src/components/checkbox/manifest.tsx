@@ -8,15 +8,31 @@ const manifest: ComponentManifest = {
   uiTable:UITable.BillItemBase,
   props: [
     {
+      name: 'mode',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        isRequired: false,
+        props: {
+          options: [
+            { value: '', text: '默认' },
+            { value: 'square', text: 'square' }
+          ]
+        },
+        label: '类型'
+      }
+    },
+    {
       name: 'defaultChecked',
       type: FieldTypes.boolean,
-      defaultValue: true,
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '初始是否选中'
+        label: '初始选中'
       }
     },
     {
@@ -27,7 +43,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '指定当前是否选中'
+        label: '选中'
       }
     },
     {
@@ -39,7 +55,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '是否禁用'
+        label: '禁用'
       }
     },
     {
