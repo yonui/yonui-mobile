@@ -13,15 +13,15 @@
 @color-text-disabled: #bbb;              // 失效
 @color-text-caption: #888;               // 辅助描述
 @color-text-paragraph: #333;             // 段落
-@color-link: @brand-primary;             // 链接
+@color-link: @brand-primary;               // 链接
 
 // 背景色
 @fill-base: #fff;                           // 组件默认背景
 @fill-body: #f5f5f9;                        // 页面背景
-@fill-tap: #ddd;                            // 组件默认背景 - 按下
+@fill-tap: rgba((17,17,17,0.1));              // 组件默认背景 - 按下
 @fill-disabled: #DFE1E6;                    // 通用失效背景 - 友空间规范
-@fill-mask: rgba(0, 0, 0, 0.4);              // 遮罩背景
-@color-icon-base: #ccc;                      // 许多小图标的背景，比如一些小圆点，加减号
+@fill-mask: rgba(0, 0, 0, 0.4);             // 遮罩背景
+@color-icon-base: #ccc;                     // 许多小图标的背景，比如一些小圆点，加减号
 @fill-grey: #f7f7f7;
 
 // 透明度
@@ -29,20 +29,15 @@
 
 // 全局/品牌色
 @brand-primary: #E14C46; // 友空间规范
-@brand-primary-tap: @brand-primary; // 友空间规范
+@brand-primary-tap: shade(@brand-primary, 10%); // 友空间规范
 @brand-success: #6abf47;
 @brand-warning: #ffc600;
 @brand-error: #f4333c;
 @brand-important: #ff5b05;  // 用于小红点
 @brand-wait: #108ee9;
-@mdf-brand-secondary-turquoise: #1FBFA7; // 辅助色-湖蓝色-友空间规范
-@mdf-brand-secondary-blue: #02BBF1; // 辅助色-蓝色系-友空间规范
-@mdf-brand-secondary-yellow: #FFAB00; // 辅助色-黄色系-友空间规范
-@mdf-brand-secondary-green: #65AF47; // 辅助色-绿色系-友空间规范
-@mdf-brand-secondary-purple: #6554C0; // 辅助色-紫色系-友空间规范
 
 // 边框色
-@border-color-base: #ddd;
+@border-color-base: #dcdcdc;
 
 // 字体尺寸
 // ---
@@ -63,8 +58,8 @@
 
 // 边框尺寸
 // ---
-@border-width-sm: 1PX;
-@border-width-md: 1PX;
+@border-width-sm: @hd;
+@border-width-md: @hd;
 @border-width-lg: 2 * @hd;
 
 // 间距
@@ -105,34 +100,31 @@
 @actionsheet-item-font-size: 18 * @hd;
 
 // button
-// xugang add begin
 @button-height: 44 * @hd;
-@button-width: 345 * @hd;
 @button-font-size: 18 * @hd;
-@button-font-primary-color:#FFFFFF ;
-@button-font-default-color:#111111 ;
-@button-font-danger-color:#E14C46 ;
 
 @button-height-sm: 32 * @hd;
 @button-font-size-sm: 14 * @hd;
-@button-width-sm: 88 * @hd;
+
+@default-button-text-color: #111;
+@default-button-fill: #ffffff;
+@default-button-fill-tap: rgba(17,17,17,0.1);
+
+@primary-button-text-color: #ffffff;
 @primary-button-fill: @brand-primary;
 @primary-button-fill-tap: @brand-primary-tap;
 
+@warning-button-fill: #ffffff;
+@warning-button-fill-tap: rgba(17,17,17,0.1);
+@warning-button-text-color: @brand-primary;
+
 @ghost-button-color: @brand-primary;    // 同时应用于背景、文字颜色、边框色
-@ghost-button-fill-tap: fade(@brand-primary, 60%);
-
-@warning-button-fill: #ffffff; // 友空间规范
-@warning-button-fill-tap: #ffffff; // 友空间规范
-@mdf-warning-button-text-color: @brand-primary; // 警示按钮-文本色值
-
+@ghost-button-fill-color: transparent;
+@ghost-button-fill-tap: rgba(17,17,17,0.1);
 
 @button-background-primary-color :#E14C46;
 @button-background-default-color :#EEEEEE;
 @button-background-danger-color :#FFFFFF;
-
-
-// xugang add end
 
 
 @link-button-fill-tap: #ddd;
