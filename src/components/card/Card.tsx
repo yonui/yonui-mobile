@@ -40,11 +40,12 @@ export default class MDFCard extends Component<CardProps, any> {
       return headerExtra === 'arrow' ? <Icon type="right" /> : (headerExtra || null)
     }
     return (
-
       showHeader ? <Card.Header
         title={headerTitle}
         thumb={thumb()}
-        extra={<span onClick={onHeaderExtraClick}>{extra()}</span>}
+        extra={<span style={{
+          display: 'flex'
+        }}onClick={onHeaderExtraClick}>{extra()}</span>}
       /> : ''
     )
   }
