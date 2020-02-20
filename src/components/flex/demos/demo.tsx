@@ -20,14 +20,13 @@ export default class Demo1 extends Component {
           row
         </div>
         <Flex direction="row">
-          <Flex.Item>
-            <Button size="small" >按钮1 </Button>
-          </Flex.Item>
-          <FlexItem>
-          <Button size="small" >按钮2 </Button>
+          <FlexItem content = "aaaadflkjslkdf">
           </FlexItem>
-          <FlexItem>
-            <Button size="small" >按钮3 </Button>
+          <FlexItem flex = "1">
+            2
+          </FlexItem>
+          <FlexItem flex = "auto">
+            3
           </FlexItem>
 
         </Flex>
@@ -35,14 +34,10 @@ export default class Demo1 extends Component {
         column
         </div>
         <Flex direction="column">
-          <Flex.Item>
-            <Button >按钮1 </Button>
-          </Flex.Item>
           <FlexItem>
             <Button >按钮2 </Button>
           </FlexItem>
-          <FlexItem>
-            <Card></Card>
+          <FlexItem content = "aaaadflkjslkdf">
           </FlexItem>
         </Flex>
       </div>

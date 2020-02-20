@@ -11,7 +11,12 @@ export default class Demo1 extends Component {
     return (
       <div> 
         <MyComponent name = 'xiaoyou' size = 'small'>con</MyComponent>
-        {/* <MyComponent name = 'xiaoyou' size = 'large'>con</MyComponent> */}
+        <MyComponent name = 'xiaoyou' size = 'large'>con</MyComponent>
+        <MyComponent name = 'achievement' size = 'small'>con</MyComponent>
+        <MyComponent name = 'achievement' size = 'large'>con</MyComponent>
+        <MyComponent name = 'business' size = 'small'>con</MyComponent>
+        <MyComponent name = 'business' size = 'large'>con</MyComponent>
+
       </div>
       
     )
