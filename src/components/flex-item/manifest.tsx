@@ -8,7 +8,7 @@ const manifest: ComponentManifest = {
   uiTable: UITable.BillTplGroupBase,
   props: [// adapter适配层数据
   ],
-  children: ['Button', 'Calendar', 'Card', 'Checkbox', 'Drawer', 'Flex', 'NavBar', 'Progress', 'Stepper', 'Switch', 'WhiteSpace', 'WingBlank']
+  children: ['Button', 'Calendar', 'Search', 'Card', 'Checkbox', 'Drawer', 'Flex', 'NavBar', 'Progress', 'Stepper', 'Switch', 'WhiteSpace', 'WingBlank']
 }
 
 export {

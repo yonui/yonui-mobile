@@ -1,9 +1,10 @@
-import { FieldTypes, EditTypes, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
 
 const manifest: ComponentManifest = {
   name: 'Search',
   label: '搜索栏',
   type: 'DataEntry',
+  uiTable: UITable.BillTplGroupBase,
   props: [{
       name: 'value',
       type: FieldTypes.string,

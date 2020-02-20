@@ -29,13 +29,16 @@
   },
   "components": {
     "Button":"./src/components/button",
+    "Background":"./src/components/background",
     "Card": "./src/components/card",
     "Carousel": "./src/components/carousel",
     "CarouselItem": "./src/components/carousel-item",
     "Flex": "./src/components/flex",
+    "FlexItem": "./src/components/flex-item",
     "Grid":"./src/components/grid",
     "Input":"./src/components/input",
     "Result":"./src/components/result",
+    "Search":"./src/components/search",
     "WhiteSpace": "./src/components/white-space",
     "WingBlank": "./src/components/wing-blank"
   }
