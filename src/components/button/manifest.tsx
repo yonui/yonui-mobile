@@ -55,7 +55,7 @@ const manifest: ComponentManifest = {
           options: [
             { value: 'default', text: '默认' },
             { value: 'primary', text: '主按钮' },
-            // { value: 'ghost', text: '透明' },
+            { value: 'ghost', text: '透明' },
             { value: 'warning', text: '警告红' }
           ]
         },
@@ -65,7 +65,7 @@ const manifest: ComponentManifest = {
     {
       name: 'size',
       type: FieldTypes.string,
-      defaultValue: 'large',
+      defaultValue: '',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
