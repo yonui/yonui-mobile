@@ -30,3 +30,4 @@ package-lock.json
 .libraui
 libra.config.override.json
 manifest.override.json
+run.sh

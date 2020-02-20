@@ -22,8 +22,8 @@ export default class Demo1 extends Component {
         </Flex>
 
         <Flex direction="column">
-          <Button className="item-width">按钮1 </Button>
-          <Button className="item-width">按钮2 </Button>
+          <Button >按钮1 </Button>
+          <Button >按钮2 </Button>
           <Card></Card>
         </Flex>
       </div>

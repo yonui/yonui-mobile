@@ -1,2 +1,14 @@
 @import '../../_style/index.less';
 
+@flexboxPrefixCls: am-flexbox;
+
+// @flexboxPrefixCls: am-flexbox-item;
+
+.@{flexboxPrefixCls} {
+  &>div {
+    width: 100%
+  }
+  & &-item{
+    padding: 0;
+  }
+}

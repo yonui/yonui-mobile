@@ -1,8 +1,8 @@
 import { FieldTypes, EditTypes, ComponentManifest, ReactWrapper, UITable } from 'libraui-extension'
 
 const manifest: ComponentManifest = {
-  name: 'Card',
-  label: '卡片',
+  name: 'NBCard',
+  label: '卡片111',
   type: 'Layout',
   uiTable: UITable.BillTplGroupBase,
   props: [
