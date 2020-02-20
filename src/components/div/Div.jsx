@@ -14,7 +14,7 @@ import {manifest,ReactWrapper} from './manifest'
  */
 
 function DivControl(props){
-  return(<div className="div-container">{props.children||''}</div>)
+  return(<div className="am-div-container">{props.children||''}</div>)
 }
 export default ReactWrapper(DivControl, manifest)
 
