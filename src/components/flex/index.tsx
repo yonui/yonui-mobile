@@ -1,5 +1,5 @@
 import { Flex } from 'antd-mobile'
-import FlexItem from './FlexItem'
+import FlexItem from '../flex-item'
 import { manifest, ReactWrapper} from './manifest'
 
 const WrappedFlex = ReactWrapper(Flex, manifest)

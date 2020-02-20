@@ -5,8 +5,9 @@
 import React, { Component } from "react";
 import Flex from "../index";
 import FlexItem from '../../flex-item';
-import { Button } from "antd-mobile";
+import Button from "../../button";
 import Card from '../../card';
+import Search from '../../input';
 
 
 import "../style";
@@ -15,10 +16,28 @@ export default class Demo1 extends Component {
   render() {
     return (
       <div>
-        <Flex direction="column">
+          <div>
+          row
+        </div>
+        <Flex direction="row">
+          <Flex.Item>
+            <Button size="small" >按钮1 </Button>
+          </Flex.Item>
           <FlexItem>
-            <Button >按钮1 </Button>
+          <Button size="small" >按钮2 </Button>
           </FlexItem>
+          <FlexItem>
+            <Button size="small" >按钮3 </Button>
+          </FlexItem>
+
+        </Flex>
+        <div>
+        column
+        </div>
+        <Flex direction="column">
+          <Flex.Item>
+            <Button >按钮1 </Button>
+          </Flex.Item>
           <FlexItem>
             <Button >按钮2 </Button>
           </FlexItem>
