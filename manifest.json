@@ -35,6 +35,7 @@
     "CarouselItem": "./src/components/carousel-item",
     "Flex": "./src/components/flex",
     "FlexItem": "./src/components/flex-item",
+    "Notice": "./src/components//notice",
     "Grid":"./src/components/grid",
     "Input":"./src/components/input",
     "Result":"./src/components/result",

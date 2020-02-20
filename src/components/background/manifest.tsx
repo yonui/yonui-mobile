@@ -10,7 +10,7 @@ const backgroundManifest: ComponentManifest = {
     {
       name: 'background',
       type: FieldTypes.string,
-      defaultValue: 'linear-gradient(180deg, #e53938 0%, transparent 50%, transparent 100%);',
+      defaultValue: 'linear-gradient(180deg, #e53938 0%, transparent 40%, transparent 100%)',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
