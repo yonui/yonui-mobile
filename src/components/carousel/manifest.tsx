@@ -1,20 +1,5 @@
 import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
-export interface CarouselProps {
-  selectedIndex?: number
-  dots?: boolean
-  vertical?: boolean
-  autoplay?: boolean
-  autoplayInterval?: number
-  infinite?: boolean
-  dotStyle?: object
-  dotActiveStyle?: object
-  frameOverflow?: 'visible' | 'hidden'
-  cellSpacing?: number
-  slideWidth?: string
-  easing?: () => void
-  swipeSpeed?: number
-  ratio?: string
-}
+
 const carouselManifest: ComponentManifest = {
   name: 'Carousel',
   label: '走马灯',
@@ -71,7 +56,7 @@ const carouselManifest: ComponentManifest = {
     {
       name: 'dots',
       type: FieldTypes.boolean,
-      defaultValue: false,
+      defaultValue: true,
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
@@ -106,32 +91,6 @@ const carouselManifest: ComponentManifest = {
       }
     },
     {
-      name: 'dotStyle',
-      type: FieldTypes.object,
-      defaultValue: JSON.stringify({}),
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: '指示点样式',
-        help: '指示点样式'
-      }
-    },
-    {
-      name: 'dotActiveStyle',
-      type: FieldTypes.object,
-      defaultValue: JSON.stringify({}),
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: '激活指示点样式',
-        help: '当前激活的指示点样式'
-      }
-    },
-    {
       name: 'frameOverflow',
       type: FieldTypes.string,
       defaultValue: 'hidden',
@@ -146,7 +105,7 @@ const carouselManifest: ComponentManifest = {
     {
       name: 'cellSpacing',
       type: FieldTypes.number,
-      defaultValue: 3000,
+      defaultValue: 0,
       showDesign: true,
       designConfig: {
         type: EditTypes.Number,
@@ -168,21 +127,9 @@ const carouselManifest: ComponentManifest = {
       }
     },
     {
-      name: 'easing',
-      type: FieldTypes.action,
-      defaultValue: 'easeOutCircle',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        props: {},
-        label: '缓动函数',
-        help: '缓动函数，你可以使用这里提供的其他函数'
-      }
-    },
-    {
       name: 'beforeChange',
       type: FieldTypes.action,
-      defaultValue: '',
+      defaultValue: () => {},
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -194,7 +141,7 @@ const carouselManifest: ComponentManifest = {
     {
       name: 'afterChange',
       type: FieldTypes.action,
-      defaultValue: '',
+      defaultValue: () => {},
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -209,6 +156,7 @@ const carouselManifest: ComponentManifest = {
 const carouselItemManifest: ComponentManifest = {
   name: 'CarouselItem',
   label: '走马灯Item',
+  // uiTable: UITable.BillTplGroupBase,
   type: 'Layout',
   props: [
     {
@@ -247,11 +195,23 @@ const carouselItemManifest: ComponentManifest = {
             { value: '100%', text: '拉伸以充满面板' }
           ]
         },
-        label: '面板宽高比'
+        label: '背景图片拉伸方式'
       }
     },
+    {
+      name: 'height',
+      type: FieldTypes.number,
+      defaultValue: 200,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        props: {},
+        label: 'Item高度'
+      }
+    }
   ],
-  children: []
+  children: () => true,
+  parent: ['Carousel']
 }
 
 

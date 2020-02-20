@@ -15,7 +15,7 @@ export interface CardProps {
   footerExtra?: React.ReactElement | string
   onFooterExtraClick?: React.MouseEventHandler<HTMLAnchorElement>
 }
-export default class MDFCard extends Component<CardProps, any> {
+export default class MDFCard extends React.Component<CardProps, any> {
   static defaultProps = {
     prefixCls: 'am-card',
     full: false,
@@ -58,7 +58,7 @@ export default class MDFCard extends Component<CardProps, any> {
 
     return (
       <Card.Body className={classes}>
-        {this.props.children || this.props.content}
+        { this.props.children || this.props.content }
       </Card.Body>
     )
   }
@@ -73,6 +73,7 @@ export default class MDFCard extends Component<CardProps, any> {
     )
   }
   render() {
+    console.log(this.props)
     return (
       <Card full={this.props.full}>
         {this.renderHeader()}

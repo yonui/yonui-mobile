@@ -47,9 +47,7 @@ export default class MDFCarousel extends React.Component<CarouselProps, any> {
   }
   render() {
     return (
-      <Carousel style={{
-        paddingBottom: this.getPaddingBottom()
-      }} {...this.props}>{this.props.children}</Carousel>
+      <Carousel {...this.props}>{this.props.children}</Carousel>
     )
   }
 }

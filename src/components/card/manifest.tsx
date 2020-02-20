@@ -36,7 +36,7 @@ const manifest: ComponentManifest = {
       defaultValue: 'Header Title',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Textarea,
+        type: EditTypes.Text,
         isRequired: false,
         props: {},
         label: '标题'
@@ -48,7 +48,7 @@ const manifest: ComponentManifest = {
       defaultValue: 'thumb',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Textarea,
+        type: EditTypes.Text,
         isRequired: false,
         props: {},
         label: '标题图片'
@@ -64,6 +64,18 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '标题辅助内容'
+      }
+    },
+    {
+      name: 'content',
+      type: FieldTypes.child,
+      defaultValue: 'This is content of `Card`',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '卡片内容'
       }
     },
     {
@@ -84,7 +96,7 @@ const manifest: ComponentManifest = {
       defaultValue: 'Footer content',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Textarea,
+        type: EditTypes.Text,
         isRequired: false,
         props: {},
         label: '尾部内容'
@@ -96,7 +108,7 @@ const manifest: ComponentManifest = {
       defaultValue: 'Footer extra',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Textarea,
+        type: EditTypes.Text,
         isRequired: false,
         props: {},
         label: '尾部辅助内容'

@@ -4,16 +4,15 @@
  */
 import React, { Component } from 'react';
 import Carousel from '../index';
-import CarouselItem from '../../carousel-item/';
 import '../style';
 import './demo.less';
 export default class Demo1 extends Component {
     render() {
         return (
             <Carousel>
-              <CarouselItem></CarouselItem>
-              <CarouselItem></CarouselItem>
-              <CarouselItem></CarouselItem>
+              <Carousel.item></Carousel.item>
+              <Carousel.item></Carousel.item>
+              <Carousel.item></Carousel.item>
             </Carousel>
         )
     }

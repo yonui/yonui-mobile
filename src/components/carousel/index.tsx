@@ -1,13 +1,5 @@
 import { ReactWrapper } from 'libraui-extension'
-import MDFCarousel from './Carousel'
-import MDFCarouselItem from './CarouselItem'
+import Carousel from './Carousel'
+import { carouselManifest } from './manifest'
 
-import {
-  carouselManifest,
-  carouselItemManifest
-} from './manifest'
-
-const Carousel = ReactWrapper(MDFCarousel, carouselManifest)
-Carousel.item = ReactWrapper(MDFCarouselItem, carouselItemManifest)
-
-export default Carousel
+export default ReactWrapper(Carousel, carouselManifest)

@@ -31,6 +31,7 @@
     "Button":"./src/components/button",
     "Card": "./src/components/card",
     "Carousel": "./src/components/carousel",
+    "CarouselItem": "./src/components/carousel-item",
     "Flex": "./src/components/flex",
     "Grid":"./src/components/grid",
     "Input":"./src/components/input",

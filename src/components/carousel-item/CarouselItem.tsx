@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
 export interface CarouselProps {
-  ratio?: string
+  prefixCls?: string
+  backgroundColor?: string
+  backgroundImage?: string
+  backgroundSize?: string
+  height?: number
+  children?: Array<any>
 }
-export default class CarouselItem extends Component<any, any> {
+export default class CarouselItem extends React.Component<CarouselProps, any> {
   static defaultProps = {
     prefixCls: 'am-carousel-item',
     backgroundColor: 'transparent',
     backgroundImage: '',
-    backgroundSize: 'cover'
+    backgroundSize: 'cover',
+    height: 200,
+    children: []
   }
 
   divRef: HTMLDivElement | null
@@ -35,16 +42,19 @@ export default class CarouselItem extends Component<any, any> {
       prefixCls,
       backgroundColor,
       backgroundImage,
-      backgroundSize
+      backgroundSize,
+      height,
+      children
     } = this.props
     return (
       <div className={prefixCls} ref={el => this.divRef = el} style={{
-        backgroundColor,
-        backgroundImage,
-        backgroundSize
+        backgroundColor: backgroundColor,
+        backgroundImage: backgroundImage,
+        backgroundSize: backgroundSize,
+        height: height + 'px'
       }}>
         <div className={`${prefixCls}-content`}>
-          {this.props.children ? this.props.children : this.renderDefaultItem()}
+          { children && children.length ? children : this.renderDefaultItem()}
         </div>
       </div>
     )
