@@ -90,6 +90,7 @@ const manifestRaidoItem = {
   label: '单选项',
   description: '',
   type: 'DataEntry',
+  uiTable:UITable.BillItemBase,
   props: [
     {
       name: 'name',

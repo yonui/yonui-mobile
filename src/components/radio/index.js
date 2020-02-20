@@ -1,4 +1,4 @@
 import Radio from './Radio'
-import RadioItem from './RadioItem'
-Radio.RadioItem = RadioItem
+// import RadioItem from '../radioitem'
+// Radio.RadioItem = RadioItem
 export default Radio
