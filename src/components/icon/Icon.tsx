@@ -1,6 +1,8 @@
 import React from 'react';
-import { Icon } from 'antd-mobile';
+// import { Icon } from 'antd-mobile';
 import classnames from 'classnames';
+import xiaoyou from './xiaoyou.png';
+// import xiaoyou2x from './xiaoyou@2x.png';
 export interface IconProps {
     prefixCls?: string;
     className?: string;
@@ -22,27 +24,28 @@ export default class MDFIcon extends React.Component<IconProps, any> {
   constructor(props: IconProps) {
       super(props)
   }
-    getClassName = () => {
+    getName = () => {
       const { type, size,loading,name } = this.props
 
-    let _className;
-    // debugger;
+    // let _className;
+    let _name;
+    debugger;
     if (size === 'small') {
-      _className = classnames(this.props.className, `${_prefixCls}-${this.props.type}-${this.props.size}`)
+      // _className = classnames(this.props.className, `${_prefixCls}-${this.props.type}-${this.props.size}`)
+      _name = name;
     } else {
-      _className = classnames(this.props.className, `${_prefixCls}-${this.props.type}`)
+      // _className = classnames(this.props.className, `${_prefixCls}-${this.props.type}`)
+      _name = `${name}2x`;
     }
-    // debugger;
-    return _className
+    debugger;
+    return _name
   }
 
   render() {
-    let _className =this.getClassName();
+    let iconName =this.getName();
+    
       return (
-        <Icon className = {_className}>
-          {this.props.children}
-        </Icon>
-
+          <img src = {xiaoyou}  />
       )
 
   }

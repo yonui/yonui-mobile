@@ -10,7 +10,8 @@ export default class Demo1 extends Component {
   render () {
     return (
       <div> 
-        <MyComponent  size= 'xxs'>Icon</MyComponent>
+        <MyComponent name = 'xiaoyou' size = 'small'>con</MyComponent>
+        {/* <MyComponent name = 'xiaoyou' size = 'large'>con</MyComponent> */}
       </div>
       
     )
