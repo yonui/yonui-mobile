@@ -1,8 +1,8 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension';
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
 const data = Array.from(new Array(9)).map((_val, i) => ({
   icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-  text: `name${i}`,
-}));
+  text: `name${i}`
+}))
 const manifest: ComponentManifest = {
   name: 'Grid',
   uiTable: UITable.BillTplGroupBase,

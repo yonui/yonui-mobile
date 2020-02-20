@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid } from 'antd-mobile' 
+import { Grid } from 'antd-mobile'
 import { GridPropsType } from 'antd-mobile/lib/grid/PropsType'
 import classnames from 'classnames'
 export interface GridProps extends GridPropsType {
@@ -17,6 +17,7 @@ export default class GridComponent extends Component<GridProps> {
     hasLine: false,
     outContent: false
   }
+
   renderItem = (dataItem: any) => {
     const { icon, text } = dataItem
     return (
@@ -29,20 +30,21 @@ export default class GridComponent extends Component<GridProps> {
         <div className="am-grid-text custom-text">{text}</div>
       </React.Fragment>)
   }
-  render() {
+
+  render () {
     const { outContent, prefixCls, full, itemSize, data, className } = this.props
-    const dataSource = (!Array.isArray(data))?data&&JSON.parse(data):data
-    const cusCls:any = classnames({
+    const dataSource = (!Array.isArray(data)) ? data && JSON.parse(data) : data
+    const cusCls: any = classnames({
       [`${prefixCls}-full`]: full,
       [`${prefixCls}-outContent`]: outContent,
       [`${prefixCls}-${itemSize}`]: [`${prefixCls}-${itemSize}`],
       className
     })
     return (
-      <Grid {...this.props} 
-        className={cusCls} 
+      <Grid {...this.props}
+        className={cusCls}
         data={dataSource}
-        renderItem={outContent?this.renderItem:this.props.renderItem}/>
+        renderItem={outContent ? this.renderItem : this.props.renderItem}/>
     )
   }
 }
