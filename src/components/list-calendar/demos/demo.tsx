@@ -38,6 +38,8 @@ export default class Demo1 extends Component<any, any> {
         <MyComponent
           label="日历组件"
           type='range'
+          minDate={new Date(2000, 1, 1, 0, 0, 0)}
+          maxDate={new Date(2030, 1, 1, 23, 59, 59)}
           onConfirm={
             (startDateTime: Date, endDateTime: Date) => {
               this.onConfirm(startDateTime, endDateTime, 'value1')

@@ -151,7 +151,7 @@ const manifest: ComponentManifest = {
     {
       name: 'value',
       type: FieldTypes.array,
-      defaultValue: JSON.stringify([new Date(+now - 86400000), new Date(+now - 345600000)]),
+      defaultValue: JSON.stringify([new Date(+now - 345600000), new Date(+now - 86400000)]),
       showDesign: true,
       designConfig: {
         type: EditTypes.Json,

@@ -1,10 +1,21 @@
 @import '../../_style/index.less';
 @gridPrefixCls: am-grid;
 .@{gridPrefixCls} {
+  background: #fff;
+  .am-grid-carousel-page {
+    .am-flexbox {
+      background: transparent;
+    }
+  }
+  .am-flexbox {
+    background: transparent;
+  }
   &.@{gridPrefixCls}-full{
     margin: 0 12.5*@hd;
-    background: #fff;
     border-radius: 5*@hd;
+  }
+  &.@{gridPrefixCls}-transparent {
+    background: transparent;
   }
   &.@{gridPrefixCls}-sm.@{gridPrefixCls}-square{
     .am-grid-item .am-grid-item-inner-content .am-grid-icon {
@@ -21,15 +32,40 @@
       width: 68%!important;
     }
   }
-  &.@{gridPrefixCls}-outContent, &.@{gridPrefixCls}-full{
-    .am-flexbox {
-      background: transparent;
-    }
-  }
   .am-flexbox-item{
     &.@{gridPrefixCls}-item {
       padding-top: 10*@hd;
       padding-bottom: 10*@hd;
+    }
+  }
+  &.@{gridPrefixCls}-number{
+    &.@{gridPrefixCls}-outContent {
+      .custom-item {
+        height: 90%;
+       }
+       .am-flexbox-item.am-grid-item {
+        padding-top: 10*@hd;
+        padding-bottom: 10*@hd;
+       }
+       .am-flexbox .am-flexbox-item .am-grid-item-content {
+         height: 100%;
+       }
+    }
+    .custom-item {
+     height: auto;
+    }
+    .am-flexbox-item.am-grid-item {
+      padding: 0;
+    }
+    .am-flexbox .am-flexbox-item .am-grid-item-content {
+      height: auto;
+    }
+    .content-number{
+      font-size: 18*@hd;
+      color: #fff;
+    }
+    .custom-text {
+      color: #fff;
     }
   }
   .custom-item {
@@ -37,7 +73,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 90%;
   }
   .out-content {
     width: 70%;
