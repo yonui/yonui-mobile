@@ -56,7 +56,16 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
 
   render () {
     const { visible } = this.state
-    const { label, required, type, arrow, value, format } = this.props
+    const { label, required, type, arrow, value, format, maxDate, minDate, defaultDate } = this.props
+    if (value&&value.length) {
+      value[0] = (typeof value[0] === 'string') ? new Date(value[0]) : value[0]
+      if (value[1]) {
+        value[1] = (typeof value[1] === 'string') ? new Date(value[1]) : value[1]
+      }
+    }
+    const minDateTrs = (minDate && typeof minDate === 'string') ? new Date(minDate) : minDate
+    const maxDateTrs = (maxDate && typeof maxDate === 'string') ? new Date(maxDate) : maxDate
+    const defaultDateTrs = (defaultDate && typeof defaultDate === 'string') ? new Date(defaultDate) : defaultDate
     const start = (value && value.length) ? dateFormat(value[0], format || 'yyyy-MM-dd') : ''
     const end = (value && value.length && value[1]) ? dateFormat(value[1], format || 'yyyy-MM-dd') : ''
     const requiredCls = required ? 'required' : ''
@@ -84,6 +93,9 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
           </div>}
         <Calendar
           {...this.props}
+          defaultDate={defaultDateTrs}
+          minDate={minDateTrs}
+          maxDate={maxDateTrs}
           visible={visible}
           onCancel={this.onCancel}
           onConfirm={this.onConfirm}

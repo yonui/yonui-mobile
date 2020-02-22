@@ -8,10 +8,13 @@ export interface GridProps extends GridPropsType {
   prefixCls?: string
   itemSize?: string
   className?: string
+  transparent?: boolean
+  mode?: string
 }
 export default class GridComponent extends Component<GridProps> {
   static defaultProps = {
     prefixCls: 'am-grid',
+    mode: 'image',
     full: false,
     itemSize: 'sm',
     hasLine: false,
@@ -19,30 +22,44 @@ export default class GridComponent extends Component<GridProps> {
   }
 
   renderItem = (dataItem: any) => {
-    const { icon, text } = dataItem
-    return (
-      <React.Fragment>
-        <div className='custom-item'>
-          <div className='out-content'>
-            <img className="custom-grid-icon" src={icon}/>
+    const { mode, outContent } = this.props
+    const { icon, text, number } = dataItem
+    let content
+      if (mode==='image' && outContent) {
+        content= <div className='out-content'><img className="custom-grid-icon" src={icon}/></div>
+      }
+      else if (mode==='number') {
+        if (outContent) {
+          content = <div className='out-content content-number'>{number}</div>
+        }
+        else {
+          content = <div className='content-number'>{number}</div>
+        }
+        
+      }
+      return (
+        <React.Fragment>
+          <div className={`custom-item`}>
+            {content}
           </div>
-        </div>
-        <div className="am-grid-text custom-text">{text}</div>
-      </React.Fragment>)
+          <div className={`am-grid-text custom-text`}>{text}</div>
+        </React.Fragment>)
   }
 
   render () {
-    const { outContent, prefixCls, full, itemSize, className } = this.props
+    const { outContent, prefixCls, full, itemSize, className, transparent, mode } = this.props
     const cusCls: any = classnames({
-      [`${prefixCls}-full`]: full,
+      [`${prefixCls}-full`]: !full,
       [`${prefixCls}-outContent`]: outContent,
+      [`${prefixCls}-transparent`]: transparent,
       [`${prefixCls}-${itemSize}`]: [`${prefixCls}-${itemSize}`],
+      [`${prefixCls}-number`]: mode==='number',
       className
     })
     return (
       <Grid {...this.props}
         className={cusCls}
-        renderItem={outContent ? this.renderItem : this.props.renderItem}/>
+        renderItem={(mode==='image'&&outContent)||mode==='number'?this.renderItem:this.props.renderItem}/>
     )
   }
 }

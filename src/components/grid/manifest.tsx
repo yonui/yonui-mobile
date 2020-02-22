@@ -1,7 +1,42 @@
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+const image = [
+  'https://i.yonyou.com/website/img/%E4%BC%81%E4%B8%9A%E9%A6%86%E9%A2%84%E7%BA%A6.png',
+  'https://i.yonyou.com/website/img/%E5%9C%A8%E7%BA%BF%E5%AE%A1%E6%89%B9%E7%B3%BB%E7%BB%9F.png',
+  'https://i.yonyou.com/website/img/%E8%AE%BE%E5%A4%87%E7%94%B3%E8%AF%B7.png',
+  'https://i.yonyou.com/website/img/%E4%BC%81%E4%B8%9A%E6%96%87%E5%8C%96.png',
+  'https://i.yonyou.com/website/img/%E9%87%87%E8%B4%AD%E6%8C%87%E6%A0%87%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.png',
+  'https://i.yonyou.com/website/img/%E5%95%86%E5%8A%A1%E7%94%9F%E4%BA%A7.png',
+  'https://i.yonyou.com/website/img/%E5%B7%A5%E6%97%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.png',
+  'https://i.yonyou.com/website/img/%E4%BC%99%E4%BC%B4%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.png',
+  'https://i.yonyou.com/website/img/%E4%BC%99%E4%BC%B4%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.png'
+]
+const texts = [
+  '采购订单',
+  "考勤",
+  '审批',
+  '工资',
+  '日志',
+  '公告',
+  '项目',
+  '云盘',
+  '文档'
+]
+const nums = [
+  88,
+  18,
+  0,
+  44,
+  55,
+  8,
+  89,
+  190,
+  5
+
+]
 const data = Array.from(new Array(9)).map((_val, i) => ({
-  icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-  text: `name${i}`
+  icon: image[i],
+  text: texts[i],
+  number: nums[i]
 }))
 const manifest: ComponentManifest = {
   name: 'Grid',
@@ -76,7 +111,7 @@ const manifest: ComponentManifest = {
     {
       name: 'full',
       type: FieldTypes.boolean,
-      defaultValue: false,
+      defaultValue: true,
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
@@ -86,9 +121,21 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'isCarousel',
+      name: 'transparent',
       type: FieldTypes.boolean,
       defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '背景是否透明'
+      }
+    },
+    {
+      name: 'isCarousel',
+      type: FieldTypes.boolean,
+      defaultValue: true,
       showDesign: true, // 会调用antd的slider相关组件，涉及ref
       designConfig: {
         type: EditTypes.Bool,
@@ -160,6 +207,23 @@ const manifest: ComponentManifest = {
         props: {},
         label: 'activeClassName',
         help: '点击反馈的自定义类名'
+      }
+    },
+    {
+      name: 'mode',
+      type: FieldTypes.string,
+      defaultValue: 'image',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        props: {
+          options:
+            [
+              { value: 'image', text: '图片' },
+              { value: 'number', text: '数字' }
+            ]
+        },
+        label: '模式'
       }
     },
     {
