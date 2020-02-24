@@ -2,6 +2,7 @@ import classnames from 'classnames';
 import * as React from 'react';
 import { Menu, List } from 'antd-mobile';
 import { MenuProps } from 'antd-mobile/es/menu/PropsType';
+import {manifest,ReactWrapper} from './manifest';
 const initData = [
   {
     value: '1',
@@ -25,7 +26,7 @@ export interface MenuInfoProps extends MenuProps {
   title?: string;//list item左侧title
 }
 const ListItem = List.Item;
-export default class SelectControl extends React.Component<MenuInfoProps, any> {
+class SelectControl extends React.Component<MenuInfoProps, any> {
   static defaultProps = {
     prefixCls: 'am-select',
     listPrefixCls: 'am-select-list',
@@ -114,3 +115,5 @@ export default class SelectControl extends React.Component<MenuInfoProps, any> {
     );
   }
 }
+
+export default ReactWrapper(SelectControl,manifest);

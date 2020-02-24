@@ -1,6 +1,6 @@
-import { FieldTypes, EditTypes, ReactWrapper, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, UITable,ComponentManifest } from 'libraui-extension'
 // todo 未配置 onClick onChange
-const manifest = {
+const manifest :ComponentManifest= {
   name: 'Select',
   label: '下拉选择',
   description: '下拉选择',
