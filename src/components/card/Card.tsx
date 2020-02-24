@@ -73,7 +73,6 @@ export default class MDFCard extends React.Component<CardProps, any> {
     )
   }
   render() {
-    console.log(this.props)
     return (
       <Card full={this.props.full}>
         {this.renderHeader()}
