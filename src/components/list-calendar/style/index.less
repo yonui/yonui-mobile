@@ -1,8 +1,18 @@
 @import '../../_style/index.less';
+@prefixClass: am-calendar;
 div[uitype="ListCalendar"] {
   width: 100%;
 }
 .list-calendar {
+  .@{prefixClass} .single-month {
+    .row {
+      .cell {
+        .info {
+          height: @font-size-icontext + 5*@hd;
+        }
+      }
+    }
+  }
   .am-list-item .am-input-control input:disabled {
     color: @color-text-base;
   }

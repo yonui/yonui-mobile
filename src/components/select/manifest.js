@@ -1,0 +1,117 @@
+import { FieldTypes, EditTypes, ReactWrapper, UITable } from 'libraui-extension'
+// todo 未配置 onClick onChange
+const manifest = {
+  name: 'Select',
+  label: '下拉选择',
+  description: '下拉选择',
+  type: 'DataEntry',
+  uiTable:UITable.BillItemBase,
+  props: [
+    {
+      name: 'title',
+      type: FieldTypes.string,
+      defaultValue:'Title',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        label: '左侧标题',
+        isRequired: false,
+        props: {}
+      }
+    },
+    {
+      name: 'data',
+      type: FieldTypes.array,
+      defaultValue:JSON.stringify([
+        {
+          value: '1',
+          label: 'Food',
+          disabled:true
+        }, {
+          value: '2',
+          label: 'Supermarket',
+        },
+        {
+          value: '3',
+          label: 'Extra'
+        },
+      ]),
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Number,
+        label: '数据源',
+        isRequired: false,
+        props: {}
+      }
+    },
+  {
+    name: 'value',
+    type: FieldTypes.array,
+    showDesign: true,
+    designConfig: {
+      type: EditTypes.Number,
+      label: '值',
+      isRequired: false,
+      props: {}
+    }
+  },
+
+  {
+    name: 'defaultValue',
+    type: FieldTypes.array,
+    defaultValue: 10,
+    designConfig: {
+      type: EditTypes.Number,
+      label: '默认值',
+      isRequired: false,
+      props: {}
+    }
+  },
+  {
+    name: 'multiSelect',
+    type: FieldTypes.boolean,
+    defaultValue: false,
+    showDesign: true,
+    designConfig: {
+      type: EditTypes.Bool,
+      isRequired: true,
+      props: {},
+      label: '多选'
+    }
+  },
+  {
+    name: 'onChange',
+    type: FieldTypes.action,
+    showDesign: true,
+    designConfig: {
+      type: EditTypes.Text,
+      isRequired: true,
+      props: {},
+      label: 'onChange'
+    }
+  },
+  {
+    name: 'onOk',
+    type: FieldTypes.action,
+    showDesign: true,
+    designConfig: {
+      type: EditTypes.Text,
+      isRequired: true,
+      props: {},
+      label: 'onOK'
+    }
+  },
+  {
+    name: 'onCancel',
+    type: FieldTypes.action,
+    showDesign: true,
+    designConfig: {
+      type: EditTypes.Text,
+      isRequired: true,
+      props: {},
+      label: 'onCancel'
+    }
+  }
+]
+}
+export {manifest,ReactWrapper}
