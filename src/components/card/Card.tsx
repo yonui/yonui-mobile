@@ -58,7 +58,7 @@ export default class MDFCard extends React.Component<CardProps, any> {
 
     return (
       <Card.Body className={classes}>
-        { this.props.children.length ? this.props.children : this.props.content }
+        { this.props.children && this.props.children.length ? this.props.children : this.props.content }
       </Card.Body>
     )
   }
@@ -73,7 +73,6 @@ export default class MDFCard extends React.Component<CardProps, any> {
     )
   }
   render() {
-    console.log(this.props)
     return (
       <Card full={this.props.full}>
         {this.renderHeader()}

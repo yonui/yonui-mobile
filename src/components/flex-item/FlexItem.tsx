@@ -19,7 +19,7 @@ export default class FlexItem extends React.Component<FlexItemProps, any>  {
     console.log("FlexItemProps: ",this.props)
     return (
       <Flex.Item className={this.props.flex === "1" ? "am-flexbox-item-flex" : "am-flexbox-item-auto"}>
-        {this.props.children.length ? this.props.children : this.props.content}
+        {this.props.children && this.props.children.length ? this.props.children : this.props.content}
       </Flex.Item>
     )
   }
