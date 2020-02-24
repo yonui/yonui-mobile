@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Menu, List } from 'antd-mobile';
 import { MenuProps } from 'antd-mobile/es/menu/PropsType';
 import {manifest,ReactWrapper} from './manifest';
+import shallowequal from 'shallowequal'
 const initData = [
   {
     value: '1',
@@ -32,10 +33,28 @@ class SelectControl extends React.Component<MenuInfoProps, any> {
     listPrefixCls: 'am-select-list',
     radioProps: {},
   };
+
+  getValue = (value:any) =>{
+    const {data=initData} = this.props;
+    let res = [];
+    for(let item of data){
+      if(!!~value.indexOf(item.value))res.push(item.label)
+    }
+    return res;
+  }
+
   state = {
     menuVisible: false,
     menuValue:this.props.defaultValue,
-    menuShowValue:'select',
+    menuShowValue:(Array.isArray(this.props.defaultValue)&& this.getValue(this.props.defaultValue).join(',')) || 'select',
+  }
+  componentWillReceiveProps(nextProps:any){
+    if(!shallowequal(this.props.value,nextProps.value) && Array.isArray(nextProps.value)){
+      this.setState({
+        menuShowValue:this.getValue(nextProps.value).join(','),
+        menuValue:nextProps.value
+      })
+    }
   }
 
   menuShow = () => {
@@ -45,11 +64,7 @@ class SelectControl extends React.Component<MenuInfoProps, any> {
   }
 
   innerOnOk = (value:any) =>{
-    const {data=initData} = this.props;
-    let res = [];
-    for(let item of data){
-      if(!!~value.indexOf(item.value))res.push(item.label)
-    }
+    let res = this.getValue(value)
     this.setState({
       menuShowValue:res.join(','),
       menuValue:value,
@@ -65,10 +80,7 @@ class SelectControl extends React.Component<MenuInfoProps, any> {
 
   innerOnChange = (value:any) =>{
     const {multiSelect,data=initData,level=1,onChange=noop} = this.props;
-    let res = [];
-    for(let item of data){
-      if(!!~value.indexOf(item.value))res.push(item.label)
-    }
+    let res = this.getValue(value);
     if(!multiSelect && level === 1){
       this.setState({
         menuValue:value,
@@ -91,7 +103,8 @@ class SelectControl extends React.Component<MenuInfoProps, any> {
     } = this.state;
 
     const extraProps: any = {};
-    ['data', 'defaultValue', 'value','multiSelect','className','onOk','onChange','onCancel'].forEach(i => {
+    const needProps = ['data', 'defaultValue', 'value','multiSelect','className','onOk','onChange','onCancel'];
+    needProps.forEach(i => {
       if (i in this.props) {
         extraProps[i] = (this.props as any)[i];
       }
