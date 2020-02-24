@@ -13,6 +13,7 @@
 |full|是否通栏| boolean | false |
 |transparent|是否透明|boolean|false|
 |isCarousel	|是否跑马灯|	boolean|	false|
+|mode|grid模式['image','number'] [图片,数字]| string | 'image' |
 |itemSize|item上icon的大小,可选sm,md,lg [小,中,大]| string | 'sm' |
 |carouselMaxRow	|如果是跑马灯, 一页跑马灯需要展示的行数|	number|	2|
 |renderItem	|自定义每个 grid 条目的创建函数	|(el, index) => React.Node	|-|
