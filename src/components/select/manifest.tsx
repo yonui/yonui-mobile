@@ -38,7 +38,7 @@ const manifest :ComponentManifest= {
       ]),
       showDesign: true,
       designConfig: {
-        type: EditTypes.Number,
+        type: EditTypes.Json,
         label: '数据源',
         isRequired: false,
         props: {}
@@ -49,19 +49,19 @@ const manifest :ComponentManifest= {
     type: FieldTypes.array,
     showDesign: true,
     designConfig: {
-      type: EditTypes.Number,
+      type: EditTypes.Json,
       label: '值',
       isRequired: false,
       props: {}
     }
   },
-
   {
     name: 'defaultValue',
     type: FieldTypes.array,
-    defaultValue: 10,
+    defaultValue:JSON.stringify(["2"]),
+    showDesign: true,
     designConfig: {
-      type: EditTypes.Number,
+      type: EditTypes.Json,
       label: '默认值',
       isRequired: false,
       props: {}
