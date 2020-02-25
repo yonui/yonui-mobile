@@ -1,6 +1,4 @@
-// Label 基础组件-文本
 import React from 'react'
-import './label.less'
 export interface LabelProps {
   type?: string // 文本内容
   label?: string // 文本大小

@@ -1,20 +1,29 @@
 @import '../../_style/index.less';
 @gridPrefixCls: am-grid;
-.@{gridPrefixCls} {
+@mdfGridPrefixCls: mdf-grid;
+.@{mdfGridPrefixCls} {
   background: #fff;
+  &.@{mdfGridPrefixCls}-transparent {
+    background: transparent;
+  }
+  &.@{mdfGridPrefixCls}-not-full{
+    margin: 0 12.5*@hd;
+    border-radius: 5*@hd;
+  }
+  .@{gridPrefixCls} {
+    .am-carousel .am-carousel-wrap-dot-active > span {
+      background: @brand-primary!important;
+    }
+  }  
+}
+.@{gridPrefixCls} {
+  background: transparent;
   .am-grid-carousel-page {
     .am-flexbox {
       background: transparent;
     }
   }
   .am-flexbox {
-    background: transparent;
-  }
-  &.@{gridPrefixCls}-full{
-    margin: 0 12.5*@hd;
-    border-radius: 5*@hd;
-  }
-  &.@{gridPrefixCls}-transparent {
     background: transparent;
   }
   &.@{gridPrefixCls}-sm.@{gridPrefixCls}-square{
@@ -32,11 +41,11 @@
       width: 68%!important;
     }
   }
-  .am-flexbox-item{
-    &.@{gridPrefixCls}-item {
+  &.@{gridPrefixCls}-outContent {
+    .am-flexbox-item.am-grid-item {
       padding-top: 10*@hd;
       padding-bottom: 10*@hd;
-    }
+     }
   }
   &.@{gridPrefixCls}-number{
     &.@{gridPrefixCls}-outContent {
@@ -76,8 +85,8 @@
     height: 90%;
   }
   .out-content {
-    width: 70%;
-    height: 80%;
+    width: 60%;
+    height: 70%;
     border-radius: 4*@hd;
     background: #fff;
     color: #333;

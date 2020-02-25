@@ -52,7 +52,7 @@ export default class Demo1 extends Component {
         <div className="sub-title">数字模式</div>
         <MyComponent
           data={data}
-          full={true}
+          full={false}
           mode='number'
           style={{background: "linear-gradient(to bottom, rgb(228, 56, 56) 0%, rgb(255, 255, 255) 100%)"}}
           isCarousel={true}

@@ -1,3 +1,5 @@
+import { EditTypes } from "libraui-extension";
+
 export const dateFormat = function dateFormat(dateObj: Date, fmt: string) {
   const date = dateObj;
   const o: any = {
@@ -50,3 +52,26 @@ export const dateFormat = function dateFormat(dateObj: Date, fmt: string) {
 
   return fmt;
 };
+
+export const getCssSelectParams = function getCssSelectParams(options: any) {
+  const { name, label, addText, editText, caption } = options;
+  return {
+    name,
+    label:label || "样式编排",
+    type: EditTypes.IframeModal,
+    showDesign: true,
+    help: options.help || '',
+    props: {
+      caption: caption || "样式编排",
+      iframeUrl: `/CssSelect`,
+      iframeId: "mobileCssIframeModal",
+      iframeContext: "mobileCssIframeModal",
+      addText: addText || "新增样式",
+      editText: editText || "修改样式",
+      message: true,
+      isRequired: false,
+      footer: true
+    },
+    defaultValue: null
+  };
+}

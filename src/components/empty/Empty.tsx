@@ -43,7 +43,7 @@ export default class Empty extends Component<EmptyProps>{
     })
     return (
       <Result
-        className='empty-page'
+        className='am-empty'
         imgUrl={src}
         message={message || msg}
       />
