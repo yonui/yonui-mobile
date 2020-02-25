@@ -1,5 +1,5 @@
-import { FieldTypes, EditTypes, ReactWrapper ,UITable} from 'libraui-extension'
-const manifest = {
+import { FieldTypes, EditTypes, ReactWrapper ,UITable, ComponentManifest} from 'libraui-extension'
+const manifest:ComponentManifest = {
   name: 'Notice',
   label: '通告栏',
   type: 'DataDisplay',

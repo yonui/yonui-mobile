@@ -1,8 +1,8 @@
-import { FieldTypes, EditTypes, ReactWrapper, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, UITable,ComponentManifest } from 'libraui-extension'
 
 
 // todo 未配置 onChange
-const manifestRaidoItem = {
+const manifestRaidoItem:ComponentManifest = {
   name: 'RadioItem',
   label: '单选项',
   description: '',

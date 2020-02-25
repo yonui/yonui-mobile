@@ -1,5 +1,6 @@
 
 import {manifest,ReactWrapper} from './manifest'
+import React from 'react';
 /**
  * todo
  * onAfterChange
@@ -13,8 +14,8 @@ import {manifest,ReactWrapper} from './manifest'
  * railStyle
  */
 
-function DivControl(props){
-  return(<div className="am-div-container">{props.children||''}</div>)
+function DivControl(props:any){
+  return <div className="am-div-container">{props.children||''}</div>
 }
 export default ReactWrapper(DivControl, manifest)
 

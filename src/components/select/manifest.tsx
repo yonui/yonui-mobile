@@ -1,6 +1,6 @@
-import { FieldTypes, EditTypes, ReactWrapper, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, UITable,ComponentManifest } from 'libraui-extension'
 // todo 未配置 onClick onChange
-const manifest = {
+const manifest :ComponentManifest= {
   name: 'Select',
   label: '下拉选择',
   description: '下拉选择',
@@ -38,7 +38,7 @@ const manifest = {
       ]),
       showDesign: true,
       designConfig: {
-        type: EditTypes.Number,
+        type: EditTypes.Json,
         label: '数据源',
         isRequired: false,
         props: {}
@@ -49,19 +49,19 @@ const manifest = {
     type: FieldTypes.array,
     showDesign: true,
     designConfig: {
-      type: EditTypes.Number,
+      type: EditTypes.Json,
       label: '值',
       isRequired: false,
       props: {}
     }
   },
-
   {
     name: 'defaultValue',
     type: FieldTypes.array,
-    defaultValue: 10,
+    defaultValue:JSON.stringify(["2"]),
+    showDesign: true,
     designConfig: {
-      type: EditTypes.Number,
+      type: EditTypes.Json,
       label: '默认值',
       isRequired: false,
       props: {}

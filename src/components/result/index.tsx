@@ -1,3 +1,3 @@
-import { Result } from 'antd-mobile'
+import Result from './Result'
 import { manifest, ReactWrapper} from './manifest'
 export default ReactWrapper(Result, manifest)
