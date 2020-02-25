@@ -1,14 +1,15 @@
 @import '../../_style/index.less';
 
-@resultPrefixCls: am-result;
+@emptyPrefixCls: am-empty;
 
-.@{resultPrefixCls} {
-  & &-pic {
+.@{emptyPrefixCls} {
+  & .am-result-pic {
     width: @hd*120;
     height: @hd*120;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+
     img {
       width: 100%;
     }

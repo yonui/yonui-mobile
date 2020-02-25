@@ -6,14 +6,17 @@ export interface GridProps extends GridPropsType {
   outContent?: boolean
   full?: boolean
   prefixCls?: string
+  mdfPrefixCls?: string
   itemSize?: string
   className?: string
   transparent?: boolean
   mode?: string
+  style?: object
 }
 export default class GridComponent extends Component<GridProps> {
   static defaultProps = {
     prefixCls: 'am-grid',
+    mdfPrefixCls: 'mdf-grid',
     mode: 'image',
     full: false,
     itemSize: 'sm',
@@ -47,19 +50,24 @@ export default class GridComponent extends Component<GridProps> {
   }
 
   render () {
-    const { outContent, prefixCls, full, itemSize, className, transparent, mode } = this.props
+    const { outContent, prefixCls, full, itemSize, className, transparent, mode, mdfPrefixCls, style, ...restProps } = this.props
     const cusCls: any = classnames({
-      [`${prefixCls}-full`]: !full,
       [`${prefixCls}-outContent`]: outContent,
-      [`${prefixCls}-transparent`]: transparent,
       [`${prefixCls}-${itemSize}`]: [`${prefixCls}-${itemSize}`],
       [`${prefixCls}-number`]: mode==='number',
       className
     })
+    const mdfCusCls: any  = classnames({
+      [`${mdfPrefixCls}`]: mdfPrefixCls,
+      [`${mdfPrefixCls}-transparent`]: transparent,
+      [`${mdfPrefixCls}-not-full`]: !full,
+    })
     return (
-      <Grid {...this.props}
-        className={cusCls}
-        renderItem={(mode==='image'&&outContent)||mode==='number'?this.renderItem:this.props.renderItem}/>
+      <div className={mdfCusCls} style={style}>
+        <Grid {...restProps}
+          className={cusCls}
+          renderItem={(mode==='image'&&outContent)||mode==='number'?this.renderItem:this.props.renderItem}/>
+      </div>
     )
   }
 }

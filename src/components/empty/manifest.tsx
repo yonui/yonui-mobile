@@ -1,8 +1,11 @@
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+
+import { getCssSelectParams } from "../_utils"
 const manifest: ComponentManifest = {
   name: 'Empty',
   label: '空数据',
   type: 'Combination',
+  uiTable: UITable.BillItemBase,
   props: [
     {
       name: 'mode',
@@ -37,7 +40,14 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {}
       }
-    }]
+    },
+    {
+      name: "style",
+      type: FieldTypes.action,
+      showDesign: true,
+      designConfig: getCssSelectParams({name:"style"})
+    }
+  ]
 }
 
 export {
