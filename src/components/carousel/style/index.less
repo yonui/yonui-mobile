@@ -1,8 +1,8 @@
 @import '../../_style/index.less';
 
-@carousePrefixCls: am-carousel;
+@carouselPrefixCls: am-carousel;
 
-.@{carousePrefixCls} {
+.@{carouselPrefixCls} {
   // .slider-frame {
   //   height: 100%!important;
   //   position: absolute!important;
@@ -13,6 +13,13 @@
   // .slider-list, .slider-slide {
   //   height: 100%!important;
   // }
+  &:not(.@{carouselPrefixCls}-full) {
+    margin: 0 @hd * 12.5;
+    width: auto!important;
+    border-radius: @hd * 6;
+    .hairline('all', transparent, @radius-md);
+    overflow: hidden;
+  }
   &-item {
     // position: absolute;
     // top: 0;

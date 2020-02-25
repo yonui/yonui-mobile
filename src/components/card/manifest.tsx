@@ -56,7 +56,7 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'headerExtra',
-      type: FieldTypes.child,
+      type: FieldTypes.string,
       defaultValue: 'arrow',
       showDesign: true,
       designConfig: {

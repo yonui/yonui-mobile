@@ -1,7 +1,8 @@
 import React from 'react'
 import { Carousel } from 'antd-mobile'
-
+import classnames from 'classnames'
 export interface CarouselProps {
+  prefixCls?: string
   selectedIndex?: number
   dots?: boolean
   vertical?: boolean
@@ -19,6 +20,7 @@ export interface CarouselProps {
 }
 export default class MDFCarousel extends React.Component<CarouselProps, any> {
   static defaultProps = {
+    prefixCls: 'am-carousel',
     selectedIndex: 0,
     dots: true,
     vertical: false,
@@ -46,8 +48,13 @@ export default class MDFCarousel extends React.Component<CarouselProps, any> {
     return '50%'
   }
   render() {
+    const wrapCls = classnames({
+      [`${this.props.prefixCls}-full`]: false,
+    });
     return (
-      <Carousel {...this.props}>{this.props.children}</Carousel>
+      <div>
+        <Carousel {...this.props}  className={wrapCls}>{this.props.children}</Carousel>
+      </div>
     )
   }
 }
