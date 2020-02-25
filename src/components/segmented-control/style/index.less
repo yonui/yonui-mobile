@@ -1,0 +1,30 @@
+@import '../../_style/index.less';
+
+@segmentPrefixCls: am-segment;
+.mdf-segment.@{segmentPrefixCls} {
+  margin: 12.5 * @hd;
+  height: 28 * @hd;
+  background: #EEEEEE;
+  font-size: 14 * @hd;
+  .@{segmentPrefixCls}-item {
+    border: none;
+    border-radius: 14 * @hd !important;
+    color: #111111;
+    &-selected {
+      background: #fff;
+      color: #E2544E !important;
+    }
+  }
+}
+
+.segment-body {
+  overflow: hidden;
+  .segment-content {
+    transition: all  .25s  ease-in;
+    -moz-transition: all  .25s  ease-in;
+    -webkit-transition: all  .25s  ease-in;
+    .segment-content-item + .segment-content-item{
+      margin-top: 12.5 * @hd;
+    }
+  }
+}
