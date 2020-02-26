@@ -9,6 +9,7 @@ export interface TabsProps extends DeafultTabsProps {
   gather?: boolean
   className?: string
   style?: object
+  iconsOccupy?: boolean
   icon1?: string
   icon2?: string
   icon3?: string
@@ -27,7 +28,8 @@ export default class LibrauiTabs extends Component<TabsProps> {
     },
     swipeable: false,
     splitLine: true,
-    gather: false
+    gather: false,
+    iconsOccupy: true
   }
 
   parseObj = (param: any) => typeof param === 'string' ? JSON.parse(param) : param
@@ -58,7 +60,7 @@ export default class LibrauiTabs extends Component<TabsProps> {
   }
 
   render () {
-    let { tabs, children, tabBarUnderlineStyle, pageSize, icons, icon1, icon2, icon3, splitLine, gather, style, className, ...other } = this.props
+    let { tabs, children, tabBarUnderlineStyle, pageSize, icons, icon1, icon2, icon3, splitLine, gather, style, className, iconsOccupy, ...other } = this.props
     const tabBarIcon = this.getTabBarIcon()
     tabs = this.parseObj(tabs)
     tabBarUnderlineStyle = this.parseObj(tabBarUnderlineStyle)
@@ -66,15 +68,14 @@ export default class LibrauiTabs extends Component<TabsProps> {
     const tabsEle = pageSize
       ? <Tabs tabs={tabs} tabBarUnderlineStyle={underline} renderTabBar={(props: any) => <Tabs.DefaultTabBar {...props} page={pageSize} />}
         {...other}>{children}</Tabs> : <Tabs tabs={tabs} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>
-    console.log('splitLine ', splitLine)
     const cls = classnames(
       className,
       'libraui-tabs',
-      `libraui-tabs-with-icons-${tabBarIcon ? (Array.isArray(tabBarIcon) ? tabBarIcon.length : 1) : 0}`,
       `libraui-tabs-${splitLine ? '' : 'no-'}split-line`,
       {
         'libraui-tabs-with-icons': tabBarIcon,
-        'libraui-tabs-gather': gather
+        'libraui-tabs-gather': gather,
+        [`libraui-tabs-with-icons-${tabBarIcon ? (Array.isArray(tabBarIcon) ? tabBarIcon.length : 1) : 0}`]: iconsOccupy
       })
     const iconsEle = tabBarIcon ? this.renderIcons(tabBarIcon) : null
     return (
