@@ -1,0 +1,17 @@
+@import '../../_style/index.less';
+
+@segmentPrefixCls: am-segment;
+.mdf-segment.@{segmentPrefixCls} {
+  margin: 12.5 * @hd;
+  height: 28 * @hd;
+  font-size: 14 * @hd;
+  .@{segmentPrefixCls}-item {
+    border: none;
+    border-radius: 14 * @hd !important;
+    color: #111111;
+    &-selected {
+      background: #fff;
+      color: #E2544E !important;
+    }
+  }
+}

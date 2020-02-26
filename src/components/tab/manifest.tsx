@@ -1,34 +1,23 @@
-/**
- * rc-from是否需要增加,如果增加rc-from,需要写一个from组件
- */
-import { Tabs } from 'antd-mobile'
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
-import DefaultTabBar from './DefaultTabBar'
-// const getChildrenDom = function (tabs: any) {
-//   if (!Array.isArray(tabs)) return null
-//   return tabs.map((item, index) => {
-//     return <div key={index} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>Content of {index + 1} tab</div>
-//   })
-// }
-// todo 未配置 onChange
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest,UITable } from 'libraui-extension'
 const manifest: ComponentManifest = {
-  name: 'Tabs',
+  name: 'Tab',
   label: '标签页',
   description: '用于让用户在不同的视图中进行切换。',
+  uiTable: UITable.BillTplGroupBase,
   type: 'Navigation',
   props: [
-    {
-      name: 'prefixCls',
-      type: FieldTypes.string,
-      defaultValue: 'am-tabs',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: '样式前缀'
-      }
-    },
+    // {
+    //   name: 'prefixCls',
+    //   type: FieldTypes.string,
+    //   defaultValue: 'am-tabs',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     isRequired: false,
+    //     props: {},
+    //     label: '样式前缀'
+    //   }
+    // },
     {
       name: 'className',
       type: FieldTypes.string,
@@ -67,8 +56,8 @@ const manifest: ComponentManifest = {
             [
               { value: 'top', text: 'top' },
               { value: 'bottom', text: 'bottom' },
-              { value: 'left', text: 'left' },
-              { value: 'right', text: 'right' }
+              // { value: 'left', text: 'left' },
+              // { value: 'right', text: 'right' }
             ]
         },
         label: 'TabBar位置',
@@ -117,7 +106,7 @@ const manifest: ComponentManifest = {
     {
       name: 'swipeable',
       type: FieldTypes.boolean,
-      defaultValue: true,
+      defaultValue: false,
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
@@ -151,6 +140,100 @@ const manifest: ComponentManifest = {
         props: {},
         label: '开启动画',
         help: '是否开启切换动画'
+      }
+    },
+    {
+      name: 'gather',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '是否聚集',
+        help: '是否聚集显示标签栏内容'
+      }
+    },
+    {
+      name: 'icon1',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        label: '右侧icon1',
+        // type: EditTypes.Icon,
+        isRequired: false,
+        // props: {},
+        type: EditTypes.Text,
+        props: {}
+      }
+    },
+    {
+      name: 'onIcon1Click',
+      type: FieldTypes.action,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: 'onIcon1Click',
+        help: 'icon 被点击的回调'
+      }
+    },
+    {
+      name: 'icon2',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        label: '右侧icon2',
+        // type: EditTypes.Icon,
+        isRequired: false,
+        // props: {},
+        type: EditTypes.Text,
+        props: {}
+      }
+    },
+    {
+      name: 'onIcon2Click',
+      type: FieldTypes.action,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: 'onIcon2Click',
+        help: 'icon 被点击的回调'
+      }
+    },
+    {
+      name: 'icon3',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        label: '右侧icon3',
+        // type: EditTypes.Icon,
+        isRequired: false,
+        // props: {},
+        type: EditTypes.Text,
+        props: {}
+      }
+    },
+    {
+      name: 'onIcon3Click',
+      type: FieldTypes.action,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: 'onIcon3Click',
+        help: 'icon 被点击的回调'
       }
     },
     {
@@ -205,25 +288,25 @@ const manifest: ComponentManifest = {
         help: '是否开启分页模式'
       }
     },
-    {
-      name: 'tabDirection',
-      type: FieldTypes.string,
-      defaultValue: 'horizontal',
-      value: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Select,
-        props: {
-          options:
-            [
-              { value: 'horizontal', text: 'horizontal' },
-              { value: 'vertical', text: 'vertical' }
-            ]
-        },
-        label: 'TabBar位置',
-        help: 'TabBar位置'
-      }
-    },
+    // {
+    //   name: 'tabDirection',
+    //   type: FieldTypes.string,
+    //   defaultValue: 'horizontal',
+    //   value: '',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Select,
+    //     props: {
+    //       options:
+    //         [
+    //           { value: 'horizontal', text: 'horizontal' },
+    //           { value: 'vertical', text: 'vertical' }
+    //         ]
+    //     },
+    //     label: 'TabBar位置',
+    //     help: 'TabBar位置'
+    //   }
+    // },
     {
       name: 'tabBarUnderlineStyle',
       type: FieldTypes.object,
@@ -235,6 +318,19 @@ const manifest: ComponentManifest = {
         props: {},
         label: '下划线样式',
         help: 'tabBar下划线样式'
+      }
+    },
+    {
+      name: 'splitLine',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '分割线',
+        help: '是否显示分割线'
       }
     },
     {
@@ -329,8 +425,135 @@ const manifest: ComponentManifest = {
       }
     }
   ],
+  children: ['TabPane']
+}
+const defaultTabBarManifest : ComponentManifest = {
+  name: 'DefaultTabBar',
+  label: 'DefaultTabBar',
+  description: '用于让用户在不同的视图中进行切换。',
+  type: 'Navigation',
+  props: [
+    // {
+    //   name: 'prefixCls',
+    //   type: FieldTypes.string,
+    //   defaultValue: 'am-segment',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     isRequired: false,
+    //     props: {},
+    //     label: '样式前缀'
+    //   }
+    // },
+    {
+      name: 'tabs',
+      type: FieldTypes.array,
+      defaultValue: JSON.stringify([]),
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Json,
+        isRequired: true,
+        props: {},
+        label: 'tab数据',
+        help: 'tab数据'
+      }
+    },
+    {
+      name: 'page',
+      type: FieldTypes.number,
+      defaultValue: 3,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Number,
+        isRequired: false,
+        props: {},
+        label: 'Tab当前分页',
+        help: 'Tab当前分页'
+      }
+    },
+    {
+      name: 'pageSize',
+      type: FieldTypes.number,
+      defaultValue: 5,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Number,
+        isRequired: false,
+        props: {},
+        label: 'Tab分页尺寸',
+        help: 'Tab分页尺寸'
+      }
+    },
+    {
+      name: 'activeTab',
+      type: FieldTypes.number,
+      defaultValue: -1,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Number,
+        isRequired: true,
+        props: {},
+        label: '当前tab',
+        help: '当前激活Tab索引'
+      }
+    },
+    {
+      name: 'animated',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: true,
+        props: {},
+        label: '开启动画',
+        help: '是否开启切换动画'
+      }
+    },
+    {
+      name: 'onTabClick',
+      type: FieldTypes.action,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: 'tab点击回调',
+        help: 'tab 被点击的回调'
+      }
+    },
+    {
+      name: 'renderTab',
+      type: FieldTypes.action,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '替换TabBar的Tab',
+        help: '替换TabBar的Tab'
+      }
+    },
+    {
+      name: 'goToTab',
+      type: FieldTypes.action,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: '跳转tab',
+        help: '跳转tab'
+      }
+    }
+  ],
   children: []
 }
-const WrapperTabs = ReactWrapper(Tabs, manifest)
-WrapperTabs.DefaultTabBar = DefaultTabBar
-export default WrapperTabs
+export {
+  manifest,
+  defaultTabBarManifest,
+  ReactWrapper
+}
