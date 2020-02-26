@@ -19,19 +19,7 @@ const manifest: ComponentManifest = {
         label: '显隐'
       }
     },
-    {
-      name: 'mask',
-      type: FieldTypes.boolean,
-      defaultValue: true, // 备注：与antd相反，为了展示
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '遮罩',
-        help: '是否显示遮罩背景层'
-      }
-    },
+    
     {
       name: 'placement',
       type: FieldTypes.string,
@@ -57,22 +45,16 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'type',
-      type: FieldTypes.string,
-      defaultValue: 'ellipsis',
+      name: 'overlayData',
+      type: FieldTypes.array,
+      defaultValue: JSON.stringify([{icon:null,label:'test1'}]),
       showDesign: true,
       designConfig: {
-        label: '图标',
+        label: 'pop内容',
         isRequired: false,
-        type: EditTypes.IframeModal,
+        type: EditTypes.Json,
         props: {
-          caption: '图标库',
-          addText: '添加图标',
-          editText: '更换图标',
-          iframeUrl: '/IconSelect',
-          iframeId: 'iconSelectIframe',
-          message: true,
-          footer: true
+         
         }
       }
     },
@@ -115,53 +97,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: ['PopoverItem']
+  children:['div']
 }
 
-
-const manifestPopoverItem: ComponentManifest = {
-  name: 'PopoverItem',
-  label: '气泡项',
-  description: '在点击控件或者某个区域后，浮出一个气泡菜单来做更多的操作。 如果设置了遮罩层，建议通过点击遮罩层的任一位置，进行退出。',
-  type: 'Navigation',
-  uiTable: UITable.BillTplGroupBase,
-  props: [
-    {
-      name: 'disabled',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '禁用'
-      }
-    },
-    {
-      name: 'label',
-      type: FieldTypes.string,
-      defaultValue: '气泡项',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: '禁用'
-      }
-    },
-    {
-      name: 'icon',
-      type: FieldTypes.object,
-      showDesign: true,
-      designConfig: {
-        label: '图标',
-        isRequired: false,
-        type: EditTypes.Textarea,
-        props: {},
-      }
-    }
-  ]
-}
-
-export {manifest,manifestPopoverItem,ReactWrapper}
+export {manifest,ReactWrapper}

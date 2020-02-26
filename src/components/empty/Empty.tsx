@@ -7,7 +7,8 @@ export interface EmptyProps {
 
   mode?: string,
   message: string,
-  imgUrl: string
+  imgUrl: string,
+  style?:any
 }
 
 import noDataSrc from './style/result/noData.png'
@@ -29,10 +30,12 @@ const data = [
 export default class Empty extends Component<EmptyProps>{
 
   static defaultProps = {
-    mode: 'noData'
+    mode: 'noData',
+    style: {}
   }
   render() {
-    const { mode, message } = this.props
+    const { mode, message, style} = this.props
+    console.log(style, typeof style)
     let msg = message
     let src = ''
     data.filter((item) => {
@@ -46,7 +49,11 @@ export default class Empty extends Component<EmptyProps>{
         className='am-empty'
         imgUrl={src}
         message={message || msg}
+        style={{
+          ...style
+        }}
       />
+
     )
   }
 }

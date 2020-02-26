@@ -36,10 +36,10 @@ export default class DatePanelPicker extends Component<DatePanelPickerProps,any>
           <Modal 
             visible={visible}
             popup>
-            <div className='date-panel-picker'>  
+            <div className='am-date-panel-picker'>
               <div className='operation'>
-                <span className='confirm' onClick={this.onOk}>确认</span>
-                <span className='cancel' onClick={this.onDismiss}>取消</span>
+                <div className='item cancel' onClick={this.onDismiss}>取消</div>
+                <div className='item confirm' onClick={this.onOk}>确认</div>
               </div>
               <DatePickerView
                 {...restProps}
