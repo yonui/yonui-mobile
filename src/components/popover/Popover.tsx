@@ -24,7 +24,12 @@ class PopoverControl extends React.Component<popProps, any>{
     let overlayDom: any = [];
     if (overlayData && Array.isArray(overlayData)) {
       overlayData.forEach((item: any, key: any) => {
-        overlayDom.push(<Item key={key} icon={<img src={item.icon || ''} className="am-icon am-icon-xs" alt="" />} >{item.label || ''}</Item>)
+        if(item.icon){
+          overlayDom.push(<Item key={key} icon={<img src={item.icon || ''} className="am-icon am-icon-xs" alt="" />} >{item.label || ''}</Item>)
+        }else{
+          overlayDom.push(<Item key={key}  >{item.label || ''}</Item>)
+        }
+
       })
     }
   return(

@@ -36,8 +36,7 @@ export default class Demo1 extends Component {
             <div>
                 <Popover
                     visible={this.state.visible}
-                    dark
-                    overlayData={[{icon:<img src={'https://avatars2.githubusercontent.com/u/21334863?s=60&v=4'} className="am-icon am-icon-xs" alt="" />,label:'test1'}]}
+                    overlayData={[{icon:'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',label:'test1'}]}
                     onVisibleChange={this.handleVisibleChange}
                     content={<span >此处触发pop content展开和关闭 深色</span>}
                 >
@@ -45,9 +44,11 @@ export default class Demo1 extends Component {
                 </Popover>
 
                 <Popover
+                    dark={false}
+
                     visible={this.state.visible2}
-                    overlayData={[{icon:<img src={PNG} className="am-icon am-icon-xs" alt="" />,label:'test1'},
-                    {icon:<img src={PNG} className="am-icon am-icon-xs" alt="" />,label:'test2'}]}
+                    overlayData={[{icon:'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',label:'test1'},
+                    {icon:null,label:'test2test2test2'}]}
                     onVisibleChange={this.handleVisibleChange2}
                 >
                     <span style={{ "display": 'inline-block', 'line-height': 40 }}>此处触发pop展开和关闭 浅色</span>
