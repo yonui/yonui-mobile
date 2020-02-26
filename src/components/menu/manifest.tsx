@@ -1,6 +1,5 @@
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
-
-import { Menu } from 'antd-mobile'
+import { FieldTypes, EditTypes, ReactWrapper, UITable,ComponentManifest } from 'libraui-extension'
+// todo 未配置 onClick onChange
 const menuData = [
   {
     value: '1',
@@ -75,6 +74,7 @@ const manifest: ComponentManifest = {
   label: '菜单',
   description: '在一个临时的面板上显示一组操作', // 描述
   type: 'Navigation',
+  uiTable: UITable.BillItemBase,
   props: [// adapter适配层数据
     {
       name: 'level',
@@ -188,7 +188,4 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-
-// 这边需要做的处理：需要生成sidebar然后传给<Menu></Menu>
-
-export default ReactWrapper(Menu, manifest)
+export {manifest,ReactWrapper}

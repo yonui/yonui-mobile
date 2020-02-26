@@ -6,12 +6,12 @@ export interface DataItem {
   delete?: boolean
 }
 export interface ListPanelPickerProps {
-    visible: boolean
-    header?: string
-    data: Array<DataItem>
-    onClose: () => void
-    onClick: (object: DataItem) => void
-  }
+  visible: boolean
+  header?: string
+  data: Array<DataItem>
+  onClose: () => void
+  onClick: (object: DataItem) => void
+}
 export default class ListPanelPicker extends Component<ListPanelPickerProps> {
     constructor(props: ListPanelPickerProps) {
         super(props)
