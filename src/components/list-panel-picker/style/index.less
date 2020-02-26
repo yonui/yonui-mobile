@@ -1,0 +1,44 @@
+@import '../../_style/index.less';
+.am-list-panel-picker {
+  .header {
+    color: #888;
+    font-size: 14*@hd;
+    padding: 15*@hd 0;
+  }
+  .content {
+    font-size: 18*@hd;
+    color: #111;
+    .content-item {
+      position: relative;
+      padding: 15*@hd 0;
+      &.delete {
+        color: @brand-primary;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: #ddd;
+        display: block;
+        z-index: 1;
+        top: 0;
+        right: auto;
+        bottom: auto;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        -webkit-transform-origin: 50% 50%;
+        -ms-transform-origin: 57% 50%;
+        transform-origin: 50% 50%;
+        -webkit-transform: scaleY(.5);
+        -ms-transform: scaleY(.5);
+        transform: scaleY(.5);
+      }
+    }
+  }
+  .footer {
+    padding-top: 6*@hd;
+    background: #ddd;
+  }
+}
+
+    
