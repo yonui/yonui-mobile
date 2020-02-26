@@ -1,9 +1,9 @@
 /**
- * @name: Tabs组件
+ * @name: Tab组件
  * @description: 页签
  */
 import React, { Component } from 'react';
-import Tabs from '../index';
+import Tab from '../index';
 import { Icon } from 'antd-mobile'
 import WhiteSpace from '../../white-space';
 import '../style';
@@ -46,51 +46,51 @@ export default class Demo extends Component {
       <div>
         <div>导航</div>
         <WhiteSpace/>
-        <Tabs tabs={fixedTabs1} icons={['check','ellipsis']} gather={true} splitLine={false}>
-        </Tabs>
+        <Tab tabs={fixedTabs1} icons={['check','ellipsis']} gather={true} splitLine={false}>
+        </Tab>
         <WhiteSpace/>
         <div>固定Tab</div>
         <WhiteSpace/>
-        <Tabs tabs={fixedTabs1}></Tabs>
+        <Tab tabs={fixedTabs1}></Tab>
         <WhiteSpace/>
-        <Tabs tabs={fixedTabs2}></Tabs>
+        <Tab tabs={fixedTabs2}></Tab>
         <WhiteSpace/>
-        <Tabs tabs={fixedTabs3} animated={false} useOnPan={false}>
+        <Tab tabs={fixedTabs3} animated={false} useOnPan={false}>
         {
             fixedTabs3.map( (item : any)=> {return (<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '1rem', backgroundColor: '#fff' }} key={item.key}>
               {item.title}
             </div>)})
           }
-        </Tabs>
+        </Tab>
         <WhiteSpace/>
-        <Tabs tabs={fixedTabs4} icons={[<Icon type='check'/>,<Icon type='ellipsis'/>]} >
+        <Tab tabs={fixedTabs4} icons={[<Icon type='check'/>,<Icon type='ellipsis'/>]} >
           {
             fixedTabs4.map( (item : any)=> {return (<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '1rem', backgroundColor: '#fff' }} key={item.key}>
               {item.title}
             </div>)})
           }
-        </Tabs>
+        </Tab>
         <WhiteSpace/>
         <WhiteSpace/>
         <div>滑动Tab</div>
         <span>超过5个选项时自动滑动</span>
-        <Tabs tabs={fixedTabs5} icons={[<Icon type='check'/>,<Icon type='ellipsis'/>]}>
+        <Tab tabs={fixedTabs5} icons={[<Icon type='check'/>,<Icon type='ellipsis'/>]}>
           {
             fixedTabs5.map( (item : any)=> {return (<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '1rem', backgroundColor: '#fff' }} key={item.key}>
               {item.title}
             </div>)})
           }
-        </Tabs>
+        </Tab>
         <WhiteSpace/>
         <span>自定义单屏页签个数</span>
-        <Tabs tabs={fixedTabs5} pageSize={3}>
+        <Tab tabs={fixedTabs5} pageSize={3}>
         {
             fixedTabs5.map( (item : any)=> {return (<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '1rem', backgroundColor: '#fff' }} key={item.key}>
               {item.title}
             </div>)})
           }
-        </Tabs>
-        <Tabs />
+        </Tab>
+        <Tab />
       </div>
     )
   }

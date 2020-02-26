@@ -1,6 +1,6 @@
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest,UITable } from 'libraui-extension'
 const manifest: ComponentManifest = {
-  name: 'Tabs',
+  name: 'Tab',
   label: '标签页',
   description: '用于让用户在不同的视图中进行切换。',
   uiTable: UITable.BillTplGroupBase,

@@ -2,7 +2,7 @@
  * rc-from是否需要增加,如果增加rc-from,需要写一个from组件
  */
 // import DefaultTabBar from './DefaultTabBar'
-import Tabs from './Tabs'
+import Tab from './Tab'
 import DefaultTabBar from './DefaultTabBar'
 import { manifest, defaultTabBarManifest, ReactWrapper } from './manifest'
 // const getChildrenDom = function (tabs: any) {
@@ -12,7 +12,7 @@ import { manifest, defaultTabBarManifest, ReactWrapper } from './manifest'
 //   })
 // }
 // todo 未配置 onChange
-const WrapperTabs = ReactWrapper(Tabs, manifest)
+const WrapperTab = ReactWrapper(Tab, manifest)
 const WrapperDefaultTabBar = ReactWrapper(DefaultTabBar, defaultTabBarManifest)
-WrapperTabs.DefaultTabBar = WrapperDefaultTabBar
-export default WrapperTabs
+WrapperTab.DefaultTabBar = WrapperDefaultTabBar
+export default WrapperTab
