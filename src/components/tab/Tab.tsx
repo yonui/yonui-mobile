@@ -7,6 +7,8 @@ export interface TabsProps extends DeafultTabsProps {
   icons?: Array<JSX.Element | string > | JSX.Element | string
   splitLine?: boolean
   gather?: boolean
+  className?: string
+  style?: object
   icon1?: string
   icon2?: string
   icon3?: string
@@ -56,7 +58,7 @@ export default class LibrauiTabs extends Component<TabsProps> {
   }
 
   render () {
-    let { tabs, children, tabBarUnderlineStyle, pageSize, icons, icon1, icon2, icon3, splitLine, gather, ...other } = this.props
+    let { tabs, children, tabBarUnderlineStyle, pageSize, icons, icon1, icon2, icon3, splitLine, gather, style, className, ...other } = this.props
     const tabBarIcon = this.getTabBarIcon()
     tabs = this.parseObj(tabs)
     tabBarUnderlineStyle = this.parseObj(tabBarUnderlineStyle)
@@ -66,6 +68,7 @@ export default class LibrauiTabs extends Component<TabsProps> {
         {...other}>{children}</Tabs> : <Tabs tabs={tabs} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>
     console.log('splitLine ', splitLine)
     const cls = classnames(
+      className,
       'libraui-tabs',
       `libraui-tabs-with-icons-${tabBarIcon ? (Array.isArray(tabBarIcon) ? tabBarIcon.length : 1) : 0}`,
       `libraui-tabs-${splitLine ? '' : 'no-'}split-line`,
@@ -75,7 +78,7 @@ export default class LibrauiTabs extends Component<TabsProps> {
       })
     const iconsEle = tabBarIcon ? this.renderIcons(tabBarIcon) : null
     return (
-      <div className={cls}>
+      <div className={cls} style={style}>
         {tabsEle}
         {iconsEle}
       </div>
