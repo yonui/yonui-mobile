@@ -156,6 +156,43 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'iconsOccupy',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: 'icon是否占位',
+        help: 'icon是否会占用标签栏位置'
+      }
+    },
+    {
+      name: 'iconsClassName',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: 'icons区域类名',
+      }
+    },
+    {
+      name: 'iconsStyle',
+      type: FieldTypes.object,
+      defaultValue: JSON.stringify({}),
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Json,
+        isRequired: false,
+        props: {},
+        label: 'icons区域样式',
+      }
+    },
+    {
       name: 'icon1',
       type: FieldTypes.string,
       defaultValue: '',

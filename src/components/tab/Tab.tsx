@@ -10,6 +10,8 @@ export interface TabsProps extends DeafultTabsProps {
   className?: string
   style?: object
   iconsOccupy?: boolean
+  iconsClassName?: string
+  iconsStyle?: object
   icon1?: string
   icon2?: string
   icon3?: string
@@ -40,8 +42,9 @@ export default class LibrauiTabs extends Component<TabsProps> {
     </span>
   }
 
-  renderIcons = (icons: Array<JSX.Element | string > | JSX.Element | string) => {
-    return <span className='libraui-tabs-icons'>
+  renderIcons = (icons: Array<JSX.Element | string > | JSX.Element | string, className?: string, style?: object) => {
+    const cls = classnames(className, 'libraui-tabs-icons')
+    return <span className={cls} style={style}>
       {Array.isArray(icons) ? icons.map(item => this.renderIcon(item)) : this.renderIcon(icons)}
     </span>
   }
@@ -60,14 +63,14 @@ export default class LibrauiTabs extends Component<TabsProps> {
   }
 
   render () {
-    let { tabs, children, tabBarUnderlineStyle, pageSize, icons, icon1, icon2, icon3, splitLine, gather, style, className, iconsOccupy, ...other } = this.props
+    let { tabs, children, tabBarUnderlineStyle, pageSize, icons, icon1, icon2, icon3, splitLine, gather, style, className, iconsClassName, iconsStyle, iconsOccupy, tabBarBackgroundColor, ...other } = this.props
     const tabBarIcon = this.getTabBarIcon()
     tabs = this.parseObj(tabs)
     tabBarUnderlineStyle = this.parseObj(tabBarUnderlineStyle)
     const underline = { display: 'none', ...tabBarUnderlineStyle }
     const tabsEle = pageSize
-      ? <Tabs tabs={tabs} tabBarUnderlineStyle={underline} renderTabBar={(props: any) => <Tabs.DefaultTabBar {...props} page={pageSize} />}
-        {...other}>{children}</Tabs> : <Tabs tabs={tabs} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>
+      ? <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} renderTabBar={(props: any) => <Tabs.DefaultTabBar {...props} page={pageSize} />}
+        {...other}>{children}</Tabs> : <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>
     const cls = classnames(
       className,
       'libraui-tabs',
@@ -77,7 +80,8 @@ export default class LibrauiTabs extends Component<TabsProps> {
         'libraui-tabs-gather': gather,
         [`libraui-tabs-with-icons-${tabBarIcon ? (Array.isArray(tabBarIcon) ? tabBarIcon.length : 1) : 0}`]: iconsOccupy
       })
-    const iconsEle = tabBarIcon ? this.renderIcons(tabBarIcon) : null
+    iconsStyle = { background: tabBarBackgroundColor, ...iconsStyle }
+    const iconsEle = tabBarIcon ? this.renderIcons(tabBarIcon, iconsClassName, iconsStyle) : null
     return (
       <div className={cls} style={style}>
         {tabsEle}
