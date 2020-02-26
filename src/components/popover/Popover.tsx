@@ -14,19 +14,26 @@ export interface popProps extends PopoverPropsType{
   className?: string;
   content?: React.ReactNode;
   overlayClassName: string;
+  onVisibleChange?:any;
 }
+function noop(){}
 class PopoverControl extends React.Component<popProps, any>{
   render() {
-    const {className='',overlayClassName='',dark=false,overlayData,...extraProps} = this.props
+    const {className='',overlayClassName='',dark=true,overlayData} = this.props
     let popClassName = classNames({ 'am-popover-dark': dark }, className, overlayClassName)
     let overlayDom: any = [];
     if (overlayData && Array.isArray(overlayData)) {
       overlayData.forEach((item: any, key: any) => {
-        overlayDom.push(<Item key={key} icon={item.icon} >{item.label || ''}</Item>)
+        if(item.icon){
+          overlayDom.push(<Item key={key} icon={<img src={item.icon || ''} className="am-icon am-icon-xs" alt="" />} >{item.label || ''}</Item>)
+        }else{
+          overlayDom.push(<Item key={key}  >{item.label || ''}</Item>)
+        }
+
       })
     }
   return(
-    <Popover overlayClassName={popClassName} {...this.props}  overlay={overlayDom}><div>{this.props.children}</div></Popover>
+    <Popover overlayClassName={popClassName} {...this.props} onVisibleChange={this.props.onVisibleChange || noop} overlay={overlayDom}><div>{this.props.children}</div></Popover>
   )
   }
 }

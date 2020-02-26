@@ -46,7 +46,7 @@ export default class Demo extends Component {
       <div>
         <div>导航</div>
         <WhiteSpace/>
-        <Tab tabs={fixedTabs1} icons={['check','ellipsis']} gather={true} splitLine={false}>
+        <Tab tabs={fixedTabs1} icons={['search',<Icon type='plus' size='sm'/>]} gather={true} splitLine={false} iconsOccupy={false}>
         </Tab>
         <WhiteSpace/>
         <div>固定Tab</div>
@@ -83,7 +83,7 @@ export default class Demo extends Component {
         </Tab>
         <WhiteSpace/>
         <span>自定义单屏页签个数</span>
-        <Tab tabs={fixedTabs5} pageSize={3}>
+        <Tab tabs={fixedTabs5} pageSize={3} swipeable={true}>
         {
             fixedTabs5.map( (item : any)=> {return (<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '1rem', backgroundColor: '#fff' }} key={item.key}>
               {item.title}

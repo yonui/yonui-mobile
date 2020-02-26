@@ -4,6 +4,7 @@
   "sourcePath": "./src/components",
   "type": "ts",
   "lib": [],
+  "previewUrl": "",
   "plugins": [
     ["import",{"libraryName":"antd-mobile","style":false}]
   ],
