@@ -1,3 +1,4 @@
+
 import { FieldTypes, EditTypes, ReactWrapper, UITable,ComponentManifest } from 'libraui-extension'
 // todo 未配置 onClick onChange
 const manifest: ComponentManifest = {
@@ -7,19 +8,6 @@ const manifest: ComponentManifest = {
   type: 'Navigation',
   uiTable: UITable.BillTplGroupBase,
   props: [
-    {
-      name: 'visible',
-      type: FieldTypes.boolean,
-      defaultValue: true, // 备注：与antd相反，为了展示
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '显隐'
-      }
-    },
-    
     {
       name: 'placement',
       type: FieldTypes.string,
@@ -47,7 +35,7 @@ const manifest: ComponentManifest = {
     {
       name: 'overlayData',
       type: FieldTypes.array,
-      defaultValue: JSON.stringify([{icon:null,label:'test1'}]),
+      defaultValue: JSON.stringify([{icon:'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',label:'test1'}]),
       showDesign: true,
       designConfig: {
         label: 'pop内容',
@@ -56,6 +44,30 @@ const manifest: ComponentManifest = {
         props: {
          
         }
+      }
+    },
+    {
+      name: 'dark',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '深色模式'
+      }
+    },
+    {
+      name: 'visible',
+      type: FieldTypes.boolean,
+      defaultValue: true, // 备注：与antd相反，为了展示
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '显隐'
       }
     },
     {
@@ -71,18 +83,7 @@ const manifest: ComponentManifest = {
         help: '当显隐状态变化时回调函数'
       }
     },
-    {
-      name: 'dark',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '深色模式'
-      }
-    },
+    
     {
       name: 'onSelect',
       type: FieldTypes.action,
@@ -97,7 +98,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children:['div']
+  children:()=>true
 }
 
 export {manifest,ReactWrapper}

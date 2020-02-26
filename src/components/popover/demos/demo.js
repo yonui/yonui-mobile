@@ -37,7 +37,7 @@ export default class Demo1 extends Component {
                 <Popover
                     visible={this.state.visible}
                     dark
-                    overlayData={[{icon:<img src={PNG} className="am-icon am-icon-xs" alt="" />,label:'test1'}]}
+                    overlayData={[{icon:<img src={'https://avatars2.githubusercontent.com/u/21334863?s=60&v=4'} className="am-icon am-icon-xs" alt="" />,label:'test1'}]}
                     onVisibleChange={this.handleVisibleChange}
                     content={<span >此处触发pop content展开和关闭 深色</span>}
                 >
