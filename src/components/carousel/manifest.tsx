@@ -151,7 +151,7 @@ const carouselManifest: ComponentManifest = {
       }
     },
   ],
-  children: ['CarouselItem']
+  children: () => true
 }
 const carouselItemManifest: ComponentManifest = {
   name: 'CarouselItem',
