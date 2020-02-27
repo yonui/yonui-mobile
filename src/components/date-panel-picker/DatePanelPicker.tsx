@@ -10,9 +10,11 @@ export interface DatePanelPickerProps extends DatePickerProps {
 export default class DatePanelPicker extends Component<DatePanelPickerProps,any> {
     constructor(props: any) {
         super(props)
-    
+        const { value, minDate} = props;
+        const valueTrs = (value && typeof value === 'string') ? new Date(value) : value
+        const minDateTrs = (minDate && typeof minDate === 'string') ? new Date(minDate) : minDate
         this.state = {
-          date: props.value
+          date: valueTrs ? valueTrs : (minDateTrs ? minDateTrs : new Date(2000, 1, 1, 0, 0, 0))
         }
     }
     onChange =(date: Object)=> {

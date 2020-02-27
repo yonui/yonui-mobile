@@ -1,0 +1,23 @@
+@import '../../_style/index.less';
+@ListDatePickerPrefixClass: list-date-picker;
+.@{ListDatePickerPrefixClass} {
+  .am-list-item {
+    .am-list-line {
+      .am-list-content {
+        font-size: @input-font-size;
+      }
+      .am-list-extra {
+        flex-basis: 70%;
+        text-align: left;
+        color: @color-text-base;
+        font-size: @input-font-size;
+      }
+    }
+    &.from-label.required {
+      .am-list-line .am-list-content::after {
+        .form-label-required;
+      }
+    }
+  }
+   
+}
