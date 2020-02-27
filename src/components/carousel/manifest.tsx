@@ -21,7 +21,7 @@ const carouselManifest: ComponentManifest = {
     {
       name: 'ratio',
       type: FieldTypes.string,
-      defaultValue: 0,
+      defaultValue: '2:1',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -201,7 +201,7 @@ const carouselItemManifest: ComponentManifest = {
     {
       name: 'height',
       type: FieldTypes.number,
-      defaultValue: 200,
+      defaultValue: 170,
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,

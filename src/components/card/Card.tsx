@@ -14,6 +14,8 @@ export interface CardProps {
   footerContent?: React.ReactElement | string
   footerExtra?: React.ReactElement | string
   onFooterExtraClick?: React.MouseEventHandler<HTMLAnchorElement>
+  children?: Array<any>
+  style?: React.CSSProperties
 }
 export default class MDFCard extends React.Component<CardProps, any> {
   static defaultProps = {
@@ -50,7 +52,7 @@ export default class MDFCard extends React.Component<CardProps, any> {
     )
   }
   renderBody() { // 在没有header或者footer的情况下需要上下padding
-    const { prefixCls, showHeader, showFooter } = this.props
+    const { prefixCls, showHeader, showFooter, children, content } = this.props
     const classes:any = classnames({
       [`${prefixCls}-body-padding-top`]: !showHeader,
       [`${prefixCls}-body-padding-bottom`]: !showFooter
@@ -58,7 +60,7 @@ export default class MDFCard extends React.Component<CardProps, any> {
 
     return (
       <Card.Body className={classes}>
-        { this.props.children && this.props.children.length ? this.props.children : this.props.content }
+        { children && children.length ? children : content }
       </Card.Body>
     )
   }
@@ -74,7 +76,9 @@ export default class MDFCard extends React.Component<CardProps, any> {
   }
   render() {
     return (
-      <Card full={this.props.full}>
+      <Card style={{
+        ...this.props.style
+      }} full={this.props.full}>
         {this.renderHeader()}
         {this.renderBody()}
         {this.renderFooter()}
