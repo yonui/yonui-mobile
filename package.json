@@ -6,8 +6,8 @@
   "module": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "start": "libra start",
-    "build": "rm -rf dist && libra build",
+    "start": "node --max_old_space_size=4096 ./node_modules/libraui-cli/bin start",
+    "build": "node --max_old_space_size=4096 ./node_modules/libraui-cli/bin build",
     "assets": "copyfiles -e \"**/*.tsx\" \"./components/**/*\" lib",
     "postversion": "git push --follow-tags",
     "prepublishOnly": "libra build",
@@ -17,7 +17,7 @@
     "lint:quiet": "npm run lint -- --quiet",
     "lint:fix": "npm run lint -- --quiet --fix",
     "lint:git": "git diff --cached --name-only --diff-filter=ACM | grep '\\.[jt]sx\\?$' | xargs eslint",
-    "sync": "libra build && cp -r dist/* ../viewer/public/componentLib && cp dist/manifest.json ../adapter/src/data/manifest.json",
+    "sync": "npm run build && cp -r dist/* ../viewer/public/componentLib && cp dist/manifest.json ../adapter/src/data/manifest.json",
     "move": "cp -r dist/* ../viewer/public/componentLib && cp dist/manifest.json ../adapter/src/data/manifest.json"
   },
   "husky": {
@@ -68,7 +68,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "highlight.js": "^9.18.1",
     "husky": "^3.1.0",
-    "libraui-cli": "^0.1.34",
+    "libraui-cli": "^0.1.35",
     "libraui-extension-packager": "^0.4.7",
     "marked": "^0.8.0",
     "qrcode.react": "^1.0.0",
