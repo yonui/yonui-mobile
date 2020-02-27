@@ -3,11 +3,16 @@
 
 .@{cardPrefixCls} {
     padding-bottom: 0;
+    .hairline('all', transparent, 0);
 
     &:not(.@{cardPrefixCls}-full) {
         margin: 0 @hd * 12.5;
         border-radius: @hd * 6;
         .hairline('all', transparent, @radius-md);
+    }
+
+    &&-full {
+      .hairline('all', transparent, 0);
     }
     &-header {
         position: relative;

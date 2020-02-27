@@ -17,6 +17,8 @@ export interface CarouselProps {
   easing?: () => void
   swipeSpeed?: number
   ratio?: string
+  style?: React.CSSProperties
+  children?: Array<any>
 }
 export default class MDFCarousel extends React.Component<CarouselProps, any> {
   static defaultProps = {
@@ -48,12 +50,16 @@ export default class MDFCarousel extends React.Component<CarouselProps, any> {
     return '50%'
   }
   render() {
+    const { prefixCls, children, style, ratio, ...otherProps } = this.props
     const wrapCls = classnames({
-      [`${this.props.prefixCls}-full`]: false,
-    });
+      [`${prefixCls}-ratio`]: !!ratio,
+    })
     return (
-      <div>
-        <Carousel {...this.props}  className={wrapCls}>{this.props.children}</Carousel>
+      <div className={wrapCls} style={{
+        ...style,
+        paddingBottom: !!ratio ? this.getPaddingBottom() : undefined
+      }}>
+        <Carousel {...otherProps}>{children}</Carousel>
       </div>
     )
   }

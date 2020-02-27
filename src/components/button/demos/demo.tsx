@@ -22,7 +22,7 @@ export default class Demo1 extends Component {
     }
     return (
       <div >
-        <MyComponent type="primary">Primary</MyComponent>
+        <MyComponent type="primary" style={{color:'#111'}}>Primary</MyComponent>
         <WhiteSpace/>
         <MyComponent type="default">Primary</MyComponent>
         <WhiteSpace/>
