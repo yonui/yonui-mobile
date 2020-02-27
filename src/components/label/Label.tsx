@@ -15,7 +15,6 @@ export default class Label extends React.Component<LabelProps> {
   render() {
     const { label, style } = this.props
     const labelClassName = `label`
-    console.log('labelstyle: ',style);
     return (
       <span className={labelClassName} style={{ ...style }}>{label}</span>
     )

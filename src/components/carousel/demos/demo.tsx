@@ -11,9 +11,9 @@ export default class Demo1 extends Component {
     render() {
         return (
             <Carousel>
-              <CarouselItem></CarouselItem>
-              <CarouselItem></CarouselItem>
-              <CarouselItem></CarouselItem>
+              <CarouselItem style={{backgroundColor: 'lightblue'}}></CarouselItem>
+              <CarouselItem style={{backgroundColor: 'lightcoral'}}></CarouselItem>
+              <CarouselItem style={{backgroundColor: 'lightyellow'}}></CarouselItem>
             </Carousel>
         )
     }

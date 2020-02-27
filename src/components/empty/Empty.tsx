@@ -4,7 +4,6 @@ import { Result } from 'antd-mobile'
 // import './style';
 
 export interface EmptyProps {
-
   mode?: string,
   message: string,
   imgUrl: string,
@@ -28,7 +27,6 @@ const data = [
   { value: 'noNetwork', text: '暂无网络', src: noNetworkSrc }
 ]
 export default class Empty extends Component<EmptyProps>{
-
   static defaultProps = {
     mode: 'noData',
     style: {}
@@ -46,6 +44,9 @@ export default class Empty extends Component<EmptyProps>{
     })
     return (
       <Result
+        style={{
+          ...style
+        }}
         className='am-empty'
         imgUrl={src}
         message={message || msg}

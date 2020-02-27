@@ -28,19 +28,28 @@
     "notice-bar-color": "#ffffff"
   },
   "components": {
+    "List":"./src/components/list",
+    "ListItem":"./src/components/list-item",
+    "ListItemBrief":"./src/components/list-item-brief",
     "Button":"./src/components/button",
     "Background":"./src/components/background",
     "Card": "./src/components/card",
     "Carousel": "./src/components/carousel",
     "CarouselItem": "./src/components/carousel-item",
+    "Search":"./src/components/search",
+
     "Flex": "./src/components/flex",
     "FlexItem": "./src/components/flex-item",
-    "Notice": "./src/components//notice",
-    "Grid":"./src/components/grid",
-    "Input":"./src/components/input",
-    "Result":"./src/components/result",
-    "Search":"./src/components/search",
-    "WhiteSpace": "./src/components/white-space",
-    "WingBlank": "./src/components/wing-blank"
+    "Result": "./src/components/result",
+    "Empty":"./src/components/empty",
+
+    "Div":"./src/components/div",
+    "Notice":"./src/components/notice",
+    "Radio":"./src/components/radio",
+    "RadioItem":"./src/components/radioitem",
+    "Select":"./src/components/select",
+    "Slider":"./src/components/slider",
+    "Switch":"./src/components/switch"
   }
 }
+

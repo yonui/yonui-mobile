@@ -14,8 +14,7 @@ export default class Demo1 extends Component<any,any> {
     constructor(props:any) {
         super(props)
         this.state = {
-            visible: false,
-            date: now
+            visible: false
         }
     }
     onClick = ()=> {

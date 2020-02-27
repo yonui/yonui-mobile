@@ -1,6 +1,18 @@
-import List from './index'
-import ListItem from './ListItem'
-import Brief from './Brief'
-List.Item = ListItem
-ListItem.Brief = Brief
-export default List
+import React from 'react'
+import { List } from 'antd-mobile'
+
+export default class MdfList extends React.Component<any, any> {
+  static Item = 'Item';
+  static ItemTitle = 'ItemTitle';
+  static ItemBrief = 'ItemBrief';
+
+  static defaultProps = {
+    prefixCls: 'am-list'
+  }
+  constructor(props: any) {
+    super(props)
+  }
+  render() {
+    return (<List>{this.props.children}</List>)
+  }
+}

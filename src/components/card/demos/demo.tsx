@@ -9,8 +9,10 @@ import './demo.less';
 export default class Demo1 extends Component {
     render() {
         return (
-
-            <MyComponent></MyComponent>
+            <div>
+              <MyComponent></MyComponent>
+              <MyComponent full={true}></MyComponent>
+            </div>
         )
     }
 }
