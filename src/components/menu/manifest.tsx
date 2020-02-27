@@ -74,7 +74,7 @@ const manifest: ComponentManifest = {
   label: '菜单',
   description: '在一个临时的面板上显示一组操作', // 描述
   type: 'Navigation',
-  uiTable: UITable.BillItemBase,
+  uiTable: UITable.BillTplGroupBase,
   props: [// adapter适配层数据
     {
       name: 'level',

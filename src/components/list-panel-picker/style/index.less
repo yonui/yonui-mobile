@@ -1,5 +1,6 @@
 @import '../../_style/index.less';
-.am-list-panel-picker {
+@ListPanelPickerPrefixCls: am-list-panel-picker;
+.@{ListPanelPickerPrefixCls} {
   .header {
     color: #888;
     font-size: 14*@hd;
@@ -26,11 +27,7 @@
         left: 0;
         width: 100%;
         height: 1px;
-        -webkit-transform-origin: 50% 50%;
-        -ms-transform-origin: 57% 50%;
         transform-origin: 50% 50%;
-        -webkit-transform: scaleY(.5);
-        -ms-transform: scaleY(.5);
         transform: scaleY(.5);
       }
     }

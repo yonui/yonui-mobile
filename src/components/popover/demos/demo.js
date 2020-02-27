@@ -35,33 +35,20 @@ export default class Demo1 extends Component {
         return (
             <div>
                 <Popover
-                    overlayClassName="fortest"
-                    overlayStyle={{ color: 'currentColor' }}
                     visible={this.state.visible}
-                    mode={'dark'}
-                    overlay={[
-                        (<Item key="4" value="scan" icon={myImg('tOtXhkIWzwotgGSeptou')} data-seed="logId">Scan</Item>),
-                        (<Item key="5" value="special" icon={myImg('PKAgAqZWJVNwKsAJSmXd')} style={{ whiteSpace: 'nowrap' }}>Mycode</Item>),
-                        (<Item key="6" value="button ct" icon={myImg('uQIYTFeRrjPELImDRrPt')}>
-                            <span style={{ marginRight: 5 }}>Help</span>
-                        </Item>),
-                    ]}
+                    overlayData={[{icon:'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',label:'test1'}]}
                     onVisibleChange={this.handleVisibleChange}
+                    content={<span >此处触发pop content展开和关闭 深色</span>}
                 >
                     <span style={{ "display": 'inline-block', 'line-height': 40 }}>此处触发pop展开和关闭 深色</span>
                 </Popover>
 
                 <Popover
-                    overlayClassName="fortest"
-                    overlayStyle={{ color: 'currentColor' }}
+                    dark={false}
+
                     visible={this.state.visible2}
-                    overlay={[
-                        (<Item key="4" value="scan" icon={myImg('tOtXhkIWzwotgGSeptou')} data-seed="logId">浅色1</Item>),
-                        (<Item key="5" value="special" icon={myImg('PKAgAqZWJVNwKsAJSmXd')} style={{ whiteSpace: 'nowrap' }}>浅色2</Item>),
-                        (<Item key="6" value="button ct" icon={myImg('uQIYTFeRrjPELImDRrPt')}>
-                            <span style={{ marginRight: 5 }}>浅色3</span>
-                        </Item>),
-                    ]}
+                    overlayData={[{icon:'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',label:'test1'},
+                    {icon:null,label:'test2test2test2'}]}
                     onVisibleChange={this.handleVisibleChange2}
                 >
                     <span style={{ "display": 'inline-block', 'line-height': 40 }}>此处触发pop展开和关闭 浅色</span>

@@ -25,6 +25,19 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'header',
+      type: FieldTypes.string,
+      defaultValue: '改日程为重复性日程，请选择您的修改方式',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Textarea,
+        isRequired: false,
+        props: {},
+        label: '头部内容',
+        help: '传入的列表数据'
+      }
+    },
+    {
       name: 'onClick',
       type: FieldTypes.action,
       defaultValue: '',
