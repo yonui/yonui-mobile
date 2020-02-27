@@ -46,7 +46,7 @@ const manifest: ComponentManifest = {
       designConfig: {
         type: EditTypes.Text,
         props: {},
-        label: '标题'
+        label: '副标题'
       }
     },
     {

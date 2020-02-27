@@ -1,4 +1,6 @@
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { getCssSelectParams } from "../_utils"
+
 const manifest: ComponentManifest = {
   name: 'Label',
   label: '文本',
@@ -17,34 +19,10 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'type',
-      type: FieldTypes.string,
-      defaultValue: 'normal',
+      name: "style",
+      type: FieldTypes.action,
       showDesign: true,
-      designConfig: {
-        label: '文本大小',
-        type: EditTypes.Select,
-        isRequired: false,
-        props: {
-          options: [
-            { text: '小', value: 'small' },
-            { text: '正常', value: 'normal' },
-            { text: '大', value: 'large' }
-          ]
-        }
-      }
-    },
-    {
-      name: 'style',
-      type: FieldTypes.object,
-      defaultValue: JSON.stringify({}),
-      showDesign: true,
-      designConfig: {
-        label: '自定义样式',
-        type: EditTypes.Json,
-        isRequired: false,
-        props: {}
-      }
+      designConfig: getCssSelectParams({name:"style"})
     }
   ]
 }
