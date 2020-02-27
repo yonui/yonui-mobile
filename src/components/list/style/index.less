@@ -2,6 +2,12 @@
 @listPrefixCls: am-list;
 @listItemPrefixCls: mdf-list-item;
 
+.@{listPrefixCls} {
+  &-body {
+    border-top: none;
+    border-bottom: none;
+  }
+}
 .@{listItemPrefixCls} {
   position: relative;
   display: flex;
@@ -12,7 +18,14 @@
   overflow: hidden;
   transition: background-color 200ms;
   align-items: center;
-  border-bottom: 1px solid #dcdcdc;
+  &:after {
+    position: absolute;
+    content: '';
+    left: 12 * @hd;
+    right: 0;
+    bottom: 0;
+    .hairline('bottom', @border-color-base);
+  }
   &-thumb {
     width: 40 * @hd;
     height: 40 * @hd;
@@ -69,6 +82,7 @@
         display: inline-flex;
         align-items: center;
         overflow: hidden;
+        justify-content: flex-end;
         span {
           .ellipsis();
         }
