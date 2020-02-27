@@ -184,7 +184,6 @@ class YSListView extends Component<YSListViewProps> {
   }
 }
 
-// const WrappedListView = ReactWrapper(YSListView, manifest)
-// WrappedListView.DataSource = ListView.DataSource
-// YSListView.DataSource = ListView.DataSource
-export default YSListView
+const WrappedListView = ReactWrapper(YSListView, manifest)
+WrappedListView.DataSource = ListViewAntd.DataSource
+export default WrappedListView

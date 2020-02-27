@@ -1,6 +1,6 @@
 
 
-import ListView from './ListView1'
+import ListView from './ListView'
 
 export default ListView;
 
