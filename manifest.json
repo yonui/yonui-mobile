@@ -29,6 +29,8 @@
   },
   "components": {
     "List":"./src/components/list",
+    "ListItem":"./src/components/list-item",
+    "ListItemBrief":"./src/components/list-item-brief",
     "Button":"./src/components/button",
     "Background":"./src/components/background",
     "Card": "./src/components/card",
@@ -47,20 +49,7 @@
     "RadioItem":"./src/components/radioitem",
     "Select":"./src/components/select",
     "Slider":"./src/components/slider",
-    "Switch":"./src/components/switch",
-
-    "ListCalendar":"./src/components/list-calendar",
-    "Grid":"./src/components/grid",
-    "Input":"./src/components/input",
-    "TextareaItem":"./src/components/textarea-item",
-
-    "WhiteSpace": "./src/components/white-space",
-    "WingBlank": "./src/components/wing-blank",
-
-    "SegmentMenu":"./src/components/segment-menu",
-    "SegmentMenuItem": "./src/components/segment-menu-item",
-
-    "Tab":"./src/components/tab",
-    "TabPane": "./src/components/tab-pane"
+    "Switch":"./src/components/switch"
   }
 }
+

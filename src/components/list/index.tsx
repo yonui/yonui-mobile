@@ -1,6 +1,7 @@
 import List from './List'
-import ListItem from './ListItem'
-import ListBrief from './Brief'
-import { ReactWrapper, listManifest } from './manifest'
-
-export default ReactWrapper(List, listManifest)
+import { ReactWrapper, manifest } from './manifest'
+import Item from '../list-item'
+import ItemBrief from '../list-item-brief'
+List.Item = Item;
+List.ItemBrief = ItemBrief;
+export default ReactWrapper(List, manifest)

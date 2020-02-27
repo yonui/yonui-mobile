@@ -1,8 +1,10 @@
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable, } from 'libraui-extension'
-const listManifest: ComponentManifest = {
+
+const manifest: ComponentManifest = {
   name: 'List',
   label: '列表',
   type: 'DataDisplay',
+  uiTable: UITable.BillTplGroupBase,
   props: [
     {
       name: 'renderHeader',
@@ -32,9 +34,7 @@ const listManifest: ComponentManifest = {
   children: ['ListItem']
 }
 
-
-
 export {
   ReactWrapper,
-  listManifest
+  manifest
 }
