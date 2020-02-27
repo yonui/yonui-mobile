@@ -1,0 +1,43 @@
+@import '../../_style/index.less';
+@tagPrefix: am;
+.libraui-filter-content{
+  padding-left: 19*@hd;
+  padding-bottom: 19*@hd;
+  .libraui-filter-content-title{
+    color: @color-text-paragraph;
+    font-size: @font-size-subhead;
+    padding: 11*@hd 0;
+    border-bottom: 1px solid @border-color-base;
+  }
+  .libraui-filter-content-selection{
+    padding-top: 15*@hd;
+    .@{tagPrefix}-tag{
+      margin-right: 10*@hd;
+      margin-bottom: 10*@hd;
+
+      font-size: 13*@hd;
+    }
+    .@{tagPrefix}-tag-active{
+      color: @brand-primary;
+    }
+    .@{tagPrefix}-tag-nornal{
+      color: @color-text-paragraph;
+    }
+  }
+  .libraui-filter-content-extra{
+
+    font-size: 13*@hd;
+    .extra-title{
+      color: @color-text-paragraph;
+      padding: 10*@hd 0;
+    }
+
+    .am-list-item .am-input-control input{
+      font-size: 13*@hd;
+      &:disabled{
+        color: @color-text-base;
+      }
+    }
+
+  }
+}
