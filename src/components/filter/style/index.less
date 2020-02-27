@@ -1,0 +1,54 @@
+@import '../../_style/index.less';
+
+.libraui-filter{
+  &.am-drawer.am-drawer-left .am-drawer-draghandle,
+  &.am-drawer.am-drawer-right .am-drawer-draghandle{
+    width: auto;
+  }
+  .am-drawer-sidebar{
+    width: 80%;
+  }
+  &-sidebar{
+    padding-top: 45px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-color: @fill-base;
+    position: relative;
+    &-footer{
+      position: absolute;
+      bottom: 0;
+      height: 50*@hd;
+      width: 100%;
+      background-color: @fill-body;
+      .sidebar-footer-reset,
+      .sidebar-footer-confirm{
+        position: relative;
+        width: 50%;
+        height: 100%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16*@hd;
+        color: @color-text-base;
+        &:hover{
+          color: @brand-primary;
+        }
+      }
+
+      .sidebar-footer-reset::after{
+        content: "";
+        position: absolute;
+        background-color: #dddddd;
+        display: block;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        width: 1px;
+        height: 100%;
+        /* transform-origin: 50% 100%; */
+        transform: scaleY(0.4);
+      }
+    }
+  }
+}

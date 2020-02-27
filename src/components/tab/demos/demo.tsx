@@ -19,10 +19,10 @@ const fixedTabs2 = [
 ];
 
 const fixedTabs3 = [
-  { title: '聊天', key: '3-1' },
-  { title: '文件', key: '3-2' },
-  { title: '图片', key: '3-3' },
-  { title: '动态', key: '3-4' },
+  { title: '聊天聊天聊天', key: '3-1' },
+  { title: '文件文件文件', key: '3-2' },
+  { title: '图片图片图片', key: '3-3' },
+  { title: '动态动态动态', key: '3-4' },
 ];
 
 const fixedTabs4 = [
@@ -55,7 +55,7 @@ export default class Demo extends Component {
         <WhiteSpace/>
         <Tab tabs={fixedTabs2}></Tab>
         <WhiteSpace/>
-        <Tab tabs={fixedTabs3} animated={false} useOnPan={false}>
+        <Tab tabs={fixedTabs3} animated={false} useOnPan={false} pageSize={3}>
         {
             fixedTabs3.map( (item : any)=> {return (<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '1rem', backgroundColor: '#fff' }} key={item.key}>
               {item.title}
