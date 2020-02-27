@@ -3,30 +3,22 @@
 @carouselPrefixCls: am-carousel;
 
 .@{carouselPrefixCls} {
-  // .slider-frame {
-  //   height: 100%!important;
-  //   position: absolute!important;
-  //   width: 100%;
-  //   top: 0;
-  //   left: 0;
-  // }
-  // .slider-list, .slider-slide {
-  //   height: 100%!important;
-  // }
-  &:not(.@{carouselPrefixCls}-full) {
-    margin: 0 @hd * 12.5;
-    width: auto!important;
-    border-radius: @hd * 6;
-    .hairline('all', transparent, @radius-md);
-    overflow: hidden;
+  &-ratio {
+    position: relative;
+    .@{carouselPrefixCls} {
+      position: absolute!important;
+      top: 0;
+      left: 0;
+      height: 100%!important;
+      &-item {
+        height: 100%!important;
+      }
+    }
+    .slider-frame, .slider-list, .slider-slide {
+      height: 100%!important;
+    }
   }
   &-item {
-    // position: absolute;
-    // top: 0;
-    // left: 0;
-    // height: 100%;
-    // width: 100%;
-
     &-content {
       // width: 100%;
       height: 100%;
