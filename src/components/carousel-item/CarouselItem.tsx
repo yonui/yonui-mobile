@@ -38,6 +38,7 @@ export default class CarouselItem extends React.Component<CarouselProps, any> {
     console.log(this.divRef)
   }
   render() {
+    console.log(this.props.style)
     let {
       prefixCls,
       backgroundColor,

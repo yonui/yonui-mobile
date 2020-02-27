@@ -28,6 +28,7 @@
     "notice-bar-color": "#ffffff"
   },
   "components": {
+    "List":"./src/components/list",
     "Button":"./src/components/button",
     "Background":"./src/components/background",
     "Card": "./src/components/card",
@@ -54,6 +55,12 @@
     "TextareaItem":"./src/components/textarea-item",
 
     "WhiteSpace": "./src/components/white-space",
-    "WingBlank": "./src/components/wing-blank"
+    "WingBlank": "./src/components/wing-blank",
+
+    "SegmentMenu":"./src/components/segment-menu",
+    "SegmentMenuItem": "./src/components/segment-menu-item",
+
+    "Tab":"./src/components/tab",
+    "TabPane": "./src/components/tab-pane"
   }
 }
