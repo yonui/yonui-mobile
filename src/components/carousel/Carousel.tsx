@@ -50,7 +50,7 @@ export default class MDFCarousel extends React.Component<CarouselProps, any> {
     return '50%'
   }
   render() {
-    const { prefixCls, style, children, ratio } = this.props
+    const { prefixCls, children, style, ratio, ...otherProps } = this.props
     const wrapCls = classnames({
       [`${prefixCls}-ratio`]: !!ratio,
     })
@@ -59,7 +59,7 @@ export default class MDFCarousel extends React.Component<CarouselProps, any> {
         ...style,
         paddingBottom: !!ratio ? this.getPaddingBottom() : undefined
       }}>
-        <Carousel {...this.props}>{children}</Carousel>
+        <Carousel {...otherProps}>{children}</Carousel>
       </div>
     )
   }

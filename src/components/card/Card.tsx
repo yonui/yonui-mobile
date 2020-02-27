@@ -75,6 +75,7 @@ export default class MDFCard extends React.Component<CardProps, any> {
     )
   }
   render() {
+    console.log(this.props.style)
     return (
       <Card style={{
         ...this.props.style
