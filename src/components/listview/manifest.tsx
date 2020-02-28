@@ -1,11 +1,12 @@
 import { ListView } from 'antd-mobile'
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest ,UITable} from 'libraui-extension'
 
 const manifest: ComponentManifest = {
   name: 'listview',
   label: '长列表',
   description: '实现列表功能',
   type: 'business',
+  uiTable: UITable.BillTplGroupBase,
   props: [
     {
       name: 'dataSource',
@@ -43,6 +44,19 @@ const manifest: ComponentManifest = {
         props: {},
         label: 'initialListSize',
         help: '指定在组件刚挂载的时候渲染多少行数据，用这个属性来确保首屏显示合适数量的数据'
+      }
+    },
+    {
+      name: 'showNum',
+      type: FieldTypes.number,
+      defaultValue: 100, //默认全部展示
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Number,
+        isRequired: false,
+        props: {},
+        label: 'showNum',
+        help: '单行数据展示多少'
       }
     },
     {
@@ -172,7 +186,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: ['Card']// 应该还可以放别的组件-不知道有哪些
+  children: ()=>true// 应该还可以放别的组件-不知道有哪些
 }
 
 const manifestIndexedList: ComponentManifest = {
@@ -274,7 +288,7 @@ const manifestIndexedList: ComponentManifest = {
       }
     }
   ],
-  children: ["Div","Card"]
+  children: () => true
 
 }
 export {manifest,manifestIndexedList,ReactWrapper}

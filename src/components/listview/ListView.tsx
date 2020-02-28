@@ -15,12 +15,14 @@ interface YSListViewProps extends ListViewProps {
   footerContent: string
   children: React.ReactElement[]
   initialListSize: number
+  showNum: number
   pageSize: number
   value?: any[]
   showPullToReresh?: boolean,
   DataSource:any
+  
 }
-const  initialHeight = document.documentElement.clientHeight * 3 / 4
+const  initialHeight = 500;
 
 class YSListView extends Component<YSListViewProps> {
   public static defaultProps = {
@@ -36,7 +38,7 @@ class YSListView extends Component<YSListViewProps> {
 
   state = {
     dataSource: this.listViewDataSource.cloneWithRows(this.dataIndex),
-    showNum: this.props.initialListSize || 10
+    // showNum: this.props.showNum || 100
   }
 
   UNSAFE_componentWillReceiveProps (nextProps: any): void {
@@ -71,9 +73,10 @@ class YSListView extends Component<YSListViewProps> {
   }
 
   renderRow = (rowData: any[], sectionID: string, rowID: any) => {
-    const { dataSource, value, children } = this.props
-    const { showNum } = this.state
-    const length = value ? value.length : dataSource.length
+    const { dataSource, value, children,showNum} = this.props
+    // const { showNum } = this.state
+    // const length = value ? value.length : dataSource.length
+    const length = children ? children.length : showNum
     if ((!dataSource[rowID] && !(value || [])[rowID]) || !children || !children.length) return null
     let controls: any = []
     // 如果value不为空，说明是受控组件，渲染时取 children[rowId]
@@ -105,9 +108,10 @@ class YSListView extends Component<YSListViewProps> {
   }
 
   renderFooter = () => {
-    const { footerContent, dataSource, value } = this.props
-    const length = value ? value.length : dataSource.length
-    const { showNum } = this.state
+    const { footerContent, dataSource, value,children,showNum } = this.props
+    // const length = value ? value.length : dataSource.length
+    const length = children ? children.length : showNum
+    // const { showNum } = this.state
     if (!footerContent) {
       if (length > showNum) {
         return (
@@ -138,13 +142,13 @@ class YSListView extends Component<YSListViewProps> {
   }
 
   render () {
-    const { dataSource, showNum } = this.state
-    const { refreshing, height=initialHeight, pageSize, renderRow, showPullToReresh = true } = this.props
+    const { dataSource } = this.state
+    const { refreshing, height=initialHeight, pageSize, renderRow, showPullToReresh = true,initialListSize } = this.props
     
     if (dataSource && dataSource.length === 0) {
       return <div style={{ height: height }} className="no_data">暂无数据</div>
     }
-
+    console.log('render-datasource', dataSource);
     let hasPullToRereshProps = {}
 
     if (showPullToReresh) {
@@ -165,7 +169,7 @@ class YSListView extends Component<YSListViewProps> {
         className='ys-listview'
         ref={ref => { this.listViewRef = ref }}
         key={this.listViewRef}
-        initialListSize={showNum}
+        initialListSize={initialListSize}
         pageSize={pageSize || 4}
         dataSource={dataSource}
         renderSeparator={this.renderSeparator}
