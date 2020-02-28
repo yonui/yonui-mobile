@@ -22,21 +22,30 @@ export default class Loading extends Component<LoadingProps> {
   }
 
   render () {
-    const { content, inline, size, show, type, percent, theme, className, ...other } = this.props
+    const { content, inline, size, show, type, percent, theme, className, style, ...other } = this.props
     const themeCls = `libraui-loading-${theme}`
     const cls = classnames(`libraui-loading-${type}`, themeCls, className)
+    let loading = null;
     switch (type) {
       case 'jump': {
         const position = inline ? 'normal' : 'fixed'
-        return show && <Progress className={cls} unfilled={false} percent={percent} position={position} {...other} />
+        loading = show && <Progress className={cls} unfilled={false} percent={percent} position={position} {...other} />
+        break
       }
       case 'local': {
-        return <ActivityIndicator className={cls} animating={show} size={size} text={content} {...other} />
+        loading = <ActivityIndicator className={cls} animating={show} size={size} text={content} {...other} />
+        break
       }
       case 'toast':
       default: {
-        return <ActivityIndicator className={cls} animating={show} size={size} toast text={content} {...other} />
+        loading = <ActivityIndicator className={cls} animating={show} size={size} toast text={content} {...other} />
+        break
       }
     }
+    return (
+      <div className='libraui-loading' style={style}>
+        {loading}
+      </div>
+    )
   }
 }
