@@ -1,7 +1,8 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, UITable, ComponentManifest } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'Calendar',
   label: '日历',
+  uiTable: UITable.BillItemBase,
   description: '',
   type: 'DataEntry',
   props: [
