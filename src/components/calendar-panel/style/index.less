@@ -9,36 +9,47 @@
     .react-calendar__tile--hasActive,
     .react-calendar__tile--hasActive:enabled:hover,
     .react-calendar__tile--hasActive:enabled:focus {
+      &.react-calendar__year-view__months__month {
+        &.react-calendar__tile--rangeStart{
+          border-radius: 0;
+        }
+        &.react-calendar__tile--rangeEnd{
+          border-radius: 0;
+        }
+      }
       &.react-calendar__month-view__days__day{
         background-color: @brand-primary;
-      }
-      &.react-calendar__tile--rangeStart{
-        border-radius: 50% 0 0 50%;
-        >abbr {
-          border-radius: 0;
+        &.react-calendar__tile--rangeStart{
+          border-radius: 50% 0 0 50%;
+          >abbr {
+            border-radius: 0;
+          }
         }
-      }
-      &.react-calendar__tile--rangeEnd{
-        border-radius: 0 50% 50% 0;
-        >abbr {
-          border-radius: 0;
+        &.react-calendar__tile--rangeEnd{
+          border-radius: 0 50% 50% 0;
+          >abbr {
+            border-radius: 0;
+          }
         }
-      }
+      }  
     }
     .react-calendar__tile--active.am-calendar-panel-item {
-      background-color: @brand-primary;
-      &.react-calendar__tile--rangeStart{
-        border-radius: 50% 0 0 50%;
-        >abbr {
-          border-radius: 0;
+      &.react-calendar__month-view__days__day{
+        background-color: @brand-primary;
+        &.react-calendar__tile--rangeStart{
+          border-radius: 50% 0 0 50%;
+          >abbr {
+            border-radius: 0;
+          }
+        }
+        &.react-calendar__tile--rangeEnd{
+          border-radius: 0 50% 50% 0;
+          >abbr {
+            border-radius: 0;
+          }
         }
       }
-      &.react-calendar__tile--rangeEnd{
-        border-radius: 0 50% 50% 0;
-        >abbr {
-          border-radius: 0;
-        }
-      }
+      
     }
   }
   width: 100%;
