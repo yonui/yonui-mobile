@@ -3,7 +3,7 @@ const manifest: ComponentManifest = {
   name: 'FilterContent',
   label: '筛选组件内容',
   description: '筛选组件的内容',
-  uiTable: UITable.BillTplGroupBase,
+  uiTable: UITable.BillItemBase,
   type: 'DataEntry',
   props: [
     {
@@ -84,7 +84,7 @@ const manifest: ComponentManifest = {
       }
     },
   ],
-  children: ['FilterContent']
+  children: []
 }
 
 export {

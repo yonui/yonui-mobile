@@ -49,7 +49,12 @@
     "RadioItem":"./src/components/radioitem",
     "Select":"./src/components/select",
     "Slider":"./src/components/slider",
-    "Switch":"./src/components/switch"
+    "Switch":"./src/components/switch",
+
+    "Tab": "./src/components/tab",
+    "TabPane": "./src/components/tab-pane",
+    "Filter": "./src/components/filter",
+    "FilterContent": "./src/components/filter-content"
   }
 }
 
