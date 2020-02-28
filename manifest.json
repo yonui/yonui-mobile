@@ -54,7 +54,8 @@
     "Tab": "./src/components/tab",
     "TabPane": "./src/components/tab-pane",
     "Filter": "./src/components/filter",
-    "FilterContent": "./src/components/filter-content"
+    "FilterContent": "./src/components/filter-content",
+    "Loading": "./src/components/loading"
   }
 }
 
