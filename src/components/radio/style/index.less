@@ -1,33 +1,10 @@
 @import '../../_style/index.less';
 
-@radioWarpPrefixCls: am-radio;
+@radioWrapPrefixCls: am-radio;
 
-.am-raido-circle {
-  .am-radio {
-    padding: 2.5*@hd;
-    border: @hd solid @border-color-base;
-    border-radius: 50%;
-    margin-right: 3*@hd;
-    width: 17*@hd;
-    height: 17*@hd;
-    &-checked{
-      background-color: @brand-primary;
-      border-color:  @brand-primary;
-    }
-    .am-radio-inner{
-      &:after {
-        width: 5 * @hd;
-        height: 10 * @hd;
-        right: 5 * @hd;
-        border-color: @color-text-base-inverse;
-      }
-    }
-  }
-}
-.am-radio{
-  .am-radio-inner{
-    &:after{
-      // right: 2 * @hd;
-    }
+.@{radioWrapPrefixCls}{
+  &-wrapper{
+    // display: flex;
+    // align-items: center;
   }
 }
