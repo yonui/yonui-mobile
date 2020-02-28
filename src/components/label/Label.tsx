@@ -2,7 +2,7 @@ import React from 'react'
 export interface LabelProps {
   type?: string // 文本内容
   label?: string // 文本大小
-  style?: {} // 自定义样式
+  style?: React.CSSProperties
 }
 export default class Label extends React.Component<LabelProps> {
 

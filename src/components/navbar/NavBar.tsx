@@ -2,7 +2,6 @@ import React from "react";
 import { NavBar, Icon } from "antd-mobile";
 
 export interface NavBarProps {
-
   rightIcon1?: string,
   rightIcon2?: string,
   onRight1Click?: () => void,
@@ -16,7 +15,7 @@ export interface NavBarProps {
   onCloseClick?: () => void,
   mode: string,
   reghtIcons: any,
-  style: {}
+  style?: React.CSSProperties
 }
 export default class MDFNavBar extends React.Component<NavBarProps, any>  {
 
@@ -57,14 +56,16 @@ export default class MDFNavBar extends React.Component<NavBarProps, any>  {
     </React.Fragment>
   }
   render() {
+    const {style} = this.props
     return (
-
       <div>
         {this.props.mode === 'light' ? <NavBar className={`am-navbar-light`}
+        style={{ ...style }}
           rightContent={this.renderRightContent()}
           leftContent={this.renderLeftContent()}>
           {this.props.children && this.props.children.length ? this.props.children :this.renderCenterContent()}
         </NavBar> : <NavBar
+        style={{ ...style }}
           rightContent={this.renderRightContent()}
           leftContent={this.renderLeftContent()}>
             {this.renderCenterContent()}

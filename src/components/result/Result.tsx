@@ -6,6 +6,7 @@ import rejectSrc from './style/images/reject.png'
 export interface MDFResultProps {
   mode?: string
   message?: string
+  style?: React.CSSProperties
 }
 const data = [
   { value: 'success', text: '申请成功', src: successSrc },
@@ -27,6 +28,9 @@ class MDFResult extends React.Component<MDFResultProps> {
       <Result className='feedBack-page'
         img={<img src={src} alt="" />}
         message={message || msg}
+        style={{
+          ...this.props.style
+        }}
       />
     )
   }

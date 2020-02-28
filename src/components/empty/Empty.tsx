@@ -7,7 +7,7 @@ export interface EmptyProps {
   mode?: string,
   message: string,
   imgUrl: string,
-  style?:any
+  style?: React.CSSProperties
 }
 
 import noDataSrc from './style/result/noData.png'
@@ -50,9 +50,6 @@ export default class Empty extends Component<EmptyProps>{
         className='am-empty'
         imgUrl={src}
         message={message || msg}
-        style={{
-          ...style
-        }}
       />
 
     )

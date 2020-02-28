@@ -1,4 +1,4 @@
-import { Flex } from 'antd-mobile'
+import Flex  from './Flex'
 import FlexItem from '../flex-item'
 import { manifest, ReactWrapper} from './manifest'
 
