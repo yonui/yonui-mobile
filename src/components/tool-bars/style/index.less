@@ -1,0 +1,72 @@
+@import '../../_style/index.less';
+
+.libraui-tool-bar{
+  height: 50 * @hd;
+  background: @fill-base;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  .tool-bar-item{
+    font-size: @font-size-caption;
+    color: @color-text-base;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    &-selected{
+      color: @brand-primary;
+    }
+    &:not(:last-child)::after{
+      content: "";
+      position: absolute;
+      background-color: @link-button-fill-tap;
+      display: block;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      width: 1px;
+      height: 100%;
+      transform: scaleY(0.4);
+    }
+  }
+  .tool-bar-btn{
+    margin-left: 12 * @hd;
+    &:last-child{
+      margin-right: 12 * @hd;
+    }
+  }
+
+}
+
+
+.tool-bar-popover{
+  .tool-bar-popover-item{
+    width: 100 * @hd;
+    height: 44 * @hd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    &-selected{
+      color: @brand-primary;
+    }
+    // flex-direction: column;
+    &:not(:first-child)::after{
+      content: "";
+      position: absolute;
+      background-color: @link-button-fill-tap;
+      display: block;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 1PX;
+      transform: scaleY(0.4);
+    }
+  }
+  .tool-bar-popover-btn{
+    width: 100 * @hd;
+    margin: 10 * @hd;
+  }
+}
