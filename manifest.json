@@ -56,7 +56,8 @@
     "Filter": "./src/components/filter",
     "FilterContent": "./src/components/filter-content",
     "Loading": "./src/components/loading",
-    "ToolBars": "./src/components/tool-bars"
+    "ToolBars": "./src/components/tool-bars",
+    "Panel": "./src/components/panel"
   }
 }
 
