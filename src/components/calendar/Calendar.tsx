@@ -11,14 +11,19 @@ export default class MyComponent extends Component<CalendarProps> {
     }
     
     render() {
-      const {maxDate, minDate, defaultDate, defaultValue } = this.props
+      const {maxDate, minDate, defaultDate, defaultValue, type } = this.props
       const minDateTrs = (minDate && typeof minDate === 'string') ? new Date(minDate) : minDate
       const maxDateTrs = (maxDate && typeof maxDate === 'string') ? new Date(maxDate) : maxDate
       const defaultDateTrs = (defaultDate && typeof defaultDate === 'string') ? new Date(defaultDate) : defaultDate
       if (defaultValue&&defaultValue.length) {
         defaultValue[0] = (typeof defaultValue[0] === 'string') ? new Date(defaultValue[0]) : defaultValue[0]
         if (defaultValue[1]) {
-          defaultValue[1] = (typeof defaultValue[1] === 'string') ? new Date(defaultValue[1]) : defaultValue[1]
+          if (type==='one') {
+            delete defaultValue[1]
+          }
+          else {
+            defaultValue[1] = (typeof defaultValue[1] === 'string') ? new Date(defaultValue[1]) : defaultValue[1]
+          } 
         }
       }
       return (
