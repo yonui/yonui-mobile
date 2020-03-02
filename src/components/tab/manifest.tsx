@@ -18,18 +18,18 @@ const manifest: ComponentManifest = {
     //     label: '样式前缀'
     //   }
     // },
-    {
-      name: 'className',
-      type: FieldTypes.string,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: '样式类'
-      }
-    },
+    // {
+    //   name: 'className',
+    //   type: FieldTypes.string,
+    //   defaultValue: '',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     isRequired: false,
+    //     props: {},
+    //     label: '样式类'
+    //   }
+    // },
     {
       name: 'tabs',
       type: FieldTypes.array,
@@ -47,7 +47,6 @@ const manifest: ComponentManifest = {
       name: 'tabBarPosition',
       type: FieldTypes.string,
       defaultValue: 'top',
-      value: '',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,

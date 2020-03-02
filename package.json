@@ -10,14 +10,15 @@
     "build": "node --max_old_space_size=4096 ./node_modules/libraui-cli/bin build",
     "assets": "copyfiles -e \"**/*.tsx\" \"./components/**/*\" lib",
     "postversion": "git push --follow-tags",
-    "prepublishOnly": "libra build",
+    "prepublishOnly": "npm run build -- -p",
     "lib": "rm -rf lib && tsc && npm run assets",
     "test": "echo no test",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:quiet": "npm run lint -- --quiet",
     "lint:fix": "npm run lint -- --quiet --fix",
     "lint:git": "git diff --cached --name-only --diff-filter=ACM | grep '\\.[jt]sx\\?$' | xargs eslint",
-    "sync": "npm run build && cp -r dist/* ../viewer/public/componentLib && cp dist/manifest.json ../adapter/src/data/manifest.json",
+    "sync": "npm run build -p && npm run move",
+    "sync-dev": "npm run build && npm run move",
     "move": "cp -r dist/* ../viewer/public/componentLib && cp dist/manifest.json ../adapter/src/data/manifest.json"
   },
   "husky": {
