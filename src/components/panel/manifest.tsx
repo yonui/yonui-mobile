@@ -56,7 +56,7 @@ const manifest: ComponentManifest = {
     {
       name: 'type',
       type: FieldTypes.string,
-      defaultValue: 'text',
+      defaultValue: 'fixed',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
