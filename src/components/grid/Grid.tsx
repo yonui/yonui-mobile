@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Grid } from 'antd-mobile'
-import { GridPropsType } from 'antd-mobile/lib/grid/PropsType'
+import { GridProps } from 'antd-mobile/lib/grid'
 import classnames from 'classnames'
-export interface GridProps extends GridPropsType {
+export interface GridComponentProps extends GridProps {
   outContent?: boolean
   full?: boolean
   prefixCls?: string
@@ -13,7 +13,7 @@ export interface GridProps extends GridPropsType {
   mode?: string
   style?: object
 }
-export default class GridComponent extends Component<GridProps> {
+export default class GridComponent extends Component<GridComponentProps> {
   static defaultProps = {
     prefixCls: 'am-grid',
     mdfPrefixCls: 'mdf-grid',
@@ -50,7 +50,7 @@ export default class GridComponent extends Component<GridProps> {
   }
 
   render () {
-    const { outContent, prefixCls, full, itemSize, className, transparent, mode, mdfPrefixCls, style, ...restProps } = this.props
+    const { outContent, prefixCls, full, itemSize, className, transparent, mode, mdfPrefixCls, style, activeStyle, ...restProps } = this.props
     const cusCls: any = classnames({
       [`${prefixCls}-outContent`]: outContent,
       [`${prefixCls}-${itemSize}`]: [`${prefixCls}-${itemSize}`],
@@ -62,10 +62,12 @@ export default class GridComponent extends Component<GridProps> {
       [`${mdfPrefixCls}-transparent`]: transparent,
       [`${mdfPrefixCls}-not-full`]: !full,
     })
+    const activeStyleTrs = (typeof activeStyle === 'string')?activeStyle==='false'?false:{}:activeStyle
     return (
       <div className={mdfCusCls} style={style}>
         <Grid {...restProps}
           className={cusCls}
+          activeStyle={activeStyleTrs}
           renderItem={(mode==='image'&&outContent)||mode==='number'?this.renderItem:this.props.renderItem}/>
       </div>
     )
