@@ -171,7 +171,7 @@ const manifest: ComponentManifest = {
             { value: 'xl', text: '大' }
           ]
         },
-        label: '入场方向'
+        label: '行大小'
       }
     },
     {
