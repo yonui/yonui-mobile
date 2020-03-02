@@ -1,4 +1,5 @@
 import { FieldTypes, EditTypes, ReactWrapper, UITable, ComponentManifest } from 'libraui-extension'
+const now = new Date()
 const manifest: ComponentManifest = {
   name: 'Calendar',
   label: '日历',
@@ -133,6 +134,18 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '初始化月个数'
+      }
+    },
+    {
+      name: 'defaultValue',
+      type: FieldTypes.array,
+      defaultValue: JSON.stringify([new Date(now), new Date(now.getFullYear(), now.getMonth(), now.getDate() + 5)]),
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Json,
+        isRequired: false,
+        props: {},
+        label: '默认日历选择范围'
       }
     },
     {

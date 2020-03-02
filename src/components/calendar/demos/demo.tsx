@@ -71,6 +71,7 @@ export default class Demo1 extends Component<any, any>{
               onConfirm={this.onConfirm}
               onSelectHasDisableDate={this.onSelectHasDisableDate}
               defaultDate={now}
+              defaultValue={[new Date(now), new Date(now.getFullYear(), now.getMonth(), now.getDate() + 5)]}
               minDate={new Date(+now - 5184000000)}
               maxDate={new Date(+now + 31536000000)}
             />
