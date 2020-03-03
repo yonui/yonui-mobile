@@ -41,7 +41,10 @@ export default class Filter extends Component<FilterProps> {
   getSidebar = (children: React.ReactNode) => {
     const footer = this.getSidebarFooter();
     return <div className='libraui-filter-sidebar'>
-      {children}
+
+      <div className='libraui-filter-sidebar-content'>
+        {children}
+      </div>
       {footer}
     </div>
   }
