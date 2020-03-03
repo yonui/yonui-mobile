@@ -4,7 +4,7 @@
   "sourcePath": "./src/components",
   "type": "ts",
   "lib": [],
-  "previewUrl": "",
+  "previewUrl": "http://tinper-libra-ui-demo.daily.app.yyuap.com/",
   "plugins": [
     ["import",{"libraryName":"antd-mobile","style":false}]
   ],

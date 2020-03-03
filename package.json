@@ -17,7 +17,7 @@
     "lint:quiet": "npm run lint -- --quiet",
     "lint:fix": "npm run lint -- --quiet --fix",
     "lint:git": "git diff --cached --name-only --diff-filter=ACM | grep '\\.[jt]sx\\?$' | xargs eslint",
-    "sync": "npm run build -p && npm run move",
+    "sync": "npm run build -- -p && npm run move",
     "sync-dev": "npm run build && npm run move",
     "move": "cp -r dist/* ../viewer/public/componentLib && cp dist/manifest.json ../adapter/src/data/manifest.json"
   },
@@ -69,7 +69,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "highlight.js": "^9.18.1",
     "husky": "^3.1.0",
-    "libraui-cli": "^0.1.35",
+    "libraui-cli": "^0.1.39",
     "libraui-extension-packager": "^0.4.7",
     "marked": "^0.8.0",
     "qrcode.react": "^1.0.0",
