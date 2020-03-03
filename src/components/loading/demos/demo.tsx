@@ -8,6 +8,7 @@ import Button from '../../button'
 import '../../button/style'
 import '../style';
 import './demo.less';
+import img from '../style/loading.png'
 export default class Demo extends Component<any,any> {
   constructor(props: any) {
     super(props)
@@ -51,13 +52,14 @@ export default class Demo extends Component<any,any> {
     const { jumpLoading, localLoading, toastLoading, percent } = this.state
     return (
       <div>
+        <br />
         <Button type='primary' onClick={this.onChangeLoading('jumpLoading')} content='jump loading'/>
         <Loading type='jump' show={jumpLoading} percent={percent}/>
         <br/>
         <Button type='primary' onClick={this.onChangeLoading('localLoading')} content='local loading'/>
         <Loading type='local' show={localLoading} content='加载中'/>
         <br/>
-        <Button type='primary' onClick={this.onChangeLoading('toastLoading',2000)} content='local loading'/>
+        <Button type='primary' onClick={this.onChangeLoading('toastLoading')} content='local loading'/>
         <Loading type='toast' show={toastLoading} content='加载中'/>
       </div>
     )

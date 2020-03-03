@@ -103,6 +103,19 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'pageSize',
+      type: FieldTypes.number,
+      defaultValue: 5,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Number,
+        isRequired: false,
+        props: {},
+        label: 'Tab分页尺寸',
+        help: 'Tab分页尺寸'
+      }
+    },
+    {
       name: 'swipeable',
       type: FieldTypes.boolean,
       defaultValue: false,

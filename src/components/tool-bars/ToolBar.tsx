@@ -109,8 +109,6 @@ export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
     const cls = classnames('libraui-tool-bar', className)
     // console.log(values)
     const val = this.parseObj(values)
-    console.log(val)
-    debugger
     return (
       <div className={cls} style={style} >
         {this.renderItems(val, selectedIndex)}
