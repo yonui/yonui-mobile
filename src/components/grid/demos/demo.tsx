@@ -64,6 +64,13 @@ export default class Demo1 extends Component {
           isCarousel={true}
           data={data}
           columnNum={4}/>
+        <div className="sub-title">图片模式---格子不是正方形</div>
+        <MyComponent
+          full={false}
+          square={false}
+          isCarousel={true}
+          data={data}
+          columnNum={4}/>
         <div className="sub-title">图片有外边框</div>
         <MyComponent
           full={true}

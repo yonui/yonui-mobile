@@ -60,7 +60,12 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
     if (value&&value.length) {
       value[0] = (typeof value[0] === 'string') ? new Date(value[0]) : value[0]
       if (value[1]) {
-        value[1] = (typeof value[1] === 'string') ? new Date(value[1]) : value[1]
+        if (type==='one') {
+          delete value[1]
+        }
+        else {
+          value[1] = (typeof value[1] === 'string') ? new Date(value[1]) : value[1]
+        } 
       }
     }
     const minDateTrs = (minDate && typeof minDate === 'string') ? new Date(minDate) : minDate

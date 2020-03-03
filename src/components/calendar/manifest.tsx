@@ -1,4 +1,5 @@
 import { FieldTypes, EditTypes, ReactWrapper, UITable, ComponentManifest } from 'libraui-extension'
+const now = new Date()
 const manifest: ComponentManifest = {
   name: 'Calendar',
   label: '日历',
@@ -136,6 +137,18 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'defaultValue',
+      type: FieldTypes.array,
+      defaultValue: JSON.stringify([new Date(now), new Date(now.getFullYear(), now.getMonth(), now.getDate() + 5)]),
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Json,
+        isRequired: false,
+        props: {},
+        label: '默认日历选择范围'
+      }
+    },
+    {
       name: 'maxDate',
       type: FieldTypes.date,
       showDesign: true,
@@ -171,7 +184,7 @@ const manifest: ComponentManifest = {
             { value: 'xl', text: '大' }
           ]
         },
-        label: '入场方向'
+        label: '行大小'
       }
     },
     {
