@@ -38,6 +38,7 @@ export default class Demo1 extends Component<any, any> {
         <MyComponent
           label="日历组件"
           type='range'
+          initalMonths={1}
           minDate={new Date(2000, 1, 1, 0, 0, 0)}
           maxDate={new Date(2030, 1, 1, 23, 59, 59)}
           onConfirm={

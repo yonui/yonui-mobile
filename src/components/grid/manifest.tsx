@@ -105,7 +105,7 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '显示外框内容',
-        help: '当outContent为true,renderItem方法无效'
+        help: '当显示外框内容值为true,自定义(renderItem)方法无效'
       }
     },
     {
@@ -185,12 +185,12 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'activeStyle',
-      type: FieldTypes.string,
+      type: FieldTypes.object,
       defaultValue: '',
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         props: {},
         label: 'activeStyle',
         help: '点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)'
@@ -242,7 +242,7 @@ const manifest: ComponentManifest = {
               { value: 'lg', text: 'lg' }
             ]
         },
-        label: 'item上icon的大小,当outContent为false,该值不生效'
+        label: '每个格子上图标大小的大小,当显示外框内容值为false,该值生效'
       }
     },
     {

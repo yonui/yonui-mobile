@@ -55,7 +55,20 @@
     "TabPane": "./src/components/tab-pane",
     "Filter": "./src/components/filter",
     "FilterContent": "./src/components/filter-content",
-    "Loading": "./src/components/loading"
+    "Loading": "./src/components/loading",
+    "ToolBars": "./src/components/tool-bars",
+    "Panel": "./src/components/panel",
+
+    "Grid": "./src/components/grid",
+    "Footer":"./src/components/footer",
+    "TextareaItem": "./src/components/textarea-item",
+    "Input":"./src/components/input",
+    "Calendar":"./src/components/calendar",
+    "ListCalendar":"./src/components/list-calendar",
+    "ListPanelPicker":"./src/components/list-panel-picker",
+    "DatePanelPicker":"./src/components/date-panel-picker",
+    "ListDatePicker":"./src/components/list-date-picker",
+    "CalendarPanel":"./src/components/calendar-panel"
   }
 }
 

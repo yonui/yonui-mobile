@@ -16,6 +16,7 @@ export interface CardProps {
   onFooterExtraClick?: React.MouseEventHandler<HTMLAnchorElement>
   children?: Array<any>
   style?: React.CSSProperties
+  thumbStyle?: React.CSSProperties
 }
 export default class MDFCard extends React.Component<CardProps, any> {
   static defaultProps = {
@@ -34,7 +35,7 @@ export default class MDFCard extends React.Component<CardProps, any> {
     super(props)
   }
   renderHeader() { // 判断是否渲染card header
-    const { showHeader, headerTitle, headerThumb, onHeaderExtraClick, headerExtra } = this.props
+    const { showHeader, headerTitle, headerThumb, onHeaderExtraClick, headerExtra, thumbStyle } = this.props
     const thumb = () => {
       return headerThumb === 'thumb' ? <span className="thumb"></span> : (headerThumb || null)
     }
@@ -45,6 +46,7 @@ export default class MDFCard extends React.Component<CardProps, any> {
       showHeader ? <Card.Header
         title={headerTitle}
         thumb={thumb()}
+        thumbStyle={thumbStyle}
         extra={<span style={{
           display: 'flex'
         }}onClick={onHeaderExtraClick}>{extra()}</span>}

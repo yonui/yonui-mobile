@@ -1,6 +1,6 @@
 # README
 
-## API
+### API
 
 | 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
 | ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
@@ -12,7 +12,7 @@
 | *swipeable*              | 是否可滑动切换内容             | 否   | boolean                              | false  |
 | *onChange*                | tab变化时触发                  | 否   | (tab: object, index: number) => void |        |
 | *onTabClick*              | tab点击时时触发                | 否   | (tab: object, index: number) => void |        |
-| *icons*                   | tab右侧图标                    | 否   | Array<JSX.Element> |        |
+| *icons*                   | tab右侧图标                    | 否   | Array< JSX.Element > |        |
 | *gather*                  | tab是否集中分布                | 否   | boolean                              | false  |
 | *splitLine*               | 是否展示tab-bar下方的分隔符    | 否   | boolean                              | true   |
 | *abBarBackgroundColor*    | 标签栏背景色                   | 否   | string                               |        |
