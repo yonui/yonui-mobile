@@ -59,7 +59,6 @@
     "Switch": "./src/components/switch",
     "Menu": "./src/components/menu",
     "Checkbox": "./src/components/checkbox",
-    "ListView": "./src/components/listview",
 
 
     "Tab":"./src/components/tab",
