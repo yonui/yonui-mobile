@@ -15,7 +15,8 @@ import React from 'react';
  */
 
 function DivControl(props:any){
-  return <div className="am-div-container">{props.children||''}</div>
+  
+  return <div className={`am-div-container ${props.nowrap?'nowrap':null}`}>{props.children||''}</div>
 }
 export default ReactWrapper(DivControl, manifest)
 

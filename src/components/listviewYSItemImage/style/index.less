@@ -1,0 +1,84 @@
+@import '../../_style/index.less';
+
+@listTemplate1PrefixCls: am-list-template1;
+@TopSectionItemPreCls:top-section-item;
+@TopSectionPreCls :top-section;
+@TopLeftPreClas :top-left-section;
+@TopMiddlePreClas :font-section;
+@TopRightPreClas :top-right-section;
+@BottomLeftPreClas :font-section;//也是top部分的
+@BottomRightPreClas :font-section;
+@FooterSectionPreCls : footer-section ;
+.@{listTemplate1PrefixCls}{
+  background-color: #fff;;
+  padding:0 14px;
+}
+.@{TopSectionItemPreCls}{
+  //top-第一行
+  .@{TopLeftPreClas}{
+    position: relative;
+  }
+ 
+  .@{TopRightPreClas}{
+    position: relative;
+    img{
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      transform: rotate(-45deg);
+    }
+  }
+  
+  //footer的开始
+  .@{FooterSectionPreCls}{
+    line-height: 44px;
+    min-height: 44px;
+   div{
+    line-height: 18px;
+    color: rgba(85, 85, 85, 1);
+    font-size: 14px;
+    padding-right: 24px;
+    .am-icon{
+      width: 16px;
+      height: 16px;
+      margin-right: 6px;
+      vertical-align: top;
+    }
+   }
+  }
+}
+
+//top-第二行
+.@{TopMiddlePreClas}{
+  background-color: #fff;
+  position: relative;
+  line-height: 18px;
+  color: rgba(136, 136, 136, 1);
+  font-size: 12px;
+  text-align: left;
+  img{
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+  .main-title{
+    line-height: 22px;
+    color: rgba(17, 17, 17, 1);
+    font-size: 15px;
+    padding-right: 6px;
+    padding-bottom: 8px;
+    span{
+      display: inline-block;
+      &:not(:last-child){
+        padding-right: 6px;
+      }
+    }
+  }
+  .sub-title{
+    line-height: 18px;
+    color: rgba(136, 136, 136, 1);
+    font-size: 12px;
+    // text-align: left;
+  }
+}
