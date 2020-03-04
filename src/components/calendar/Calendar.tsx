@@ -29,6 +29,7 @@ export default class MyComponent extends Component<CalendarProps> {
       return (
         <Calendar 
           {...this.props}
+          prefixCls='am-calendar'
           defaultDate={defaultDateTrs}
           defaultValue={defaultValue}
           minDate={minDateTrs}

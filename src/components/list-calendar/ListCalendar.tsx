@@ -98,6 +98,7 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
           </div>}
         <Calendar
           {...this.props}
+          prefixCls='am-calendar'
           defaultDate={defaultDateTrs}
           minDate={minDateTrs}
           maxDate={maxDateTrs}
