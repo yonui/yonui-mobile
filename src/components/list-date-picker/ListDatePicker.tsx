@@ -8,15 +8,18 @@ export interface ListDatePickerProps extends DatePickerPropsType{
 }
 class ListDatePicker extends React.Component<ListDatePickerProps> {
   render () {
-    const { label, required, value, minDate, maxDate } = this.props
+    const { label, required, value, minDate, maxDate, ...restProps } = this.props
     const requiredCls = required ? 'required' : ''
     const valueTrs = (value && typeof value === 'string') ? new Date(value) : value
     const minDateTrs = (minDate && typeof minDate === 'string') ? new Date(minDate) : minDate
     const maxDateTrs = (maxDate && typeof maxDate === 'string') ? new Date(maxDate) : maxDate
+    if (!this.props.format || this.props.format === '') {
+      delete restProps.format
+    }
     return (
       <List className='list-date-picker'>
         <DatePicker 
-          {...this.props}
+          {...restProps}
           value={valueTrs}
           minDate={minDateTrs}
           maxDate={maxDateTrs}>

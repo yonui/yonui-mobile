@@ -150,9 +150,9 @@ const manifest: ComponentManifest = {
         isRequired: true,
         props: {
           options: [
-            { value: 'YYYY-MM-DD', text: '单日' },
-            { value: 'HH:mm', text: '日期区间' },
-            { value: 'YYYY-MM-DD HH:mm', text: '日期区间' }
+            { value: 'YYYY-MM-DD', text: '日期' },
+            { value: 'HH:mm', text: '时间' },
+            { value: 'YYYY-MM-DD HH:mm', text: '日期+时间' }
           ]
         },
         label: 'format',
