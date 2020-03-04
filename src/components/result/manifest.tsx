@@ -1,7 +1,7 @@
 import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
 
 const manifest: ComponentManifest = {
-  name: 'FeedBackPage',
+  name: 'result',
   label: '反馈页',
   type: 'Combination',
   uiTable: UITable.BillItemBase,

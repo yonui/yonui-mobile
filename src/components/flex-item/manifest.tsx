@@ -19,7 +19,8 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: ['Button', 'Calendar', 'Search', 'Card', 'Checkbox', 'Drawer', 'Flex', 'NavBar', 'Progress', 'Stepper', 'Switch', 'WhiteSpace', 'WingBlank']
+  autoAddItemByModel: 'Input',
+  children:() => true
 }
 
 export {

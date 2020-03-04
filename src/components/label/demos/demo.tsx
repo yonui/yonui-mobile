@@ -13,7 +13,7 @@ export default class Demo1 extends Component {
   render() {
     const props = {
       type: 'normal',
-      label: '文本'
+      label: '文本sdfsfsdfsdfsdfsd'
     }
     const style1 = {
       color: 'rgba(0,199,230,1)',
