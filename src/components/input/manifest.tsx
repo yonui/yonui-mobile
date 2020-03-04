@@ -116,6 +116,7 @@ const manifest: ComponentManifest = {
     {
       name: 'editable',
       type: FieldTypes.boolean,
+      defaultValue: true,
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
