@@ -3,9 +3,12 @@
  * @description: Demo Description
  */
 import React, { Component } from 'react';
-import {TemplateImage,TemplateFont,TemplateContainer} from '../index';
+import TemplateImage, {TemplateContainer} from '../index';
+import TemplateFont from '../../listviewYSItemFont'
 import {Flex} from 'antd-mobile'
 import '../style';
+import  '../../listviewYSItemFont/style/index'
+
 import './demo.less';
 
 
