@@ -20,7 +20,7 @@ export { default as AccordionPanel } from './src/components/accordion/AccordionP
 export { default as Badge } from './src/components/tips'
 export { default as Carousel } from './src/components/carousel'
 export { default as Grid } from './src/components/grid'
-// export { default as ListView } from './src/components/list-view'
+export { default as ListView } from './src/components/listview'
 // export { default as IndexedList } from './src/components/list-view/IndexedList'
 export { default as Menu } from './src/components/menu'
 export { default as Pagination } from './src/components/pagination'
