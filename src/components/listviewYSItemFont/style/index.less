@@ -1,0 +1,66 @@
+@import '../../_style/index.less';
+
+@listTemplate1PrefixCls: am-list-template1;
+@TopSectionItemPreCls:top-section-item;
+
+
+@BottomLeftPreClas :font-section;//也是top部分的
+@BottomRightPreClas :font-section;
+@TopMiddlePreClas :font-section;
+
+.@{listTemplate1PrefixCls}{
+  background-color: #fff;;
+  padding:0 14px;
+}
+
+//top-第二行
+.@{TopMiddlePreClas}{
+  background-color: #fff;
+  position: relative;
+  line-height: 18px;
+  color: rgba(136, 136, 136, 1);
+  font-size: 12px;
+  text-align: left;
+  &.font-center{
+    .sub-title,.main-title{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+  &.font-right{
+    .sub-title,.main-title{
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  img{
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+  .main-title{
+    line-height: 22px;
+    color: rgba(17, 17, 17, 1);
+    font-size: 15px;
+    padding-right: 6px;
+    padding-bottom: 8px;
+    display: flex;
+    flex-wrap: nowrap;
+    span{
+      display: inline-block;
+      &:not(:last-child){
+        padding-right: 6px;
+      }
+    }
+  }
+  .sub-title{
+    line-height: 18px;
+    color: rgba(136, 136, 136, 1);
+    font-size: 12px;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+}

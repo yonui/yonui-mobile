@@ -6,7 +6,21 @@ const manifest:ComponentManifest = {
   description: '空白容器',
   type: 'DataEntry',
   uiTable:UITable.BillTplGroupBase,
-  props: [],
+  props: [
+    {
+      name: 'nowrap',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      value: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        props: {},
+        label: '是否换行',
+        help: '是否换行'
+      }
+    },
+  ],
   children: () => true
 }
 export {manifest,ReactWrapper}

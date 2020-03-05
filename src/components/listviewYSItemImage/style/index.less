@@ -1,0 +1,30 @@
+@import '../../_style/index.less';
+
+@listTemplate1PrefixCls: am-list-template1;
+@TopSectionItemPreCls:top-section-item;
+@TopSectionPreCls :top-section;
+@TopLeftPreClas :top-left-section;
+@TopRightPreClas :top-right-section;
+
+.@{listTemplate1PrefixCls}{
+  background-color: #fff;;
+  padding:0 14px;
+}
+.@{TopSectionItemPreCls}{
+  //top-第一行
+  .@{TopLeftPreClas}{
+    position: relative;
+  }
+ 
+  .@{TopRightPreClas}{
+    position: relative;
+    img{
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      transform: rotate(-45deg);
+    }
+  }
+  
+}
+

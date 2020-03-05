@@ -2,7 +2,7 @@ import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 
 const manifest: ComponentManifest = {
   name: 'DatePanelPicker',
   uiTable: UITable.BillItemBase,
-  label: '时间选择器',
+  label: '日期选择器',
   description: '',
   type: 'DataEntry',
   props: [
