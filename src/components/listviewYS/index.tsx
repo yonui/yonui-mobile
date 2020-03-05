@@ -5,13 +5,17 @@ import { ReactWrapper } from 'libraui-extension';
 
 import ListView from '../listview';
 
-let newManifest = Object.create(null);
+// let newManifest = Object.create(null);
 
-newManifest = Object.assign(newManifest,ListView.manifest,{name:'业务列表',label:'业务列表'});
+// newManifest = Object.assign(newManifest,ListView.manifest,{name:'业务列表YS',label:'业务列表YS',children: ()=>true});
 const manifest = {
-  ...newManifest,
+  ...ListView.manifest,
+  name:'业务列表YS',
+  label:'业务列表YS',
+  children: ()=>true,
   model: 'SimpleModel'
 }
+console.log('ys的manifest',manifest);
 // console.log('manifest',manifest)
 ListView.model2Props = ({ meta, viewModel }) => {
   return {

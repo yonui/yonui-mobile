@@ -21,7 +21,7 @@ class TemplateFont extends Component<YSTemplateProps, any>{
   render() {
     const {fontBold,title,value,icon,textAlign='left' } = this.props;
     return (
-      <div className={TopMiddlePreClas} style={{textAlign:textAlign}}>
+      <div className={`${TopMiddlePreClas} font-${textAlign}`}>
         <div className={fontBold?'main-title':'sub-title'}>
           {icon? icon:null}
           {title?<span className="title">{title}：</span>:null}
