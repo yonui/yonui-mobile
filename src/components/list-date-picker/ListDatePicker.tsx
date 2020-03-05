@@ -1,14 +1,14 @@
 import React from 'react'
 import { List, DatePicker } from 'antd-mobile'
-import  DatePanelPicker from '../date-panel-picker'
 import { DatePickerPropsType }  from 'antd-mobile/lib/date-picker/PropsType'
 export interface ListDatePickerProps extends DatePickerPropsType{
   label?: string
   required?: boolean
+  arrow?: boolean
 }
 class ListDatePicker extends React.Component<ListDatePickerProps> {
   render () {
-    const { label, required, value, minDate, maxDate, ...restProps } = this.props
+    const { label, required, value, minDate, maxDate, arrow, ...restProps } = this.props
     const requiredCls = required ? 'required' : ''
     const valueTrs = (value && typeof value === 'string') ? new Date(value) : value
     const minDateTrs = (minDate && typeof minDate === 'string') ? new Date(minDate) : minDate
@@ -17,14 +17,14 @@ class ListDatePicker extends React.Component<ListDatePickerProps> {
       delete restProps.format
     }
     return (
-      <List className='list-date-picker'>
+      <List className={`list-date-picker ${!arrow&&'no-arrow'}`}>
         <DatePicker 
           {...restProps}
           value={valueTrs}
           minDate={minDateTrs}
           maxDate={maxDateTrs}>
           <List.Item 
-            arrow="horizontal" 
+            arrow={arrow?'horizontal':''}
             className={`from-label ${requiredCls}`}>
             {label}
           </List.Item>

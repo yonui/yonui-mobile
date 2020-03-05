@@ -108,6 +108,18 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'arrow',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '显示箭头'
+      }
+    },
+    {
       name: 'disabled',
       type: FieldTypes.boolean,
       showDesign: true,
