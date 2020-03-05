@@ -11,6 +11,7 @@ export interface ListCalendarProps extends CalendarProps {
   value?: SelectDateType
   arrow?: boolean
   format?: string
+  disabled?: boolean
 }
 interface ListCalendarStates {
   visible?: boolean
@@ -42,6 +43,10 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
   }
 
   handClick = () => {
+    let { disabled } = this.props
+    if (disabled) {
+      return;
+    }
     this.setState({
       visible: true
     })
@@ -56,7 +61,7 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
 
   render () {
     const { visible } = this.state
-    const { label, required, type, arrow, value, format, maxDate, minDate, defaultDate } = this.props
+    const { label, required, type, arrow, value, format, maxDate, minDate, defaultDate,  } = this.props
     if (value&&value.length) {
       value[0] = (typeof value[0] === 'string') ? new Date(value[0]) : value[0]
       if (value[1]) {

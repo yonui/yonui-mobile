@@ -9,16 +9,11 @@ import './demo.less';
 export default class Demo1 extends Component {
   render () {
     return (
-      <div> 
-        <MyComponent name = 'xiaoyou' size = 'small'>con</MyComponent>
-        <MyComponent name = 'xiaoyou' size = 'large'>con</MyComponent>
-        <MyComponent name = 'achievement' size = 'small'>con</MyComponent>
-        <MyComponent name = 'achievement' size = 'large'>con</MyComponent>
-        <MyComponent name = 'business' size = 'small'>con</MyComponent>
-        <MyComponent name = 'business' size = 'large'>con</MyComponent>
-
+      <div>
+        <MyComponent type = 'check' size = 'small'>con</MyComponent>
+        <MyComponent type = 'cross' size = 'small'>con</MyComponent>
       </div>
-      
+
     )
   }
 }

@@ -197,9 +197,20 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'disabled',
+      type: FieldTypes.boolean,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '禁用'
+      }
+    },
+    {
       name: 'arrow',
       type: FieldTypes.boolean,
-      defaultValue: false,
+      defaultValue: true,
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
