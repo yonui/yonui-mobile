@@ -2,7 +2,7 @@ import { ListView } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest ,UITable} from 'libraui-extension'
 
 const manifest: ComponentManifest = {
-  name: 'listview',
+  name: 'ListView',
   label: '长列表',
   description: '实现列表功能',
   type: 'business',
