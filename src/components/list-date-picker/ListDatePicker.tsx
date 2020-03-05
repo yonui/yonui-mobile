@@ -17,7 +17,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps> {
       delete restProps.format
     }
     return (
-      <List className='list-date-picker'>
+      <List className={`list-date-picker ${!arrow&&'no-arrow'}`}>
         <DatePicker 
           {...restProps}
           value={valueTrs}

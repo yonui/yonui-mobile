@@ -1,6 +1,14 @@
 @import '../../_style/index.less';
 @ListDatePickerPrefixClass: list-date-picker;
 .@{ListDatePickerPrefixClass} {
+  &.no-arrow {
+    .am-list-item {
+      .am-list-line {
+        .am-list-extra {
+          flex-basis: 78%;
+        }  
+      }
+  }
   .am-list-item {
     .am-list-line {
       .am-list-content {
