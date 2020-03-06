@@ -1,6 +1,6 @@
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest,UITable } from 'libraui-extension'
 const manifest: ComponentManifest = {
-  name: 'Toolbar',
+  name: 'Toolbars',
   label: '工具栏',
   description: '工具栏',
   uiTable: UITable.BillTplGroupBase,
@@ -9,7 +9,7 @@ const manifest: ComponentManifest = {
     {
       name: 'values',
       type: FieldTypes.array,
-      defaultValue: JSON.stringify(["item1","item2"]),
+      defaultValue: JSON.stringify(["item1","item2","item3","item4","item5","item6"]),
       showDesign: true,
       designConfig: {
         type: EditTypes.Json,

@@ -8,7 +8,7 @@ export interface NavBarProps {
   onRight2Click?: () => void,
   title: string,
   subTitle: string,
-  titleIcon: string,
+  titleIcon?: string,
   backIcon: string,
   closeIcon: string,
   onBackClick?: () => void,
@@ -22,7 +22,6 @@ export default class MDFNavBar extends React.Component<NavBarProps, any>  {
   static defaultProps = {
     title: '标题',
     backIcon: 'left',
-    closeIcon: 'cross',
     mode: 'light'
   }
   constructor(props: NavBarProps) {
