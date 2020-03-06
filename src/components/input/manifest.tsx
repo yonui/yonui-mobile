@@ -3,7 +3,7 @@ const manifest: ComponentManifest = {
   name: 'Input',
   uiTable: UITable.BillItemBase,
   label: '文本输入',
-  type: 'basic',
+  type: 'DataEntry',
   props: [
     {
       name: 'label',
