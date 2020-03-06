@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { ListView as ListViewAntd, ActivityIndicator, PullToRefresh, Icon } from 'antd-mobile'
 import { ListViewProps } from 'antd-mobile/lib/list-view'
-import {manifest,ReactWrapper}from './manifest'
+import { manifest, ReactWrapper } from './manifest'
 
 interface YSListViewProps extends ListViewProps {
   refreshing: boolean
@@ -19,10 +19,10 @@ interface YSListViewProps extends ListViewProps {
   pageSize: number
   value?: any[]
   showPullToReresh?: boolean,
-  DataSource:any
-  
+  DataSource: any
+
 }
-const  initialHeight = 500;
+const initialHeight = 500;
 
 class YSListView extends Component<YSListViewProps> {
   public static defaultProps = {
@@ -41,25 +41,20 @@ class YSListView extends Component<YSListViewProps> {
     // showNum: this.props.showNum || 100
   }
 
-  UNSAFE_componentWillReceiveProps (nextProps: any): void {
+  UNSAFE_componentWillReceiveProps(nextProps: any): void {
     this.initListData(nextProps.value || nextProps.dataSource)
   }
 
   /* 初始化ListView 需要dataSource */
   initListData = (data: []) => {
-    if (!data) return ;
-    const newData = data
-    this.dataIndex = []
-    newData.map((item, index: number) => {
-      this.dataIndex.push(`row-${index}`)
-    })
+    if (!data) return;
     this.setState({
-      dataSource: this.listViewDataSource.cloneWithRows(this.dataIndex)
+      dataSource: this.listViewDataSource.cloneWithRows(data)
     })
   }
 
   onEndReached = (event: React.MouseEvent) => {
-    if(this.props.onEndReached){
+    if (this.props.onEndReached) {
       this.props.onEndReached()
     }
   }
@@ -73,7 +68,7 @@ class YSListView extends Component<YSListViewProps> {
   }
 
   renderRow = (rowData: any[], sectionID: string, rowID: any) => {
-    const { dataSource, value, children,showNum} = this.props
+    const { dataSource, value, children, showNum } = this.props
     // const { showNum } = this.state
     // const length = value ? value.length : dataSource.length
     const length = children ? children.length : showNum
@@ -108,7 +103,7 @@ class YSListView extends Component<YSListViewProps> {
   }
 
   renderFooter = () => {
-    const { footerContent, dataSource, value,children,showNum } = this.props
+    const { footerContent, dataSource, value, children, showNum } = this.props
     // const length = value ? value.length : dataSource.length
     const length = children ? children.length : showNum
     // const { showNum } = this.state
@@ -141,10 +136,10 @@ class YSListView extends Component<YSListViewProps> {
     }, 300)
   }
 
-  render () {
+  render() {
     const { dataSource } = this.state
-    const { refreshing, height=initialHeight, pageSize, renderRow, showPullToReresh = true,initialListSize } = this.props
-    
+    const { refreshing, height = initialHeight, pageSize, renderRow, showPullToReresh = true, initialListSize } = this.props
+
     if (dataSource && dataSource.length === 0) {
       return <div style={{ height: height }} className="no_data">暂无数据</div>
     }
@@ -182,7 +177,7 @@ class YSListView extends Component<YSListViewProps> {
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
         {...hasPullToRereshProps}
-        
+
       />
     )
   }
