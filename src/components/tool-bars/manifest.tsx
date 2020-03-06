@@ -1,6 +1,6 @@
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest,UITable } from 'libraui-extension'
 const manifest: ComponentManifest = {
-  name: 'Toolbar',
+  name: 'Toolbars',
   label: '工具栏',
   description: '工具栏',
   uiTable: UITable.BillTplGroupBase,
