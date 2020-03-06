@@ -67,7 +67,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: false,
         props: {},
-        label: '显隐'
+        label: '显示'
       }
     },
     {

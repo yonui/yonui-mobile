@@ -5,7 +5,7 @@ const manifest: ComponentManifest = {
   name: 'ListView',
   label: '长列表',
   description: '实现列表功能',
-  type: 'business',
+  type: 'DataDisplay',
   uiTable: UITable.BillTplGroupBase,
   props: [
     {
