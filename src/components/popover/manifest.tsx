@@ -11,7 +11,7 @@ const manifest: ComponentManifest = {
     {
       name: 'placement',
       type: FieldTypes.string,
-      defaultValue: 'bottomRight',
+      defaultValue: 'bottomLeft',
       value: '',
       showDesign: true,
       designConfig: {
@@ -19,14 +19,14 @@ const manifest: ComponentManifest = {
         props: {
           options:
             [
-              { value: 'left', text: 'left' },
-              { value: 'right', text: 'right' },
-              { value: 'top', text: 'top' },
-              { value: 'bottom', text: 'bottom' },
-              { value: 'topLeft', text: 'topLeft' },
-              { value: 'topRight', text: 'topRight' },
+              // { value: 'left', text: 'left' },
+              // { value: 'right', text: 'right' },
+              // { value: 'top', text: 'top' },
+              // { value: 'bottom', text: 'bottom' },
+              // { value: 'topLeft', text: 'topLeft' },
+              // { value: 'topRight', text: 'topRight' },
               { value: 'bottomLeft', text: 'bottomLeft' },
-              { value: 'bottomRight', text: 'bottomRight' }
+              //{ value: 'bottomRight', text: 'bottomRight' }
             ]
         },
         label: '位置'

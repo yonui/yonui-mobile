@@ -15,9 +15,13 @@ export interface popProps extends PopoverPropsType{
   content?: React.ReactNode;
   overlayClassName: string;
   onVisibleChange?:any;
+  placement?:string,
 }
 function noop(){}
 class PopoverControl extends React.Component<popProps, any>{
+  public static defaultProps = {
+    placement:'bottomLeft'
+  }
   render() {
     const {className='',overlayClassName='',dark=true,overlayData} = this.props
     let popClassName = classNames({ 'am-popover-dark': dark }, className, overlayClassName)

@@ -8,6 +8,8 @@ export interface NoticeProps {
   className?: string;
   title?: string;
   content?: React.ReactChild;
+  noticeModalShow?:boolean
+  onClick?:Function
 }
 
 class Notice extends React.Component<NoticeProps,any>{
@@ -21,9 +23,13 @@ class Notice extends React.Component<NoticeProps,any>{
     noticemodal: true,
   }
   onClose = () => {
-    this.setState({
-      noticemodal: false,
-    });
+    // let _self = this;
+    // this.setState({
+    //   noticemodal: false,
+    // },()=>{
+     
+    // });
+    this.props.onClick && this.props.onClick()
   }
   render() {
     const props = this.props;
@@ -32,7 +38,7 @@ class Notice extends React.Component<NoticeProps,any>{
     if (props.mode && props.mode === 'modal') {
       return (
         <Modal
-          visible={this.state.noticemodal}
+          visible ={this.props.noticeModalShow}
           transparent
           maskClosable={false}
           title={props.title || 'Title'}
