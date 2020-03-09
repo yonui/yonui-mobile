@@ -3,7 +3,7 @@ const manifest: ComponentManifest = {
   name: 'Panel',
   label: '活动面板',
   description: '活动面板',
-  uiTable: UITable.BillItemBase,
+  uiTable: UITable.BillTplGroupBase,
   type: 'DataEntry',
   props: [
     {
