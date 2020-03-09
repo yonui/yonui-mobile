@@ -61,7 +61,7 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
 
   render () {
     const { visible } = this.state
-    const { label, required, type, arrow, value, format, maxDate, minDate, defaultDate } = this.props
+    const { label, required, type, arrow, value, format, maxDate, minDate, defaultDate, defaultTimeValue } = this.props
     if (value && value.length) {
       value[0] = (typeof value[0] === 'string') ? new Date(value[0]) : value[0]
       if (value[1]) {
@@ -76,6 +76,7 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
     const minDateTrs = (minDate && typeof minDate === 'string') ? new Date(minDate) : minDate
     const maxDateTrs = (maxDate && typeof maxDate === 'string') ? new Date(maxDate) : maxDate
     const defaultDateTrs = (defaultDate && typeof defaultDate === 'string') ? new Date(defaultDate) : defaultDate
+    const defaultTimeValueTrs = (defaultTimeValue && typeof defaultTimeValue === 'string') ? new Date(defaultTimeValue) : defaultTimeValue
     const start = (value && value.length) ? dateFormat(value[0], format || 'yyyy-MM-dd') : ''
     const end = (value && value.length && value[1]) ? dateFormat(value[1], format || 'yyyy-MM-dd') : ''
     const requiredCls = required ? 'required' : ''
@@ -107,6 +108,7 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
           defaultDate={defaultDateTrs}
           minDate={minDateTrs}
           maxDate={maxDateTrs}
+          defaultTimeValue={defaultTimeValueTrs}
           visible={visible}
           onCancel={this.onCancel}
           onConfirm={this.onConfirm}

@@ -157,7 +157,7 @@ const manifest: ComponentManifest = {
     {
       name: 'defaultDate',
       type: FieldTypes.date,
-      defaultValue: new Date(),
+      defaultValue: new Date(now.getFullYear(), now.getMonth(), now.getDate() - 5),
       showDesign: true,
       designConfig: {
         type: EditTypes.Date,

@@ -11,10 +11,11 @@ export default class MyComponent extends Component<CalendarProps> {
   }
 
   render () {
-    const { maxDate, minDate, defaultDate, defaultValue, type } = this.props
+    const { maxDate, minDate, defaultDate, defaultValue, defaultTimeValue, type } = this.props
     const minDateTrs = (minDate && typeof minDate === 'string') ? new Date(minDate) : minDate
     const maxDateTrs = (maxDate && typeof maxDate === 'string') ? new Date(maxDate) : maxDate
     const defaultDateTrs = (defaultDate && typeof defaultDate === 'string') ? new Date(defaultDate) : defaultDate
+    const defaultTimeValueTrs = (defaultTimeValue && typeof defaultTimeValue === 'string') ? new Date(defaultTimeValue) : defaultTimeValue
     if (defaultValue && defaultValue.length) {
       defaultValue[0] = (typeof defaultValue[0] === 'string') ? new Date(defaultValue[0]) : defaultValue[0]
       if (defaultValue[1]) {
@@ -32,6 +33,7 @@ export default class MyComponent extends Component<CalendarProps> {
         prefixCls='am-calendar'
         defaultDate={defaultDateTrs}
         defaultValue={defaultValue}
+        defaultTimeValue={defaultTimeValueTrs}
         minDate={minDateTrs}
         maxDate={maxDateTrs}/>
     )
