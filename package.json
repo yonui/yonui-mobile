@@ -1,5 +1,5 @@
 {
-  "name": "tinper-libraui",
+  "name": "yonui-mobile",
   "version": "0.3.22",
   "description": "Libra ui for Antd Mobile",
   "main": "./dist/index.js",
