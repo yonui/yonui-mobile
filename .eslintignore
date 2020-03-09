@@ -2,6 +2,6 @@ lib/
 demo/build
 build
 dist
-src/
 jslib/
-**/*.jsx
+
+src/components/*/demos/*.*

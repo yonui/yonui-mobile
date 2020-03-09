@@ -154,7 +154,7 @@ const manifest: ComponentManifest = {
       }
     }
   ]
-} 
+}
 export {
   manifest,
   ReactWrapper

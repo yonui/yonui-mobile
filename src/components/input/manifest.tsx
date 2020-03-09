@@ -41,7 +41,7 @@ const manifest: ComponentManifest = {
         isRequired: true,
         props: {},
         label: '最大长度',
-        help:'该字段控制的是输入值的长度,除money类型外，仅当text, email, search, password, tel, or url 有效.'
+        help: '该字段控制的是输入值的长度,除money类型外，仅当text, email, search, password, tel, or url 有效.'
       }
     },
     {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import classnames from 'classnames'
 import { Icon } from 'antd-mobile'
 
@@ -55,7 +55,7 @@ export default class Search extends React.Component<SearchProps, any> {
 
   inputRef: HTMLInputElement | null
 
-  constructor(props: any) {
+  constructor (props: any) {
     super(props)
     this.inputRef = null
     this.state = {
@@ -63,6 +63,7 @@ export default class Search extends React.Component<SearchProps, any> {
       focus: false
     }
   }
+
   // props
   onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!this.state.focus) {
@@ -76,16 +77,18 @@ export default class Search extends React.Component<SearchProps, any> {
       this.props.onChange(value)
     }
   }
+
   onClear = () => {
     this.setState({ value: '' })
     if (this.props.onClear) {
-      this.props.onClear('');
+      this.props.onClear('')
     }
     if (this.props.onChange) {
-      this.props.onChange('');
+      this.props.onChange('')
     }
     this.focus()
   }
+
   onBlur = () => {
     this.setState({
       focus: false
@@ -95,30 +98,36 @@ export default class Search extends React.Component<SearchProps, any> {
       setTimeout(() => {
         // fix ios12 wechat browser click failure after input
         if (document.body) {
-          document.body.scrollTop = document.body.scrollTop;
+          // what???
+          // eslint-disable-next-line no-self-assign
+          document.body.scrollTop = document.body.scrollTop
         }
-      },100);
-      this.props.onBlur();
+      }, 100)
+      this.props.onBlur()
     }
   }
+
   onFocus = () => {
     this.setState({
       focus: true
     })
-    if(this.props.onFocus) {
+    if (this.props.onFocus) {
       this.props.onFocus()
     }
   }
+
   // method
   focus = () => {
-    if(this.inputRef) {
+    if (this.inputRef) {
       this.inputRef.focus()
     }
   }
+
   clear = () => {
     this.onClear()
   }
-  render() {
+
+  render () {
     const {
       prefixCls,
       maxLength,
@@ -134,7 +143,7 @@ export default class Search extends React.Component<SearchProps, any> {
       focus
     } = this.state
     const clearCls = classnames(`${prefixCls}-clear`, {
-      [`${prefixCls}-clear-show`]: !!(focus && value && value.length > 0),
+      [`${prefixCls}-clear-show`]: !!(focus && value && value.length > 0)
     })
     return (
       <div className={prefixCls}
@@ -175,15 +184,16 @@ export default class Search extends React.Component<SearchProps, any> {
       </div>
     )
   }
+
   componentDidMount () {
-    if(this.state.autoFocus) {
-        this.focus()
+    if (this.state.autoFocus) {
+      this.focus()
     }
-    if(this.props.focus) {
-        this.props.focus(this)
+    if (this.props.focus) {
+      this.props.focus(this)
     }
-    if(this.props.clear) {
-        this.props.clear(this)
+    if (this.props.clear) {
+      this.props.clear(this)
     }
   }
 }

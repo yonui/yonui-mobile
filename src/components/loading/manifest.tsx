@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest,UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'Loading',
   label: '加载',
@@ -15,7 +15,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: false,
         props: {},
-        label: '是否显示',
+        label: '是否显示'
       }
     },
     {
@@ -27,12 +27,12 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '文字内容',
+        label: '文字内容'
       }
     },
     {
       name: 'type',
-      type: FieldTypes.string ,
+      type: FieldTypes.string,
       defaultValue: 'toast',
       showDesign: true,
       designConfig: {
@@ -43,10 +43,10 @@ const manifest: ComponentManifest = {
             [
               { value: 'toast', text: '模态加载' },
               { value: 'jump', text: '跳转加载' },
-              { value: 'local', text: '局部加载' },
+              { value: 'local', text: '局部加载' }
             ]
         },
-        label: '类型',
+        label: '类型'
       }
     },
     {
@@ -64,7 +64,7 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'percent',
-      type: FieldTypes.number ,
+      type: FieldTypes.number,
       defaultValue: 50,
       showDesign: true,
       designConfig: {
@@ -87,13 +87,13 @@ const manifest: ComponentManifest = {
           options:
             [
               { value: 'small', text: '小' },
-              { value: 'large', text: '大' },
+              { value: 'large', text: '大' }
             ]
         },
         label: '图标大小',
         help: '对局部加载有效'
       }
-    },
+    }
     // {
     //   name: 'theme',
     //   type: FieldTypes.string,

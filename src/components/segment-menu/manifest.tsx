@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable} from 'libraui-extension';
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
 const segmentMenuManifest: ComponentManifest = {
   name: 'SegmentMenu',
   label: '分段菜单',

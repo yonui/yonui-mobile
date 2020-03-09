@@ -9,10 +9,8 @@ export default class MdfList extends React.Component<any, any> {
   static defaultProps = {
     prefixCls: 'am-list'
   }
-  constructor(props: any) {
-    super(props)
-  }
-  render() {
+
+  render () {
     return (<List>{this.props.children}</List>)
   }
 }

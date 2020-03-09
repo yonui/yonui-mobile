@@ -18,11 +18,11 @@ interface YSListViewProps extends ListViewProps {
   showNum: number
   pageSize: number
   value?: any[]
-  showPullToReresh?: boolean,
+  showPullToReresh?: boolean
   DataSource: any
 
 }
-const initialHeight = 500;
+const initialHeight = 500
 
 class YSListView extends Component<YSListViewProps> {
   public static defaultProps = {
@@ -37,17 +37,17 @@ class YSListView extends Component<YSListViewProps> {
   listViewRef: any
 
   state = {
-    dataSource: this.listViewDataSource.cloneWithRows(this.dataIndex),
+    dataSource: this.listViewDataSource.cloneWithRows(this.dataIndex)
     // showNum: this.props.showNum || 100
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps: any): void {
+  UNSAFE_componentWillReceiveProps (nextProps: any): void {
     this.initListData(nextProps.value || nextProps.dataSource)
   }
 
   /* 初始化ListView 需要dataSource */
   initListData = (data: []) => {
-    if (!data) return;
+    if (!data) return
     this.setState({
       dataSource: this.listViewDataSource.cloneWithRows(data)
     })
@@ -103,7 +103,7 @@ class YSListView extends Component<YSListViewProps> {
   }
 
   renderFooter = () => {
-    const { footerContent, dataSource, value, children, showNum } = this.props
+    const { footerContent, children, showNum } = this.props
     // const length = value ? value.length : dataSource.length
     const length = children ? children.length : showNum
     // const { showNum } = this.state
@@ -136,14 +136,14 @@ class YSListView extends Component<YSListViewProps> {
     }, 300)
   }
 
-  render() {
+  render () {
     const { dataSource } = this.state
     const { refreshing, height = initialHeight, pageSize, renderRow, showPullToReresh = true, initialListSize } = this.props
 
     if (dataSource && dataSource.length === 0) {
       return <div style={{ height: height }} className="no_data">暂无数据</div>
     }
-    console.log('render-datasource', dataSource);
+    console.log('render-datasource', dataSource)
     let hasPullToRereshProps = {}
 
     if (showPullToReresh) {

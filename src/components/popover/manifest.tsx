@@ -1,5 +1,5 @@
 
-import { FieldTypes, EditTypes, ReactWrapper, UITable,ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, UITable, ComponentManifest } from 'libraui-extension'
 // todo 未配置 onClick onChange
 const manifest: ComponentManifest = {
   name: 'Popover',
@@ -25,8 +25,8 @@ const manifest: ComponentManifest = {
               // { value: 'bottom', text: 'bottom' },
               // { value: 'topLeft', text: 'topLeft' },
               // { value: 'topRight', text: 'topRight' },
-              { value: 'bottomLeft', text: 'bottomLeft' },
-              //{ value: 'bottomRight', text: 'bottomRight' }
+              { value: 'bottomLeft', text: 'bottomLeft' }
+              // { value: 'bottomRight', text: 'bottomRight' }
             ]
         },
         label: '位置'
@@ -35,14 +35,14 @@ const manifest: ComponentManifest = {
     {
       name: 'overlayData',
       type: FieldTypes.array,
-      defaultValue: JSON.stringify([{icon:'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',label:'test1'}]),
+      defaultValue: JSON.stringify([{ icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg', label: 'test1' }]),
       showDesign: true,
       designConfig: {
         label: 'pop内容',
         isRequired: false,
         type: EditTypes.Json,
         props: {
-         
+
         }
       }
     },
@@ -83,7 +83,7 @@ const manifest: ComponentManifest = {
         help: '当显隐状态变化时回调函数'
       }
     },
-    
+
     {
       name: 'onSelect',
       type: FieldTypes.action,
@@ -98,7 +98,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children:()=>true
+  children: () => true
 }
 
-export {manifest,ReactWrapper}
+export { manifest, ReactWrapper }

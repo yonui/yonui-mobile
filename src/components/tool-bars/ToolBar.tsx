@@ -5,7 +5,7 @@ import Button from '../button'
 interface ToolBarProps {
   className?: string
   style?: object
-  values: Array<string>
+  values: string[]
   selectedIndex?: number
   onChange?: (val: string, num: number) => void
   onValueChange?: (val: string) => void
@@ -18,7 +18,7 @@ interface ToolBarState {
   visiable: boolean
 }
 export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
-  constructor(props: ToolBarProps) {
+  constructor (props: ToolBarProps) {
     super(props)
 
     this.state = {
@@ -28,7 +28,7 @@ export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
 
   static defaultProps = {
     values: [],
-    mode: 'text',
+    mode: 'text'
     // btnsType: ['default','default','default','primary']
   }
 
@@ -39,18 +39,18 @@ export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
     })
   }
 
-  parseObj = ( param:any ) => typeof param === 'string' ? JSON.parse(param) : param
+  parseObj = (param: any) => typeof param === 'string' ? JSON.parse(param) : param
 
   renderItem = (item: string, index: number, style: object, popoverItem: boolean, selectedIndex?: number) => {
-    const { mode, btnsType = [] } = this.props;
+    const { mode, btnsType = [] } = this.props
     switch (mode) {
       case 'button': {
         const cls = classnames({
           'tool-bar-btn': !popoverItem,
-          'tool-bar-popover-btn': popoverItem,
+          'tool-bar-popover-btn': popoverItem
         })
         const type = btnsType[index] || 'primary'
-        return <Button className={cls} style={style} content={item} type={type} size='small'  onClick={() => { this.onClickItem(item, index) }}/>
+        return <Button className={cls} style={style} content={item} type={type} size='small' onClick={() => { this.onClickItem(item, index) }}/>
       }
       case 'text':
       default: {
@@ -67,7 +67,7 @@ export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
     }
   }
 
-  renderItems = (values: Array<string>, selectedIndex?: number) => {
+  renderItems = (values: string[], selectedIndex?: number) => {
     const { placement } = this.props
     const length = values.length
     if (length <= 5) {
@@ -80,8 +80,7 @@ export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
     values.forEach((item, index) => {
       if (index < 4) {
         items.push(this.renderItem(item, index, style, false, selectedIndex))
-      }
-      else {
+      } else {
         overlay.push(this.renderItem(item, index, {}, true, selectedIndex))
       }
     })
@@ -95,17 +94,17 @@ export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
     </Popover>
     items.push(popoverItem)
     return items
-
   }
 
   onClickItem = (value: string, index: number) => {
     const { onChange, onValueChange } = this.props
     this.handleVisibleChange(false)
-    onChange && onChange(value, index);
-    onValueChange && onValueChange(value);
+    onChange && onChange(value, index)
+    onValueChange && onValueChange(value)
   }
-  render() {
-    const { className, style, values, selectedIndex, ...other } = this.props
+
+  render () {
+    const { className, style, values, selectedIndex } = this.props
     const cls = classnames('libraui-tool-bar', className)
     // console.log(values)
     const val = this.parseObj(values)

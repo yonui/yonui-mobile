@@ -8,12 +8,11 @@ export interface PanelProps {
   onClose?: () => void
   title?: string
   cancelButtonText?: string
-  options?: Array<Array<{ icon: React.ReactNode , title: string }>> |  Array<{ icon: React.ReactNode | string, title: string }>
+  options?: Array<Array<{ icon: React.ReactNode, title: string }>> | Array<{ icon: React.ReactNode | string, title: string }>
   type?: 'slideable' | 'fixed'
   callback?: (col: number, row: number) => void
 }
 export default class Panel extends Component<PanelProps> {
-
   static defaultProps = {
     show: false,
     title: '',
@@ -23,7 +22,7 @@ export default class Panel extends Component<PanelProps> {
 
   callbackFun = (col: number, row: number) => {
     const { callback } = this.props
-    callback && callback(col, row);
+    callback && callback(col, row)
   }
 
   renderTitle = (title?: string) => {
@@ -32,11 +31,10 @@ export default class Panel extends Component<PanelProps> {
     </div>
   }
 
-
-  renderItem = (item: { icon: React.ReactNode , title: string }, row: number, col: number) => {
-    const iconELe = typeof item.icon === 'string' ? <img src={item.icon} style={{width: '100%'}}/> : item.icon
+  renderItem = (item: { icon: React.ReactNode, title: string }, row: number, col: number) => {
+    const iconELe = typeof item.icon === 'string' ? <img src={item.icon} style={{ width: '100%' }}/> : item.icon
     return <div className='panel-content-item'>
-      <div className='item-icon-wrapper' onClick={()=>{this.callbackFun(col,row)}}>
+      <div className='item-icon-wrapper' onClick={() => { this.callbackFun(col, row) }}>
         <div className='item-icon'>
           {iconELe}
         </div>
@@ -46,9 +44,8 @@ export default class Panel extends Component<PanelProps> {
     </div>
   }
 
-
-  renderItems = (items: Array<any>, row: number) => {
-    const res =  items.map((item, index) => {
+  renderItems = (items: any[], row: number) => {
+    const res = items.map((item, index) => {
       return this.renderItem(item, row, index)
     })
     return <div className='panel-content-items'>
@@ -56,11 +53,9 @@ export default class Panel extends Component<PanelProps> {
     </div>
   }
 
-
-
   renderContent = (options?: Array<Array<{ icon: React.ReactNode | string, title: string }>>) => {
-    if (!options) return null;
-    const content = options.map( (item,index) => this.renderItems(item,index))
+    if (!options) return null
+    const content = options.map((item, index) => this.renderItems(item, index))
     return <div className='panel-content'>
       {content}
     </div>
@@ -72,19 +67,16 @@ export default class Panel extends Component<PanelProps> {
     </div>
   }
 
-
-  render() {
+  render () {
     const { show, onClose, title, cancelButtonText, className, style, options, type, ...other } = this.props
     const cls = classnames(className, 'libraui-panel', `libraui-panel-${type}`)
-    let op : any[] = []
+    let op: any[] = []
 
-    if(options?.every( (item : any) => Array.isArray(item)) ) {
+    if (options?.every((item: any) => Array.isArray(item))) {
       op = options
-    }
-    else if( options?.every( (item : any)  =>item.icon && item.title) ) {
+    } else if (options?.every((item: any) => item.icon && item.title)) {
       op = [options]
-    }
-    else {
+    } else {
       console.error('options must be : Array<Array<{ icon: React.ReactNode | string, title: string }>> |  Array<{ icon: React.ReactNode | string, title: string }> ')
       return null
     }
@@ -97,7 +89,7 @@ export default class Panel extends Component<PanelProps> {
         // afterClose={() => { alert('afterClose'); }}
         maskClosable={true}
       >
-        <div className={cls} style={style}>
+        <div className={cls} style={style} {...other}>
           {this.renderTitle(title)}
           {this.renderContent(op)}
           {this.renderFooter(cancelButtonText)}

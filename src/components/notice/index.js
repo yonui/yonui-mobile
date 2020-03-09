@@ -1,3 +1,3 @@
-import Notice from './Notice';
+import Notice from './Notice'
 
-export default Notice;
+export default Notice

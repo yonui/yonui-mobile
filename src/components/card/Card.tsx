@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Card, Icon } from 'antd-mobile'
 import classnames from 'classnames'
 export interface CardProps {
@@ -14,7 +14,7 @@ export interface CardProps {
   footerContent?: React.ReactElement | string
   footerExtra?: React.ReactElement | string
   onFooterExtraClick?: React.MouseEventHandler<HTMLAnchorElement>
-  children?: Array<any>
+  children?: any[]
   style?: React.CSSProperties
   thumbStyle?: React.CSSProperties
 }
@@ -31,10 +31,8 @@ export default class MDFCard extends React.Component<CardProps, any> {
     footerContent: 'Footer content',
     footerExtra: <span>Footer extra</span>
   }
-  constructor(props: CardProps) {
-    super(props)
-  }
-  renderHeader() { // 判断是否渲染card header
+
+  renderHeader () { // 判断是否渲染card header
     const { showHeader, headerTitle, headerThumb, onHeaderExtraClick, headerExtra, thumbStyle } = this.props
     const thumb = () => {
       return headerThumb === 'thumb' ? <span className="thumb"></span> : (headerThumb || null)
@@ -53,9 +51,10 @@ export default class MDFCard extends React.Component<CardProps, any> {
       /> : ''
     )
   }
-  renderBody() { // 在没有header或者footer的情况下需要上下padding
+
+  renderBody () { // 在没有header或者footer的情况下需要上下padding
     const { prefixCls, showHeader, showFooter, children, content } = this.props
-    const classes:any = classnames({
+    const classes: any = classnames({
       [`${prefixCls}-body-padding-top`]: !showHeader,
       [`${prefixCls}-body-padding-bottom`]: !showFooter
     })
@@ -66,7 +65,8 @@ export default class MDFCard extends React.Component<CardProps, any> {
       </Card.Body>
     )
   }
-  renderFooter() { // 判断是否渲染card footer
+
+  renderFooter () { // 判断是否渲染card footer
     const { footerContent, footerExtra, showFooter, onFooterExtraClick } = this.props
 
     return (
@@ -76,7 +76,8 @@ export default class MDFCard extends React.Component<CardProps, any> {
       /> : ''
     )
   }
-  render() {
+
+  render () {
     console.log(this.props.style)
     return (
       <Card style={{
@@ -89,4 +90,3 @@ export default class MDFCard extends React.Component<CardProps, any> {
     )
   }
 }
-

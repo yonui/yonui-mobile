@@ -1,16 +1,16 @@
-import { FieldTypes, EditTypes, ReactWrapper, UITable,ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, UITable, ComponentManifest } from 'libraui-extension'
 // todo 未配置 onClick onChange
-const manifest :ComponentManifest= {
+const manifest: ComponentManifest = {
   name: 'Select',
   label: '下拉选择',
   description: '下拉选择',
   type: 'DataEntry',
-  uiTable:UITable.BillItemBase,
+  uiTable: UITable.BillItemBase,
   props: [
     {
       name: 'title',
       type: FieldTypes.string,
-      defaultValue:'Title',
+      defaultValue: 'Title',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -22,19 +22,19 @@ const manifest :ComponentManifest= {
     {
       name: 'data',
       type: FieldTypes.array,
-      defaultValue:JSON.stringify([
+      defaultValue: JSON.stringify([
         {
           value: '1',
           label: 'Food',
-          disabled:true
+          disabled: true
         }, {
           value: '2',
-          label: 'Supermarket',
+          label: 'Supermarket'
         },
         {
           value: '3',
           label: 'Extra'
-        },
+        }
       ]),
       showDesign: true,
       designConfig: {
@@ -44,74 +44,74 @@ const manifest :ComponentManifest= {
         props: {}
       }
     },
-  {
-    name: 'value',
-    type: FieldTypes.array,
-    showDesign: true,
-    designConfig: {
-      type: EditTypes.Json,
-      label: '值',
-      isRequired: false,
-      props: {}
+    {
+      name: 'value',
+      type: FieldTypes.array,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Json,
+        label: '值',
+        isRequired: false,
+        props: {}
+      }
+    },
+    {
+      name: 'defaultValue',
+      type: FieldTypes.array,
+      defaultValue: JSON.stringify(['2']),
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Json,
+        label: '默认值',
+        isRequired: false,
+        props: {}
+      }
+    },
+    {
+      name: 'multiSelect',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: true,
+        props: {},
+        label: '多选'
+      }
+    },
+    {
+      name: 'onChange',
+      type: FieldTypes.action,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: 'onChange'
+      }
+    },
+    {
+      name: 'onOk',
+      type: FieldTypes.action,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: 'onOK'
+      }
+    },
+    {
+      name: 'onCancel',
+      type: FieldTypes.action,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: 'onCancel'
+      }
     }
-  },
-  {
-    name: 'defaultValue',
-    type: FieldTypes.array,
-    defaultValue:JSON.stringify(["2"]),
-    showDesign: true,
-    designConfig: {
-      type: EditTypes.Json,
-      label: '默认值',
-      isRequired: false,
-      props: {}
-    }
-  },
-  {
-    name: 'multiSelect',
-    type: FieldTypes.boolean,
-    defaultValue: false,
-    showDesign: true,
-    designConfig: {
-      type: EditTypes.Bool,
-      isRequired: true,
-      props: {},
-      label: '多选'
-    }
-  },
-  {
-    name: 'onChange',
-    type: FieldTypes.action,
-    showDesign: true,
-    designConfig: {
-      type: EditTypes.Text,
-      isRequired: true,
-      props: {},
-      label: 'onChange'
-    }
-  },
-  {
-    name: 'onOk',
-    type: FieldTypes.action,
-    showDesign: true,
-    designConfig: {
-      type: EditTypes.Text,
-      isRequired: true,
-      props: {},
-      label: 'onOK'
-    }
-  },
-  {
-    name: 'onCancel',
-    type: FieldTypes.action,
-    showDesign: true,
-    designConfig: {
-      type: EditTypes.Text,
-      isRequired: true,
-      props: {},
-      label: 'onCancel'
-    }
-  }
-]
+  ]
 }
-export {manifest,ReactWrapper}
+export { manifest, ReactWrapper }

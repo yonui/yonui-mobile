@@ -1,5 +1,5 @@
 
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest } from 'libraui-extension'
 // todo 未配置 style activeStyle
 const manifest: ComponentManifest = {
   name: 'Button', // 自定义组件名称

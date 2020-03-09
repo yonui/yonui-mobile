@@ -2,19 +2,18 @@
  * @name: Button
  * @description: 按钮demo
  */
-import React, { Component } from 'react';
-import MyComponent from '../index';
-import { WhiteSpace } from 'antd-mobile';
-import '../style';
-import './demo.less';
+import React, { Component } from 'react'
+import MyComponent from '../index'
+import { WhiteSpace } from 'antd-mobile'
+import '../style'
+import './demo.less'
 export default class Demo1 extends Component {
-
-  render() {
+  render () {
     const props = {
       prefixCls: 'am-button',
       type: 'primary',
       size: 'large',
-      loading: false,// 是否显示加载图标
+      loading: false, // 是否显示加载图标
       content: 'primaryButton',
       disabled: false,
       inline: false,
@@ -22,7 +21,7 @@ export default class Demo1 extends Component {
     }
     return (
       <div >
-        <MyComponent type="primary" style={{color:'#111'}}>Primary</MyComponent>
+        <MyComponent type="primary" style={{ color: '#111' }}>Primary</MyComponent>
         <WhiteSpace/>
         <MyComponent type="default">Primary</MyComponent>
         <WhiteSpace/>
@@ -37,7 +36,7 @@ export default class Demo1 extends Component {
         <MyComponent size="small" inline={true} type="warning">Primary</MyComponent>
         <WhiteSpace/>
         <MyComponent size="small" inline={true} type="ghost">Ghost</MyComponent>
-{/*
+        {/*
         <MyComponent type='default'>defaultButton</MyComponent>
 
         <MyComponent type='danger'>dangerButton</MyComponent>

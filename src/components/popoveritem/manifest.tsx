@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, UITable,ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, UITable, ComponentManifest } from 'libraui-extension'
 // todo 未配置 onClick onChange
 
 const manifestPopoverItem: ComponentManifest = {
@@ -40,7 +40,7 @@ const manifestPopoverItem: ComponentManifest = {
         label: '图标',
         isRequired: false,
         type: EditTypes.Textarea,
-        props: {},
+        props: {}
       }
     },
     {
@@ -51,10 +51,10 @@ const manifestPopoverItem: ComponentManifest = {
         label: '样式',
         isRequired: false,
         type: EditTypes.Textarea,
-        props: {},
+        props: {}
       }
     }
   ]
 }
 
-export {manifestPopoverItem,ReactWrapper}
+export { manifestPopoverItem, ReactWrapper }

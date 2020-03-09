@@ -5,29 +5,31 @@ import { IconPropsType } from './PropsType'
 import { Omit } from '../_utils/types'
 
 export type SvgProps = Omit<
-  React.HTMLProps<SVGSVGElement>,
-  'size' | 'type'
+React.HTMLProps<SVGSVGElement>,
+'size' | 'type'
 >
 export interface IconProps extends IconPropsType, SvgProps {
-  size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg';
+  size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg'
   onClick?: React.MouseEventHandler<SVGSVGElement>
 }
 
 export default class Icon extends React.Component<IconProps, any> {
   static defaultProps = {
-    size: 'md',
+    size: 'md'
   }
-  componentDidMount() {
+
+  componentDidMount () {
     console.log(this.props.type)
-    loadSprite(this.props.type);
+    loadSprite(this.props.type)
   }
-  render() {
+
+  render () {
     const { type, className, size, style, ...restProps } = this.props
     const cls = classnames(
       className,
       'am-icon',
       `am-icon-${type}`,
-      `am-icon-${size}`,
+      `am-icon-${size}`
     )
     return (
       <svg className={cls} {...restProps}

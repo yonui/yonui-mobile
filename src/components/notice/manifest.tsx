@@ -1,9 +1,9 @@
-import { FieldTypes, EditTypes, ReactWrapper ,UITable, ComponentManifest} from 'libraui-extension'
-const manifest:ComponentManifest = {
+import { FieldTypes, EditTypes, ReactWrapper, UITable, ComponentManifest } from 'libraui-extension'
+const manifest: ComponentManifest = {
   name: 'Notice',
   label: '通告栏',
   type: 'DataDisplay',
-  uiTable:UITable.BillItemBase,
+  uiTable: UITable.BillItemBase,
   props: [
     {
       name: 'content',
@@ -89,7 +89,7 @@ const manifest:ComponentManifest = {
     {
       name: 'noticeModalShow',
       type: FieldTypes.boolean,
-      defaultValue:true,
+      defaultValue: true,
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
@@ -113,4 +113,4 @@ const manifest:ComponentManifest = {
     }
   ]
 }
-export  {manifest,ReactWrapper}
+export { manifest, ReactWrapper }

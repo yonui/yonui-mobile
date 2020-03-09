@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, UITable,ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, UITable, ComponentManifest } from 'libraui-extension'
 // todo 未配置 onClick onChange
 const menuData = [
   {
@@ -188,4 +188,4 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export {manifest,ReactWrapper}
+export { manifest, ReactWrapper }

@@ -18,7 +18,7 @@ export interface CarouselProps {
   swipeSpeed?: number
   ratio?: string
   style?: React.CSSProperties
-  children?: Array<any>
+  children?: any[]
 }
 export default class MDFCarousel extends React.Component<CarouselProps, any> {
   static defaultProps = {
@@ -35,34 +35,31 @@ export default class MDFCarousel extends React.Component<CarouselProps, any> {
     cellSpacing: 0,
     slideWidth: 1,
     swipeSpeed: 12,
-    ratio: "4:2"
+    ratio: '4:2'
   }
-  constructor(props: CarouselProps) {
-    super(props)
-  }
-  getPaddingBottom() {
+
+  getPaddingBottom () {
     const { ratio = '4:2' } = this.props
-    const reg =  /[0-9]\:[0-9]/
-    if(reg.test(ratio)) {
-      const result:any = ratio.split(':')
-      return result[1]/result[0] * 100 + '%'
+    const reg = /[0-9]:[0-9]/
+    if (reg.test(ratio)) {
+      const result: any = ratio.split(':')
+      return `${result[1] / result[0] * 100}%`
     }
     return '50%'
   }
-  render() {
+
+  render () {
     const { prefixCls, children, style, ratio, ...otherProps } = this.props
     const wrapCls = classnames({
-      [`${prefixCls}-ratio`]: !!ratio,
+      [`${prefixCls}-ratio`]: !!ratio
     })
     return (
       <div className={wrapCls} style={{
         ...style,
-        paddingBottom: !!ratio ? this.getPaddingBottom() : undefined
+        paddingBottom: ratio ? this.getPaddingBottom() : undefined
       }}>
         <Carousel {...otherProps}>{children}</Carousel>
       </div>
     )
   }
 }
-
-

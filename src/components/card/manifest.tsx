@@ -112,7 +112,7 @@ const manifest: ComponentManifest = {
         props: {},
         label: '尾部辅助内容'
       }
-    },
+    }
   ],
   children: () => true
 }

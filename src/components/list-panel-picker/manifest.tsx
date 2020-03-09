@@ -1,8 +1,8 @@
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
 const data = [
-  { key:'1', text: '修改所有日程' },
-  { key:'2', text: '修改将来所有日程'},
-  { key:'3', text: '删除日程', delete: true }
+  { key: '1', text: '修改所有日程' },
+  { key: '2', text: '修改将来所有日程' },
+  { key: '3', text: '删除日程', delete: true }
 ]
 const manifest: ComponentManifest = {
   name: 'ListPanelPicker',
@@ -74,10 +74,10 @@ const manifest: ComponentManifest = {
         props: {},
         label: '是否显示'
       }
-    },
+    }
   ]
 }
 export {
   manifest,
   ReactWrapper
-} 
+}

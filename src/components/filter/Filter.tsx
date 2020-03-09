@@ -1,33 +1,23 @@
 import React, { Component } from 'react'
-import { Drawer, Button } from 'antd-mobile'
+import { Drawer } from 'antd-mobile'
 import classnames from 'classnames'
-const data = {
-  reset: '重置',
-  confirm: '确定'
-}
+
 export interface FilterProps {
   open: boolean
   onOpenChange?: () => void
   btn1?: string
   btn2?: string
-  onBtn1Click: () => void
-  onBtn2Click: () => void
+  onBtn1Click?: () => void
+  onBtn2Click?: () => void
   position?: 'left' | 'right'
   className?: string
 }
 export default class Filter extends Component<FilterProps> {
-
   static defaultProps = {
     open: false,
     btn1: '重置',
     btn2: '确定',
-    position: 'right',
-    onBtn1Click: () => {},
-    onBtn2Click: () => {},
-  }
-
-  onOpen = () => {
-
+    position: 'right'
   }
 
   getSidebarFooter: () => React.ReactNode = () => {
@@ -39,7 +29,7 @@ export default class Filter extends Component<FilterProps> {
   }
 
   getSidebar = (children: React.ReactNode) => {
-    const footer = this.getSidebarFooter();
+    const footer = this.getSidebarFooter()
     return <div className='libraui-filter-sidebar'>
 
       <div className='libraui-filter-sidebar-content'>
@@ -49,9 +39,9 @@ export default class Filter extends Component<FilterProps> {
     </div>
   }
 
-  render() {
+  render () {
     const { open, onOpenChange, children, position, className, ...other } = this.props
-    const cls = classnames(className,'libraui-filter')
+    const cls = classnames(className, 'libraui-filter')
     return (
       <Drawer
         className={cls}

@@ -1,4 +1,4 @@
 export interface IconPropsType {
-  type: string;
-  color?: string;
+  type: string
+  color?: string
 }

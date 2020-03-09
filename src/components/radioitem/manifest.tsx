@@ -1,13 +1,12 @@
-import { FieldTypes, EditTypes, ReactWrapper, UITable,ComponentManifest } from 'libraui-extension'
-
+import { FieldTypes, EditTypes, ReactWrapper, UITable, ComponentManifest } from 'libraui-extension'
 
 // todo 未配置 onChange
-const manifestRaidoItem:ComponentManifest = {
+const manifestRaidoItem: ComponentManifest = {
   name: 'RadioItem',
   label: '单选项',
   description: '',
   type: 'DataEntry',
-  uiTable:UITable.BillItemBase,
+  uiTable: UITable.BillItemBase,
   props: [
     {
       name: 'name',
@@ -70,4 +69,4 @@ const manifestRaidoItem:ComponentManifest = {
   children: []
 }
 
-export {manifestRaidoItem,ReactWrapper}
+export { manifestRaidoItem, ReactWrapper }

@@ -2,13 +2,13 @@
  * @name: SegmentedControl
  * @description: 分段菜单
  */
-import React, { Component } from 'react';
-import SegmentMenu from '../index';
+import React, { Component } from 'react'
+import SegmentMenu from '../index'
 import SegmentMenuItem from '../../segment-menu-item'
 import Card from '../../card'
 import WidteSpace from '../../white-space'
-import '../style';
-import './demo.less';
+import '../style'
+import './demo.less'
 
 const data = [
   { title: '智能推荐' },
@@ -17,19 +17,19 @@ const data = [
   { title: '固定考勤' }
 ]
 export default class Demo1 extends Component {
-  render() {
+  render () {
     return (
       <SegmentMenu>
-        {data.map((v:any, i:any)=> (
-          <SegmentMenuItem 
-            data={v} 
+        {data.map((v: any, i: any) => (
+          <SegmentMenuItem
+            data={v}
             title={v.title}
             itemIndex={i}>
-            <Card 
+            <Card
               headerTitle={v.title}>
-            </Card> 
-            <WidteSpace></WidteSpace> 
-          </SegmentMenuItem> 
+            </Card>
+            <WidteSpace></WidteSpace>
+          </SegmentMenuItem>
         ))}
       </SegmentMenu>
     )

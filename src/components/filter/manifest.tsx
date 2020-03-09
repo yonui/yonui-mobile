@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest,UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'Filter',
   label: '筛选组件',
@@ -15,7 +15,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: false,
         props: {},
-        label: '是否显示',
+        label: '是否显示'
       }
     },
     {
@@ -75,7 +75,7 @@ const manifest: ComponentManifest = {
         props: {},
         label: '右侧按钮点击事件'
       }
-    },
+    }
   ],
   children: ['FilterContent']
 }

@@ -20,7 +20,7 @@ const manifest: ComponentManifest = {
     }
   ],
   autoAddItemByModel: 'Input',
-  children:() => true
+  children: () => true
 }
 
 export {

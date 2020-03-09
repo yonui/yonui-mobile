@@ -1,14 +1,6 @@
 import React, { Component } from 'react'
 
 import { Result } from 'antd-mobile'
-// import './style';
-
-export interface EmptyProps {
-  mode?: string,
-  message: string,
-  imgUrl: string,
-  style?: React.CSSProperties
-}
 
 import noDataSrc from './style/result/noData.png'
 import client404Src from './style/result/client404.png'
@@ -17,6 +9,14 @@ import errorSrc from './style/result/error.png'
 import reviewSrc from './style/result/review.png'
 import serverSrc from './style/result/server.png'
 import noNetworkSrc from './style/result/noNetwork.png'
+// import './style';
+
+export interface EmptyProps {
+  mode?: string
+  message: string
+  imgUrl: string
+  style?: React.CSSProperties
+}
 const data = [
   { value: 'noData', text: '暂无文件', src: noDataSrc },
   { value: 'client', text: '404', src: client404Src },
@@ -26,13 +26,14 @@ const data = [
   { value: 'server', text: '500、服务器', src: serverSrc },
   { value: 'noNetwork', text: '暂无网络', src: noNetworkSrc }
 ]
-export default class Empty extends Component<EmptyProps>{
+export default class Empty extends Component<EmptyProps> {
   static defaultProps = {
     mode: 'noData',
     style: {}
   }
-  render() {
-    const { mode, message, style} = this.props
+
+  render () {
+    const { mode, message, style } = this.props
     console.log(style, typeof style)
     let msg = message
     let src = ''

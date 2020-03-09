@@ -5,16 +5,16 @@ export interface LabelProps {
   style?: React.CSSProperties
 }
 export default class Label extends React.Component<LabelProps> {
-
   static defaultProps = {
     style: {
-      color:'rgba(255,255,255,1)',
-      background:'rgba(0,199,230,1)'
+      color: 'rgba(255,255,255,1)',
+      background: 'rgba(0,199,230,1)'
     }
   }
-  render() {
+
+  render () {
     const { label, style } = this.props
-    const labelClassName = `label`
+    const labelClassName = 'label'
     return (
       <span className={labelClassName} style={{ ...style }}>{label}</span>
     )

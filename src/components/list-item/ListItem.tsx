@@ -10,7 +10,7 @@ export interface ListItemProps {
   arrow?: string
   singleLine?: boolean
 }
-export default class  ListItem extends React.Component<ListItemProps, any> {
+export default class ListItem extends React.Component<ListItemProps, any> {
   static defaultProps = {
     prefixCls: 'mdf-list-item',
     leftThumb: '',
@@ -21,17 +21,16 @@ export default class  ListItem extends React.Component<ListItemProps, any> {
     arrow: false,
     singleLine: false
   }
-  constructor(props: ListItemProps) {
-    super(props)
-  }
+
   renderThumb = (direction: string) => { // 渲染thumb
-    if(!direction) return null
+    if (!direction) return null
     const { prefixCls } = this.props
     const thumb = direction === 'left' ? this.props.leftThumb : this.props.rightThumb
     return thumb ? (<div className={`${prefixCls}-thumb ${prefixCls}-thumb-${direction}`}>
       {typeof thumb === 'string' ? <img src={thumb} /> : thumb}
     </div>) : null
   }
+
   renderContent = () => {
     const { prefixCls, title, titleExtra, briefExtra, singleLine } = this.props
     return <div className={`${prefixCls}-content`}>
@@ -53,11 +52,12 @@ export default class  ListItem extends React.Component<ListItemProps, any> {
       </div>)}
     </div>
   }
-  render() {
+
+  render () {
     const {
       prefixCls,
       singleLine,
-      arrow,
+      arrow
     } = this.props
     const wrapperCls = classnames(`${prefixCls}`, {
       [`${prefixCls}-single-line`]: singleLine
@@ -65,7 +65,7 @@ export default class  ListItem extends React.Component<ListItemProps, any> {
     const arrowCls = classnames(`${prefixCls}-arrow`, {
       [`${prefixCls}-arrow-horizontal`]: arrow === 'horizontal',
       [`${prefixCls}-arrow-vertical`]: arrow === 'down' || arrow === 'up',
-      [`${prefixCls}-arrow-vertical-up`]: arrow === 'up',
+      [`${prefixCls}-arrow-vertical-up`]: arrow === 'up'
     })
     return (
       <div className={wrapperCls}>
@@ -77,4 +77,3 @@ export default class  ListItem extends React.Component<ListItemProps, any> {
     )
   }
 }
-
