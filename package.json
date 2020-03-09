@@ -1,6 +1,6 @@
 {
   "name": "yonui-mobile",
-  "version": "0.3.22",
+  "version": "0.3.23",
   "description": "Libra ui for Antd Mobile",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
