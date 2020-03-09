@@ -19,17 +19,18 @@ const manifest:ComponentManifest = {
         label: '名称'
       }
     },
-    {
-      name: 'defaultChecked',
-      type: FieldTypes.boolean,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: true,
-        props: {},
-        label: '初始值'
-      }
-    },
+    // {
+    //   name: 'defaultChecked',
+    //   type: FieldTypes.boolean,
+    //   defaultValue:true,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Bool,
+    //     isRequired: true,
+    //     props: {},
+    //     label: '初始值'
+    //   }
+    // },
     {
       name: 'checked',
       type: FieldTypes.boolean,
