@@ -103,25 +103,18 @@ const manifest: ComponentManifest = {
     {
       name: 'format',
       type: FieldTypes.string,
-      defaultValue: 'yyyy-MM-dd',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: '设置日期格式'
-      }
-    },
-    {
-      name: 'defaultDate',
-      type: FieldTypes.date,
-      defaultValue: new Date(),
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Date,
-        isRequired: false,
-        props: {},
-        label: '显示开始日期'
+        type: EditTypes.Select,
+        isRequired: true,
+        props: {
+          options: [
+            { value: 'YYYY-MM-DD', text: '日期' },
+            { value: 'YYYY-MM-DD HH:mm', text: '日期+时间' }
+          ]
+        },
+        label: 'format',
+        help: '格式化选中的值'
       }
     },
     {
@@ -157,7 +150,21 @@ const manifest: ComponentManifest = {
         type: EditTypes.Json,
         isRequired: false,
         props: {},
-        label: '日期选择的值'
+        label: '默认日历选择范围',
+        help: '默认日历选择范围'
+      }
+    },
+    {
+      name: 'defaultDate',
+      type: FieldTypes.date,
+      defaultValue: new Date(),
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Date,
+        isRequired: false,
+        props: {},
+        label: '显示开始日期',
+        help: '日历弹层的配置-开始日期'
       }
     },
     {
@@ -169,7 +176,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Date,
         isRequired: false,
         props: {},
-        label: '最小日期'
+        label: '最小日期',
+        help: '日历弹层的配置-最小日期'
       }
     },
     {
@@ -181,7 +189,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Date,
         isRequired: false,
         props: {},
-        label: '最大日期'
+        label: '最大日期',
+        help: '日历弹层的配置-最大日期'
       }
     },
     {
@@ -241,7 +250,7 @@ const manifest: ComponentManifest = {
       type: FieldTypes.date,
       showDesign: true,
       designConfig: {
-        type: EditTypes.Date,
+        type: EditTypes.Time,
         isRequired: false,
         props: {},
         label: '默认时间选择值'

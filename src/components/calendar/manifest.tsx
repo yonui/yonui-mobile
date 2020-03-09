@@ -192,7 +192,7 @@ const manifest: ComponentManifest = {
       type: FieldTypes.date,
       showDesign: true,
       designConfig: {
-        type: EditTypes.Date,
+        type: EditTypes.Time,
         isRequired: false,
         props: {},
         label: '默认时间选择值'

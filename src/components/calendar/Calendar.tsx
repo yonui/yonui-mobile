@@ -20,6 +20,7 @@ export default class MyComponent extends Component<CalendarProps> {
         if (defaultValue[1]) {
           if (type==='one') {
             delete defaultValue[1]
+            defaultValue.length = 1;
           }
           else {
             defaultValue[1] = (typeof defaultValue[1] === 'string') ? new Date(defaultValue[1]) : defaultValue[1]
