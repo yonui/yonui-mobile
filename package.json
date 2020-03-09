@@ -3,7 +3,7 @@
   "version": "0.3.21",
   "description": "Libra ui for Antd Mobile",
   "main": "./dist/index.js",
-  "module": "./lib/index.js",
+  "module": "./dist/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
     "start": "node --max_old_space_size=4096 ./node_modules/libraui-cli/bin start",
