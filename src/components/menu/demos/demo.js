@@ -84,7 +84,7 @@ export default class Demo1 extends Component {
   render () {
     return (
       <div style={{ marginTop: 10 }}>
-        <MyComponent data={menuData}></MyComponent>
+        <MyComponent data={menuData} level={1} height={200}></MyComponent>
       </div>
     )
   }

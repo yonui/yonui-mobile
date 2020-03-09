@@ -33,9 +33,33 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'size',
+      type: FieldTypes.string,
+      defaultValue: 'sm',
+      value: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        props: {
+          options:
+            [
+              // { value: 'left', text: 'left' },
+              // { value: 'right', text: 'right' },
+              // { value: 'top', text: 'top' },
+              // { value: 'bottom', text: 'bottom' },
+              // { value: 'topLeft', text: 'topLeft' },
+              { value: 'md', text: 'md' },
+              { value: 'sm', text: 'sm' }
+              // { value: 'bottomRight', text: 'bottomRight' }
+            ]
+        },
+        label: '大小'
+      }
+    },
+    {
       name: 'overlayData',
       type: FieldTypes.array,
-      defaultValue: JSON.stringify([{ icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg', label: 'test1' }]),
+      defaultValue: JSON.stringify([{ icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg', label: '选项' }]),
       showDesign: true,
       designConfig: {
         label: 'pop内容',

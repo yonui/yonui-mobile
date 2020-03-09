@@ -2,16 +2,24 @@
 @popoverPrefixCls: am-popover;
 
 .@{popoverPrefixCls}{
-  .@{popoverPrefixCls}-content{
-    min-width: 90*@hd;
-    max-width: 210*@hd;
+  &-size-sm{
+    width: 90*@hd;
   }
+  &-size-md{
+    width: 210*@hd;
+  }
+  // .@{popoverPrefixCls}-content{
+  //   min-width: 90*@hd;
+  //   max-width: 210*@hd;
+  // }
 }
 .@{popoverPrefixCls} .@{popoverPrefixCls}-item{
+  padding:  0  16*@hd;
   &-container{
     height: 44* @hd;
     display: flex;
-    justify-content: center;
+    justify-content: left;
+    padding:0;
   }
   &-icon,&-icon>img{
     width: 20*@hd;

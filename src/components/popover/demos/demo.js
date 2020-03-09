@@ -26,9 +26,9 @@ export default class Demo1 extends Component {
             visible,
         });
     };
-    handleVisibleChange2=(visible)=>{
+    handleVisibleChange2 = (visible) => {
         this.setState({
-            visible2:visible,
+            visible2: visible,
         });
     }
     render() {
@@ -36,19 +36,20 @@ export default class Demo1 extends Component {
             <div>
                 <Popover
                     visible={this.state.visible}
-                    overlayData={[{icon:'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',label:'test1'}]}
+                    overlayData={[{ icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg', label: '选项' }]}
                     onVisibleChange={this.handleVisibleChange}
-                    content={<span >此处触发pop content展开和关闭 深色</span>}
                 >
                     <span style={{ "display": 'inline-block', 'line-height': 40 }}>此处触发pop展开和关闭 深色</span>
                 </Popover>
 
                 <Popover
                     dark={false}
-
+                    size={'md'}
                     visible={this.state.visible2}
-                    overlayData={[{icon:'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',label:'test1'},
-                    {icon:null,label:'test2test2test2'}]}
+                    overlayData={[
+                        { icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg', label: '选项' },
+                        { icon: null, label: 'test2test2test2' }
+                    ]}
                     onVisibleChange={this.handleVisibleChange2}
                 >
                     <span style={{ "display": 'inline-block', 'line-height': 40 }}>此处触发pop展开和关闭 浅色</span>
