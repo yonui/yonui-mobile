@@ -9,21 +9,36 @@
 
 
 .libraui-loading{
-  .libraui-loading-local{
-    justify-content: center;
-    flex-direction: column;
+  &.libraui-loading-local{
+    // justify-content: center;
+    // flex-direction: column;
+    color: #888888;
+    // opacity: 1;
+    font-size: 10px;
+    .am-activity-indicator{
+      flex-direction: column;
+    }
+    .am-activity-indicator-tip{
+      color: inherit;
+      opacity: inherit;
+      font-size: inherit;
+      margin-left: 0;
+    }
   }
 
-  .libraui-loading-toast{
+  &.libraui-loading-toast{
+    color: @loading-text-color;
+    font-size: 13 * @hd;
     .am-activity-indicator-content{
+      color: inherit;
       width: 90 * @hd;
       height: 90 * @hd;
       box-sizing: border-box;
       background-color: @loading-mask-color;
       opacity: @loading-mask-opacity;
+      font-size: inherit;
       .am-activity-indicator-toast{
-        font-size: 13 * @hd;
-        color: @loading-text-color;
+        font-size: inherit;
       }
     }
   }

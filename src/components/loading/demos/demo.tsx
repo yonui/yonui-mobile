@@ -57,10 +57,10 @@ export default class Demo extends Component<any,any> {
         <Loading type='jump' show={jumpLoading} percent={percent}/>
         <br/>
         <Button type='primary' onClick={this.onChangeLoading('localLoading')} content='local loading'/>
-        <Loading type='local' show={localLoading} content='加载中'/>
+        <Loading type='local' show={localLoading} content='加载中' />
         <br/>
         <Button type='primary' onClick={this.onChangeLoading('toastLoading')} content='local loading'/>
-        <Loading type='toast' show={toastLoading} content='加载中'/>
+        <Loading type='toast' show={toastLoading} content='加载中' />
       </div>
     )
   }

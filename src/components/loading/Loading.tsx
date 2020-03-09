@@ -24,8 +24,9 @@ export default class Loading extends Component<LoadingProps> {
   render () {
     const { content, inline, size, show, type, percent, theme, className, style, ...other } = this.props
     const themeCls = `libraui-loading-${theme}`
-    const cls = classnames(`libraui-loading-${type}`, themeCls, className)
-    let loading = null;
+    const cls = classnames(themeCls, className)
+    const wrapperCls = classnames('libraui-loading', `libraui-loading-${type}`)
+    let loading = null
     switch (type) {
       case 'jump': {
         const position = inline ? 'normal' : 'fixed'
@@ -43,7 +44,7 @@ export default class Loading extends Component<LoadingProps> {
       }
     }
     return (
-      <div className='libraui-loading' style={style}>
+      <div className={wrapperCls} style={style}>
         {loading}
       </div>
     )
