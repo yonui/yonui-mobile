@@ -89,18 +89,18 @@ const manifest: ComponentManifest = {
         label: '初始默认值'
       }
     },
-    {
-      name: 'extra',
-      type: FieldTypes.string,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: true,
-        props: {},
-        label: '右侧注释'
-      }
-    },
+    // {
+    //   name: 'extra',
+    //   type: FieldTypes.string,
+    //   defaultValue: '',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     isRequired: true,
+    //     props: {},
+    //     label: '右侧注释'
+    //   }
+    // },
     {
       name: 'placeholder',
       type: FieldTypes.string,

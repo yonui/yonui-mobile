@@ -29,8 +29,7 @@ export default class Demo1 extends Component {
       required: true,
       editable: true,
       disabled: false,
-      clear: true,
-      extra: '右侧注释'
+      clear: true
     }
     return (
       <MyComponent {...props}
