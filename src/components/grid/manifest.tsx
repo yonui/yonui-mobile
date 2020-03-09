@@ -186,8 +186,7 @@ const manifest: ComponentManifest = {
     {
       name: 'activeStyle',
       type: FieldTypes.object,
-      defaultValue: '',
-      value: '',
+      defaultValue: JSON.stringify({}),
       showDesign: true,
       designConfig: {
         type: EditTypes.Json,
