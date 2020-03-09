@@ -74,7 +74,7 @@ export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
       const style = { width: `${100 / length}%` }
       return values.map((item, index) => this.renderItem(item, index, style, false, selectedIndex))
     }
-    const style = { width: '20%' }
+    const style = { width: '25%' }
     const items = []
     const overlay: any[] = []
     values.forEach((item, index) => {
@@ -84,11 +84,11 @@ export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
         overlay.push(this.renderItem(item, index, {}, true, selectedIndex))
       }
     })
-    const cls = classnames('tool-bar-item', {
+    const cls = classnames('tool-bar-item', 'tool-bar-item-icon', {
       'tool-bar-item-selected': selectedIndex && selectedIndex > 3
     })
     const popoverItem = <Popover overlay={<div className='tool-bar-popover'>{overlay}</div>} placement={placement} onVisibleChange={this.handleVisibleChange} visible={this.state.visiable}>
-      <div className={cls} style={style}>
+      <div className={cls} >
         <Icon type='ellipsis' />
       </div>
     </Popover>
@@ -106,7 +106,6 @@ export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
   render () {
     const { className, style, values, selectedIndex } = this.props
     const cls = classnames('libraui-tool-bar', className)
-    // console.log(values)
     const val = this.parseObj(values)
     return (
       <div className={cls} style={style} >
