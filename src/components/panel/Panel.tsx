@@ -48,7 +48,10 @@ export default class Panel extends Component<PanelProps> {
     const res = items.map((item, index) => {
       return this.renderItem(item, row, index)
     })
-    return <div className='panel-content-items'>
+    const cls = classnames('panel-content-items', {
+      'panel-content-more': res.length > 5
+    })
+    return <div className={cls} >
       {res}
     </div>
   }
