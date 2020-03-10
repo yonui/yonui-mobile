@@ -8,7 +8,6 @@ import Button from '../../button'
 import '../../button/style'
 import '../style'
 import './demo.less'
-import img from '../style/loading.png'
 export default class Demo extends Component<any, any> {
   constructor (props: any) {
     super(props)

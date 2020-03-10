@@ -79,7 +79,7 @@ const manifest: ComponentManifest = {
     {
       name: 'level',
       type: FieldTypes.number,
-      defaultValue: 2,
+      defaultValue: 1,
       value: '',
       showDesign: true,
       designConfig: {
@@ -124,8 +124,7 @@ const manifest: ComponentManifest = {
     {
       name: 'height',
       type: FieldTypes.number,
-      defaultValue: '',
-      value: '',
+      defaultValue: 200,
       showDesign: true,
       designConfig: {
         type: EditTypes.Number,

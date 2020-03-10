@@ -5,3 +5,4 @@ dist
 jslib/
 
 src/components/*/demos/*.*
+static

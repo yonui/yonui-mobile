@@ -13,17 +13,20 @@ export interface popProps extends PopoverPropsType{
   className?: string
   content?: React.ReactNode
   overlayClassName: string
+  size: string
   onVisibleChange?: any
   placement?: 'top' | 'bottom' | 'bottomLeft' | 'left' | 'right' | 'topLeft' | 'topRight' | 'bottomRight'
 }
 class PopoverControl extends React.Component<popProps, any> {
   public static defaultProps = {
-    placement: 'bottomLeft'
+    placement: 'bottomLeft',
+    size: 'sm',
+    dark: true
   }
 
   render () {
-    const { className = '', overlayClassName = '', dark = true, overlayData } = this.props
-    const popClassName = classNames({ 'am-popover-dark': dark }, className, overlayClassName)
+    const { className = '', overlayClassName = '', dark = true, overlayData, size } = this.props
+    const popClassName = classNames({ 'am-popover-dark': dark, 'am-popover-size-sm': size === 'sm', 'am-popover-size-md': size === 'md' }, className, overlayClassName)
     const overlayDom: any = []
     if (overlayData && Array.isArray(overlayData)) {
       overlayData.forEach((item: any, key: any) => {

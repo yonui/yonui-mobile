@@ -93,26 +93,27 @@ const manifest: ComponentManifest = {
         label: '图标大小',
         help: '对局部加载有效'
       }
+    },
+    {
+      name: 'theme',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        isRequired: true,
+        props: {
+          options:
+            [
+              { value: '', text: '默认' },
+              { value: 'primary', text: '主题色' },
+              { value: 'dark', text: '深色' },
+              { value: 'light', text: '浅色' }
+            ]
+        },
+        label: '主题'
+      }
     }
-    // {
-    //   name: 'theme',
-    //   type: FieldTypes.string,
-    //   defaultValue: 'primary',
-    //   showDesign: true,
-    //   designConfig: {
-    //     type: EditTypes.Select,
-    //     isRequired: true,
-    //     props: {
-    //       options:
-    //         [
-    //           { value: 'primary', text: '主题色' },
-    //           { value: 'dark', text: '深色' },
-    //           { value: 'light', text: '浅色' },
-    //         ]
-    //     },
-    //     label: '主题'
-    //   }
-    // },
   ],
   children: []
 }
