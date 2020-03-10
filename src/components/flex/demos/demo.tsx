@@ -3,41 +3,55 @@
  * @description: 布局容器
  */
 import React, { Component } from 'react'
-import Flex from '../index'
+import {Flex} from "antd-mobile"
 import FlexItem from '../../flex-item'
 import Button from '../../button'
-import Card from '../../card'
-import Search from '../../input'
+import WhiteSpace from '../../white-space'
 
 import '../style'
 import './demo.less'
+import '../../button/style'
+
+
+const PlaceHolder = ({ className = '', ...restProps }) => (
+  <div className={`${className} placeholder`} {...restProps}>Block</div>
+);
+
 export default class Demo1 extends Component {
-  render () {
+  render() {
     return (
       <div>
         <div>
-          row
+          横向布局默认
         </div>
         <Flex direction="row">
-          <FlexItem content = "aaaadflkjslkdf">
+          <FlexItem>
+            <Button type="primary">按钮1</Button>
           </FlexItem>
-          <FlexItem flex = "1">
-            2
+          <FlexItem>
+            <Button type="primary">按钮2</Button>
           </FlexItem>
-          <FlexItem flex = "auto">
-            3
+          <FlexItem>
+            <Button type="primary">按钮3</Button>
           </FlexItem>
 
         </Flex>
         <div>
-        column
+          纵向布局
         </div>
         <Flex direction="column">
           <FlexItem>
-            <Button >按钮2 </Button>
+            <Button type="primary">按钮1</Button>
           </FlexItem>
-          <FlexItem content = "aaaadflkjslkdf">
+          <WhiteSpace />
+          <FlexItem>
+            <Button type="primary">按钮2</Button>
           </FlexItem>
+          <WhiteSpace />
+          <FlexItem>
+            <Button type="primary">按钮3</Button>
+          </FlexItem>
+          <WhiteSpace />
         </Flex>
       </div>
     )

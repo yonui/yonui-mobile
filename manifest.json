@@ -43,7 +43,7 @@
     "FlexItem": "./src/components/flex-item",
     "Result": "./src/components/result",
     "Empty": "./src/components/empty",
-    "Badge": "./src/components/tips",
+    "Tips": "./src/components/tips",
     "Label": "./src/components/label",
     "NavBar": "./src/components/navbar",
 

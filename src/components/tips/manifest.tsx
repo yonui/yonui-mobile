@@ -1,7 +1,7 @@
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
 
 const manifest: ComponentManifest = {
-  name: 'Badge', // 自定义组件名称
+  name: 'Tips', // 自定义组件名称
   label: '徽标数', // 自定义组件文本
   description: '图标右上角的红点、数字或者文字。用于告知用户，该区域的状态变化或者待处理任务的数量。', // 描述
   type: 'DataDisplay',

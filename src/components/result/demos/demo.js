@@ -8,6 +8,10 @@ import '../style'
 import './demo.less'
 export default class Demo extends Component {
   render () {
-    return <Result mode="success" />
+    return <div>
+      <Result mode="success" />
+      <Result mode="wait" />
+      <Result mode="reject" />
+    </div>
   }
 }

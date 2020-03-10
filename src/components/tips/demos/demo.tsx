@@ -27,6 +27,10 @@ export default class Demo1 extends Component {
         <WhiteSpace />
         <MyComponent text={'new'} style={{ marginLeft: 12 }}></MyComponent>
         <WhiteSpace />
+        <MyComponent dot = "true" style={{ marginLeft: 12 }}></MyComponent>
+        <WhiteSpace />
+        <MyComponent dot = "true" style={{ marginLeft: 12,background : "#FFBB37" }}></MyComponent>
+        <WhiteSpace />
 
       </Flex>
     )

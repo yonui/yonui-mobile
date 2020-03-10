@@ -15,7 +15,7 @@ export default class FlexItem extends React.Component<FlexItemProps, any> {
         style={{
           ...this.props.style
         }}>
-        {this.props.children && this.props.children.length ? this.props.children : this.props.content}
+        {this.props.children}
       </Flex.Item>
     )
   }
