@@ -2,11 +2,11 @@
  * @name: Button
  * @description: 按钮demo
  */
-import React, { Component } from 'react'
-import MyComponent from '../index'
-import { WhiteSpace } from 'antd-mobile'
-import '../style'
-import './demo.less'
+import React, { Component } from 'react';
+import Button from '../index';
+import { WhiteSpace } from 'antd-mobile';
+import '../style';
+import './demo.less';
 export default class Demo1 extends Component {
   render () {
     const props = {
@@ -21,35 +21,38 @@ export default class Demo1 extends Component {
     }
     return (
       <div >
-        <MyComponent type="primary" style={{ color: '#111' }}>Primary</MyComponent>
+        <Button type="primary" content="主要操作/N"></Button>
         <WhiteSpace/>
-        <MyComponent type="default">Primary</MyComponent>
+        <Button type="primary" disabled={true}>主要操作/D</Button>
         <WhiteSpace/>
-        <MyComponent type="warning">Primary</MyComponent>
+        <Button>辅助操作/N</Button>
         <WhiteSpace/>
-        <MyComponent type="ghost">Ghost</MyComponent>
+        <Button disabled={true}>辅助操作/D</Button>
         <WhiteSpace/>
-        <MyComponent size="small" inline={true} type="primary">Primary</MyComponent>
+        <Button type="warning">警示按钮/N</Button>
         <WhiteSpace/>
-        <MyComponent size="small" inline={true} type="default">Primary</MyComponent>
+        <Button type="warning" disabled={true}>警示按钮/D</Button>
         <WhiteSpace/>
-        <MyComponent size="small" inline={true} type="warning">Primary</MyComponent>
+        <Button size="small" type="ghost">幽灵/N</Button>
         <WhiteSpace/>
-        <MyComponent size="small" inline={true} type="ghost">Ghost</MyComponent>
-        {/*
-        <MyComponent type='default'>defaultButton</MyComponent>
-
-        <MyComponent type='danger'>dangerButton</MyComponent>
-
-        <MyComponent type='primary' size='small'>smPrimary</MyComponent>
-
-        <MyComponent type='default' size ='small'>smDefault</MyComponent>
-
-        <MyComponent type='danger' size ='small'>smDanger</MyComponent>
-
-        <MyComponent ghost = {true} >ghostButton</MyComponent>
-        <MyComponent ghost = {true} inline={true}>ghostButton</MyComponent> */}
-
+        <Button size="small" type="ghost" disabled={true}>幽灵/D</Button>
+        <WhiteSpace/>
+        <Button size="small">次要/N</Button>
+        <WhiteSpace/>
+        <Button size="small" disabled={true}>次要/D</Button>
+        <WhiteSpace/>
+        <Button size="small" type="warning">警示/N</Button>
+        <WhiteSpace/>
+        <Button size="small" type="warning" disabled={true}>警示/D</Button>
+        <WhiteSpace/>
+        <Button size="small" type="primary">补充/N</Button>
+        <WhiteSpace/>
+        <Button size="small" type="primary" disabled={true}>补充/D</Button>
+        <WhiteSpace/>
+        <Button size="small" type="text">文本/D</Button>
+        <WhiteSpace/>
+        <Button size="small" type="text" disabled={true}>文本/D</Button>
+        <WhiteSpace/>
       </div>
     )
   }
