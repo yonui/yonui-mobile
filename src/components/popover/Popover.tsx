@@ -20,7 +20,8 @@ export interface popProps extends PopoverPropsType{
 class PopoverControl extends React.Component<popProps, any> {
   public static defaultProps = {
     placement: 'bottomLeft',
-    size: 'sm'
+    size: 'sm',
+    dark: true
   }
 
   render () {

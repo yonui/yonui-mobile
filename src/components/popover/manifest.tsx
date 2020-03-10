@@ -25,8 +25,8 @@ const manifest: ComponentManifest = {
               // { value: 'bottom', text: 'bottom' },
               // { value: 'topLeft', text: 'topLeft' },
               // { value: 'topRight', text: 'topRight' },
-              { value: 'bottomLeft', text: 'bottomLeft' }
-              // { value: 'bottomRight', text: 'bottomRight' }
+              { value: 'bottomLeft', text: 'bottomLeft' },
+              { value: 'bottomRight', text: 'bottomRight' }
             ]
         },
         label: '位置'

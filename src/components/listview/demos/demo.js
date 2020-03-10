@@ -50,6 +50,7 @@ export default class Demo1 extends React.Component {
         dataSource={this.state.dataSource}
         footerContent={''}
         initialListSize={2}
+        footerContent={"加载中"}
       >
 
         <div>这是第一行</div>
