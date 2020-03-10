@@ -5,7 +5,7 @@ const manifest: ComponentManifest = {
   label: '复选框',
   description: '',
   type: 'DataEntry',
-  uiTable:UITable.BillItemBase,
+  uiTable: UITable.BillItemBase,
   props: [
     {
       name: 'mode',
@@ -78,7 +78,7 @@ const manifestCheckBoxItem: ComponentManifest = {
   label: '复选框',
   description: '',
   type: 'DataEntry',
-  uiTable:UITable.BillItemBase,
+  uiTable: UITable.BillItemBase,
   props: [
     {
       name: 'defaultChecked',
@@ -134,11 +134,11 @@ const manifestAgreeItem: ComponentManifest = {
   label: 'AgreeItem',
   description: '', // 描述
   type: 'DataEntry',
-  uiTable:UITable.BillItemBase,
+  uiTable: UITable.BillItemBase,
   props: [// adapter适配层数据
   ]
 }
-export{
+export {
   manifest,
   ReactWrapper,
   manifestCheckBoxItem,

@@ -1,11 +1,11 @@
-import { FieldTypes, EditTypes, ReactWrapper, UITable,ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, UITable, ComponentManifest } from 'libraui-extension'
 // todo 未配置 onClick onChange
-const manifest:ComponentManifest = {
+const manifest: ComponentManifest = {
   name: 'Radio',
   label: '单选',
   description: '',
   type: 'DataEntry',
-  uiTable:UITable.BillItemBase,
+  uiTable: UITable.BillItemBase,
   props: [
     {
       name: 'name',
@@ -19,17 +19,18 @@ const manifest:ComponentManifest = {
         label: '名称'
       }
     },
-    {
-      name: 'defaultChecked',
-      type: FieldTypes.boolean,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: true,
-        props: {},
-        label: '初始值'
-      }
-    },
+    // {
+    //   name: 'defaultChecked',
+    //   type: FieldTypes.boolean,
+    //   defaultValue:true,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Bool,
+    //     isRequired: true,
+    //     props: {},
+    //     label: '初始值'
+    //   }
+    // },
     {
       name: 'checked',
       type: FieldTypes.boolean,
@@ -63,7 +64,7 @@ const manifest:ComponentManifest = {
         props: {},
         label: 'onChange'
       }
-    },
+    }
     // {
     //   name: 'mode',
     //   type: FieldTypes.string,
@@ -84,4 +85,4 @@ const manifest:ComponentManifest = {
   children: []
 }
 
-export {manifest,ReactWrapper}
+export { manifest, ReactWrapper }

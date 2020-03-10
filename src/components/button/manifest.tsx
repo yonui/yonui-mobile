@@ -4,7 +4,8 @@ const manifest: ComponentManifest = {
   name: 'Button',
   label: '按钮',
   type: 'DataEntry',
-  props: [{
+  props: [
+    {
       name: 'content',
       type: FieldTypes.string,
       defaultValue: 'Button',
@@ -26,25 +27,25 @@ const manifest: ComponentManifest = {
         isRequired: true,
         props: {
           options: [{
-              value: 'default',
-              text: '默认'
-            },
-            {
-              value: 'primary',
-              text: '主按钮'
-            },
-            {
-              value: 'warning',
-              text: '警告红'
-            },
-            {
-              value: 'ghost',
-              text: '透明'
-            },
-            {
-              value: 'text',
-              text: '文本'
-            },
+            value: 'default',
+            text: '默认'
+          },
+          {
+            value: 'primary',
+            text: '主按钮'
+          },
+          {
+            value: 'warning',
+            text: '警告红'
+          },
+          {
+            value: 'ghost',
+            text: '透明'
+          },
+          {
+            value: 'text',
+            text: '文本'
+          }
           ]
         },
         label: '按钮类型'
@@ -60,13 +61,13 @@ const manifest: ComponentManifest = {
         isRequired: true,
         props: {
           options: [{
-              value: 'large',
-              text: '大'
-            },
-            {
-              value: 'small',
-              text: '小'
-            }
+            value: 'large',
+            text: '大'
+          },
+          {
+            value: 'small',
+            text: '小'
+          }
           ]
         },
         label: '按钮大小'

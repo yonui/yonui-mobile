@@ -44,9 +44,9 @@
     "FlexItem": "./src/components/flex-item",
     "Result": "./src/components/result",
     "Empty": "./src/components/empty",
-    "tips": "./src/components/tips",
+    "Badge": "./src/components/tips",
     "Label": "./src/components/label",
-    "navbar": "./src/components/navbar",
+    "NavBar": "./src/components/navbar",
 
 
     "Div": "./src/components/div",
@@ -66,6 +66,8 @@
     "TabPane": "./src/components/tab-pane",
     "Filter": "./src/components/filter",
     "FilterContent": "./src/components/filter-content",
+    "ToolBars": "./src/components/tool-bars",
+    "Panel": "./src/components/panel",
 
     "Loading": "./src/components/loading",
     "Grid": "./src/components/grid",
@@ -77,7 +79,8 @@
     "ListPanelPicker": "./src/components/list-panel-picker",
     "DatePanelPicker": "./src/components/date-panel-picker",
     "ListDatePicker": "./src/components/list-date-picker",
-    "CalendarPanel": "./src/components/calendar-panel"
+    "CalendarPanel": "./src/components/calendar-panel",
+    "Icon":"./src/components/icon"
   }
 }
 

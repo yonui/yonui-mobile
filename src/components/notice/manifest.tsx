@@ -1,9 +1,9 @@
-import { FieldTypes, EditTypes, ReactWrapper ,UITable, ComponentManifest} from 'libraui-extension'
-const manifest:ComponentManifest = {
+import { FieldTypes, EditTypes, ReactWrapper, UITable, ComponentManifest } from 'libraui-extension'
+const manifest: ComponentManifest = {
   name: 'Notice',
   label: '通告栏',
   type: 'DataDisplay',
-  uiTable:UITable.BillItemBase,
+  uiTable: UITable.BillItemBase,
   props: [
     {
       name: 'content',
@@ -58,7 +58,7 @@ const manifest:ComponentManifest = {
         type: EditTypes.Textarea,
         isRequired: false,
         props: {},
-        label: '图标，在左侧展示'
+        label: '左侧图标'
       }
     },
     {
@@ -82,8 +82,21 @@ const manifest:ComponentManifest = {
         type: EditTypes.Textarea,
         isRequired: false,
         props: {},
-        label: '右侧',
+        label: '右侧内容',
         help: '用于替换操作 icon 的文案，在右侧展示'
+      }
+    },
+    {
+      name: 'noticeModalShow',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '弹框展示',
+        help: '只有弹框通告才会使用的参数，不传组件内部控制'
       }
     },
     {
@@ -100,4 +113,4 @@ const manifest:ComponentManifest = {
     }
   ]
 }
-export  {manifest,ReactWrapper}
+export { manifest, ReactWrapper }

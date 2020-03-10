@@ -1,5 +1,5 @@
 
-import { FieldTypes, EditTypes, ReactWrapper, UITable,ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, UITable, ComponentManifest } from 'libraui-extension'
 // todo 未配置 onClick onChange
 const manifest: ComponentManifest = {
   name: 'Popover',
@@ -11,7 +11,7 @@ const manifest: ComponentManifest = {
     {
       name: 'placement',
       type: FieldTypes.string,
-      defaultValue: 'bottomRight',
+      defaultValue: 'bottomLeft',
       value: '',
       showDesign: true,
       designConfig: {
@@ -19,12 +19,12 @@ const manifest: ComponentManifest = {
         props: {
           options:
             [
-              { value: 'left', text: 'left' },
-              { value: 'right', text: 'right' },
-              { value: 'top', text: 'top' },
-              { value: 'bottom', text: 'bottom' },
-              { value: 'topLeft', text: 'topLeft' },
-              { value: 'topRight', text: 'topRight' },
+              // { value: 'left', text: 'left' },
+              // { value: 'right', text: 'right' },
+              // { value: 'top', text: 'top' },
+              // { value: 'bottom', text: 'bottom' },
+              // { value: 'topLeft', text: 'topLeft' },
+              // { value: 'topRight', text: 'topRight' },
               { value: 'bottomLeft', text: 'bottomLeft' },
               { value: 'bottomRight', text: 'bottomRight' }
             ]
@@ -33,16 +33,40 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'size',
+      type: FieldTypes.string,
+      defaultValue: 'sm',
+      value: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        props: {
+          options:
+            [
+              // { value: 'left', text: 'left' },
+              // { value: 'right', text: 'right' },
+              // { value: 'top', text: 'top' },
+              // { value: 'bottom', text: 'bottom' },
+              // { value: 'topLeft', text: 'topLeft' },
+              { value: 'md', text: 'md' },
+              { value: 'sm', text: 'sm' }
+              // { value: 'bottomRight', text: 'bottomRight' }
+            ]
+        },
+        label: '大小'
+      }
+    },
+    {
       name: 'overlayData',
       type: FieldTypes.array,
-      defaultValue: JSON.stringify([{icon:'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',label:'test1'}]),
+      defaultValue: JSON.stringify([{ icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg', label: '选项' }]),
       showDesign: true,
       designConfig: {
         label: 'pop内容',
         isRequired: false,
         type: EditTypes.Json,
         props: {
-         
+
         }
       }
     },
@@ -67,7 +91,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: false,
         props: {},
-        label: '显隐'
+        label: '显示'
       }
     },
     {
@@ -83,7 +107,7 @@ const manifest: ComponentManifest = {
         help: '当显隐状态变化时回调函数'
       }
     },
-    
+
     {
       name: 'onSelect',
       type: FieldTypes.action,
@@ -98,7 +122,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children:()=>true
+  children: () => true
 }
 
-export {manifest,ReactWrapper}
+export { manifest, ReactWrapper }

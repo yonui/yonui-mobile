@@ -1,5 +1,5 @@
 import { FieldTypes, EditTypes, ReactWrapper, UITable, ComponentManifest } from 'libraui-extension'
-const now = new Date();
+const now = new Date()
 const manifest: ComponentManifest = {
   name: 'CalendarPanel',
   label: '日历面板',
@@ -75,11 +75,11 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '禁用某一天的函数',
-        help:"传递函数以确定某一天是否应显示为已禁用"
+        help: '传递函数以确定某一天是否应显示为已禁用'
       }
     }
   ]
-}   
+}
 export {
   manifest,
   ReactWrapper

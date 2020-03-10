@@ -40,7 +40,7 @@ const manifest: ComponentManifest = {
     {
       name: 'subTitle',
       type: FieldTypes.string,
-      defaultValue: '副标题',
+      defaultValue: '',
       value: '',
       showDesign: true,
       designConfig: {
@@ -91,7 +91,7 @@ const manifest: ComponentManifest = {
     {
       name: 'rightIcon1',
       type: FieldTypes.string,
-      defaultValue: 'search',
+      defaultValue: '',
       value: '',
       showDesign: true,
       designConfig: {

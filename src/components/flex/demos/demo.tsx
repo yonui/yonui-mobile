@@ -2,21 +2,20 @@
  * @name: Flex
  * @description: 布局容器
  */
-import React, { Component } from "react";
-import Flex from "../index";
-import FlexItem from '../../flex-item';
-import Button from "../../button";
-import Card from '../../card';
-import Search from '../../input';
+import React, { Component } from 'react'
+import Flex from '../index'
+import FlexItem from '../../flex-item'
+import Button from '../../button'
+import Card from '../../card'
+import Search from '../../input'
 
-
-import "../style";
-import "./demo.less";
+import '../style'
+import './demo.less'
 export default class Demo1 extends Component {
-  render() {
+  render () {
     return (
       <div>
-          <div>
+        <div>
           row
         </div>
         <Flex direction="row">
@@ -41,6 +40,6 @@ export default class Demo1 extends Component {
           </FlexItem>
         </Flex>
       </div>
-    );
+    )
   }
 }

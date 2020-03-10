@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 export interface CarouselProps {
   prefixCls?: string
   backgroundColor?: string
   backgroundImage?: string
   backgroundSize?: string
   height?: number
-  children?: Array<any>,
+  children?: any[]
   style?: React.CSSProperties
 }
 export default class CarouselItem extends React.Component<CarouselProps, any> {
@@ -19,15 +19,16 @@ export default class CarouselItem extends React.Component<CarouselProps, any> {
 
   divRef: HTMLDivElement | null
 
-  constructor(props: any) {
+  constructor (props: any) {
     super(props)
     this.divRef = null
     this.state = {
 
     }
   }
-  render() {
-    let {
+
+  render () {
+    const {
       prefixCls,
       backgroundColor,
       backgroundImage,
@@ -36,7 +37,7 @@ export default class CarouselItem extends React.Component<CarouselProps, any> {
       style
     } = this.props
     return (
-      <div className={prefixCls} ref={el => this.divRef = el} style={{
+      <div className={prefixCls} ref={el => { this.divRef = el }} style={{
         backgroundColor: backgroundColor,
         backgroundImage: backgroundImage,
         backgroundSize: backgroundSize,

@@ -7,59 +7,57 @@ interface FilterContentProps {
   selectData?: Array<{ desc: string, value: string }>
   className?: string
   style?: object
-  onSelect?: (item:any) => void
+  onSelect?: (item: any) => void
   selectedValue?: string
   extraInput?: string
   extraInputType?: 'date' | 'text' | 'calendar'
 }
-export default class FilterContent extends Component<FilterContentProps,any>{
-
+export default class FilterContent extends Component<FilterContentProps, any> {
   constructor (props: any) {
     super(props)
     this.state = {
-      value: [],
+      value: []
     }
   }
-
 
   static defaultProps = {
   }
 
   onConfirm = (startDateTime: Date, endDateTime: Date, value: string) => {
-    const { onSelect } = this.props;
-    onSelect && onSelect([startDateTime, endDateTime]);
+    const { onSelect } = this.props
+    onSelect && onSelect([startDateTime, endDateTime])
     this.setState({
       [value]: [startDateTime, endDateTime]
     })
   }
 
   renderSelection = (selectData?: Array<{ desc: string, value: string }>, selectedValue?: string) => {
-    const { onSelect } = this.props;
-    if(!selectData)return null;
-    return selectData.map( item => {
-      const cls = classnames('am-tag',`${item.value === selectedValue ? 'am-tag-active' : 'am-tag-normal'}`)
-      return <div className={cls} onClick={ ()=> { onSelect && onSelect(item.value)}}>
+    const { onSelect } = this.props
+    if (!selectData) return null
+    return selectData.map((item, index) => {
+      const cls = classnames('am-tag', `${item.value === selectedValue ? 'am-tag-active' : 'am-tag-normal'}`)
+      return <div className={cls} key={index} onClick={ () => { onSelect && onSelect(item.value) }}>
         <div className='am-tag-text'>{item.desc}</div>
       </div>
     })
   }
 
-  renderExtra = ( extraInput?: string, extraInputType?:string) => {
-    if(!extraInput) return null;
+  renderExtra = (extraInput?: string, extraInputType?: string) => {
+    if (!extraInput) return null
     const title = <div className='extra-title'>{extraInput}</div>
-    let content = null;
+    let content = null
     switch (extraInputType) {
-      case 'calendar':{
+      case 'calendar': {
         content = <Calendar
-        type='range'
-        minDate={new Date(2000, 1, 1, 0, 0, 0)}
-        maxDate={new Date(2030, 1, 1, 23, 59, 59)}
-        onConfirm={
-          (startDateTime: Date, endDateTime: Date) => {
-            this.onConfirm(startDateTime, endDateTime, 'value')
+          type='range'
+          minDate={new Date(2000, 1, 1, 0, 0, 0)}
+          maxDate={new Date(2030, 1, 1, 23, 59, 59)}
+          onConfirm={
+            (startDateTime: Date, endDateTime: Date) => {
+              this.onConfirm(startDateTime, endDateTime, 'value')
+            }
           }
-        }
-        value={this.state.value}
+          value={this.state.value}
         />
         break
       }
@@ -68,11 +66,11 @@ export default class FilterContent extends Component<FilterContentProps,any>{
         content = <Input onChange={this.props.onSelect}/>
         break
     }
-    return [title,content]
+    return [title, content]
   }
 
-  render() {
-    const { selectData, title, className, style, selectedValue,extraInput, extraInputType } = this.props;
+  render () {
+    const { selectData, title, className, style, selectedValue, extraInput, extraInputType } = this.props
     const cls = classnames(className, 'libraui-filter-content')
     return (
       <div className={cls} style={style}>
@@ -80,10 +78,10 @@ export default class FilterContent extends Component<FilterContentProps,any>{
           {title}
         </div>
         <div className='libraui-filter-content-selection'>
-          {this.renderSelection(selectData,selectedValue)}
+          {this.renderSelection(selectData, selectedValue)}
         </div>
         <div className='libraui-filter-content-extra'>
-          {this.renderExtra(extraInput,extraInputType)}
+          {this.renderExtra(extraInput, extraInputType)}
         </div>
       </div>
     )

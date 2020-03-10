@@ -91,7 +91,7 @@ const manifest: ComponentManifest = {
     {
       name: 'visible',
       type: FieldTypes.boolean,
-      defaultValue: true, // 设计器默认展示，实际antd默认false
+      defaultValue: false,
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
@@ -103,7 +103,7 @@ const manifest: ComponentManifest = {
     {
       name: 'defaultDate',
       type: FieldTypes.date,
-      defaultValue: new Date(),
+      defaultValue: new Date(now.getFullYear(), now.getMonth(), now.getDate() - 5),
       showDesign: true,
       designConfig: {
         type: EditTypes.Date,
@@ -149,25 +149,29 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'maxDate',
+      name: 'minDate',
       type: FieldTypes.date,
+      defaultValue: new Date(2000, 1, 1, 0, 0, 0),
       showDesign: true,
       designConfig: {
         type: EditTypes.Date,
         isRequired: false,
         props: {},
-        label: '最大日期'
+        label: '最小日期',
+        help: '日历弹层的配置-最小日期'
       }
     },
     {
-      name: 'minDate',
+      name: 'maxDate',
       type: FieldTypes.date,
+      defaultValue: new Date(2030, 1, 1, 23, 59, 59),
       showDesign: true,
       designConfig: {
         type: EditTypes.Date,
         isRequired: false,
         props: {},
-        label: '最小日期'
+        label: '最大日期',
+        help: '日历弹层的配置-最大日期'
       }
     },
     {
@@ -192,7 +196,7 @@ const manifest: ComponentManifest = {
       type: FieldTypes.date,
       showDesign: true,
       designConfig: {
-        type: EditTypes.Date,
+        type: EditTypes.Time,
         isRequired: false,
         props: {},
         label: '默认时间选择值'

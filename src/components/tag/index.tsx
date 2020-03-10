@@ -1,5 +1,5 @@
-import Tag  from './Tag'
+import Tag from './Tag'
 
-import { manifest, ReactWrapper} from './manifest'
+import { manifest, ReactWrapper } from './manifest'
 
 export default ReactWrapper(Tag, manifest)

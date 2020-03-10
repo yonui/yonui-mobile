@@ -2,15 +2,14 @@
  * @name: Loading
  * @description: Demo Description
  */
-import React, { Component } from 'react';
-import Loading from '../index';
+import React, { Component } from 'react'
+import Loading from '../index'
 import Button from '../../button'
 import '../../button/style'
-import '../style';
-import './demo.less';
-import img from '../style/loading.png'
-export default class Demo extends Component<any,any> {
-  constructor(props: any) {
+import '../style'
+import './demo.less'
+export default class Demo extends Component<any, any> {
+  constructor (props: any) {
     super(props)
 
     this.state = {
@@ -21,25 +20,24 @@ export default class Demo extends Component<any,any> {
     }
   }
 
-  onChangeLoading = ( key: string, dur?: number) => () => {
+  onChangeLoading = (key: string, dur?: number) => () => {
     this.setState({
       [key]: !this.state[key],
       percent: 0
     })
-    if(dur){
+    if (dur) {
       setTimeout(() => {
         this.setState({
           [key]: !this.state[key]
         })
-      }, dur);
+      }, dur)
     }
-    if(key === 'jumpLoading') {
-      let time = setInterval( () => {
+    if (key === 'jumpLoading') {
+      const time = setInterval(() => {
         const { percent } = this.state
-        if( percent >= 100 ){
+        if (percent >= 100) {
           clearInterval(time)
-        }
-        else{
+        } else {
           this.setState({
             percent: percent + 5
           })
@@ -48,7 +46,7 @@ export default class Demo extends Component<any,any> {
     }
   }
 
-  render() {
+  render () {
     const { jumpLoading, localLoading, toastLoading, percent } = this.state
     return (
       <div>
@@ -57,10 +55,10 @@ export default class Demo extends Component<any,any> {
         <Loading type='jump' show={jumpLoading} percent={percent}/>
         <br/>
         <Button type='primary' onClick={this.onChangeLoading('localLoading')} content='local loading'/>
-        <Loading type='local' show={localLoading} content='加载中'/>
+        <Loading type='local' show={localLoading} content='加载中' />
         <br/>
         <Button type='primary' onClick={this.onChangeLoading('toastLoading')} content='local loading'/>
-        <Loading type='toast' show={toastLoading} content='加载中'/>
+        <Loading type='toast' show={toastLoading} content='加载中' />
       </div>
     )
   }

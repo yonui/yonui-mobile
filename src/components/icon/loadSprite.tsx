@@ -11,9 +11,9 @@ const svgSprite = (contents: string) => `
       ${contents}
     </defs>
   </svg>
-`;
+`
 
-let cacheSvgSprites: any = {} // 缓存已经生成过的
+const cacheSvgSprites: any = {} // 缓存已经生成过的
 const renderSvgSprite = (type: string) => {
   if (!icons[type]) return
   cacheSvgSprites[type] = icons[type]
@@ -27,7 +27,7 @@ const renderSvgSprite = (type: string) => {
 const loadSprite = (type: string) => {
   if (!document) return
   const svgSpriteNode = document.getElementById('__MDF_MOBILE_SVG_SPRITE_NODE__')
-  const mountNode = document.body;
+  const mountNode = document.body
 
   if (!svgSpriteNode) { // 如果不存在
     const content: string = renderSvgSprite(type) || ''
@@ -35,6 +35,6 @@ const loadSprite = (type: string) => {
   } else {
     svgSpriteNode.innerHTML = `<defs>${renderSvgSprite(type)}</defs>`
   }
-};
+}
 
-export default loadSprite;
+export default loadSprite

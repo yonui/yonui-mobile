@@ -4,14 +4,13 @@
  */
 import React, { Component } from 'react'
 import MyComponent from '../index'
-import Flex from "../../flex";
-import WhiteSpace from "../../white-space";
+import Flex from '../../flex'
+import WhiteSpace from '../../white-space'
 
 import '../style'
 import './demo.less'
 export default class Demo1 extends Component {
-
-  render() {
+  render () {
     const props = {
       type: 'normal',
       label: '文本'

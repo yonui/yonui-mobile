@@ -12,20 +12,23 @@
   position: relative;
   display: flex;
   padding: 12 * @hd;
-  min-height: 44px;
+  padding-left: 0;
+  margin-left: 12 * @hd;
+  min-height: 44 * @hd;
   background-color: #fff;
   vertical-align: middle;
   overflow: hidden;
   transition: background-color 200ms;
   align-items: center;
-  &:after {
+  &::after {
     position: absolute;
     content: '';
     left: 12 * @hd;
     right: 0;
     bottom: 0;
-    .hairline('bottom', @border-color-base);
+    
   }
+  .hairline('bottom', @border-color-base);
   &-thumb {
     width: 40 * @hd;
     height: 40 * @hd;

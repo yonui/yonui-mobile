@@ -1,3 +1,3 @@
-import Div from './Div';
+import Div from './Div'
 
-export default Div;
+export default Div

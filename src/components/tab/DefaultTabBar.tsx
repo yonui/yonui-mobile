@@ -6,4 +6,3 @@ import { Tabs } from 'antd-mobile'
 const DefaultTabBar = Tabs.DefaultTabBar
 // todo 未配置 onChange
 export default DefaultTabBar
-

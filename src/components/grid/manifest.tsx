@@ -12,7 +12,7 @@ const image = [
 ]
 const texts = [
   '采购订单',
-  "考勤",
+  '考勤',
   '审批',
   '工资',
   '日志',
@@ -43,7 +43,7 @@ const manifest: ComponentManifest = {
   uiTable: UITable.BillTplGroupBase,
   label: '宫格',
   description: '在水平和垂直方向，将布局切分成若干等大的区块。',
-  type: 'Containers',
+  type: 'Layout',
   props: [
     {
       name: 'data',
@@ -186,8 +186,7 @@ const manifest: ComponentManifest = {
     {
       name: 'activeStyle',
       type: FieldTypes.object,
-      defaultValue: '',
-      value: '',
+      defaultValue: JSON.stringify({}),
       showDesign: true,
       designConfig: {
         type: EditTypes.Json,

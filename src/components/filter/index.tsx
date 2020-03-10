@@ -1,3 +1,3 @@
-import Filter from './Filter';
+import Filter from './Filter'
 import { manifest, ReactWrapper } from './manifest'
-export default ReactWrapper(Filter,manifest)
+export default ReactWrapper(Filter, manifest)

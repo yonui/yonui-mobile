@@ -1,2 +1,2 @@
-import PopoverItem from './PopoverItem';
-export default PopoverItem;
+import PopoverItem from './PopoverItem'
+export default PopoverItem

@@ -1,11 +1,11 @@
 import { ListView } from 'antd-mobile'
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest ,UITable} from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
 
 const manifest: ComponentManifest = {
-  name: 'listview',
+  name: 'ListView',
   label: '长列表',
   description: '实现列表功能',
-  type: 'business',
+  type: 'DataDisplay',
   uiTable: UITable.BillTplGroupBase,
   props: [
     {
@@ -49,7 +49,7 @@ const manifest: ComponentManifest = {
     {
       name: 'showNum',
       type: FieldTypes.number,
-      defaultValue: 100, //默认全部展示
+      defaultValue: 100, // 默认全部展示
       showDesign: true,
       designConfig: {
         type: EditTypes.Number,
@@ -186,7 +186,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: ()=>true// 应该还可以放别的组件-不知道有哪些
+  children: () => true// 应该还可以放别的组件-不知道有哪些
 }
 
 const manifestIndexedList: ComponentManifest = {
@@ -291,4 +291,4 @@ const manifestIndexedList: ComponentManifest = {
   children: () => true
 
 }
-export {manifest,manifestIndexedList,ReactWrapper}
+export { manifest, manifestIndexedList, ReactWrapper }

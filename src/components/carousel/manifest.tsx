@@ -129,6 +129,7 @@ const carouselManifest: ComponentManifest = {
     {
       name: 'beforeChange',
       type: FieldTypes.action,
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       defaultValue: () => {},
       showDesign: true,
       designConfig: {
@@ -141,6 +142,7 @@ const carouselManifest: ComponentManifest = {
     {
       name: 'afterChange',
       type: FieldTypes.action,
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       defaultValue: () => {},
       showDesign: true,
       designConfig: {
@@ -149,7 +151,7 @@ const carouselManifest: ComponentManifest = {
         label: '切换后回调',
         help: '切换面板后的回调函数'
       }
-    },
+    }
   ],
   children: () => true
 }
@@ -212,8 +214,6 @@ const carouselItemManifest: ComponentManifest = {
   ],
   children: () => true
 }
-
-
 
 export {
   carouselManifest,

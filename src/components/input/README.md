@@ -16,7 +16,7 @@
 | editable | boolean | true | 是否可编辑 |
 | disabled | boolean | false | 是否禁用 |
 | clear | boolean | false | 是否带清除功能(仅editable为true,disabled为false才生效) |
-| extra	| string or node | '' | 右边注释 |
+<!-- | extra	| string or node | '' | 右边注释 | -->
 | onChange | (val: string): void | - | change 事件触发的回调函数 |
 | onBlur | (val: string): void | - | blur 事件触发的回调函数 |	
 | onFocus |	(val: string): void	| - | focus 事件触发的回调函数 |

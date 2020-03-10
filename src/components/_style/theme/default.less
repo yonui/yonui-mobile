@@ -206,6 +206,18 @@
 @loading-mask-color: #111111;
 @loading-mask-opacity: 0.8;
 
+@loading-dark-start: #333333;
+@loading-dark-end: #ffffff;
+@loading-dark-mid: mix(@loading-dark-start,@loading-dark-end);
+
+@loading-light-start: #ffffff;
+@loading-light-end: #3e3e3e;
+@loading-light-mid: mix(@loading-light-start,@loading-light-end);
+
+@loading-primary-start: @brand-primary;
+@loading-primary-end: #ffffff;
+@loading-primary-mid: mix(@loading-primary-start,@loading-primary-end);
+
 // z-index
 @progress-zindex: 2000;
 @popover-zindex: 1999;
@@ -215,3 +227,6 @@
 @popup-zindex: 999;
 @modal-zindex: 999; // modal.alert 应该最大，其他应该较小
 @tabs-pagination-zindex: 999;
+
+//补充其他颜色
+@line-color-1: rgba(230,230,230,1);

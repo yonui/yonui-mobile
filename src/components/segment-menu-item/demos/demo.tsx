@@ -2,10 +2,10 @@
  * @name: SegmentedControl
  * @description: 分段菜单
  */
-import React, { Component } from 'react';
-import MyComponent from '../index';
-import '../style';
-import './demo.less';
+import React, { Component } from 'react'
+import MyComponent from '../index'
+import '../style'
+import './demo.less'
 const data = [
   {
     label: '智能推荐',
@@ -49,7 +49,7 @@ const data = [
   }
 ]
 export default class Demo1 extends Component {
-  render() {
+  render () {
     return (
       < MyComponent data={data}/>
     )

@@ -1,6 +1,6 @@
 
-import {manifest,ReactWrapper} from './manifest'
-import React from 'react';
+import { manifest, ReactWrapper } from './manifest'
+import React from 'react'
 /**
  * todo
  * onAfterChange
@@ -14,10 +14,7 @@ import React from 'react';
  * railStyle
  */
 
-function DivControl(props:any){
-  
-  return <div className={`am-div-container ${props.nowrap?'nowrap':null}`}>{props.children||''}</div>
+function DivControl (props: any) {
+  return <div className={`am-div-container ${props.nowrap ? 'nowrap' : null}`}>{props.children || ''}</div>
 }
 export default ReactWrapper(DivControl, manifest)
-
-

@@ -2,19 +2,19 @@
  * @name: Filter
  * @description: Demo Description
  */
-import React, { Component } from 'react';
-import MyComponent from '../index';
+import React, { Component } from 'react'
+import MyComponent from '../index'
 import { Button } from 'antd-mobile'
 import FilterContent from '../../filter-content'
-import '../style';
+import '../style'
 import '../../filter-content/style'
-import './demo.less';
+import './demo.less'
 
 const data = [
-        { value: 'item1', desc: '办公用品' },
-        { value: 'item2', desc: '办公设备' },
-        { value: 'item3', desc: '低值耗材' }
-      ];
+  { value: 'item1', desc: '办公用品' },
+  { value: 'item2', desc: '办公设备' },
+  { value: 'item3', desc: '低值耗材' }
+]
 interface DemoState {
   open: boolean
   title: string
@@ -23,7 +23,7 @@ interface DemoState {
   selectedValue2?: string
 }
 export default class Demo1 extends Component<any, DemoState> {
-  constructor(props: any) {
+  constructor (props: any) {
     super(props)
 
     this.state = {
@@ -43,18 +43,18 @@ export default class Demo1 extends Component<any, DemoState> {
 
   onOpenChange = () => {
     this.setState({
-      open: !this.state.open,
+      open: !this.state.open
     })
   }
 
-  onSelect = ( item : any) => {
+  onSelect = (item: any) => {
     console.log(item)
     this.setState({
       selectedValue: item
     })
   }
 
-  onSelect2 = ( item : any) => {
+  onSelect2 = (item: any) => {
     console.log(item)
     this.setState({
       selectedValue2: item
@@ -69,10 +69,11 @@ export default class Demo1 extends Component<any, DemoState> {
   }
 
   confirm = () => {
-    console.log("value1: ",this.state.selectedValue,"\nvalue2: ",this.state.selectedValue2)
+    console.log('value1: ', this.state.selectedValue, '\nvalue2: ', this.state.selectedValue2)
   }
-  render() {
-    const { title, open, selectData, selectedValue, selectedValue2} = this.state
+
+  render () {
+    const { title, open, selectData, selectedValue, selectedValue2 } = this.state
     return (
       [<MyComponent open={open} onOpenChange={this.onOpenChange} onBtn1Click={this.reset} onBtn2Click={this.confirm}>
         <FilterContent title={title} selectData={selectData} selectedValue={selectedValue} onSelect={this.onSelect} extraInput='自定义时间' extraInputType='calendar'/>

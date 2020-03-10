@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest,UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'Tab',
   label: '标签页',
@@ -54,7 +54,7 @@ const manifest: ComponentManifest = {
           options:
             [
               { value: 'top', text: 'top' },
-              { value: 'bottom', text: 'bottom' },
+              { value: 'bottom', text: 'bottom' }
               // { value: 'left', text: 'left' },
               // { value: 'right', text: 'right' }
             ]
@@ -189,7 +189,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: 'icons区域类名',
+        label: 'icons区域类名'
       }
     },
     {
@@ -201,7 +201,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Json,
         isRequired: false,
         props: {},
-        label: 'icons区域样式',
+        label: 'icons区域样式'
       }
     },
     {
@@ -476,7 +476,7 @@ const manifest: ComponentManifest = {
   ],
   children: ['TabPane']
 }
-const defaultTabBarManifest : ComponentManifest = {
+const defaultTabBarManifest: ComponentManifest = {
   name: 'DefaultTabBar',
   label: 'DefaultTabBar',
   description: '用于让用户在不同的视图中进行切换。',

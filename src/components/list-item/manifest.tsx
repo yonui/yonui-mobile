@@ -80,7 +80,7 @@ const manifest: ComponentManifest = {
             { value: 'horizontal', text: '向右' },
             { value: 'up', text: '向上' },
             { value: 'down', text: '向下' },
-            { value: 'empty', text: '不显示' },
+            { value: 'empty', text: '不显示' }
           ]
         }
       }
@@ -107,7 +107,7 @@ const manifest: ComponentManifest = {
         props: {},
         label: '点击事件'
       }
-    },
+    }
   ],
   children: ['ListItemBrief']
 }

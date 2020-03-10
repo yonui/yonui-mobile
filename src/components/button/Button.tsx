@@ -3,31 +3,31 @@ import classnames from 'classnames'
 import TouchFeedback from 'rmc-feedback'
 import Icon from '../icon'
 
-export interface ButtonProps extends ButtonPropsType {
+export interface ButtonProps {
   prefixCls?: string
   content?: string
-  type?: 'primary' | 'warning' | 'ghost' | 'default' | 'text';
-  size?: 'large' | 'small';
+  type?: 'primary' | 'warning' | 'ghost' | 'default' | 'text'
+  size?: 'large' | 'small'
   inline?: boolean
-  disabled?: boolean;
-  loading?: boolean;
+  disabled?: boolean
+  loading?: boolean
   icon?: React.ReactNode | string
   style?: React.CSSProperties
   onClick?: React.MouseEventHandler<HTMLAnchorElement>
 }
 
-const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
+const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar)
-function isString(str: any) {
+function isString (str: any) {
   return typeof str === 'string'
 }
 
-function insertSpace(child: any) {
+function insertSpace (child: any) {
   if (isString(child.type) && isTwoCNChar(child.props.children)) {
     return React.cloneElement(
       child,
       {},
-      child.props.children.split('').join(' '),
+      child.props.children.split('').join(' ')
     )
   }
   if (isString(child)) {
@@ -52,7 +52,7 @@ class Button extends React.Component<ButtonProps, any> {
     style: {}
   }
 
-  render() {
+  render () {
     const {
       prefixCls,
       children,
@@ -83,7 +83,7 @@ class Button extends React.Component<ButtonProps, any> {
     })
 
     const kids = React.Children.map(children, insertSpace)
-    let iconEl;
+    let iconEl
     if (typeof iconType === 'string') {
       iconEl = (
         <Icon

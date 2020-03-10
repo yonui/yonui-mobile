@@ -4,13 +4,12 @@
  */
 import React, { Component } from 'react'
 import MyComponent from '../index'
-import Flex from "../../flex";
+import Flex from '../../flex'
 
 import '../style'
 import './demo.less'
 export default class Demo1 extends Component {
-
-  render() {
+  render () {
     const props = {
       type: 'normal',
       label: '文本sdfsfsdfsdfsdfsd'
@@ -24,7 +23,7 @@ export default class Demo1 extends Component {
       <div className="spanDemo">
         <MyComponent {...props} />
         <MyComponent label={props.label} style={style1} />
-        <MyComponent label={props.label} style={{background:'rgba(245,245,245,1)' ,color: 'rgba(0,199,230,1)'}} />
+        <MyComponent label={props.label} style={{ background: 'rgba(245,245,245,1)', color: 'rgba(0,199,230,1)' }} />
       </div>
     )
   }

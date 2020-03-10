@@ -19,7 +19,7 @@ const image = [
 ]
 const texts = [
   '采购订单',
-  "考勤",
+  '考勤',
   '审批',
   '工资',
   '日志',
@@ -54,7 +54,7 @@ export default class Demo1 extends Component {
           data={data}
           full={false}
           mode='number'
-          style={{background: "linear-gradient(to bottom, rgb(228, 56, 56) 0%, rgb(255, 255, 255) 100%)"}}
+          style={{ background: 'linear-gradient(to bottom, rgb(228, 56, 56) 0%, rgb(255, 255, 255) 100%)' }}
           isCarousel={true}
           transparent={true}
           columnNum={4}/>

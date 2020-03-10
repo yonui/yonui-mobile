@@ -5,4 +5,3 @@ import manifest from './manifest'
 export default ReactWrapper(Icon, manifest, {
   excludeNidAndUiType: true
 })
-

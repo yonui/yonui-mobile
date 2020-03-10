@@ -1,6 +1,6 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest,UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
 const manifest: ComponentManifest = {
-  name: 'Toolbar',
+  name: 'Toolbars',
   label: '工具栏',
   description: '工具栏',
   uiTable: UITable.BillTplGroupBase,
@@ -9,13 +9,13 @@ const manifest: ComponentManifest = {
     {
       name: 'values',
       type: FieldTypes.array,
-      defaultValue: JSON.stringify(["item1","item2"]),
+      defaultValue: JSON.stringify(['item1', 'item2', 'item3', 'item4', 'item5', 'item6']),
       showDesign: true,
       designConfig: {
         type: EditTypes.Json,
         isRequired: false,
         props: {},
-        label: '选项数组',
+        label: '选项数组'
       }
     },
     {
@@ -26,12 +26,12 @@ const manifest: ComponentManifest = {
         type: EditTypes.Number,
         isRequired: false,
         props: {},
-        label: '选中数据下标',
+        label: '选中数据下标'
       }
     },
     {
       name: 'placement',
-      type: FieldTypes.string ,
+      type: FieldTypes.string,
       defaultValue: 'bottomRight',
       showDesign: true,
       designConfig: {
@@ -41,10 +41,10 @@ const manifest: ComponentManifest = {
           options:
             [
               { value: 'bottomRight', text: '右下方' },
-              { value: 'topRight', text: '右上方' },
+              { value: 'topRight', text: '右上方' }
             ]
         },
-        label: '弹出框位置',
+        label: '弹出框位置'
       }
     },
     {
@@ -59,15 +59,15 @@ const manifest: ComponentManifest = {
           options:
             [
               { value: 'text', text: '文本' },
-              { value: 'button', text: '按钮' },
+              { value: 'button', text: '按钮' }
             ]
         },
-        label: '渲染模式',
+        label: '渲染模式'
       }
     },
     {
       name: 'btnsType',
-      type: FieldTypes.array ,
+      type: FieldTypes.array,
       showDesign: true,
       designConfig: {
         type: EditTypes.Json,
@@ -85,7 +85,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '回调函数',
+        label: '回调函数'
       }
     },
     {
@@ -96,9 +96,9 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '回调函数',
+        label: '回调函数'
       }
-    },
+    }
   ],
   children: []
 }
