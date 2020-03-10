@@ -28,6 +28,7 @@
     "notice-bar-color": "#ffffff"
   },
   "components": {
+    "Icon": "./src/components/icon",
     "List": "./src/components/list",
     "ListItem": "./src/components/list-item",
     "ListItemBrief": "./src/components/list-item-brief",
