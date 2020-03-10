@@ -32,7 +32,7 @@ export default class ListPanelPicker extends Component<ListPanelPickerProps> {
   render () {
     const { visible, data, header } = this.props
     return (
-      <Modal visible={visible} popup>
+      <Modal visible={visible} popup animationType='slide-up'>
         <div className='am-list-panel-picker'>
           {header && <div className='header'>{header}</div>}
           <div className='content'>

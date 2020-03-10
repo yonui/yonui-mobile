@@ -41,7 +41,7 @@ export default class DatePanelPicker extends Component<DatePanelPickerProps, any
     return (
       <Modal
         visible={visible}
-        popup>
+        popup animationType='slide-up'>
         <div className='am-date-panel-picker'>
           <div className='operation'>
             <div className='item cancel' onClick={this.onDismiss}>取消</div>
