@@ -17,6 +17,8 @@ export default class Demo1 extends Component {
         <MyComponent mode="link" onClick={() => alert('onclick')} >防范疫情，2月5日～2月7日远程办公</MyComponent>
         <span style={{ fontSize: 14 }}>可关闭通告</span>
         <MyComponent mode="closable" icon={null} onClick={() => alert('onclick')} >防范疫情，2月5日～2月7日远程办公</MyComponent>
+        <span style={{ fontSize: 14 }}>无按钮</span>
+        <MyComponent mode="closable" action={<span></span>}>防范疫情，2月5日～2月7日远程办公</MyComponent>
         <span style={{ fontSize: 14 }}>light通告</span>
         <MyComponent mode="light">防范疫情，2月5日～2月7日远程办公</MyComponent>
         <span style={{ fontSize: 14 }}>POP通告</span>
