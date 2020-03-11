@@ -16,6 +16,7 @@ export default class Demo extends Component<any, any> {
       jumpLoading: false,
       toastLoading: false,
       localLoading: false,
+      localLoadingPrimary: false,
       percent: 0
     }
   }
@@ -47,7 +48,7 @@ export default class Demo extends Component<any, any> {
   }
 
   render () {
-    const { jumpLoading, localLoading, toastLoading, percent } = this.state
+    const { jumpLoading, localLoading, localLoadingPrimary, toastLoading, percent } = this.state
     return (
       <div>
         <br />
@@ -57,7 +58,10 @@ export default class Demo extends Component<any, any> {
         <Button type='primary' onClick={this.onChangeLoading('localLoading')} content='local loading'/>
         <Loading type='local' show={localLoading} content='加载中' />
         <br/>
-        <Button type='primary' onClick={this.onChangeLoading('toastLoading')} content='local loading'/>
+        <Button type='primary' onClick={this.onChangeLoading('localLoadingPrimary')} content='local loading:primary'/>
+        <Loading type='local' show={localLoadingPrimary} content='加载中' theme='primary'/>
+        <br/>
+        <Button type='primary' onClick={this.onChangeLoading('toastLoading')} content='toast loading'/>
         <Loading type='toast' show={toastLoading} content='加载中' />
       </div>
     )
