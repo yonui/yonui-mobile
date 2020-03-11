@@ -3,6 +3,7 @@
   "autoTemplate": true,
   "sourcePath": "./src/components",
   "type": "ts",
+  "device": "mobile",
   "lib": [],
   "previewUrl": "http://tinper-libra-ui-demo.daily.app.yyuap.com/",
   "plugins": [
