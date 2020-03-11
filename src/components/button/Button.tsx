@@ -14,6 +14,7 @@ export interface ButtonProps {
   icon?: React.ReactNode | string
   style?: React.CSSProperties
   onClick?: React.MouseEventHandler<HTMLAnchorElement>
+  className?: string
 }
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/
@@ -65,11 +66,12 @@ class Button extends React.Component<ButtonProps, any> {
       icon,
       style,
       onClick,
+      className,
       ...restProps
     } = this.props
 
     const iconType: any = loading ? 'loading' : icon
-    const wrapCls = classnames(prefixCls, {
+    const wrapCls = classnames(prefixCls, className, {
       [`${prefixCls}-primary`]: type === 'primary',
       [`${prefixCls}-default`]: type === 'default',
       [`${prefixCls}-ghost`]: type === 'ghost',
