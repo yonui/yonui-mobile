@@ -36,10 +36,11 @@ export default class CarouselItem extends React.Component<CarouselProps, any> {
       children,
       style
     } = this.props
+    console.log(backgroundImage)
     return (
       <div className={prefixCls} ref={el => { this.divRef = el }} style={{
         backgroundColor: backgroundColor,
-        backgroundImage: backgroundImage,
+        backgroundImage: `url(${backgroundImage})`,
         backgroundSize: backgroundSize,
         ...style
       }}>

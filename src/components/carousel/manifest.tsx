@@ -32,13 +32,13 @@ const carouselManifest: ComponentManifest = {
     {
       name: 'autoplayInterval',
       type: FieldTypes.number,
-      defaultValue: 3000,
+      defaultValue: 3,
       showDesign: true,
       designConfig: {
         type: EditTypes.Number,
         props: {},
         label: '切换间隔',
-        help: '自动切换的时间间隔'
+        help: '自动切换的时间间隔单位秒'
       }
     },
     {
@@ -164,10 +164,10 @@ const carouselItemManifest: ComponentManifest = {
     {
       name: 'backgroundColor',
       type: FieldTypes.string,
-      defaultValue: 'transparent',
+      defaultValue: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Color,
         props: {},
         label: '背景颜色'
       }

@@ -19,11 +19,11 @@ const manifest: ComponentManifest = {
         props: {
           options:
             [
-              { value: 'xs', text: 'xs' },
-              { value: 'sm', text: 'sm' },
-              { value: 'md', text: 'md' },
-              { value: 'lg', text: 'lg' },
-              { value: 'xl', text: 'xl' }
+              { value: 'xs', text: '最小' },
+              { value: 'sm', text: '偏小' },
+              { value: 'md', text: '中等' },
+              { value: 'lg', text: '偏大' },
+              { value: 'xl', text: '最大' }
             ]
         },
         label: '上下留白',

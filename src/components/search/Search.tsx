@@ -64,6 +64,14 @@ export default class Search extends React.Component<SearchProps, any> {
     }
   }
 
+  UNSAFE_componentWillReceiveProps (nextProps: SearchProps) {
+    if ('value' in nextProps || 'defaultVlaue' in nextProps) {
+      this.setState({
+        value: nextProps.value || nextProps.defaultVlaue
+      })
+    }
+  }
+
   // props
   onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!this.state.focus) {
@@ -133,6 +141,7 @@ export default class Search extends React.Component<SearchProps, any> {
       maxLength,
       disabled,
       color,
+      placeholder,
       searchIconColor,
       backgroundColor,
       clearIconColor,
@@ -162,7 +171,7 @@ export default class Search extends React.Component<SearchProps, any> {
           type="text"
           ref={el => (this.inputRef = el)}
           className={`${prefixCls}-input`}
-          placeholder="search bar"
+          placeholder={placeholder}
           value={value}
           disabled={disabled}
           maxLength={maxLength}

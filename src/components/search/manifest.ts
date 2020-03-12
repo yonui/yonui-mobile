@@ -1,10 +1,9 @@
-import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest } from 'libraui-extension'
 
 const manifest: ComponentManifest = {
   name: 'Search',
   label: '搜索栏',
   type: 'DataEntry',
-  uiTable: UITable.BillTplGroupBase,
   props: [{
     name: 'value',
     type: FieldTypes.string,
@@ -37,7 +36,8 @@ const manifest: ComponentManifest = {
       type: EditTypes.Text,
       isRequired: true,
       props: {},
-      label: '提示文字'
+      label: '提示文字',
+      help: '搜索栏没有值时显示文字'
     }
   },
   {
@@ -131,7 +131,8 @@ const manifest: ComponentManifest = {
       type: EditTypes.Text,
       isRequired: false,
       props: {},
-      label: 'onChange'
+      label: 'onChange',
+      help: 'value值改变事件触发的回调函数'
     }
   },
   {
@@ -143,7 +144,7 @@ const manifest: ComponentManifest = {
       isRequired: false,
       props: {},
       label: 'onFocus',
-      help: 'focus回调'
+      help: '聚焦事件触发的回调函数'
     }
   },
   {
@@ -155,7 +156,7 @@ const manifest: ComponentManifest = {
       isRequired: false,
       props: {},
       label: 'onBlur',
-      help: 'blur回调'
+      help: '失焦事件触发的回调函数'
     }
   },
   {

@@ -71,7 +71,7 @@ class Button extends React.Component<ButtonProps, any> {
     const iconType: any = loading ? 'loading' : icon
     const wrapCls = classnames(prefixCls, {
       [`${prefixCls}-primary`]: type === 'primary',
-      [`${prefixCls}-default`]: type === 'default',
+      [`${prefixCls}-default`]: type === 'default' || !type,
       [`${prefixCls}-ghost`]: type === 'ghost',
       [`${prefixCls}-warning`]: type === 'warning',
       [`${prefixCls}-text`]: type === 'text',
