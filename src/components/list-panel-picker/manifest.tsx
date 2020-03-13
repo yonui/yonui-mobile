@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
 const data = [
   { key: '1', text: '修改所有日程' },
   { key: '2', text: '修改将来所有日程' },
@@ -77,7 +77,4 @@ const manifest: ComponentManifest = {
     }
   ]
 }
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

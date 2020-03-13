@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { Menu, List } from 'antd-mobile'
 import { MenuProps } from 'antd-mobile/es/menu/PropsType'
-import { manifest, ReactWrapper } from './manifest'
 import shallowequal from 'shallowequal'
 const initData = [
   {
@@ -25,7 +24,7 @@ export interface MenuInfoProps extends MenuProps {
   title?: string// list item左侧title
 }
 const ListItem = List.Item
-class SelectControl extends React.Component<MenuInfoProps, any> {
+export default class SelectControl extends React.Component<MenuInfoProps, any> {
   static defaultProps = {
     prefixCls: 'am-select',
     listPrefixCls: 'am-select-list',
@@ -129,5 +128,3 @@ class SelectControl extends React.Component<MenuInfoProps, any> {
     )
   }
 }
-
-export default ReactWrapper(SelectControl, manifest)

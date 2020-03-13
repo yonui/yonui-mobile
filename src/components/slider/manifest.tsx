@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, UITable, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, UITable, ComponentManifest } from 'libraui-extension'
 // todo 未配置 onClick onChange
 const manifest: ComponentManifest = {
   name: 'Slider',
@@ -88,4 +88,4 @@ const manifest: ComponentManifest = {
     }
   }]
 }
-export { manifest, ReactWrapper }
+export default manifest

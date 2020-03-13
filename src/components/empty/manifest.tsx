@@ -1,4 +1,4 @@
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { EditTypes, FieldTypes, ComponentManifest, UITable } from 'libraui-extension'
 
 import { getCssSelectParams } from '../_utils'
 const manifest: ComponentManifest = {
@@ -50,7 +50,4 @@ const manifest: ComponentManifest = {
   ]
 }
 
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

@@ -69,7 +69,7 @@ const manifest: ComponentManifest = {
     defaultValue: '',
     showDesign: true,
     designConfig: {
-      type: EditTypes.Text,
+      type: EditTypes.Color,
       isRequired: false,
       props: {},
       label: '文本颜色'
@@ -81,7 +81,7 @@ const manifest: ComponentManifest = {
     defaultValue: '',
     showDesign: true,
     designConfig: {
-      type: EditTypes.Text,
+      type: EditTypes.Color,
       isRequired: false,
       props: {},
       label: '背景颜色'
@@ -93,7 +93,7 @@ const manifest: ComponentManifest = {
     defaultValue: '',
     showDesign: true,
     designConfig: {
-      type: EditTypes.Text,
+      type: EditTypes.Color,
       isRequired: false,
       props: {},
       label: '搜索图标颜色'
@@ -105,7 +105,7 @@ const manifest: ComponentManifest = {
     defaultValue: '',
     showDesign: true,
     designConfig: {
-      type: EditTypes.Text,
+      type: EditTypes.Color,
       isRequired: false,
       props: {},
       label: '清除图标颜色'
@@ -117,7 +117,7 @@ const manifest: ComponentManifest = {
     defaultValue: '',
     showDesign: true,
     designConfig: {
-      type: EditTypes.Text,
+      type: EditTypes.Color,
       isRequired: false,
       props: {},
       label: '语音图标颜色'

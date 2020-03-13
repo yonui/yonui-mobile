@@ -1,5 +1,4 @@
 import { Slider } from 'antd-mobile'
-import { manifest, ReactWrapper } from './manifest'
 /**
  * todo
  * onAfterChange
@@ -13,4 +12,4 @@ import { manifest, ReactWrapper } from './manifest'
  * railStyle
  */
 
-export default ReactWrapper(Slider, manifest)
+export default Slider

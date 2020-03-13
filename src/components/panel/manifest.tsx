@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'Panel',
   label: '活动面板',
@@ -97,7 +97,4 @@ const manifest: ComponentManifest = {
   children: []
 }
 
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

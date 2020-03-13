@@ -1,4 +1,4 @@
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { EditTypes, FieldTypes, ComponentManifest, UITable } from 'libraui-extension'
 
 const manifest: ComponentManifest = {
   name: 'FlexItem',
@@ -23,7 +23,4 @@ const manifest: ComponentManifest = {
   children: () => true
 }
 
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

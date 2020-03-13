@@ -1,4 +1,4 @@
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { EditTypes, FieldTypes, ComponentManifest } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'Tag',
   label: '标签',
@@ -102,7 +102,4 @@ const manifest: ComponentManifest = {
     }
   ]
 }
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
 
 const manifest: ComponentManifest = {
   name: 'List',
@@ -34,7 +34,4 @@ const manifest: ComponentManifest = {
   children: ['ListItem']
 }
 
-export {
-  ReactWrapper,
-  manifest
-}
+export default manifest

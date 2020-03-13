@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, UITable, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, UITable, ComponentManifest } from 'libraui-extension'
 const now = new Date()
 const manifest: ComponentManifest = {
   name: 'Calendar',
@@ -238,7 +238,4 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

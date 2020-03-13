@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, UITable, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, UITable, ComponentManifest } from 'libraui-extension'
 // todo 未配置 onClick onChange
 const manifest: ComponentManifest = {
   name: 'Radio',
@@ -85,4 +85,4 @@ const manifest: ComponentManifest = {
   children: []
 }
 
-export { manifest, ReactWrapper }
+export default manifest
