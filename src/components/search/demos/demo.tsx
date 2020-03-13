@@ -3,13 +3,34 @@
  * @description: Demo Description
  */
 import React, { Component } from 'react'
-import MyComponent from '../index'
+import Search from '../index'
+import Button from '../../button'
 import '../style'
 import './demo.less'
-export default class Demo1 extends Component {
+export default class Demo1 extends Component<any, any> {
+  constructor(props: any) {
+    super(props)
+    this.state = {
+      value: '123',
+      defaultValue: '456',
+      placeholder: 'jajja'
+    }
+  }
+  change = (value: any) => {
+    console.log(value)
+    this.setState({
+      [value]: 'hahah'
+    })
+    console.log(this.state)
+  }
   render () {
     return (
-      <MyComponent />
+      <div>
+        <Search value={this.state.value} defaultValue={this.state.defaultValue} placeholder={this.state.placeholder}/>
+        <Button onClick={() => { this.change('value') }}>改变Value</Button>
+        <Button onClick={() => { this.change('defaultValue') }}>改变DefaultValue</Button>
+        <Button onClick={() => { this.change('placeholder') }}>改变PlaceHolder</Button>
+      </div>
     )
   }
 }

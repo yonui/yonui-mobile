@@ -45,9 +45,7 @@ export default class MDFCard extends React.Component<CardProps, any> {
         title={headerTitle}
         thumb={thumb()}
         thumbStyle={thumbStyle}
-        extra={<span style={{
-          display: 'flex'
-        }}onClick={onHeaderExtraClick}>{extra()}</span>}
+        extra={<span className="extra" onClick={onHeaderExtraClick}>{extra()}</span>}
       /> : ''
     )
   }

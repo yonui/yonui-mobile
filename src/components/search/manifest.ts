@@ -18,7 +18,7 @@ const manifest: ComponentManifest = {
   {
     name: 'defaultValue',
     type: FieldTypes.string,
-    defaultValue: 'defaultValue',
+    defaultValue: '',
     showDesign: true,
     designConfig: {
       type: EditTypes.Text,

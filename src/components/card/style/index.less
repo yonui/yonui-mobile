@@ -32,15 +32,23 @@
         }
 
         &-content {
-            flex: 2;
-            .ellipsis();
+          display: block;
+          flex: 2;
+          .ellipsis();
         }
 
 
         &-extra {
             font-size: @hd * 16;
-            display: contents;
-            align-content: center;
+            overflow: hidden;
+            .extra {
+              width: 100%;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              display: block;
+              text-align: right;
+            }
         }
     }
 

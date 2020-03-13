@@ -26,7 +26,7 @@
     left: 12 * @hd;
     right: 0;
     bottom: 0;
-    
+
   }
   .hairline('bottom', @border-color-base);
   &-thumb {
@@ -69,10 +69,15 @@
     display: inline-flex;
     &-content {
       flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     &-extra {
       color: @color-text-caption;
       font-size: 11 * @hd;
+      overflow: hidden;
+      max-width: 50 * @hd;
+      text-overflow: ellipsis;
     }
     .@{listItemPrefixCls}-single-line & {
       &-content {
@@ -86,6 +91,7 @@
         align-items: center;
         overflow: hidden;
         justify-content: flex-end;
+        max-width: unset;
         span {
           .ellipsis();
         }
