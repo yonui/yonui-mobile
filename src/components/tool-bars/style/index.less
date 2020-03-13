@@ -1,11 +1,22 @@
 @import '../../_style/index.less';
-
+@import '../../button/style/index.less';
 .libraui-tool-bar{
   height: 50 * @hd;
   background: @fill-base;
   justify-content: center;
   display: flex;
   align-items: center;
+  .button-wrapper{
+    display: flex;
+    padding-left: 12 * @hd;
+    &:last-child{
+      padding-right: 12 * @hd;
+    }
+  }
+  &-slide{
+    justify-content: flex-start;
+    overflow: auto;
+  }
   .tool-bar-item{
     font-size: @font-size-caption;
     color: @color-text-base;
@@ -34,9 +45,13 @@
     }
   }
   .tool-bar-btn{
-    margin-left: 12 * @hd;
-    &:last-child{
-      margin-right: 12 * @hd;
+    width: 100%;
+    &.tool-bar-btn-next{
+      background-color: @toolbars-next-btn;
+      color: @toolbars-next-btn-color;
+      &::before{
+        border-color: @toolbars-next-btn;
+      }
     }
   }
 

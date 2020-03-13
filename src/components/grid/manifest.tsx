@@ -241,7 +241,8 @@ const manifest: ComponentManifest = {
               { value: 'lg', text: 'lg' }
             ]
         },
-        label: '每个格子上图标大小的大小,当显示外框内容值为false,该值生效'
+        label: '格子上图标大小',
+        help: '每个格子上图标大小,当显示外框内容值为false,该值生效'
       }
     },
     {

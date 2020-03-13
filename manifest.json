@@ -79,8 +79,7 @@
     "ListPanelPicker": "./src/components/list-panel-picker",
     "DatePanelPicker": "./src/components/date-panel-picker",
     "ListDatePicker": "./src/components/list-date-picker",
-    "CalendarPanel": "./src/components/calendar-panel",
-    "Icon":"./src/components/icon"
+    "CalendarPanel": "./src/components/calendar-panel"
   }
 }
 

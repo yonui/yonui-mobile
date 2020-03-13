@@ -11,7 +11,7 @@ interface ToolBarProps {
   onValueChange?: (val: string) => void
   placement?: 'topRight' | 'bottomRight'
   mode?: 'text' | 'button'
-  btnsType?: Array<string | undefined>
+  btnsType?: Array<'primary' | 'next' | undefined>
 
 }
 interface ToolBarState {
@@ -45,12 +45,13 @@ export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
     const { mode, btnsType = [] } = this.props
     switch (mode) {
       case 'button': {
-        const cls = classnames({
-          'tool-bar-btn': !popoverItem,
-          'tool-bar-popover-btn': popoverItem
-        })
-        const type = btnsType[index] || 'primary'
-        return <Button className={cls} style={style} content={item} type={type} size='small' onClick={() => { this.onClickItem(item, index) }}/>
+        const cls = classnames(
+          `tool-bar-btn-${btnsType[index] || 'primary'}`, {
+            'tool-bar-btn': !popoverItem,
+            'tool-bar-popover-btn': popoverItem
+          })
+        const type = btnsType[index] === 'next' ? 'default' : 'primary'
+        return <div className='button-wrapper' style={style}><Button className={cls} content={item} type={type} size='small' onClick={() => { this.onClickItem(item, index) }}/></div>
       }
       case 'text':
       default: {
@@ -68,10 +69,14 @@ export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
   }
 
   renderItems = (values: string[], selectedIndex?: number) => {
-    const { placement } = this.props
+    const { placement, mode = 'text' } = this.props
     const length = values.length
-    if (length <= 5) {
+    if (length <= 5 && mode === 'text') {
       const style = { width: `${100 / length}%` }
+      return values.map((item, index) => this.renderItem(item, index, style, false, selectedIndex))
+    } else if (mode === 'button') {
+      const style = { width: `${100 / length}%`, 'min-width': '22%' }
+      // const style = {}
       return values.map((item, index) => this.renderItem(item, index, style, false, selectedIndex))
     }
     const style = { width: '25%' }
@@ -104,8 +109,8 @@ export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
   }
 
   render () {
-    const { className, style, values, selectedIndex } = this.props
-    const cls = classnames('libraui-tool-bar', className)
+    const { className, style, values, selectedIndex, mode } = this.props
+    const cls = classnames('libraui-tool-bar', className, { 'libraui-tool-bar-slide': mode === 'button' && values.length > 4 })
     const val = this.parseObj(values)
     return (
       <div className={cls} style={style} >

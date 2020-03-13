@@ -44,7 +44,7 @@ export default class Demo extends Component<any, any> {
     return (
       <div>
         <Panel show={showPanel1} onClose={this.onClick('showPanel1')} options={[dataList[0], dataList[1]]} title='分享到' type='fixed' callback={this.callback} />
-        <Panel show={showPanel2} onClose={this.onClick('showPanel2')} options={dataList} title='分享到' type='fixed' callback={this.callback} />
+        <Panel show={showPanel2} onClose={this.onClick('showPanel2')} options={[...dataList,dataList[0]]} title='分享到' type='fixed' callback={this.callback} />
         <Panel show={showPanel3} onClose={this.onClick('showPanel3')} options={[dataList, [dataList[0], dataList[1]]]} title='分享到' type='fixed' callback={this.callback} />
 
         <Panel show={showPanel4} onClose={this.onClick('showPanel4')} options={[dataList[0], dataList[1]]} title='分享到' type='slideable' callback={this.callback} />
