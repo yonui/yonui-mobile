@@ -3,11 +3,10 @@
  */
 import React from 'react'
 import { Popover } from 'antd-mobile'
-import { manifestPopoverItem as manifest, ReactWrapper } from './manifest'
 // todo 未配置 onChange
 const Item = Popover.Item
 
 function Control (props: any) {
   return <Item {...props}>{props.children || props.label}</Item>
 }
-export default ReactWrapper(Control, manifest)
+export default Control

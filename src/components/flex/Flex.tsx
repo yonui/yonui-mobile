@@ -6,6 +6,7 @@ export interface MDFFlexProps {
   style?: React.CSSProperties
 }
 export default class MDFFlex extends React.Component<MDFFlexProps, any> {
+  static Item: any
   render () {
     console.log('FlexItemProps: ', this.props)
     return (

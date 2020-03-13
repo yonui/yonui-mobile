@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'Filter',
   label: '筛选组件',
@@ -80,7 +80,4 @@ const manifest: ComponentManifest = {
   children: ['FilterContent']
 }
 
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

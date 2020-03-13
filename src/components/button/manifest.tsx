@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest } from 'libraui-extension'
 
 const manifest: ComponentManifest = {
   name: 'Button',
@@ -145,7 +145,4 @@ const manifest: ComponentManifest = {
   ],
   children: () => true
 }
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

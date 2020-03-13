@@ -1,4 +1,4 @@
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { EditTypes, FieldTypes, ComponentManifest, UITable } from 'libraui-extension'
 
 const manifest: ComponentManifest = {
   name: 'result',
@@ -38,7 +38,4 @@ const manifest: ComponentManifest = {
     }]
 }
 
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

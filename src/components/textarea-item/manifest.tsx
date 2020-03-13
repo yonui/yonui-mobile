@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'TextareaItem',
   uiTable: UITable.BillItemBase,
@@ -197,7 +197,4 @@ const manifest: ComponentManifest = {
 
   ]
 }
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

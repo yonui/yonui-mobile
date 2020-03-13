@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest, ReactWrapper, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'Card',
   label: '卡片',
@@ -117,7 +117,4 @@ const manifest: ComponentManifest = {
   children: () => true
 }
 
-export {
-  ReactWrapper,
-  manifest
-}
+export default manifest

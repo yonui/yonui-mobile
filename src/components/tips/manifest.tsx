@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
 
 const manifest: ComponentManifest = {
   name: 'Tips', // 自定义组件名称
@@ -90,7 +90,4 @@ const manifest: ComponentManifest = {
   children: ['AccordionPanel']
 
 }
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

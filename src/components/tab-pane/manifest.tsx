@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'TabPane',
   label: '标签内容',
@@ -57,7 +57,4 @@ const manifest: ComponentManifest = {
   ],
   children: () => true
 }
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

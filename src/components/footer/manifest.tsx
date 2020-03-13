@@ -1,4 +1,4 @@
-import { ReactWrapper, UITable, ComponentManifest } from 'libraui-extension'
+import { UITable, ComponentManifest } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'Footer',
   uiTable: UITable.BillTplGroupBase,
@@ -7,7 +7,4 @@ const manifest: ComponentManifest = {
   props: [],
   children: () => true
 }
-export {
-  ReactWrapper,
-  manifest
-}
+export default manifest

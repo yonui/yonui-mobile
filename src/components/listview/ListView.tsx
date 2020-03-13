@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { ListView as ListViewAntd, ActivityIndicator, PullToRefresh, Icon } from 'antd-mobile'
 import { ListViewProps } from 'antd-mobile/lib/list-view'
-import { manifest, ReactWrapper } from './manifest'
 
 interface YSListViewProps extends ListViewProps {
   refreshing: boolean
@@ -40,6 +39,8 @@ class YSListView extends Component<YSListViewProps> {
     dataSource: this.listViewDataSource.cloneWithRows(this.dataIndex)
     // showNum: this.props.showNum || 100
   }
+
+  static DataSource: any
 
   UNSAFE_componentWillReceiveProps (nextProps: any): void {
     this.initListData(nextProps.value || nextProps.dataSource)
@@ -183,6 +184,6 @@ class YSListView extends Component<YSListViewProps> {
   }
 }
 
-const WrappedListView = ReactWrapper(YSListView, manifest)
-WrappedListView.DataSource = ListViewAntd.DataSource
-export default WrappedListView
+// const WrappedListView = ReactWrapper(YSListView, manifest)
+YSListView.DataSource = ListViewAntd.DataSource
+export default YSListView

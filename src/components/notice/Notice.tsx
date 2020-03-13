@@ -1,6 +1,5 @@
 import React from 'react'
 import { NoticeBar, Modal } from 'antd-mobile'
-import { manifest, ReactWrapper } from './manifest'
 import PNG from './style/img/popicon.png'
 const noticeBarPrefixCls = 'am-notice-bar'
 export interface NoticeProps {
@@ -62,4 +61,4 @@ class Notice extends React.Component<NoticeProps, any> {
     return (<NoticeBar {...props} className={classNameProps}>{props.content || props.children}</NoticeBar>)
   }
 }
-export default ReactWrapper(Notice, manifest)
+export default Notice

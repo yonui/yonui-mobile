@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'Loading',
   label: '加载',
@@ -118,7 +118,4 @@ const manifest: ComponentManifest = {
   children: []
 }
 
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest
