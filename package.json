@@ -19,7 +19,8 @@
     "lint:git": "git diff --cached --name-only --diff-filter=ACM | grep '\\.[jt]sx\\?$' | xargs eslint",
     "sync": "npm run build -- -p && npm run move",
     "sync-dev": "npm run build && npm run move",
-    "move": "cp -r dist/* ../viewer/public/componentLib && cp dist/manifest.json ../adapter/src/data/manifest.json"
+    "move": "cp -r dist/* ../viewer/public/componentLib && cp dist/manifest.json ../adapter/src/data/manifest.json",
+    "move-n": "cp -r dist/* ../viewer/client/static/componentLib && cp dist/manifest.json ../adapter/src/data/manifest.json"
   },
   "husky": {
     "hooks": {
