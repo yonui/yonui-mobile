@@ -109,7 +109,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: ['ListItemBrief']
+  children: ['ListItemBrief', 'listitembrief']
 }
 
 export default manifest

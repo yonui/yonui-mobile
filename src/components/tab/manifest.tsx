@@ -474,7 +474,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: ['TabPane']
+  children: ['TabPane', 'tabpane']
 }
 // const defaultTabBarManifest: ComponentManifest = {
 //   name: 'DefaultTabBar',

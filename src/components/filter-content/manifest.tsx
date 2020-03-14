@@ -1,6 +1,6 @@
 import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
 const manifest: ComponentManifest = {
-  name: 'FilterContent',
+  name: 'filtercontent',
   label: '筛选组件内容',
   description: '筛选组件的内容',
   uiTable: UITable.BillItemBase,

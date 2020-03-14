@@ -77,7 +77,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: ['FilterContent']
+  children: ['filtercontent']
 }
 
 export default manifest
