@@ -24,6 +24,7 @@ export default class Demo1 extends Component<any, any> {
     return (
       <MyComponent
         label='显示时间'
+        arrow={true}
         required
         value={this.state.value}
         onOk={this.onOk}/>
