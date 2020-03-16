@@ -1,7 +1,7 @@
 {
   "name": "yonui-mobile",
   "version": "0.3.27",
-  "description": "Libra ui for Antd Mobile",
+  "description": "yonui mobile",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./lib/index.d.ts",
