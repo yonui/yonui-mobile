@@ -62,7 +62,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Number,
         isRequired: true,
         props: {},
-        label: '定宽枚举值'
+        label: '标签文字个数'
       }
     },
     {
