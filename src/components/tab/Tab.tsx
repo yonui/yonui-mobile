@@ -20,7 +20,7 @@ export interface TabsProps extends DeafultTabsProps {
   onIcon3Click?: () => void
 
 }
-export default class LibrauiTabs extends Component<TabsProps> {
+export default class yonuiTabs extends Component<TabsProps> {
   static defaultProps = {
     renderTab: (tab: any) => {
       return <div className='tabs-item-content'>
@@ -37,13 +37,13 @@ export default class LibrauiTabs extends Component<TabsProps> {
   parseObj = (param: any) => typeof param === 'string' ? JSON.parse(param) : param
 
   renderIcon = (ele: JSX.Element | string) => {
-    return <span className='libraui-tabs-icon'>
+    return <span className='yonui-tabs-icon'>
       {typeof ele === 'string' ? <Icon type={ele}/> : ele}
     </span>
   }
 
   renderIcons = (icons: Array<JSX.Element | string > | JSX.Element | string, className?: string, style?: object) => {
-    const cls = classnames(className, 'libraui-tabs-icons')
+    const cls = classnames(className, 'yonui-tabs-icons')
     return <span className={cls} style={style}>
       {Array.isArray(icons) ? icons.map(item => this.renderIcon(item)) : this.renderIcon(icons)}
     </span>
@@ -73,12 +73,12 @@ export default class LibrauiTabs extends Component<TabsProps> {
         {...other}>{children}</Tabs> : <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>
     const cls = classnames(
       className,
-      'libraui-tabs',
-      `libraui-tabs-${splitLine ? '' : 'no-'}split-line`,
+      'yonui-tabs',
+      `yonui-tabs-${splitLine ? '' : 'no-'}split-line`,
       {
-        'libraui-tabs-with-icons': tabBarIcon,
-        'libraui-tabs-gather': gather,
-        [`libraui-tabs-with-icons-${tabBarIcon ? (Array.isArray(tabBarIcon) ? tabBarIcon.length : 1) : 0}`]: iconsOccupy
+        'yonui-tabs-with-icons': tabBarIcon,
+        'yonui-tabs-gather': gather,
+        [`yonui-tabs-with-icons-${tabBarIcon ? (Array.isArray(tabBarIcon) ? tabBarIcon.length : 1) : 0}`]: iconsOccupy
       })
     iconsStyle = { background: tabBarBackgroundColor, ...iconsStyle }
     const iconsEle = tabBarIcon ? this.renderIcons(tabBarIcon, iconsClassName, iconsStyle) : null

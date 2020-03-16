@@ -71,16 +71,16 @@ export default class FilterContent extends Component<FilterContentProps, any> {
 
   render () {
     const { selectData, title, className, style, selectedValue, extraInput, extraInputType } = this.props
-    const cls = classnames(className, 'libraui-filter-content')
+    const cls = classnames(className, 'yonui-filter-content')
     return (
       <div className={cls} style={style}>
-        <div className='libraui-filter-content-title'>
+        <div className='yonui-filter-content-title'>
           {title}
         </div>
-        <div className='libraui-filter-content-selection'>
+        <div className='yonui-filter-content-selection'>
           {this.renderSelection(selectData, selectedValue)}
         </div>
-        <div className='libraui-filter-content-extra'>
+        <div className='yonui-filter-content-extra'>
           {this.renderExtra(extraInput, extraInputType)}
         </div>
       </div>

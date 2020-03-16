@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Drawer } from 'antd-mobile'
+import Toolbar from '../tool-bars'
 import classnames from 'classnames'
 
 export interface FilterProps {
@@ -9,10 +10,24 @@ export interface FilterProps {
   btn2?: string
   onBtn1Click?: () => void
   onBtn2Click?: () => void
+  mode?: 'text'|'button'
+  btnsType?: Array<'next' | 'primary' | undefined>
   position?: 'left' | 'right'
   className?: string
 }
-export default class Filter extends Component<FilterProps> {
+
+export interface FilterState {
+  selectedKey: number
+}
+
+export default class Filter extends Component<FilterProps, FilterState> {
+  constructor (props: FilterProps) {
+    super(props)
+    this.state = {
+      selectedKey: -1
+    }
+  }
+
   static defaultProps = {
     open: false,
     btn1: '重置',
@@ -20,19 +35,29 @@ export default class Filter extends Component<FilterProps> {
     position: 'right'
   }
 
+  onClickFooter= (val: string, index: number) => {
+    const { onBtn1Click, onBtn2Click } = this.props
+    this.setState({
+      selectedKey: index
+    })
+    if (index === 0) {
+      onBtn1Click && onBtn1Click()
+    } else {
+      onBtn2Click && onBtn2Click()
+    }
+  }
+
   getSidebarFooter: () => React.ReactNode = () => {
-    const { onBtn1Click, onBtn2Click, btn1, btn2 } = this.props
-    return <div className='libraui-filter-sidebar-footer'>
-      <span className='sidebar-footer-reset' onClick={onBtn1Click}>{btn1}</span>
-      <span className='sidebar-footer-confirm' onClick={onBtn2Click}>{btn2}</span>
-    </div>
+    const { btn1, btn2, mode = 'button', btnsType = ['next', 'primary'] } = this.props
+    const { selectedKey } = this.state
+    return <Toolbar className='yonui-filter-sidebar-footer' values={[btn1, btn2]} mode={mode} btnsType={btnsType} onChange={this.onClickFooter} selectedIndex={selectedKey} />
   }
 
   getSidebar = (children: React.ReactNode) => {
     const footer = this.getSidebarFooter()
-    return <div className='libraui-filter-sidebar'>
+    return <div className='yonui-filter-sidebar'>
 
-      <div className='libraui-filter-sidebar-content'>
+      <div className='yonui-filter-sidebar-content'>
         {children}
       </div>
       {footer}
@@ -41,7 +66,7 @@ export default class Filter extends Component<FilterProps> {
 
   render () {
     const { open, onOpenChange, children, position, className, ...other } = this.props
-    const cls = classnames(className, 'libraui-filter')
+    const cls = classnames(className, 'yonui-filter')
     return (
       <Drawer
         className={cls}

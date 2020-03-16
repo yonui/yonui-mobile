@@ -18,7 +18,7 @@ export default class MyComponent extends Component<TabPaneProps> {
 
   render () {
     const { children, key, className, style, height, width, bgColor, ...other } = this.props
-    const cls = classnames(className, 'libraui-tabpane')
+    const cls = classnames(className, 'yonui-tabpane')
     const sty = { width, height, 'background-color': bgColor, ...style }
     return (
       <div key={key} className={cls} style={sty} {...other}>

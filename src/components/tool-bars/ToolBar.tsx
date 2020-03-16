@@ -5,7 +5,7 @@ import Button from '../button'
 interface ToolBarProps {
   className?: string
   style?: object
-  values: string[]
+  values: Array<string | undefined>
   selectedIndex?: number
   onChange?: (val: string, num: number) => void
   onValueChange?: (val: string) => void
@@ -110,7 +110,7 @@ export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
 
   render () {
     const { className, style, values, selectedIndex, mode } = this.props
-    const cls = classnames('libraui-tool-bar', className, { 'libraui-tool-bar-slide': mode === 'button' && values.length > 4 })
+    const cls = classnames('yonui-tool-bar', className, { 'yonui-tool-bar-slide': mode === 'button' && values.length > 4 })
     const val = this.parseObj(values)
     return (
       <div className={cls} style={style} >

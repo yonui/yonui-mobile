@@ -72,7 +72,7 @@ export default class Panel extends Component<PanelProps> {
 
   render () {
     const { show, onClose, title, cancelButtonText, className, style, options, type, ...other } = this.props
-    const cls = classnames(className, 'libraui-panel', `libraui-panel-${type}`)
+    const cls = classnames(className, 'yonui-panel', `yonui-panel-${type}`)
     let op: any[] = []
 
     if (options?.every((item: any) => Array.isArray(item))) {

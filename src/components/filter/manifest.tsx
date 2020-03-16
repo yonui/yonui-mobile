@@ -75,6 +75,37 @@ const manifest: ComponentManifest = {
         props: {},
         label: '右侧按钮点击事件'
       }
+    },
+    {
+      name: 'mode',
+      type: FieldTypes.string,
+      defaultValue: 'text',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        isRequired: false,
+        props: {
+          options:
+            [
+              { value: 'text', text: '文本' },
+              { value: 'button', text: '按钮' }
+            ]
+        },
+        label: '渲染模式'
+      }
+    },
+    {
+      name: 'btnsType',
+      type: FieldTypes.array,
+      defaultValue: JSON.stringify(['next', 'primary']),
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Json,
+        isRequired: false,
+        props: {},
+        label: '按钮类型数组',
+        help: 'button模式下有效'
+      }
     }
   ],
   children: ['filtercontent']
