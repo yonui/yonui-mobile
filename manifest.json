@@ -68,6 +68,7 @@
     "FilterContent": "./src/components/filter-content",
     "ToolBars": "./src/components/tool-bars",
     "ActivityPanel": "./src/components/ActivityPanel",
+    "TagSelect": "./src/components/TagSelect",
 
     "Loading": "./src/components/loading",
     "Grid": "./src/components/grid",
