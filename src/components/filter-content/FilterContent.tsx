@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
 import Input from '../input'
+import TagSelect from '../TagSelect'
 import Calendar from '../list-calendar'
 interface FilterContentProps {
   title?: string
@@ -28,17 +29,6 @@ export default class FilterContent extends Component<FilterContentProps, any> {
     onSelect && onSelect([startDateTime, endDateTime])
     this.setState({
       [value]: [startDateTime, endDateTime]
-    })
-  }
-
-  renderSelection = (selectData?: Array<{ desc: string, value: string }>, selectedValue?: string) => {
-    const { onSelect } = this.props
-    if (!selectData) return null
-    return selectData.map((item, index) => {
-      const cls = classnames('am-tag', `${item.value === selectedValue ? 'am-tag-active' : 'am-tag-normal'}`)
-      return <div className={cls} key={index} onClick={ () => { onSelect && onSelect(item.value) }}>
-        <div className='am-tag-text'>{item.desc}</div>
-      </div>
     })
   }
 
@@ -70,7 +60,7 @@ export default class FilterContent extends Component<FilterContentProps, any> {
   }
 
   render () {
-    const { selectData, title, className, style, selectedValue, extraInput, extraInputType } = this.props
+    const { selectData, title, className, style, selectedValue, extraInput, extraInputType, onSelect } = this.props
     const cls = classnames(className, 'yonui-filter-content')
     return (
       <div className={cls} style={style}>
@@ -78,7 +68,7 @@ export default class FilterContent extends Component<FilterContentProps, any> {
           {title}
         </div>
         <div className='yonui-filter-content-selection'>
-          {this.renderSelection(selectData, selectedValue)}
+          <TagSelect selectData={selectData} selectedValue={selectedValue} onSelect={onSelect} />
         </div>
         <div className='yonui-filter-content-extra'>
           {this.renderExtra(extraInput, extraInputType)}
