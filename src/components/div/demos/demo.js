@@ -16,6 +16,7 @@ export default class Demo1 extends Component {
     return (
       <div style={{ marginTop: 10 }}>
         <MyComponent>div块</MyComponent>
+        <MyComponent type='panel'><div>12332</div></MyComponent>
       </div>
     )
   }

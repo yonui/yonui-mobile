@@ -67,7 +67,7 @@
     "Filter": "./src/components/filter",
     "FilterContent": "./src/components/filter-content",
     "ToolBars": "./src/components/tool-bars",
-    "Panel": "./src/components/panel",
+    "ActivityPanel": "./src/components/ActivityPanel",
 
     "Loading": "./src/components/loading",
     "Grid": "./src/components/grid",

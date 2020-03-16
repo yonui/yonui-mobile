@@ -19,6 +19,24 @@ const manifest: ComponentManifest = {
         label: '是否换行',
         help: '是否换行'
       }
+    },
+    {
+      name: 'type',
+      type: FieldTypes.string,
+      defaultValue: false,
+      value: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        props: {
+          options: [
+            { value: 'normal', text: '默认' },
+            { value: 'panel', text: '面板' }
+          ]
+        },
+        label: '是否换行',
+        help: '是否换行'
+      }
     }
   ],
   children: () => true
