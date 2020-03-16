@@ -24,6 +24,30 @@
 }
 .yonui-tabs{
   background-color: @fill-base;
+  &.yonui-tabs-transparent{
+    background-color: transparent;
+    &.yonui-tabs-gather{
+      .am-tabs-default-bar{
+        justify-content: start;
+        .am-tabs-default-bar-tab{
+          padding: 0 12*@hd;
+          &:not(:last-child)::after{
+            content: "";
+            position: absolute;
+            background-color: #ddd;
+            display: block;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            width: 1PX;
+            height: 100%;
+            transform: scaleY(0.4);
+            transform-origin: center;
+          }
+        }
+      }
+    }
+  }
 }
 
 .yonui-tabs-with-icons{
