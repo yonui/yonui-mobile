@@ -4,10 +4,9 @@
  */
 import React, { Component } from 'react'
 import sharePanel from '../index'
-import button from '../../button'
 import '../style'
 import './demo.less'
-const data = dataList = [
+const dataList = [
   { url: 'OpHiXAcYzmPQHcdlLFrc', title: '发送给朋友' },
   { url: 'wvEzCMiDZjthhAOcwTOu', title: '新浪微博' },
   { url: 'cTTayShKtEIdQVEMuiWt', title: '生活圈' },

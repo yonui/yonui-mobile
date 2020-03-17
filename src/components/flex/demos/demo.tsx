@@ -3,14 +3,13 @@
  * @description: 布局容器
  */
 import React, { Component } from 'react'
-import {Flex} from "antd-mobile"
-import FlexItem from '../../flex-item'
-import Button from '../../button'
-import WhiteSpace from '../../white-space'
+import {Flex,WhiteSpace} from "antd-mobile"
+import FlexItem from '../../FlexItem'
+import Button from '../../Button'
 
 import '../style'
 import './demo.less'
-import '../../button/style'
+import '../../Button/style'
 
 
 const PlaceHolder = ({ className = '', ...restProps }) => (

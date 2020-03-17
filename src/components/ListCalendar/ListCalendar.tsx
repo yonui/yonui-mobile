@@ -1,7 +1,7 @@
 import React from 'react'
-import Calendar from '../calendar'
+import Calendar from '../Calendar'
 import { Flex, Icon, InputItem } from 'antd-mobile'
-import List from '../list-copy'
+import List from '../List-copy'
 import { CalendarProps } from 'antd-mobile/lib/calendar/PropsType'
 import { dateFormat } from '../_utils'
 export declare type SelectDateType = [Date, Date] | [Date];

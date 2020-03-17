@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import TouchFeedback from 'rmc-feedback'
-import Icon from '../icon'
+import Icon from '../Icon'
 
 export interface ButtonProps {
   prefixCls?: string

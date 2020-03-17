@@ -5,8 +5,8 @@
 import React, { Component } from 'react'
 import MyComponent from '../index'
 import { Icon } from 'antd-mobile'
-import Button from '../../button'
-import Flex from '../../flex'
+import Button from '../../Button'
+import Flex from '../../Flex'
 import '../style'
 import './demo.less'
 export default class Demo1 extends Component {

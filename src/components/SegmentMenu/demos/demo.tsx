@@ -4,9 +4,8 @@
  */
 import React, { Component } from 'react'
 import SegmentMenu from '../index'
-import SegmentMenuItem from '../../segment-menu-item'
-import Card from '../../card'
-import WidteSpace from '../../white-space'
+import SegmentMenuItem from '../../SegmentMenuItem'
+import Card from '../../Card'
 import '../style'
 import './demo.less'
 
@@ -28,7 +27,7 @@ export default class Demo1 extends Component {
             <Card
               headerTitle={v.title}>
             </Card>
-            <WidteSpace></WidteSpace>
+            {/* <WidteSpace></WidteSpace> */}
           </SegmentMenuItem>
         ))}
       </SegmentMenu>

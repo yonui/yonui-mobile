@@ -4,7 +4,7 @@
  */
 import React, { Component } from 'react'
 import Carousel from '../index'
-import CarouselItem from '../../carousel-item/'
+import CarouselItem from '../../CarouselItem'
 import '../style'
 import './demo.less'
 export default class Demo1 extends Component {

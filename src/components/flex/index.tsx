@@ -1,5 +1,5 @@
 import Flex from './Flex'
-import FlexItem from '../flex-item'
+import FlexItem from '../FlexItem'
 
 Flex.Item = FlexItem
 export default Flex

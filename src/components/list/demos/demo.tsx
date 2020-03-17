@@ -4,8 +4,8 @@
  */
 import React, { Component } from 'react'
 import List from '../index'
-import ListItem from '../../list-item'
-import ListItemBrief from '../../list-item-brief'
+import ListItem from '../../ListItem'
+import ListItemBrief from '../../ListItemBrief'
 import '../style'
 import './demo.less'
 // thumb={'https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png'}

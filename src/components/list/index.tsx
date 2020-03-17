@@ -1,6 +1,6 @@
 import List from './List'
-import Item from '../list-item'
-import ItemBrief from '../list-item-brief'
+import Item from '../ListItem'
+import ItemBrief from '../ListItemBrief'
 // List.Item = Item;
 // List.ItemBrief = ItemBrief;
 List.Item = Item

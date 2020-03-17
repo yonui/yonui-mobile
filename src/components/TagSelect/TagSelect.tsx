@@ -11,7 +11,7 @@ interface TagSelectProps {
 export default class TagSelect extends Component<TagSelectProps> {
   renderSelection = (selectData?: Array<{ desc: string, value: string }>, selectedValue?: string) => {
     const { onSelect, size = 'sm' } = this.props
-    if (!selectData) return null
+    if (!selectData || !Array.isArray(selectData)) return null
     return selectData.map((item, index) => {
       const cls = classnames('am-tag', `am-tag-${size}`, `${item.value === selectedValue ? 'am-tag-active' : 'am-tag-normal'}`)
       return <div className={cls} key={index} onClick={ () => { onSelect && onSelect(item.value) }}>

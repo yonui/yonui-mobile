@@ -7,7 +7,7 @@ import Empty from '../index'
 import NavBar from '../../navbar'
 import '../style'
 import './demo.less'
-import '../../navbar/style'
+import '../../Navbar/style'
 export default class Demo extends Component {
   render() {
     return (

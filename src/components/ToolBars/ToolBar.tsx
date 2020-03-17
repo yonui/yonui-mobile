@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
 import { Popover, Icon } from 'antd-mobile'
-import Button from '../button'
+import Button from '../Button'
 interface ToolBarProps {
   className?: string
   style?: object

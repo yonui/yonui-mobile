@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { SegmentedControl } from 'antd-mobile'
-import Card from '../card'
+import Card from '../Card'
 
 export interface SegmentedControlProps {
   data?: any

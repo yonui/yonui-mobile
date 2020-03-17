@@ -5,9 +5,9 @@
 import React, { Component } from 'react'
 import MyComponent from '../index'
 import { Button } from 'antd-mobile'
-import FilterContent from '../../filter-content'
+import FilterContent from '../../FilterContent'
 import '../style'
-import '../../filter-content/style'
+import '../../FilterContent/style'
 import './demo.less'
 
 const data = [

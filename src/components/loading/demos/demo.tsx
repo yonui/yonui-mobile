@@ -4,7 +4,7 @@
  */
 import React, { Component } from 'react'
 import Loading from '../index'
-import Button from '../../button'
+import Button from '../../Button'
 import '../../Button/style'
 import '../style'
 import './demo.less'

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Drawer } from 'antd-mobile'
-import Toolbar from '../tool-bars'
+import Toolbar from '../ToolBars'
 import classnames from 'classnames'
 
 export interface FilterProps {
