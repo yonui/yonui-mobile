@@ -5,7 +5,7 @@
 import React, { Component } from 'react'
 import Loading from '../index'
 import Button from '../../button'
-import '../../button/style'
+import '../../Button/style'
 import '../style'
 import './demo.less'
 export default class Demo extends Component<any, any> {
