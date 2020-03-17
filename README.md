@@ -1,6 +1,6 @@
-# tinper-libraui
+# yonui-mobile
 
-Libraui 基础组件包，基于 antd-mobile，做了封装，用于适配到页面设计器。
+yonui-mobile 基础组件包，基于 antd-mobile，做了封装，用于适配到页面设计器。
 
 ## 贡献代码
 
