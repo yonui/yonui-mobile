@@ -64,14 +64,14 @@ const manifest: ComponentManifest = {
     {
       name: 'marqueeProps',
       type: FieldTypes.object,
-      defaultValue: JSON.stringify({ loop: true, style: { padding: '0 7.5px' } }),
+      defaultValue: JSON.stringify({ loop: true, style: { color: '#fff' } }),
       showDesign: true,
       designConfig: {
         type: EditTypes.Json,
         isRequired: false,
         props: {},
-        label: 'marquee',
-        help: 'marqueeProps参数'
+        label: '循环参数',
+        help: 'loop:是否循环；style样式'
       }
     },
     {

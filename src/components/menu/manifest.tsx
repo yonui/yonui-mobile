@@ -1,6 +1,6 @@
-import { FieldTypes, EditTypes, UITable, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, UITable, ComponentManifest, ReactWrapper } from 'libraui-extension'
 // todo 未配置 onClick onChange
-const menuData = [
+export const menuData = [
   {
     value: '1',
     label: 'Food',
@@ -13,30 +13,6 @@ const menuData = [
       {
         label: 'Chinese Food',
         value: '2'
-      }, {
-        label: 'Hot Pot',
-        value: '3'
-      }, {
-        label: 'Buffet',
-        value: '4'
-      }, {
-        label: 'Fast Food',
-        value: '5'
-      }, {
-        label: 'Snack',
-        value: '6'
-      }, {
-        label: 'Bread',
-        value: '7'
-      }, {
-        label: 'Fruit',
-        value: '8'
-      }, {
-        label: 'Noodle',
-        value: '9'
-      }, {
-        label: 'Leisure Food',
-        value: '10'
       }]
   }, {
     value: '2',
@@ -49,12 +25,6 @@ const menuData = [
         label: 'Supermarket',
         value: '2',
         disabled: true
-      }, {
-        label: 'C-Store',
-        value: '3'
-      }, {
-        label: 'Personal Care',
-        value: '4'
       }]
   },
   {
@@ -105,7 +75,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Json,
         props: {},
         label: '数据',
-        help: '数据，设置后 children 无效'
+        help: '根据data生成menu内容。(isleaf设置后children无效,参考已给默认data值,效果在level=2下展示)'
       }
     },
     {
@@ -187,4 +157,7 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export default manifest
+export {
+  manifest,
+  ReactWrapper
+}

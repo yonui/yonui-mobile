@@ -16,7 +16,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '是否默认选中'
+        label: '选中'
       }
     },
     {
@@ -52,7 +52,20 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: 'switch 的 name'
+        label: 'name属性',
+        help: 'dom上添加name属性'
+      }
+    },
+    {
+      name: 'title',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: '左侧标题'
       }
     },
     {

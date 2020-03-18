@@ -16,7 +16,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Textarea,
         isRequired: false,
         props: {},
-        label: '名称'
+        label: '选项描述'
       }
     },
     // {
