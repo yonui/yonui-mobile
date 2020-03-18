@@ -8,24 +8,6 @@ const manifest: ComponentManifest = {
   uiTable: UITable.BillItemBase,
   props: [
     {
-      name: 'size',
-      type: FieldTypes.string,
-      defaultValue: 'small',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Select,
-        props: {
-          options:
-            [
-              { value: 'small', text: 'small' },
-              { value: 'large', text: 'large' }
-            ]
-        },
-        label: '大小',
-        help: '大小'
-      }
-    },
-    {
       name: 'text',
       type: FieldTypes.string,
       defaultValue: '30',
@@ -50,18 +32,6 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'corner',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: true,
-        props: {},
-        label: '置于角落'
-      }
-    },
-    {
       name: 'dot',
       type: FieldTypes.boolean,
       defaultValue: false,
@@ -73,21 +43,8 @@ const manifest: ComponentManifest = {
         label: '展示红点',
         help: '不展示数字，只有一个小红点'
       }
-    },
-    {
-      name: 'hot',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: true,
-        props: {},
-        label: '营销样式'
-      }
     }
-  ],
-  children: ['AccordionPanel']
+  ]
 
 }
 export {
