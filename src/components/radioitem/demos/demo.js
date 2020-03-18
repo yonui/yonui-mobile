@@ -29,7 +29,7 @@ export default class Demo1 extends Component {
                 <span style={{ fontSize: 14 ,paddingTop:20,display:'inline-block'}}>RadioItem</span>
                 <div>
                     {data.map(i => (
-                        <RadioItem key={i.value} checked={this.state.value === i.value} onChange={() => this.onChange(i.value)}>
+                        <RadioItem disabled key={i.value} checked={this.state.value === i.value} onChange={() => this.onChange(i.value)}>
                             {i.label}
                         </RadioItem>
                     ))}

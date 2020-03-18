@@ -105,7 +105,7 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '显示外框内容',
-        help: '当显示外框内容值为true,自定义(renderItem)方法无效'
+        help: '当显示外框内容值为true,创建函数(renderItem)方法无效'
       }
     },
     {

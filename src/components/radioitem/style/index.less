@@ -1,11 +1,10 @@
 @import '../../_style/index.less';
 
 @radioWrapPrefixCls: am-radio;
+@listWrapPrefixCls: am-list;
 
-.@{radioWrapPrefixCls}{
-  &-inner{
-    &:after{
-      // right: 2 * @hd;
-    }
+.@{radioWrapPrefixCls}-item-disabled.@{listWrapPrefixCls}-item{
+  .@{listWrapPrefixCls}-line .@{listWrapPrefixCls}-content { 
+    color:@color-text-disabled
   }
 }
