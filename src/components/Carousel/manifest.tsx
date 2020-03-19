@@ -2,9 +2,9 @@ import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-exten
 
 const manifest: ComponentManifest = {
   name: 'Carousel',
-  label: '走马灯',
+  label: '轮播',
   uiTable: UITable.BillTplGroupBase,
-  type: 'Layout',
+  type: 'basicControls',
   props: [
     {
       name: 'selectedIndex',

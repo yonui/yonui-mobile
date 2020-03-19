@@ -4,7 +4,7 @@ import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'libraui-
 const manifest: ComponentManifest = {
   name: 'ListItem',
   label: '列表项',
-  type: 'DataDisplay',
+  type: 'basicControls',
   props: [
     {
       name: 'thumb',

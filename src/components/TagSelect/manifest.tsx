@@ -3,7 +3,7 @@ const selectData = [{ value: 'value', desc: 'description' }]
 const manifest: ComponentManifest = {
   name: 'TagSelect',
   label: '标签选择',
-  type: 'DataEntry',
+  type: 'basicControls',
   uiTable: UITable.BillItemBase,
   props: [
     {

@@ -9,8 +9,8 @@ import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-
  */
 const manifest: ComponentManifest = {
   name: 'InputItem',
-  label: '文本输入',
-  type: 'DataEntry',
+  label: '文本',
+  type: 'basicControls',
   props: [
     {
       name: 'type',

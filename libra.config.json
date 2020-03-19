@@ -6,6 +6,8 @@
   "device": "mobile",
   "lib": [],
   "excludeNidAndUiType": false,
+  "excludeNidAndUiTypeComp": ["CarouselItem"],
+  "excludeManifestComp": ["List", "ListItem", "ListItemBrief","FlexItem","Radio"],
   "previewUrl": "http://tinper-libra-ui-demo.daily.app.yyuap.com/",
   "plugins": [
     ["import",{"libraryName":"antd-mobile","style":false}]

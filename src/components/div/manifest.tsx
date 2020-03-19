@@ -4,7 +4,7 @@ const manifest: ComponentManifest = {
   name: 'Div',
   label: 'Div',
   description: '空白容器',
-  type: 'DataEntry',
+  type: 'basicControls',
   uiTable: UITable.BillTplGroupBase,
   props: [
     {

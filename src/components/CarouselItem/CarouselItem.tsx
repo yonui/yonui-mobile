@@ -34,15 +34,18 @@ export default class CarouselItem extends React.Component<CarouselProps, any> {
       backgroundImage,
       backgroundSize,
       children,
-      style
+      style,
+      height,
+      ...other
     } = this.props
     return (
       <div className={prefixCls} ref={el => { this.divRef = el }} style={{
         backgroundColor: backgroundColor,
         backgroundImage: backgroundImage,
         backgroundSize: backgroundSize,
+        height: `${height}px`,
         ...style
-      }}>
+      }} {...other}>
         <div className={`${prefixCls}-content`}>
           { children }
         </div>

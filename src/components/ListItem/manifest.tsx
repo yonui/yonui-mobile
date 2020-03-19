@@ -3,7 +3,7 @@ import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-exten
 const manifest: ComponentManifest = {
   name: 'ListItem',
   label: '列表Item',
-  type: 'DataDisplay',
+  type: 'basicControls',
   uiTable: UITable.BillTplGroupBase,
   props: [
     {

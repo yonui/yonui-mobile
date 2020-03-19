@@ -4,7 +4,7 @@ const manifest: ComponentManifest = {
   name: 'SegmentMenuItem',
   label: '分段菜单项',
   uiTable: UITable.BillTplGroupBase,
-  type: 'Layout',
+  type: 'basicControls',
   props: [
     {
       name: 'title',

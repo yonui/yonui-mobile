@@ -3,8 +3,8 @@ import { getCssSelectParams } from '../_utils'
 
 const manifest: ComponentManifest = {
   name: 'Label',
-  label: '文本',
-  type: 'DataDisplay',
+  label: '标签',
+  type: 'basicControls',
   props: [
     {
       name: 'label',

@@ -4,7 +4,7 @@ import { getCssSelectParams } from '../_utils'
 const manifest: ComponentManifest = {
   name: 'Empty',
   label: '空数据',
-  type: 'Combination',
+  type: 'basicControls',
   uiTable: UITable.BillItemBase,
   props: [
     {

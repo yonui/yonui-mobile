@@ -2,7 +2,7 @@ import { EditTypes, FieldTypes, ComponentManifest } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'Tag',
   label: '标签',
-  type: 'DataDisplay',
+  type: 'basicControls',
   props: [
     {
       name: 'name',

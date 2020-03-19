@@ -4,7 +4,7 @@ const manifest: ComponentManifest = {
   label: '筛选组件',
   description: '提供一个筛选的容器组件',
   uiTable: UITable.BillTplGroupBase,
-  type: 'DataEntry',
+  type: 'operationBar',
   props: [
     {
       name: 'open',

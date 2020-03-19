@@ -5,7 +5,7 @@ const manifest: ComponentManifest = {
   label: '日历面板',
   uiTable: UITable.BillItemBase,
   description: '',
-  type: 'DataEntry',
+  type: 'basicControls',
   props: [
     {
       name: 'selectRange',

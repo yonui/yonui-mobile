@@ -4,7 +4,7 @@ const manifest: ComponentManifest = {
   name: 'Radio',
   label: '单选',
   description: '',
-  type: 'DataEntry',
+  type: 'basicControls',
   uiTable: UITable.BillItemBase,
   props: [
     {

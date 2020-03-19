@@ -7,7 +7,7 @@ import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-
 const manifest: ComponentManifest = {
   name: 'Picker',
   label: '选择器弹框',
-  type: 'DataEntry',
+  type: 'basicControls',
   props: [
     {
       name: 'data',

@@ -3,9 +3,9 @@ import { FieldTypes, EditTypes, UITable, ComponentManifest } from 'libraui-exten
 // todo 未配置 onChange
 const manifest: ComponentManifest = {
   name: 'RadioItem',
-  label: '单选项',
+  label: '单选框',
   description: '',
-  type: 'DataEntry',
+  type: 'basicControls',
   uiTable: UITable.BillItemBase,
   props: [
     {

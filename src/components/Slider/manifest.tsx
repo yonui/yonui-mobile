@@ -4,7 +4,7 @@ const manifest: ComponentManifest = {
   name: 'Slider',
   label: '滑动输入条',
   description: '滑动输入条',
-  type: 'DataEntry',
+  type: 'basicControls',
   uiTable: UITable.BillItemBase,
   props: [{
     name: 'min',

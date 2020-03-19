@@ -4,7 +4,7 @@ import { FieldTypes, EditTypes, ComponentManifest } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'Icon',
   label: '图标',
-  type: 'DataDisplay',
+  type: 'basicControls',
   props: [
     {
       name: 'color',

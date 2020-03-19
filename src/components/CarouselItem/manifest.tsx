@@ -3,9 +3,9 @@ import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-exten
 
 const manifest: ComponentManifest = {
   name: 'CarouselItem',
-  label: '走马灯Item',
+  label: '轮播页',
   uiTable: UITable.BillTplGroupBase,
-  type: 'Layout',
+  type: 'basicControls',
   props: [
     {
       name: 'backgroundColor',

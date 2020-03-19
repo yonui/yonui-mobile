@@ -3,7 +3,7 @@ import { EditTypes, FieldTypes, ComponentManifest, UITable } from 'libraui-exten
 const manifest: ComponentManifest = {
   name: 'result',
   label: '反馈页',
-  type: 'Combination',
+  type: 'basicControls',
   uiTable: UITable.BillItemBase,
   props: [
     {

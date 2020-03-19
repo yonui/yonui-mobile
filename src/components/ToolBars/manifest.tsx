@@ -4,7 +4,7 @@ const manifest: ComponentManifest = {
   label: '工具栏',
   description: '工具栏',
   uiTable: UITable.BillTplGroupBase,
-  type: 'DataEntry',
+  type: 'operationBar',
   props: [
     {
       name: 'values',

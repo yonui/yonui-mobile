@@ -7,9 +7,9 @@ const data = [
 const manifest: ComponentManifest = {
   name: 'ListPanelPicker',
   uiTable: UITable.BillItemBase,
-  label: '操作列表',
-  description: '',
-  type: 'DataEntry',
+  label: '底部弹出菜单',
+  description: '底部弹出菜单',
+  type: 'operationBar',
   props: [
     {
       name: 'data',

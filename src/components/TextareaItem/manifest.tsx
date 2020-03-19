@@ -2,8 +2,8 @@ import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-exten
 const manifest: ComponentManifest = {
   name: 'TextareaItem',
   uiTable: UITable.BillItemBase,
-  label: '多行输入',
-  type: 'DataEntry',
+  label: '多行文本',
+  type: 'basicControls',
   props: [
     {
       name: 'name',

@@ -4,7 +4,7 @@ const manifest: ComponentManifest = {
   name: 'FlexItem',
   label: 'FlexItem',
   description: '实现css flex布局', // 描述
-  type: 'Layout',
+  type: 'basicControls',
   uiTable: UITable.BillTplGroupBase,
   props: [// adapter适配层数据
     {

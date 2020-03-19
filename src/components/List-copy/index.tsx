@@ -4,7 +4,7 @@ import ListItem from './ListItem'
 const manifest: ComponentManifest = {
   name: 'List',
   label: '列表',
-  type: 'DataDisplay',
+  type: 'basicControls',
   props: [
     {
       name: 'renderHeader',

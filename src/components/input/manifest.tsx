@@ -2,8 +2,8 @@ import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-exten
 const manifest: ComponentManifest = {
   name: 'Input',
   uiTable: UITable.BillItemBase,
-  label: '文本输入',
-  type: 'DataEntry',
+  label: '文本',
+  type: 'basicControls',
   props: [
     {
       name: 'label',

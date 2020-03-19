@@ -1,10 +1,10 @@
 import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'TabPane',
-  label: '标签内容',
+  label: '多页签内容',
   description: 'Tabs组件的子组件',
   uiTable: UITable.BillTplGroupBase,
-  type: 'Navigation',
+  type: 'layoutContainer',
   props: [
     {
       name: 'key',

@@ -43,7 +43,7 @@ const manifest: ComponentManifest = {
   uiTable: UITable.BillTplGroupBase,
   label: '宫格',
   description: '在水平和垂直方向，将布局切分成若干等大的区块。',
-  type: 'Layout',
+  type: 'dataContainer',
   props: [
     {
       name: 'data',

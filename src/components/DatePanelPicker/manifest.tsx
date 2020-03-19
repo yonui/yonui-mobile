@@ -2,9 +2,9 @@ import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-exten
 const manifest: ComponentManifest = {
   name: 'DatePanelPicker',
   uiTable: UITable.BillItemBase,
-  label: '日期选择器',
+  label: '日期范围',
   description: '',
-  type: 'DataEntry',
+  type: 'basicControls',
   props: [
     {
       name: 'mode',

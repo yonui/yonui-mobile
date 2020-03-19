@@ -4,7 +4,7 @@ const manifest: ComponentManifest = {
   name: 'Checkbox',
   label: '复选框',
   description: '',
-  type: 'DataEntry',
+  type: 'basicControls',
   uiTable: UITable.BillItemBase,
   props: [
     {
@@ -77,7 +77,7 @@ const manifestCheckBoxItem: ComponentManifest = {
   name: 'CheckboxItem',
   label: '复选框',
   description: '',
-  type: 'DataEntry',
+  type: 'basicControls',
   uiTable: UITable.BillItemBase,
   props: [
     {
@@ -133,7 +133,7 @@ const manifestAgreeItem: ComponentManifest = {
   name: 'AgreeItem',
   label: 'AgreeItem',
   description: '', // 描述
-  type: 'DataEntry',
+  type: 'basicControls',
   uiTable: UITable.BillItemBase,
   props: [// adapter适配层数据
   ]

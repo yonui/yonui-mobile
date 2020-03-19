@@ -6,7 +6,7 @@ const manifest: ComponentManifest = {
   name: 'Range',
   label: '区域选择',
   description: '区域选择',
-  type: 'DataEntry',
+  type: 'basicControls',
   props: [{
     name: 'min',
     type: FieldTypes.number,

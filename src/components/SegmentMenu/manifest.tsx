@@ -3,7 +3,7 @@ const manifest: ComponentManifest = {
   name: 'SegmentMenu',
   label: '分段菜单',
   description: '切换菜单，内容区上下滑动至选中模块吸顶。',
-  type: 'Layout',
+  type: 'basicControls',
   uiTable: UITable.BillTplGroupBase,
   props: [
     {

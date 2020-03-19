@@ -1,9 +1,9 @@
 import { EditTypes, FieldTypes, ComponentManifest, UITable } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'NavBar',
-  label: '导航栏',
+  label: '导航',
   description: '位于 app 内容区的上方，系统状态栏的下方，并且提供在一系列页面中的导航能力。', // 描述
-  type: 'Navigation',
+  type: 'operationBar',
   uiTable: UITable.BillTplGroupBase,
   props: [// adapter适配层数据
     {

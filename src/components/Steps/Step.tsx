@@ -3,7 +3,7 @@ import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'libraui-
 const manifest: ComponentManifest = {
   name: 'Step',
   label: '步骤项',
-  type: 'DataDisplay',
+  type: 'basicControls',
   props: [
     {
       name: 'status',

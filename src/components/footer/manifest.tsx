@@ -3,7 +3,7 @@ const manifest: ComponentManifest = {
   name: 'Footer',
   uiTable: UITable.BillTplGroupBase,
   label: '底部区域',
-  type: 'Layout',
+  type: 'operationBar',
   props: [],
   children: () => true
 }

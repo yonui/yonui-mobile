@@ -3,7 +3,7 @@ import { EditTypes, FieldTypes, ComponentManifest, UITable } from 'libraui-exten
 const manifest: ComponentManifest = {
   name: 'Flex',
   label: 'flex布局',
-  type: 'Layout',
+  type: 'layoutContainer',
   description: '实现css flex布局', // 描述
   uiTable: UITable.BillTplGroupBase,
   props: [// adapter适配层数据

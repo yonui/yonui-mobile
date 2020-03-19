@@ -1,10 +1,10 @@
 import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'activitypanel',
-  label: '活动面板',
-  description: '活动面板',
+  label: '分享面板',
+  description: '分享面板',
   uiTable: UITable.BillTplGroupBase,
-  type: 'DataEntry',
+  type: 'operationBar',
   props: [
     {
       name: 'show',

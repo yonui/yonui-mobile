@@ -1,8 +1,8 @@
 import { FieldTypes, EditTypes, UITable, ComponentManifest } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'Notice',
-  label: '通告栏',
-  type: 'DataDisplay',
+  label: '提示',
+  type: 'basicControls',
   uiTable: UITable.BillItemBase,
   props: [
     {

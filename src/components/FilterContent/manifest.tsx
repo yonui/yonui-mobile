@@ -4,7 +4,7 @@ const manifest: ComponentManifest = {
   label: '筛选组件内容',
   description: '筛选组件的内容',
   uiTable: UITable.BillItemBase,
-  type: 'DataEntry',
+  type: 'operationBar',
   props: [
     {
       name: 'title',

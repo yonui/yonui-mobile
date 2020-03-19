@@ -7,7 +7,7 @@ import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-
 const manifest: ComponentManifest = {
   name: 'SearchBar',
   label: '搜索栏',
-  type: 'DataEntry',
+  type: 'basicControls',
   props: [
     {
       name: 'value',

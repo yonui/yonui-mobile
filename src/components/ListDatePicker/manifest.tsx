@@ -3,7 +3,7 @@ import { FieldTypes, EditTypes, ComponentManifest } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'ListDatePicker',
   label: '列表项日期选择',
-  type: 'DataEntry',
+  type: 'basicControls',
   props: [
     {
       name: 'label',

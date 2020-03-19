@@ -3,7 +3,7 @@ import { FieldTypes, EditTypes, ComponentManifest } from 'libraui-extension'
 const manifest: ComponentManifest = {
   name: 'Button',
   label: '按钮',
-  type: 'DataEntry',
+  type: 'basicControls',
   props: [
     {
       name: 'content',

@@ -8,7 +8,7 @@ const manifest: ComponentManifest = {
   name: 'Brief',
   label: 'Brief',
   description: '', // 描述
-  type: 'DataDisplay',
+  type: 'basicControls',
   props: [// adapter适配层数据
   ]
 }

@@ -4,7 +4,7 @@ const manifest: ComponentManifest = {
   label: '加载',
   description: '渲染加载状态',
   uiTable: UITable.BillTplGroupBase,
-  type: 'DataDisplay',
+  type: 'basicControls',
   props: [
     {
       name: 'show',

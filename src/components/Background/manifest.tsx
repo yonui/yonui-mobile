@@ -4,7 +4,7 @@ const backgroundManifest: ComponentManifest = {
   name: 'Background',
   label: '页面背景',
   uiTable: UITable.BillTplGroupBase,
-  type: 'Layout',
+  type: 'basicControls',
   description: '',
   props: [
     {
