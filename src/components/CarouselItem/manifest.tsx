@@ -13,7 +13,7 @@ const manifest: ComponentManifest = {
       defaultValue: 'transparent',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Color,
         props: {},
         label: '背景颜色'
       }

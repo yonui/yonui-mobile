@@ -9,7 +9,7 @@ const manifest: ComponentManifest = {
     {
       name: 'show',
       type: FieldTypes.boolean,
-      defaultValue: false,
+      defaultValue: true,
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
