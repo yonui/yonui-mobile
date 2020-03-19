@@ -5,6 +5,7 @@ const manifest: ComponentManifest = {
   label: '列表',
   type: 'basicControls',
   uiTable: UITable.BillTplGroupBase,
+  hidden: true,
   props: [
     {
       name: 'renderHeader',

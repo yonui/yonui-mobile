@@ -6,6 +6,7 @@ const manifest: ComponentManifest = {
   description: '',
   type: 'basicControls',
   uiTable: UITable.BillItemBase,
+  hidden: true,
   props: [
     {
       name: 'name',

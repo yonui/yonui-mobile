@@ -2,7 +2,7 @@ import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-exten
 const selectData = [{ value: 'value', desc: 'description' }]
 const manifest: ComponentManifest = {
   name: 'TagSelect',
-  label: '标签选择',
+  label: '枚举选择',
   type: 'basicControls',
   uiTable: UITable.BillItemBase,
   props: [

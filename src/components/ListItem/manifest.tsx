@@ -5,6 +5,7 @@ const manifest: ComponentManifest = {
   label: '列表Item',
   type: 'basicControls',
   uiTable: UITable.BillTplGroupBase,
+  hidden: true,
   props: [
     {
       name: 'leftThumb',

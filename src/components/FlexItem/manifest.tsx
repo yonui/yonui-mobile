@@ -6,6 +6,7 @@ const manifest: ComponentManifest = {
   description: '实现css flex布局', // 描述
   type: 'basicControls',
   uiTable: UITable.BillTplGroupBase,
+  hidden: true,
   props: [// adapter适配层数据
     {
       name: 'content',

@@ -6,6 +6,7 @@ const manifest: ComponentManifest = {
   description: '空白容器',
   type: 'basicControls',
   uiTable: UITable.BillTplGroupBase,
+  hidden: true,
   props: [
     {
       name: 'nowrap',

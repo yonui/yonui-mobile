@@ -5,6 +5,7 @@ const manifest: ComponentManifest = {
   label: '列表ItemBrief',
   type: 'basicControls',
   uiTable: UITable.BillTplGroupBase,
+  hidden: true,
   props: [
     {
       name: 'content',
