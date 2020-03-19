@@ -1,0 +1,15 @@
+@import '../../_style/index.less';
+
+@divPrefixCls:'am-div-container';
+.am-div-container{
+  min-height: 10*@hd;
+  &.nowrap{
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  &.panel{
+    background-color: @fill-base;
+    padding: 5 * @hd;
+    border-radius: @radius-lg;
+  }
+}

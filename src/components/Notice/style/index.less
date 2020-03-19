@@ -1,0 +1,111 @@
+@import '../../_style/index.less';
+
+@noticeBarPrefixCls: am-notice-bar;
+
+
+// notice-bar
+@notice-bar-color: rgba(255,255,255,1);
+@notice-bar-fill:rgba(17, 17, 17, 0.5);
+@notice-bar-height: 40 * @hd;
+
+@font-size-base:14* @hd;
+//notice-bar-pop
+@notice-bar-pop-fill:rgba(17, 17, 17, 0.8);
+
+@notice-bar-light-fill: rgba(255,255,255,1);
+@notice-bar-light-height: 44 * @hd;
+@notice-bar-light-color:rgba(17, 17, 17, 1);
+
+.@{noticeBarPrefixCls} {
+  background-color: @notice-bar-fill;
+  color: @notice-bar-color;
+  height:@notice-bar-height;
+  &.@{noticeBarPrefixCls}-pop{
+    //新增的notice的类型
+    background-color: @notice-bar-pop-fill;
+    color: @notice-bar-color;
+    font-size: @font-size-base;
+  }
+  .am-icon-md{
+    width:19* @hd;
+    height : 19 * @hd;
+  }
+
+}
+
+//新增pop通告
+.@{noticeBarPrefixCls}-pop-container{
+  position: relative;
+  .@{noticeBarPrefixCls}{
+    height: 44 * @hd;
+    width: 182 * @hd;
+    border-radius: 5 * @hd;
+    background-color: @notice-bar-pop-fill;
+    .@{noticeBarPrefixCls}-pop-img,img{
+        width: 24 * @hd;;
+    }
+  }
+  span.@{noticeBarPrefixCls}-pop-triangle {
+    font-size: 0;
+    line-height: 0;
+    border-width: 6 * @hd;
+    border-color: @notice-bar-pop-fill;
+    border-top-width: 0;
+    border-style: dashed;
+    border-bottom-style: solid;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    display: block;
+    width: 6 * @hd;
+    margin-left: 22 * @hd;
+  }
+}
+
+
+//新增light通告
+
+.@{noticeBarPrefixCls}-light-container{
+  //新增的notice的类型
+  .@{noticeBarPrefixCls}{
+    border-radius: 6 * @hd;
+    background-color: @notice-bar-light-fill;
+    height: @notice-bar-light-height;
+    line-height: @notice-bar-light-height;
+    color: @notice-bar-light-color;
+    font-size: @font-size-base;
+    .@{noticeBarPrefixCls}-light-img,img{
+      width: 24 * @hd;;
+    }
+    .@{noticeBarPrefixCls}-marquee{
+      padding-left: 10 * @hd;
+      margin-left: 10 * @hd;
+      &:before{
+        display: block;
+        content: '';
+        width: 1 * @hd;
+        height: 15 * @hd;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        background: rgba(238, 238, 238, 1);
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
+
+//弹框通告
+.@{noticeBarPrefixCls}-modal-container{
+    width: 300 * @hd;
+    .am-modal-content{
+      padding-top:18 * @hd;
+    }
+    .am-modal-content .am-modal-body{
+      padding-bottom:24 * @hd;
+    }
+    .am-modal-button-group-v .am-modal-button{
+      height: 45 * @hd;
+      background:rgba(245, 245, 245, 1);
+      color:@color-text-base;
+    }
+}

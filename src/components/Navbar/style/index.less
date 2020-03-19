@@ -1,0 +1,44 @@
+@import '../../_style/index.less';
+
+@navBarPrefixCls: am-navbar;
+@nav-bar-fill: rgba(255, 255, 255, 1);
+@nav-bar-color: rgba(17, 17, 17, 1);
+
+.@{navBarPrefixCls} {
+
+  & &-title .title {
+    text-align: center;
+    align-items: center;
+    font-size: 18*@hd;
+    >svg {
+      width: 16 *@hd;
+      height: 16 *@hd;
+    }
+  }
+
+  & &-title .sub-title {
+    font-size: 11*@hd;
+    color: rgba(136, 136, 136, 1);
+  }
+}
+
+.@{navBarPrefixCls}-light {
+  background-color: @nav-bar-fill;
+  color: @nav-bar-color;
+
+  & &-title .title {
+    display: flex;
+    align-items: center;
+    font-size: 18*@hd;
+
+    >svg {
+      width: 16 *@hd;
+      height: 16 *@hd;
+    }
+  }
+
+  & &-title .sub-title {
+    font-size: 11*@hd;
+    color: rgba(136, 136, 136, 1);
+  }
+}

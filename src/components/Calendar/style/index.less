@@ -1,0 +1,16 @@
+@import '../../_style/index.less';
+@CalendarPrefixClass: am-calendar;
+.@{CalendarPrefixClass} .single-month {
+  .row {
+    .cell {
+      .info {
+        height: @font-size-icontext + 5*@hd;
+      }
+    }
+  }
+}
+.@{CalendarPrefixClass} {
+  .header .left,.header .right{
+    color: @brand-primary;
+  }
+}

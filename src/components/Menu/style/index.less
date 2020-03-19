@@ -1,0 +1,37 @@
+@import '../../_style/index.less';
+@menuPrefixCls: am-menu;
+// @subMenuPrefixCls: am-sub-menu;
+// @MenuSelectContanerPrefixCls: am-menu-select-container;
+// @multiSelectMenuBtnsCls: am-multi-select-btns;
+@flexPrefixCls: am-flexbox;
+@listPrefixCls: am-list;
+// @checkboxPrefixCls: am-checkbox;
+// @firstMenuColor: @fill-grey;
+
+.@{menuPrefixCls}{
+  .@{listPrefixCls}-item{
+    padding:0 12*@hd;
+    overflow: hidden;
+    &.am-radio-item .@{listPrefixCls}-line .@{listPrefixCls}-extra .am-radio-inner{
+      right:0;
+    }
+    .@{listPrefixCls}-line{
+      padding:0;
+      .@{listPrefixCls}-content{
+        line-height: 50 * @hd;
+        padding:0;
+        
+        &:not(:last-child){
+          border-bottom: 1*@hd solid @line-color-1;
+        }
+      }
+
+    }
+  }
+  .@{flexPrefixCls}{
+    .@{flexPrefixCls}-item:last-child{
+      background-color: @fill-tap;
+    }
+  }
+  
+}

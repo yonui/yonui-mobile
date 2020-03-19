@@ -1,0 +1,88 @@
+@import '../../_style/index.less';
+
+@mdfButtonPrefixCls: mdf-button;
+
+.mdf-button-color(@color; @background; @border) {
+  color: @color;
+  background-color: @background;
+  .hairline('all', @border, @radius-md);
+}
+
+.mdf-button-variant(@color; @background; @border) {
+  .mdf-button-color(@color; @background; @border);
+
+  &.@{mdfButtonPrefixCls}-active { // tap
+      .mdf-button-color(darken(@color, 10%); darken(@background, 10%); @border);
+  }
+  &.@{mdfButtonPrefixCls}-disabled { // disabled
+    opacity: .4;
+  }
+}
+
+.@{mdfButtonPrefixCls} {
+  // base
+  display: block;
+  outline: 0 none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  padding: 0;
+  text-align: center;
+  font-size: @button-font-size;
+  height: @button-height;
+  line-height: @button-height;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+  -webkit-user-select: none;
+  // default
+  color: @color-text-base;
+  background-color: @fill-base;
+  .hairline('all', @border-color-base, @radius-md);
+
+  &-default {
+    .mdf-button-variant(@color-text-base; @fill-base; @border-color-base);
+  }
+  &-primary {
+    .mdf-button-variant(@color-text-base-inverse; @primary-button-fill; @primary-button-fill);
+  }
+  &-warning {
+    .mdf-button-variant(@warning-button-text-color; @warning-button-fill; @border-color-base);
+  }
+  &-ghost {
+    .mdf-button-variant(@warning-button-text-color; @fill-base; @primary-button-fill);
+  }
+  &-text {
+    .mdf-button-variant(@warning-button-text-color; transparent; transparent);
+  }
+
+  &-inline {
+    display: inline-block;
+    padding: 0 @h-spacing-lg;
+    &.@{buttonPrefixCls}-icon {
+      display: inline-flex;
+    }
+  }
+  &-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  > .@{mdfButtonPrefixCls}-icon {
+    margin-right: 0.3em;
+  }
+  &-small {
+    display: inline-block;
+    padding: 0 @h-spacing-lg;
+
+    font-size: @button-font-size-sm;
+    height: @button-height-sm;
+    line-height: @button-height-sm - 1;
+    padding: 0 @h-spacing-lg;
+    border-radius: @radius-sm;
+    &.@{mdfButtonPrefixCls}-active { // tap
+      border-radius: @radius-sm;
+    }
+  }
+}

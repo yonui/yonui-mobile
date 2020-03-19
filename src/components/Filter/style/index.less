@@ -1,0 +1,60 @@
+@import '../../_style/index.less';
+@import '../../ToolBars/style/index.less';
+.yonui-filter{
+  &.am-drawer.am-drawer-left .am-drawer-draghandle,
+  &.am-drawer.am-drawer-right .am-drawer-draghandle{
+    width: auto;
+  }
+  .am-drawer-sidebar{
+    width: 80%;
+  }
+  &-sidebar{
+    padding-top: 45 * @hd;
+    padding-bottom: 50 * @hd;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-color: @fill-base;
+    position: relative;
+    &-content{
+      overflow: auto;
+      height: 100%;
+    }
+    &-footer{
+      position: absolute;
+      bottom: 0;
+      height: 50*@hd;
+      width: 100%;
+      background-color: @fill-base;
+      border-top: 1px solid @split-line;
+      .sidebar-footer-reset,
+      .sidebar-footer-confirm{
+        position: relative;
+        width: 50%;
+        height: 100%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16*@hd;
+        color: @color-text-base;
+        &:hover{
+          color: @brand-primary;
+        }
+      }
+
+      .sidebar-footer-reset::after{
+        content: "";
+        position: absolute;
+        background-color: #dddddd;
+        display: block;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        width: 1px;
+        height: 100%;
+        /* transform-origin: 50% 100%; */
+        transform: scaleY(0.4);
+      }
+    }
+  }
+}

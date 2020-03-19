@@ -1,0 +1,72 @@
+@import '../../_style/index.less';
+.get-bg-svg(@start, @mid, @end){
+  @svg-bg-loadings: '<svg viewBox="0 0 440 440" class="center" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><linearGradient x1="1" y1="0" x2="0" y2="0" id="gradient1"><stop offset="0%" stop-color="@{start}"/><stop offset="100%" stop-color="@{mid}"/></linearGradient><linearGradient x1="1" y1="0" x2="0" y2="0" id="gradient2"><stop offset="0%" stop-color="@{end}"/><stop offset="100%" stop-color="@{mid}"/></linearGradient></defs><g transform="matrix(0,-1,1,0,0,440)"><circle cx="220" cy="220" r="170" stroke-width="25" stroke="url(#gradient1)" fill="none" stroke-dasharray="1069 1069"/><circle cx="220" cy="220" r="170" stroke-width="25" stroke="url(#gradient2)" fill="none" stroke-dasharray="534.5 1069"/></g></svg>';
+  .encoded-svg-background-i(@svg-bg-loadings)
+}
+
+.yonui-loading{
+  &.yonui-loading-local{
+    // justify-content: center;
+    // flex-direction: column;
+    color: #888888;
+    // opacity: 1;
+    font-size: 10px;
+    .am-activity-indicator{
+      flex-direction: column;
+    }
+    .am-activity-indicator-tip{
+      color: inherit;
+      opacity: inherit;
+      font-size: inherit;
+      margin-left: 0;
+      line-height: 1;
+      margin-top: 7 * @hd;
+    }
+  }
+
+  &.yonui-loading-toast{
+    color: @loading-text-color;
+    font-size: 13 * @hd;
+    .am-activity-indicator-content{
+      color: inherit;
+      width: 90 * @hd;
+      height: 90 * @hd;
+      box-sizing: border-box;
+      background-color: @loading-mask-color;
+      opacity: @loading-mask-opacity;
+      font-size: inherit;
+      .am-activity-indicator-toast{
+        font-size: inherit;
+      }
+    }
+  }
+  .yonui-loading-primary{
+    .am-activity-indicator-spinner{
+      .get-bg-svg(@loading-primary-start, @loading-primary-mid, @loading-primary-end);
+    }
+    .am-progress-bar{
+      // border-color: @loading-dark;
+      border: none;
+      min-height: 4 * @hd;
+      background: linear-gradient(90deg,@loading-primary 0%,@loading-next 100%);
+    }
+  }
+
+  .yonui-loading-dark{
+    .am-activity-indicator-spinner{
+      .get-bg-svg(@loading-dark-start, @loading-dark-mid, @loading-dark-end);
+    }
+    .am-progress-bar{
+      border-color: @loading-dark;
+    }
+  }
+
+  .yonui-loading-light{
+    .am-activity-indicator-spinner{
+      .get-bg-svg(@loading-light-start,@loading-light-mid,@loading-light-end);
+    }
+    .am-progress-bar{
+      border-color: @loading-light;
+    }
+  }
+}
