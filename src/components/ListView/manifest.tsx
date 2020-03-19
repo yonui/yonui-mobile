@@ -35,7 +35,7 @@ const manifest: ComponentManifest = {
     {
       name: 'initialListSize',
       type: FieldTypes.number,
-      defaultValue: 3,
+      defaultValue: 5,
       showDesign: true,
       designConfig: {
         type: EditTypes.Number,

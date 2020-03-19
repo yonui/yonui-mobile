@@ -21,9 +21,21 @@ interface YSListViewProps extends ListViewProps {
   DataSource: any
 
 }
-const initialHeight = 500
+// const initialHeight = 500
 
-class YSListView extends Component<YSListViewProps> {
+interface State {
+  height: number
+  dataSource: any
+  finished: string
+  // showNum: number
+}
+class YSListView extends Component<YSListViewProps, State> {
+  id: string
+  constructor (props: YSListViewProps) {
+    super(props)
+    this.id = Date.now().toString()
+  }
+
   public static defaultProps = {
   }
 
@@ -36,7 +48,10 @@ class YSListView extends Component<YSListViewProps> {
   listViewRef: any
 
   state = {
-    dataSource: this.listViewDataSource.cloneWithRows(this.dataIndex)
+    dataSource: this.listViewDataSource.cloneWithRows(this.dataIndex),
+    height: 667,
+    finished: ''
+    // showNum: 100
     // showNum: this.props.showNum || 100
   }
 
@@ -57,6 +72,10 @@ class YSListView extends Component<YSListViewProps> {
   onEndReached = (event: React.MouseEvent) => {
     if (this.props.onEndReached) {
       this.props.onEndReached()
+    } else {
+      this.setState({
+        finished: '已经到底了'
+      })
     }
   }
 
@@ -105,13 +124,20 @@ class YSListView extends Component<YSListViewProps> {
 
   renderFooter = () => {
     const { footerContent, children, showNum } = this.props
+    const { finished } = this.state
     // const length = value ? value.length : dataSource.length
     const length = children ? children.length : showNum
     // const { showNum } = this.state
+    if (finished) {
+      return (
+        <div className="listview-footer">
+          <span>{finished}</span>
+        </div>)
+    }
     if (!footerContent) {
       if (length > showNum) {
         return (
-          <div className="listview-footer" onClick={() => { this.setState({ showNum: length }) }}>
+          <div className="listview-footer" >
             <span>展开剩余{length - showNum}商品</span>
             <Icon type="down"></Icon>
           </div>
@@ -132,14 +158,20 @@ class YSListView extends Component<YSListViewProps> {
   }
 
   componentDidMount = () => {
+    const clientHeight = document.getElementById(this.id)?.offsetTop
+    const height = window.screen.height - (clientHeight || 0) - 40
+    console.log(window.screen.height, clientHeight)
+    this.setState({
+      height
+    })
     setTimeout(() => {
       this.UNSAFE_componentWillReceiveProps(this.props)
     }, 300)
   }
 
   render () {
-    const { dataSource } = this.state
-    const { refreshing, height = initialHeight, pageSize, renderRow, showPullToReresh = true, initialListSize } = this.props
+    const { dataSource, height } = this.state
+    const { refreshing, pageSize, renderRow, showPullToReresh = true, initialListSize = 10 } = this.props
 
     if (dataSource && dataSource.length === 0) {
       return <div style={{ height: height }} className="no_data">暂无数据</div>
@@ -161,25 +193,26 @@ class YSListView extends Component<YSListViewProps> {
     }
 
     return (
-      <ListViewAntd
-        className='ys-listview'
-        ref={ref => { this.listViewRef = ref }}
-        key={this.listViewRef}
-        initialListSize={initialListSize}
-        pageSize={pageSize || 4}
-        dataSource={dataSource}
-        renderSeparator={this.renderSeparator}
-        renderFooter={this.renderFooter}
-        renderRow={renderRow || this.renderRow as any}
-        style={{ height: height, overflow: 'auto' }}
-        onScroll={(e) => { this.scrollListener(e) }}
-        scrollRenderAheadDistance={500}
-        scrollEventThrottle={200}
-        onEndReached={this.onEndReached}
-        onEndReachedThreshold={10}
-        {...hasPullToRereshProps}
-
-      />
+      <div id={this.id}>
+        <ListViewAntd
+          className='ys-listview'
+          ref={ref => { this.listViewRef = ref }}
+          key={this.listViewRef}
+          initialListSize={initialListSize}
+          pageSize={pageSize || 4}
+          dataSource={dataSource}
+          renderSeparator={this.renderSeparator}
+          renderFooter={this.renderFooter}
+          renderRow={renderRow || this.renderRow as any}
+          style={{ height: height, overflow: 'auto' }}
+          onScroll={(e) => { this.scrollListener(e) }}
+          scrollRenderAheadDistance={500}
+          scrollEventThrottle={200}
+          onEndReached={this.onEndReached}
+          onEndReachedThreshold={10}
+          {...hasPullToRereshProps}
+        />
+      </div>
     )
   }
 }
