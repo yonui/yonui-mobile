@@ -117,7 +117,7 @@ class Button extends React.Component<ButtonProps, any> {
           onClick={disabled ? undefined : onClick}
           aria-disabled={disabled}>
           {iconEl}
-          {kids || content}
+          {(kids && kids.length) ? kids : content}
         </a>
       </TouchFeedback>
     )
