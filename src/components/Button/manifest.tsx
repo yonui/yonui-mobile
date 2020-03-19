@@ -54,7 +54,7 @@ const manifest: ComponentManifest = {
     {
       name: 'size',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: 'large',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,

@@ -14,7 +14,7 @@ export interface PanelProps {
 }
 export default class Panel extends Component<PanelProps> {
   static defaultProps = {
-    show: false,
+    show: true,
     title: '',
     cancelButtonText: '取消',
     type: 'fixed'

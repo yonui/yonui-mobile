@@ -11,6 +11,7 @@ export default class MdfList extends React.Component<any, any> {
   }
 
   render () {
-    return (<List>{this.props.children}</List>)
+    const { children, ...other } = this.props
+    return (<List {...other}>{children}</List>)
   }
 }

@@ -29,7 +29,7 @@ export default class Filter extends Component<FilterProps, FilterState> {
   }
 
   static defaultProps = {
-    open: false,
+    open: true,
     btn1: '重置',
     btn2: '确定',
     position: 'right'
