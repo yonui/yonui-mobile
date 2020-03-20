@@ -1,4 +1,20 @@
 import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
+const defaultValues = [
+  {
+    key: 'item1',
+    value: '选项1'
+  },
+  {
+    key: 'item2',
+    value: '选项2',
+    theme: 'primary'
+  },
+  {
+    key: 'item3',
+    value: '选项3',
+    theme: 'next'
+  }
+]
 const manifest: ComponentManifest = {
   name: 'Toolbars',
   label: '工具栏',
@@ -9,7 +25,7 @@ const manifest: ComponentManifest = {
     {
       name: 'values',
       type: FieldTypes.array,
-      defaultValue: JSON.stringify(['item1', 'item2', 'item3', 'item4', 'item5', 'item6']),
+      defaultValue: JSON.stringify(defaultValues),
       showDesign: true,
       designConfig: {
         type: EditTypes.Json,
@@ -19,14 +35,14 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'selectedIndex',
-      type: FieldTypes.number,
+      name: 'selectedKey',
+      type: FieldTypes.string,
       showDesign: true,
       designConfig: {
-        type: EditTypes.Number,
+        type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '选中数据下标'
+        label: '选中数据Key值'
       }
     },
     {
@@ -63,18 +79,6 @@ const manifest: ComponentManifest = {
             ]
         },
         label: '渲染模式'
-      }
-    },
-    {
-      name: 'btnsType',
-      type: FieldTypes.array,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Json,
-        isRequired: false,
-        props: {},
-        label: '按钮类型数组',
-        help: 'button模式下有效'
       }
     },
     {
