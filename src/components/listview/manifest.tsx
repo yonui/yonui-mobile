@@ -23,7 +23,7 @@ const manifest: ComponentManifest = {
     {
       name: 'height',
       type: FieldTypes.number,
-      defaultValue: 500,
+      defaultValue: 600,
       showDesign: true,
       designConfig: {
         type: EditTypes.Number,

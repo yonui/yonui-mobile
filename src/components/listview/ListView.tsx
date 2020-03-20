@@ -49,7 +49,7 @@ class YSListView extends Component<YSListViewProps, State> {
 
   state = {
     dataSource: this.listViewDataSource.cloneWithRows(this.dataIndex),
-    height: 667,
+    height: 600,
     finished: ''
     // showNum: 100
     // showNum: this.props.showNum || 100
@@ -158,9 +158,14 @@ class YSListView extends Component<YSListViewProps, State> {
   }
 
   componentDidMount = () => {
-    const clientHeight = document.getElementById(this.id)?.offsetTop
-    const height = window.screen.height - (clientHeight || 0) - 40
-    console.log(window.screen.height, clientHeight)
+    const design = document.getElementById('content')?.offsetHeight
+    let height = 0
+    if (design) {
+      height = 667 - 40
+    } else {
+      const clientHeight = document.getElementById(this.id)?.offsetTop || 0
+      height = window.screen.height - clientHeight - 40
+    }
     this.setState({
       height
     })
