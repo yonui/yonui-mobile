@@ -1,10 +1,10 @@
 {
   "name": "TinperLibraui",
-  "description": "TinperLibraui组件库",
-  "id": "antd-mobile",
+  "description": "YonuiMobile组件库",
+  "id": "yonui-mobile",
   "version": "1.0.0",
   "index": "./index.tsx",
-  "keyword": "demo library metaui-mobile",
+  "keyword": "demo library yonui-mobile",
   "lessVars": {
     "color-text-base": "#212121",
     "fill-disabled": "#DFE1E6",
