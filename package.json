@@ -71,7 +71,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "highlight.js": "^9.18.1",
     "husky": "^3.1.0",
-    "yonui-cli": "^0.1.62",
+    "yonui-cli": "^0.1.64",
     "libraui-extension-packager": "^0.4.7",
     "marked": "^0.8.0",
     "qrcode.react": "^1.0.0",
