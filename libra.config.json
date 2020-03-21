@@ -8,7 +8,8 @@
   "excludeNidAndUiType": false,
   "excludeNidAndUiTypeComp": ["CarouselItem", "ListView"],
   "staticPropsMap": {
-    "ListView": "DataSource"
+    "ListView": "DataSource",
+    "List": ["ListItem","ListItemBrief"]
   },
   "previewUrl": "http://tinper-libra-ui-demo.daily.app.yyuap.com/",
   "plugins": [

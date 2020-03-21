@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Icon } from 'antd-mobile'
 import classnames from 'classnames'
-export interface CardProps {
+export interface CardProps extends React.defaultProps {
   prefixCls?: string
   full?: boolean
   content?: React.ReactElement | string
@@ -15,7 +15,6 @@ export interface CardProps {
   footerExtra?: React.ReactElement | string
   onFooterExtraClick?: React.MouseEventHandler<HTMLAnchorElement>
   children?: any[]
-  style?: React.CSSProperties
   thumbStyle?: React.CSSProperties
 }
 export default class MDFCard extends React.Component<CardProps, any> {

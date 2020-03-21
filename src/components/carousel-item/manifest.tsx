@@ -45,18 +45,19 @@ const manifest: ComponentManifest = {
         },
         label: '背景图片拉伸方式'
       }
-    },
-    {
-      name: 'height',
-      type: FieldTypes.number,
-      defaultValue: 170,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        props: {},
-        label: 'Item高度'
-      }
     }
+    // ,
+    // {
+    //   name: 'height',
+    //   type: FieldTypes.string,
+    //   defaultValue: '100%',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     props: {},
+    //     label: 'Item高度'
+    //   }
+    // }
   ],
   children: () => true
 }

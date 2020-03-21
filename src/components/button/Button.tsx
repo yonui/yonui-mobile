@@ -2,8 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 import TouchFeedback from 'rmc-feedback'
 import Icon from '../icon'
-
-export interface ButtonProps {
+export interface ButtonProps extends React.defaultProps{
   prefixCls?: string
   content?: string
   type?: 'primary' | 'warning' | 'ghost' | 'default' | 'text'
@@ -12,9 +11,7 @@ export interface ButtonProps {
   disabled?: boolean
   loading?: boolean
   icon?: React.ReactNode | string
-  style?: React.CSSProperties
   onClick?: React.MouseEventHandler<HTMLAnchorElement>
-  className?: string
 }
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/

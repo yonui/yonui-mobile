@@ -1,12 +1,14 @@
 import React from 'react'
+import classnames from 'classnames'
 export interface CarouselProps {
   prefixCls?: string
   backgroundColor?: string
   backgroundImage?: string
   backgroundSize?: string
-  height?: number
+  height?: number | string
   children?: any[]
-  style?: React.CSSProperties
+  className?: string
+  style?: object
 }
 export default class CarouselItem extends React.Component<CarouselProps, any> {
   static defaultProps = {
@@ -34,18 +36,17 @@ export default class CarouselItem extends React.Component<CarouselProps, any> {
       backgroundImage,
       backgroundSize,
       children,
-      style,
-      height,
+      style = {},
+      // height,
+      className,
       ...other
     } = this.props
+    const cls = classnames(className, prefixCls)
+    const sty = { backgroundColor, backgroundImage: (backgroundImage ? `url(${backgroundImage})` : 'none'), backgroundSize, ...style, height: '100%' }
+    console.log(sty)
+    // const finalHeight = !height ? '100%' : height
     return (
-      <div className={prefixCls} ref={el => { this.divRef = el }} style={{
-        backgroundColor: backgroundColor,
-        backgroundImage: backgroundImage,
-        backgroundSize: backgroundSize,
-        height: `${height}px`,
-        ...style
-      }} {...other}>
+      <div className={cls} ref={el => { this.divRef = el }} style={sty} {...other}>
         <div className={`${prefixCls}-content`}>
           { children }
         </div>
