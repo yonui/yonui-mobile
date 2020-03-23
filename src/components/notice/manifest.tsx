@@ -64,7 +64,7 @@ const manifest: ComponentManifest = {
     {
       name: 'marqueeProps',
       type: FieldTypes.object,
-      defaultValue: JSON.stringify({ loop: true, style: { color: '#fff' } }),
+      defaultValue: JSON.stringify({ loop: true, style: {} }),
       showDesign: true,
       designConfig: {
         type: EditTypes.Json,

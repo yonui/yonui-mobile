@@ -14,12 +14,13 @@
   // }
 }
 .@{popoverPrefixCls} .@{popoverPrefixCls}-item{
-  padding:  0  16*@hd;
+  // padding:  0  16*@hd;
+  padding:0;
   &-container{
     height: 44* @hd;
     display: flex;
     justify-content: left;
-    padding:0;
+    padding:0 16px;
   }
   &-icon,&-icon>img{
     width: 20*@hd;
@@ -32,13 +33,13 @@
     text-overflow: ellipsis;
   }
 }
-.@{popoverPrefixCls}-inner {
-  &-wrapper {
-    div:not(:last-child) {
-      border-bottom: @border-width-sm solid @border-color-base;
-    }
-  }
-}
+// .@{popoverPrefixCls}-inner {
+//   &-wrapper {
+//     div:not(:last-child) {
+//       border-bottom: @border-width-sm solid @border-color-base;
+//     }
+//   }
+// }
 
 .@{popoverPrefixCls}.@{popoverPrefixCls}-dark{
   .@{popoverPrefixCls}-arrow{

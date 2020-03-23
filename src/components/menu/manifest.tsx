@@ -75,7 +75,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Json,
         props: {},
         label: '数据',
-        help: '根据data生成menu内容。(isleaf设置后children无效,参考已给默认data值,效果在level=2下展示)'
+        help: '根据data生成menu内容。(isleaf设置后children无效,不展示,参考已给默认data值)'
       }
     },
     {
