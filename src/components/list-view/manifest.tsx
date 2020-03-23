@@ -6,6 +6,7 @@ const manifest: ComponentManifest = {
   description: '实现列表功能',
   type: 'basicControls',
   uiTable: UITable.BillTplGroupBase,
+  hidden: true,
   props: [
     {
       name: 'dataSource',

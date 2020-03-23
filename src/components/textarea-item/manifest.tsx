@@ -26,7 +26,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '文案说明'
+        label: '标题'
       }
     },
     {

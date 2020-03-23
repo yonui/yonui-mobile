@@ -19,7 +19,7 @@ interface YSListViewProps extends ListViewProps {
   value?: any[]
   showPullToReresh?: boolean
   DataSource: any
-
+  placeholdHeight?: number
 }
 // const initialHeight = 500
 
@@ -123,32 +123,43 @@ class YSListView extends Component<YSListViewProps, State> {
   }
 
   renderFooter = () => {
-    const { footerContent, children, showNum } = this.props
+    const { footerContent, children, showNum, placeholdHeight = 0 } = this.props
     const { finished } = this.state
     // const length = value ? value.length : dataSource.length
     const length = children ? children.length : showNum
+    const _placeholder = <div style={{ height: `${placeholdHeight}px` }}></div>
     // const { showNum } = this.state
     if (finished) {
       return (
-        <div className="listview-footer">
-          <span>{finished}</span>
-        </div>)
+        <React.Fragment>
+          <div className="listview-footer">
+            <span>{finished}</span>
+          </div>
+          {_placeholder}
+        </React.Fragment>
+      )
     }
     if (!footerContent) {
       if (length > showNum) {
         return (
-          <div className="listview-footer" >
-            <span>展开剩余{length - showNum}商品</span>
-            <Icon type="down"></Icon>
-          </div>
+          <React.Fragment>
+            <div className="listview-footer" >
+              <span>展开剩余{length - showNum}商品</span>
+              <Icon type="down"></Icon>
+            </div>
+            {_placeholder}
+          </React.Fragment>
         )
       }
-      return <div></div>
+      return _placeholder
     }
     return (
-      <div className="listview-footer">
-        <span>{footerContent}</span>
-      </div>
+      <React.Fragment>
+        <div className="listview-footer">
+          <span>{footerContent}</span>
+        </div>
+        {_placeholder}
+      </React.Fragment>
     )
   }
 
@@ -158,14 +169,15 @@ class YSListView extends Component<YSListViewProps, State> {
   }
 
   componentDidMount = () => {
-    const design = document.getElementById('content')?.offsetHeight
-    let height = 0
-    if (design) {
-      height = 667 - 40
-    } else {
-      const clientHeight = document.getElementById(this.id)?.offsetTop || 0
-      height = window.screen.height - clientHeight - 40
-    }
+    const design = document.getElementById('content')
+    // let height = 0
+    // if (design) {
+    //   height = 667
+    // } else {
+    //   // const clientHeight = document.getElementById(this.id)?.offsetTop || 0
+    //   height = window.screen.height
+    // }
+    const height = design ? 667 : window.screen.height
     this.setState({
       height
     })
