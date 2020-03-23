@@ -8,7 +8,7 @@ const manifest: ComponentManifest = {
   props: [
     {
       name: 'selectData',
-      type: FieldTypes.string,
+      type: FieldTypes.object,
       defaultValue: JSON.stringify(selectData),
       showDesign: true,
       designConfig: {
@@ -42,12 +42,12 @@ const manifest: ComponentManifest = {
         props: {
           options: [
             {
-              value: 'sm',
-              text: '小尺寸'
+              value: 'default',
+              text: '默认'
             },
             {
-              value: 'md',
-              text: '中尺寸'
+              value: 'sm',
+              text: '小尺寸'
             },
             {
               value: 'lg',

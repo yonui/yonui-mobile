@@ -41,7 +41,7 @@ export default class ListItem extends React.Component<ListItemProps, any> {
           <span>{title}</span>
         </div>
         <div className={`${prefixCls}-title-extra`}>
-          <span>{titleExtra}</span>
+          <span className='title-extra-words'>{titleExtra}</span>
         </div>
       </div>
       {!singleLine && (<div className={`${prefixCls}-brief`}>
