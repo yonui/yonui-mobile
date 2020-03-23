@@ -6,7 +6,7 @@
   "device": "mobile",
   "lib": [],
   "excludeNidAndUiType": false,
-  "excludeNidAndUiTypeComp": ["CarouselItem", "ListView"],
+  "excludeNidAndUiTypeComp": ["CarouselItem", "ListView", "Button"],
   "staticPropsMap": {
     "ListView": "DataSource",
     "List": ["ListItem","ListItemBrief"]

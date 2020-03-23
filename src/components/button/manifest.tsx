@@ -82,7 +82,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '行内按钮'
+        label: '行内按钮',
+        help: '大小为大时有效'
       }
     },
     {
