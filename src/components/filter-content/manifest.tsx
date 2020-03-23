@@ -5,6 +5,7 @@ const manifest: ComponentManifest = {
   description: '筛选组件的内容',
   uiTable: UITable.BillItemBase,
   type: 'operationBar',
+  icon: 'filter',
   props: [
     {
       name: 'title',

@@ -7,6 +7,7 @@ const manifest: ComponentManifest = {
   type: 'basicControls',
   uiTable: UITable.BillItemBase,
   hidden: true,
+  icon: 'radio',
   props: [
     {
       name: 'name',

@@ -10,6 +10,7 @@ const manifest: ComponentManifest = {
   label: '底部弹出菜单',
   description: '底部弹出菜单',
   type: 'operationBar',
+  icon: 'list',
   props: [
     {
       name: 'data',

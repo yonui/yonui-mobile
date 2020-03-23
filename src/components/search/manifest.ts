@@ -5,6 +5,7 @@ const manifest: ComponentManifest = {
   label: '搜索栏',
   type: 'basicControls',
   uiTable: UITable.BillTplGroupBase,
+  icon: 'sousuo',
   props: [{
     name: 'value',
     type: FieldTypes.string,

@@ -44,6 +44,7 @@ const manifest: ComponentManifest = {
   label: '宫格',
   description: '在水平和垂直方向，将布局切分成若干等大的区块。',
   type: 'dataContainer',
+  icon: 'table',
   props: [
     {
       name: 'data',

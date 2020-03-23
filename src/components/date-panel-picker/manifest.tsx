@@ -5,6 +5,7 @@ const manifest: ComponentManifest = {
   label: '日期范围',
   description: '',
   type: 'basicControls',
+  icon: 'date',
   props: [
     {
       name: 'mode',

@@ -6,6 +6,7 @@ const manifest: ComponentManifest = {
   label: '轮播页',
   uiTable: UITable.BillTplGroupBase,
   type: 'basicControls',
+  icon: 'arrow',
   props: [
     {
       name: 'backgroundColor',

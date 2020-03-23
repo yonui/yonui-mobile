@@ -4,6 +4,7 @@ const manifest: ComponentManifest = {
   name: 'Button',
   label: '按钮',
   type: 'basicControls',
+  icon: 'anniu',
   props: [
     {
       name: 'content',
@@ -131,18 +132,19 @@ const manifest: ComponentManifest = {
           footer: true
         }
       }
-    },
-    {
-      name: 'onClick',
-      type: FieldTypes.action,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: '点击事件'
-      }
     }
+    // ,
+    // {
+    //   name: 'onClick',
+    //   type: FieldTypes.action,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     isRequired: false,
+    //     props: {},
+    //     label: '点击事件'
+    //   }
+    // }
   ],
   children: () => true
 }

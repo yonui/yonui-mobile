@@ -5,6 +5,7 @@ const manifest: ComponentManifest = {
   description: '渲染加载状态',
   uiTable: UITable.BillTplGroupBase,
   type: 'basicControls',
+  icon: 'timelimit',
   props: [
     {
       name: 'show',

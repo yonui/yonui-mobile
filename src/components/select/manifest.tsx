@@ -6,6 +6,7 @@ const manifest: ComponentManifest = {
   description: '下拉枚举',
   type: 'basicControls',
   uiTable: UITable.BillItemBase,
+  icon: 'xialaanniu',
   props: [
     {
       name: 'title',

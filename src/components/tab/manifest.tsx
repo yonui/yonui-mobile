@@ -5,6 +5,7 @@ const manifest: ComponentManifest = {
   description: '用于让用户在不同的视图中进行切换。',
   uiTable: UITable.BillTplGroupBase,
   type: 'layoutContainer',
+  icon: 'wenziyeqian',
   props: [
     {
       name: 'tabs',

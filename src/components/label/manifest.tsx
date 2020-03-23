@@ -5,6 +5,7 @@ const manifest: ComponentManifest = {
   name: 'Label',
   label: '标签',
   type: 'basicControls',
+  icon: 'biaoqian1',
   props: [
     {
       name: 'label',

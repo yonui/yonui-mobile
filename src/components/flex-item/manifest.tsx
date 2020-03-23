@@ -7,6 +7,7 @@ const manifest: ComponentManifest = {
   type: 'basicControls',
   uiTable: UITable.BillTplGroupBase,
   hidden: true,
+  icon: 'icon_wangye',
   props: [// adapter适配层数据
     {
       name: 'content',

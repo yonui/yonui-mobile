@@ -4,6 +4,7 @@ const manifest: ComponentManifest = {
   label: '卡片',
   type: 'basicControls',
   uiTable: UITable.BillTplGroupBase,
+  icon: 'card',
   props: [
     {
       name: 'full',

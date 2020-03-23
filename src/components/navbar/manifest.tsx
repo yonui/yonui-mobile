@@ -5,6 +5,7 @@ const manifest: ComponentManifest = {
   description: '位于 app 内容区的上方，系统状态栏的下方，并且提供在一系列页面中的导航能力。', // 描述
   type: 'operationBar',
   uiTable: UITable.BillTplGroupBase,
+  icon: 'chaxunmoban',
   props: [// adapter适配层数据
     {
       name: 'mode',

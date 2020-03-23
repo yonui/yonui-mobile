@@ -4,6 +4,7 @@ const manifest: ComponentManifest = {
   uiTable: UITable.BillTplGroupBase,
   label: '底部区域',
   type: 'operationBar',
+  icon: 'footer',
   props: [],
   children: () => true
 }

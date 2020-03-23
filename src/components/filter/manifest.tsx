@@ -5,6 +5,7 @@ const manifest: ComponentManifest = {
   description: '提供一个筛选的容器组件',
   uiTable: UITable.BillTplGroupBase,
   type: 'operationBar',
+  icon: 'filter',
   props: [
     {
       name: 'open',

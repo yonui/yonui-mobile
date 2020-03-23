@@ -5,6 +5,7 @@ const manifest: ComponentManifest = {
   description: '分享面板',
   uiTable: UITable.BillTplGroupBase,
   type: 'operationBar',
+  icon: 'shouji',
   props: [
     {
       name: 'show',

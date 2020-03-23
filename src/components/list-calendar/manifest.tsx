@@ -6,6 +6,7 @@ const manifest: ComponentManifest = {
   label: '列表项日历',
   description: '',
   type: 'basicControls',
+  icon: 'list',
   props: [
     {
       name: 'label',

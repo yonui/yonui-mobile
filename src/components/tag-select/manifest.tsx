@@ -5,6 +5,7 @@ const manifest: ComponentManifest = {
   label: '枚举选择',
   type: 'basicControls',
   uiTable: UITable.BillItemBase,
+  icon: 'liebiaoxingshi',
   props: [
     {
       name: 'selectData',

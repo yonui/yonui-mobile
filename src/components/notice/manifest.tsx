@@ -3,6 +3,7 @@ const manifest: ComponentManifest = {
   name: 'Notice',
   label: '提示',
   type: 'basicControls',
+  icon: 'title',
   uiTable: UITable.BillItemBase,
   props: [
     {

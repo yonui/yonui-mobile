@@ -21,6 +21,7 @@ const manifest: ComponentManifest = {
   description: '工具栏',
   uiTable: UITable.BillTplGroupBase,
   type: 'operationBar',
+  icon: 'gongjulan1',
   props: [
     {
       name: 'values',

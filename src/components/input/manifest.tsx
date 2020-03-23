@@ -4,6 +4,7 @@ const manifest: ComponentManifest = {
   uiTable: UITable.BillItemBase,
   label: '文本',
   type: 'basicControls',
+  icon: 'text',
   props: [
     {
       name: 'label',

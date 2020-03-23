@@ -5,6 +5,7 @@ const manifest: ComponentManifest = {
   name: 'Icon',
   label: '图标',
   type: 'basicControls',
+  icon: 'icon',
   props: [
     {
       name: 'color',

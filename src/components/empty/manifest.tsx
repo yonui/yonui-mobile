@@ -6,6 +6,7 @@ const manifest: ComponentManifest = {
   label: '空数据',
   type: 'basicControls',
   uiTable: UITable.BillItemBase,
+  icon: 'yincang',
   props: [
     {
       name: 'mode',

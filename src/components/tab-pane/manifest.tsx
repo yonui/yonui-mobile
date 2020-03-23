@@ -5,6 +5,7 @@ const manifest: ComponentManifest = {
   description: 'Tabs组件的子组件',
   uiTable: UITable.BillTplGroupBase,
   type: 'layoutContainer',
+  icon: 'wenziyeqian',
   props: [
     {
       name: 'key',

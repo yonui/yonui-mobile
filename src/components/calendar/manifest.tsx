@@ -6,6 +6,7 @@ const manifest: ComponentManifest = {
   uiTable: UITable.BillItemBase,
   description: '',
   type: 'basicControls',
+  icon: 'date',
   props: [
     {
       name: 'enterDirection',

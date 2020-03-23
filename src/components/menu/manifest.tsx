@@ -45,6 +45,7 @@ const manifest: ComponentManifest = {
   description: '在一个临时的面板上显示一组操作', // 描述
   type: 'Navigation',
   uiTable: UITable.BillTplGroupBase,
+  icon: 'row',
   props: [// adapter适配层数据
     {
       name: 'level',

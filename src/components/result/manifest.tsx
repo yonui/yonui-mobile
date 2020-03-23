@@ -5,6 +5,7 @@ const manifest: ComponentManifest = {
   label: '反馈页',
   type: 'basicControls',
   uiTable: UITable.BillItemBase,
+  icon: 'table-report',
   props: [
     {
       name: 'mode',

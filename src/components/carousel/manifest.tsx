@@ -5,6 +5,7 @@ const manifest: ComponentManifest = {
   label: '轮播',
   uiTable: UITable.BillTplGroupBase,
   type: 'basicControls',
+  icon: 'arrow',
   props: [
     {
       name: 'selectedIndex',

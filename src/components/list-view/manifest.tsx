@@ -7,6 +7,7 @@ const manifest: ComponentManifest = {
   type: 'basicControls',
   uiTable: UITable.BillTplGroupBase,
   hidden: true,
+  icon: 'list',
   props: [
     {
       name: 'dataSource',

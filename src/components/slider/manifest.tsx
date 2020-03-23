@@ -6,6 +6,7 @@ const manifest: ComponentManifest = {
   description: '滑动输入条',
   type: 'basicControls',
   uiTable: UITable.BillItemBase,
+  icon: 'data-s',
   props: [{
     name: 'min',
     type: FieldTypes.number,

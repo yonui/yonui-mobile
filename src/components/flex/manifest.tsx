@@ -6,6 +6,7 @@ const manifest: ComponentManifest = {
   type: 'layoutContainer',
   description: '实现css flex布局', // 描述
   uiTable: UITable.BillTplGroupBase,
+  icon: 'icon_wangye',
   props: [// adapter适配层数据
     {
       name: 'direction',

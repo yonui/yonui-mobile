@@ -61,7 +61,7 @@
     "Filter": "./src/components/filter",
     "FilterContent": "./src/components/filter-content",
     "ToolBars": "./src/components/tool-bars",
-    "ActivityPanel": "./src/components/share-panel",
+    "SharePanel": "./src/components/share-panel",
     "TagSelect": "./src/components/tag-select",
     "Loading": "./src/components/loading",
     "Grid": "./src/components/grid",
