@@ -1,7 +1,7 @@
-import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'TextareaItem',
-  uiTable: UITable.BillItemBase,
+  uiObject: UIObject.Controls,
   label: '多行文本',
   type: 'basicControls',
   icon: 'rich_text',

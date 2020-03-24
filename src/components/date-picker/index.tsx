@@ -1,5 +1,5 @@
 import { DatePicker } from 'antd-mobile'
-// import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+// import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'yonui-extension'
 
 // const manifest: ComponentManifest = {
 //   name: 'DatePicker',

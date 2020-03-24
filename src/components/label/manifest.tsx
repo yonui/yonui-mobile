@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest } from 'yonui-extension'
 import { getCssSelectParams } from '../_utils'
 
 const manifest: ComponentManifest = {

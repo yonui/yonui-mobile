@@ -1,6 +1,6 @@
 import React from 'react'
 import { List } from 'antd-mobile'
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'ListItem',
   label: '列表项',

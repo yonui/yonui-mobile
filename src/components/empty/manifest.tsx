@@ -1,11 +1,11 @@
-import { EditTypes, FieldTypes, ComponentManifest, UITable } from 'libraui-extension'
+import { EditTypes, FieldTypes, ComponentManifest, UIObject } from 'yonui-extension'
 
 import { getCssSelectParams } from '../_utils'
 const manifest: ComponentManifest = {
   name: 'Empty',
   label: '空数据',
   type: 'basicControls',
-  uiTable: UITable.BillItemBase,
+  uiObject: UIObject.Controls,
   icon: 'yincang',
   props: [
     {

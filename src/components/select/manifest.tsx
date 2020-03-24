@@ -1,11 +1,11 @@
-import { FieldTypes, EditTypes, UITable, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 // todo 未配置 onClick onChange
 const manifest: ComponentManifest = {
   name: 'Select',
   label: '下拉枚举',
   description: '下拉枚举',
   type: 'basicControls',
-  uiTable: UITable.BillItemBase,
+  uiObject: UIObject.Controls,
   icon: 'xialaanniu',
   props: [
     {

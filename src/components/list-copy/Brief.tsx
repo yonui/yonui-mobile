@@ -1,4 +1,4 @@
-import { ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { ReactWrapper, ComponentManifest } from 'yonui-extension'
 
 import { List } from 'antd-mobile'
 

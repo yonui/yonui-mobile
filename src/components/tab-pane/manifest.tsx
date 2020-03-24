@@ -1,9 +1,9 @@
-import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'TabPane',
   label: '多页签内容',
   description: 'Tabs组件的子组件',
-  uiTable: UITable.BillTplGroupBase,
+  uiObject: UIObject.Containers,
   type: 'layoutContainer',
   icon: 'wenziyeqian',
   props: [

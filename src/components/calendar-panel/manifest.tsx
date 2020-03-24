@@ -1,9 +1,9 @@
-import { FieldTypes, EditTypes, UITable, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const now = new Date()
 const manifest: ComponentManifest = {
   name: 'CalendarPanel',
   label: '日历面板',
-  uiTable: UITable.BillItemBase,
+  uiObject: UIObject.Containers,
   description: '',
   type: 'basicControls',
   icon: 'date',

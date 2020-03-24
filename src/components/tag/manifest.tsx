@@ -1,4 +1,4 @@
-import { EditTypes, FieldTypes, ComponentManifest } from 'libraui-extension'
+import { EditTypes, FieldTypes, ComponentManifest } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'Tag',
   label: '标签',

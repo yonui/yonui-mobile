@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'SegmentedControl',
   label: '分段菜单',

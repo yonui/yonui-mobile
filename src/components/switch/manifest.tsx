@@ -1,11 +1,11 @@
-import { FieldTypes, EditTypes, UITable, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 // todo 未配置 onClick onChange
 const manifest: ComponentManifest = {
   name: 'Switch',
   label: '滑动开关',
   description: '',
   type: 'basicControls',
-  uiTable: UITable.BillItemBase,
+  uiObject: UIObject.Controls,
   icon: 'radio',
   props: [
     {

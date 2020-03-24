@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'yonui-extension'
 import { PullToRefresh } from 'antd-mobile'
 const manifest: ComponentManifest = {
   name: 'PullToRefresh',

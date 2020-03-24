@@ -1,4 +1,4 @@
-import { EditTypes } from 'libraui-extension'
+import { EditTypes } from 'yonui-extension'
 
 export const dateFormat = function dateFormat (dateObj: Date, fmt: string) {
   const date = dateObj

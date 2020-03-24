@@ -1,10 +1,10 @@
-import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'SegmentMenu',
   label: '分段菜单',
   description: '切换菜单，内容区上下滑动至选中模块吸顶。',
   type: 'basicControls',
-  uiTable: UITable.BillTplGroupBase,
+  uiObject: UIObject.Containers,
   props: [
     {
       name: 'selectedIndex',

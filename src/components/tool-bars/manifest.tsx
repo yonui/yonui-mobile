@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const defaultValues = [
   {
     key: 'item1',
@@ -19,7 +19,7 @@ const manifest: ComponentManifest = {
   name: 'Toolbars',
   label: '工具栏',
   description: '工具栏',
-  uiTable: UITable.BillTplGroupBase,
+  uiObject: UIObject.Containers,
   type: 'operationBar',
   icon: 'gongjulan1',
   props: [

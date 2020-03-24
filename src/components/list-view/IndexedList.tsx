@@ -1,5 +1,5 @@
 import { ListView } from 'antd-mobile'
-import { FieldTypes, EditTypes, ComponentManifest, ReactWrapper } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, ReactWrapper } from 'yonui-extension'
 // import { manifestIndexedList as manifest, ReactWrapper } from './manifest'
 const manifest: ComponentManifest = {
   name: 'ListView', // 自定义组件名称

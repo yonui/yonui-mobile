@@ -1,5 +1,5 @@
 
-import { FieldTypes, EditTypes, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest } from 'yonui-extension'
 // todo 未配置 style activeStyle
 const manifest: ComponentManifest = {
   name: 'Icon',

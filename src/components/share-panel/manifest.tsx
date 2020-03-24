@@ -1,9 +1,9 @@
-import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'activitypanel',
   label: '分享面板',
   description: '分享面板',
-  uiTable: UITable.BillTplGroupBase,
+  uiObject: UIObject.Containers,
   type: 'operationBar',
   icon: 'shouji',
   props: [

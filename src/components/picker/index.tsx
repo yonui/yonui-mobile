@@ -1,5 +1,5 @@
 import { Picker } from 'antd-mobile'
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'yonui-extension'
 /**
  * todo
  * itemStyle indicatorStyle children

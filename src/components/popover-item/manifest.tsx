@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, UITable, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 // todo 未配置 onClick onChange
 
 const manifest: ComponentManifest = {
@@ -7,7 +7,7 @@ const manifest: ComponentManifest = {
   description: '在点击控件或者某个区域后，浮出一个气泡菜单来做更多的操作。 如果设置了遮罩层，建议通过点击遮罩层的任一位置，进行退出。',
   type: 'Navigation',
   icon: 'cards',
-  uiTable: UITable.BillItemBase,
+  uiObject: UIObject.Controls,
   props: [
     {
       name: 'disabled',

@@ -1,11 +1,11 @@
-import { EditTypes, FieldTypes, ComponentManifest, UITable } from 'libraui-extension'
+import { EditTypes, FieldTypes, ComponentManifest, UIObject } from 'yonui-extension'
 
 const manifest: ComponentManifest = {
   name: 'Flex',
   label: 'flex布局',
   type: 'layoutContainer',
   description: '实现css flex布局', // 描述
-  uiTable: UITable.BillTplGroupBase,
+  uiObject: UIObject.Containers,
   icon: 'icon_wangye',
   props: [// adapter适配层数据
     {

@@ -1,7 +1,7 @@
-import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'DatePanelPicker',
-  uiTable: UITable.BillItemBase,
+  uiObject: UIObject.Controls,
   label: '日期范围',
   description: '',
   type: 'basicControls',

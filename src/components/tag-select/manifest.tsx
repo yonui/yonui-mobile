@@ -1,10 +1,10 @@
-import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const selectData = [{ value: 'value', desc: 'description' }]
 const manifest: ComponentManifest = {
   name: 'TagSelect',
   label: '枚举选择',
   type: 'basicControls',
-  uiTable: UITable.BillItemBase,
+  uiObject: UIObject.Controls,
   icon: 'liebiaoxingshi',
   props: [
     {

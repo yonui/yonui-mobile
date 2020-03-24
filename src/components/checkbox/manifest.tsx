@@ -1,11 +1,11 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UIObject } from 'yonui-extension'
 
 const manifest: ComponentManifest = {
   name: 'Checkbox',
   label: '复选框',
   description: '',
   type: 'basicControls',
-  uiTable: UITable.BillItemBase,
+  uiObject: UIObject.Controls,
   icon: 'checkBox',
   props: [
     {
@@ -79,7 +79,7 @@ const manifestCheckBoxItem: ComponentManifest = {
   label: '复选框',
   description: '',
   type: 'basicControls',
-  uiTable: UITable.BillItemBase,
+  uiObject: UIObject.Controls,
   props: [
     {
       name: 'defaultChecked',
@@ -135,7 +135,7 @@ const manifestAgreeItem: ComponentManifest = {
   label: 'AgreeItem',
   description: '', // 描述
   type: 'basicControls',
-  uiTable: UITable.BillItemBase,
+  uiObject: UIObject.Controls,
   props: [// adapter适配层数据
   ]
 }
