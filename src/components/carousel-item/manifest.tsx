@@ -40,8 +40,8 @@ const manifest: ComponentManifest = {
         props: {
           options: [
             { value: 'cover', text: '充满面板' },
-            { value: 'contain', text: '适应面板' },
-            { value: '100%', text: '拉伸以充满面板' }
+            { value: 'contain', text: '适应面板' }
+            // { value: '100%', text: '拉伸以充满面板' }
           ]
         },
         label: '背景图片拉伸方式'
