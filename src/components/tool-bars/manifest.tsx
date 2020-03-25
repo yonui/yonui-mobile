@@ -16,7 +16,7 @@ const defaultValues = [
   }
 ]
 const manifest: ComponentManifest = {
-  name: 'Toolbars',
+  name: 'ToolBars',
   label: '工具栏',
   description: '工具栏',
   uiObject: UIObject.Containers,
@@ -86,17 +86,6 @@ const manifest: ComponentManifest = {
       name: 'onChange',
       type: FieldTypes.action,
       showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: '回调函数'
-      }
-    },
-    {
-      name: 'onValueChange',
-      type: FieldTypes.action,
-      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,

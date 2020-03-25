@@ -1,10 +1,11 @@
-import { FieldTypes, EditTypes, ComponentManifest } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 
 const manifest: ComponentManifest = {
   name: 'Button',
   label: '按钮',
   type: 'basicControls',
   icon: 'anniu',
+  uiObject: UIObject.Controls,
   props: [
     {
       name: 'content',

@@ -1,9 +1,10 @@
-import { FieldTypes, EditTypes, ComponentManifest } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'SegmentedControl',
   label: '分段菜单',
   description: '切换菜单，内容区上下滑动至选中模块吸顶。',
-  type: 'Navigation',
+  type: 'basicControls',
+  uiObject: UIObject.Controls,
   props: [
     {
       name: 'data',

@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 import { getCssSelectParams } from '../_utils'
 
 const manifest: ComponentManifest = {
@@ -6,6 +6,7 @@ const manifest: ComponentManifest = {
   label: '标签',
   type: 'basicControls',
   icon: 'biaoqian1',
+  uiObject: UIObject.Controls,
   props: [
     {
       name: 'label',

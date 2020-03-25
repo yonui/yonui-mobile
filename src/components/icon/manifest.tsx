@@ -1,11 +1,12 @@
 
-import { FieldTypes, EditTypes, ComponentManifest } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 // todo 未配置 style activeStyle
 const manifest: ComponentManifest = {
   name: 'Icon',
   label: '图标',
   type: 'basicControls',
   icon: 'icon',
+  uiObject: UIObject.Controls,
   props: [
     {
       name: 'color',
