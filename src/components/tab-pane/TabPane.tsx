@@ -3,6 +3,7 @@ import classnames from 'classnames'
 interface TabPaneProps {
   children: any
   key: string
+  label: string
   className?: string
   style?: object
   height?: string
@@ -12,7 +13,7 @@ interface TabPaneProps {
 
 export default class MyComponent extends Component<TabPaneProps> {
   static defaultProps = {
-    key: '',
+    code: '',
     height: '100px'
   }
 

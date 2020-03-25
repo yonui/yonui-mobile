@@ -20,6 +20,18 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'label',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: 'label'
+      }
+    },
+    {
       name: 'height',
       type: FieldTypes.string,
       defaultValue: '100px',
