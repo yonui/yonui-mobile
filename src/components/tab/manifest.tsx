@@ -190,6 +190,45 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'tabBarBackgroundColor',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Color,
+        isRequired: false,
+        props: {},
+        label: '背景色',
+        help: 'tabBar背景色'
+      }
+    },
+    {
+      name: 'tabBarActiveTextColor',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Color,
+        isRequired: false,
+        props: {},
+        label: '激活文字颜色',
+        help: 'tabBar激活Tab文字颜色'
+      }
+    },
+    {
+      name: 'tabBarInactiveTextColor',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Color,
+        isRequired: false,
+        props: {},
+        label: '非激活文字颜色',
+        help: 'tabBar非激活Tab文字颜色'
+      }
+    },
+    {
       name: 'icon1',
       type: FieldTypes.string,
       defaultValue: '',
@@ -389,45 +428,6 @@ const manifest: ComponentManifest = {
         props: {},
         label: '分割线',
         help: '是否显示分割线'
-      }
-    },
-    {
-      name: 'tabBarBackgroundColor',
-      type: FieldTypes.string,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Color,
-        isRequired: false,
-        props: {},
-        label: '背景色',
-        help: 'tabBar背景色'
-      }
-    },
-    {
-      name: 'tabBarActiveTextColor',
-      type: FieldTypes.string,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Color,
-        isRequired: false,
-        props: {},
-        label: '激活文字颜色',
-        help: 'tabBar激活Tab文字颜色'
-      }
-    },
-    {
-      name: 'tabBarInactiveTextColor',
-      type: FieldTypes.string,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Color,
-        isRequired: false,
-        props: {},
-        label: '非激活文字颜色',
-        help: 'tabBar非激活Tab文字颜色'
       }
     },
     {
