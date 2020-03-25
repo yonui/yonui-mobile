@@ -57,8 +57,16 @@ const manifest: ComponentManifest = {
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
-        props: {},
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: '/IconSelect',
+          iframeId: 'iconSelectIframe',
+          message: true,
+          footer: true
+        },
         label: '最左边图标',
         help: '出现在最左边的图标占位符'
       }
@@ -70,8 +78,16 @@ const manifest: ComponentManifest = {
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
-        props: {},
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: '/IconSelect',
+          iframeId: 'iconSelectIframe',
+          message: true,
+          footer: true
+        },
         label: '标题图标',
         help: '出现在标题下边的图标占位符'
       }
@@ -83,8 +99,16 @@ const manifest: ComponentManifest = {
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
-        props: {},
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: '/IconSelect',
+          iframeId: 'iconSelectIframe',
+          message: true,
+          footer: true
+        },
         label: '左关闭图标',
         help: '出现在最左边第二个的图标占位符'
       }
@@ -96,8 +120,16 @@ const manifest: ComponentManifest = {
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
-        props: {},
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: '/IconSelect',
+          iframeId: 'iconSelectIframe',
+          message: true,
+          footer: true
+        },
         label: '右一图标',
         help: '出现在最右边第一个的图标占位符'
       }
@@ -109,8 +141,16 @@ const manifest: ComponentManifest = {
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Textarea,
-        props: {},
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: '/IconSelect',
+          iframeId: 'iconSelectIframe',
+          message: true,
+          footer: true
+        },
         label: '右二图标',
         help: '出现在最右边第二个的图标占位符'
       }

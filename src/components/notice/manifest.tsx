@@ -52,13 +52,20 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'icon',
-      type: FieldTypes.child,
+      type: FieldTypes.string,
       defaultValue: null,
       showDesign: true,
       designConfig: {
-        type: EditTypes.Textarea,
-        isRequired: false,
-        props: {},
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: '/IconSelect',
+          iframeId: 'iconSelectIframe',
+          message: true,
+          footer: true
+        },
         label: '左侧图标'
       }
     },

@@ -199,8 +199,16 @@ const manifest: ComponentManifest = {
         // type: EditTypes.Icon,
         isRequired: false,
         // props: {},
-        type: EditTypes.Text,
-        props: {}
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: '/IconSelect',
+          iframeId: 'iconSelectIframe',
+          message: true,
+          footer: true
+        }
       }
     },
     {
@@ -226,8 +234,16 @@ const manifest: ComponentManifest = {
         // type: EditTypes.Icon,
         isRequired: false,
         // props: {},
-        type: EditTypes.Text,
-        props: {}
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: '/IconSelect',
+          iframeId: 'iconSelectIframe',
+          message: true,
+          footer: true
+        }
       }
     },
     {
@@ -253,8 +269,16 @@ const manifest: ComponentManifest = {
         // type: EditTypes.Icon,
         isRequired: false,
         // props: {},
-        type: EditTypes.Text,
-        props: {}
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: '/IconSelect',
+          iframeId: 'iconSelectIframe',
+          message: true,
+          footer: true
+        }
       }
     },
     {
@@ -309,19 +333,19 @@ const manifest: ComponentManifest = {
         help: '滑动切换阈值(宽度比例)'
       }
     },
-    {
-      name: 'usePaged',
-      type: FieldTypes.boolean,
-      defaultValue: true,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '分页模式',
-        help: '是否开启分页模式'
-      }
-    },
+    // {
+    //   name: 'usePaged',
+    //   type: FieldTypes.boolean,
+    //   defaultValue: true,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Bool,
+    //     isRequired: false,
+    //     props: {},
+    //     label: '分页模式',
+    //     help: '是否开启分页模式'
+    //   }
+    // },
     // {
     //   name: 'tabDirection',
     //   type: FieldTypes.string,

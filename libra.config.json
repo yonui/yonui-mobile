@@ -9,7 +9,8 @@
   "excludeNidAndUiTypeComp": ["CarouselItem", "ListView", "Button"],
   "staticPropsMap": {
     "ListView": "DataSource",
-    "List": ["ListItem","ListItemBrief"]
+    "List": ["ListItem","ListItemBrief"],
+    "Checkbox": ["CheckboxItem","AgreeItem"]
   },
   "previewUrl": "http://tinper-libra-ui-demo.daily.app.yyuap.com/",
   "plugins": [

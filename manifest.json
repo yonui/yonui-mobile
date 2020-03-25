@@ -33,7 +33,6 @@
     "ListItem": "./src/components/list-item",
     "ListItemBrief": "./src/components/list-item-brief",
     "Button": "./src/components/button",
-    "Background": "./src/components/background",
     "Card": "./src/components/card",
     "Carousel": "./src/components/carousel",
     "CarouselItem": "./src/components/carousel-item",

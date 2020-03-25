@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { Checkbox } from 'antd-mobile'
-import { manifest, ReactWrapper } from './manifest'
+// import { manifest, ReactWrapper } from './manifest'
 import { getClassName } from './util'
 
 function CheckboxControl (props: any) {
@@ -11,4 +11,4 @@ function CheckboxControl (props: any) {
   }
   return <Checkbox {...props}></Checkbox>
 }
-export default ReactWrapper(CheckboxControl, manifest)
+export default CheckboxControl

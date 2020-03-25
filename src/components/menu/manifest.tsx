@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest, ReactWrapper, UIObject } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 // todo 未配置 onClick onChange
 export const menuData = [
   {
@@ -43,7 +43,7 @@ const manifest: ComponentManifest = {
   name: 'Menu',
   label: '菜单',
   description: '在一个临时的面板上显示一组操作', // 描述
-  type: 'Navigation',
+  type: 'basicControls',
   uiObject: UIObject.Containers,
   icon: 'row',
   props: [// adapter适配层数据
@@ -158,7 +158,4 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest
