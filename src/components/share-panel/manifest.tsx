@@ -1,6 +1,6 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
-  name: 'activitypanel',
+  name: 'SharePanel',
   label: '分享面板',
   description: '分享面板',
   uiObject: UIObject.Containers,

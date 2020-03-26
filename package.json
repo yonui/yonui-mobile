@@ -8,6 +8,7 @@
   "scripts": {
     "start": "node --max_old_space_size=4096 ./node_modules/yonui-cli/bin start",
     "build": "rm -rf dist && node --max_old_space_size=4096 ./node_modules/yonui-cli/bin build -p",
+    "dist": "rm -rf dist && node --max_old_space_size=4096 ./node_modules/yonui-cli/bin build dist -p",
     "assets": "copyfiles -e \"**/*.tsx\" \"./components/**/*\" lib",
     "postversion": "git push --follow-tags",
     "prepublishOnly": "npm run build",
