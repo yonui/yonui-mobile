@@ -1,11 +1,10 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject, SysProp } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'Card',
   label: '卡片',
   type: 'basicControls',
   uiObject: UIObject.Containers,
   icon: 'card',
-  systemProperties: [SysProp.DATA_FIELD],
   props: [
     {
       name: 'full',

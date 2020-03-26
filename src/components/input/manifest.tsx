@@ -5,6 +5,7 @@ const manifest: ComponentManifest = {
   label: '文本',
   type: 'basicControls',
   icon: 'text',
+  model: 'SimpleModel',
   systemProperties: [SysProp.DATA_FIELD],
   props: [
     {
