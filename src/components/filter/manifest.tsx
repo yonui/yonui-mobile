@@ -1,4 +1,16 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
+const btn1 =
+{
+  key: 'reset',
+  value: '重置',
+  theme: 'next'
+}
+const btn2 = {
+  key: 'confirm',
+  value: '确定',
+  theme: 'primary'
+}
+
 const manifest: ComponentManifest = {
   name: 'Filter',
   label: '筛选组件',
@@ -33,14 +45,14 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'btn1',
-      type: FieldTypes.string,
-      defaultValue: '重置',
+      type: FieldTypes.object,
+      defaultValue: JSON.stringify(btn1),
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         isRequired: false,
         props: {},
-        label: '左侧按钮名称'
+        label: '左侧按钮'
       }
     },
     {
@@ -56,14 +68,14 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'btn2',
-      type: FieldTypes.string,
-      defaultValue: '确定',
+      type: FieldTypes.object,
+      defaultValue: JSON.stringify(btn2),
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         isRequired: false,
         props: {},
-        label: '右侧按钮名称'
+        label: '右侧按钮'
       }
     },
     {
@@ -80,7 +92,7 @@ const manifest: ComponentManifest = {
     {
       name: 'mode',
       type: FieldTypes.string,
-      defaultValue: 'text',
+      defaultValue: 'button',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
@@ -93,19 +105,6 @@ const manifest: ComponentManifest = {
             ]
         },
         label: '渲染模式'
-      }
-    },
-    {
-      name: 'btnsType',
-      type: FieldTypes.array,
-      defaultValue: JSON.stringify(['next', 'primary']),
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Json,
-        isRequired: false,
-        props: {},
-        label: '按钮类型数组',
-        help: 'button模式下有效'
       }
     }
   ],

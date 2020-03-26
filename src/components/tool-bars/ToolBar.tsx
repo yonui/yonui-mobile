@@ -4,9 +4,7 @@ import { Popover, Icon } from 'antd-mobile'
 import Button from '../button'
 
 interface valueItem {key?: string, value: string, theme?: string}
-interface ToolBarProps {
-  className?: string
-  style?: object
+interface ToolBarProps extends React.defaultProps{
   values: valueItem[]
   selectedKey?: string
   onChange?: (val: {key?: string, value: string, theme?: string}, num: number) => void

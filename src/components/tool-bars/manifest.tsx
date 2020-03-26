@@ -61,7 +61,8 @@ const manifest: ComponentManifest = {
               { value: 'topRight', text: '右上方' }
             ]
         },
-        label: '弹出框位置'
+        label: '弹出框位置',
+        help: '选项超过4个时有效'
       }
     },
     {
