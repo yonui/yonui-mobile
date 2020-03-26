@@ -51,7 +51,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '取消按钮文本'
+        label: '按钮文本'
       }
     },
     {
