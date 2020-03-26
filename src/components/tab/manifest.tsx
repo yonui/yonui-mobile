@@ -43,7 +43,7 @@ const manifest: ComponentManifest = {
     {
       name: 'mode',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: 'normal',
       showDesign: false,
       designConfig: {
         type: EditTypes.Select,
