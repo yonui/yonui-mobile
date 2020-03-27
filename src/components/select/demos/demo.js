@@ -15,7 +15,7 @@ export default class Demo1 extends Component {
   render () {
     return (
       <div style={{ marginTop: 10 }}>
-        <MyComponent defaultValue={['2']}>122</MyComponent>
+        <MyComponent defaultValue={['2']} required>122</MyComponent>
       </div>
     )
   }

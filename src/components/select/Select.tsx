@@ -22,6 +22,7 @@ export interface MenuInfoProps extends MenuProps {
   listPrefixCls?: string
   className?: string
   title?: string// list item左侧title
+  required?: boolean
 }
 const ListItem = List.Item
 export default class SelectControl extends React.Component<MenuInfoProps, any> {
@@ -94,7 +95,8 @@ export default class SelectControl extends React.Component<MenuInfoProps, any> {
 
   render () {
     const {
-      title = 'Title'
+      title = 'Title',
+      required
     } = this.props
     const {
       menuVisible,
@@ -112,7 +114,10 @@ export default class SelectControl extends React.Component<MenuInfoProps, any> {
 
     return (
       <div className="am-select">
-        <ListItem className={'am-select-list-item'} extra={menuShowValue} onClick={this.menuShow}>{title}</ListItem>
+        <ListItem className={'am-select-list-item'} extra={menuShowValue} onClick={this.menuShow}>
+          {title}
+          {required && <span style={{ color: '#EE3D4B' }}>*</span>}
+        </ListItem>
         {
           menuVisible && <Menu
             level={1}
