@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
 import Input from '../input'
-import TagSelect from '../tag-select'
+// import TagSelect from '../tag-select'
+import Radio from '../radio'
 import Calendar from '../list-calendar'
 interface FilterContentProps {
   title?: string
-  selectData?: Array<{ desc: string, value: string }>
+  selectData?: Array<{ desc: string, value: string, disabled?: boolean}>
   className?: string
   style?: object
-  onSelect?: (item: any) => void
+  onSelect?: (item: any, index: number) => void
   selectedValue?: string
   extraInput?: string
   extraInputType?: 'date' | 'text' | 'calendar'
@@ -68,7 +69,7 @@ export default class FilterContent extends Component<FilterContentProps, any> {
           {title}
         </div>
         <div className='yonui-filter-content-selection'>
-          <TagSelect selectData={selectData} selectedValue={selectedValue} onSelect={onSelect} />
+          <Radio dataSource={selectData} checkedValue={selectedValue} onChange={onSelect} mode='tag' />
         </div>
         <div className='yonui-filter-content-extra'>
           {this.renderExtra(extraInput, extraInputType)}
