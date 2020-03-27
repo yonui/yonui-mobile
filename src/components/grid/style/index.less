@@ -6,6 +6,9 @@
   background: #fff;
   &.@{mdfGridPrefixCls}-transparent {
     background: transparent;
+    .am-grid .am-flexbox {
+      background: transparent;
+    }
   }
   &.@{mdfGridPrefixCls}-not-full{
     margin: 0 12.5*@hd;
@@ -15,6 +18,7 @@
     .am-carousel .am-carousel-wrap-dot-active > span {
       background: @brand-primary!important;
     }
+
   }  
 }
 .@{gridPrefixCls} {
@@ -47,6 +51,15 @@
       padding-top: 10*@hd;
       padding-bottom: 10*@hd;
      }
+     &.am-grid-square {
+      .am-flexbox-item.am-grid-item {
+        padding-top: 10*@hd;
+        padding-bottom: 10*@hd;
+      }
+      .custom-item {
+        height: 80%;
+      }
+    }
   }
   &.@{gridPrefixCls}-number{
     &.@{gridPrefixCls}-outContent {
