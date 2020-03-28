@@ -5,7 +5,7 @@ import Icon from '../icon'
 export interface ButtonProps extends React.defaultProps{
   prefixCls?: string
   content?: string
-  type?: 'primary' | 'warning' | 'ghost' | 'default' | 'text'
+  type?: 'primary' | 'warning' | 'ghost' | 'default' | 'text' | 'toolbar-default' | 'toolbar-primary'
   size?: 'large' | 'small'
   inline?: boolean
   disabled?: boolean
@@ -74,6 +74,8 @@ class Button extends React.Component<ButtonProps, any> {
       [`${prefixCls}-ghost`]: type === 'ghost',
       [`${prefixCls}-warning`]: type === 'warning',
       [`${prefixCls}-text`]: type === 'text',
+      [`${prefixCls}-toolbar-default`]: type === 'toolbar-default',
+      [`${prefixCls}-toolbar-primary`]: type === 'toolbar-primary',
       [`${prefixCls}-small`]: size === 'small',
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-disabled`]: disabled,

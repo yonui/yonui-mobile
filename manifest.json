@@ -59,6 +59,7 @@
     "Filter": "./src/components/filter",
     "FilterContent": "./src/components/filter-content",
     "ToolBars": "./src/components/tool-bars",
+    "ToolBarBox":  "./src/components/tool-bar-box",
     "SharePanel": "./src/components/share-panel",
     "Loading": "./src/components/loading",
     "Grid": "./src/components/grid",

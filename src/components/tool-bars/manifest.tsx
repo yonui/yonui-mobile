@@ -95,7 +95,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: []
+  children: ['button']
 }
 
 export default manifest

@@ -49,6 +49,14 @@ const manifest: ComponentManifest = {
           {
             value: 'text',
             text: '文本'
+          },
+          {
+            value: 'toolbar-default',
+            text: '工具栏-默认'
+          },
+          {
+            value: 'toolbar-primary',
+            text: '工具栏-主按钮'
           }
           ]
         },

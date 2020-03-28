@@ -53,6 +53,8 @@ export default class Demo1 extends Component {
         <WhiteSpace/>
         <Button size="small" type="text" disabled={true}>文本/D</Button>
         <WhiteSpace/>
+        <Button type="toolbar-default" >工具栏默认</Button>
+        <Button type="toolbar-primary" >工具栏主按钮/D</Button>
       </div>
     )
   }
