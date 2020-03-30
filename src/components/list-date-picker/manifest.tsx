@@ -1,9 +1,10 @@
-import { FieldTypes, EditTypes, ComponentManifest } from 'yonui-extension'
+import { FieldTypes, EditTypes, UIObject, ComponentManifest } from 'yonui-extension'
 
 const manifest: ComponentManifest = {
   name: 'ListDatePicker',
   label: '列表项日期选择',
   type: 'basicControls',
+  uiObject: UIObject.Controls,
   icon: 'list',
   props: [
     {
