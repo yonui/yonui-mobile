@@ -41,6 +41,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: () => true
+  children: () => true,
+  parent: () => false
 }
 export default manifest

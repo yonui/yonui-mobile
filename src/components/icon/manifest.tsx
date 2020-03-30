@@ -26,7 +26,7 @@ const manifest: ComponentManifest = {
       defaultValue: 'check-circle',
       showDesign: true,
       designConfig: {
-        label: '内置 icon 名称',
+        label: '图标',
         // type: EditTypes.Icon,
         isRequired: false,
         // props: {},
