@@ -33,7 +33,8 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: ['ListItem', 'listitem']
+  children: ['ListItem', 'listitem'],
+  parent: () => false
 }
 
 export default manifest

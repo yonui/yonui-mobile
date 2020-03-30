@@ -21,8 +21,8 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  autoAddItemByModel: 'Input',
-  children: () => true
+  children: () => true,
+  parent: () => false
 }
 
 export default manifest

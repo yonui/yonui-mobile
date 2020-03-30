@@ -7,6 +7,7 @@ const manifest: ComponentManifest = {
   type: 'basicControls',
   uiObject: UIObject.Containers,
   hidden: true,
+  parent: () => false,
   icon: 'list',
   props: [
     {
