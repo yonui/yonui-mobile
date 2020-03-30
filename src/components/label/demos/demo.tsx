@@ -17,10 +17,10 @@ export default class Demo1 extends Component {
     return (
       <div className="spanDemo">
         <Flex>
-          <MyComponent label={props.label} color='red' />
-          <MyComponent label={props.label} color='red' mode='border'/>
-          <MyComponent label={props.label} color='red' mode='primary'/>
-          <MyComponent label={props.label} color='#e14c46' mode='label' />
+          <MyComponent label={props.label} color='red' width=''/>
+          <MyComponent label={props.label} color='red' mode='border' width=''/>
+          <MyComponent label={props.label} color='red' mode='primary' width=''/>
+          <MyComponent label={props.label} color='#e14c46' mode='label' width=''/>
           {/* <MyComponent label={props.label} style={{ background: 'rgba(245,245,245,1)', color: 'rgba(101,175,71,1)' }} />
           <MyComponent label={props.label} style={{ background: 'rgba(245,245,245,1)', color: 'rgba(255,171,0,1)' }} />
           <MyComponent label={props.label} style={{ background: 'rgba(245,245,245,1)', color: 'rgba(225,76,70,1)' }} />

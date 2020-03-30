@@ -41,6 +41,19 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'width',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        label: '宽度',
+        help: '可设为固定值或百分比形式',
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {}
+      }
+    },
+    {
       name: 'color',
       type: FieldTypes.string,
       defaultValue: '#e14c46',
