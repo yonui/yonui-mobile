@@ -1,12 +1,34 @@
 @import '../../_style/index.less';
 
 .yonui-card-box{
+  padding: 5 * @hd;
+  min-height: 20 * @hd;
+  &-select{
+    background-color: fade(@brand-primary, 5);;
+  }
 
+  &-selected{
+    background-color: fade(@brand-primary, 10);;
+  }
+
+  display: flex;
   .yonui-card-box-btn{
     background-color: @brand-primary;
     color: @color-text-base-inverse;
   }
-  .am-swipe-content{
-    padding: 5 * @hd;
+
+  .yonui-card-box-icon{
+    width: 35 * @hd;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
   }
+
+  .yonui-card-box-swipe{
+    width: 100%;
+    padding: 5 * @hd;
+    background-color: #ffffff;
+    border-radius: 5px;
+  }
+
 }

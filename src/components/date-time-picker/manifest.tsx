@@ -1,7 +1,7 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'DateTimePicker',
-  label: '列表项日期选择',
+  label: '日期时间选择',
   type: 'basicControls',
   uiObject: UIObject.Controls,
   icon: 'list',

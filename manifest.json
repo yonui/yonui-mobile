@@ -73,6 +73,7 @@
     "ListDatePicker": "./src/components/list-date-picker",
     "CalendarPanel": "./src/components/calendar-panel",
     "CardBox": "./src/components/card-box",
+    "CardBoxGroup": "./src/components/card-box-group",
     "DateTimePicker": "./src/components/date-time-picker"
   }
 }

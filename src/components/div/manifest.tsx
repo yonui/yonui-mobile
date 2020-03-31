@@ -18,8 +18,7 @@ const manifest: ComponentManifest = {
       designConfig: {
         type: EditTypes.Bool,
         props: {},
-        label: '是否换行',
-        help: '是否换行'
+        label: '是否不换行'
       }
     },
     {
@@ -36,8 +35,7 @@ const manifest: ComponentManifest = {
             { value: 'panel', text: '面板' }
           ]
         },
-        label: '是否换行',
-        help: '是否换行'
+        label: '类型'
       }
     }
   ],
