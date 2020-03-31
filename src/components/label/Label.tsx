@@ -5,6 +5,7 @@ export interface LabelProps extends React.defaultProps{
   mode?: 'default' | 'primary' | 'border' | 'label'
   color?: string
   bgColor?: string
+  width?: string
 }
 export default class Label extends React.Component<LabelProps> {
   static defaultProps = {
@@ -47,8 +48,8 @@ export default class Label extends React.Component<LabelProps> {
   }
 
   render () {
-    const { label, style, className, color, mode, bgColor, ...other } = this.props
-    const sty = { ...this.getStyle(mode, color, bgColor), ...style }
+    const { label, style, className, color, mode, bgColor, width, ...other } = this.props
+    const sty = { ...this.getStyle(mode, color, bgColor), ...style, width }
     const cls = classnames(className, 'yonui-tag', {
       'label-mode': mode === 'label'
     })

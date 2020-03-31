@@ -85,7 +85,7 @@ class Button extends React.Component<ButtonProps, any> {
 
     const kids = React.Children.map(children, insertSpace)
     let iconEl
-    if (typeof iconType === 'string') {
+    if (iconType && typeof iconType === 'string') {
       iconEl = (
         <Icon
           aria-hidden="true"

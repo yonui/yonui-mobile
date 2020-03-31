@@ -10,7 +10,7 @@ export default class Demo extends Component {
     render() {
         return (
             <div>
-              <MyComponent >
+              <MyComponent onPress={()=>{console.log('x')}} >
                 <div>123123123</div>
               </MyComponent>
             </div>

@@ -7,6 +7,24 @@ const manifest: ComponentManifest = {
   icon: 'card',
   props: [
     {
+      name: 'status',
+      type: FieldTypes.string,
+      defaultValue: 'default',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        isRequired: false,
+        props: {
+          options: [
+            { value: 'default', text: '浏览' },
+            { value: 'select', text: '选择-未选中' },
+            { value: 'selected', text: '选择-选中' }
+          ]
+        },
+        label: '选择状态'
+      }
+    },
+    {
       name: 'text',
       type: FieldTypes.string,
       defaultValue: '删除',
@@ -15,7 +33,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '按钮文本'
+        label: '按钮文本',
+        help: '浏览态有效'
       }
     },
     {
@@ -26,7 +45,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Json,
         isRequired: false,
         props: {},
-        label: '按钮样式'
+        label: '按钮样式',
+        help: '浏览态有效'
       }
     },
     {
@@ -37,7 +57,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '按钮点击事件'
+        label: '按钮点击事件',
+        help: '浏览态有效'
       }
     }
   ],

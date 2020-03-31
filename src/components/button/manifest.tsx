@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject, SysProp } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 
 const manifest: ComponentManifest = {
   name: 'Button',
@@ -6,8 +6,6 @@ const manifest: ComponentManifest = {
   type: 'basicControls',
   icon: 'anniu',
   uiObject: UIObject.Controls,
-  model: 'SimpleModel',
-  systemProperties: [SysProp.ACTION],
   props: [
     {
       name: 'content',
@@ -125,7 +123,7 @@ const manifest: ComponentManifest = {
     {
       name: 'icon',
       type: FieldTypes.string,
-      defaultValue: false, // 改成false才是默认没有svg
+      defaultValue: '', // 改成false才是默认没有svg // 应当处理成空字符串
       showDesign: true,
       designConfig: {
         // type: EditTypes.Icon,

@@ -1,11 +1,10 @@
-import { FieldTypes, EditTypes, UIObject, ComponentManifest } from 'yonui-extension'
-
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
-  name: 'ListDatePicker',
-  label: '列表项日期选择',
+  name: 'DateTimePicker',
+  label: '日期时间选择',
   type: 'basicControls',
   uiObject: UIObject.Controls,
-  icon: 'list',
+  icon: 'time',
   props: [
     {
       name: 'label',
@@ -20,20 +19,22 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'mode',
+      name: 'dateMode',
       type: FieldTypes.string,
-      defaultValue: 'date',
+      defaultValue: 'picker-date',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
         isRequired: true,
         props: {
           options: [
-            { value: 'date', text: '日期' },
-            { value: 'time', text: '时间' },
-            { value: 'datetime', text: '日期+时间' },
-            { value: 'year', text: '年' },
-            { value: 'month', text: '月' }
+            { value: 'picker-date', text: '选择器-日期' },
+            { value: 'picker-time', text: '选择器-时间' },
+            { value: 'picker-datetime', text: '选择器-日期时间' },
+            { value: 'picker-year', text: '选择器-年' },
+            { value: 'picker-month', text: '选择器-年月' },
+            { value: 'calendar-datetime', text: '日历-日期时间' },
+            { value: 'calendar-date', text: '日历-日期' }
           ]
         },
         label: '选择类型'
@@ -158,6 +159,7 @@ const manifest: ComponentManifest = {
     {
       name: 'format',
       type: FieldTypes.string,
+      defaultValue: 'YYYY-MM-DD',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
@@ -196,18 +198,18 @@ const manifest: ComponentManifest = {
         label: '显示文案'
       }
     },
-    {
-      name: 'prefixCls',
-      type: FieldTypes.string,
-      defaultValue: 'am-picker',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: 'class前缀'
-      }
-    },
+    // {
+    //   name: 'prefixCls',
+    //   type: FieldTypes.string,
+    //   defaultValue: 'am-picker',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     isRequired: false,
+    //     props: {},
+    //     label: 'class前缀'
+    //   }
+    // },
     {
       name: 'onOk',
       type: FieldTypes.action,
@@ -232,7 +234,7 @@ const manifest: ComponentManifest = {
         help: '取消回调'
       }
     }
-
   ]
 }
+
 export default manifest
