@@ -68,8 +68,8 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
     const end = (value && value.length && value[1]) ? dateFormat(value[1], format || 'yyyy-MM-dd') : ''
     const requiredCls = required ? 'required' : ''
     return (
-      <List className='list-calendar' style={style}>
-        <div className='list-calendar-range'>
+      <List className='date-time-range-wrapper' style={style}>
+        <div className='date-time-range'>
           <div className={`form-label ${requiredCls} form-label-calendar`}>{label}</div>
           <Flex className='calendar-range' onClick={this.handClick.bind(this)}>
             <Flex.Item>

@@ -66,34 +66,12 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
     const typeAndMode = dateMode?.split('-') || []
     // const fmt = (format && typeof format === 'string') ? format : ((format && value ? format(value) : 'yyyy-MM-dd'))
     const fmt = format ? (typeof format === 'string' ? format : (value && format(value))) : 'yyyy-MM-dd'
-    if (typeAndMode[0] === 'picker') {
-      return <List className={`date-time-picker ${(disabled || !arrow) && 'no-arrow'}`} style={style}>
-        <DatePicker
-          {...restProps}
-          title={title}
-          extra={extra}
-          format={format}
-          disabled={disabled}
-          value={valueTrs}
-          minDate={minDateTrs}
-          maxDate={maxDateTrs}
-          mode={typeAndMode[1]}
-          onOk={this.onConfirm}
-          onDismiss={this.onCancel}
-        >
-          <List.Item
-            arrow={arrow ? 'horizontal' : ''}
-            className={`from-label ${requiredCls}`}>
-            {label}
-          </List.Item>
-        </DatePicker>
-      </List>
-    } else if (typeAndMode[0] === 'calendar') {
-      return (<List className='list-calendar' style={style}>
+    if (typeAndMode[0] === 'calendar') {
+      return (<List className='date-time-picker' style={style}>
         <List >
           <List.Item
             arrow={arrow ? 'horizontal' : ''}
-            className={`from-label ${requiredCls}`}
+            className={`form-label ${requiredCls}`}
             onClick = {!disabled ? this.onOpenCalendar : undefined}
             extra = { valueTrs ? dateFormat(valueTrs, fmt || 'yyyy-MM-dd') : extra}
           >
@@ -112,23 +90,29 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
           type='one'
         />
       </List>)
-    }
-    return (
-      <List className={`date-time-picker ${(disabled || !arrow) && 'no-arrow'}`} style={style}>
+    } else {
+      return <List className={`date-time-picker ${(disabled || !arrow) && 'no-arrow'}`} style={style}>
         <DatePicker
           {...restProps}
+          title={title}
+          extra={extra}
+          format={format}
           disabled={disabled}
           value={valueTrs}
           minDate={minDateTrs}
-          maxDate={maxDateTrs}>
+          maxDate={maxDateTrs}
+          mode={typeAndMode[1]}
+          onOk={this.onConfirm}
+          onDismiss={this.onCancel}
+        >
           <List.Item
             arrow={arrow ? 'horizontal' : ''}
-            className={`from-label ${requiredCls}`}>
+            className={`form-label ${requiredCls}`}>
             {label}
           </List.Item>
         </DatePicker>
       </List>
-    )
+    }
   }
 }
 export default ListDatePicker

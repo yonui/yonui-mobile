@@ -3,7 +3,8 @@
 div[uitype="ListCalendar"] {
   width: 100%;
 }
-.list-calendar {
+.date-time-range-wrapper{
+  background-color: @fill-base;
   .@{ListCalendarPrefixClass} .single-month {
     .row {
       .cell {
@@ -23,11 +24,11 @@ div[uitype="ListCalendar"] {
     font-size: @input-font-size;
   }
 }
-.list-calendar-range {
-  padding: 10*@hd 5*@hd 10*@hd 0;
+.date-time-range {
+  padding: 10*@hd 5*@hd 10*@hd 12.5*@hd;
   .form-label-calendar {
     float: left;
-    margin: 5*@hd 15*@hd 0;
+    margin: 5*@hd 15*@hd 0 0;
   }
   .calendar-range {
     border: 1*@hd solid #e4e4e4;
