@@ -1,6 +1,6 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
-  name: 'TextareaItem',
+  name: 'Textarea',
   uiObject: UIObject.Controls,
   label: '多行文本',
   type: 'basicControls',
