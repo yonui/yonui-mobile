@@ -74,6 +74,7 @@
     "CalendarPanel": "./src/components/calendar-panel",
     "CardBox": "./src/components/card-box",
     "CardBoxGroup": "./src/components/card-box-group",
-    "DateTimePicker": "./src/components/date-time-picker"
+    "DateTimePicker": "./src/components/date-time-picker",
+    "DateTimeRange": "./src/components/date-time-range"
   }
 }

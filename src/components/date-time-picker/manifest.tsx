@@ -4,7 +4,7 @@ const manifest: ComponentManifest = {
   label: '日期时间选择',
   type: 'basicControls',
   uiObject: UIObject.Controls,
-  icon: 'list',
+  icon: 'time',
   props: [
     {
       name: 'label',

@@ -1,0 +1,48 @@
+@import '../../_style/index.less';
+@ListCalendarPrefixClass: am-calendar;
+div[uitype="ListCalendar"] {
+  width: 100%;
+}
+.list-calendar {
+  .@{ListCalendarPrefixClass} .single-month {
+    .row {
+      .cell {
+        .info {
+          height: @font-size-icontext + 5*@hd;
+        }
+      }
+    }
+  }
+  .@{ListCalendarPrefixClass} {
+    .header .left,.header .right{
+      color: @brand-primary;
+    }
+  }
+  .am-list-item .am-input-control input:disabled {
+    color: @color-text-base;
+    font-size: @input-font-size;
+  }
+}
+.list-calendar-range {
+  padding: 10*@hd 5*@hd 10*@hd 0;
+  .form-label-calendar {
+    float: left;
+    margin: 5*@hd 15*@hd 0;
+  }
+  .calendar-range {
+    border: 1*@hd solid #e4e4e4;
+    border-radius: 50*@hd;
+    height: 32*@hd;
+    font-size: @input-font-size;
+    color: #999;
+    .am-list-item .am-input-control input {
+      padding: 0 10*@hd;
+      height: 32*@hd;
+      font-size: @input-font-size;
+    }
+    .am-list-item.am-input-item {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
