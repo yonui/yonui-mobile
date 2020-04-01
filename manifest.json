@@ -71,6 +71,7 @@
     "CardBox": "./src/components/card-box",
     "CardBoxGroup": "./src/components/card-box-group",
     "DateTimePicker": "./src/components/date-time-picker",
-    "DateTimeRange": "./src/components/date-time-range"
+    "DateTimeRange": "./src/components/date-time-range",
+    "InputNumber": "./src/components/input-number"
   }
 }

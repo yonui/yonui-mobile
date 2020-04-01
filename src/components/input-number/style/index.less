@@ -1,0 +1,33 @@
+@import '../../_style/index.less';
+
+.yonui-input-number{
+  display: flex;
+  height: 44px;
+  background: #fff;
+  padding: 0 10px;
+  border-bottom: 1px solid @split-line;
+  .yonui-input-number-label{
+    display: inline-flex;
+    align-items: center;
+    width: 50%;
+    font-size: 16px;
+  }
+
+  .yonui-input-number-wrapper{
+    width: 50%;
+    display: inline-flex;
+    .yonui-input-number-input{
+      // text-align: right;
+      width: 100%;
+      font-size: 16px;
+      border: none;
+    }
+    .yonui-input-number-prefix,.yonui-input-number-suffix{
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2px;
+      padding-top: 2px;
+    }
+  }
+}
