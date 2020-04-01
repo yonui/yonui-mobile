@@ -63,7 +63,7 @@
     "SharePanel": "./src/components/share-panel",
     "Loading": "./src/components/loading",
     "Grid": "./src/components/grid",
-    "TextareaItem": "./src/components/textarea-item",
+    "Textarea": "./src/components/textarea-item",
     "Input": "./src/components/input",
     "Calendar": "./src/components/calendar",
     "Footer": "./src/components/footer",
