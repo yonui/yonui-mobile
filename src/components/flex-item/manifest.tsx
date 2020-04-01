@@ -1,4 +1,4 @@
-import { EditTypes, FieldTypes, ComponentManifest, UIObject } from 'yonui-extension'
+import { ComponentManifest, UIObject } from 'yonui-extension'
 
 const manifest: ComponentManifest = {
   name: 'FlexItem',
@@ -8,19 +8,7 @@ const manifest: ComponentManifest = {
   uiObject: UIObject.Containers,
   hidden: true,
   icon: 'icon_wangye',
-  props: [// adapter适配层数据
-    {
-      name: 'content',
-      type: FieldTypes.string,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: '内容'
-      }
-    }
-  ],
+  props: [],
   children: () => true,
   parent: () => false
 }

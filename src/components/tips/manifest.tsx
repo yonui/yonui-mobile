@@ -10,14 +10,25 @@ const manifest: ComponentManifest = {
   props: [
     {
       name: 'text',
+      type: FieldTypes.number,
+      defaultValue: '30',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Number,
+        props: {},
+        label: '展示的数字',
+        help: '展示的数字或文案，当为数字时候，大于 overflowCount时显示为 overflowCount，为 0 时隐藏'
+      }
+    },
+    {
+      name: 'text',
       type: FieldTypes.string,
       defaultValue: '30',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
         props: {},
-        label: '展示的数字',
-        help: '展示的数字或文案，当为数字时候，大于 overflowCount时显示为 overflowCount，为 0 时隐藏'
+        label: '展示的文字'
       }
     },
     {

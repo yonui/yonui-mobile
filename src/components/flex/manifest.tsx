@@ -19,10 +19,10 @@ const manifest: ComponentManifest = {
         props: {
           options:
             [
-              { value: 'row', text: 'row' },
-              { value: 'row-reverse', text: 'row-reverse' },
-              { value: 'column', text: 'column' },
-              { value: 'column-reverse', text: 'column-reverse' }
+              { value: 'row', text: '从左横向排布' },
+              { value: 'row-reverse', text: '从右横向排布' },
+              { value: 'column', text: '从上往下纵向排布' },
+              { value: 'column-reverse', text: '从下往上纵向排布' }
             ]
         },
         label: '项目定位方向',
@@ -40,9 +40,9 @@ const manifest: ComponentManifest = {
         props: {
           options:
             [
-              { value: 'nowrap', text: 'nowrap' },
-              { value: 'wrap', text: 'wrap' },
-              { value: 'wrap-reverse', text: 'wrap-reverse' }
+              { value: 'nowrap', text: '不换行' },
+              { value: 'wrap', text: '向下换行' },
+              { value: 'wrap-reverse', text: '向上换行' }
             ]
         },
         label: '换行方式',
@@ -60,11 +60,11 @@ const manifest: ComponentManifest = {
         props: {
           options:
             [
-              { value: 'start', text: 'start' },
-              { value: 'end', text: 'end' },
-              { value: 'between', text: 'between' },
-              { value: 'center', text: 'center' },
-              { value: 'around', text: 'around' }
+              { value: 'start', text: '从左往右' },
+              { value: 'end', text: '从右往左' },
+              { value: 'between', text: '均匀分布' },
+              { value: 'center', text: '从中间开始' },
+              { value: 'around', text: '从中间等分' }
             ]
         },
         label: '主轴对齐方式',
@@ -82,38 +82,13 @@ const manifest: ComponentManifest = {
         props: {
           options:
             [
-              { value: 'start', text: 'start' },
-              { value: 'end', text: 'end' },
-              { value: 'center', text: 'center' },
-              { value: 'baseline', text: 'baseline' },
-              { value: 'stretch', text: 'stretch' }
+              { value: 'start', text: '顶部对齐' },
+              { value: 'end', text: '底部对齐' },
+              { value: 'center', text: '水平对齐' }
             ]
         },
         label: '交叉轴对齐方式',
         help: '子元素在交叉轴上的对齐方式'
-      }
-    },
-    {
-      name: 'alignContent',
-      type: FieldTypes.string,
-      defaultValue: 'strech',
-      value: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Select,
-        props: {
-          options:
-            [
-              { value: 'start', text: 'start' },
-              { value: 'end', text: 'end' },
-              { value: 'between', text: 'between' },
-              { value: 'center', text: 'center' },
-              { value: 'around', text: 'around' },
-              { value: 'strech', text: 'strech' }
-            ]
-        },
-        label: '多根轴线对齐方式',
-        help: '有多根轴线时的对齐方式'
       }
     }
   ],

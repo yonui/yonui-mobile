@@ -16,7 +16,7 @@ export default class Demo1 extends Component {
         <Flex>
           <Button className="item-width">按钮4 </Button>
         </Flex>
-
+        <Flex context='rewrewrewrewrew' ></Flex>
         <Flex direction="column">
           <Card></Card>
         </Flex>

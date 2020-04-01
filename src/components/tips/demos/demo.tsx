@@ -17,7 +17,7 @@ export default class Demo1 extends Component {
 
     return (
       <Flex>
-        <MyComponent text={3} overflowCount={55} style={{ marginLeft: 12 }}/>
+        <MyComponent text={99} overflowCount={55} style={{ marginLeft: 12 }}/>
         <br />
         <MyComponent text={36} overflowCount={55} style={{ marginLeft: 12 }}/>
 
