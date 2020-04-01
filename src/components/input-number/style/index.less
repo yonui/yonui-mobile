@@ -2,15 +2,16 @@
 
 .yonui-input-number{
   display: flex;
-  height: 44px;
+  height: 44*@hd;
   background: #fff;
-  padding: 0 10px;
-  border-bottom: 1px solid @split-line;
+  padding: 0 10*@hd;
+  border-bottom: 1*@hd solid @split-line;
   .yonui-input-number-label{
     display: inline-flex;
     align-items: center;
     width: 50%;
-    font-size: 16px;
+    font-size: 15*@hd;
+    color: @color-text-base;
   }
 
   .yonui-input-number-wrapper{
@@ -19,15 +20,16 @@
     .yonui-input-number-input{
       // text-align: right;
       width: 100%;
-      font-size: 16px;
+      font-size: 15*@hd;
       border: none;
+      color: @color-text-base;
     }
     .yonui-input-number-prefix,.yonui-input-number-suffix{
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      margin: 2px;
-      padding-top: 2px;
+      margin: 2*@hd;
+      padding-top: 2*@hd;
     }
   }
 }
