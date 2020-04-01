@@ -13,8 +13,8 @@ import noNetworkSrc from './style/result/noNetwork.png'
 
 export interface EmptyProps {
   mode?: string
-  message: string
-  imgUrl: string
+  message?: string
+  // imgUrl?: string
   style?: React.CSSProperties
 }
 const data = [

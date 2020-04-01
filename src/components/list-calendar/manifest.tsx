@@ -1,11 +1,12 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const now = new Date()
 const manifest: ComponentManifest = {
   name: 'ListCalendar',
-  uiTable: UITable.BillItemBase,
+  uiObject: UIObject.Controls,
   label: '列表项日历',
   description: '',
-  type: 'DataEntry',
+  type: 'basicControls',
+  icon: 'list',
   props: [
     {
       name: 'label',
@@ -292,7 +293,4 @@ const manifest: ComponentManifest = {
   ],
   children: []
 }
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

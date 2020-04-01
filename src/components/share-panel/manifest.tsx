@@ -1,41 +1,101 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
-  name: 'SegmentedControl',
-  label: '分段菜单',
-  description: '切换菜单，内容区上下滑动至选中模块吸顶。',
-  type: 'Navigation',
+  name: 'SharePanel',
+  label: '分享面板',
+  description: '分享面板',
+  uiObject: UIObject.Containers,
+  type: 'operationBar',
+  icon: 'shouji',
   props: [
     {
-      name: 'data',
-      type: FieldTypes.array,
-      defaultValue: JSON.stringify([{ label: '智能推荐', children: {} }, { label: '采购订单', children: {} }, { label: '采购分析', children: {} }, { label: '固定考勤', children: {} }]),
+      name: 'show',
+      type: FieldTypes.boolean,
+      defaultValue: true,
       showDesign: true,
       designConfig: {
-        type: EditTypes.Json,
+        type: EditTypes.Bool,
         isRequired: false,
         props: {},
-        label: '菜单数据',
-        help: '传入的菜单数据'
+        label: '是否显示'
       }
     },
     {
-      name: 'onClick',
-      type: FieldTypes.action,
-      defaultValue: '',
+      name: 'title',
+      type: FieldTypes.string,
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: 'onClick',
-        help: '点击每个菜单的回调函数'
+        label: '标题'
+      }
+    },
+    {
+      name: 'options',
+      type: FieldTypes.array,
+      defaultValue: JSON.stringify([{ icon: 'https://gw.alipayobjects.com/zos/rmsportal/OpHiXAcYzmPQHcdlLFrc.png', title: '发送给朋友' }, { icon: 'https://gw.alipayobjects.com/zos/rmsportal/wvEzCMiDZjthhAOcwTOu.png', title: '新浪微博' }, { icon: 'https://gw.alipayobjects.com/zos/rmsportal/cTTayShKtEIdQVEMuiWt.png', title: '生活圈' }, { icon: 'https://gw.alipayobjects.com/zos/rmsportal/umnHwvEgSyQtXlZjNJTt.png', title: '微信好友' }, { icon: 'https://gw.alipayobjects.com/zos/rmsportal/SxpunpETIwdxNjcJamwB.png', title: 'QQ' }]),
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Json,
+        isRequired: false,
+        props: {},
+        label: '数据数组'
+      }
+    },
+    {
+      name: 'cancelButtonText',
+      type: FieldTypes.string,
+      defaultValue: '取消',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '按钮文本'
+      }
+    },
+    {
+      name: 'type',
+      type: FieldTypes.string,
+      defaultValue: 'fixed',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        isRequired: false,
+        props: {
+          options:
+            [
+              { value: 'fixed', text: '固定' },
+              { value: 'slideable', text: '滑动' }
+            ]
+        },
+        label: '渲染模式'
+      }
+    },
+    {
+      name: 'onClose',
+      type: FieldTypes.action,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '关闭时回调函数'
+      }
+    },
+    {
+      name: 'callback',
+      type: FieldTypes.action,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '点击时回调函数'
       }
     }
   ],
   children: []
+}
 
-}
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

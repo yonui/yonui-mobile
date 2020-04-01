@@ -1,0 +1,48 @@
+{
+  "lang": "zh_CN",
+  "Popconfirm": {
+    "ok": "确认TW",
+    "cancel": "取消TW"
+  },
+  "Table": {
+    "resetSettings": "还原设置",
+    "include": "包含",
+    "exclusive": "不包含",
+    "equal": "等于",
+    "unequal": "不等于",
+    "begin": "以开始",
+    "end": "以结尾"
+  },
+  "Clipboard": {
+    "copy": "复制",
+    "cut": "剪切",
+    "copyReady": "已复制",
+    "cutReady": "已剪切",
+    "copyToClipboard": "复制到剪切板",
+    "close": "关闭"
+  },
+  "Pagination": {
+    "total": "共",
+    "items": "条",
+    "show": "显示",
+    "goto": "跳至",
+    "page": "页",
+    "ok": "确认"
+  },
+  "Grid": {
+    "lang": "zh-cn",
+    "fixTitle": "锁定",
+    "noFixTitle": "解锁",
+    "hideTitle": "隐藏",
+    "rowFilter": "行过滤",
+    "openRowFilter": "打开行过滤",
+    "closeRowFilter": "关闭行过滤"
+  },
+  "SearchPanel": {
+    "title": "默认筛选",
+    "resetName": "清空",
+    "searchName": "查询",
+    "down": "展开",
+    "up": "收起"
+  }
+}

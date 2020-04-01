@@ -1,10 +1,11 @@
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { EditTypes, FieldTypes, ComponentManifest, UIObject } from 'yonui-extension'
 
 const manifest: ComponentManifest = {
   name: 'result',
   label: '反馈页',
-  type: 'Combination',
-  uiTable: UITable.BillItemBase,
+  type: 'basicControls',
+  uiObject: UIObject.Controls,
+  icon: 'table-report',
   props: [
     {
       name: 'mode',
@@ -38,7 +39,4 @@ const manifest: ComponentManifest = {
     }]
 }
 
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

@@ -26,7 +26,7 @@
     left: 12 * @hd;
     right: 0;
     bottom: 0;
-    
+
   }
   .hairline('bottom', @border-color-base);
   &-thumb {
@@ -69,10 +69,19 @@
     display: inline-flex;
     &-content {
       flex: 1;
+      max-width: 90%;
+      overflow: auto;
     }
     &-extra {
       color: @color-text-caption;
       font-size: 11 * @hd;
+      max-width: 10%;
+      overflow: auto;
+      .title-extra-words{
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
     }
     .@{listItemPrefixCls}-single-line & {
       &-content {
@@ -100,6 +109,8 @@
     align-items: center;
     &-content {
       flex: 1;
+      max-width: 90%;
+      overflow: auto;
       .@{listItemPrefixCls}-single-line & {
         display: flex;
       }
@@ -109,6 +120,10 @@
         // margin-top: @v-spacing-sm;
         .ellipsis();
       }
+    }
+    &-thumb{
+      max-width: 10%;
+      overflow: auto;
     }
   }
 

@@ -2,9 +2,13 @@
 @gridPrefixCls: am-grid;
 @mdfGridPrefixCls: mdf-grid;
 .@{mdfGridPrefixCls} {
+  height: auto;
   background: #fff;
   &.@{mdfGridPrefixCls}-transparent {
     background: transparent;
+    .am-grid .am-flexbox {
+      background: transparent;
+    }
   }
   &.@{mdfGridPrefixCls}-not-full{
     margin: 0 12.5*@hd;
@@ -14,6 +18,7 @@
     .am-carousel .am-carousel-wrap-dot-active > span {
       background: @brand-primary!important;
     }
+
   }  
 }
 .@{gridPrefixCls} {
@@ -46,22 +51,31 @@
       padding-top: 10*@hd;
       padding-bottom: 10*@hd;
      }
+     &.am-grid-square {
+      .am-flexbox-item.am-grid-item {
+        padding-top: 10*@hd;
+        padding-bottom: 10*@hd;
+      }
+      .custom-item {
+        height: 80%;
+      }
+    }
   }
   &.@{gridPrefixCls}-number{
     &.@{gridPrefixCls}-outContent {
       .custom-item {
-        height: 90%;
+        height: 100%;
        }
        .am-flexbox-item.am-grid-item {
         padding-top: 10*@hd;
         padding-bottom: 10*@hd;
        }
        .am-flexbox .am-flexbox-item .am-grid-item-content {
-         height: 100%;
+         height: auto;
        }
     }
     .custom-item {
-     height: auto;
+     height: 100%;;
     }
     .am-flexbox-item.am-grid-item {
       padding: 0;
@@ -82,11 +96,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 90%;
+    height: 100%;
   }
   .out-content {
     width: 60%;
-    height: 70%;
+    height: 100%;
     border-radius: 4*@hd;
     background: #fff;
     color: #333;
@@ -97,6 +111,7 @@
   }
   .custom-text {
     font-size: 12*@hd;
+    margin-top: 5*@hd;
   }
   .custom-grid-icon {
     width: 50%;
@@ -105,3 +120,17 @@
 div[uitype="Grid"] {
   width: 100%;
 }
+.am-grid.am-grid-square.am-grid-carousel .am-grid-item::before {
+  display: none;
+  content: " ";
+  padding-bottom: 100%;
+}
+.am-grid.am-grid-square.am-grid-carousel .am-grid-item .am-grid-item-content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.am-grid .am-flexbox .am-flexbox-item .am-grid-item-content .am-grid-item-inner-content {
+  height: auto;
+}
+

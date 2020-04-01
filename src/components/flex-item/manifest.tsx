@@ -1,11 +1,13 @@
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { EditTypes, FieldTypes, ComponentManifest, UIObject } from 'yonui-extension'
 
 const manifest: ComponentManifest = {
   name: 'FlexItem',
   label: 'FlexItem',
   description: '实现css flex布局', // 描述
-  type: 'Layout',
-  uiTable: UITable.BillTplGroupBase,
+  type: 'basicControls',
+  uiObject: UIObject.Containers,
+  hidden: true,
+  icon: 'icon_wangye',
   props: [// adapter适配层数据
     {
       name: 'content',
@@ -19,11 +21,8 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  autoAddItemByModel: 'Input',
-  children: () => true
+  children: () => true,
+  parent: () => false
 }
 
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

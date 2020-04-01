@@ -3,6 +3,7 @@ import classnames from 'classnames'
 interface TabPaneProps {
   children: any
   key: string
+  label: string
   className?: string
   style?: object
   height?: string
@@ -12,13 +13,13 @@ interface TabPaneProps {
 
 export default class MyComponent extends Component<TabPaneProps> {
   static defaultProps = {
-    key: '',
+    code: '',
     height: '100px'
   }
 
   render () {
     const { children, key, className, style, height, width, bgColor, ...other } = this.props
-    const cls = classnames(className, 'libraui-tabpane')
+    const cls = classnames(className, 'yonui-tabpane')
     const sty = { width, height, 'background-color': bgColor, ...style }
     return (
       <div key={key} className={cls} style={sty} {...other}>

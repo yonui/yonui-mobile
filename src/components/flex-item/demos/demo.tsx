@@ -5,7 +5,7 @@
 import React, { Component } from 'react'
 import Flex from '../index'
 import { Button } from 'antd-mobile'
-import Card from '../../card'
+import Card from '../../Card'
 
 import '../style'
 import './demo.less'

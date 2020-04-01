@@ -1,8 +1,9 @@
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { EditTypes, FieldTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'Tag',
   label: '标签',
-  type: 'DataDisplay',
+  type: 'basicControls',
+  uiObject: UIObject.Controls,
   props: [
     {
       name: 'name',
@@ -102,7 +103,4 @@ const manifest: ComponentManifest = {
     }
   ]
 }
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

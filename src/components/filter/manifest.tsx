@@ -1,15 +1,28 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
+const btn1 =
+{
+  key: 'reset',
+  value: '重置',
+  theme: 'next'
+}
+const btn2 = {
+  key: 'confirm',
+  value: '确定',
+  theme: 'primary'
+}
+
 const manifest: ComponentManifest = {
   name: 'Filter',
   label: '筛选组件',
   description: '提供一个筛选的容器组件',
-  uiTable: UITable.BillTplGroupBase,
-  type: 'DataEntry',
+  uiObject: UIObject.Containers,
+  type: 'operationBar',
+  icon: 'filter',
   props: [
     {
       name: 'open',
       type: FieldTypes.boolean,
-      defaultValue: false,
+      defaultValue: true,
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
@@ -32,14 +45,14 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'btn1',
-      type: FieldTypes.string,
-      defaultValue: '重置',
+      type: FieldTypes.object,
+      defaultValue: JSON.stringify(btn1),
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         isRequired: false,
         props: {},
-        label: '左侧按钮名称'
+        label: '左侧按钮'
       }
     },
     {
@@ -55,14 +68,14 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'btn2',
-      type: FieldTypes.string,
-      defaultValue: '确定',
+      type: FieldTypes.object,
+      defaultValue: JSON.stringify(btn2),
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         isRequired: false,
         props: {},
-        label: '右侧按钮名称'
+        label: '右侧按钮'
       }
     },
     {
@@ -75,12 +88,27 @@ const manifest: ComponentManifest = {
         props: {},
         label: '右侧按钮点击事件'
       }
+    },
+    {
+      name: 'mode',
+      type: FieldTypes.string,
+      defaultValue: 'button',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        isRequired: false,
+        props: {
+          options:
+            [
+              { value: 'text', text: '文本' },
+              { value: 'button', text: '按钮' }
+            ]
+        },
+        label: '渲染模式'
+      }
     }
   ],
-  children: ['FilterContent']
+  children: ['filtercontent']
 }
 
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

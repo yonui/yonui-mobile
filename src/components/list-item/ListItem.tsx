@@ -9,6 +9,8 @@ export interface ListItemProps {
   briefExtra?: string
   arrow?: string
   singleLine?: boolean
+  className?: string
+  style?: React.CSSProperties
 }
 export default class ListItem extends React.Component<ListItemProps, any> {
   static defaultProps = {
@@ -39,7 +41,7 @@ export default class ListItem extends React.Component<ListItemProps, any> {
           <span>{title}</span>
         </div>
         <div className={`${prefixCls}-title-extra`}>
-          <span>{titleExtra}</span>
+          <span className='title-extra-words'>{titleExtra}</span>
         </div>
       </div>
       {!singleLine && (<div className={`${prefixCls}-brief`}>
@@ -57,9 +59,11 @@ export default class ListItem extends React.Component<ListItemProps, any> {
     const {
       prefixCls,
       singleLine,
-      arrow
+      arrow,
+      className,
+      style
     } = this.props
-    const wrapperCls = classnames(`${prefixCls}`, {
+    const wrapperCls = classnames(`${prefixCls}`, className, {
       [`${prefixCls}-single-line`]: singleLine
     })
     const arrowCls = classnames(`${prefixCls}-arrow`, {
@@ -68,7 +72,7 @@ export default class ListItem extends React.Component<ListItemProps, any> {
       [`${prefixCls}-arrow-vertical-up`]: arrow === 'up'
     })
     return (
-      <div className={wrapperCls}>
+      <div className={wrapperCls} style={style}>
         {this.renderThumb('left')}
         {this.renderContent()}
         {this.renderThumb('right')}

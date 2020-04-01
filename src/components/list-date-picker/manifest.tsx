@@ -1,9 +1,11 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, UIObject, ComponentManifest } from 'yonui-extension'
 
 const manifest: ComponentManifest = {
   name: 'ListDatePicker',
   label: '列表项日期选择',
-  type: 'DataEntry',
+  type: 'basicControls',
+  uiObject: UIObject.Controls,
+  icon: 'list',
   props: [
     {
       name: 'label',
@@ -233,7 +235,4 @@ const manifest: ComponentManifest = {
 
   ]
 }
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

@@ -1,6 +1,6 @@
 @import '../../_style/index.less';
 
-@labelPrefixCls: label;
+@labelPrefixCls: yonui-tag;
 
 .@{labelPrefixCls} {
   font-size: 11 * @hd;
@@ -13,6 +13,10 @@
   min-width: 32 * @hd;
   line-height: 11 * @hd;
   border-radius: 2 * @hd;
-  color: rgba(255,255,255,1);
-  background: rgba(0,199,230,1);
+  &.label-mode{
+    font-size: 16 * @hd;
+    border-radius: 0;
+    width: 100%;
+    text-align: left;
+  }
 }

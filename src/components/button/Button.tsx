@@ -2,17 +2,15 @@ import React from 'react'
 import classnames from 'classnames'
 import TouchFeedback from 'rmc-feedback'
 import Icon from '../icon'
-
-export interface ButtonProps {
+export interface ButtonProps extends React.defaultProps{
   prefixCls?: string
   content?: string
-  type?: 'primary' | 'warning' | 'ghost' | 'default' | 'text'
+  type?: 'primary' | 'warning' | 'ghost' | 'default' | 'text' | 'toolbar-default' | 'toolbar-primary'
   size?: 'large' | 'small'
   inline?: boolean
   disabled?: boolean
   loading?: boolean
   icon?: React.ReactNode | string
-  style?: React.CSSProperties
   onClick?: React.MouseEventHandler<HTMLAnchorElement>
 }
 
@@ -65,16 +63,19 @@ class Button extends React.Component<ButtonProps, any> {
       icon,
       style,
       onClick,
+      className,
       ...restProps
     } = this.props
 
     const iconType: any = loading ? 'loading' : icon
-    const wrapCls = classnames(prefixCls, {
+    const wrapCls = classnames(prefixCls, className, {
       [`${prefixCls}-primary`]: type === 'primary',
       [`${prefixCls}-default`]: type === 'default',
       [`${prefixCls}-ghost`]: type === 'ghost',
       [`${prefixCls}-warning`]: type === 'warning',
       [`${prefixCls}-text`]: type === 'text',
+      [`${prefixCls}-toolbar-default`]: type === 'toolbar-default',
+      [`${prefixCls}-toolbar-primary`]: type === 'toolbar-primary',
       [`${prefixCls}-small`]: size === 'small',
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-disabled`]: disabled,
@@ -84,7 +85,7 @@ class Button extends React.Component<ButtonProps, any> {
 
     const kids = React.Children.map(children, insertSpace)
     let iconEl
-    if (typeof iconType === 'string') {
+    if (iconType && typeof iconType === 'string') {
       iconEl = (
         <Icon
           aria-hidden="true"
@@ -115,7 +116,7 @@ class Button extends React.Component<ButtonProps, any> {
           onClick={disabled ? undefined : onClick}
           aria-disabled={disabled}>
           {iconEl}
-          {kids || content}
+          {(kids && kids.length) ? kids : content}
         </a>
       </TouchFeedback>
     )

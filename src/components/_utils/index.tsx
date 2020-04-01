@@ -1,7 +1,7 @@
-import { EditTypes } from 'libraui-extension'
+import { EditTypes } from 'yonui-extension'
 
-export const dateFormat = function dateFormat (dateObj: Date, fmt: string) {
-  const date = dateObj
+export const dateFormat = function dateFormat (dateObj: Date | string, fmt: string) {
+  const date = typeof dateObj === 'string' ? new Date(dateObj) : dateObj
   const o: any = {
     'M+': date.getMonth() + 1,
     // 月份

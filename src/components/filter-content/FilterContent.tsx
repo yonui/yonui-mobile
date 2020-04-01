@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
 import Input from '../input'
+// import TagSelect from '../tag-select'
+import Radio from '../radio'
 import Calendar from '../list-calendar'
 interface FilterContentProps {
   title?: string
-  selectData?: Array<{ desc: string, value: string }>
+  selectData?: Array<{ desc: string, value: string, disabled?: boolean}>
   className?: string
   style?: object
-  onSelect?: (item: any) => void
+  onSelect?: (item: any, index: number) => void
   selectedValue?: string
   extraInput?: string
   extraInputType?: 'date' | 'text' | 'calendar'
@@ -28,17 +30,6 @@ export default class FilterContent extends Component<FilterContentProps, any> {
     onSelect && onSelect([startDateTime, endDateTime])
     this.setState({
       [value]: [startDateTime, endDateTime]
-    })
-  }
-
-  renderSelection = (selectData?: Array<{ desc: string, value: string }>, selectedValue?: string) => {
-    const { onSelect } = this.props
-    if (!selectData) return null
-    return selectData.map((item, index) => {
-      const cls = classnames('am-tag', `${item.value === selectedValue ? 'am-tag-active' : 'am-tag-normal'}`)
-      return <div className={cls} key={index} onClick={ () => { onSelect && onSelect(item.value) }}>
-        <div className='am-tag-text'>{item.desc}</div>
-      </div>
     })
   }
 
@@ -70,17 +61,17 @@ export default class FilterContent extends Component<FilterContentProps, any> {
   }
 
   render () {
-    const { selectData, title, className, style, selectedValue, extraInput, extraInputType } = this.props
-    const cls = classnames(className, 'libraui-filter-content')
+    const { selectData, title, className, style, selectedValue, extraInput, extraInputType, onSelect } = this.props
+    const cls = classnames(className, 'yonui-filter-content')
     return (
       <div className={cls} style={style}>
-        <div className='libraui-filter-content-title'>
+        <div className='yonui-filter-content-title'>
           {title}
         </div>
-        <div className='libraui-filter-content-selection'>
-          {this.renderSelection(selectData, selectedValue)}
+        <div className='yonui-filter-content-selection'>
+          <Radio dataSource={selectData} checkedValue={selectedValue} onChange={onSelect} mode='tag' />
         </div>
-        <div className='libraui-filter-content-extra'>
+        <div className='yonui-filter-content-extra'>
           {this.renderExtra(extraInput, extraInputType)}
         </div>
       </div>

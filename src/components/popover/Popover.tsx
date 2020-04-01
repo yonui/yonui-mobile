@@ -2,7 +2,6 @@
 import React from 'react'
 import { Popover } from 'antd-mobile'
 import classNames from 'classnames'
-import { manifest, ReactWrapper } from './manifest'
 import { PopoverPropsType } from 'antd-mobile/lib/popover/PropsType'
 const Item = Popover.Item
 
@@ -43,4 +42,4 @@ class PopoverControl extends React.Component<popProps, any> {
   }
 }
 
-export default ReactWrapper(PopoverControl, manifest)
+export default PopoverControl

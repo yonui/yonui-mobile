@@ -1,5 +1,5 @@
 import React from 'react'
-export interface BackgroundProps {
+export interface BackgroundProps extends React.defaultProps {
   background?: string
 }
 export default class CarouselItem extends React.Component<BackgroundProps, any> {

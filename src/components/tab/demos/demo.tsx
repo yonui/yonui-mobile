@@ -5,7 +5,6 @@
 import React, { Component } from 'react'
 import Tab from '../index'
 import { Icon } from 'antd-mobile'
-import WhiteSpace from '../../white-space'
 import '../style'
 import './demo.less'
 const fixedTabs1 = [
@@ -45,16 +44,16 @@ export default class Demo extends Component {
     return (
       <div>
         <div>导航</div>
-        <WhiteSpace/>
+        <br/>
         <Tab tabs={fixedTabs1} icons={['search', <Icon type='plus' size='sm'/>]} gather={true} splitLine={false} iconsOccupy={false}>
         </Tab>
-        <WhiteSpace/>
+        <br/>
         <div>固定Tab</div>
-        <WhiteSpace/>
+        <br/>
         <Tab tabs={fixedTabs1}></Tab>
-        <WhiteSpace/>
+        <br/>
         <Tab tabs={fixedTabs2}></Tab>
-        <WhiteSpace/>
+        <br/>
         <Tab tabs={fixedTabs3} animated={false} useOnPan={false} pageSize={3}>
           {
             fixedTabs3.map((item: any) => {
@@ -64,7 +63,7 @@ export default class Demo extends Component {
             })
           }
         </Tab>
-        <WhiteSpace/>
+        <br/>
         <Tab tabs={fixedTabs4} icons={[<Icon type='check'/>, <Icon type='ellipsis'/>]} >
           {
             fixedTabs4.map((item: any) => {
@@ -74,8 +73,8 @@ export default class Demo extends Component {
             })
           }
         </Tab>
-        <WhiteSpace/>
-        <WhiteSpace/>
+        <br/>
+        <br/>
         <div>滑动Tab</div>
         <span>超过5个选项时自动滑动</span>
         <Tab tabs={fixedTabs5} icons={[<Icon type='check'/>, <Icon type='ellipsis'/>]}>
@@ -87,7 +86,7 @@ export default class Demo extends Component {
             })
           }
         </Tab>
-        <WhiteSpace/>
+        <br/>
         <span>自定义单屏页签个数</span>
         <Tab tabs={fixedTabs5} pageSize={3} swipeable={true}>
           {
@@ -98,7 +97,6 @@ export default class Demo extends Component {
             })
           }
         </Tab>
-        <Tab />
       </div>
     )
   }

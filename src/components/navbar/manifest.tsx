@@ -1,10 +1,11 @@
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { EditTypes, FieldTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'NavBar',
-  label: '导航栏',
+  label: '导航',
   description: '位于 app 内容区的上方，系统状态栏的下方，并且提供在一系列页面中的导航能力。', // 描述
-  type: 'Navigation',
-  uiTable: UITable.BillTplGroupBase,
+  type: 'operationBar',
+  uiObject: UIObject.Containers,
+  icon: 'chaxunmoban',
   props: [// adapter适配层数据
     {
       name: 'mode',
@@ -56,8 +57,16 @@ const manifest: ComponentManifest = {
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
-        props: {},
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: '/IconSelect',
+          iframeId: 'iconSelectIframe',
+          message: true,
+          footer: true
+        },
         label: '最左边图标',
         help: '出现在最左边的图标占位符'
       }
@@ -69,8 +78,16 @@ const manifest: ComponentManifest = {
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
-        props: {},
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: '/IconSelect',
+          iframeId: 'iconSelectIframe',
+          message: true,
+          footer: true
+        },
         label: '标题图标',
         help: '出现在标题下边的图标占位符'
       }
@@ -82,8 +99,16 @@ const manifest: ComponentManifest = {
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
-        props: {},
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: '/IconSelect',
+          iframeId: 'iconSelectIframe',
+          message: true,
+          footer: true
+        },
         label: '左关闭图标',
         help: '出现在最左边第二个的图标占位符'
       }
@@ -95,8 +120,16 @@ const manifest: ComponentManifest = {
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
-        props: {},
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: '/IconSelect',
+          iframeId: 'iconSelectIframe',
+          message: true,
+          footer: true
+        },
         label: '右一图标',
         help: '出现在最右边第一个的图标占位符'
       }
@@ -108,8 +141,16 @@ const manifest: ComponentManifest = {
       value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Textarea,
-        props: {},
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: '/IconSelect',
+          iframeId: 'iconSelectIframe',
+          message: true,
+          footer: true
+        },
         label: '右二图标',
         help: '出现在最右边第二个的图标占位符'
       }
@@ -171,7 +212,4 @@ const manifest: ComponentManifest = {
   children: []
 }
 
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

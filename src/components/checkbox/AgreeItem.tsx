@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { Checkbox } from 'antd-mobile'
-import { manifestAgreeItem as manifest, ReactWrapper } from './manifest'
+// import { manifestAgreeItem as manifest, ReactWrapper } from './manifest'
 import { getClassName } from './util'
 
 const AgreeItem = Checkbox.AgreeItem
@@ -13,4 +13,4 @@ function AgreeItemControl (props: any) {
   return <AgreeItem {...props}></AgreeItem>
 }
 
-export default ReactWrapper(AgreeItemControl, manifest)
+export default AgreeItemControl

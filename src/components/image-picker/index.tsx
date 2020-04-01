@@ -1,10 +1,10 @@
 import { ImagePicker } from 'antd-mobile'
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'yonui-extension'
 // todo files
 const manifest: ComponentManifest = {
   name: 'ImagePicker',
   label: '图片选择器',
-  type: 'DataEntry',
+  type: 'basicControls',
   props: [
     {
       name: 'onChange',

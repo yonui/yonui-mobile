@@ -5,7 +5,6 @@
 import React, { Component } from 'react'
 import MyComponent from '../index'
 import Flex from '../../flex'
-import WhiteSpace from '../../white-space'
 
 import '../style'
 import './demo.less'
@@ -19,18 +18,18 @@ export default class Demo1 extends Component {
     return (
       <Flex>
         <MyComponent text={3} overflowCount={55} style={{ marginLeft: 12 }}/>
-        <WhiteSpace />
+        <br />
         <MyComponent text={36} overflowCount={55} style={{ marginLeft: 12 }}/>
 
-        <WhiteSpace />
+        <br />
         <MyComponent text={7} overflowCount={55} style={{ marginLeft: 12 }}/>
-        <WhiteSpace />
+        <br />
         <MyComponent text={'new'} style={{ marginLeft: 12 }}></MyComponent>
-        <WhiteSpace />
+        <br />
         <MyComponent dot = "true" style={{ marginLeft: 12 }}></MyComponent>
-        <WhiteSpace />
+        <br />
         <MyComponent dot = "true" style={{ marginLeft: 12,background : "#FFBB37" }}></MyComponent>
-        <WhiteSpace />
+        <br />
 
       </Flex>
     )

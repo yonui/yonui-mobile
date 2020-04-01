@@ -3,7 +3,15 @@
   "autoTemplate": true,
   "sourcePath": "./src/components",
   "type": "ts",
+  "device": "mobile",
   "lib": [],
+  "excludeNidAndUiType": false,
+  "excludeNidAndUiTypeComp": ["CarouselItem", "ListView", "Button", "TabPane", "Tab", "Filter", "Label", "CardBox"],
+  "staticPropsMap": {
+    "ListView": "DataSource",
+    "List": ["ListItem","ListItemBrief"],
+    "Checkbox": ["CheckboxItem","AgreeItem"]
+  },
   "previewUrl": "http://tinper-libra-ui-demo.daily.app.yyuap.com/",
   "plugins": [
     ["import",{"libraryName":"antd-mobile","style":false}]

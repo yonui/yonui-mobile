@@ -1,9 +1,10 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
-  name: 'TextareaItem',
-  uiTable: UITable.BillItemBase,
-  label: '多行输入',
-  type: 'DataEntry',
+  name: 'Textarea',
+  uiObject: UIObject.Controls,
+  label: '多行文本',
+  type: 'basicControls',
+  icon: 'rich_text',
   props: [
     {
       name: 'name',
@@ -26,7 +27,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '文案说明'
+        label: '标题'
       }
     },
     {
@@ -62,7 +63,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Number,
         isRequired: true,
         props: {},
-        label: '定宽枚举值'
+        label: '标签文字个数'
       }
     },
     {
@@ -197,7 +198,4 @@ const manifest: ComponentManifest = {
 
   ]
 }
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

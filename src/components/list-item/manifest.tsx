@@ -1,10 +1,13 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 
 const manifest: ComponentManifest = {
   name: 'ListItem',
   label: '列表Item',
-  type: 'DataDisplay',
-  uiTable: UITable.BillTplGroupBase,
+  type: 'basicControls',
+  uiObject: UIObject.Containers,
+  hidden: true,
+  parent: () => false,
+  icon: 'list',
   props: [
     {
       name: 'leftThumb',
@@ -109,10 +112,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: ['ListItemBrief']
+  children: ['ListItemBrief', 'listitembrief']
 }
 
-export {
-  ReactWrapper,
-  manifest
-}
+export default manifest

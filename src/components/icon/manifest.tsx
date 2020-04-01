@@ -1,10 +1,12 @@
 
-import { FieldTypes, EditTypes, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 // todo 未配置 style activeStyle
 const manifest: ComponentManifest = {
   name: 'Icon',
   label: '图标',
-  type: 'DataDisplay',
+  type: 'basicControls',
+  icon: 'icon',
+  uiObject: UIObject.Controls,
   props: [
     {
       name: 'color',
@@ -24,7 +26,7 @@ const manifest: ComponentManifest = {
       defaultValue: 'check-circle',
       showDesign: true,
       designConfig: {
-        label: '内置 icon 名称',
+        label: '图标',
         // type: EditTypes.Icon,
         isRequired: false,
         // props: {},

@@ -1,16 +1,17 @@
 {
   "name": "yonui-mobile",
-  "version": "0.3.23",
-  "description": "Libra ui for Antd Mobile",
+  "version": "0.3.58",
+  "description": "yonui mobile",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "start": "node --max_old_space_size=4096 ./node_modules/libraui-cli/bin start",
-    "build": "node --max_old_space_size=4096 ./node_modules/libraui-cli/bin build",
+    "start": "node --max_old_space_size=4096 ./node_modules/yonui-cli/bin start",
+    "build": "rm -rf dist && node --max_old_space_size=4096 ./node_modules/yonui-cli/bin build -p",
+    "dist": "rm -rf dist && node --max_old_space_size=4096 ./node_modules/yonui-cli/bin build dist -p",
     "assets": "copyfiles -e \"**/*.tsx\" \"./components/**/*\" lib",
     "postversion": "git push --follow-tags",
-    "prepublishOnly": "npm run build -- -p",
+    "prepublishOnly": "npm run build",
     "lib": "rm -rf lib && tsc && npm run assets",
     "test": "echo no test",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
@@ -19,7 +20,8 @@
     "lint:git": "git diff --cached --name-only --diff-filter=ACM | grep '\\.[jt]sx\\?$' | xargs eslint",
     "sync": "npm run build -- -p && npm run move",
     "sync-dev": "npm run build && npm run move",
-    "move": "cp -r dist/* ../viewer/public/componentLib && cp dist/manifest.json ../adapter/src/data/manifest.json"
+    "move": "cp -r dist/* ../viewer/public/componentLib && cp dist/manifest.json ../adapter/src/data/manifest.json",
+    "move-n": "cp -r dist/* ../viewer/client/static/componentLib && cp dist/manifest.json ../adapter/src/data/manifest.json"
   },
   "husky": {
     "hooks": {
@@ -70,24 +72,24 @@
     "eslint-plugin-standard": "^4.0.1",
     "highlight.js": "^9.18.1",
     "husky": "^3.1.0",
-    "libraui-cli": "^0.1.39",
     "libraui-extension-packager": "^0.4.7",
     "marked": "^0.8.0",
     "qrcode.react": "^1.0.0",
     "react-highlight": "^0.12.0",
     "react-scripts": "^3.3.0",
     "tsc": "^1.20150623.0",
-    "typescript": "^3.7.2"
+    "typescript": "^3.7.2",
+    "yonui-cli": "^0.1.68"
   },
   "dependencies": {
     "antd-mobile": "^2.3.1",
     "classnames": "^2.2.1",
     "eslint-plugin-react": "^7.16.0",
-    "libraui-extension": "^0.7.2",
     "react": "^16.12.0",
     "react-calendar": "2.19.2",
     "react-dom": "^16.12.0",
-    "rmc-feedback": "^2.0.0"
+    "rmc-feedback": "^2.0.0",
+    "yonui-extension": "^0.7.5"
   },
   "browserslist": {
     "production": [

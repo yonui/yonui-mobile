@@ -1,5 +1,5 @@
 import { Accordion } from 'antd-mobile'
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'yonui-extension'
 
 var AccordionPanel = Accordion.Panel
 // todo 未配置 style activeStyle
@@ -7,7 +7,7 @@ const manifest: ComponentManifest = {
   name: 'AccordionPanel', // 自定义组件名称
   label: '手风琴面板', // 自定义组件文本
   description: '可以折叠/展开的内容区域。', // 描述
-  type: 'DataDisplay',
+  type: 'basicControls',
   props: [
     {
       name: 'key',

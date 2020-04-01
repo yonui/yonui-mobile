@@ -1,15 +1,32 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
+const defaultValues = [
+  {
+    key: 'item1',
+    value: '选项1'
+  },
+  {
+    key: 'item2',
+    value: '选项2',
+    theme: 'primary'
+  },
+  {
+    key: 'item3',
+    value: '选项3',
+    theme: 'next'
+  }
+]
 const manifest: ComponentManifest = {
-  name: 'Toolbars',
+  name: 'ToolBars',
   label: '工具栏',
   description: '工具栏',
-  uiTable: UITable.BillTplGroupBase,
-  type: 'DataEntry',
+  uiObject: UIObject.Containers,
+  type: 'operationBar',
+  icon: 'gongjulan1',
   props: [
     {
       name: 'values',
       type: FieldTypes.array,
-      defaultValue: JSON.stringify(['item1', 'item2', 'item3', 'item4', 'item5', 'item6']),
+      defaultValue: JSON.stringify(defaultValues),
       showDesign: true,
       designConfig: {
         type: EditTypes.Json,
@@ -19,14 +36,14 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'selectedIndex',
-      type: FieldTypes.number,
+      name: 'selectedKey',
+      type: FieldTypes.string,
       showDesign: true,
       designConfig: {
-        type: EditTypes.Number,
+        type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '选中数据下标'
+        label: '选中数据Key值'
       }
     },
     {
@@ -44,7 +61,8 @@ const manifest: ComponentManifest = {
               { value: 'topRight', text: '右上方' }
             ]
         },
-        label: '弹出框位置'
+        label: '弹出框位置',
+        help: '选项超过4个时有效'
       }
     },
     {
@@ -66,18 +84,6 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'btnsType',
-      type: FieldTypes.array,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Json,
-        isRequired: false,
-        props: {},
-        label: '按钮类型数组',
-        help: 'button模式下有效'
-      }
-    },
-    {
       name: 'onChange',
       type: FieldTypes.action,
       showDesign: true,
@@ -87,23 +93,9 @@ const manifest: ComponentManifest = {
         props: {},
         label: '回调函数'
       }
-    },
-    {
-      name: 'onValueChange',
-      type: FieldTypes.action,
-      showDesign: false,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: '回调函数'
-      }
     }
   ],
-  children: []
+  children: ['button']
 }
 
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

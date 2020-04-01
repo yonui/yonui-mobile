@@ -2,16 +2,26 @@
 
 @selectListPrefixCls:'am-select-list-item';
 @selectPrefixCls:'am-select';
+
 .@{selectPrefixCls}{
   .@{selectListPrefixCls}{
     .am-list-line .am-list-extra{
-      min-width:300*@hd;
+      // min-width:300*@hd;
     }
   }
   .am-select-list-item .am-list-line .am-list-extra{
-    min-width:300*@hd;
+    // min-width:300*@hd;
   }
 }
 .am-select-list-item .am-list-line .am-list-extra{
-  min-width:200*@hd;
+  // min-width:200*@hd;
+  flex-basis: auto;
+  .menu-title{
+    display: inline-flex;
+    align-items: flex-end;
+  }
+}
+
+.am-select-list-item.disabled .am-list-content{
+  color: #555555;
 }

@@ -1,4 +1,4 @@
-import { ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { ReactWrapper, ComponentManifest } from 'yonui-extension'
 
 import { List } from 'antd-mobile'
 
@@ -8,7 +8,7 @@ const manifest: ComponentManifest = {
   name: 'Brief',
   label: 'Brief',
   description: '', // 描述
-  type: 'DataDisplay',
+  type: 'basicControls',
   props: [// adapter适配层数据
   ]
 }

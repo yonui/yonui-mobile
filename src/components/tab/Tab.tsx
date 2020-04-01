@@ -18,9 +18,12 @@ export interface TabsProps extends DeafultTabsProps {
   onIcon1Click?: () => void
   onIcon2Click?: () => void
   onIcon3Click?: () => void
+  mode?: 'normal' | 'transparent'
+  nid?: string
+  uitype?: string
 
 }
-export default class LibrauiTabs extends Component<TabsProps> {
+export default class yonuiTabs extends Component<TabsProps> {
   static defaultProps = {
     renderTab: (tab: any) => {
       return <div className='tabs-item-content'>
@@ -29,21 +32,21 @@ export default class LibrauiTabs extends Component<TabsProps> {
       </div>
     },
     swipeable: false,
-    splitLine: true,
-    gather: false,
+    // splitLine: true,
+    // gather: false,
     iconsOccupy: true
   }
 
   parseObj = (param: any) => typeof param === 'string' ? JSON.parse(param) : param
 
   renderIcon = (ele: JSX.Element | string) => {
-    return <span className='libraui-tabs-icon'>
+    return <span className='yonui-tabs-icon'>
       {typeof ele === 'string' ? <Icon type={ele}/> : ele}
     </span>
   }
 
   renderIcons = (icons: Array<JSX.Element | string > | JSX.Element | string, className?: string, style?: object) => {
-    const cls = classnames(className, 'libraui-tabs-icons')
+    const cls = classnames(className, 'yonui-tabs-icons')
     return <span className={cls} style={style}>
       {Array.isArray(icons) ? icons.map(item => this.renderIcon(item)) : this.renderIcon(icons)}
     </span>
@@ -62,28 +65,44 @@ export default class LibrauiTabs extends Component<TabsProps> {
     if (res.length > 0) return res
   }
 
+  renderTabBar = (props: any) => {
+    const { pageSize } = props
+    return <Tabs.DefaultTabBar {...props} page={pageSize} tabBarBackgroundColor='transparent' />
+  }
+
   render () {
-    let { tabs, children, tabBarUnderlineStyle, pageSize, icons, icon1, icon2, icon3, splitLine, gather, style, className, iconsClassName, iconsStyle, iconsOccupy, tabBarBackgroundColor, ...other } = this.props
+    let { nid, uitype, tabs, children, mode = 'normal', tabBarUnderlineStyle, pageSize, icons, icon1, icon2, icon3, splitLine, gather, style, className, iconsClassName, iconsStyle, iconsOccupy, tabBarBackgroundColor, ...other } = this.props
     const tabBarIcon = this.getTabBarIcon()
     tabs = this.parseObj(tabs)
     tabBarUnderlineStyle = this.parseObj(tabBarUnderlineStyle)
     const underline = { display: 'none', ...tabBarUnderlineStyle }
-    const tabsEle = pageSize
-      ? <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} renderTabBar={(props: any) => <Tabs.DefaultTabBar {...props} page={pageSize} />}
-        {...other}>{children}</Tabs> : <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>
+    let tabsEle = null
+    if (mode === 'normal') {
+      tabsEle = pageSize
+        ? <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} renderTabBar={(props: any) => <Tabs.DefaultTabBar {...props} page={pageSize} />}
+          {...other}>{children}</Tabs> : <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>
+    } else {
+      splitLine = splitLine || false
+      gather = true
+      tabsEle = <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} renderTabBar={this.renderTabBar} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>
+    }
+    // const tabsEle = pageSize
+    //   ? <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} renderTabBar={(props: any) => <Tabs.DefaultTabBar {...props} page={pageSize} />}
+    //     {...other}>{children}</Tabs> : <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>
     const cls = classnames(
       className,
-      'libraui-tabs',
-      `libraui-tabs-${splitLine ? '' : 'no-'}split-line`,
+      'yonui-tabs',
+      `yonui-tabs-${mode}`,
+      `yonui-tabs-${splitLine === false ? 'no-' : ''}split-line`,
       {
-        'libraui-tabs-with-icons': tabBarIcon,
-        'libraui-tabs-gather': gather,
-        [`libraui-tabs-with-icons-${tabBarIcon ? (Array.isArray(tabBarIcon) ? tabBarIcon.length : 1) : 0}`]: iconsOccupy
+        'yonui-tabs-with-icons': tabBarIcon,
+        'yonui-tabs-gather': gather,
+        [`yonui-tabs-with-icons-${tabBarIcon ? (Array.isArray(tabBarIcon) ? tabBarIcon.length : 1) : 0}`]: iconsOccupy
       })
     iconsStyle = { background: tabBarBackgroundColor, ...iconsStyle }
     const iconsEle = tabBarIcon ? this.renderIcons(tabBarIcon, iconsClassName, iconsStyle) : null
     return (
-      <div className={cls} style={style}>
+      <div className={cls} style={style} nid={nid} uitype={uitype}>
         {tabsEle}
         {iconsEle}
       </div>

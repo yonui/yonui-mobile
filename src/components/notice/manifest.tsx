@@ -1,9 +1,10 @@
-import { FieldTypes, EditTypes, ReactWrapper, UITable, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'Notice',
-  label: '通告栏',
-  type: 'DataDisplay',
-  uiTable: UITable.BillItemBase,
+  label: '提示',
+  type: 'basicControls',
+  icon: 'title',
+  uiObject: UIObject.Controls,
   props: [
     {
       name: 'content',
@@ -51,27 +52,34 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'icon',
-      type: FieldTypes.child,
+      type: FieldTypes.string,
       defaultValue: null,
       showDesign: true,
       designConfig: {
-        type: EditTypes.Textarea,
-        isRequired: false,
-        props: {},
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: '/IconSelect',
+          iframeId: 'iconSelectIframe',
+          message: true,
+          footer: true
+        },
         label: '左侧图标'
       }
     },
     {
       name: 'marqueeProps',
       type: FieldTypes.object,
-      defaultValue: JSON.stringify({ loop: true, style: { padding: '0 7.5px' } }),
+      defaultValue: JSON.stringify({ loop: true, style: {} }),
       showDesign: true,
       designConfig: {
         type: EditTypes.Json,
         isRequired: false,
         props: {},
-        label: 'marquee',
-        help: 'marqueeProps参数'
+        label: '循环参数',
+        help: 'loop:是否循环；style样式'
       }
     },
     {
@@ -113,4 +121,4 @@ const manifest: ComponentManifest = {
     }
   ]
 }
-export { manifest, ReactWrapper }
+export default manifest

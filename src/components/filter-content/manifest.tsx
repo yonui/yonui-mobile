@@ -1,10 +1,11 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
-  name: 'FilterContent',
+  name: 'filtercontent',
   label: '筛选组件内容',
   description: '筛选组件的内容',
-  uiTable: UITable.BillItemBase,
-  type: 'DataEntry',
+  uiObject: UIObject.Controls,
+  type: 'operationBar',
+  icon: 'filter',
   props: [
     {
       name: 'title',
@@ -87,7 +88,4 @@ const manifest: ComponentManifest = {
   children: []
 }
 
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

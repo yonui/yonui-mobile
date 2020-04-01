@@ -1,9 +1,11 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, SysProp } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'Input',
-  uiTable: UITable.BillItemBase,
-  label: '文本输入',
-  type: 'DataEntry',
+  uiObject: UIObject.Controls,
+  label: '文本',
+  type: 'basicControls',
+  icon: 'text',
+  systemProperties: [SysProp.DATA_FIELD],
   props: [
     {
       name: 'label',
@@ -41,7 +43,7 @@ const manifest: ComponentManifest = {
         isRequired: true,
         props: {},
         label: '最大长度',
-        help: '该字段控制的是输入值的长度,除money类型外，仅当text, email, search, password, tel, or url 有效.'
+        help: '该字段控制的是输入值的长度,除money类型外，仅当text, email, search, password, tel, or url 有效'
       }
     },
     {
@@ -194,7 +196,4 @@ const manifest: ComponentManifest = {
     }
   ]
 }
-export {
-  manifest,
-  ReactWrapper
-}
+export default manifest

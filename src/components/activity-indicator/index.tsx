@@ -1,5 +1,5 @@
 import { ActivityIndicator } from 'antd-mobile'
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'ActivityIndicator',
   label: '活动指示器',
