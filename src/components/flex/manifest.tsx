@@ -92,8 +92,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: () => true,
-  parent: (p: ComponentManifest) => p.type === 'Layout'
+  children: () => true
 }
 
 export default manifest

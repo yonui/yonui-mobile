@@ -1,8 +1,8 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'InputNumber',
   label: '数值',
-  type: 'basicControls',
+  type: TypeProps.BasicControls,
   uiObject: UIObject.Controls,
   props: [
     {
