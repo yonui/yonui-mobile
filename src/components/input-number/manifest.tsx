@@ -141,7 +141,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '占位字符'
+        label: '提示文字'
       }
     },
     {
