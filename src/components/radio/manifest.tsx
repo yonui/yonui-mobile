@@ -8,7 +8,7 @@ const selectData = [
 ]
 const manifest: ComponentManifest = {
   name: 'Radio',
-  label: '单选框',
+  label: '选项',
   description: '',
   type: 'basicControls',
   uiObject: UIObject.Controls,
@@ -26,17 +26,47 @@ const manifest: ComponentManifest = {
           options: [
             { value: 'default', text: '默认' },
             { value: 'tag', text: '标签' },
-            { value: 'tag-single', text: '单行标签' },
-            { value: 'item', text: '单选列表' }
+            { value: 'list', text: '列表' }
           ]
         },
-        label: '单选类型'
+        label: '选项展示方式'
+      }
+    },
+    {
+      name: 'multiple',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {
+        },
+        label: '多选'
+      }
+    },
+    {
+      name: 'lines',
+      type: FieldTypes.string,
+      defaultValue: 'multiple',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        isRequired: false,
+        props: {
+          options: [
+            { value: 'single', text: '单行' },
+            { value: 'multiple', text: '多行' },
+            { value: 'multiple-select', text: '多行(支持展开收起)' }
+          ]
+        },
+        label: '选项面板'
       }
     },
     {
       name: 'label',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: 'label',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -86,7 +116,7 @@ const manifest: ComponentManifest = {
           ]
         },
         label: '标签大小',
-        help: '标签、单行标签类型下有效'
+        help: '标签展示时有效'
       }
     },
     {
@@ -99,7 +129,7 @@ const manifest: ComponentManifest = {
         isRequired: true,
         props: {},
         label: 'label宽度百分比',
-        help: '标签类型下有效'
+        help: '单行展示时有效'
       }
     },
     {
@@ -123,7 +153,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Json,
         isRequired: true,
         props: {},
-        label: '单选组样式'
+        label: '选项组样式'
       }
     },
     {
@@ -136,7 +166,7 @@ const manifest: ComponentManifest = {
         isRequired: true,
         props: {},
         label: '是否禁用',
-        help: '此项为禁用整个单选组'
+        help: '此项为禁用整个选项组'
       }
     }
 

@@ -33,10 +33,12 @@ export default class Demo1 extends Component {
         ];
         return (
             <div>
-              <Radio dataSource={selectData} mode='default' tagSize='sm' checkedValue={'value1'}/>
-              <Radio dataSource={selectData} mode='tag' tagSize='sm'  checkedValue={'value1'}/>
-              <Radio dataSource={selectData} mode='tag-single' tagSize='lg'/>
-              <Radio dataSource={selectData} mode='item' disabled tagSize='lg'/>
+              <Radio dataSource={selectData} label='label' mode='default' tagSize='sm' multiple/>
+              <Radio dataSource={selectData} label='label' mode='tag' tagSize='sm'  multiple/>
+              <Radio dataSource={selectData} label='label' mode='list' multiple/>
+              <Radio dataSource={selectData} label='label' mode='default' lines='single' multiple/>
+              <Radio dataSource={selectData} label='label' mode='tag' lines='multiple' tagSize='sm'  multiple/>
+              <Radio dataSource={selectData} label='label' mode='list' multiple/>
             </div>
         )
     }

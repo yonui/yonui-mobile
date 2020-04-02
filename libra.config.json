@@ -21,10 +21,8 @@
       "css": ""
   },
   "buildImport": {
-    "js":["import * as AntdMobile from 'antd-mobile/lib/index'"],
+    "js":[],
     "css":[],
-    "export":[
-      "AntdMobile"
-    ]
+    "export":[]
   }
 }

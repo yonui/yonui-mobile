@@ -2,35 +2,63 @@
 
 .yonui-radio{
   background-color: @fill-base;
-  .yonui-radio-box{
-    margin: 8px;
-    &-disabled{
-      color: #888888;
+  position: relative;
+  &::after{
+    content: '';
+    position: absolute;
+    display: block;
+    height: 1*@hd;
+    width: 100%;
+    border-bottom: 1*@hd solid @split-line;
+    z-index: 1;
+    bottom: 0;
+  }
+
+  .yonui-radio-wrapper{
+    display: flex;
+    .yonui-radio-box{
+      margin: 8*@hd;
+      &-disabled{
+        color: #888888;
+      }
     }
   }
-  .yonui-radio-item{
-    padding:6px 12px;
-    border-bottom: 1px solid rgba(233,233,233,1);
-    position: relative;
-    &-active::after{
-      position: absolute;
-      top: 8px;
-      right: 20px;
-      z-index: 999;
-      width: 7px;
-      height: 14px;
-      border-style: solid;
-      border-width: 0 1.5px 1.5px 0;
-      content: '\0020';
-      transform: rotate(45deg);
-      color: @brand-primary;
+  .yonui-radio-items{
+    display: flex;
+    flex-wrap: wrap;
+    transition: max-height 0.5s;
+    max-height: 100vh;
+    overflow: hidden;
+    padding: 0 4*@hd;
+    &-close{
+      max-height: 0;
+      overflow: hidden;
     }
-    &-disabled{
-      color: #888888;
+    .yonui-radio-list{
+      padding:6*@hd 12*@hd;
+      border-bottom: 1*@hd solid rgba(233,233,233,1);
+      position: relative;
+      width: 100%;
+      &-active::after{
+        position: absolute;
+        top: 8*@hd;
+        right: 20*@hd;
+        z-index: 999;
+        width: 7*@hd;
+        height: 14*@hd;
+        border-style: solid;
+        border-width: 0 1.5*@hd 1.5*@hd 0;
+        content: '\0020';
+        transform: rotate(45deg);
+        color: @brand-primary;
+      }
+      &-disabled{
+        color: #888888;
+      }
     }
   }
   .radio-tag{
-    margin: 3px;
+    margin: 3*@hd;
     &-sm{
       width: 72 * @hd;
     }
@@ -48,7 +76,23 @@
     }
   }
   &-label{
-    margin: 3px;
+    // margin: 3*@hd;
+    padding: 0 10*@hd;
+    display: flex;
+    justify-content: space-between;
+    min-height: 40*@hd;
+    line-height: 40*@hd;
+    &-extra{
+      display: flex;
+      align-items: center;
+      &-text{
+        max-width: 200*@hd;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        color: @color-text-secondary;
+      }
+    }
   }
 
 
