@@ -5,13 +5,13 @@ interface CardBoxProps extends React.defaultProps{
   text: '删除'
   onPress?: () => void
   rightStyle?: React.CSSProperties
-  status?: 'default' | 'select' | 'selected'
+  viewStatus?: 'default' | 'select' | 'selected'
 }
 
 export default class CardBox extends Component<CardBoxProps> {
   static defaultProps = {
     text: '删除',
-    status: 'default'
+    viewStatus: 'default'
   }
 
   componentDidMount () {
@@ -24,16 +24,16 @@ export default class CardBox extends Component<CardBoxProps> {
   }
 
   render () {
-    const { text, onPress, rightStyle, style, className, children, status, ...other } = this.props
+    const { text, onPress, rightStyle, style, className, children, viewStatus, ...other } = this.props
     const right = [{
       text, onPress, style: rightStyle, className: 'yonui-card-box-btn'
     }]
-    const cls = classnames(className, 'yonui-card-box', `yonui-card-box-${status}`)
+    const cls = classnames(className, 'yonui-card-box', `yonui-card-box-${viewStatus}`)
     let content
-    switch (status) {
+    switch (viewStatus) {
       case 'select':
       case 'selected': {
-        const iconType = status === 'selected' ? 'icon-pass-c' : 'icon-done'
+        const iconType = viewStatus === 'selected' ? 'icon-pass-c' : 'icon-done'
         content = (<React.Fragment>
           <div className='yonui-card-box-icon'>
             <Icon type={iconType} />

@@ -9,8 +9,8 @@ const manifest: ComponentManifest = {
     {
       name: 'label',
       type: FieldTypes.string,
-      defaultValue: '日期选择',
-      showDesign: true,
+      defaultValue: '',
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,

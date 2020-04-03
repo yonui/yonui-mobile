@@ -7,7 +7,7 @@ const manifest: ComponentManifest = {
   icon: 'card',
   props: [
     {
-      name: 'status',
+      name: 'viewStatus',
       type: FieldTypes.string,
       defaultValue: 'default',
       showDesign: true,

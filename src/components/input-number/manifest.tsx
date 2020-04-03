@@ -9,7 +9,7 @@ const manifest: ComponentManifest = {
       name: 'label',
       type: FieldTypes.string,
       defaultValue: '数值输入',
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
@@ -28,17 +28,17 @@ const manifest: ComponentManifest = {
         label: '默认值'
       }
     },
-    {
-      name: 'value',
-      type: FieldTypes.number,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Number,
-        isRequired: true,
-        props: {},
-        label: '当前值'
-      }
-    },
+    // {
+    //   name: 'value',
+    //   type: FieldTypes.number,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Number,
+    //     isRequired: true,
+    //     props: {},
+    //     label: '当前值'
+    //   }
+    // },
     {
       name: 'precision',
       type: FieldTypes.number,
@@ -107,6 +107,18 @@ const manifest: ComponentManifest = {
         isRequired: true,
         props: {},
         label: '后缀'
+      }
+    },
+    {
+      name: 'required',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: true,
+        props: {},
+        label: '必填'
       }
     },
     {

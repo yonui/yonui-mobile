@@ -103,6 +103,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
   }
 
   renderLabel = (label?: string, lines?: 'single' | 'multiple' | 'multiple-select', style?: React.CSSProperties) => {
+    console.log('label is: ', label)
     switch (lines) {
       case 'multiple-select': {
         const { open, _checkedIndex } = this.state

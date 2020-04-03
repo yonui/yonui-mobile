@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-// import { InputItem } from 'antd-mobile'
-// import InputNum from 'rmc-input-number'
-
+import classnames from 'classnames'
 interface InputNumberPorps {
   label?: string
   precision?: number
@@ -11,6 +9,7 @@ interface InputNumberPorps {
   prefix?: React.ReactNode
   suffix?: React.ReactNode
   thousands?: boolean
+  required?: boolean
   defaultValue?: number | string
   value?: number | string
   disabled?: boolean
@@ -98,15 +97,16 @@ export default class InputNumber extends Component<InputNumberPorps, InputNumber
   }
 
   render () {
-    const { label, placeholder, disabled, suffix, prefix, textAlign, inputWrapperWidth, labelWidth, value, thousands } = this.props
+    const { label, placeholder, disabled, suffix, prefix, textAlign, inputWrapperWidth, labelWidth, value, thousands, required } = this.props
     const { _value } = this.state
     const displayValue = thousands ? this.formatNumber(value || _value || '') : (value || _value)
     const inputStyle: React.CSSProperties = { textAlign: textAlign }
     const inputWrapperStyle: React.CSSProperties = { width: inputWrapperWidth }
     const labelStyle: React.CSSProperties = { width: labelWidth }
+    const labelCls = classnames('yonui-input-number-label', 'form-label', { required })
     return (
       <div className='yonui-input-number'>
-        <div className='yonui-input-number-label' style={labelStyle}>{label}</div>
+        <div className={labelCls} style={labelStyle}>{label}</div>
         <div className='yonui-input-number-wrapper' style={inputWrapperStyle}>
           <div className='yonui-input-number-prefix' >
             {prefix}
