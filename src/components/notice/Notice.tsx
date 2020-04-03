@@ -1,6 +1,6 @@
 import React from 'react'
-import { NoticeBar, Modal } from 'antd-mobile'
-import PNG from './style/img/popicon.png'
+import { NoticeBar, Modal, Icon } from 'antd-mobile'
+// import PNG from './style/img/popicon.png'
 const noticeBarPrefixCls = 'am-notice-bar'
 export interface NoticeProps {
   mode?: string
@@ -8,6 +8,7 @@ export interface NoticeProps {
   title?: string
   content?: React.ReactChild
   noticeModalShow?: boolean
+  icon?: React.ReactNode
   onClick?: Function
 }
 
@@ -27,13 +28,15 @@ class Notice extends React.Component<NoticeProps, any> {
   }
 
   render () {
-    const props = this.props
+    const { icon, noticeModalShow = false, ...props } = this.props
     let classNameProps = props.className || ''
     classNameProps += `${noticeBarPrefixCls}-${props.mode}-container`
+    // let icon = typeof props.icon === 'string' ? <Icon type={props.icon}/> : props.icon
+    const _icon = !icon ? null : (typeof icon === 'string' ? <Icon type={icon}/> : icon)
     if (props.mode && props.mode === 'modal') {
       return (
         <Modal
-          visible ={this.props.noticeModalShow}
+          visible ={noticeModalShow}
           transparent
           maskClosable={false}
           title={props.title || 'Title'}
@@ -48,17 +51,17 @@ class Notice extends React.Component<NoticeProps, any> {
     if (props.mode && props.mode === 'pop') {
       return <div className={classNameProps} >
         <span className={`${noticeBarPrefixCls}-pop-triangle`}></span>
-        <NoticeBar icon={<img className={`${noticeBarPrefixCls}-pop-img`} src={PNG} />} {...props} >{props.content || props.children}</NoticeBar>
+        <NoticeBar icon={_icon} {...props}>{props.content || props.children}</NoticeBar>
       </div>
     }
 
     if (props.mode && props.mode === 'light') {
       return <div className={classNameProps} >
-        <NoticeBar icon={<img className={`${noticeBarPrefixCls}-light-img`} src={PNG} />} {...props} mode='link' >{props.content || props.children}</NoticeBar>
+        <NoticeBar icon={_icon} {...props} mode='link' >{props.content || props.children}</NoticeBar>
       </div>
     }
 
-    return (<NoticeBar {...props} className={classNameProps}>{props.content || props.children}</NoticeBar>)
+    return (<NoticeBar icon={_icon} {...props} className={classNameProps}>{props.content || props.children}</NoticeBar>)
   }
 }
 export default Notice
