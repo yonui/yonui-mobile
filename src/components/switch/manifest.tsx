@@ -60,7 +60,7 @@ const manifest: ComponentManifest = {
     {
       name: 'title',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: '滑动开关',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
