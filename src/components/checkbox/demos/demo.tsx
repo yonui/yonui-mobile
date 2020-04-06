@@ -15,7 +15,7 @@ export default class Demo1 extends Component {
     return (
       <div >
         <span className='sub-title '>Checbox demo</span>
-        <MyComponent defaultChecked > checbox</MyComponent>
+        <MyComponent defaultChecked  content='checbox'> </MyComponent>
         <span className='sub-title '>Checbox demo mode=square</span>
         <MyComponent mode={'square'} defaultChecked > checbox</MyComponent>
 

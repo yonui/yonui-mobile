@@ -19,10 +19,22 @@ const manifest: ComponentManifest = {
         props: {
           options: [
             { value: '', text: '默认' },
-            { value: 'square', text: 'square' }
+            { value: 'square', text: '方形' }
           ]
         },
         label: '类型'
+      }
+    },
+    {
+      name: 'content',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '描述文本'
       }
     },
     {
@@ -39,7 +51,7 @@ const manifest: ComponentManifest = {
     {
       name: 'checked',
       type: FieldTypes.boolean,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Bool,
         isRequired: true,

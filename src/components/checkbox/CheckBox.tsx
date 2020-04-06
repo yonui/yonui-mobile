@@ -1,14 +1,30 @@
+// function CheckboxControl (props: any) {
+//   if (props.mode) {
+//     const _className = getClassName(props)
+//     return <Checkbox {...props} className={_className} ></Checkbox>
+//   }
+//   return <Checkbox {...props}></Checkbox>
+// }
+// export default CheckboxControl
 
-import React from 'react'
+import React, { Component } from 'react'
 import { Checkbox } from 'antd-mobile'
-// import { manifest, ReactWrapper } from './manifest'
-import { getClassName } from './util'
-
-function CheckboxControl (props: any) {
-  if (props.mode) {
-    const _className = getClassName(props)
-    return <Checkbox {...props} className={_className} ></Checkbox>
-  }
-  return <Checkbox {...props}></Checkbox>
+import classnames from 'classnames'
+const checkboxWarpPrefixCls = 'am-checkbox'
+interface CheckboxControlProps extends React.defaultProps{
+  mode?: string
+  defaultChecked?: boolean
+  checked?: boolean
+  disabled?: boolean
+  content?: string
+  onChange?: () => void
 }
-export default CheckboxControl
+export default class CheckboxControl extends Component<CheckboxControlProps> {
+  render () {
+    const { className, mode, content, children, ...other } = this.props
+    const cls = classnames(className, `${checkboxWarpPrefixCls}-${mode}`)
+    return (
+      <Checkbox className={cls} {...other}>{content}</Checkbox>
+    )
+  }
+}
