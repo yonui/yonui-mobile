@@ -1,6 +1,12 @@
 @import '../../_style/index.less';
 @CalendarPanelPrefixClass : am-calendar-panel;
+.mdf-calendar-panel {
+  background: #fff;
+}
 .@{CalendarPanelPrefixClass} {
+  &.react-calendar {
+    background: transparent
+  }
   &.@{CalendarPanelPrefixClass}-range {
     .react-calendar__year-view__months__month:hover,.react-calendar__month-view__days__day:hover {
       color: #fff;
