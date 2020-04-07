@@ -68,7 +68,7 @@ class Button extends React.Component<ButtonProps, any> {
     } = this.props
 
     const iconType: any = loading ? 'loading' : icon
-    const wrapCls = classnames(prefixCls, className, {
+    const wrapCls = classnames(prefixCls, className, `${prefixCls}-${size}`, {
       [`${prefixCls}-primary`]: type === 'primary',
       [`${prefixCls}-default`]: type === 'default',
       [`${prefixCls}-ghost`]: type === 'ghost',
@@ -76,7 +76,6 @@ class Button extends React.Component<ButtonProps, any> {
       [`${prefixCls}-text`]: type === 'text',
       [`${prefixCls}-toolbar-default`]: type === 'toolbar-default',
       [`${prefixCls}-toolbar-primary`]: type === 'toolbar-primary',
-      [`${prefixCls}-small`]: size === 'small',
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-loading`]: loading,
