@@ -136,7 +136,8 @@ export default class Search extends React.Component<SearchProps, any> {
       searchIconColor,
       backgroundColor,
       clearIconColor,
-      voiceIconColor
+      voiceIconColor,
+      placeholder
     } = this.props
     const {
       value,
@@ -162,7 +163,7 @@ export default class Search extends React.Component<SearchProps, any> {
           type="text"
           ref={el => (this.inputRef = el)}
           className={`${prefixCls}-input`}
-          placeholder="search bar"
+          placeholder={placeholder}
           value={value}
           disabled={disabled}
           maxLength={maxLength}
