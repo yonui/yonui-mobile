@@ -19,10 +19,10 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'title',
+      name: 'label',
       type: FieldTypes.string,
-      defaultValue: false,
-      showDesign: true,
+      defaultValue: '',
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
@@ -54,29 +54,29 @@ const manifest: ComponentManifest = {
         label: '计数功能'
       }
     },
-    {
-      name: 'labelNumber',
-      type: FieldTypes.number,
-      defaultValue: 5,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Number,
-        isRequired: true,
-        props: {},
-        label: '标签文字个数'
-      }
-    },
-    {
-      name: 'value',
-      type: FieldTypes.string,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: true,
-        props: {},
-        label: '值'
-      }
-    },
+    // {
+    //   name: 'labelNumber',
+    //   type: FieldTypes.number,
+    //   defaultValue: 5,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Number,
+    //     isRequired: true,
+    //     props: {},
+    //     label: '标签文字个数'
+    //   }
+    // },
+    // {
+    //   name: 'value',
+    //   type: FieldTypes.string,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     isRequired: true,
+    //     props: {},
+    //     label: '值'
+    //   }
+    // },
     {
       name: 'defaultValue',
       type: FieldTypes.string,

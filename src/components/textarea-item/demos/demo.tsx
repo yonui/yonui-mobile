@@ -12,6 +12,7 @@ export default class Demo1 extends Component {
       <MyComponent
         rows={5}
         placeholder="预设内容"
+        label='123123'
       />
     )
   }
