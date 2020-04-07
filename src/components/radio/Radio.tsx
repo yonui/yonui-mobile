@@ -169,7 +169,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
   }
 
   render () {
-    const { mode, dataSource, checkedValue, label, tagSize, labelStyle = {}, itemsStyle = {}, lines, labelWidth = 10 } = this.props
+    const { mode, dataSource, checkedValue, label, tagSize, labelStyle = {}, itemsStyle = {}, lines, labelWidth = 20 } = this.props
     let radioArr: any
     const _labelStyle: React.CSSProperties = { width: `${lines === 'single' ? labelWidth : 100}%` }
     const _itemsStyle: React.CSSProperties = { width: `${lines === 'single' ? 100 - (labelWidth - 0) : 100}%` }

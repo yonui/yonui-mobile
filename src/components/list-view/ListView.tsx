@@ -188,10 +188,10 @@ class YSListView extends Component<YSListViewProps, State> {
 
   render () {
     const { dataSource, height } = this.state
-    const { refreshing, pageSize, renderRow, showPullToReresh = true, initialListSize = 10 } = this.props
+    const { refreshing, pageSize, renderRow, showPullToReresh = true, initialListSize = 10, className, style, height: pHeight } = this.props
 
     if (dataSource && dataSource.length === 0) {
-      return <div style={{ height: height }} className="no_data">暂无数据</div>
+      return <div style={{ height: pHeight || height }} className="no_data">暂无数据</div>
     }
     console.log('render-datasource', dataSource)
     let hasPullToRereshProps = {}
@@ -210,7 +210,7 @@ class YSListView extends Component<YSListViewProps, State> {
     }
 
     return (
-      <div id={this.id}>
+      <div id={this.id} className={className} style={style}>
         <ListViewAntd
           className='ys-listview'
           ref={ref => { this.listViewRef = ref }}
@@ -221,7 +221,7 @@ class YSListView extends Component<YSListViewProps, State> {
           renderSeparator={this.renderSeparator}
           renderFooter={this.renderFooter}
           renderRow={renderRow || this.renderRow as any}
-          style={{ height: height, overflow: 'auto' }}
+          style={{ height: pHeight || height, overflow: 'auto' }}
           onScroll={(e) => { this.scrollListener(e) }}
           scrollRenderAheadDistance={500}
           scrollEventThrottle={200}
