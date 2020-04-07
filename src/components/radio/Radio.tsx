@@ -4,7 +4,7 @@ import classnames from 'classnames'
 type dataSourceType = Array<{ desc: string, value: string, disabled?: boolean }>
 interface RadioProps extends React.defaultProps {
   mode?: 'default' | 'tag' | 'list'
-  multiple?: boolean // 支持多选
+  isMultiple?: boolean // 支持多选
   lines?: 'single' | 'multiple' | 'multiple-select'
   label?: string
   dataSource?: dataSourceType // Array<{key: string, label: string}>
@@ -39,13 +39,13 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
 
   onClickItem = (data: { desc: string, value: string, disabled?: boolean }, index: number, e?: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     e && e.stopPropagation()
-    const { disabled, onChange, multiple } = this.props
+    const { disabled, onChange, isMultiple } = this.props
     const { _checkedIndex } = this.state
     console.log(data)
     if (disabled) {
       return
     }
-    const currentIndex = multiple ? (_checkedIndex.delete(index) ? _checkedIndex : _checkedIndex.add(index)) : new Set([index])
+    const currentIndex = isMultiple ? (_checkedIndex.delete(index) ? _checkedIndex : _checkedIndex.add(index)) : new Set([index])
     this.setState({
       _checkedIndex: currentIndex
     })

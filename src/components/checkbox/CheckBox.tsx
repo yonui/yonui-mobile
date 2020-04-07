@@ -21,10 +21,12 @@ interface CheckboxControlProps extends React.defaultProps{
 }
 export default class CheckboxControl extends Component<CheckboxControlProps> {
   render () {
-    const { className, mode, content, children, ...other } = this.props
+    const { className, mode, content, children, nid, uitype, ...other } = this.props
     const cls = classnames(className, `${checkboxWarpPrefixCls}-${mode}`)
     return (
-      <Checkbox className={cls} {...other}>{content}</Checkbox>
+      <span className='yonui-checkbox-wrapper' nid={nid} uitype={uitype}>
+        <Checkbox className={cls} {...other}>{content}</Checkbox>
+      </span>
     )
   }
 }
