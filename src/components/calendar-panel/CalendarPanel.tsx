@@ -46,7 +46,7 @@ export default class CalendarPanel extends Component<CalendarPanelProps, any> {
           locale="zh"
           prevLabel={<Icon type='left'/>}
           nextLabel={<Icon type='right'/>}/>
-      </div>  
+      </div>
     )
   }
 }
