@@ -15,9 +15,10 @@ interface InputNumberPorps {
   disabled?: boolean
   placeholder?: string
   autoFill?: boolean
-  textAlign?: 'left' | 'center' | 'right'
+  textAlign?: 'left' | 'center' | 'right' | ''
   inputWrapperWidth?: string
   labelWidth?: string
+  singleLine?: boolean
   onChange?: (value: string) => void
 }
 
@@ -42,7 +43,8 @@ export default class InputNumber extends Component<InputNumberPorps, InputNumber
     precision: 2,
     thousands: true,
     defaultValue: 0,
-    textAlign: 'right'
+    textAlign: '',
+    singleLine: false
   }
 
   checkoutNumber = (val: string) => {
@@ -97,27 +99,31 @@ export default class InputNumber extends Component<InputNumberPorps, InputNumber
   }
 
   render () {
-    const { label, placeholder, disabled, suffix, prefix, textAlign, inputWrapperWidth, labelWidth, value, thousands, required } = this.props
+    const { label, placeholder, disabled, suffix, prefix, textAlign, inputWrapperWidth, labelWidth, value, thousands, required, singleLine } = this.props
     const { _value } = this.state
     const displayValue = thousands ? this.formatNumber(value || _value || '') : (value || _value)
-    const inputStyle: React.CSSProperties = { textAlign: textAlign }
+    const _textAlign = singleLine ? (textAlign || 'right') : (textAlign || 'left')
+    const inputStyle: React.CSSProperties = { textAlign: _textAlign }
     const inputWrapperStyle: React.CSSProperties = { width: inputWrapperWidth }
     const labelStyle: React.CSSProperties = { width: labelWidth }
     const labelCls = classnames('yonui-input-number-label', 'form-label', { required })
+    const cls = classnames('yonui-input-number', {
+      'yonui-input-number-multiple': !singleLine
+    })
     return (
-      <div className='yonui-input-number'>
+      <div className={cls}>
         <div className={labelCls} style={labelStyle}>{label}</div>
         <div className='yonui-input-number-wrapper' style={inputWrapperStyle}>
-          <div className='yonui-input-number-prefix' >
+          {prefix && <div className='yonui-input-number-prefix' >
             {prefix}
-          </div>
+          </div>}
           <input className='yonui-input-number-input' type='tel' value={displayValue}
             onChange={this.onChangeValue} placeholder={placeholder} disabled={disabled}
             onBlur={this.onBlur} style={inputStyle}
           />
-          <div className='yonui-input-number-suffix'>
+          {suffix && <div className='yonui-input-number-suffix'>
             {suffix}
-          </div>
+          </div>}
         </div>
       </div>
     )

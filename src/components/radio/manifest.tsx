@@ -122,7 +122,7 @@ const manifest: ComponentManifest = {
     {
       name: 'labelWidth',
       type: FieldTypes.number,
-      defaultValue: 10,
+      defaultValue: 20,
       showDesign: true,
       designConfig: {
         type: EditTypes.Number,

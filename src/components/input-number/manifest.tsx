@@ -110,6 +110,19 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'singleLine',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '是否单行',
+        help: '控制单行或者双行'
+      }
+    },
+    {
       name: 'required',
       type: FieldTypes.boolean,
       defaultValue: false,
@@ -159,19 +172,21 @@ const manifest: ComponentManifest = {
     {
       name: 'textAlign',
       type: FieldTypes.string,
-      defaultValue: 'right',
+      defaultValue: '',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
         isRequired: true,
         props: {
           options: [
+            { value: '', text: '默认' },
             { value: 'left', text: '左对齐' },
             { value: 'center', text: '居中' },
             { value: 'right', text: '右对齐' }
           ]
         },
-        label: '对齐方式'
+        label: '对齐方式',
+        help: '单行默认右对齐，多行默认左对齐'
       }
     },
     {

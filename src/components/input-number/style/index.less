@@ -2,18 +2,22 @@
 
 .yonui-input-number{
   display: flex;
-  height: 44*@hd;
+  min-height: 44*@hd;
   background: #fff;
   padding: 0 10*@hd;
   border-bottom: 1*@hd solid @split-line;
+  &-multiple{
+    flex-direction: column;
+  }
+
   .yonui-input-number-label{
     display: inline-flex;
     align-items: center;
-    width: 50%;
+    width:100%;
   }
 
   .yonui-input-number-wrapper{
-    width: 50%;
+    width: 100%;
     display: inline-flex;
     .yonui-input-number-input{
       // text-align: right;
