@@ -4,15 +4,18 @@
 .@{mdfGridPrefixCls} {
   height: auto;
   background: #fff;
-  &.@{mdfGridPrefixCls}-transparent {
+  &.@{mdfGridPrefixCls}-transparent {// 背景透明
     background: transparent;
     .am-grid .am-flexbox {
       background: transparent;
     }
   }
-  &.@{mdfGridPrefixCls}-not-full{
+  &.@{mdfGridPrefixCls}-not-full{// 通栏
     margin: 0 12.5*@hd;
     border-radius: 5*@hd;
+  }
+  &.mdf-grid-number {// 数字+文字
+    background: transparent;
   }
   .@{gridPrefixCls} {
     .am-carousel .am-carousel-wrap-dot-active > span {
@@ -31,6 +34,31 @@
   .am-flexbox {
     background: transparent;
   }
+  .custom-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .out-content {
+    width: 60%;
+    height: 100%;
+    border-radius: 4*@hd;
+    background: #fff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .custom-text {
+    font-size: 12*@hd;
+    margin-top: 5*@hd;
+  }
+  .custom-grid-icon {
+    width: 50%;
+  }
   &.@{gridPrefixCls}-sm.@{gridPrefixCls}-square,&.@{gridPrefixCls}-sm{
     .am-grid-item .am-grid-item-inner-content .am-grid-icon {
       width: 28%!important;
@@ -46,19 +74,31 @@
       width: 68%!important;
     }
   }
-  &.@{gridPrefixCls}-outContent {
+  &.@{gridPrefixCls}-outContent {// grid有内容框
     .am-flexbox-item.am-grid-item {
       padding-top: 10*@hd;
       padding-bottom: 10*@hd;
-     }
-     &.am-grid-square {
+    }
+    .custom-item {
+      height: 100%;
+    }
+    &.am-grid-square {
       .am-flexbox-item.am-grid-item {
-        padding-top: 10*@hd;
-        padding-bottom: 10*@hd;
+        padding-top: 0;
+        padding-bottom: 0;
       }
       .custom-item {
         height: 80%;
       }
+      .am-grid-carousel-page{
+        .am-flexbox-item.am-grid-item {
+          padding-top: 10*@hd;
+          padding-bottom: 10*@hd;
+        }
+        .custom-item {
+          height: 100%;
+        }
+      }    
     }
   }
   &.@{gridPrefixCls}-number{
@@ -90,31 +130,6 @@
     .custom-text {
       color: #fff;
     }
-  }
-  .custom-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
-  .out-content {
-    width: 60%;
-    height: 100%;
-    border-radius: 4*@hd;
-    background: #fff;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .custom-text {
-    font-size: 12*@hd;
-    margin-top: 5*@hd;
-  }
-  .custom-grid-icon {
-    width: 50%;
   }
 }
 div[uitype="Grid"] {
