@@ -44,6 +44,12 @@
   &-default {
     .mdf-button-variant(@color-text-base; @fill-base; @border-color-base);
   }
+
+  &-toolbar-default{
+    .mdf-button-variant(@color-text-base; @toolbars-next-btn; @toolbars-next-btn);
+  }
+
+  &-toolbar-primary,
   &-primary {
     .mdf-button-variant(@color-text-base-inverse; @primary-button-fill; @primary-button-fill);
   }
@@ -56,11 +62,28 @@
   &-text {
     .mdf-button-variant(@warning-button-text-color; transparent; transparent);
   }
+  &-small {
+    display: inline-flex;
+    justify-content: center;
+    padding: 0 @h-spacing-lg;
 
+    font-size: @button-font-size-sm;
+    height: @button-height-sm;
+    line-height: @button-height-sm - 1;
+    padding: 0 @h-spacing-lg;
+    border-radius: @radius-sm;
+    &.@{mdfButtonPrefixCls}-active { // tap
+      border-radius: @radius-sm;
+    }
+  }
+  &-large {
+    width: 100%;
+  }
   &-inline {
     display: inline-block;
     padding: 0 @h-spacing-lg;
-    &.@{buttonPrefixCls}-icon {
+    width: auto;
+    &.@{mdfButtonPrefixCls}-icon {
       display: inline-flex;
     }
   }

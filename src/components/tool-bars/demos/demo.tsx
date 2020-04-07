@@ -6,52 +6,54 @@ import React, { Component } from 'react'
 import ToolBar from '../index'
 import '../style'
 import './demo.less'
-const values = ['删除', '我的项目', '发现', '故事', '其他', '更多']
-const btns = ['批准', '驳回','批准', '驳回','批准']
+interface valueItem {key?: string, value: string, theme?: string}
+const values: valueItem[] = [{ value: '删除' ,key: 'delete', theme: 'next'}, { value: '删除' ,key: 'c', theme: 'primary'}, { value: '发现' }, { value: '故事' }, { value: '其他' }, { value: '更多' }]
+const btns = ['批准', '驳回', '批准', '驳回', '批准']
 export default class Demo1 extends Component<any, any> {
-  constructor (props: any) {
+  constructor(props: any) {
     super(props)
 
     this.state = {
-      selectedIndex: null
+      selectedIndex: null,
+      selectedKey: ''
     }
   }
 
-  onChange = (val: string, index: number) => {
+  onChange = (val: any, index: number) => {
     console.log(val)
     this.setState({
-      selectedIndex: index
+      selectedKey: val.key
     })
   }
 
-  onClickBtn = (val: string, index: number) => {
+  onClickBtn = (val: any, index: number) => {
     console.log(val, index)
   }
 
-  renderTextToolbars = ( values:string[] ) => {
-    return values.map( (item, index) => {
+  renderTextToolbars = (values: valueItem[]) => {
+    return values.map((item, index) => {
       return [
-        <ToolBar values={values.slice(0,index+1)} onChange={this.onChange} selectedIndex={this.state.selectedIndex}/>,
+        <ToolBar values={values.slice(0, index + 1)} onChange={this.onChange}  />,
         <br />
       ]
     })
   }
 
-  renderButtonToolbars = ( values:string[] ) => {
-    return values.map( (item, index) => {
+  renderButtonToolbars = (values: valueItem[]) => {
+    return values.map((item, index) => {
       return [
-        <ToolBar values={values.slice(0,index+1)} onChange={this.onClickBtn} mode='button' selectedIndex={this.state.selectedIndex}/>,
+        <ToolBar values={values.slice(0, index + 1)} onChange={this.onClickBtn} mode='button'  />,
         <br />
       ]
     })
   }
 
-  render () {
+  render() {
     return (
       <div>
         {this.renderTextToolbars(values)}
-        {this.renderButtonToolbars(btns)}
-        <ToolBar values={values.slice(0,2)} onChange={this.onClickBtn} mode='button' selectedIndex={this.state.selectedIndex} btnsType={['next','primary']}/>
+        {this.renderButtonToolbars(values)}
+        <ToolBar values={values} onChange={this.onChange} mode='text' selectedKey={'2'} />
       </div>
     )
   }

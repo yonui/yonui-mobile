@@ -4,9 +4,6 @@
  */
 import React, { Component } from 'react'
 import NavBar from '../index'
-import Tab from '../../tab'
-import WhiteSpace from '../../white-space'
-import { Icon } from 'antd-mobile'
 
 // import Icon from "../../icon";
 import '../style'
@@ -27,7 +24,7 @@ export default class Demo extends Component {
         >
 
         </NavBar>
-        <WhiteSpace />
+        <br />
 
         <NavBar
           onLeftClick={() => console.log('onLeftClick')}
@@ -35,7 +32,7 @@ export default class Demo extends Component {
           rightIcon1="ellipsis"
         >
         </NavBar>
-        <WhiteSpace />
+        <br />
         <NavBar
           rightIcon1="search"
           rightIcon2="ellipsis"
@@ -44,14 +41,14 @@ export default class Demo extends Component {
           <button>sssss</button>
         </NavBar>
 
-        <WhiteSpace />
+        <br />
         <NavBar
           titleIcon="down"
           rightIcon1="search"
           rightIcon2="ellipsis"
           onLeftClick={() => console.log('onLeftClick')}
         />
-        <WhiteSpace />
+        <br />
         <NavBar
           mode='dark'
           onLeftClick={() => console.log('onLeftClick')}

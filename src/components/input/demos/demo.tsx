@@ -22,11 +22,11 @@ export default class Demo1 extends Component {
   render () {
     const props = {
       type: 'text',
-      label: '标题',
-      defaultValue: '输入框的值',
+      // label: '标题',
+      // defaultValue: '输入框的值',
       placeholder: '请输入',
       labelNumber: 5,
-      required: true,
+      // required: true,
       editable: true,
       disabled: false,
       clear: true

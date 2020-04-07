@@ -1,10 +1,10 @@
 import { List } from 'antd-mobile'
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'yonui-extension'
 import ListItem from './ListItem'
 const manifest: ComponentManifest = {
   name: 'List',
   label: '列表',
-  type: 'DataDisplay',
+  type: 'basicControls',
   props: [
     {
       name: 'renderHeader',

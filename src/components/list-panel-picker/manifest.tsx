@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const data = [
   { key: '1', text: '修改所有日程' },
   { key: '2', text: '修改将来所有日程' },
@@ -6,10 +6,11 @@ const data = [
 ]
 const manifest: ComponentManifest = {
   name: 'ListPanelPicker',
-  uiTable: UITable.BillItemBase,
-  label: '操作列表',
-  description: '',
-  type: 'DataEntry',
+  uiObject: UIObject.Controls,
+  label: '底部弹出菜单',
+  description: '底部弹出菜单',
+  type: 'operationBar',
+  icon: 'list',
   props: [
     {
       name: 'data',

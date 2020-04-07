@@ -1,13 +1,22 @@
 # README
-# SharePanel 分享活动面板
 
-####使用说明####
-  static showShareActionSheetWithOptions(options: Object, callback: Function)#
-   options: {}
-       属性名               类型                            默认值          描述
-       data	               array<{icon, title}>           []             分享按钮列表 (required)可以是二维数组，能显示多行按钮，例如[[{icon,title},...],...]表示两行两列。当为二维数组时callback有两个参数，第一个为列序列、第二个为行序列。
-       cancelButtonText    string                         取消            每个菜单被点击的回调
-       title               string                                        顶部标题
-       message             string/React.element                          顶部标题下的简要消息
-       maskClosable        boolean                        允许(true)      点击蒙层是否允许关闭
-       callback                                                           函数支持返回     
+### 活动面板
+
+分为固定模式和滑动模式。固定模式中，标题居中，选项内容平铺，每行最多显示5个；滑动模式中，标题居左，每个选项最小宽度为页面宽度的20%，超出部分可滑动展示。
+
+### API
+
+| 属性             | 说明                                                         | 必填    | 类型                                                         | 默认值  |
+| ---------------- | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ | ------- |
+| show             | 是否显示                                                     | false   | boolean                                                      | false   |
+| title            | 标题                                                         | false   | string                                                       | ''      |
+| options          | 选项数组，可为一维数组或二维数组。icon字段为React.ReactNode或图片的url低值或base64编码。 | false   | Array<Array<{ icon: React.ReactNode , title: string }>> \|Array<{ icon: React.ReactNode |         |
+| cancelButtonText | 取消按钮文本内容                                             | false   | string                                                       | 取消    |
+| type             | 活动面板渲染模式                                             | false   | 'fixed'\|'slideable'                                         | 'fixed' |
+| onClose          | 点击取消、遮罩时的回调函数                                   | false   | ()=>void                                                     |         |
+| callback         | 点击选项内容时的回调函数。参数为选项所在列/行的下标，从0开始计数。当为一维数组时，row恒为0 | 发fasle | (col:number,row?:number)=>void                               |         |
+
+
+
+
+

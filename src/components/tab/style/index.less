@@ -22,20 +22,44 @@
     }
   }
 }
-.libraui-tabs{
+.yonui-tabs{
   background-color: @fill-base;
+  &.yonui-tabs-transparent{
+    background-color: transparent;
+    &.yonui-tabs-gather{
+      .am-tabs-default-bar{
+        justify-content: start;
+        .am-tabs-default-bar-tab{
+          padding: 0 12*@hd;
+          &:not(:first-child)::after{
+            content: "";
+            position: absolute;
+            background-color: #ddd;
+            display: block;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            width: 1PX;
+            height: 100%;
+            transform: scaleY(0.4);
+            transform-origin: center;
+          }
+        }
+      }
+    }
+  }
 }
 
-.libraui-tabs-with-icons{
+.yonui-tabs-with-icons{
   position: relative;
 
-  .libraui-tabs-icons{
+  .yonui-tabs-icons{
     background-color: #ffffff;
     position: absolute;
     right: 0;
     top: 0;
     z-index: 1;
-    .libraui-tabs-icon{
+    .yonui-tabs-icon{
       display: inline-flex;
       width: @iconSize;
       height: @iconSize;
@@ -45,24 +69,24 @@
     }
   }
 }
-.libraui-tabs-with-icons-1{
+.yonui-tabs-with-icons-1{
   .@{tabsPrefixCls}-tab-bar-wrap{
     width: calc(~'100% - @{iconSize}');
   }
 }
 
-.libraui-tabs-with-icons-2{
+.yonui-tabs-with-icons-2{
   .@{tabsPrefixCls}-tab-bar-wrap{
     width: calc(~'100% - @{iconSize}*2');
   }
 }
-.libraui-tabs-with-icons-3{
+.yonui-tabs-with-icons-3{
   .@{tabsPrefixCls}-tab-bar-wrap{
     width: calc(~'100% - @{iconSize}*3');
   }
 }
 
-.libraui-tabs-gather{
+.yonui-tabs-gather{
   .am-tabs-default-bar{
     justify-content: center;
     .am-tabs-default-bar-tab{
@@ -76,8 +100,8 @@
     width: auto;
   }
 }
-.libraui-tabs-split-line{
-  .am-tabs-tab-bar-wrap,.libraui-tabs-icons{
+.yonui-tabs-split-line{
+  .am-tabs-tab-bar-wrap,.yonui-tabs-icons{
     border-bottom: 1px solid @border-color-base;
   }
 }

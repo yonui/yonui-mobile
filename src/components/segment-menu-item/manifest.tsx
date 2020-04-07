@@ -1,10 +1,10 @@
-import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 
 const manifest: ComponentManifest = {
   name: 'SegmentMenuItem',
   label: '分段菜单项',
-  uiTable: UITable.BillTplGroupBase,
-  type: 'Layout',
+  uiObject: UIObject.Containers,
+  type: 'basicControls',
   props: [
     {
       name: 'title',

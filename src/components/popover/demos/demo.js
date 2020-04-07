@@ -10,7 +10,7 @@ import './demo.less';
 
 const Item = Popover.Item;
 
-import PNG from '../../notice/style/img/popicon.png'
+import PNG from '../../Notice/style/img/popicon.png'
 
 const myImg = src => <img src={PNG} className="am-icon am-icon-xs" alt="" />;
 export default class Demo1 extends Component {

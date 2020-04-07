@@ -1,5 +1,6 @@
 
-import React from 'react'
+import React, { Component } from 'react'
+import classnames from 'classnames'
 /**
  * todo
  * onAfterChange
@@ -12,8 +13,27 @@ import React from 'react'
  * trackStyle
  * railStyle
  */
-
-function DivControl (props: any) {
-  return <div className={`am-div-container ${props.nowrap ? 'nowrap' : null}`}>{props.children || ''}</div>
+interface DivProps {
+  nowrap?: boolean
+  type?: 'normal' | 'panel'
+  children?: JSX.Element[] | JSX.Element
+  className?: string
+  style?: React.CSSProperties
 }
-export default DivControl
+
+// function DivControls (props: { nowrap?: boolean, children?: any, type?: 'normal'|'panel' }) {
+//   return <div className={`am-div-container ${props.nowrap ? 'nowrap' : ''} ${props.type || 'normal'}`}>{props.children || ''}</div>
+// }
+export default class DivControl extends Component<DivProps> {
+  render () {
+    const { nowrap, type, children, className, style } = this.props
+    const cls = classnames(className, 'am-div-container', `${type || ''}`, {
+      nowrap: nowrap
+    })
+    return (
+      <div style={style} className={cls}>
+        {children || ''}
+      </div>
+    )
+  }
+}

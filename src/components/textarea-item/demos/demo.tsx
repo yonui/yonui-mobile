@@ -1,6 +1,6 @@
 /**
  * @name: TextareaItem
- * @description: 多行输入
+ * @description: 多行文本
  */
 import React, { Component } from 'react'
 import MyComponent from '../index'

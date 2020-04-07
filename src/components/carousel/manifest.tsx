@@ -1,10 +1,11 @@
-import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 
 const manifest: ComponentManifest = {
   name: 'Carousel',
-  label: '走马灯',
-  uiTable: UITable.BillTplGroupBase,
-  type: 'Layout',
+  label: '轮播',
+  uiObject: UIObject.Containers,
+  type: 'basicControls',
+  icon: 'arrow',
   props: [
     {
       name: 'selectedIndex',

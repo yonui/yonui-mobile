@@ -5,6 +5,13 @@
   "type": "ts",
   "device": "mobile",
   "lib": [],
+  "excludeNidAndUiType": false,
+  "excludeNidAndUiTypeComp": ["CarouselItem", "ListView", "Button", "TabPane", "Tab", "Filter", "Label", "CardBox", "Checkbox"],
+  "staticPropsMap": {
+    "ListView": "DataSource",
+    "List": ["ListItem","ListItemBrief"],
+    "Checkbox": ["CheckboxItem","AgreeItem"]
+  },
   "previewUrl": "http://tinper-libra-ui-demo.daily.app.yyuap.com/",
   "plugins": [
     ["import",{"libraryName":"antd-mobile","style":false}]
@@ -14,10 +21,8 @@
       "css": ""
   },
   "buildImport": {
-    "js":["import * as AntdMobile from 'antd-mobile/lib/index'"],
+    "js":[],
     "css":[],
-    "export":[
-      "AntdMobile"
-    ]
+    "export":[]
   }
 }

@@ -1,38 +1,63 @@
 import React, { Component } from 'react'
 import { Drawer } from 'antd-mobile'
+import Toolbar from '../tool-bars'
 import classnames from 'classnames'
 
-export interface FilterProps {
+interface valueItem {key?: string, value: string, theme?: string}
+export interface FilterProps extends React.defaultProps{
   open: boolean
   onOpenChange?: () => void
-  btn1?: string
-  btn2?: string
+  btn1: valueItem
+  btn2: valueItem
   onBtn1Click?: () => void
   onBtn2Click?: () => void
+  mode?: 'text'|'button'
+  btnsType?: Array<'next' | 'primary' | undefined>
   position?: 'left' | 'right'
-  className?: string
 }
-export default class Filter extends Component<FilterProps> {
+
+export interface FilterState {
+  selectedKey: string
+}
+
+export default class Filter extends Component<FilterProps, FilterState> {
+  constructor (props: FilterProps) {
+    super(props)
+    this.state = {
+      selectedKey: ''
+    }
+  }
+
   static defaultProps = {
-    open: false,
-    btn1: '重置',
-    btn2: '确定',
+    open: true,
+    btn1: { value: '重置' },
+    btn2: { value: '确定' },
     position: 'right'
   }
 
-  getSidebarFooter: () => React.ReactNode = () => {
-    const { onBtn1Click, onBtn2Click, btn1, btn2 } = this.props
-    return <div className='libraui-filter-sidebar-footer'>
-      <span className='sidebar-footer-reset' onClick={onBtn1Click}>{btn1}</span>
-      <span className='sidebar-footer-confirm' onClick={onBtn2Click}>{btn2}</span>
-    </div>
+  onClickFooter= (val: valueItem, index: number) => {
+    const { onBtn1Click, onBtn2Click } = this.props
+    this.setState({
+      selectedKey: val.key || ''
+    })
+    if (index === 0) {
+      onBtn1Click && onBtn1Click()
+    } else {
+      onBtn2Click && onBtn2Click()
+    }
   }
 
-  getSidebar = (children: React.ReactNode) => {
-    const footer = this.getSidebarFooter()
-    return <div className='libraui-filter-sidebar'>
+  getSidebarFooter: () => React.ReactNode = () => {
+    const { btn1, btn2, mode = 'button' } = this.props
+    const { selectedKey } = this.state
+    return <Toolbar className='yonui-filter-sidebar-footer' values={[btn1, btn2]} mode={mode} onChange={this.onClickFooter} selectedKey={selectedKey} />
+  }
 
-      <div className='libraui-filter-sidebar-content'>
+  getSidebar = (children: React.ReactNode, nid?: string, uitype?: string) => {
+    const footer = this.getSidebarFooter()
+    return <div className='yonui-filter-sidebar' nid={nid} uitype={uitype}>
+
+      <div className='yonui-filter-sidebar-content'>
         {children}
       </div>
       {footer}
@@ -40,13 +65,13 @@ export default class Filter extends Component<FilterProps> {
   }
 
   render () {
-    const { open, onOpenChange, children, position, className, ...other } = this.props
-    const cls = classnames(className, 'libraui-filter')
+    const { open, onOpenChange, children, position, className, nid, uitype, ...other } = this.props
+    const cls = classnames(className, 'yonui-filter')
     return (
       <Drawer
         className={cls}
         enableDragHandle
-        sidebar={this.getSidebar(children)}
+        sidebar={this.getSidebar(children, nid, uitype)}
         open={open}
         onOpenChange={onOpenChange}
         position={position}

@@ -1,27 +1,15 @@
 import * as React from 'react'
-import { Menu, List } from 'antd-mobile'
+import { Menu, List, Icon } from 'antd-mobile'
 import { MenuProps } from 'antd-mobile/es/menu/PropsType'
 import shallowequal from 'shallowequal'
-const initData = [
-  {
-    value: '1',
-    label: 'Food',
-    disabled: true
-  }, {
-    value: '2',
-    label: 'Supermarket'
-  },
-  {
-    value: '3',
-    label: 'Extra'
-  }
-]
 
 export interface MenuInfoProps extends MenuProps {
   prefixCls?: string
   listPrefixCls?: string
   className?: string
   title?: string// list item左侧title
+  required?: boolean
+  disabled?: boolean
 }
 const ListItem = List.Item
 export default class SelectControl extends React.Component<MenuInfoProps, any> {
@@ -32,10 +20,10 @@ export default class SelectControl extends React.Component<MenuInfoProps, any> {
   };
 
   getValue = (value: any) => {
-    const { data = initData } = this.props
+    const { data = [] } = this.props
     const res = []
     for (const item of data) {
-      if (~value.indexOf(item.value))res.push(item.label)
+      if (~value.indexOf(item.value)) res.push(item.label)
     }
     return res
   }
@@ -43,7 +31,7 @@ export default class SelectControl extends React.Component<MenuInfoProps, any> {
   state = {
     menuVisible: false,
     menuValue: this.props.defaultValue,
-    menuShowValue: (Array.isArray(this.props.defaultValue) && this.getValue(this.props.defaultValue).join(',')) || 'select'
+    menuShowValue: (Array.isArray(this.props.defaultValue) && this.getValue(this.props.defaultValue).join(',')) || ''
   }
 
   // eslint-disable-next-line react/no-deprecated
@@ -92,9 +80,17 @@ export default class SelectControl extends React.Component<MenuInfoProps, any> {
     console.log('onchange的操作', value)
   }
 
+  getMenuTitle = (hasValue?: boolean, disabled?: boolean) => {
+    if (disabled) return '不可选'
+    else return hasValue ? <Icon type='right' className='menu-title'/> : <span className='menu-title'>选项<Icon type='right'/></span>
+  }
+
   render () {
     const {
-      title = 'Title'
+      title = 'Title',
+      required,
+      data,
+      disabled
     } = this.props
     const {
       menuVisible,
@@ -102,6 +98,7 @@ export default class SelectControl extends React.Component<MenuInfoProps, any> {
       menuShowValue
     } = this.state
 
+    const menuTitle = this.getMenuTitle(!!menuShowValue, disabled)
     const extraProps: any = {}
     const needProps = ['data', 'defaultValue', 'value', 'multiSelect', 'className', 'onOk', 'onChange', 'onCancel']
     needProps.forEach(i => {
@@ -109,14 +106,30 @@ export default class SelectControl extends React.Component<MenuInfoProps, any> {
         extraProps[i] = (this.props as any)[i]
       }
     })
+    if (disabled) {
+      return (
+        <div className="am-select">
+          <ListItem className={'am-select-list-item disabled'} extra={menuTitle} align='top'>
+            {title}
+            {required && <span style={{ color: '#EE3D4B' }}>*</span>}
+          </ListItem>
+        </div>
+      )
+    }
 
     return (
       <div className="am-select">
-        <ListItem className={'am-select-list-item'} extra={menuShowValue} onClick={this.menuShow}>{title}</ListItem>
+        <ListItem className={'am-select-list-item'} extra={menuTitle} onClick={this.menuShow} align='top'>
+          {title}
+          {required && <span style={{ color: '#EE3D4B' }}>*</span>}
+          <List.Item.Brief>
+            {menuShowValue}
+          </List.Item.Brief>
+        </ListItem>
         {
           menuVisible && <Menu
             level={1}
-            data={initData}
+            data={data}
             value={menuValue}
             {...extraProps}
             onOk={this.innerOnOk}

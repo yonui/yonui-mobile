@@ -1,10 +1,13 @@
-import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 
 const manifest: ComponentManifest = {
   name: 'ListItemBrief',
   label: '列表ItemBrief',
-  type: 'DataDisplay',
-  uiTable: UITable.BillTplGroupBase,
+  type: 'basicControls',
+  uiObject: UIObject.Containers,
+  hidden: true,
+  parent: () => false,
+  icon: 'list',
   props: [
     {
       name: 'content',

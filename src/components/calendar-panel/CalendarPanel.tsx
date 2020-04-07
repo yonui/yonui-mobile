@@ -2,7 +2,10 @@
 import React, { Component } from 'react'
 import Calendar, { CalendarProps } from 'react-calendar'
 import { Icon } from 'antd-mobile'
-export default class CalendarPanel extends Component<CalendarProps, any> {
+export interface CalendarPanelProps extends CalendarProps {
+  style?: object
+}
+export default class CalendarPanel extends Component<CalendarPanelProps, any> {
   constructor (props: CalendarProps) {
     super(props)
     this.state = {}
@@ -13,7 +16,7 @@ export default class CalendarPanel extends Component<CalendarProps, any> {
   }
 
   render () {
-    const { maxDate, minDate, selectRange } = this.props
+    const { maxDate, minDate, selectRange, style } = this.props
     let { value } = this.props
     if (selectRange && Array.isArray(value)) {
       value[0] = (typeof value[0] === 'string') ? new Date(value[0]) : value[0]
@@ -30,18 +33,20 @@ export default class CalendarPanel extends Component<CalendarProps, any> {
     const minDateTrs = (minDate && typeof minDate === 'string') ? new Date(minDate) : minDate
     const maxDateTrs = (maxDate && typeof maxDate === 'string') ? new Date(maxDate) : maxDate
     return (
-      <Calendar
-        {...this.props}
-        className={`am-calendar-panel ${this.props.selectRange ? 'am-calendar-panel-range' : ''}`}
-        onChange={this.onChange}
-        value ={value}
-        tileClassName='am-calendar-panel-item'
-        minDetail="year"
-        minDate={minDateTrs}
-        maxDate={maxDateTrs}
-        locale="zh"
-        prevLabel={<Icon type='left'/>}
-        nextLabel={<Icon type='right'/>}/>
+      <div style={style} className='mdf-calendar-panel'>
+        <Calendar
+          {...this.props}
+          className={`am-calendar-panel ${this.props.selectRange ? 'am-calendar-panel-range' : ''}`}
+          onChange={this.onChange}
+          value ={value}
+          tileClassName='am-calendar-panel-item'
+          minDetail="year"
+          minDate={minDateTrs}
+          maxDate={maxDateTrs}
+          locale="zh"
+          prevLabel={<Icon type='left'/>}
+          nextLabel={<Icon type='right'/>}/>
+      </div>
     )
   }
 }

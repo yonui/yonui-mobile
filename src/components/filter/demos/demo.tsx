@@ -50,14 +50,14 @@ export default class Demo1 extends Component<any, DemoState> {
   onSelect = (item: any) => {
     console.log(item)
     this.setState({
-      selectedValue: item
+      selectedValue: item.value
     })
   }
 
   onSelect2 = (item: any) => {
     console.log(item)
     this.setState({
-      selectedValue2: item
+      selectedValue2: item.value
     })
   }
 
@@ -76,11 +76,11 @@ export default class Demo1 extends Component<any, DemoState> {
     const { title, open, selectData, selectedValue, selectedValue2 } = this.state
     return (
       [<MyComponent open={open} onOpenChange={this.onOpenChange} onBtn1Click={this.reset} onBtn2Click={this.confirm}>
-        <FilterContent title={title} selectData={selectData} selectedValue={selectedValue} onSelect={this.onSelect} extraInput='自定义时间' extraInputType='calendar'/>
-        <FilterContent title='存货分类' selectData={data} selectedValue={selectedValue2} onSelect={this.onSelect2} extraInput='自定义文本' extraInputType='text'/>
-        <FilterContent title='存货分类' selectData={data} selectedValue={selectedValue2} onSelect={this.onSelect2} extraInput='自定义文本' extraInputType='text'/>
+        <FilterContent title={title} selectData={selectData} selectedValue={selectedValue} extraInput='自定义时间' extraInputType='calendar'/>
+        <FilterContent title='存货分类' selectData={data} selectedValue={selectedValue2} extraInput='自定义文本' extraInputType='text'/>
+        <FilterContent title='存货分类' selectData={data} selectedValue={selectedValue2} extraInput='自定义文本' extraInputType='text'/>
 
-        <FilterContent title='存货分类' selectData={data} selectedValue={selectedValue2} onSelect={this.onSelect2} extraInput='自定义文本' extraInputType='text'/>
+        <FilterContent title='存货分类' selectData={data} selectedValue={selectedValue2} extraInput='自定义文本' extraInputType='text'/>
 
       </MyComponent>,
       <Button onClick={this.onOpenChange}>Click</Button>]

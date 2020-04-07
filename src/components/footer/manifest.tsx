@@ -1,9 +1,10 @@
-import { UITable, ComponentManifest } from 'libraui-extension'
+import { ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'Footer',
-  uiTable: UITable.BillTplGroupBase,
+  uiObject: UIObject.Containers,
   label: '底部区域',
-  type: 'Layout',
+  type: 'operationBar',
+  icon: 'footer',
   props: [],
   children: () => true
 }

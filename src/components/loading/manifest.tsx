@@ -1,10 +1,11 @@
-import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'Loading',
   label: '加载',
   description: '渲染加载状态',
-  uiTable: UITable.BillTplGroupBase,
-  type: 'DataDisplay',
+  uiObject: UIObject.Controls,
+  type: 'basicControls',
+  icon: 'timelimit',
   props: [
     {
       name: 'show',

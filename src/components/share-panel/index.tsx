@@ -1,3 +1,2 @@
-import SharePanel from './SharePanel'
-
-export default SharePanel
+import Panel from './Panel'
+export default Panel

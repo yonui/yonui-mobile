@@ -11,6 +11,7 @@ export interface ListPanelPickerProps {
   data: DataItem[]
   onClose: () => void
   onClick: (object: DataItem) => void
+  style?: object
 }
 export default class ListPanelPicker extends Component<ListPanelPickerProps> {
   constructor (props: ListPanelPickerProps) {
@@ -30,9 +31,9 @@ export default class ListPanelPicker extends Component<ListPanelPickerProps> {
   }
 
   render () {
-    const { visible, data, header } = this.props
+    const { visible, data, header, style } = this.props
     return (
-      <Modal visible={visible} popup animationType='slide-up'>
+      <Modal visible={visible} popup animationType='slide-up' style={style} className='mdf-modal'>
         <div className='am-list-panel-picker'>
           {header && <div className='header'>{header}</div>}
           <div className='content'>

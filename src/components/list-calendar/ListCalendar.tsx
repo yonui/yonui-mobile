@@ -61,7 +61,7 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
 
   render () {
     const { visible } = this.state
-    const { label, required, type, arrow, value, format, maxDate, minDate, defaultDate, defaultTimeValue } = this.props
+    const { label, required, type, arrow, value, format, maxDate, minDate, defaultDate, defaultTimeValue, disabled, style } = this.props
     if (value && value.length) {
       value[0] = (typeof value[0] === 'string') ? new Date(value[0]) : value[0]
       if (value[1]) {
@@ -81,14 +81,14 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
     const end = (value && value.length && value[1]) ? dateFormat(value[1], format || 'yyyy-MM-dd') : ''
     const requiredCls = required ? 'required' : ''
     return (
-      <List className='list-calendar'>
+      <List className='list-calendar' style={style}>
         {type === 'one' ? <List onClick={this.handClick.bind(this)}>
           <InputItem
             placeholder='选择日期'
             disabled
             clear
             value={start}
-            extra={arrow && <Icon type='right'/>}>
+            extra={(!disabled || !arrow) && <Icon type='right'/>}>
             <div className={`form-label ${requiredCls}`}>{label}</div>
           </InputItem>
         </List>

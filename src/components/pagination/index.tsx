@@ -1,4 +1,4 @@
-import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { EditTypes, FieldTypes, ReactWrapper, ComponentManifest } from 'yonui-extension'
 
 import { Pagination } from 'antd-mobile'
 const manifest: ComponentManifest = {

@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'yonui-extension'
 import { Range } from 'antd-mobile'
 import './index.less'
 // todo onAfterChange marks dots included count allowCross pushable handleStyle trackStyle railStyle
@@ -6,7 +6,7 @@ const manifest: ComponentManifest = {
   name: 'Range',
   label: '区域选择',
   description: '区域选择',
-  type: 'DataEntry',
+  type: 'basicControls',
   props: [{
     name: 'min',
     type: FieldTypes.number,

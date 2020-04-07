@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 const image = [
   'https://i.yonyou.com/website/img/%E4%BC%81%E4%B8%9A%E9%A6%86%E9%A2%84%E7%BA%A6.png',
   'https://i.yonyou.com/website/img/%E5%9C%A8%E7%BA%BF%E5%AE%A1%E6%89%B9%E7%B3%BB%E7%BB%9F.png',
@@ -40,10 +40,11 @@ const data = Array.from(new Array(9)).map((_val, i) => ({
 }))
 const manifest: ComponentManifest = {
   name: 'Grid',
-  uiTable: UITable.BillTplGroupBase,
+  uiObject: UIObject.Containers,
   label: '宫格',
   description: '在水平和垂直方向，将布局切分成若干等大的区块。',
-  type: 'Layout',
+  type: 'dataContainer',
+  icon: 'table',
   props: [
     {
       name: 'data',
@@ -105,7 +106,7 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '显示外框内容',
-        help: '当显示外框内容值为true,自定义(renderItem)方法无效'
+        help: '当显示外框内容值为true,创建函数(renderItem)方法无效'
       }
     },
     {

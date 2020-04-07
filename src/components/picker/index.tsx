@@ -1,5 +1,5 @@
 import { Picker } from 'antd-mobile'
-import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'yonui-extension'
 /**
  * todo
  * itemStyle indicatorStyle children
@@ -7,7 +7,7 @@ import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'libraui-
 const manifest: ComponentManifest = {
   name: 'Picker',
   label: '选择器弹框',
-  type: 'DataEntry',
+  type: 'basicControls',
   props: [
     {
       name: 'data',

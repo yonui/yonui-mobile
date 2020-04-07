@@ -1,0 +1,46 @@
+@import '../../_style/index.less';
+@import '../../button/style/index.less';
+.yonui-mobile-tool-bars-2{
+  padding: 9px 0;
+  background-color: @fill-base;
+  .yonui-mobile-tool-bars-wrapper{
+    // display: flex;
+    // justify-content: space-between;
+    overflow: auto;
+    white-space: nowrap;
+    padding: 0 8px;
+    .mdf-button{
+      margin: 0 5px;
+      display: inline-block;
+      // &.mdf-button-default{
+      //   background-color: @toolbars-next-btn;
+      //   color: @toolbars-next-btn-color;
+      //   &::before{
+      //     border-color: @toolbars-next-btn;
+      //   }
+      //   &.mdf-button-active{
+      //     background-color: @default-button-fill-tap;
+      //   }
+      // }
+    }
+    &.length-1 .mdf-button{
+      width: calc(~'100% - 10px')
+    }
+    &.length-2 .mdf-button{
+      width: calc(~'50% - 10px')
+    }
+    &.length-3 .mdf-button{
+      width: calc(~'33.33% - 10px')
+    }
+    &.length-4 .mdf-button{
+      width: calc(~'25% - 10px')
+    }
+    &.length-5 .mdf-button{
+      width: calc(~'22% - 10px')
+    }
+
+
+  }
+
+
+}

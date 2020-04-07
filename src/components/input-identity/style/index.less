@@ -1,0 +1,28 @@
+@import '../../_style/index.less';
+@import '../../input-yonui/style/index.less';
+
+.yonui-input-identity{
+  display: flex;
+  height: 44 * @hd;
+  background-color: @fill-base;
+  padding: 0 12*@hd;
+  position: relative;
+  .yonui-input-identity-label{
+    width: 20%;
+    display: inline-flex;
+    align-items: center;
+  }
+  .yonui-input-identity-input{
+    width: 100%;
+  }
+  &::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    border-bottom: 1px solid @split-line;
+    bottom: 0;
+    left: 0;
+  }
+}

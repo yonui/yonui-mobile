@@ -57,7 +57,8 @@ export default class GridComponent extends Component<GridComponentProps> {
     const mdfCusCls: any = classnames({
       [`${mdfPrefixCls}`]: mdfPrefixCls,
       [`${mdfPrefixCls}-transparent`]: transparent,
-      [`${mdfPrefixCls}-not-full`]: !full
+      [`${mdfPrefixCls}-not-full`]: !full,
+      [`${mdfPrefixCls}-number`]: mode === 'number'
     })
     const activeStyleTrs = (typeof activeStyle === 'string') ? activeStyle === 'false' ? false : {} : activeStyle
     return (

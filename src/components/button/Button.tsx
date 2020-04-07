@@ -2,19 +2,16 @@ import React from 'react'
 import classnames from 'classnames'
 import TouchFeedback from 'rmc-feedback'
 import Icon from '../icon'
-
-export interface ButtonProps {
+export interface ButtonProps extends React.defaultProps{
   prefixCls?: string
   content?: string
-  type?: 'primary' | 'warning' | 'ghost' | 'default' | 'text'
+  type?: 'primary' | 'warning' | 'ghost' | 'default' | 'text' | 'toolbar-default' | 'toolbar-primary'
   size?: 'large' | 'small'
   inline?: boolean
   disabled?: boolean
   loading?: boolean
   icon?: React.ReactNode | string
-  style?: React.CSSProperties
   onClick?: React.MouseEventHandler<HTMLAnchorElement>
-  className?: string
 }
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/
@@ -71,13 +68,14 @@ class Button extends React.Component<ButtonProps, any> {
     } = this.props
 
     const iconType: any = loading ? 'loading' : icon
-    const wrapCls = classnames(prefixCls, className, {
+    const wrapCls = classnames(prefixCls, className, `${prefixCls}-${size}`, {
       [`${prefixCls}-primary`]: type === 'primary',
       [`${prefixCls}-default`]: type === 'default' || !type,
       [`${prefixCls}-ghost`]: type === 'ghost',
       [`${prefixCls}-warning`]: type === 'warning',
       [`${prefixCls}-text`]: type === 'text',
-      [`${prefixCls}-small`]: size === 'small',
+      [`${prefixCls}-toolbar-default`]: type === 'toolbar-default',
+      [`${prefixCls}-toolbar-primary`]: type === 'toolbar-primary',
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-loading`]: loading,
@@ -86,7 +84,7 @@ class Button extends React.Component<ButtonProps, any> {
 
     const kids = React.Children.map(children, insertSpace)
     let iconEl
-    if (typeof iconType === 'string') {
+    if (iconType && typeof iconType === 'string') {
       iconEl = (
         <Icon
           aria-hidden="true"
@@ -117,7 +115,7 @@ class Button extends React.Component<ButtonProps, any> {
           onClick={disabled ? undefined : onClick}
           aria-disabled={disabled}>
           {iconEl}
-          {kids || content}
+          {(kids && kids.length) ? kids : content}
         </a>
       </TouchFeedback>
     )

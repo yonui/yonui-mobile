@@ -1,9 +1,11 @@
-import { FieldTypes, EditTypes, ComponentManifest } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps } from 'yonui-extension'
 
 const manifest: ComponentManifest = {
   name: 'Button',
   label: '按钮',
-  type: 'DataEntry',
+  type: TypeProps.BasicControls,
+  icon: 'anniu',
+  uiObject: UIObject.Controls,
   props: [
     {
       name: 'content',
@@ -45,6 +47,14 @@ const manifest: ComponentManifest = {
           {
             value: 'text',
             text: '文本'
+          },
+          {
+            value: 'toolbar-default',
+            text: '工具栏-默认'
+          },
+          {
+            value: 'toolbar-primary',
+            text: '工具栏-主按钮'
           }
           ]
         },
@@ -82,7 +92,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '行内按钮'
+        label: '行内按钮',
+        help: '大小为大时有效'
       }
     },
     {
@@ -112,7 +123,7 @@ const manifest: ComponentManifest = {
     {
       name: 'icon',
       type: FieldTypes.string,
-      defaultValue: false, // 改成false才是默认没有svg
+      defaultValue: '', // 改成false才是默认没有svg // 应当处理成空字符串
       showDesign: true,
       designConfig: {
         // type: EditTypes.Icon,
@@ -130,18 +141,19 @@ const manifest: ComponentManifest = {
           footer: true
         }
       }
-    },
-    {
-      name: 'onClick',
-      type: FieldTypes.action,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: '点击事件'
-      }
     }
+    // ,
+    // {
+    //   name: 'onClick',
+    //   type: FieldTypes.action,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     isRequired: false,
+    //     props: {},
+    //     label: '点击事件'
+    //   }
+    // }
   ],
   children: () => true
 }

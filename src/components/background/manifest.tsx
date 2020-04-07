@@ -1,10 +1,10 @@
-import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 
 const backgroundManifest: ComponentManifest = {
   name: 'Background',
   label: '页面背景',
-  uiTable: UITable.BillTplGroupBase,
-  type: 'Layout',
+  uiObject: UIObject.Containers,
+  type: 'basicControls',
   description: '',
   props: [
     {

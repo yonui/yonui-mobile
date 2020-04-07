@@ -2,34 +2,33 @@ import React, { Component } from 'react'
 import classnames from 'classnames'
 import { Popover, Icon } from 'antd-mobile'
 import Button from '../button'
-interface ToolBarProps {
-  className?: string
-  style?: object
-  values: string[]
-  selectedIndex?: number
-  onChange?: (val: string, num: number) => void
+
+interface valueItem {key?: string, value: string, theme?: string}
+interface ToolBarProps extends React.defaultProps{
+  values: valueItem[]
+  selectedKey?: string
+  onChange?: (val: {key?: string, value: string, theme?: string}, num: number) => void
   onValueChange?: (val: string) => void
   placement?: 'topRight' | 'bottomRight'
   mode?: 'text' | 'button'
-  btnsType?: Array<'primary' | 'next' | undefined>
-
 }
 interface ToolBarState {
   visiable: boolean
+  selected: number
 }
 export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
   constructor (props: ToolBarProps) {
     super(props)
 
     this.state = {
-      visiable: false
+      visiable: false,
+      selected: -1
     }
   }
 
   static defaultProps = {
     values: [],
     mode: 'text'
-    // btnsType: ['default','default','default','primary']
   }
 
   handleVisibleChange = (visiable: boolean) => {
@@ -41,17 +40,17 @@ export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
 
   parseObj = (param: any) => typeof param === 'string' ? JSON.parse(param) : param
 
-  renderItem = (item: string, index: number, style: object, popoverItem: boolean, selectedIndex?: number) => {
-    const { mode, btnsType = [] } = this.props
+  renderItem = (item: valueItem, index: number, style: object, popoverItem: boolean, selectedIndex?: number) => {
+    const { mode } = this.props
     switch (mode) {
       case 'button': {
         const cls = classnames(
-          `tool-bar-btn-${btnsType[index] || 'primary'}`, {
+          `tool-bar-btn-${item.theme || 'primary'}`, {
             'tool-bar-btn': !popoverItem,
             'tool-bar-popover-btn': popoverItem
           })
-        const type = btnsType[index] === 'next' ? 'default' : 'primary'
-        return <div className='button-wrapper' style={style}><Button className={cls} content={item} type={type} size='small' onClick={() => { this.onClickItem(item, index) }}/></div>
+        const type = item.theme === 'next' ? 'default' : 'primary'
+        return <div className='button-wrapper' style={style}><Button className={cls} content={item.value} type={type} size='small' onClick={() => { this.onClickItem(item, index) }}/></div>
       }
       case 'text':
       default: {
@@ -62,14 +61,17 @@ export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
           'tool-bar-popover-item-selected': popoverItem && selectedIndex === index
         })
         return <div className={cls} style={style} key={index} onClick={() => { this.onClickItem(item, index) }}>
-          {item}
+          {item.value}
         </div>
       }
     }
   }
 
-  renderItems = (values: string[], selectedIndex?: number) => {
+  renderItems = (values: valueItem[], selectedKey?: string) => {
     const { placement, mode = 'text' } = this.props
+    const { selected } = this.state
+    let selectedIndex = values.findIndex((item, index) => (item.key === selectedKey || selectedKey === index.toString()))
+    selectedIndex = selectedKey && selectedIndex !== -1 ? selectedIndex : selected
     const length = values.length
     if (length <= 5 && mode === 'text') {
       const style = { width: `${100 / length}%` }
@@ -90,7 +92,7 @@ export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
       }
     })
     const cls = classnames('tool-bar-item', 'tool-bar-item-icon', {
-      'tool-bar-item-selected': selectedIndex && selectedIndex > 3
+      'tool-bar-item-selected': selectedIndex > 3
     })
     const popoverItem = <Popover overlay={<div className='tool-bar-popover'>{overlay}</div>} placement={placement} onVisibleChange={this.handleVisibleChange} visible={this.state.visiable}>
       <div className={cls} >
@@ -101,20 +103,23 @@ export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
     return items
   }
 
-  onClickItem = (value: string, index: number) => {
+  onClickItem = (value: {key?: string, value: string, theme?: string}, index: number) => {
     const { onChange, onValueChange } = this.props
     this.handleVisibleChange(false)
-    onChange && onChange(value, index)
-    onValueChange && onValueChange(value)
+    this.setState({
+      selected: index
+    })
+    onChange && onChange({ key: index.toString(), ...value }, index)
+    onValueChange && onValueChange(value.value)
   }
 
   render () {
-    const { className, style, values, selectedIndex, mode } = this.props
-    const cls = classnames('libraui-tool-bar', className, { 'libraui-tool-bar-slide': mode === 'button' && values.length > 4 })
+    const { className, style, values, selectedKey, mode } = this.props
+    const cls = classnames('yonui-tool-bar', className, { 'yonui-tool-bar-slide': mode === 'button' && values.length > 4 })
     const val = this.parseObj(values)
     return (
       <div className={cls} style={style} >
-        {this.renderItems(val, selectedIndex)}
+        {this.renderItems(val, selectedKey)}
       </div>
     )
   }

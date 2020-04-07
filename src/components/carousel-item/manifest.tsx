@@ -1,11 +1,12 @@
 
-import { FieldTypes, EditTypes, ComponentManifest, UITable } from 'libraui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 
 const manifest: ComponentManifest = {
   name: 'CarouselItem',
-  label: '走马灯Item',
-  uiTable: UITable.BillTplGroupBase,
-  type: 'Layout',
+  label: '轮播页',
+  uiObject: UIObject.Containers,
+  type: 'basicControls',
+  icon: 'arrow',
   props: [
     {
       name: 'backgroundColor',
@@ -13,7 +14,7 @@ const manifest: ComponentManifest = {
       defaultValue: 'transparent',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Color,
         props: {},
         label: '背景颜色'
       }
@@ -39,24 +40,25 @@ const manifest: ComponentManifest = {
         props: {
           options: [
             { value: 'cover', text: '充满面板' },
-            { value: 'contain', text: '适应面板' },
-            { value: '100%', text: '拉伸以充满面板' }
+            { value: 'contain', text: '适应面板' }
+            // { value: '100%', text: '拉伸以充满面板' }
           ]
         },
         label: '背景图片拉伸方式'
       }
-    },
-    {
-      name: 'height',
-      type: FieldTypes.number,
-      defaultValue: 170,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        props: {},
-        label: 'Item高度'
-      }
     }
+    // ,
+    // {
+    //   name: 'height',
+    //   type: FieldTypes.string,
+    //   defaultValue: '100%',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     props: {},
+    //     label: 'Item高度'
+    //   }
+    // }
   ],
   children: () => true
 }

@@ -28,6 +28,7 @@ package-lock.json
 /demo/build
 
 .libraui
+.yonui
 libra.config.override.json
 manifest.override.json
 run.sh
