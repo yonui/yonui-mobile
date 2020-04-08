@@ -5,6 +5,7 @@ import classnames from 'classnames'
 interface TextareaProps extends TextAreaItemPropsType, React.defaultProps{
   label?: string
   required?: boolean
+  maxLength?: number
 }
 export default class MyComponent extends Component<TextareaProps> {
   constructor (props: TextAreaItemPropsType) {
@@ -13,13 +14,13 @@ export default class MyComponent extends Component<TextareaProps> {
   }
 
   render () {
-    const { label, className, style, nid, uitype, required, ...other } = this.props
+    const { label, className, style, nid, uitype, required, maxLength, ...other } = this.props
     const cls = classnames(className, 'yonui-textarea')
     const labelCls = classnames('yonui-textarea-label', 'form-label', { required })
     return (
       <div className={cls} style={style} uitype={uitype} nid={nid}>
         <div className={labelCls}>{label}</div>
-        <TextareaItem {...other}/>
+        <TextareaItem {...other} count={maxLength}/>
       </div>
     )
   }

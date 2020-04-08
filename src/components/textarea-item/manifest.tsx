@@ -43,7 +43,7 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'count',
+      name: 'maxLength',
       type: FieldTypes.number,
       defaultValue: 0,
       showDesign: true,
@@ -51,7 +51,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Number,
         isRequired: true,
         props: {},
-        label: '计数功能'
+        label: '输入长度'
       }
     },
     // {
@@ -199,7 +199,7 @@ const manifest: ComponentManifest = {
     {
       name: 'onBlur',
       type: FieldTypes.action,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,

@@ -88,7 +88,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '初始默认值'
+        label: '默认值'
       }
     },
     // {
@@ -124,7 +124,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: false,
         props: {},
-        label: '是否可编辑'
+        label: '允许修改'
       }
     },
     {
@@ -142,7 +142,7 @@ const manifest: ComponentManifest = {
     {
       name: 'disabled',
       type: FieldTypes.boolean,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Bool,
         isRequired: false,
@@ -153,7 +153,7 @@ const manifest: ComponentManifest = {
     {
       name: 'clear',
       type: FieldTypes.boolean,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Bool,
         isRequired: false,
@@ -164,7 +164,7 @@ const manifest: ComponentManifest = {
     {
       name: 'onChange',
       type: FieldTypes.action,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
@@ -175,7 +175,7 @@ const manifest: ComponentManifest = {
     {
       name: 'onBlur',
       type: FieldTypes.action,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
@@ -186,7 +186,7 @@ const manifest: ComponentManifest = {
     {
       name: 'onFocus',
       type: FieldTypes.action,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
