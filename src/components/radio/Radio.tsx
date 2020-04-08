@@ -169,7 +169,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
   }
 
   render () {
-    const { mode, dataSource, checkedValue, label, tagSize, labelStyle = {}, itemsStyle = {}, lines, labelWidth = 20 } = this.props
+    const { mode, dataSource, checkedValue, label, tagSize, labelStyle = {}, itemsStyle = {}, lines, labelWidth = 20, onChange, className, ...other } = this.props
     let radioArr: any
     const _labelStyle: React.CSSProperties = { width: `${lines === 'single' ? labelWidth : 100}%` }
     const _itemsStyle: React.CSSProperties = { width: `${lines === 'single' ? 100 - (labelWidth - 0) : 100}%` }
@@ -189,9 +189,9 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
         break
       }
     }
-    const cls = classnames('yonui-radio', `yonui-radio-${lines}`)
+    const cls = classnames(className, 'yonui-radio', `yonui-radio-${lines}`)
     return (
-      <div className={cls}>
+      <div {...other} className={cls}>
         {this.renderLabel(label, lines, { ..._labelStyle, ...labelStyle })}
         {this.renderContent(radioArr, lines, { ..._itemsStyle, ...itemsStyle })}
       </div>
