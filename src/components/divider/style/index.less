@@ -1,0 +1,36 @@
+@import '../../_style/index.less';
+@mdfDividerPrefixCls: mdf-divider;
+
+.@{mdfDividerPrefixCls} {
+  display: flex;
+  white-space: nowrap;
+  width: 100%;
+  min-width: 100%;
+  align-items: center;
+
+  // @styles: solid, dashed, dotted, double;
+  // @len:length(@styles);
+  // .border(@index) when (@index > 0) {
+  //   @name: extract(@styles, @index);
+  //   .@{mdfDividerPrefixCls}-@{name}& {
+  //     border-top-style: @name;
+  //   }
+  //   .border(@index - 1);
+  // }
+
+  .before, .after {
+    position: relative;
+    content: '';
+    width: 50%;
+    vertical-align: middle;
+    border-top: 1px solid currentColor;
+
+    // .border(@len);
+    // .@{mdfDividerPrefixCls}-double& {
+    //   border-top-width: 3px;
+    // }
+  }
+  & > span {
+    padding: 0 10px;
+  }
+}
