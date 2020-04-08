@@ -4,6 +4,7 @@ import { TextAreaItemPropsType } from 'antd-mobile/lib/textarea-item/PropsType'
 import classnames from 'classnames'
 interface TextareaProps extends TextAreaItemPropsType, React.defaultProps{
   label?: string
+  required?: boolean
 }
 export default class MyComponent extends Component<TextareaProps> {
   constructor (props: TextAreaItemPropsType) {
@@ -12,12 +13,12 @@ export default class MyComponent extends Component<TextareaProps> {
   }
 
   render () {
-    const { label, className, style, nid, uitype, ...other } = this.props
+    const { label, className, style, nid, uitype, required, ...other } = this.props
     const cls = classnames(className, 'yonui-textarea')
-    console.log('label is', label)
+    const labelCls = classnames('yonui-textarea-label', 'form-label', { required })
     return (
       <div className={cls} style={style} uitype={uitype} nid={nid}>
-        <div className='yonui-textarea-label form-label'>{label}</div>
+        <div className={labelCls}>{label}</div>
         <TextareaItem {...other}/>
       </div>
     )

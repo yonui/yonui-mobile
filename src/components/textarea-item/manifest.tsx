@@ -9,7 +9,7 @@ const manifest: ComponentManifest = {
     {
       name: 'name',
       type: FieldTypes.string,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
@@ -27,7 +27,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '标题'
+        label: '标题文本'
       }
     },
     {
@@ -39,7 +39,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Number,
         isRequired: true,
         props: {},
-        label: '显示几行'
+        label: '控件高度'
       }
     },
     {
@@ -66,17 +66,17 @@ const manifest: ComponentManifest = {
     //     label: '标签文字个数'
     //   }
     // },
-    // {
-    //   name: 'value',
-    //   type: FieldTypes.string,
-    //   showDesign: true,
-    //   designConfig: {
-    //     type: EditTypes.Text,
-    //     isRequired: true,
-    //     props: {},
-    //     label: '值'
-    //   }
-    // },
+    {
+      name: 'value',
+      type: FieldTypes.string,
+      showDesign: false,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: '值'
+      }
+    },
     {
       name: 'defaultValue',
       type: FieldTypes.string,
@@ -86,7 +86,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '初始默认值'
+        label: '默认值'
       }
     },
     {
@@ -110,7 +110,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: false,
         props: {},
-        label: '可编辑'
+        label: '允许修改'
       }
     },
     {
@@ -127,10 +127,22 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'disabled',
+      name: 'required',
       type: FieldTypes.boolean,
       defaultValue: false,
       showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '必填'
+      }
+    },
+    {
+      name: 'disabled',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Bool,
         isRequired: false,
@@ -141,7 +153,7 @@ const manifest: ComponentManifest = {
     {
       name: 'clear',
       type: FieldTypes.boolean,
-      showDesign: true,
+      showDesign: false,
       defaultValue: false,
       designConfig: {
         type: EditTypes.Bool,
@@ -153,7 +165,7 @@ const manifest: ComponentManifest = {
     {
       name: 'onChange',
       type: FieldTypes.action,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
@@ -164,7 +176,7 @@ const manifest: ComponentManifest = {
     {
       name: 'onErrorClick',
       type: FieldTypes.action,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
@@ -176,7 +188,7 @@ const manifest: ComponentManifest = {
     {
       name: 'onFocus',
       type: FieldTypes.action,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
