@@ -67,7 +67,7 @@ export default class Search extends React.Component<SearchProps, any> {
   UNSAFE_componentWillReceiveProps (nextProps: SearchProps) {
     if ('value' in nextProps || 'defaultVlaue' in nextProps) {
       this.setState({
-        value: nextProps.value || nextProps.defaultVlaue
+        value: nextProps.value || nextProps.defaultValue
       })
     }
   }
@@ -145,8 +145,7 @@ export default class Search extends React.Component<SearchProps, any> {
       searchIconColor,
       backgroundColor,
       clearIconColor,
-      voiceIconColor,
-      placeholder
+      voiceIconColor
     } = this.props
     const {
       value,

@@ -9,6 +9,7 @@ interface TabPaneProps {
   height?: string
   width?: string
   bgColor?: string
+  marginBottom?: string
 }
 
 export default class MyComponent extends Component<TabPaneProps> {
@@ -18,9 +19,9 @@ export default class MyComponent extends Component<TabPaneProps> {
   }
 
   render () {
-    const { children, key, className, style, height, width, bgColor, ...other } = this.props
+    const { children, key, className, style, height, width, bgColor, marginBottom, ...other } = this.props
     const cls = classnames(className, 'yonui-tabpane')
-    const sty = { width, height, 'background-color': bgColor, ...style }
+    const sty = { width, height, 'background-color': bgColor, marginBottom, ...style }
     return (
       <div key={key} className={cls} style={sty} {...other}>
         {children}

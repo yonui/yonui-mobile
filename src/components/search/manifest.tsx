@@ -26,7 +26,7 @@ const manifest: ComponentManifest = {
       type: EditTypes.Text,
       isRequired: true,
       props: {},
-      label: '搜索栏默认值'
+      label: '默认值'
     }
   },
   {

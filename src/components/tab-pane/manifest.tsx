@@ -32,9 +32,22 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'marginBottom',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '底部预留高度',
+        help: '用于处理底部区域等情况'
+      }
+    },
+    {
       name: 'height',
       type: FieldTypes.string,
-      defaultValue: '100px',
+      defaultValue: 'auto',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
