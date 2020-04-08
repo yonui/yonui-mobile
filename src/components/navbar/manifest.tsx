@@ -30,7 +30,6 @@ const manifest: ComponentManifest = {
       name: 'title',
       type: FieldTypes.string,
       defaultValue: '标题',
-      value: '',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -42,7 +41,6 @@ const manifest: ComponentManifest = {
       name: 'subTitle',
       type: FieldTypes.string,
       defaultValue: '',
-      value: '',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -54,7 +52,6 @@ const manifest: ComponentManifest = {
       name: 'backIcon',
       type: FieldTypes.string,
       defaultValue: 'left',
-      value: '',
       showDesign: true,
       designConfig: {
         type: EditTypes.IframeModal,
@@ -75,7 +72,6 @@ const manifest: ComponentManifest = {
       name: 'titleIcon',
       type: FieldTypes.string,
       defaultValue: '',
-      value: '',
       showDesign: true,
       designConfig: {
         type: EditTypes.IframeModal,
@@ -96,7 +92,6 @@ const manifest: ComponentManifest = {
       name: 'closeIcon',
       type: FieldTypes.string,
       defaultValue: 'cross',
-      value: '',
       showDesign: true,
       designConfig: {
         type: EditTypes.IframeModal,
@@ -117,7 +112,6 @@ const manifest: ComponentManifest = {
       name: 'rightIcon1',
       type: FieldTypes.string,
       defaultValue: '',
-      value: '',
       showDesign: true,
       designConfig: {
         type: EditTypes.IframeModal,
@@ -134,27 +128,26 @@ const manifest: ComponentManifest = {
         help: '出现在最右边第一个的图标占位符'
       }
     },
-    {
-      name: 'rightIcon2',
-      type: FieldTypes.string,
-      defaultValue: 'ellipsis',
-      value: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.IframeModal,
-        props: {
-          caption: '图标库',
-          addText: '添加图标',
-          editText: '更换图标',
-          iframeUrl: '/IconSelect',
-          iframeId: 'iconSelectIframe',
-          message: true,
-          footer: true
-        },
-        label: '右二图标',
-        help: '出现在最右边第二个的图标占位符'
-      }
-    },
+    // {
+    //   name: 'rightIcon2',
+    //   type: FieldTypes.string,
+    //   defaultValue: 'ellipsis',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.IframeModal,
+    //     props: {
+    //       caption: '图标库',
+    //       addText: '添加图标',
+    //       editText: '更换图标',
+    //       iframeUrl: '/IconSelect',
+    //       iframeId: 'iconSelectIframe',
+    //       message: true,
+    //       footer: true
+    //     },
+    //     label: '右二图标',
+    //     help: '出现在最右边第二个的图标占位符'
+    //   }
+    // },
     {
       name: 'onBackClick',
       type: FieldTypes.action,

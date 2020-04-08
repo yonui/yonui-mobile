@@ -145,7 +145,8 @@ export default class Search extends React.Component<SearchProps, any> {
       searchIconColor,
       backgroundColor,
       clearIconColor,
-      voiceIconColor
+      voiceIconColor,
+      placeholder
     } = this.props
     const {
       value,

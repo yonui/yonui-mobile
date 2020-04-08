@@ -7,7 +7,19 @@ div[uitype='TextareaItem'] {
   .@{TextAreaPrefixClass}-label {
     font-size: @input-font-size;
   }
-  .@{TextAreaPrefixClass}-control textarea {
-    font-size: @input-font-size;
+  .@{TextAreaPrefixClass}-control{
+    padding-top: 0;
+    textarea {
+      font-size: @input-font-size;
+    }
+  }
+}
+
+.yonui-textarea{
+  border-bottom: 1px solid @split-line;
+  &-label{
+    background: @fill-base;
+    padding-left: 12.5*@hd;
+    padding-top: 10*@hd;
   }
 }
