@@ -3,6 +3,8 @@ import classnames from 'classnames'
 import { Icon } from 'antd-mobile'
 interface CardBoxGroupProps extends React.defaultProps {
   splitLine?: boolean
+  dataSource?: any[]
+  renderRow?: (rowData: object, sectionID: number, rowID: number) => void
 }
 // font_304307_jezcocolkm
 export default class CardBoxGroup extends Component<CardBoxGroupProps> {
@@ -36,14 +38,18 @@ export default class CardBoxGroup extends Component<CardBoxGroupProps> {
   }
 
   render () {
-    const { children, splitLine, className, style } = this.props
+    const { children, splitLine, className, style, dataSource, renderRow } = this.props
     const cls = classnames('card-box-group', className, {
       'card-box-group-split-line': splitLine
     })
     // const childrenNode = this.getChildren(children, status !== 'default')
+    let content = children
+    if (Array.isArray(dataSource) && dataSource.length > 0 && renderRow) {
+      content = dataSource.map((rowData, rowID) => renderRow(rowData, 0, rowID))
+    }
     return (
       <div className={cls} style={style}>
-        { children }
+        { content }
       </div>
     )
   }
