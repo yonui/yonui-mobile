@@ -36,6 +36,7 @@
     "Card": "./src/components/card",
     "Carousel": "./src/components/carousel",
     "CarouselItem": "./src/components/carousel-item",
+    "Divider": "./src/components/divider",
     "Search": "./src/components/search",
     "Flex": "./src/components/flex",
     "FlexItem": "./src/components/flex-item",
