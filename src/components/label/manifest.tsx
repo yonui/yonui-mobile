@@ -54,6 +54,25 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'textAlign',
+      type: FieldTypes.string,
+      defaultValue: 'left',
+      showDesign: true,
+      designConfig: {
+        label: '渲染类型',
+        type: EditTypes.Select,
+        isRequired: false,
+        props: {
+          options:
+            [
+              { value: 'left', text: '左对齐' },
+              { value: 'center', text: '居中' },
+              { value: 'right', text: '右对齐' }
+            ]
+        }
+      }
+    },
+    {
       name: 'color',
       type: FieldTypes.string,
       defaultValue: '#e14c46',

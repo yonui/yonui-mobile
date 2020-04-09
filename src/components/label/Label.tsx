@@ -6,6 +6,7 @@ export interface LabelProps extends React.defaultProps{
   color?: string
   bgColor?: string
   width?: string
+  textAlign?: 'left' | 'right' | 'center'
 }
 export default class Label extends React.Component<LabelProps> {
   static defaultProps = {
@@ -20,8 +21,7 @@ export default class Label extends React.Component<LabelProps> {
       case 'label': {
         return ({
           color: color,
-          backgroundColor: bgColor,
-          lineHeight: 1.5
+          backgroundColor: bgColor
         })
       }
       case 'primary': {
@@ -48,8 +48,8 @@ export default class Label extends React.Component<LabelProps> {
   }
 
   render () {
-    const { label, style, className, color, mode, bgColor, width, ...other } = this.props
-    const sty = { ...this.getStyle(mode, color, bgColor), ...style, width }
+    const { label, style, className, color, mode, bgColor, width, textAlign, ...other } = this.props
+    const sty = { ...this.getStyle(mode, color, bgColor), ...style, width, textAlign }
     const cls = classnames(className, 'yonui-tag', {
       'label-mode': mode === 'label'
     })
