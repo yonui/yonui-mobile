@@ -60,7 +60,7 @@ const manifest: ComponentManifest = {
           addText: '添加图标',
           editText: '更换图标',
           iframeUrl: '/IconSelect',
-          iframeId: 'iconSelectIframe',
+          iframeId: 'iconSelectIframe_backIcon',
           message: true,
           footer: true
         },
@@ -80,7 +80,7 @@ const manifest: ComponentManifest = {
           addText: '添加图标',
           editText: '更换图标',
           iframeUrl: '/IconSelect',
-          iframeId: 'iconSelectIframe',
+          iframeId: 'iconSelectIframe_titleIcon',
           message: true,
           footer: true
         },
@@ -100,7 +100,7 @@ const manifest: ComponentManifest = {
           addText: '添加图标',
           editText: '更换图标',
           iframeUrl: '/IconSelect',
-          iframeId: 'iconSelectIframe',
+          iframeId: 'iconSelectIframe_closeIcon',
           message: true,
           footer: true
         },
@@ -120,7 +120,7 @@ const manifest: ComponentManifest = {
           addText: '添加图标',
           editText: '更换图标',
           iframeUrl: '/IconSelect',
-          iframeId: 'iconSelectIframe',
+          iframeId: 'iconSelectIframe_rightIcon1',
           message: true,
           footer: true
         },
@@ -128,26 +128,26 @@ const manifest: ComponentManifest = {
         help: '出现在最右边第一个的图标占位符'
       }
     },
-    // {
-    //   name: 'rightIcon2',
-    //   type: FieldTypes.string,
-    //   defaultValue: 'ellipsis',
-    //   showDesign: true,
-    //   designConfig: {
-    //     type: EditTypes.IframeModal,
-    //     props: {
-    //       caption: '图标库',
-    //       addText: '添加图标',
-    //       editText: '更换图标',
-    //       iframeUrl: '/IconSelect',
-    //       iframeId: 'iconSelectIframe',
-    //       message: true,
-    //       footer: true
-    //     },
-    //     label: '右二图标',
-    //     help: '出现在最右边第二个的图标占位符'
-    //   }
-    // },
+    {
+      name: 'rightIcon2',
+      type: FieldTypes.string,
+      defaultValue: 'ellipsis',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: '/IconSelect',
+          iframeId: 'iconSelectIframe_rightIcon2',
+          message: true,
+          footer: true
+        },
+        label: '右二图标',
+        help: '出现在最右边第二个的图标占位符'
+      }
+    },
     {
       name: 'onBackClick',
       type: FieldTypes.action,
