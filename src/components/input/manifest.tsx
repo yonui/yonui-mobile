@@ -82,7 +82,7 @@ const manifest: ComponentManifest = {
     {
       name: 'defaultValue',
       type: FieldTypes.string,
-      defaultValue: '默认值',
+      defaultValue: '',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
@@ -137,6 +137,18 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '必填'
+      }
+    },
+    {
+      name: 'splitLine',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '下划线'
       }
     },
     {

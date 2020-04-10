@@ -1,4 +1,5 @@
 @import '../../_style/index.less';
+@import '../../list-item-wrapper/style/index.less';
 @TextAreaPrefixClass: am-textarea;
 div[uitype='TextareaItem'] {
   width: 100%;
@@ -16,13 +17,14 @@ div[uitype='TextareaItem'] {
 }
 
 .yonui-textarea{
-  border-bottom: 1px solid @split-line;
   .am-textarea-control textarea{
     color: @color-text-input;
   }
+  .am-list-item{
+    padding-left: 0;
+  }
   &-label{
     background: @fill-base;
-    padding-left: 12.5*@hd;
     padding-top: 10*@hd;
   }
 }

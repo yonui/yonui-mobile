@@ -1,13 +1,16 @@
 import React from 'react'
-import { List, DatePicker, Calendar } from 'antd-mobile'
+import { DatePicker, Calendar, Icon } from 'antd-mobile'
 import { DatePickerPropsType } from 'antd-mobile/lib/date-picker/PropsType'
 import { dateFormat } from '../_utils'
+import Wrapper from '../list-item-wrapper'
+import classnames from 'classnames'
 export interface ListDatePickerProps extends DatePickerPropsType {
   label?: string
   required?: boolean
   arrow?: boolean
   style?: object
   dateMode?: 'picker-date' | 'picker-time' | 'picker-datetime' | 'picker-year' | 'picker-month' | 'calendar-date' | 'calendar-datetime'
+  splitLine?: boolean
   onConfirm?: (dateTime?: Date) => void
   onCancel?: () => void
 }
@@ -57,27 +60,22 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
   }
 
   render () {
-    const { label, required, value, minDate, maxDate, arrow, disabled, style, dateMode, onConfirm, onCancel, format, extra, title, ...restProps } = this.props
+    const { label, required, value, minDate, maxDate, arrow, disabled, style, dateMode, onConfirm, onCancel, format, extra, title, splitLine, ...restProps } = this.props
     const { visible } = this.state
-    const requiredCls = required ? 'required' : ''
     const valueTrs = (value && typeof value === 'string') ? new Date(value) : value
     const minDateTrs = (minDate && typeof minDate === 'string') ? new Date(minDate) : minDate
     const maxDateTrs = (maxDate && typeof maxDate === 'string') ? new Date(maxDate) : maxDate
     const typeAndMode = dateMode?.split('-') || []
     // const fmt = (format && typeof format === 'string') ? format : ((format && value ? format(value) : 'yyyy-MM-dd'))
     const fmt = format ? (typeof format === 'string' ? format : (value && format(value))) : 'yyyy-MM-dd'
+    const labelCls = classnames('date-time-picker-label', 'form-label', { required })
+    const valueCls = classnames('date-time-picker-value')
     if (typeAndMode[0] === 'calendar') {
-      return (<List className='date-time-picker' style={style}>
-        <List >
-          <List.Item
-            arrow={arrow ? 'horizontal' : ''}
-            className={`form-label ${requiredCls}`}
-            onClick = {!disabled ? this.onOpenCalendar : undefined}
-            extra = { valueTrs ? dateFormat(valueTrs, fmt || 'yyyy-MM-dd') : extra}
-          >
-            {label}
-          </List.Item>
-        </List>
+      return (<Wrapper className='date-time-picker' style={style} splitLine={splitLine}>
+        <div className={labelCls} >{label}</div>
+        <div className={valueCls} onClick = {!disabled ? this.onOpenCalendar : undefined}>{valueTrs ? dateFormat(valueTrs, fmt || 'yyyy-MM-dd') : extra}
+          <Icon type='right'/>
+        </div>
         <Calendar
           // {...restProps}
           title='title'
@@ -89,9 +87,9 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
           pickTime={typeAndMode[1] === 'datetime'}
           type='one'
         />
-      </List>)
+      </Wrapper>)
     } else {
-      return <List className={`date-time-picker ${(disabled || !arrow) && 'no-arrow'}`} style={style}>
+      return (
         <DatePicker
           {...restProps}
           title={title}
@@ -105,13 +103,14 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
           onOk={this.onConfirm}
           onDismiss={this.onCancel}
         >
-          <List.Item
-            arrow={arrow ? 'horizontal' : ''}
-            className={`form-label ${requiredCls}`}>
-            {label}
-          </List.Item>
+          <Wrapper className={`date-time-picker ${(disabled || !arrow) && 'no-arrow'}`} style={style} splitLine={splitLine}>
+            <div className={labelCls} >{label}</div>
+            <div className={valueCls} onClick = {!disabled ? this.onOpenCalendar : undefined}>{valueTrs ? dateFormat(valueTrs, fmt || 'yyyy-MM-dd') : extra}
+              <Icon type='right'/>
+            </div>
+          </Wrapper>
         </DatePicker>
-      </List>
+      )
     }
   }
 }

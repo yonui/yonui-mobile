@@ -43,7 +43,7 @@ const manifest: ComponentManifest = {
     {
       name: 'value',
       type: FieldTypes.date,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Date,
         isRequired: true,
@@ -111,6 +111,18 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'splitLine',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '下划线'
+      }
+    },
+    {
       name: 'arrow',
       type: FieldTypes.boolean,
       defaultValue: true,
@@ -136,7 +148,7 @@ const manifest: ComponentManifest = {
     {
       name: 'onChange',
       type: FieldTypes.action,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
@@ -147,7 +159,7 @@ const manifest: ComponentManifest = {
     {
       name: 'onValueChange',
       type: FieldTypes.action,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
@@ -178,7 +190,7 @@ const manifest: ComponentManifest = {
     {
       name: 'title',
       type: FieldTypes.string,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
@@ -213,7 +225,7 @@ const manifest: ComponentManifest = {
     {
       name: 'onOk',
       type: FieldTypes.action,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
@@ -225,7 +237,7 @@ const manifest: ComponentManifest = {
     {
       name: 'onDismiss',
       type: FieldTypes.action,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,

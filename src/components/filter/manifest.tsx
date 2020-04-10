@@ -108,7 +108,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: ['filtercontent']
+  children: ['filtercontent', 'radio']
 }
 
 export default manifest

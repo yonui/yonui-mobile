@@ -1,5 +1,5 @@
 @import '../../_style/index.less';
-
+@import '../../list-item-wrapper/style/index.less';
 // @ListCalendarPrefixClass: am-calendar;
 // div[uitype="ListCalendar"] {
 //   width: 100%;
@@ -61,7 +61,12 @@
     }
   }
   .am-list-item {
+    padding-left: 0;
     .am-list-line {
+      padding-right: 0;
+      &::after{
+        height: 0;
+      }
       .am-list-content {
         font-size: @input-font-size;
       }
@@ -79,4 +84,19 @@
     }
   }
 
+}
+.date-time-picker{
+  display: flex;
+  justify-content: space-between;
+  &-label{
+    display: flex;
+    align-items: center;
+  }
+  &-value{
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    color: @color-text-input;
+    font-size: 15 * @hd;
+  }
 }

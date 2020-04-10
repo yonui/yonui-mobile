@@ -139,6 +139,18 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'splitLine',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '下划线'
+      }
+    },
+    {
       name: 'disabled',
       type: FieldTypes.boolean,
       defaultValue: false,

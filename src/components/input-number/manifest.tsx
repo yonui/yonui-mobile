@@ -4,6 +4,7 @@ const manifest: ComponentManifest = {
   label: '数值',
   type: TypeProps.BasicControls,
   uiObject: UIObject.Controls,
+  icon: 'digital',
   props: [
     {
       name: 'label',
@@ -156,6 +157,18 @@ const manifest: ComponentManifest = {
         isRequired: true,
         props: {},
         label: '禁用'
+      }
+    },
+    {
+      name: 'splitLine',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '下划线'
       }
     },
     {

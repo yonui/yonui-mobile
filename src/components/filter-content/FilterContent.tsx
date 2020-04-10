@@ -9,7 +9,7 @@ interface FilterContentProps {
   selectData?: Array<{ desc: string, value: string, disabled?: boolean}>
   className?: string
   style?: object
-  onSelect?: (item: any, index: number) => void
+  onSelect?: (index: number, data: { desc: string, value: string, disabled?: boolean | undefined }) => void
   selectedValue?: string
   extraInput?: string
   extraInputType?: 'date' | 'text' | 'calendar'
@@ -65,11 +65,11 @@ export default class FilterContent extends Component<FilterContentProps, any> {
     const cls = classnames(className, 'yonui-filter-content')
     return (
       <div className={cls} style={style}>
-        <div className='yonui-filter-content-title'>
+        {/* <div className='yonui-filter-content-title'>
           {title}
-        </div>
+        </div> */}
         <div className='yonui-filter-content-selection'>
-          <Radio dataSource={selectData} checkedValue={selectedValue} onChange={onSelect} mode='tag' />
+          <Radio dataSource={selectData} checkedValue={selectedValue} onChange={onSelect} mode='tag' label={title} lines='multiple' />
         </div>
         <div className='yonui-filter-content-extra'>
           {this.renderExtra(extraInput, extraInputType)}
