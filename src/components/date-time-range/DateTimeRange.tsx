@@ -12,6 +12,7 @@ export interface ListCalendarProps extends CalendarProps {
   arrow?: boolean
   format?: string
   disabled?: boolean
+  onChangeDate?: (time: [string, string]) => void
 }
 interface ListCalendarStates {
   visible?: boolean
@@ -52,7 +53,8 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
   }
 
   onConfirm = (startDateTime: Date, endDateTime: Date) => {
-    this.props.onConfirm && this.props.onConfirm(startDateTime, endDateTime)
+    const { onChangeDate, format = 'yyyy-MM-dd' } = this.props
+    onChangeDate && onChangeDate([dateFormat(startDateTime, format), dateFormat(endDateTime, format)])
     this.setState({
       visible: false
     })

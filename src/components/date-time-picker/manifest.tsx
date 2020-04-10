@@ -146,14 +146,14 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'onChange',
+      name: 'onChangeDate',
       type: FieldTypes.action,
       showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: 'onChange'
+        label: 'onChangeDate'
       }
     },
     {
