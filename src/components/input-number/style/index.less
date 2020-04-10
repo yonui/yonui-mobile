@@ -1,11 +1,9 @@
 @import '../../_style/index.less';
-
+@import '../../list-item-wrapper/style/index.less';
 .yonui-input-number{
   display: flex;
-  min-height: 44*@hd;
-  background: #fff;
-  padding: 0 10*@hd;
-  border-bottom: 1*@hd solid @split-line;
+  // padding: 0 10*@hd;
+  // border-bottom: 1*@hd solid @split-line;
   &-multiple{
     flex-direction: column;
   }
@@ -19,8 +17,8 @@
   .yonui-input-number-wrapper{
     width: 100%;
     display: inline-flex;
+    min-height: 27*@hd;
     .yonui-input-number-input{
-      // text-align: right;
       width: 100%;
       font-size: 15*@hd;
       border: none;

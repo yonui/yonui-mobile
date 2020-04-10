@@ -43,7 +43,7 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'count',
+      name: 'maxLength',
       type: FieldTypes.number,
       defaultValue: 0,
       showDesign: true,
@@ -51,7 +51,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Number,
         isRequired: true,
         props: {},
-        label: '计数功能'
+        label: '输入长度'
       }
     },
     // {
@@ -139,6 +139,18 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'splitLine',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '下划线'
+      }
+    },
+    {
       name: 'disabled',
       type: FieldTypes.boolean,
       defaultValue: false,
@@ -199,7 +211,7 @@ const manifest: ComponentManifest = {
     {
       name: 'onBlur',
       type: FieldTypes.action,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,

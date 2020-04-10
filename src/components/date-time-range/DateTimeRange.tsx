@@ -1,8 +1,9 @@
 import React from 'react'
 import Calendar from '../calendar'
-import { Flex, InputItem, List } from 'antd-mobile'
+import { Flex, InputItem } from 'antd-mobile'
 import { CalendarProps } from 'antd-mobile/lib/calendar/PropsType'
 import { dateFormat } from '../_utils'
+import Wrapper from '../list-item-wrapper'
 export declare type SelectDateType = [Date, Date] | [Date];
 export interface ListCalendarProps extends CalendarProps {
   label?: string
@@ -68,8 +69,8 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
     const end = (value && value.length && value[1]) ? dateFormat(value[1], format || 'yyyy-MM-dd') : ''
     const requiredCls = required ? 'required' : ''
     return (
-      <List className='date-time-range-wrapper' style={style}>
-        <div className='date-time-range'>
+      <div className='date-time-range-wrapper' style={style}>
+        <Wrapper className='date-time-range'>
           <div className={`form-label ${requiredCls} form-label-calendar`}>{label}</div>
           <Flex className='calendar-range' onClick={this.handClick.bind(this)}>
             <Flex.Item>
@@ -78,7 +79,7 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
               <InputItem placeholder='结束日期' disabled clear value={end}/>
             </Flex.Item>
           </Flex>
-        </div>
+        </Wrapper>
         <Calendar
           {...this.props}
           prefixCls='am-calendar'
@@ -90,7 +91,7 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
           onCancel={this.onCancel}
           onConfirm={this.onConfirm}
           defaultValue={value}/>
-      </List>
+      </div>
     )
   }
 }

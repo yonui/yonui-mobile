@@ -32,10 +32,20 @@ export default class Demo1 extends Component {
       clear: true
     }
     return (
-      <MyComponent {...props}
+      <div>
+        <MyComponent {...props}
         onChange={() => { this.onChange() }}
         onBlur={() => { this.onBlur() }}
         onFocus={() => { this.onFocus() }}/>
+        <MyComponent {...props}
+        onChange={() => { this.onChange() }}
+        onBlur={() => { this.onBlur() }}
+        onFocus={() => { this.onFocus() }}/>
+        <MyComponent {...props}
+        onChange={() => { this.onChange() }}
+        onBlur={() => { this.onBlur() }}
+        onFocus={() => { this.onFocus() }}/>
+      </div>
     )
   }
 }

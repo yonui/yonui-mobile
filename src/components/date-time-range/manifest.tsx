@@ -217,6 +217,18 @@ const manifest: ComponentManifest = {
         label: '禁用'
       }
     },
+    {
+      name: 'splitLine',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '下划线'
+      }
+    },
     // {
     //   name: 'arrow',
     //   type: FieldTypes.boolean,

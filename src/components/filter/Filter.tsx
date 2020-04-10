@@ -56,7 +56,6 @@ export default class Filter extends Component<FilterProps, FilterState> {
   getSidebar = (children: React.ReactNode, nid?: string, uitype?: string) => {
     const footer = this.getSidebarFooter()
     return <div className='yonui-filter-sidebar' nid={nid} uitype={uitype}>
-
       <div className='yonui-filter-sidebar-content'>
         {children}
       </div>

@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import { List, InputItem } from 'antd-mobile'
+import { InputItem } from 'antd-mobile'
 import { InputItemPropsType } from 'antd-mobile/lib/input-item/PropsType'
+import Wrapper from '../list-item-wrapper'
 export interface InputProps extends InputItemPropsType {
   label?: string
   required?: boolean
+  splitLine?: boolean
 }
 export default class Input extends Component<InputProps> {
   constructor (props: InputProps) {
@@ -12,14 +14,14 @@ export default class Input extends Component<InputProps> {
   }
 
   render () {
-    const { label, required } = this.props
+    const { label, required, splitLine } = this.props
     const requiredCls = required ? 'required' : ''
     return (
-      <List className={`mdf-input ${requiredCls}`}>
+      <Wrapper className={`mdf-input ${requiredCls}`} splitLine={splitLine}>
         <InputItem {...this.props}>
           <div className={`form-label ${requiredCls}`}>{label}</div>
         </InputItem>
-      </List>
+      </Wrapper>
     )
   }
 }

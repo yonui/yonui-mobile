@@ -6,6 +6,8 @@ import React, { Component } from 'react'
 import MyComponent from '../index'
 import { Button } from 'antd-mobile'
 import FilterContent from '../../filter-content'
+import Radio from '../../radio'
+import '../../radio/style'
 import '../style'
 import '../../filter-content/style'
 import './demo.less'
@@ -76,11 +78,12 @@ export default class Demo1 extends Component<any, DemoState> {
     const { title, open, selectData, selectedValue, selectedValue2 } = this.state
     return (
       [<MyComponent open={open} onOpenChange={this.onOpenChange} onBtn1Click={this.reset} onBtn2Click={this.confirm}>
-        <FilterContent title={title} selectData={selectData} selectedValue={selectedValue} extraInput='自定义时间' extraInputType='calendar'/>
-        <FilterContent title='存货分类' selectData={data} selectedValue={selectedValue2} extraInput='自定义文本' extraInputType='text'/>
+        {/* <FilterContent title={title} selectData={selectData} selectedValue={selectedValue} />
+        <FilterContent title='存货分类' selectData={data} selectedValue={selectedValue2} />
         <FilterContent title='存货分类' selectData={data} selectedValue={selectedValue2} extraInput='自定义文本' extraInputType='text'/>
 
-        <FilterContent title='存货分类' selectData={data} selectedValue={selectedValue2} extraInput='自定义文本' extraInputType='text'/>
+        <FilterContent title='存货分类' selectData={data} selectedValue={selectedValue2} extraInput='自定义文本' extraInputType='text'/> */}
+        <Radio label='哈哈哈哈' dataSource={data} mode='tag' lines='multiple'/>
 
       </MyComponent>,
       <Button onClick={this.onOpenChange}>Click</Button>]

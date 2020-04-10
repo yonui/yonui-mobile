@@ -4,6 +4,7 @@ const manifest: ComponentManifest = {
   label: '卡片容器组',
   type: 'dataContainer',
   uiObject: UIObject.Containers,
+  icon: 'card',
   props: [
     {
       name: 'splitLine',

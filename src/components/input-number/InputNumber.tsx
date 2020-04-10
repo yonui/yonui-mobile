@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
-interface InputNumberPorps {
+import Wrapper from '../list-item-wrapper'
+interface InputNumberPorps extends React.defaultProps{
   label?: string
   precision?: number
   type?: 'normal' | 'money' | 'integer'
@@ -19,6 +20,7 @@ interface InputNumberPorps {
   inputWrapperWidth?: string
   labelWidth?: string
   singleLine?: boolean
+  splitLine?: boolean
   onChange?: (value: string) => void
 }
 
@@ -99,7 +101,7 @@ export default class InputNumber extends Component<InputNumberPorps, InputNumber
   }
 
   render () {
-    const { label, placeholder, disabled, suffix, prefix, textAlign, inputWrapperWidth, labelWidth, value, thousands, required, singleLine } = this.props
+    const { label, placeholder, disabled, suffix, prefix, textAlign, inputWrapperWidth, className, labelWidth, value, thousands, required, singleLine, splitLine, ...other } = this.props
     const { _value } = this.state
     const displayValue = thousands ? this.formatNumber(value || _value || '') : (value || _value)
     const _textAlign = singleLine ? (textAlign || 'right') : (textAlign || 'left')
@@ -107,11 +109,11 @@ export default class InputNumber extends Component<InputNumberPorps, InputNumber
     const inputWrapperStyle: React.CSSProperties = { width: inputWrapperWidth }
     const labelStyle: React.CSSProperties = { width: labelWidth }
     const labelCls = classnames('yonui-input-number-label', 'form-label', { required })
-    const cls = classnames('yonui-input-number', {
+    const cls = classnames('yonui-input-number', className, {
       'yonui-input-number-multiple': !singleLine
     })
     return (
-      <div className={cls}>
+      <Wrapper className={cls} splitLine={splitLine} {...other}>
         <div className={labelCls} style={labelStyle}>{label}</div>
         <div className='yonui-input-number-wrapper' style={inputWrapperStyle}>
           {prefix && <div className='yonui-input-number-prefix' >
@@ -125,7 +127,7 @@ export default class InputNumber extends Component<InputNumberPorps, InputNumber
             {suffix}
           </div>}
         </div>
-      </div>
+      </Wrapper>
     )
   }
 }

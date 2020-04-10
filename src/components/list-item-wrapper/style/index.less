@@ -1,0 +1,18 @@
+@import '../../_style/index.less';
+.list-item-wrapper{
+  background: @fill-base;
+  min-height: 44 * @hd;
+  padding: 0 12*@hd;
+  position: relative;
+  &-split::after{
+    content: '';
+    display: block;
+    position: absolute;
+    width: calc(~'100% - 12*@{hd}');
+    height: 1px;
+    background-color: @split-line;
+    transform: scaleY(.5);
+    bottom: 0;
+    right: 0;
+  }
+}

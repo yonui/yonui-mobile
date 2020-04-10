@@ -1,11 +1,17 @@
 @import '../../_style/index.less';
+@import '../../list-item-wrapper/style/index.less';
 .mdf-input {
-  background: #fff;
   .am-list-body {
     background: transparent;
   }
   .am-list-item {
     background: transparent;
+    &.am-input-item{
+      padding-left: 0;
+      .am-list-line{
+        padding-right: 0;
+      }
+    }
   }
   .am-input-control input {
     font-size: @input-font-size;

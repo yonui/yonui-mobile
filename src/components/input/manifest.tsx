@@ -82,13 +82,13 @@ const manifest: ComponentManifest = {
     {
       name: 'defaultValue',
       type: FieldTypes.string,
-      defaultValue: '默认值',
+      defaultValue: '',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '初始默认值'
+        label: '默认值'
       }
     },
     // {
@@ -124,7 +124,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: false,
         props: {},
-        label: '是否可编辑'
+        label: '允许修改'
       }
     },
     {
@@ -140,9 +140,21 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'splitLine',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '下划线'
+      }
+    },
+    {
       name: 'disabled',
       type: FieldTypes.boolean,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Bool,
         isRequired: false,
@@ -153,7 +165,7 @@ const manifest: ComponentManifest = {
     {
       name: 'clear',
       type: FieldTypes.boolean,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Bool,
         isRequired: false,
@@ -164,7 +176,7 @@ const manifest: ComponentManifest = {
     {
       name: 'onChange',
       type: FieldTypes.action,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
@@ -175,7 +187,7 @@ const manifest: ComponentManifest = {
     {
       name: 'onBlur',
       type: FieldTypes.action,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
@@ -186,7 +198,7 @@ const manifest: ComponentManifest = {
     {
       name: 'onFocus',
       type: FieldTypes.action,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
