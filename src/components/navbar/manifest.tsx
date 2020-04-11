@@ -59,8 +59,8 @@ const manifest: ComponentManifest = {
           caption: '图标库',
           addText: '添加图标',
           editText: '更换图标',
-          iframeUrl: '/IconSelect',
-          iframeId: 'iconSelectIframe',
+          iframeUrl: '/IconSelect?iframeId=backIcon',
+          iframeId: 'iconSelectIframebackIcon',
           message: true,
           footer: true
         },
@@ -79,8 +79,8 @@ const manifest: ComponentManifest = {
           caption: '图标库',
           addText: '添加图标',
           editText: '更换图标',
-          iframeUrl: '/IconSelect',
-          iframeId: 'iconSelectIframe',
+          iframeUrl: '/IconSelect?iframeId=titleIcon',
+          iframeId: 'iconSelectIframetitleIcon',
           message: true,
           footer: true
         },
@@ -99,8 +99,8 @@ const manifest: ComponentManifest = {
           caption: '图标库',
           addText: '添加图标',
           editText: '更换图标',
-          iframeUrl: '/IconSelect',
-          iframeId: 'iconSelectIframe',
+          iframeUrl: '/IconSelect?iframeId=closeIcon',
+          iframeId: 'iconSelectIframecloseIcon',
           message: true,
           footer: true
         },
@@ -119,8 +119,8 @@ const manifest: ComponentManifest = {
           caption: '图标库',
           addText: '添加图标',
           editText: '更换图标',
-          iframeUrl: '/IconSelect',
-          iframeId: 'iconSelectIframe',
+          iframeUrl: '/IconSelect?iframeId=rightIcon1',
+          iframeId: 'iconSelectIframerightIcon1',
           message: true,
           footer: true
         },
@@ -128,26 +128,26 @@ const manifest: ComponentManifest = {
         help: '出现在最右边第一个的图标占位符'
       }
     },
-    // {
-    //   name: 'rightIcon2',
-    //   type: FieldTypes.string,
-    //   defaultValue: 'ellipsis',
-    //   showDesign: true,
-    //   designConfig: {
-    //     type: EditTypes.IframeModal,
-    //     props: {
-    //       caption: '图标库',
-    //       addText: '添加图标',
-    //       editText: '更换图标',
-    //       iframeUrl: '/IconSelect',
-    //       iframeId: 'iconSelectIframe',
-    //       message: true,
-    //       footer: true
-    //     },
-    //     label: '右二图标',
-    //     help: '出现在最右边第二个的图标占位符'
-    //   }
-    // },
+    {
+      name: 'rightIcon2',
+      type: FieldTypes.string,
+      defaultValue: 'ellipsis',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: '/IconSelect?iframeId=rightIcon2',
+          iframeId: 'iconSelectIframerightIcon2',
+          message: true,
+          footer: true
+        },
+        label: '右二图标',
+        help: '出现在最右边第二个的图标占位符'
+      }
+    },
     {
       name: 'onBackClick',
       type: FieldTypes.action,

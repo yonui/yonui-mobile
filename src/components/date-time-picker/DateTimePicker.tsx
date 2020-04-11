@@ -11,7 +11,7 @@ export interface ListDatePickerProps extends DatePickerPropsType {
   style?: object
   dateMode?: 'picker-date' | 'picker-time' | 'picker-datetime' | 'picker-year' | 'picker-month' | 'calendar-date' | 'calendar-datetime'
   splitLine?: boolean
-  onConfirm?: (dateTime?: Date) => void
+  onChangeDate?: (dateTime?: string) => void
   onCancel?: () => void
 }
 
@@ -52,7 +52,10 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
   }
 
   onConfirm = (dateTime?: Date) => {
-    this.props.onConfirm && this.props.onConfirm(dateTime)
+    if (!dateTime) return
+    const { onChangeDate, format = 'yyyy-MM-dd' } = this.props
+    const _dateTime = typeof format === 'string' ? dateFormat(dateTime, format) : format(dateTime)
+    onChangeDate && onChangeDate(_dateTime)
     this.setState({
       visible: false
     })
@@ -60,7 +63,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
   }
 
   render () {
-    const { label, required, value, minDate, maxDate, arrow, disabled, style, dateMode, onConfirm, onCancel, format, extra, title, splitLine, ...restProps } = this.props
+    const { label, required, value, minDate, maxDate, arrow, disabled, style, dateMode, onCancel, format, extra, title, splitLine, ...restProps } = this.props
     const { visible } = this.state
     const valueTrs = (value && typeof value === 'string') ? new Date(value) : value
     const minDateTrs = (minDate && typeof minDate === 'string') ? new Date(minDate) : minDate

@@ -281,14 +281,14 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'onConfirm',
+      name: 'onChange',
       type: FieldTypes.action,
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: 'confirm回调'
+        label: 'onChange'
       }
     },
     {
