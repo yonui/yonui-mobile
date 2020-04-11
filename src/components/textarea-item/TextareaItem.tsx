@@ -18,10 +18,8 @@ export default class MyComponent extends Component<TextareaProps> {
   render () {
     const { label, className, style, nid, uitype, required, maxLength, splitLine, rows = 3, ...other } = this.props
     const cls = classnames(className, 'yonui-textarea')
-    const labelCls = classnames('yonui-textarea-label', 'form-label', { required })
     return (
-      <Wrapper className={cls} style={style} uitype={uitype} nid={nid} splitLine={splitLine}>
-        <div className={labelCls}>{label}</div>
+      <Wrapper className={cls} style={style} uitype={uitype} nid={nid} splitLine={splitLine} label={label} required={required}>
         <TextareaItem rows={rows} {...other} count={maxLength}/>
       </Wrapper>
     )

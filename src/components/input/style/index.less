@@ -24,51 +24,20 @@
     text-align: right;
     color: @input-content-color;
   }
-  &.required {
-    .am-list-item .am-input-label.am-input-label-2 {
-      width: 30*@hd + 15*@hd;
-    }
-    .am-list-item .am-input-label.am-input-label-3 {
-      width: 45*@hd + 15*@hd;
-    }
-    .am-list-item .am-input-label.am-input-label-4 {
-      width: 60*@hd + 15*@hd;
-    }
-    .am-list-item .am-input-label.am-input-label-5 {
-      width: 75*@hd + 15*@hd;
-    }
-    .am-list-item .am-input-label.am-input-label-6 {
-      width: 90*@hd + 15*@hd;
-    }
-    .am-list-item .am-input-label.am-input-label-7 {
-      width: 105*@hd + 15*@hd;
-    }
-  }
 
   .mdf-input-content{
     min-height: 0;
     height: auto;
   }
 
-  &.multi-line{
-    height: 68px;
-    .mdf-input-label{
-      height: 50%;
-    }
-    .am-list-line{
-      flex-wrap: wrap;
-      .am-input-control{
-        input {
-          text-align: left;
-        }
+  &.multiple-line{
+    .mdf-input-content{
+      input{
+        text-align: left;
       }
     }
   }
 
-  &.single-line{
-    display: flex;
-    justify-content: space-between;
-  }
 }
 div[uitype='Input'] {
   width: 100%;

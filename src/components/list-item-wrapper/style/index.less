@@ -4,6 +4,7 @@
   min-height: 44 * @hd;
   padding: 10*@hd 12*@hd;
   position: relative;
+  display: flex;
   &-split::after{
     content: '';
     display: block;
@@ -14,5 +15,25 @@
     transform: scaleY(.5);
     bottom: 0;
     right: 0;
+  }
+
+  &-label{
+    color: @input-label-color;
+    font-size: @input-font-size;
+    &.required::after {
+      content: "*";
+      color: @brand-primary;
+      font-family: SimSun;
+      padding-left: 3*@hd;
+      vertical-align: top;
+    }
+  }
+
+  &.single-line{
+    justify-content: space-between;
+  }
+
+  &.multiple-line{
+    flex-direction: column;
   }
 }

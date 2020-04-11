@@ -3,7 +3,7 @@ import { InputItem } from 'antd-mobile'
 import { InputItemPropsType } from 'antd-mobile/lib/input-item/PropsType'
 import classnames from 'classnames'
 import Wrapper from '../list-item-wrapper'
-export interface InputProps extends InputItemPropsType {
+export interface InputProps extends InputItemPropsType, React.defaultProps {
   label?: string
   required?: boolean
   splitLine?: boolean
@@ -22,13 +22,11 @@ export default class Input extends Component<InputProps> {
   }
 
   render () {
-    const { label, required, splitLine, className, singleLine, style, ...other } = this.props
-    const cls = classnames('mdf-input', className, `${singleLine ? 'single-line' : 'multi-line'}`)
-    const labelCls = classnames('mdf-input-label', 'form-label', { required })
+    const { label, required, splitLine, className, singleLine, style, nid, uitype, ...other } = this.props
+    const cls = classnames('mdf-input', className)
     const inputCls = classnames('mdf-input-content')
     return (
-      <Wrapper className={cls} style={style} splitLine={splitLine} {...other}>
-        <div className={labelCls}>{label}</div>
+      <Wrapper className={cls} style={style} splitLine={splitLine} singleLine={singleLine} nid={nid} uitype={uitype} label={label} >
         <InputItem className={inputCls} {...other} labelNumber={0} />
       </Wrapper>
     )

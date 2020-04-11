@@ -55,7 +55,6 @@ export default class InputNumber extends Component<InputNumberPorps, InputNumber
     const normalCheck = NumberReg.normal.test(val) || !val
     const precisionCheck = val.indexOf('.') === -1 ? true : val.length - val.indexOf('.') - 1 <= precision
     const sizeCheck = Number.isNaN(Number(val)) || (Number(val) >= Number(min) && Number(val) <= Number(max))
-    console.log(normalCheck, precisionCheck, sizeCheck)
     return normalCheck && precisionCheck && sizeCheck
   }
 
@@ -85,7 +84,6 @@ export default class InputNumber extends Component<InputNumberPorps, InputNumber
   onBlur = () => {
     const { autoFill, precision = 3 } = this.props
     const { _value } = this.state
-    console.log(_value)
     if (autoFill) {
       this.setState({
         _value: Number(_value).toFixed(precision)
@@ -101,20 +99,16 @@ export default class InputNumber extends Component<InputNumberPorps, InputNumber
   }
 
   render () {
-    const { label, placeholder, disabled, suffix, prefix, textAlign, inputWrapperWidth, className, labelWidth, value, thousands, required, singleLine, splitLine, ...other } = this.props
+    const { label, placeholder, disabled, suffix, prefix, textAlign, inputWrapperWidth, className, value, thousands, required, singleLine, splitLine, nid, uitype } = this.props
     const { _value } = this.state
     const displayValue = thousands ? this.formatNumber(value || _value || '') : (value || _value)
     const _textAlign = singleLine ? (textAlign || 'right') : (textAlign || 'left')
     const inputStyle: React.CSSProperties = { textAlign: _textAlign }
     const inputWrapperStyle: React.CSSProperties = { width: inputWrapperWidth }
-    const labelStyle: React.CSSProperties = { width: labelWidth }
-    const labelCls = classnames('yonui-input-number-label', 'form-label', { required })
-    const cls = classnames('yonui-input-number', className, {
-      'yonui-input-number-multiple': !singleLine
-    })
+    const labelCls = classnames('yonui-input-number-label')
+    const cls = classnames('yonui-input-number', className)
     return (
-      <Wrapper className={cls} splitLine={splitLine} {...other}>
-        <div className={labelCls} style={labelStyle}>{label}</div>
+      <Wrapper className={cls} splitLine={splitLine} nid={nid} uitype={uitype} labelCls={labelCls} label={label} singleLine={singleLine} required={required}>
         <div className='yonui-input-number-wrapper' style={inputWrapperStyle}>
           {prefix && <div className='yonui-input-number-prefix' >
             {prefix}
