@@ -10,13 +10,19 @@
       padding-left: 0;
       .am-list-line{
         padding-right: 0;
+        .am-input-clear{
+          width: 14px;
+          height: 14px;
+          background-size: 14px auto;
+          margin-left: 12px;
+        }
       }
     }
   }
   .am-input-control input {
     font-size: @input-font-size;
     text-align: right;
-    color: @color-text-input;
+    color: @input-content-color;
   }
   &.required {
     .am-list-item .am-input-label.am-input-label-2 {
@@ -39,6 +45,30 @@
     }
   }
 
+  .mdf-input-content{
+    min-height: 0;
+    height: auto;
+  }
+
+  &.multi-line{
+    height: 68px;
+    .mdf-input-label{
+      height: 50%;
+    }
+    .am-list-line{
+      flex-wrap: wrap;
+      .am-input-control{
+        input {
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  &.single-line{
+    display: flex;
+    justify-content: space-between;
+  }
 }
 div[uitype='Input'] {
   width: 100%;

@@ -36,11 +36,16 @@ export default class Demo1 extends Component {
         <MyComponent {...props}
         onChange={() => { this.onChange() }}
         onBlur={() => { this.onBlur() }}
-        onFocus={() => { this.onFocus() }}/>
+        onFocus={() => { this.onFocus() }}
+        label='标题'
+        />
         <MyComponent {...props}
         onChange={() => { this.onChange() }}
         onBlur={() => { this.onBlur() }}
-        onFocus={() => { this.onFocus() }}/>
+        onFocus={() => { this.onFocus() }}
+        singleLine
+        label='标题'
+        />
         <MyComponent {...props}
         onChange={() => { this.onChange() }}
         onBlur={() => { this.onBlur() }}

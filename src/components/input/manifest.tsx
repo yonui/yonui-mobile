@@ -10,28 +10,13 @@ const manifest: ComponentManifest = {
     {
       name: 'label',
       type: FieldTypes.string,
-      defaultValue: '输入框',
-      showDesign: true,
+      defaultValue: '',
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '标签'
-      }
-    },
-    {
-      name: 'labelNumber',
-      type: FieldTypes.number,
-      defaultValue: 5,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Number,
-        isRequired: true,
-        props: {
-          min: 2,
-          max: 7
-        },
-        label: '标签文字个数'
+        label: '标题文本'
       }
     },
     {
@@ -44,6 +29,19 @@ const manifest: ComponentManifest = {
         props: {},
         label: '最大长度',
         help: '该字段控制的是输入值的长度,除money类型外，仅当text, email, search, password, tel, or url 有效'
+      }
+    },
+    {
+      name: 'singleLine',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '是否单行',
+        help: '控制单行或者双行'
       }
     },
     {
@@ -71,7 +69,7 @@ const manifest: ComponentManifest = {
     {
       name: 'value',
       type: FieldTypes.string,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
@@ -106,7 +104,7 @@ const manifest: ComponentManifest = {
     {
       name: 'placeholder',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: '请输入',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
