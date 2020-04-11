@@ -11,13 +11,23 @@ import './demo.less';
 export default class Demo extends Component<any, any> {
 
   state = {
-    value: undefined
+    start: undefined,
+    end: undefined
+  }
+  onChangeDate = ([start,end] ) => {
+    this.setState({start, end})
   }
     render() {
       console.log(this.state.value)
+      const { start, end} = this.state
         return (
             <div>
-              <MyComponent label='日期范围' value={this.state.value} onConfirm={(start,end)=>{this.setState({value: [start, end]})}}/>
+              <MyComponent
+                label='日期范围' value={[ start, end]} onChangeDate={ this.onChangeDate}
+                onStartChange={(start)=>{this.setState({start})}}
+                onEndChange={(end)=>{this.setState({end})}}
+                mode='range'
+              />
               <Picker label='日期选择'/>
             </div>
         )

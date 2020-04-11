@@ -4,6 +4,7 @@ import { Flex, InputItem } from 'antd-mobile'
 import { CalendarProps } from 'antd-mobile/lib/calendar/PropsType'
 import { dateFormat } from '../_utils'
 import Wrapper from '../list-item-wrapper'
+import DateTimePicker from '../date-time-picker'
 export declare type SelectDateType = [Date, Date] | [Date];
 export interface ListCalendarProps extends CalendarProps {
   label?: string
@@ -12,7 +13,10 @@ export interface ListCalendarProps extends CalendarProps {
   arrow?: boolean
   format?: string
   disabled?: boolean
+  mode?: 'default' | 'range'
   onChangeDate?: (time: [string, string]) => void
+  onStartChange?: (time?: string) => void
+  onEndChange?: (time?: string) => void
 }
 interface ListCalendarStates {
   visible?: boolean
@@ -62,18 +66,23 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
 
   render () {
     const { visible } = this.state
-    const { label, required, value, format, maxDate, minDate, defaultDate, defaultTimeValue, style } = this.props
+    const { label, required, value, format, maxDate, minDate, defaultDate, defaultTimeValue, style, pickTime, mode = 'default', onStartChange, onEndChange } = this.props
     const minDateTrs = (minDate && typeof minDate === 'string') ? new Date(minDate) : minDate
     const maxDateTrs = (maxDate && typeof maxDate === 'string') ? new Date(maxDate) : maxDate
     const defaultDateTrs = (defaultDate && typeof defaultDate === 'string') ? new Date(defaultDate) : defaultDate
     const defaultTimeValueTrs = (defaultTimeValue && typeof defaultTimeValue === 'string') ? new Date(defaultTimeValue) : defaultTimeValue
-    const start = (value && value.length) ? dateFormat(value[0], format || 'yyyy-MM-dd') : ''
+    const start = (value && value.length && value[0]) ? dateFormat(value[0], format || 'yyyy-MM-dd') : ''
     const end = (value && value.length && value[1]) ? dateFormat(value[1], format || 'yyyy-MM-dd') : ''
-    const requiredCls = required ? 'required' : ''
+    if (mode === 'default') {
+      const dateMode = pickTime ? 'picker-datetime' : 'picker-date'
+      return <div>
+        <DateTimePicker label='开始时间' dateMode={dateMode} onChangeDate={onStartChange} value={start} required={required}/>
+        <DateTimePicker label='结束时间' dateMode={dateMode} onChangeDate={onEndChange} value={end} required={required}/>
+      </div>
+    }
     return (
       <div className='date-time-range-wrapper' style={style}>
-        <Wrapper className='date-time-range'>
-          <div className={`form-label ${requiredCls} form-label-calendar`}>{label}</div>
+        <Wrapper className='date-time-range' label={label} required={required} singleLine>
           <Flex className='calendar-range' onClick={this.handClick.bind(this)}>
             <Flex.Item>
               <InputItem placeholder='开始日期' disabled clear value={start}/>
@@ -84,6 +93,7 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
         </Wrapper>
         <Calendar
           {...this.props}
+          pickTime={pickTime}
           prefixCls='am-calendar'
           defaultDate={defaultDateTrs}
           minDate={minDateTrs}

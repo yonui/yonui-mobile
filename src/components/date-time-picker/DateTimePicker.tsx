@@ -59,7 +59,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
     this.setState({
       visible: false
     })
-    console.log(dateTime)
+    console.log(_dateTime)
   }
 
   render () {
@@ -106,9 +106,9 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
           onOk={this.onConfirm}
           onDismiss={this.onCancel}
         >
-          <Wrapper className={`date-time-picker ${(disabled || !arrow) && 'no-arrow'}`} style={style} splitLine={splitLine}>
-            <div className={labelCls} >{label}</div>
-            <div className={valueCls} onClick = {!disabled ? this.onOpenCalendar : undefined}>{valueTrs ? dateFormat(valueTrs, fmt || 'yyyy-MM-dd') : extra}
+          <Wrapper className={`date-time-picker ${(disabled || !arrow) && 'no-arrow'}`} style={style} splitLine={splitLine} label={label} labelCls={labelCls} required={required} singleLine>
+            <div className={valueCls} onClick = {!disabled ? this.onOpenCalendar : undefined}>
+              {valueTrs ? dateFormat(valueTrs, fmt || 'yyyy-MM-dd') : extra}
               <Icon type='right'/>
             </div>
           </Wrapper>

@@ -27,17 +27,18 @@ div[uitype="ListCalendar"] {
 }
 .date-time-range {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  // align-items: center;
+  // justify-content: space-between;
+  &.single-line{
+    padding: 6*@hd 12*@hd;
+  }
   .calendar-range {
-    border: 1*@hd solid #e4e4e4;
-    border-radius: 50*@hd;
     height: 32*@hd;
     font-size: @input-font-size;
     color: #999;
     max-width: 230*@hd;
     .am-list-item .am-input-control input {
-      padding: 0 10*@hd;
+      padding: 0 8*@hd;
       height: 32*@hd;
       font-size: @input-font-size;
       color: @color-text-input;
