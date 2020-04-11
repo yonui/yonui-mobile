@@ -20,7 +20,7 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'type',
+      name: 'mode',
       type: FieldTypes.string,
       defaultValue: 'default',
       showDesign: true,
