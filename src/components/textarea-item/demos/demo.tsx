@@ -10,9 +10,9 @@ export default class Demo1 extends Component {
   render () {
     return (
       <MyComponent
-        rows={5}
-        placeholder="预设内容"
+        // placeholder="预设内容"
         label='123123'
+        // maxLength={1000}
       />
     )
   }

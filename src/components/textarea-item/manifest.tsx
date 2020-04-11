@@ -92,7 +92,7 @@ const manifest: ComponentManifest = {
     {
       name: 'placeholder',
       type: FieldTypes.string,
-      defaultValue: '预设内容',
+      defaultValue: '请输入',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,

@@ -10,6 +10,7 @@ div[uitype='TextareaItem'] {
   }
   .@{TextAreaPrefixClass}-control{
     padding-top: 0;
+    padding-bottom: 0;
     textarea {
       font-size: @input-font-size;
     }
@@ -18,13 +19,12 @@ div[uitype='TextareaItem'] {
 
 .yonui-textarea{
   .am-textarea-control textarea{
-    color: @color-text-input;
+    color: @input-content-color;
   }
   .am-list-item{
     padding-left: 0;
   }
-  &-label{
-    background: @fill-base;
-    padding-top: 10*@hd;
+  .am-textarea-count{
+    bottom: -6px;
   }
 }
