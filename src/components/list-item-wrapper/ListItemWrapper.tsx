@@ -10,17 +10,18 @@ interface ListItemWrapperProps extends React.defaultProps{
   contentCls?: string
   contentStyle?: React.CSSProperties
   content?: JSX.Element
+  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 }
 export default class ListItemWrapper extends Component<ListItemWrapperProps> {
   render () {
-    const { splitLine = true, singleLine, label, labelCls, labelStyle, contentCls, contentStyle, className, style, children, required, nid, uitype } = this.props
+    const { splitLine = true, singleLine, label, labelCls, labelStyle, contentCls, contentStyle, className, style, children, required, nid, uitype, onClick } = this.props
     const cls = classnames('list-item-wrapper', className, `${singleLine ? 'single-line' : 'multiple-line'}`, {
       'list-item-wrapper-split': splitLine
     })
     const _labelCls = classnames('list-item-wrapper-label', labelCls, { required })
     const _contentCls = classnames('list-item-wrapper-contetnt', contentCls)
     return (
-      <div className={cls} style={style} nid={nid} uitype={uitype}>
+      <div className={cls} style={style} nid={nid} uitype={uitype} onClick = {onClick}>
         <div className={_labelCls} style={labelStyle}>
           {label}
         </div>

@@ -20,6 +20,8 @@
   &-label{
     color: @input-label-color;
     font-size: @input-font-size;
+    display: flex;
+    align-items: center;
     &.required::after {
       content: "*";
       color: @brand-primary;
@@ -31,6 +33,10 @@
 
   &.single-line{
     justify-content: space-between;
+    .list-item-wrapper-contetnt{
+      display: inline-flex;
+      align-items: center;
+    }
   }
 
   &.multiple-line{

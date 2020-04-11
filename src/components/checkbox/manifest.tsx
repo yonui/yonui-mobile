@@ -8,23 +8,23 @@ const manifest: ComponentManifest = {
   uiObject: UIObject.Controls,
   icon: 'checkBox',
   props: [
-    {
-      name: 'mode',
-      type: FieldTypes.string,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Select,
-        isRequired: false,
-        props: {
-          options: [
-            { value: '', text: '默认' },
-            { value: 'square', text: '方形' }
-          ]
-        },
-        label: '类型'
-      }
-    },
+    // {
+    //   name: 'mode',
+    //   type: FieldTypes.string,
+    //   defaultValue: '',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Select,
+    //     isRequired: false,
+    //     props: {
+    //       options: [
+    //         { value: '', text: '默认' },
+    //         { value: 'square', text: '方形' }
+    //       ]
+    //     },
+    //     label: '类型'
+    //   }
+    // },
     {
       name: 'content',
       type: FieldTypes.string,

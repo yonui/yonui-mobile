@@ -7,6 +7,7 @@
       width:@icon-size-xs;
       height:@icon-size-xs;
       border-radius: @radius-xs;
+      background-color: @fill-base;
       &:after {
         top: -0.6*@hd;
         right: 5*@hd;
@@ -16,4 +17,20 @@
 }
 .@{checkboxWarpPrefixCls}{
   margin: 4*@hd;
+}
+
+.yonui-checkbox-wrapper{
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10*@hd;
+  .yonui-checkbox-icon{
+    width: 17*@hd;
+    height: 17*@hd;
+  }
+  .yonui-checkbox-text{
+    margin-left: 8*@hd;
+    &.disabled{
+      color: @color-text-caption;
+    }
+  }
 }

@@ -7,11 +7,9 @@ import Radio from '../index';
 import '../style';
 import './demo.less';
 const selectData = [
-  {value: 'value1',desc: 'item1'},
-  {value: 'value2',desc: 'item2'},
-  {value: 'value3',desc: 'item3'},
-  {value: 'value4',desc: 'item4'},
-  {value: 'value5',desc: 'item5', disabled: true}
+  {value: 'value1',desc: '选项'},
+  {value: 'value2',desc: '选项'},
+  {value: 'value5',desc: '选项', disabled: true}
 ]
 export default class Demo1 extends Component {
     constructor(props : any) {
@@ -33,12 +31,10 @@ export default class Demo1 extends Component {
         ];
         return (
             <div>
-              <Radio dataSource={selectData} label='label' mode='default' tagSize='sm' isMultiple/>
-              <Radio dataSource={selectData} label='label' mode='tag' tagSize='sm'  isMultiple/>
-              <Radio dataSource={selectData} label='label' mode='list' isMultiple/>
-              <Radio dataSource={selectData} label='label' mode='default' lines='single' isMultiple/>
-              <Radio dataSource={selectData} label='label' mode='tag' lines='multiple' tagSize='sm'  isMultiple/>
-              <Radio dataSource={selectData} label='label' mode='list' isMultiple/>
+              <Radio dataSource={selectData} label='标题' mode='tag' tagSize='sm'  singleLine/>
+              <Radio dataSource={selectData} label='标题' mode='list' />
+              <Radio dataSource={selectData} label='标题' mode='tag' tagSize='sm'  isMultiple/>
+              <Radio dataSource={selectData} label='标题' mode='list' isMultiple/>
             </div>
         )
     }

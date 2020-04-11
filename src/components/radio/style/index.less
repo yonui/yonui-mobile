@@ -1,17 +1,17 @@
 @import '../../_style/index.less';
-
+@import '../../list-item-wrapper/style/index.less';
 .yonui-radio{
   background-color: @fill-base;
   position: relative;
-  &::after{
-    content: '';
-    position: absolute;
-    display: block;
-    height: 1*@hd;
-    width: 100%;
-    border-bottom: 1*@hd solid @split-line;
-    z-index: 1;
-    bottom: 0;
+
+  &.single-line{
+    padding: 6*@hd 12*@hd;
+  }
+
+  &.multiple-line{
+    .yonui-radio-label{
+      padding-bottom: 4*@hd;
+    }
   }
 
   .yonui-radio-wrapper{
@@ -26,39 +26,32 @@
   .yonui-radio-items{
     display: flex;
     flex-wrap: wrap;
-    transition: max-height 0.5s;
-    max-height: 100vh;
-    overflow: hidden;
-    padding: 0 4*@hd;
+   .radio-items-selected-value{
+     color: @input-content-color;
+     font-size: 16*@hd;
+   }
     &-close{
       max-height: 0;
       overflow: hidden;
     }
-    .yonui-radio-list{
-      padding:6*@hd 12*@hd;
-      border-bottom: 1*@hd solid rgba(233,233,233,1);
-      position: relative;
-      width: 100%;
-      &-active::after{
-        position: absolute;
-        top: 8*@hd;
-        right: 20*@hd;
-        z-index: 999;
-        width: 7*@hd;
-        height: 14*@hd;
-        border-style: solid;
-        border-width: 0 1.5*@hd 1.5*@hd 0;
-        content: '\0020';
-        transform: rotate(45deg);
-        color: @brand-primary;
-      }
-      &-disabled{
-        color: #888888;
-      }
-    }
   }
   .radio-tag{
-    margin: 3*@hd;
+    // margin: 3*@hd;
+    width:73*@hd;
+    height:32*@hd;
+    border-radius:4*@hd;
+    border:1*@hd solid rgba(136,136,136,0.6);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8*@hd;
+    &:last-child{
+      margin-right: 0;
+    }
+
+    &-text{
+      font-size: 15*@hd;
+    }
     &-sm{
       width: 72 * @hd;
     }
@@ -68,35 +61,103 @@
     &-lg{
       width: 100 * @hd;
     }
-    &.am-tag-normal{
+    &.radio-tag-active{
+      color: @brand-primary;
+      border-color: @brand-primary;
+    }
+    &.radio-tag-normal{
       color: #111111;
     }
-    &.am-tag-normal.radio-tag-disabled{
+    &.radio-tag-normal.radio-tag-disabled{
       color: #888888;
     }
   }
-  &-label{
-    // margin: 3*@hd;
-    padding: 0 10*@hd;
-    display: flex;
-    justify-content: space-between;
-    min-height: 40*@hd;
-    line-height: 40*@hd;
-    &-extra{
-      display: flex;
-      align-items: center;
-      &-text{
-        max-width: 200*@hd;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-        color: @color-text-secondary;
-      }
-    }
-  }
+  // &-label{
+  //   // margin: 3*@hd;
+  //   padding: 0 10*@hd;
+  //   display: flex;
+  //   justify-content: space-between;
+  //   min-height: 40*@hd;
+  //   line-height: 40*@hd;
+  //   &-extra{
+  //     display: flex;
+  //     align-items: center;
+  //     &-text{
+  //       max-width: 200*@hd;
+  //       text-overflow: ellipsis;
+  //       overflow: hidden;
+  //       white-space: nowrap;
+  //       color: @color-text-secondary;
+  //     }
+  //   }
+  // }
 
 
   &.yonui-radio-single{
     display: flex;
+  }
+}
+
+.yonui-radio-modal{
+  .yonui-radio-list{
+    &-disabled{
+      color: #888888;
+    }
+    .yonui-radio-list-header{
+      display: flex;
+      justify-content: space-between;
+      padding: 0 12*@hd;
+      height: 44*@hd;
+      align-items: center;
+      border-radius: 4*@hd 4*@hd 0 0;
+      background: #F5F5F5;
+      position: relative;
+      &::after{
+        content: '';
+          display: block;
+          position: absolute;
+          width: 100%;
+          height: 1*@hd;
+          background-color: @split-line;
+          transform: scaleY(.5);
+          bottom: 0;
+          right: 0;
+      }
+      &-btn-confirm{
+        color: @brand-primary;
+        font-size: 16*@hd;
+      }
+      &-btn-cancel{
+        color: @color-text-base;
+        font-size: 16*@hd;
+      }
+      &-empty{
+        height: 4*@hd;
+        border-radius: 4*@hd 4*@hd 0 0;
+        background-color: #fff;
+      }
+    }
+
+    &-content{
+      background-color: #fff;
+    }
+
+    &-footer{
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6*@hd 12*@hd;
+      &-data{
+        color: @brand-primary;
+      }
+      &-btn{
+        width: 78*@hd;
+      }
+    }
+
+  }
+  .am-modal-content{
+    background-color: transparent;
   }
 }

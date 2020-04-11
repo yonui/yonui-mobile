@@ -1,24 +1,36 @@
 import React, { Component } from 'react'
-import { Radio, Icon } from 'antd-mobile'
+import { Radio, Icon, Modal, Button } from 'antd-mobile'
+import Wrapper from '../list-item-wrapper'
 import classnames from 'classnames'
+import selectedImg from './style/selected.png'
 type dataSourceType = Array<{ desc: string, value: string, disabled?: boolean }>
 interface RadioProps extends React.defaultProps {
-  mode?: 'default' | 'tag' | 'list'
+  mode?: 'tag' | 'list'
   isMultiple?: boolean // 支持多选
   lines?: 'single' | 'multiple' | 'multiple-select'
   label?: string
   dataSource?: dataSourceType // Array<{key: string, label: string}>
   onChange?: (index: number, data: { desc: string, value: string, disabled?: boolean }) => void
+  onConfirm?: (value: number[]) => void
   checkedValue?: string | string[]
   tagSize?: 'sm' | 'lg' | 'md' | 'default'
   labelWidth?: number
   labelStyle?: React.CSSProperties
   itemsStyle?: React.CSSProperties
   disabled?: boolean
+  singleLine?: boolean
+  splitLine?: boolean
+  required?: boolean
 }
-
+const TextString = {
+  cancel: '取消',
+  confirm: '确定',
+  selected: '已选择',
+  selectAll: '全选'
+}
 interface RadioState {
   _checkedIndex: Set<number>
+  _checkedIndexTemp: Set<number>
   open: boolean
 }
 
@@ -27,6 +39,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     super(props)
     this.state = {
       _checkedIndex: new Set(),
+      _checkedIndexTemp: new Set(),
       open: false
     }
   }
@@ -37,18 +50,24 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     lines: 'multiple-select'
   }
 
-  onClickItem = (data: { desc: string, value: string, disabled?: boolean }, index: number, e?: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+  onClickItem = (data: { desc: string, value: string, disabled?: boolean }, index: number, e?: React.MouseEvent<HTMLSpanElement, MouseEvent>, temp?: boolean) => {
     e && e.stopPropagation()
     const { disabled, onChange, isMultiple } = this.props
-    const { _checkedIndex } = this.state
-    console.log(data)
+    const { _checkedIndex, _checkedIndexTemp } = this.state
+    const cloneSet = temp ? new Set(Array.from(_checkedIndexTemp)) : new Set(Array.from(_checkedIndex))
     if (disabled) {
       return
     }
-    const currentIndex = isMultiple ? (_checkedIndex.delete(index) ? _checkedIndex : _checkedIndex.add(index)) : new Set([index])
-    this.setState({
-      _checkedIndex: currentIndex
-    })
+    const currentIndex = isMultiple ? (cloneSet.delete(index) ? cloneSet : cloneSet.add(index)) : new Set([index])
+    if (temp) {
+      this.setState({
+        _checkedIndexTemp: currentIndex
+      })
+    } else {
+      this.setState({
+        _checkedIndex: currentIndex
+      })
+    }
     onChange && onChange(index, data)
   }
 
@@ -71,34 +90,79 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     return selectData.map((item, index) => {
       const cls = classnames(
         'radio-tag',
-        'am-tag',
-        'am-tag-default',
+        // 'am-tag-default',
         `radio-tag-${tagSize}`,
-        `${(selectedValue ? selectedValueSet.has(item.value) : _checkedIndex.has(index)) ? 'am-tag-active' : 'am-tag-normal'}`,
+        `${(selectedValue ? selectedValueSet.has(item.value) : _checkedIndex.has(index)) ? 'radio-tag-active' : 'radio-tag-normal'}`,
         {
           'radio-tag-disabled': this.props.disabled || item.disabled
         }
 
       )
       return <div className={cls} key={index} onClick={() => { !item.disabled && this.onClickItem(item, index) }}>
-        <div className='am-tag-text'>{item.desc}</div>
+        <div className='radio-tag-text'>{item.desc}</div>
       </div>
     })
   }
 
   renderRaioList = (selectData?: dataSourceType, selectedValue?: string | string[]) => {
     if (!selectData || !Array.isArray(selectData)) return null
+    const { isMultiple } = this.props
     const selectedValueSet = typeof selectedValue === 'string' ? new Set([selectedValue]) : new Set(selectedValue)
-    return selectData.map((item, index) => {
-      const { _checkedIndex } = this.state
-      const _checked = selectedValue ? selectedValueSet.has(item.value) : _checkedIndex.has(index)
-      const cls = classnames('yonui-radio-list', {
+    const { _checkedIndexTemp } = this.state
+    const _list = selectData.map((item, index) => {
+      const _checked = selectedValue ? selectedValueSet.has(item.value) : _checkedIndexTemp.has(index)
+      const cls = classnames({
         'yonui-radio-list-active': _checked,
         'yonui-radio-list-disabled': this.props.disabled || item.disabled
       })
-      return <div className={cls} key={index} onClick={() => { !item.disabled && this.onClickItem(item, index) }}>
-        {item.desc}
+      const onClickWrapper = (e: any) => {
+        if (item.disabled) return
+        if (isMultiple) {
+          this.onClickItem(item, index, e, true)
+        } else {
+          this.onClickItem(item, index)
+          this.onCloseModal()
+        }
+      }
+      return <Wrapper labelCls={cls} key={index} label={item.desc} onClick={ onClickWrapper} singleLine>
+        { _checked ? <img src={selectedImg} style={{ width: '17px', height: '14px' }}/> : ''}
+      </Wrapper>
+    })
+    return <div className='yonui-radio-list'>
+      {isMultiple ? <div className='yonui-radio-list-header'>
+        <span className='yonui-radio-list-header-btn-cancel' onClick={ () => { this.onCloseModal() }}>
+          {TextString.cancel}
+        </span>
+        <span className='yonui-radio-list-header-btn-confirm' onClick={ this.selectAll}>
+          {TextString.selectAll}
+        </span>
+      </div> : <div className='yonui-radio-list-header-empty'> </div>}
+      <div className='yonui-radio-list-content'>
+        {_list}
       </div>
+      {isMultiple && <div className='yonui-radio-list-footer'>
+        <div className='yonui-radio-list-footer-data'>
+          {TextString.selected} {_checkedIndexTemp.size}/{selectData.length}
+        </div>
+        <Button size='small' type='primary' className='yonui-radio-list-footer-btn' onClick={this.onConfirm}>{TextString.confirm}</Button>
+      </div>}
+    </div>
+  }
+
+  onConfirm = () => {
+    this.onCloseModal(true)
+    const { onConfirm } = this.props
+    const { _checkedIndex } = this.state
+    onConfirm && onConfirm(Array.from(_checkedIndex))
+  }
+
+  selectAll = () => {
+    const { dataSource } = this.props
+    // const length = dataSource?.map( (item, index) => index)
+    const _temp = new Set(dataSource?.map((item, index) => !item.disabled ? index : -1))
+    _temp.delete(-1)
+    this.setState({
+      _checkedIndexTemp: _temp
     })
   }
 
@@ -136,7 +200,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
           {label}
           <div className='yonui-radio-label-extra' onClick={() => { clickOpen() }} >
             <span className='yonui-radio-label-extra-text'> {displayValue}</span>
-            {open ? <Icon type='up'/> : <Icon type='down'/>}
+            {open ? <Icon type='up' /> : <Icon type='down' />}
           </div>
         </div>
       }
@@ -150,51 +214,94 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     }
   }
 
-  renderContent = (content: any, lines?: 'single' | 'multiple' | 'multiple-select', style?: React.CSSProperties) => {
-    switch (lines) {
-      case 'multiple-select': {
-        const { open } = this.state
-        return <div className={`yonui-radio-items yonui-radio-items-${open ? 'open' : 'close'}`} style={style}>
-          {content}
-        </div>
-      }
-      case 'single':
-      case 'multiple':
-      default: {
-        return <div className='yonui-radio-items' style={style}>
-          {content}
-        </div>
-      }
+  onOpenModal = () => {
+    const { _checkedIndex } = this.state
+    this.setState({
+      open: true,
+      _checkedIndexTemp: _checkedIndex
+    })
+  }
+
+  onCloseModal = (change?: boolean) => {
+    const { _checkedIndexTemp } = this.state
+    if (change) {
+      this.setState({
+        open: false,
+        _checkedIndex: _checkedIndexTemp
+      })
+    } else {
+      this.setState({
+        open: false
+      })
     }
   }
 
-  render () {
-    const { mode, dataSource, checkedValue, label, tagSize, labelStyle = {}, itemsStyle = {}, lines, labelWidth = 20, onChange, className, ...other } = this.props
-    let radioArr: any
-    const _labelStyle: React.CSSProperties = { width: `${lines === 'single' ? labelWidth : 100}%` }
-    const _itemsStyle: React.CSSProperties = { width: `${lines === 'single' ? 100 - (labelWidth - 0) : 100}%` }
+  renderContent = () => {
+    const { _checkedIndex } = this.state
+    const { dataSource, checkedValue, disabled } = this.props
+    if (disabled) return '不可选'
+    const res: string[] = []
+    if (checkedValue) {
+      if (typeof checkedValue === 'string') {
+        // eslint-disable-next-line no-unused-expressions
+        dataSource?.forEach(item => {
+          if (item.value === checkedValue) res.push(item.desc)
+        })
+      } else {
+        // eslint-disable-next-line no-unused-expressions
+        dataSource?.forEach(item => {
+          if (checkedValue.indexOf(item.value) !== -1) res.push(item.desc)
+        })
+      }
+    } else {
+      Array.from(_checkedIndex).sort((a, b) => (a - b)).forEach(item => {
+        dataSource && res.push(dataSource[item].desc)
+      })
+    }
+    const displayValue = res.join(',')
+    return <React.Fragment>
+      <span className='radio-items-selected-value'>{displayValue}</span>
+      <Icon type='right' color='#BFBFBF' onClick={() => { this.onOpenModal() }} />
+    </React.Fragment>
+  }
 
+  render () {
+    const { mode, dataSource, checkedValue, label, tagSize, className, nid, uitype, splitLine, singleLine, required } = this.props
+    const { open } = this.state
+    let radioArr: any
+    // const _labelStyle: React.CSSProperties = { width: `${lines === 'single' ? labelWidth : 100}%` }
+    // const _itemsStyle: React.CSSProperties = { width: `${lines === 'single' ? 100 - (labelWidth - 0) : 100}%` }
     switch (mode) {
       case 'tag': {
         radioArr = this.renderSelection(dataSource, checkedValue, tagSize)
         break
       }
       case 'list': {
-        radioArr = this.renderRaioList(dataSource, checkedValue)
+        radioArr = this.renderContent()
+        // this.renderRaioList(dataSource, checkedValue)
         break
       }
-      case 'default':
       default: {
-        radioArr = this.renderRadio(dataSource, checkedValue)
+        // radioArr = this.renderSelection(dataSource, checkedValue)
+        radioArr = this.renderSelection(dataSource, checkedValue, tagSize)
         break
       }
     }
-    const cls = classnames(className, 'yonui-radio', `yonui-radio-${lines}`)
+    const cls = classnames(className, 'yonui-radio')
     return (
-      <div {...other} className={cls}>
-        {this.renderLabel(label, lines, { ..._labelStyle, ...labelStyle })}
-        {this.renderContent(radioArr, lines, { ..._itemsStyle, ...itemsStyle })}
-      </div>
+      // <div {...other} className={cls}>
+      //   {this.renderLabel(label, lines, { ..._labelStyle, ...labelStyle })}
+      //   {this.renderContent(radioArr, lines, { ..._itemsStyle, ...itemsStyle })}
+      // </div>
+      <Wrapper className={cls} nid={nid} uitype={uitype} singleLine={singleLine || mode === 'list'} splitLine={splitLine} label={label} labelCls={'yonui-radio-label'} required={required}>
+        {/* {this.renderContent(radioArr, lines)} */}
+        <div className='yonui-radio-items'>
+          {radioArr}
+        </div>
+        <Modal visible={open} popup maskClosable onClose={ () => { this.onCloseModal() }} animationType='slide-up' className='yonui-radio-modal'>
+          {this.renderRaioList(dataSource, checkedValue)}
+        </Modal>
+      </Wrapper>
     )
   }
 }
