@@ -18,7 +18,7 @@ export default class Demo extends Component<any, any> {
 
     render() {
         return (
-            <MyComponent label='time' onConfirm={(val)=>{ this.setState({value: val})}} value={this.state.value} />
+            <MyComponent label='time' dateMode='picker-year' onChangeDate={(val)=>{ this.setState({value: val})}}  />
             // < Calendar title='xxx' visible={true}/>
         )
     }

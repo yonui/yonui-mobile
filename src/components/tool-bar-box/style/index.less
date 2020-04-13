@@ -1,16 +1,18 @@
 @import '../../_style/index.less';
 @import '../../button/style/index.less';
 .yonui-mobile-tool-bars-2{
-  padding: 9px 0;
+  padding: 13*@hd 0;
   background-color: @fill-base;
   .yonui-mobile-tool-bars-wrapper{
     // display: flex;
     // justify-content: space-between;
     overflow: auto;
     white-space: nowrap;
-    padding: 0 8px;
+    padding: 0 7*@hd;
+    height: 32*@hd;
+    direction: rtl;
     .mdf-button{
-      margin: 0 5px;
+      margin: 0 5*@hd;
       display: inline-block;
       // &.mdf-button-default{
       //   background-color: @toolbars-next-btn;
@@ -24,19 +26,19 @@
       // }
     }
     &.length-1 .mdf-button{
-      width: calc(~'100% - 10px')
+      width: calc(~'100% - 10*@{hd}')
     }
     &.length-2 .mdf-button{
-      width: calc(~'50% - 10px')
+      width: calc(~'50% - 10*@{hd}')
     }
     &.length-3 .mdf-button{
-      width: calc(~'33.33% - 10px')
+      width: calc(~'33.33% - 10*@{hd}')
     }
     &.length-4 .mdf-button{
-      width: calc(~'25% - 10px')
+      width: calc(~'25% - 10*@{hd}')
     }
     &.length-5 .mdf-button{
-      width: calc(~'22% - 10px')
+      width: calc(~'22% - 10*@{hd}')
     }
 
 

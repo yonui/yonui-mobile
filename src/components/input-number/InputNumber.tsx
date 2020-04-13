@@ -69,16 +69,16 @@ export default class InputNumber extends Component<InputNumberPorps, InputNumber
   }
 
   onChangeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // const displayValue = event.target.value
-    // const currentValue = displayValue.replace(/,/g, '')
-    // const { onChange } = this.props
-    // const _val = this.preprocess(currentValue)
-    // if (this.checkoutNumber(_val)) {
-    //   this.setState({
-    //     _value: _val
-    //   })
-    //   onChange && onChange(_val)
-    // }
+    const displayValue = event.target.value
+    const currentValue = displayValue.replace(/,/g, '')
+    const { onChange } = this.props
+    const _val = this.preprocess(currentValue)
+    if (this.checkoutNumber(_val)) {
+      this.setState({
+        _value: _val
+      })
+      onChange && onChange(_val)
+    }
   }
 
   onBlur = () => {

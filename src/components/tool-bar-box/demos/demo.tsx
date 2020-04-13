@@ -32,23 +32,23 @@ export default class Demo1 extends Component<any, any> {
     console.log(val, index)
   }
 
-  renderTextToolbars = (values: valueItem[]) => {
-    return values.map((item, index) => {
-      return [
-        <ToolBar values={values.slice(0, index + 1)} onChange={this.onChange}  />,
-        <br />
-      ]
-    })
-  }
+  // renderTextToolbars = (values: valueItem[]) => {
+  //   return values.map((item, index) => {
+  //     return [
+  //       <ToolBar values={values.slice(0, index + 1)} onChange={this.onChange}  />,
+  //       <br />
+  //     ]
+  //   })
+  // }
 
-  renderButtonToolbars = (values: valueItem[]) => {
-    return values.map((item, index) => {
-      return [
-        <ToolBar values={values.slice(0, index + 1)} onChange={this.onClickBtn} mode='button'  />,
-        <br />
-      ]
-    })
-  }
+  // renderButtonToolbars = (values: valueItem[]) => {
+  //   return values.map((item, index) => {
+  //     return [
+  //       <ToolBar values={values.slice(0, index + 1)} onChange={this.onClickBtn} mode='button'  />,
+  //       <br />
+  //     ]
+  //   })
+  // }
 
   render() {
     return (
@@ -56,8 +56,8 @@ export default class Demo1 extends Component<any, any> {
         {/* {this.renderTextToolbars(values)}
         {this.renderButtonToolbars(values)} */}
         <ToolBar>
-          <Button size='small'>btn1</Button>
-          <Button size='small' type='primary'>Btn2</Button>
+          <Button size='small' mode='toolbar-primary'>btn1</Button>
+          <Button size='small' mode='toolbar-default'>Btn2</Button>
           {/* <Button size='small'>Btn3</Button>
           <Button size='small'>Btn4</Button>
           <Button size='small'>Btn5</Button>

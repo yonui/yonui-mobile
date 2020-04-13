@@ -171,16 +171,19 @@ const manifest: ComponentManifest = {
     {
       name: 'format',
       type: FieldTypes.string,
-      defaultValue: 'YYYY-MM-DD',
+      defaultValue: '',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
         isRequired: true,
         props: {
           options: [
-            { value: 'YYYY-MM-DD', text: '日期' },
+            { value: '', text: '默认' },
+            { value: 'yyyy-MM-dd', text: 'yyyy-MM-dd' },
             { value: 'HH:mm', text: '时间' },
-            { value: 'YYYY-MM-DD HH:mm', text: '日期+时间' }
+            { value: 'yyyy-MM-dd HH:mm', text: 'yyyy-MM-dd HH:mm' },
+            { value: 'yyyy', text: 'yyyy' },
+            { value: 'yyyy-MM', text: 'yyyy-MM' }
           ]
         },
         label: 'format',

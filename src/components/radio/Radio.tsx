@@ -10,7 +10,8 @@ interface RadioProps extends React.defaultProps {
   // lines?: 'single' | 'multiple' | 'multiple-select'
   label?: string
   dataSource?: dataSourceType // Array<{key: string, label: string}>
-  onChange?: (index: number, data: { desc: string, value: string, disabled?: boolean }) => void
+  onClick?: (index: number, data: { desc: string, value: string, disabled?: boolean }) => void
+  onChange?: (index: number, selectedValue: string[], selectedData: any) => void
   onConfirm?: (value: number[]) => void
   checkedValue?: string | string[]
   tagSize?: 'sm' | 'lg' | 'md' | 'default'
@@ -52,7 +53,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
 
   onClickItem = (data: { desc: string, value: string, disabled?: boolean }, index: number, e?: React.MouseEvent<HTMLSpanElement, MouseEvent>, temp?: boolean) => {
     e && e.stopPropagation()
-    const { disabled, onChange, isMultiple } = this.props
+    const { disabled, onChange, dataSource = [], isMultiple, onClick } = this.props
     const { _checkedIndex, _checkedIndexTemp } = this.state
     const cloneSet = temp ? new Set(Array.from(_checkedIndexTemp)) : new Set(Array.from(_checkedIndex))
     if (disabled) {
@@ -68,7 +69,14 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
         _checkedIndex: currentIndex
       })
     }
-    onChange && onChange(index, data)
+    onClick && onClick(index, data)
+    const _selectedValue: string[] = []
+    const _selectedData: any[] = []
+    Array.from(currentIndex).forEach(item => {
+      _selectedValue.push(dataSource[item]?.value)
+      _selectedData.push(dataSource[item])
+    })
+    onChange && onChange(index, _selectedValue, _selectedData)
   }
 
   renderRadio = (dataSource?: dataSourceType, selectedValue?: string | string[]) => {

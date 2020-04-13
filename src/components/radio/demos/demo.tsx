@@ -18,11 +18,11 @@ export default class Demo1 extends Component {
             value: 0,
         }
     }
-    onChange = (value: any) => {
-        console.log('checkbox');
-        this.setState({
-            value,
-        });
+    onChange = (...a:any) => {
+        console.log(a);
+        // this.setState({
+        //     value,
+        // });
     };
     render() {
         const data = [
@@ -31,9 +31,9 @@ export default class Demo1 extends Component {
         ];
         return (
             <div>
-              <Radio dataSource={selectData} label='标题' mode='tag' tagSize='sm'  singleLine/>
+              <Radio dataSource={selectData} label='标题' mode='tag' onChange={this.onChange} tagSize='sm'  singleLine/>
               <Radio dataSource={selectData} label='标题' mode='list' />
-              <Radio dataSource={selectData} label='标题' mode='tag' tagSize='sm'  isMultiple/>
+              <Radio dataSource={selectData} label='标题' mode='tag'  onChange={this.onChange} tagSize='sm'  isMultiple/>
               <Radio dataSource={selectData} label='标题' mode='list' isMultiple/>
             </div>
         )
