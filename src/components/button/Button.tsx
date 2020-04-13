@@ -6,6 +6,7 @@ export interface ButtonProps extends React.defaultProps{
   prefixCls?: string
   content?: string
   mode?: 'primary' | 'warning' | 'ghost' | 'default' | 'text' | 'toolbar-default' | 'toolbar-primary'
+  type?: 'primary' | 'warning' | 'ghost' | 'default' | 'text' | 'toolbar-default' | 'toolbar-primary'
   size?: 'large' | 'small'
   inline?: boolean
   disabled?: boolean
@@ -56,6 +57,7 @@ class Button extends React.Component<ButtonProps, any> {
       children,
       content,
       mode,
+      type,
       size,
       inline,
       disabled,
@@ -68,14 +70,15 @@ class Button extends React.Component<ButtonProps, any> {
     } = this.props
 
     const iconType: any = loading ? 'loading' : icon
+    const _mode = mode || type
     const wrapCls = classnames(prefixCls, className, `${prefixCls}-${size}`, {
-      [`${prefixCls}-primary`]: mode === 'primary',
-      [`${prefixCls}-default`]: mode === 'default' || !mode,
-      [`${prefixCls}-ghost`]: mode === 'ghost',
-      [`${prefixCls}-warning`]: mode === 'warning',
-      [`${prefixCls}-text`]: mode === 'text',
-      [`${prefixCls}-toolbar-default`]: mode === 'toolbar-default',
-      [`${prefixCls}-toolbar-primary`]: mode === 'toolbar-primary',
+      [`${prefixCls}-primary`]: _mode === 'primary',
+      [`${prefixCls}-default`]: _mode === 'default' || !_mode,
+      [`${prefixCls}-ghost`]: _mode === 'ghost',
+      [`${prefixCls}-warning`]: _mode === 'warning',
+      [`${prefixCls}-text`]: _mode === 'text',
+      [`${prefixCls}-toolbar-default`]: _mode === 'toolbar-default',
+      [`${prefixCls}-toolbar-primary`]: _mode === 'toolbar-primary',
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-loading`]: loading,

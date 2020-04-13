@@ -17,14 +17,14 @@ const manifest: ComponentManifest = {
     {
       name: 'mode',
       type: FieldTypes.string,
-      defaultValue: 'default',
+      defaultValue: 'tag',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
         isRequired: false,
         props: {
           options: [
-            { value: 'default', text: '默认' },
+            // { value: 'default', text: '默认' },
             { value: 'tag', text: '标签' },
             { value: 'list', text: '列表' }
           ]
@@ -45,24 +45,24 @@ const manifest: ComponentManifest = {
         label: '多选'
       }
     },
-    {
-      name: 'lines',
-      type: FieldTypes.string,
-      defaultValue: 'multiple',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Select,
-        isRequired: false,
-        props: {
-          options: [
-            { value: 'single', text: '单行' },
-            { value: 'multiple', text: '多行' },
-            { value: 'multiple-select', text: '多行(支持展开收起)' }
-          ]
-        },
-        label: '选项面板'
-      }
-    },
+    // {
+    //   name: 'lines',
+    //   type: FieldTypes.string,
+    //   defaultValue: 'multiple',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Select,
+    //     isRequired: false,
+    //     props: {
+    //       options: [
+    //         { value: 'single', text: '单行' },
+    //         { value: 'multiple', text: '多行' },
+    //         { value: 'multiple-select', text: '多行(支持展开收起)' }
+    //       ]
+    //     },
+    //     label: '选项面板'
+    //   }
+    // },
     {
       name: 'label',
       type: FieldTypes.string,

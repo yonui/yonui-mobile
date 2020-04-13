@@ -21,6 +21,23 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'mode',
+      type: FieldTypes.string,
+      defaultValue: 'default',
+      showDesign: false,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {
+          options: [
+            { text: 'default', value: '默认' },
+            { text: 'range', value: '范围选择' }
+          ]
+        },
+        label: '模式'
+      }
+    },
+    {
       name: 'enterDirection',
       type: FieldTypes.string,
       defaultValue: 'vertical',

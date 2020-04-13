@@ -7,7 +7,7 @@ type dataSourceType = Array<{ desc: string, value: string, disabled?: boolean }>
 interface RadioProps extends React.defaultProps {
   mode?: 'tag' | 'list'
   isMultiple?: boolean // 支持多选
-  lines?: 'single' | 'multiple' | 'multiple-select'
+  // lines?: 'single' | 'multiple' | 'multiple-select'
   label?: string
   dataSource?: dataSourceType // Array<{key: string, label: string}>
   onChange?: (index: number, data: { desc: string, value: string, disabled?: boolean }) => void
@@ -46,8 +46,8 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
 
   static defaultProps = {
     tagSize: 'default',
-    disabled: false,
-    lines: 'multiple-select'
+    disabled: false
+    // lines: 'multiple-select'
   }
 
   onClickItem = (data: { desc: string, value: string, disabled?: boolean }, index: number, e?: React.MouseEvent<HTMLSpanElement, MouseEvent>, temp?: boolean) => {
@@ -166,53 +166,53 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     })
   }
 
-  renderLabel = (label?: string, lines?: 'single' | 'multiple' | 'multiple-select', style?: React.CSSProperties) => {
-    console.log('label is: ', label)
-    switch (lines) {
-      case 'multiple-select': {
-        const { open, _checkedIndex } = this.state
-        const { dataSource, checkedValue } = this.props
-        const res: string[] = []
-        if (checkedValue) {
-          if (typeof checkedValue === 'string') {
-            // eslint-disable-next-line no-unused-expressions
-            dataSource?.forEach(item => {
-              if (item.value === checkedValue) res.push(item.desc)
-            })
-          } else {
-            // eslint-disable-next-line no-unused-expressions
-            dataSource?.forEach(item => {
-              if (checkedValue.indexOf(item.value) !== -1) res.push(item.desc)
-            })
-          }
-        } else {
-          Array.from(_checkedIndex).sort((a, b) => (a - b)).forEach(item => {
-            dataSource && res.push(dataSource[item].desc)
-          })
-        }
-        const displayValue = res.join(',')
-        const clickOpen = () => {
-          this.setState({
-            open: !open
-          })
-        }
-        return <div className='yonui-radio-label form-label' style={style}>
-          {label}
-          <div className='yonui-radio-label-extra' onClick={() => { clickOpen() }} >
-            <span className='yonui-radio-label-extra-text'> {displayValue}</span>
-            {open ? <Icon type='up' /> : <Icon type='down' />}
-          </div>
-        </div>
-      }
-      case 'single':
-      case 'multiple':
-      default: {
-        return <div className='yonui-radio-label form-label' style={style}>
-          {label}
-        </div>
-      }
-    }
-  }
+  // renderLabel = (label?: string, lines?: 'single' | 'multiple' | 'multiple-select', style?: React.CSSProperties) => {
+  //   console.log('label is: ', label)
+  //   switch (lines) {
+  //     case 'multiple-select': {
+  //       const { open, _checkedIndex } = this.state
+  //       const { dataSource, checkedValue } = this.props
+  //       const res: string[] = []
+  //       if (checkedValue) {
+  //         if (typeof checkedValue === 'string') {
+  //           // eslint-disable-next-line no-unused-expressions
+  //           dataSource?.forEach(item => {
+  //             if (item.value === checkedValue) res.push(item.desc)
+  //           })
+  //         } else {
+  //           // eslint-disable-next-line no-unused-expressions
+  //           dataSource?.forEach(item => {
+  //             if (checkedValue.indexOf(item.value) !== -1) res.push(item.desc)
+  //           })
+  //         }
+  //       } else {
+  //         Array.from(_checkedIndex).sort((a, b) => (a - b)).forEach(item => {
+  //           dataSource && res.push(dataSource[item].desc)
+  //         })
+  //       }
+  //       const displayValue = res.join(',')
+  //       const clickOpen = () => {
+  //         this.setState({
+  //           open: !open
+  //         })
+  //       }
+  //       return <div className='yonui-radio-label form-label' style={style}>
+  //         {label}
+  //         <div className='yonui-radio-label-extra' onClick={() => { clickOpen() }} >
+  //           <span className='yonui-radio-label-extra-text'> {displayValue}</span>
+  //           {open ? <Icon type='up' /> : <Icon type='down' />}
+  //         </div>
+  //       </div>
+  //     }
+  //     case 'single':
+  //     case 'multiple':
+  //     default: {
+  //       return <div className='yonui-radio-label form-label' style={style}>
+  //         {label}
+  //       </div>
+  //     }
+  //   }
+  // }
 
   onOpenModal = () => {
     const { _checkedIndex } = this.state
