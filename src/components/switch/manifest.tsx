@@ -17,7 +17,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '选中'
+        label: '默认值'
       }
     },
     {
@@ -29,7 +29,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '设置禁用'
+        label: '禁用'
       }
     },
     {
@@ -48,7 +48,7 @@ const manifest: ComponentManifest = {
       name: 'name',
       type: FieldTypes.string,
       defaultValue: '',
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
@@ -60,13 +60,13 @@ const manifest: ComponentManifest = {
     {
       name: 'title',
       type: FieldTypes.string,
-      defaultValue: '滑动开关',
+      defaultValue: '',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '左侧标题'
+        label: '标题文本'
       }
     },
     {
@@ -89,7 +89,7 @@ const manifest: ComponentManifest = {
     {
       name: 'onClick',
       type: FieldTypes.action,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
@@ -100,12 +100,66 @@ const manifest: ComponentManifest = {
     {
       name: 'onChange',
       type: FieldTypes.action,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
         label: 'onChange'
+      }
+    },
+    {
+      name: 'bIsNull',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: true,
+        props: {},
+        label: '允许为空'
+      }
+    },
+    {
+      name: 'bMustSelect',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: true,
+        props: {},
+        label: '是否必传'
+      }
+    },
+    {
+      name: 'isExport',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: true,
+        props: {},
+        label: '允许导出'
+      }
+    },
+    {
+      name: 'bVmExclude',
+      type: FieldTypes.number,
+      defaultValue: 0,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        isRequired: true,
+        props: {
+          options: [
+            { text: '默认', value: 0 },
+            { text: '只存储不显示', value: 1 },
+            { text: '只显示不存储', value: 2 }
+          ]
+        },
+        label: '数据形态'
       }
     }
   ],

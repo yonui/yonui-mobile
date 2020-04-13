@@ -19,7 +19,7 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
       'list-item-wrapper-split': splitLine
     })
     const _labelCls = classnames('list-item-wrapper-label', labelCls, { required })
-    const _contentCls = classnames('list-item-wrapper-contetnt', contentCls)
+    const _contentCls = classnames('list-item-wrapper-content', contentCls)
     return (
       <div className={cls} style={style} nid={nid} uitype={uitype} onClick = {onClick}>
         <div className={_labelCls} style={labelStyle}>
