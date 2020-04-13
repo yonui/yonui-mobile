@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps } from 'yonui-extension'
 // todo 未配置 onClick onChange
 const manifest: ComponentManifest = {
   name: 'Switch',
@@ -20,18 +20,18 @@ const manifest: ComponentManifest = {
         label: '默认值'
       }
     },
-    {
-      name: 'disabled',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: true,
-        props: {},
-        label: '禁用'
-      }
-    },
+    // {
+    //   name: 'disabled',
+    //   type: FieldTypes.boolean,
+    //   defaultValue: false,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Bool,
+    //     isRequired: true,
+    //     props: {},
+    //     label: '禁用'
+    //   }
+    // },
     {
       name: 'color',
       type: FieldTypes.string,
@@ -61,7 +61,7 @@ const manifest: ComponentManifest = {
       name: 'title',
       type: FieldTypes.string,
       defaultValue: '',
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
@@ -107,63 +107,16 @@ const manifest: ComponentManifest = {
         props: {},
         label: 'onChange'
       }
-    },
-    {
-      name: 'bIsNull',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: true,
-        props: {},
-        label: '允许为空'
-      }
-    },
-    {
-      name: 'bMustSelect',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: true,
-        props: {},
-        label: '是否必传'
-      }
-    },
-    {
-      name: 'isExport',
-      type: FieldTypes.boolean,
-      defaultValue: true,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: true,
-        props: {},
-        label: '允许导出'
-      }
-    },
-    {
-      name: 'bVmExclude',
-      type: FieldTypes.number,
-      defaultValue: 0,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Select,
-        isRequired: true,
-        props: {
-          options: [
-            { text: '默认', value: 0 },
-            { text: '只存储不显示', value: 1 },
-            { text: '只显示不存储', value: 2 }
-          ]
-        },
-        label: '数据形态'
-      }
     }
   ],
-  children: []
+  children: [],
+  extension: [
+    ExtensionProps.disabled,
+    ExtensionProps.bIsNull,
+    ExtensionProps.bMustSelect,
+    ExtensionProps.isExport,
+    ExtensionProps.bVmExclude
+  ]
 }
 
 export default manifest

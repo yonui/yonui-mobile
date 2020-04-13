@@ -18,14 +18,26 @@ div[uitype='TextareaItem'] {
 }
 
 .yonui-textarea{
-  .am-textarea-control textarea{
-    color: @input-content-color;
+  .am-textarea-control {
+    textarea{
+      color: @input-content-color;
+    }
+
   }
+  .am-textarea-clear{
+    background-image: url('../../input/style/1111.png');
+    background-color: transparent;
+    width: 24*@hd;
+    height: 24*@hd;
+    background-size: 24*@hd auto;
+    margin-top: 0;
+  }
+
   .am-list-item{
     padding-left: 0;
   }
   .am-textarea-count{
-    bottom: -6px;
+    bottom: -4*@hd;
   }
 }
 

@@ -139,7 +139,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Json,
         isRequired: true,
         props: {},
-        label: 'label样式'
+        label: '标题样式'
       }
     },
     {
@@ -151,7 +151,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Json,
         isRequired: true,
         props: {},
-        label: '选项组样式'
+        label: '选项样式'
       }
     },
     {

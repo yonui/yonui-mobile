@@ -1,11 +1,11 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject, SysProp } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, SysProps } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'Input',
   uiObject: UIObject.Controls,
   label: '文本',
   type: 'basicControls',
   icon: 'text',
-  systemProperties: [SysProp.DATA_FIELD],
+  systemProperties: [SysProps.DATA_FIELD],
   props: [
     {
       name: 'label',
