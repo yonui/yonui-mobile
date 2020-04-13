@@ -24,9 +24,9 @@ const manifest: ComponentManifest = {
       name: 'mode',
       type: FieldTypes.string,
       defaultValue: 'default',
-      showDesign: false,
+      showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Select,
         isRequired: true,
         props: {
           options: [

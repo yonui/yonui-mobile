@@ -99,39 +99,39 @@ const manifest: ComponentManifest = {
         label: '选中数据值'
       }
     },
-    {
-      name: 'tagSize',
-      type: FieldTypes.string,
-      defaultValue: 'default',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Select,
-        isRequired: true,
-        props: {
-          options: [
-            { value: 'default', text: '默认' },
-            { value: 'sm', text: '小尺寸' },
-            { value: 'md', text: '中尺寸' },
-            { value: 'lg', text: '大尺寸' }
-          ]
-        },
-        label: '标签大小',
-        help: '标签展示时有效'
-      }
-    },
-    {
-      name: 'labelWidth',
-      type: FieldTypes.number,
-      defaultValue: 20,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Number,
-        isRequired: true,
-        props: {},
-        label: 'label宽度百分比',
-        help: '单行展示时有效'
-      }
-    },
+    // {
+    //   name: 'tagSize',
+    //   type: FieldTypes.string,
+    //   defaultValue: 'default',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Select,
+    //     isRequired: true,
+    //     props: {
+    //       options: [
+    //         { value: 'default', text: '默认' },
+    //         { value: 'sm', text: '小尺寸' },
+    //         { value: 'md', text: '中尺寸' },
+    //         { value: 'lg', text: '大尺寸' }
+    //       ]
+    //     },
+    //     label: '标签大小',
+    //     help: '标签展示时有效'
+    //   }
+    // },
+    // {
+    //   name: 'labelWidth',
+    //   type: FieldTypes.number,
+    //   defaultValue: 20,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Number,
+    //     isRequired: true,
+    //     props: {},
+    //     label: 'label宽度百分比',
+    //     help: '单行展示时有效'
+    //   }
+    // },
     {
       name: 'labelStyle',
       type: FieldTypes.object,
@@ -168,8 +168,31 @@ const manifest: ComponentManifest = {
         label: '是否禁用',
         help: '此项为禁用整个选项组'
       }
+    },
+    {
+      name: 'singleLine',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: true,
+        props: {},
+        label: '单行展示'
+      }
+    },
+    {
+      name: 'splitLine',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: true,
+        props: {},
+        label: '分割线'
+      }
     }
-
   ],
   children: []
 }

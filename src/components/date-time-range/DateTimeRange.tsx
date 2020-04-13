@@ -17,6 +17,7 @@ export interface ListCalendarProps extends CalendarProps {
   onChangeDate?: (time: [string, string]) => void
   onStartChange?: (time?: string) => void
   onEndChange?: (time?: string) => void
+  splitLine?: boolean
 }
 interface ListCalendarStates {
   visible?: boolean
@@ -66,7 +67,7 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
 
   render () {
     const { visible } = this.state
-    const { label, required, value, format, maxDate, minDate, defaultDate, defaultTimeValue, style, pickTime, mode = 'default', onStartChange, onEndChange } = this.props
+    const { label, required, value, format, maxDate, minDate, defaultDate, defaultTimeValue, style, pickTime, mode = 'default', onStartChange, onEndChange, splitLine } = this.props
     const minDateTrs = (minDate && typeof minDate === 'string') ? new Date(minDate) : minDate
     const maxDateTrs = (maxDate && typeof maxDate === 'string') ? new Date(maxDate) : maxDate
     const defaultDateTrs = (defaultDate && typeof defaultDate === 'string') ? new Date(defaultDate) : defaultDate
@@ -76,13 +77,13 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
     if (mode === 'default') {
       const dateMode = pickTime ? 'picker-datetime' : 'picker-date'
       return <div>
-        <DateTimePicker label='开始时间' dateMode={dateMode} onChangeDate={onStartChange} value={start} required={required}/>
-        <DateTimePicker label='结束时间' dateMode={dateMode} onChangeDate={onEndChange} value={end} required={required}/>
+        <DateTimePicker label='开始时间' dateMode={dateMode} onChangeDate={onStartChange} value={start} required={required} splitLine={splitLine}/>
+        <DateTimePicker label='结束时间' dateMode={dateMode} onChangeDate={onEndChange} value={end} required={required} splitLine={splitLine}/>
       </div>
     }
     return (
       <div className='date-time-range-wrapper' style={style}>
-        <Wrapper className='date-time-range' label={label} required={required} singleLine>
+        <Wrapper className='date-time-range' label={label} required={required} singleLine splitLine={splitLine}>
           <Flex className='calendar-range' onClick={this.handClick.bind(this)}>
             <Flex.Item>
               <InputItem placeholder='开始日期' disabled clear value={start}/>

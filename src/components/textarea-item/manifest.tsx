@@ -33,7 +33,7 @@ const manifest: ComponentManifest = {
     {
       name: 'rows',
       type: FieldTypes.number,
-      defaultValue: 5,
+      defaultValue: 3,
       showDesign: true,
       designConfig: {
         type: EditTypes.Number,

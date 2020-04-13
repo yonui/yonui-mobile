@@ -126,7 +126,7 @@ const manifest: ComponentManifest = {
       name: 'arrow',
       type: FieldTypes.boolean,
       defaultValue: true,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Bool,
         isRequired: false,

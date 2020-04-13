@@ -26,7 +26,7 @@ export default class Input extends Component<InputProps> {
     const cls = classnames('mdf-input', className)
     const inputCls = classnames('mdf-input-content')
     return (
-      <Wrapper className={cls} style={style} splitLine={splitLine} singleLine={singleLine} nid={nid} uitype={uitype} label={label} >
+      <Wrapper className={cls} style={style} splitLine={splitLine} singleLine={singleLine} nid={nid} uitype={uitype} label={label} required={required} >
         <InputItem className={inputCls} {...other} labelNumber={0} />
       </Wrapper>
     )
