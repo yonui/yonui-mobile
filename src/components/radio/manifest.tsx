@@ -1,10 +1,9 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
 // todo 未配置 onClick onChange
 const selectData = [
-  { value: 'value1', desc: 'item1' },
-  { value: 'value2', desc: 'item2' },
-  { value: 'value3', desc: 'item3' },
-  { value: 'value4', desc: 'item4', disabled: true }
+  { value: 'value1', desc: '项目1' },
+  { value: 'value2', desc: '项目2' },
+  { value: 'value3', desc: '项目3', disabled: true }
 ]
 const manifest: ComponentManifest = {
   name: 'Radio',
@@ -24,7 +23,6 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {
           options: [
-            // { value: 'default', text: '默认' },
             { value: 'tag', text: '标签' },
             { value: 'list', text: '列表' }
           ]

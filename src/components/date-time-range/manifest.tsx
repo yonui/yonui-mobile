@@ -30,8 +30,8 @@ const manifest: ComponentManifest = {
         isRequired: true,
         props: {
           options: [
-            { text: 'default', value: '默认' },
-            { text: 'range', value: '范围选择' }
+            { text: '默认', value: 'default' },
+            { text: '范围选择', value: 'range' }
           ]
         },
         label: '模式'
