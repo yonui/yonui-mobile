@@ -109,6 +109,18 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'visible',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: false,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '是否隐藏'
+      }
+    },
+    {
       name: 'loading',
       type: FieldTypes.boolean,
       defaultValue: false,

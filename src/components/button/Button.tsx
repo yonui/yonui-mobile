@@ -10,6 +10,7 @@ export interface ButtonProps extends React.defaultProps{
   size?: 'large' | 'small'
   inline?: boolean
   disabled?: boolean
+  visible?: boolean
   loading?: boolean
   icon?: React.ReactNode | string
   onClick?: React.MouseEventHandler<HTMLAnchorElement>
@@ -46,9 +47,14 @@ class Button extends React.Component<ButtonProps, any> {
     size: 'large',
     inline: false,
     disabled: false,
+    visible: true,
     loading: false,
     icon: null,
     style: {}
+  }
+
+  setVisible (visible: any) {
+    this.setState({ visible })
   }
 
   render () {
@@ -61,6 +67,7 @@ class Button extends React.Component<ButtonProps, any> {
       size,
       inline,
       disabled,
+      visible,
       loading,
       icon,
       style,
