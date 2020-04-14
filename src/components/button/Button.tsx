@@ -53,10 +53,6 @@ class Button extends React.Component<ButtonProps, any> {
     style: {}
   }
 
-  setVisible (visible: any) {
-    this.setState({ visible })
-  }
-
   render () {
     const {
       prefixCls,
@@ -75,6 +71,8 @@ class Button extends React.Component<ButtonProps, any> {
       className,
       ...restProps
     } = this.props
+
+    if (!visible) return null
 
     const iconType: any = loading ? 'loading' : icon
     const _mode = mode || type
@@ -123,7 +121,8 @@ class Button extends React.Component<ButtonProps, any> {
           {...restProps}
           style={style}
           onClick={disabled ? undefined : onClick}
-          aria-disabled={disabled}>
+          aria-disabled={disabled}
+          aria-visible={visible}>
           {iconEl}
           {(kids && kids.length) ? kids : content}
         </a>
