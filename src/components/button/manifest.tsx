@@ -10,8 +10,8 @@ const manifest: ComponentManifest = {
     {
       name: 'content',
       type: FieldTypes.string,
-      defaultValue: 'Button',
-      showDesign: true,
+      defaultValue: '',
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,

@@ -21,6 +21,30 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'startLabel',
+      type: FieldTypes.string,
+      defaultValue: '开始时间',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: '起始文本'
+      }
+    },
+    {
+      name: 'endLabel',
+      type: FieldTypes.string,
+      defaultValue: '结束时间',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: '结束文本'
+      }
+    },
+    {
       name: 'mode',
       type: FieldTypes.string,
       defaultValue: 'default',

@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps } from 'yonui-extension'
 // todo 未配置 onClick onChange
 const manifest: ComponentManifest = {
   name: 'Switch',
@@ -17,21 +17,21 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: true,
         props: {},
-        label: '选中'
+        label: '默认值'
       }
     },
-    {
-      name: 'disabled',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: true,
-        props: {},
-        label: '设置禁用'
-      }
-    },
+    // {
+    //   name: 'disabled',
+    //   type: FieldTypes.boolean,
+    //   defaultValue: false,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Bool,
+    //     isRequired: true,
+    //     props: {},
+    //     label: '禁用'
+    //   }
+    // },
     {
       name: 'color',
       type: FieldTypes.string,
@@ -48,7 +48,7 @@ const manifest: ComponentManifest = {
       name: 'name',
       type: FieldTypes.string,
       defaultValue: '',
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
@@ -60,13 +60,13 @@ const manifest: ComponentManifest = {
     {
       name: 'title',
       type: FieldTypes.string,
-      defaultValue: '滑动开关',
-      showDesign: true,
+      defaultValue: '',
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '左侧标题'
+        label: '标题文本'
       }
     },
     {
@@ -89,7 +89,7 @@ const manifest: ComponentManifest = {
     {
       name: 'onClick',
       type: FieldTypes.action,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
@@ -100,7 +100,7 @@ const manifest: ComponentManifest = {
     {
       name: 'onChange',
       type: FieldTypes.action,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Text,
         isRequired: false,
@@ -109,7 +109,14 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: []
+  children: [],
+  extension: [
+    ExtensionProps.disabled,
+    ExtensionProps.bIsNull,
+    ExtensionProps.bMustSelect,
+    ExtensionProps.isExport,
+    ExtensionProps.bVmExclude
+  ]
 }
 
 export default manifest

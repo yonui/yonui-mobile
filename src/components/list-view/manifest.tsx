@@ -100,19 +100,19 @@ const manifest: ComponentManifest = {
     //     help: '上拉加载是否展示"加载中"'
     //   }
     // },
-    {
-      name: 'showSeparator',
-      type: FieldTypes.boolean,
-      defaultValue: true,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '是否显示分割',
-        help: '列表项中间的分割区域'
-      }
-    },
+    // {
+    //   name: 'showSeparator',
+    //   type: FieldTypes.boolean,
+    //   defaultValue: true,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Bool,
+    //     isRequired: false,
+    //     props: {},
+    //     label: '是否显示分割',
+    //     help: '列表项中间的分割区域'
+    //   }
+    // },
     {
       name: 'footerContent',
       type: FieldTypes.string,
