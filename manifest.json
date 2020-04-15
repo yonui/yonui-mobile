@@ -50,7 +50,6 @@
     "Notice": "./src/components/notice",
     "popover": "./src/components/popover",
     "Radio": "./src/components/radio",
-    "Select": "./src/components/select",
     "Slider": "./src/components/slider",
     "Switch": "./src/components/switch",
     "Menu": "./src/components/menu",
