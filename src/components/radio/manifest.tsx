@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps } from 'yonui-extension'
 // todo 未配置 onClick onChange
 const selectData = [
   { value: 'value1', desc: '项目1' },
@@ -153,46 +153,55 @@ const manifest: ComponentManifest = {
         props: {},
         label: '选项样式'
       }
-    },
-    {
-      name: 'disabled',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: true,
-        props: {},
-        label: '是否禁用',
-        help: '此项为禁用整个选项组'
-      }
-    },
-    {
-      name: 'singleLine',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: true,
-        props: {},
-        label: '单行展示'
-      }
-    },
-    {
-      name: 'splitLine',
-      type: FieldTypes.boolean,
-      defaultValue: true,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: true,
-        props: {},
-        label: '分割线'
-      }
     }
+    // {
+    //   name: 'disabled',
+    //   type: FieldTypes.boolean,
+    //   defaultValue: false,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Bool,
+    //     isRequired: true,
+    //     props: {},
+    //     label: '是否禁用',
+    //     help: '此项为禁用整个选项组'
+    //   }
+    // },
+    // {
+    //   name: 'singleLine',
+    //   type: FieldTypes.boolean,
+    //   defaultValue: false,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Bool,
+    //     isRequired: true,
+    //     props: {},
+    //     label: '单行展示'
+    //   }
+    // },
+    // {
+    //   name: 'splitLine',
+    //   type: FieldTypes.boolean,
+    //   defaultValue: true,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Bool,
+    //     isRequired: true,
+    //     props: {},
+    //     label: '分割线'
+    //   }
+    // }
   ],
-  children: []
+  children: [],
+  extension: [
+    ExtensionProps.disabled,
+    ExtensionProps.singleLine,
+    ExtensionProps.splitLine,
+    ExtensionProps.bIsNull,
+    ExtensionProps.bMustSelect,
+    ExtensionProps.isExport,
+    ExtensionProps.bVmExclude
+  ]
 }
 
 export default manifest
