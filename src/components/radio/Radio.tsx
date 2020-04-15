@@ -249,18 +249,16 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     const { dataSource, checkedValue, disabled } = this.props
     if (disabled) return '不可选'
     const res: string[] = []
-    if (checkedValue) {
-      if (typeof checkedValue === 'string') {
-        // eslint-disable-next-line no-unused-expressions
-        dataSource?.forEach(item => {
-          if (item.value === checkedValue) res.push(item.desc)
-        })
-      } else {
-        // eslint-disable-next-line no-unused-expressions
-        dataSource?.forEach(item => {
-          if (checkedValue.indexOf(item.value) !== -1) res.push(item.desc)
-        })
-      }
+    if (checkedValue && typeof checkedValue === 'string') {
+      // eslint-disable-next-line no-unused-expressions
+      dataSource?.forEach(item => {
+        if (item.value === checkedValue) res.push(item.desc)
+      })
+    } else if (checkedValue && Array.isArray(checkedValue) && checkedValue.length > 0) {
+      // eslint-disable-next-line no-unused-expressions
+      dataSource?.forEach(item => {
+        if (checkedValue.indexOf(item.value) !== -1) res.push(item.desc)
+      })
     } else {
       Array.from(_checkedIndex).sort((a, b) => (a - b)).forEach(item => {
         dataSource && res.push(dataSource[item].desc)

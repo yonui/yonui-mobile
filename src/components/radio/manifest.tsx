@@ -87,14 +87,14 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'checkedValue',
-      type: FieldTypes.string,
-      defaultValue: '',
+      type: FieldTypes.array,
+      defaultValue: [],
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         isRequired: true,
         props: {},
-        label: '选中数据值'
+        label: '选中值'
       }
     },
     // {
