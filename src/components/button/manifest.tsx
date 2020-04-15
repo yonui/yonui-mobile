@@ -22,7 +22,7 @@ const manifest: ComponentManifest = {
     {
       name: 'mode',
       type: FieldTypes.string,
-      defaultValue: 'default',
+      defaultValue: 'toolbar-primary',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
@@ -64,7 +64,7 @@ const manifest: ComponentManifest = {
     {
       name: 'size',
       type: FieldTypes.string,
-      defaultValue: 'large',
+      defaultValue: 'small',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
