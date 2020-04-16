@@ -16,7 +16,7 @@ interface ListItemWrapperProps extends React.defaultProps{
 }
 export default class ListItemWrapper extends Component<ListItemWrapperProps> {
   static defaultProps = {
-    errorText: '填写信息有误!请重新填写'
+    // errorText: '填写信息有误!请重新填写'
   }
 
   render () {
@@ -40,7 +40,7 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
           </div>
         </div>
         <div className={errorCls}>
-          {errorText}
+          {errorText || '填写信息有误!请重新填写'}
         </div>
       </React.Fragment>
     )

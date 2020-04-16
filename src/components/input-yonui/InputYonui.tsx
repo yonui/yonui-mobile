@@ -3,16 +3,17 @@ import classnames from 'classnames'
 interface InputYonuiProps extends React.defaultProps{
   type?: 'text' | 'number' | 'tel'
   pattern?: RegExp // 输入过程中的校验规则
-  finalPattern?: RegExp // onBlur时的校验规则
+  finalPattern?: RegExp | Array<{reg: RegExp, text: string}> // onBlur时的校验规则
   value?: string
   textAlign?: 'left' | 'right' | 'center'
   placeholder?: string
   maxLength?: number
   inputStyle?: React.CSSProperties
+  required?: boolean
   onFocus?: (value: string) => void
   onBlur?: (value: string) => void
   onChange?: (value: string) => void
-  onError?: (value: string) => void
+  onError?: (value: string, pattern: { reg?: RegExp, text?: string}) => void
   onSuccess?: (value: string) => void
   beforeRender?: (value: string) => string
   afterChange?: (value: string) => string
@@ -32,11 +33,26 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
     _className: ''
   }
 
-  checkValue = (value: string) => {
-    const { maxLength, pattern } = this.props
-
+  checkValue = (value: string, final?: boolean) => {
+    const { maxLength, pattern, onError, finalPattern, onSuccess, required } = this.props
     if (pattern && !pattern.test(value)) return false
     if (maxLength && value.length > maxLength) return false
+    if (final) {
+      const _finalPattern = finalPattern && !Array.isArray(finalPattern) ? [{ reg: finalPattern }] : finalPattern
+      if (_finalPattern && value) {
+        for (let i = 0; i < _finalPattern.length; i++) {
+          if (!_finalPattern[i].reg.test(value)) {
+            onError && onError(value, _finalPattern[i])
+            return false
+          }
+        }
+      }
+      if (!value && required) {
+        onError && onError(value, { text: '' })
+        return false
+      }
+      onSuccess && onSuccess(value)
+    }
     return true
   }
 
@@ -53,21 +69,17 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
     })
   }
 
-  _onBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+  _onBlur = (event?: React.FocusEvent<HTMLInputElement>) => {
     const { _value } = this.state
-    const { finalPattern, onError, onBlur, onSuccess } = this.props
-    if (finalPattern && !finalPattern.test(_value)) {
-      onError && onError(_value)
-      console.warn('the result does not match the rule:', finalPattern.toString())
-    } else {
-      onSuccess && onSuccess(_value)
-    }
+    const { onBlur } = this.props
     onBlur && onBlur(_value)
-    setTimeout(() => {
-      this.setState({
-        _className: ''
-      })
-    }, 100)
+    if (this.checkValue(_value, true)) {
+      setTimeout(() => {
+        this.setState({
+          _className: ''
+        })
+      }, 100)
+    }
   }
 
   _onFocus = (event: React.FocusEvent<HTMLInputElement>) => {
@@ -84,6 +96,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
     this.setState({
       _value: ''
     })
+    this.checkValue('', true)
   }
 
   render () {

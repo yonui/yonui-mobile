@@ -14,35 +14,39 @@ export interface InputProps extends React.defaultProps {
   maxLength?: number
   subuitype?: 'text' | 'idCard' | 'email' | 'ipAddress' | 'bankCard16' | 'bankCard19' | 'customized'
   regRule?: string | RegExp
+  regRuleText?: string
   check?: boolean
   onFocus?: (value: string) => void
   onBlur?: (value: string) => void
   onChange?: (value: string) => void
-  onError?: (value: string) => void
+  onError?: (value: string, pattern: { reg?: RegExp, text?: string}) => void
   onSuccess?: (value: string) => void
 }
 
 interface InputState {
   error?: boolean
+  errorText?: string
 }
 export default class Input extends Component<InputProps, InputState> {
   state = {
     error: false,
-    check: false
+    errorText: ''
   }
 
   static defaultProps = {
     // singleLine: false
     // maxLength: 255,
-    subuitype: 'text'
+    subuitype: 'text',
+    check: true
   }
 
   getInputProps = () => {
-    const { subuitype, onError, onSuccess, check } = this.props
-    const _onError = (value: string) => {
-      onError && onError(value)
+    const { subuitype, onError, onSuccess, check, regRule = '', regRuleText } = this.props
+    const _onError = (value: string, pattern: { reg?: RegExp, text?: string}) => {
+      onError && onError(value, pattern)
       this.setState({
-        error: check && true
+        error: check && true,
+        errorText: pattern.text
       })
     }
     const _onSuccess = (value: string) => {
@@ -54,6 +58,10 @@ export default class Input extends Component<InputProps, InputState> {
     let res: any = {
       onSuccess: _onSuccess,
       onError: _onError
+    }
+    const customReg = {
+      reg: new RegExp(regRule),
+      text: regRuleText
     }
     switch (subuitype) {
       case 'idCard': {
@@ -71,7 +79,13 @@ export default class Input extends Component<InputProps, InputState> {
           ...res,
           text: 'number',
           pattern: /^[0-9.]*$/,
-          finalPattern: /^(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}$/,
+          finalPattern: [
+            {
+              reg: /^(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}$/,
+              text: ''
+            },
+            customReg
+          ],
           maxLength: 15
         }
         break
@@ -79,7 +93,9 @@ export default class Input extends Component<InputProps, InputState> {
       case 'text':
       default: {
         res = {
-          type: 'text'
+          ...res,
+          type: 'text',
+          finalPattern: [customReg]
         }
         break
       }
@@ -89,13 +105,17 @@ export default class Input extends Component<InputProps, InputState> {
 
   render () {
     const { label, required, splitLine, className, singleLine, style, nid, uitype, ...other } = this.props
-    const { error } = this.state
+    const { error, errorText } = this.state
     const cls = classnames('mdf-input', className)
     const inputCls = classnames('mdf-input-content')
     const inputProps = this.getInputProps()
     return (
-      <Wrapper className={cls} style={style} splitLine={splitLine} singleLine={singleLine} nid={nid} uitype={uitype} label={label} required={required} error={error}>
-        <YonuiInput className={inputCls} {...other} {...inputProps} textAlign={singleLine ? 'right' : 'left'}
+      <Wrapper className={cls} style={style} splitLine={splitLine}
+        singleLine={singleLine} nid={nid} uitype={uitype}
+        label={label} required={required} error={error}
+        errorText={errorText}
+      >
+        <YonuiInput className={inputCls} required={required} {...other} {...inputProps} textAlign={singleLine ? 'right' : 'left'}
         />
       </Wrapper>
     )
