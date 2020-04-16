@@ -21,6 +21,7 @@ interface InputNumberPorps extends React.defaultProps{
   labelWidth?: string
   singleLine?: boolean
   splitLine?: boolean
+  maxLength?: number
   onChange?: (value: string) => void
 }
 
@@ -51,11 +52,12 @@ export default class InputNumber extends Component<InputNumberPorps, InputNumber
 
   checkoutNumber = (val: string) => {
     // console.log(val)
-    const { precision = 2, min = -1 * Number.MAX_VALUE, max = Number.MAX_VALUE } = this.props
+    const { precision = 2, min = -1 * Number.MAX_VALUE, max = Number.MAX_VALUE, maxLength = 10 } = this.props
     const normalCheck = NumberReg.normal.test(val) || !val
     const precisionCheck = val.indexOf('.') === -1 ? true : val.length - val.indexOf('.') - 1 <= precision
     const sizeCheck = Number.isNaN(Number(val)) || (Number(val) >= Number(min) && Number(val) <= Number(max))
-    return normalCheck && precisionCheck && sizeCheck
+    const LengthCheck = maxLength >= val.length
+    return normalCheck && precisionCheck && sizeCheck && LengthCheck
   }
 
   // 去除前置0,小数点前无数时加0
@@ -82,7 +84,7 @@ export default class InputNumber extends Component<InputNumberPorps, InputNumber
   }
 
   onBlur = () => {
-    const { autoFill, precision = 3 } = this.props
+    const { autoFill, precision = 2 } = this.props
     const { _value } = this.state
     if (autoFill) {
       this.setState({

@@ -21,7 +21,7 @@ const manifest: ComponentManifest = {
     {
       name: 'dateMode',
       type: FieldTypes.string,
-      defaultValue: 'picker-date',
+      defaultValue: 'picker-datetime',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,

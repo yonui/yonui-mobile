@@ -1,16 +1,23 @@
 import React from 'react'
 import { DatePicker, Calendar, Icon } from 'antd-mobile'
-import { DatePickerPropsType } from 'antd-mobile/lib/date-picker/PropsType'
+// import { DatePickerPropsType } from 'antd-mobile/lib/date-picker/PropsType'
 import { dateFormat } from '../_utils'
 import Wrapper from '../list-item-wrapper'
 import classnames from 'classnames'
-export interface ListDatePickerProps extends DatePickerPropsType {
+export interface ListDatePickerProps {
   label?: string
   required?: boolean
   arrow?: boolean
   style?: object
   dateMode?: 'picker-date' | 'picker-time' | 'picker-datetime' | 'picker-year' | 'picker-month' | 'calendar-date' | 'calendar-datetime'
   splitLine?: boolean
+  minDate?: Date | string
+  maxDate?: Date | string
+  format?: string
+  disabled?: boolean
+  value?: Date | string
+  extra?: string
+  title?: string
   onChangeDate?: (dateTime?: string) => void
   onCancel?: () => void
 }
@@ -91,7 +98,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
     if (!dateTime) return
     const { onChangeDate, format, dateMode } = this.props
     const _format = format || modeToFormat(dateMode)
-    const _dateTime = typeof _format === 'string' ? dateFormat(dateTime, _format) : _format(dateTime)
+    const _dateTime = dateFormat(dateTime, _format)
     onChangeDate && onChangeDate(_dateTime)
     this.setState({
       visible: false,
@@ -103,18 +110,18 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
   render () {
     const { label, required, value, minDate, maxDate, arrow, disabled, style, dateMode, onCancel, format, extra, title, splitLine, ...restProps } = this.props
     const { visible, _value } = this.state
-    const valueTrs = (value === undefined) ? _value : ((value && typeof value === 'string') ? new Date(value) : value)
-    const minDateTrs = (minDate && typeof minDate === 'string') ? new Date(minDate) : minDate
-    const maxDateTrs = (maxDate && typeof maxDate === 'string') ? new Date(maxDate) : maxDate
+    const valueTrs = (value === undefined) ? _value : ((typeof value === 'string') ? new Date(value.replace(/-/g, '/')) : value)
+    const minDateTrs = (typeof minDate === 'string') ? new Date(minDate.replace(/-/g, '/')) : minDate
+    const maxDateTrs = (typeof maxDate === 'string') ? new Date(maxDate.replace(/-/g, '/')) : maxDate
     const typeAndMode = dateMode?.split('-') || []
     // const fmt = (format && typeof format === 'string') ? format : ((format && value ? format(value) : 'yyyy-MM-dd'))
-    const fmt = format ? (typeof format === 'string' ? format : (value && format(value))) : modeToFormat(dateMode)
+    const fmt = format || modeToFormat(dateMode)
     const labelCls = classnames('date-time-picker-label')
     const valueCls = classnames('date-time-picker-value')
     if (typeAndMode[0] === 'calendar') {
       return (<Wrapper className='date-time-picker' style={style} splitLine={splitLine} singleLine label={label} required={required}>
         <div className={valueCls} onClick = {!disabled ? this.onOpenCalendar : undefined}>
-          {valueTrs ? dateFormat(valueTrs, fmt || 'yyyy-MM-dd') : extra}
+          {valueTrs ? dateFormat(valueTrs, fmt) : extra}
           <Icon type='right'/>
         </div>
         <Calendar
