@@ -2,11 +2,28 @@
 
 .yonui-input{
   display: inline-flex;
+  width: 100%;
   .yonui-input-box{
     border: none;
     color: @color-text-input;
     font-size: 15*@hd;
     width: 100%;
     line-height: 1.5;
+    width: 100%;
+  }
+  .yonui-clear{
+    background-image: url('./clear.png');
+    width: 24*@hd;
+    height: 24*@hd;
+    background-size: 24*@hd;
+    margin-left: 4*@hd;
+    background-position: center;
+    background-color: @fill-base;
+    display: none;
+  }
+  &-focus{
+    .yonui-clear{
+      display: block;
+    }
   }
 }
