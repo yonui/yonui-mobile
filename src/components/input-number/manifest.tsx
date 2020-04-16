@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps, ExtensionProps } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'InputNumber',
   label: '数值',
@@ -111,28 +111,14 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'singleLine',
-      type: FieldTypes.boolean,
-      defaultValue: false,
+      name: 'maxLength',
+      type: FieldTypes.number,
       showDesign: true,
       designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '是否单行',
-        help: '控制单行或者双行'
-      }
-    },
-    {
-      name: 'required',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
+        type: EditTypes.Number,
         isRequired: true,
         props: {},
-        label: '必填'
+        label: '输入长度'
       }
     },
     {
@@ -145,30 +131,6 @@ const manifest: ComponentManifest = {
         isRequired: true,
         props: {},
         label: '千分位分隔符'
-      }
-    },
-    {
-      name: 'disabled',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: true,
-        props: {},
-        label: '禁用'
-      }
-    },
-    {
-      name: 'splitLine',
-      type: FieldTypes.boolean,
-      defaultValue: true,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '下划线'
       }
     },
     {
@@ -237,7 +199,17 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: []
+  children: [],
+  extension: [
+    ExtensionProps.required,
+    ExtensionProps.disabled,
+    ExtensionProps.splitLine,
+    ExtensionProps.singleLine,
+    ExtensionProps.bIsNull,
+    ExtensionProps.bMustSelect,
+    ExtensionProps.isExport,
+    ExtensionProps.bVmExclude
+  ]
 }
 
 export default manifest
