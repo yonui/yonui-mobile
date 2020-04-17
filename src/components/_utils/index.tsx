@@ -1,7 +1,12 @@
 import { EditTypes } from 'yonui-extension'
 
 export const dateFormat = function dateFormat (dateObj: Date | string, fmt: string) {
-  const date = dateObj ? new Date(dateObj) : new Date()
+  let date: Date
+  if (dateObj) {
+    date = typeof dateObj === 'string' ? new Date(dateObj.replace(/-/, '/')) : dateObj
+  } else {
+    date = new Date()
+  }
   const o: any = {
     'M+': date.getMonth() + 1,
     // 月份

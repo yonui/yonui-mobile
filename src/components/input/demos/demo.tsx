@@ -7,8 +7,8 @@ import MyComponent from '../index'
 import '../style'
 import './demo.less'
 export default class Demo1 extends Component {
-  onChange = () => {
-    console.log('change')
+  onChange = (val: string) => {
+    console.log('change', val)
   }
 
   onBlur = () => {
@@ -25,7 +25,7 @@ export default class Demo1 extends Component {
       // label: '标题标题标题标题标题标题标题',
       // defaultValue: '输入框的值',
       placeholder: '请输入',
-      labelNumber: 0,
+      // labelNumber: 0,
       // required: true,
       editable: true,
       disabled: false,
@@ -34,22 +34,26 @@ export default class Demo1 extends Component {
     return (
       <div>
         <MyComponent {...props}
-        onChange={() => { this.onChange() }}
+        onChange={this.onChange }
         onBlur={() => { this.onBlur() }}
         onFocus={() => { this.onFocus() }}
         label='标题'
+        subuitype='ipAddress'
         />
         <MyComponent {...props}
-        onChange={() => { this.onChange() }}
+        onChange={ this.onChange }
         onBlur={() => { this.onBlur() }}
         onFocus={() => { this.onFocus() }}
         singleLine
         label='标题'
         />
         <MyComponent {...props}
-        onChange={() => { this.onChange() }}
+        onChange={ this.onChange }
         onBlur={() => { this.onBlur() }}
-        onFocus={() => { this.onFocus() }}/>
+        onFocus={() => { this.onFocus() }}
+        regRule={/a/}
+        required
+        />
       </div>
     )
   }

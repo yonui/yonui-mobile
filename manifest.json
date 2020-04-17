@@ -50,7 +50,6 @@
     "Notice": "./src/components/notice",
     "popover": "./src/components/popover",
     "Radio": "./src/components/radio",
-    "Select": "./src/components/select",
     "Slider": "./src/components/slider",
     "Switch": "./src/components/switch",
     "Menu": "./src/components/menu",
@@ -71,6 +70,7 @@
     "DateTimePicker": "./src/components/date-time-picker",
     "DateTimeRange": "./src/components/date-time-range",
     "InputNumber": "./src/components/input-number",
-    "ListItemWrapper": "./src/components/list-item-wrapper"
+    "ListItemWrapper": "./src/components/list-item-wrapper",
+    "TabBar": "./src/components/tab-bar"
   }
 }

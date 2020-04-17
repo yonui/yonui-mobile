@@ -10,6 +10,7 @@ export interface ButtonProps extends React.defaultProps{
   size?: 'large' | 'small'
   inline?: boolean
   disabled?: boolean
+  visible?: boolean
   loading?: boolean
   icon?: React.ReactNode | string
   onClick?: React.MouseEventHandler<HTMLAnchorElement>
@@ -42,10 +43,11 @@ class Button extends React.Component<ButtonProps, any> {
   static defaultProps = {
     prefixCls: 'mdf-button',
     content: '',
-    mode: 'default',
-    size: 'large',
+    type: 'toolbar-primary',
+    size: 'small',
     inline: false,
     disabled: false,
+    visible: true,
     loading: false,
     icon: null,
     style: {}
@@ -61,6 +63,7 @@ class Button extends React.Component<ButtonProps, any> {
       size,
       inline,
       disabled,
+      visible,
       loading,
       icon,
       style,
@@ -68,6 +71,8 @@ class Button extends React.Component<ButtonProps, any> {
       className,
       ...restProps
     } = this.props
+
+    if (!visible) return null
 
     const iconType: any = loading ? 'loading' : icon
     const _mode = mode || type
@@ -116,7 +121,8 @@ class Button extends React.Component<ButtonProps, any> {
           {...restProps}
           style={style}
           onClick={disabled ? undefined : onClick}
-          aria-disabled={disabled}>
+          aria-disabled={disabled}
+          aria-visible={visible}>
           {iconEl}
           {(kids && kids.length) ? kids : content}
         </a>

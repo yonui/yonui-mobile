@@ -1,10 +1,10 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps, TypeProps } from 'yonui-extension'
 // todo 未配置 onClick onChange
 const manifest: ComponentManifest = {
   name: 'Switch',
   label: '滑动开关',
   description: '',
-  type: 'basicControls',
+  type: TypeProps.BasicControls,
   uiObject: UIObject.Controls,
   icon: 'radio',
   props: [
@@ -32,18 +32,6 @@ const manifest: ComponentManifest = {
     //     label: '禁用'
     //   }
     // },
-    {
-      name: 'color',
-      type: FieldTypes.string,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Color,
-        isRequired: true,
-        props: {},
-        label: '开关打开后的颜色'
-      }
-    },
     {
       name: 'name',
       type: FieldTypes.string,
