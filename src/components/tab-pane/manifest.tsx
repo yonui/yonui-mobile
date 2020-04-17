@@ -8,30 +8,6 @@ const manifest: ComponentManifest = {
   icon: 'wenziyeqian',
   props: [
     {
-      name: 'key',
-      type: FieldTypes.string,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: true,
-        props: {},
-        label: 'key值'
-      }
-    },
-    {
-      name: 'label',
-      type: FieldTypes.string,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: true,
-        props: {},
-        label: 'label'
-      }
-    },
-    {
       name: 'marginBottom',
       type: FieldTypes.string,
       defaultValue: '',

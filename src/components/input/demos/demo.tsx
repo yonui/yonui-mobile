@@ -50,7 +50,10 @@ export default class Demo1 extends Component {
         <MyComponent {...props}
         onChange={ this.onChange }
         onBlur={() => { this.onBlur() }}
-        onFocus={() => { this.onFocus() }}/>
+        onFocus={() => { this.onFocus() }}
+        regRule={/a/}
+        required
+        />
       </div>
     )
   }
