@@ -13,7 +13,7 @@ interface RadioProps extends React.defaultProps {
   onClick?: (index: number, data: { desc: string, value: string, disabled?: boolean }) => void
   onChange?: (index: number, selectedValue: string[], selectedData: any) => void
   onConfirm?: (value: number[]) => void
-  checkedValue?: string | string[]
+  checkedValue?: string | string[] | {value: string} | Array<{value: string}>
   tagSize?: 'sm' | 'lg' | 'md' | 'default'
   labelWidth?: number
   labelStyle?: React.CSSProperties
@@ -244,9 +244,9 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     }
   }
 
-  renderContent = () => {
+  renderContent = (dataSource?: dataSourceType, checkedValue?: string | string[]) => {
     const { _checkedIndex } = this.state
-    const { dataSource, checkedValue, disabled } = this.props
+    const { disabled } = this.props
     if (disabled) return '不可选'
     const res: string[] = []
     if (checkedValue && typeof checkedValue === 'string') {
@@ -271,9 +271,24 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     </React.Fragment>
   }
 
+  getCheckValue = () => {
+    const { checkedValue } = this.props
+    if (!checkedValue) return []
+    if (Array.isArray(checkedValue)) {
+      const res: string[] = []
+      checkedValue.forEach((item: string | {value: string}) => {
+        res.push(typeof item === 'string' ? item : item.value)
+      })
+      return res
+    } else {
+      return typeof checkedValue === 'string' ? [checkedValue] : [checkedValue.value]
+    }
+  }
+
   render () {
-    const { mode, dataSource, checkedValue, label, tagSize, className, nid, uitype, splitLine, singleLine, required } = this.props
+    const { mode, dataSource, label, tagSize, className, nid, uitype, splitLine, singleLine, required } = this.props
     const { open } = this.state
+    const checkedValue = this.getCheckValue()
     let radioArr: any
     // const _labelStyle: React.CSSProperties = { width: `${lines === 'single' ? labelWidth : 100}%` }
     // const _itemsStyle: React.CSSProperties = { width: `${lines === 'single' ? 100 - (labelWidth - 0) : 100}%` }
@@ -283,7 +298,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
         break
       }
       case 'list': {
-        radioArr = this.renderContent()
+        radioArr = this.renderContent(dataSource, checkedValue)
         // this.renderRaioList(dataSource, checkedValue)
         break
       }
