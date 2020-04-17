@@ -48,7 +48,7 @@ export default class MDFCarousel extends React.Component<CarouselProps, any> {
   }
 
   render () {
-    const { prefixCls, children, style, ratio, className, autoplayInterval = 3, selectedIndex, ...otherProps } = this.props
+    const { prefixCls, children, style, ratio, className, autoplayInterval = 3, selectedIndex = 0, ...otherProps } = this.props
     const wrapCls = classnames(className, {
       [`${prefixCls}-ratio`]: !!ratio
     })
@@ -59,7 +59,7 @@ export default class MDFCarousel extends React.Component<CarouselProps, any> {
       }}>
         <Carousel
           autoplayInterval={autoplayInterval * 1000}
-          selectedIndex={+!!selectedIndex}
+          selectedIndex={+selectedIndex}
           {...otherProps}>{children}</Carousel>
       </div>
     )
