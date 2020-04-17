@@ -48,4 +48,30 @@
       display: none !important;
     }
   }
+
+  &-error{
+    height: 32*@hd;
+    position: relative;
+    // border-top: 1px solid @brand-primary;
+    color: @brand-error-2;
+    background-color: fade(@brand-error-2, 6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: height 200ms;
+    &::after{
+      content: '';
+      display: block;
+      position: absolute;
+      height: 1px;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: @error-line;
+    }
+    &.hidden{
+      height: 0;
+      overflow: hidden;
+    }
+  }
 }

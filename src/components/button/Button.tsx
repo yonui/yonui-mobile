@@ -43,8 +43,8 @@ class Button extends React.Component<ButtonProps, any> {
   static defaultProps = {
     prefixCls: 'mdf-button',
     content: '',
-    type: 'default',
-    size: 'large',
+    type: 'toolbar-primary',
+    size: 'small',
     inline: false,
     disabled: false,
     visible: true,

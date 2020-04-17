@@ -3,17 +3,25 @@ import classnames from 'classnames'
 interface InputYonuiProps extends React.defaultProps{
   type?: 'text' | 'number' | 'tel'
   pattern?: RegExp // 输入过程中的校验规则
-  finalPattern?: RegExp // onBlur时的校验规则
+  finalPattern?: RegExp | Array<{reg: RegExp, text: string}> // onBlur时的校验规则
   value?: string
   textAlign?: 'left' | 'right' | 'center'
-  onChange?: (value?: string) => void
-  onError?: (value?: string) => void
+  placeholder?: string
+  maxLength?: number
+  inputStyle?: React.CSSProperties
+  required?: boolean
+  onFocus?: (value: string) => void
+  onBlur?: (value: string) => void
+  onChange?: (value: string) => void
+  onError?: (value: string, pattern: { reg?: RegExp, text?: string}) => void
+  onSuccess?: (value: string) => void
   beforeRender?: (value: string) => string
   afterChange?: (value: string) => string
 }
 
 interface InputYonuiState {
   _value: string
+  _className: string
 }
 export default class InputYonui extends Component<InputYonuiProps, InputYonuiState> {
   static defaultProps = {
@@ -21,14 +29,38 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
   }
 
   state = {
-    _value: ''
+    _value: '',
+    _className: ''
   }
 
-  _onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const currentValue = event.target.value
-    const { onChange, pattern, afterChange } = this.props
+  checkValue = (value: string, final?: boolean) => {
+    const { maxLength, pattern, onError, finalPattern, onSuccess, required } = this.props
+    if (pattern && !pattern.test(value)) return false
+    if (maxLength && value.length > maxLength) return false
+    if (final) {
+      const _finalPattern = finalPattern && !Array.isArray(finalPattern) ? [{ reg: finalPattern }] : finalPattern
+      if (_finalPattern && value) {
+        for (let i = 0; i < _finalPattern.length; i++) {
+          if (!_finalPattern[i].reg.test(value)) {
+            onError && onError(value, _finalPattern[i])
+            return false
+          }
+        }
+      }
+      if (!value && required) {
+        onError && onError(value, { text: '' })
+        return false
+      }
+      onSuccess && onSuccess(value)
+    }
+    return true
+  }
+
+  _onChange = (event: React.ChangeEvent<HTMLInputElement> | '') => {
+    const currentValue = event ? event.target.value : ''
+    const { onChange, afterChange } = this.props
     const val = afterChange ? afterChange(currentValue) : currentValue
-    if (pattern && !pattern.test(val)) {
+    if (!this.checkValue(val)) {
       return
     }
     onChange && onChange(val)
@@ -37,25 +69,52 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
     })
   }
 
-  _onBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+  _onBlur = (event?: React.FocusEvent<HTMLInputElement>) => {
     const { _value } = this.state
-    const { finalPattern, onError } = this.props
-    if (finalPattern && !finalPattern.test(_value)) {
-      onError && onError(_value)
-      console.warn('the result does not match the rule:', finalPattern.toString())
+    const { onBlur } = this.props
+    onBlur && onBlur(_value)
+    if (this.checkValue(_value, true)) {
+      setTimeout(() => {
+        this.setState({
+          _className: ''
+        })
+      }, 100)
     }
   }
 
+  _onFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+    const { onFocus } = this.props
+    onFocus && onFocus(event.target.value)
+    this.setState({
+      _className: 'yonui-input-focus'
+    })
+  }
+
+  onClickClear = () => {
+    const { onChange } = this.props
+    onChange && onChange('')
+    this.setState({
+      _value: ''
+    })
+    this.checkValue('', true)
+  }
+
   render () {
-    const { className, style, type, value, textAlign, beforeRender } = this.props
-    const { _value } = this.state
+    const { className, style, type, value, textAlign, beforeRender, placeholder, inputStyle } = this.props
+    const { _value, _className } = this.state
     const val = value || _value
     const displayValue = beforeRender ? beforeRender(val) : val
-    const cls = classnames(className, 'yonui-input')
-    const inputStyle: React.CSSProperties = { textAlign }
+    const cls = classnames(className, 'yonui-input', {
+      [_className]: val.length > 0
+    })
+    const _inputStyle: React.CSSProperties = { textAlign, ...inputStyle }
     return (
       <div className={cls} style={style}>
-        <input className='yonui-input-box' type={type} value={displayValue} onChange={this._onChange} onBlur={this._onBlur} style={inputStyle}/>
+        <input className='yonui-input-box' type={type} value={displayValue}
+          onChange={this._onChange} onBlur={this._onBlur} style={_inputStyle}
+          onFocus={this._onFocus} placeholder={placeholder}
+        />
+        <div className='yonui-clear' onClick={this.onClickClear}></div>
       </div>
     )
   }
