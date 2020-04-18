@@ -6,9 +6,20 @@ import React, { Component } from 'react'
 import MyComponent from '../index'
 import '../style'
 import './demo.less'
-export default class Demo1 extends Component {
+export default class Demo1 extends Component<any, any> {
+  constructor(props: any) {
+    super(props)
+
+    this.state = {
+       value: ''
+    }
+  }
+
   onChange = (val: string) => {
     console.log('change', val)
+    this.setState({
+      value: val
+    })
   }
 
   onBlur = () => {
@@ -51,8 +62,11 @@ export default class Demo1 extends Component {
         onChange={ this.onChange }
         onBlur={() => { this.onBlur() }}
         onFocus={() => { this.onFocus() }}
-        regRule={/a/}
-        required
+        value={this.state.value}
+        formatReg='### #### ####'
+        maxLength={11}
+        // defaultValue='123123'
+        checkMask='^[1-'
         />
       </div>
     )

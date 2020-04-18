@@ -17,6 +17,7 @@ interface InputYonuiProps extends React.defaultProps{
   onChange?: (value: string) => void
   onError?: (value: string, pattern: { reg?: RegExp, text?: string}) => void
   onSuccess?: (value: string) => void
+  onClickClear?: (value: string) => void
   beforeRender?: (value: string) => string
   afterChange?: (value: string) => string
 }
@@ -92,9 +93,11 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
     })
   }
 
-  onClickClear = () => {
-    const { onChange } = this.props
+  _onClickClear = () => {
+    const { onChange, onClickClear } = this.props
+    const { _value } = this.state
     onChange && onChange('')
+    onClickClear && onClickClear(_value)
     this.setState({
       _value: ''
     })
@@ -116,7 +119,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
           onChange={this._onChange} onBlur={this._onBlur} style={_inputStyle}
           onFocus={this._onFocus} placeholder={placeholder} disabled={disabled}
         />
-        <div className='yonui-clear' onClick={this.onClickClear}></div>
+        <div className='yonui-clear' onClick={this._onClickClear}></div>
       </div>
     )
   }

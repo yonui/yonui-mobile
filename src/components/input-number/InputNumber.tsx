@@ -18,7 +18,6 @@ interface InputNumberPorps extends React.defaultProps{
   autoFill?: boolean
   textAlign?: 'left' | 'center' | 'right' | ''
   inputWrapperWidth?: string
-  labelWidth?: string
   singleLine?: boolean
   splitLine?: boolean
   maxLength?: number

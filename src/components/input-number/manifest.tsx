@@ -177,17 +177,6 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'labelWidth',
-      type: FieldTypes.string,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: true,
-        props: {},
-        label: '标签宽度'
-      }
-    },
-    {
       name: 'onChange',
       type: FieldTypes.action,
       showDesign: true,

@@ -74,17 +74,6 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'clear',
-      type: FieldTypes.boolean,
-      showDesign: false,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '清除功能'
-      }
-    },
-    {
       name: 'onChange',
       type: FieldTypes.action,
       showDesign: false,
@@ -120,6 +109,7 @@ const manifest: ComponentManifest = {
     {
       name: 'check',
       type: FieldTypes.boolean,
+      defaultValue: false,
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
@@ -150,13 +140,83 @@ const manifest: ComponentManifest = {
         props: {},
         label: '校验错误提示文本'
       }
+    },
+    {
+      name: 'hiddenChart',
+      type: FieldTypes.string,
+      defaultValue: '*',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        isRequired: false,
+        props: {
+          options: [
+            { text: '*', value: '*' },
+            { text: '%', value: '%' },
+            { text: '$', value: '$' },
+            { text: '@', value: '@' },
+            { text: '?', value: '?' }
+          ]
+        },
+        label: '掩码'
+      }
+    },
+    {
+      name: 'replaceChart',
+      type: FieldTypes.string,
+      defaultValue: '#',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        isRequired: false,
+        props: {
+          options: [
+            { text: '#', value: '#' },
+            { text: '?', value: '?' },
+            { text: '~', value: '~' }
+          ]
+        },
+        label: '占位码'
+      }
+    },
+    {
+      name: 'formatReg',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '字符格式',
+        help: '根据掩码和占位码改变展示格式，如: ###-####-#### = 188-8888-8888, ###****### = 188****8888'
+      }
+    },
+    {
+      name: 'checkMask',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '有效范围',
+        help: '配置可输入的字符内容范围，例如：只能输入数字：^[0-9]*$， 只能输入字母：^[a-zA-Z]*$'
+      }
     }
   ],
   extension: [
     ExtensionProps.disabled,
     ExtensionProps.required,
     ExtensionProps.singleLine,
-    ExtensionProps.splitLine
+    ExtensionProps.splitLine,
+    ExtensionProps.bMustSelect,
+    ExtensionProps.formula,
+    ExtensionProps.isExport,
+    ExtensionProps.bCheck,
+    ExtensionProps.bVmExclude,
+    ExtensionProps.cStyle
   ]
 }
 export default manifest
