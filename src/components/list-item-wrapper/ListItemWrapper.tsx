@@ -30,7 +30,7 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
     const _labelCls = classnames('list-item-wrapper-label', labelCls, { required })
     const _contentCls = classnames('list-item-wrapper-content', contentCls)
     return (
-      <React.Fragment>
+      <div className='list-item-wrapper-box'>
         <div className={cls} style={style} nid={nid} uitype={uitype} onClick = {onClick}>
           <div className={_labelCls} style={labelStyle}>
             {label}
@@ -42,7 +42,7 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
         <div className={errorCls}>
           {errorText || '填写信息有误!请重新填写'}
         </div>
-      </React.Fragment>
+      </div>
     )
   }
 }
