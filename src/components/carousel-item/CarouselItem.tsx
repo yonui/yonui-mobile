@@ -43,7 +43,6 @@ export default class CarouselItem extends React.Component<CarouselProps, any> {
     } = this.props
     const cls = classnames(className, prefixCls)
     const sty = { backgroundColor, backgroundImage: (backgroundImage ? `url(${backgroundImage})` : 'none'), backgroundSize, ...style, height: '100%' }
-    console.log(sty)
     // const finalHeight = !height ? '100%' : height
     return (
       <div className={cls} ref={el => { this.divRef = el }} style={sty} {...other}>

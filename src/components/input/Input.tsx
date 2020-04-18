@@ -13,6 +13,7 @@ export interface InputProps extends React.defaultProps {
   singleLine?: boolean
   maxLength?: number
   subuitype?: 'text' | 'idCard' | 'email' | 'ipAddress' | 'bankCard16' | 'bankCard19' | 'customized'
+  defaultValue?: string
   regRule?: string | RegExp
   regRuleText?: string
   check?: boolean

@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject, SysProps } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, SysProps, ExtensionProps } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'Input',
   uiObject: UIObject.Controls,
@@ -28,24 +28,11 @@ const manifest: ComponentManifest = {
         isRequired: true,
         props: {},
         label: '最大长度',
-        help: '该字段控制的是输入值的长度,除money类型外，仅当text, email, search, password, tel, or url 有效'
+        help: '该字段控制的是输入值的长度'
       }
     },
     {
-      name: 'singleLine',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '是否单行',
-        help: '控制单行或者双行'
-      }
-    },
-    {
-      name: 'type',
+      name: 'subuitype',
       type: FieldTypes.string,
       defaultValue: 'text',
       showDesign: true,
@@ -54,27 +41,12 @@ const manifest: ComponentManifest = {
         isRequired: true,
         props: {
           options: [
-            { value: 'bankCard', text: '银行卡' },
-            { value: 'phone', text: '手机号' },
-            { value: 'password', text: '密码' },
-            { value: 'number', text: '数字' },
-            { value: 'digit', text: '原生number' },
-            { value: 'money', text: '金额' },
-            { value: 'text', text: '文本' }
+            { value: 'text', text: '文本' },
+            { value: 'idCard', text: '身份证' },
+            { value: 'ipAddress', text: 'ip地址' }
           ]
         },
-        label: '选择的类型'
-      }
-    },
-    {
-      name: 'value',
-      type: FieldTypes.string,
-      showDesign: false,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: true,
-        props: {},
-        label: '值'
+        label: '类型'
       }
     },
     {
@@ -89,18 +61,6 @@ const manifest: ComponentManifest = {
         label: '默认值'
       }
     },
-    // {
-    //   name: 'extra',
-    //   type: FieldTypes.string,
-    //   defaultValue: '',
-    //   showDesign: true,
-    //   designConfig: {
-    //     type: EditTypes.Text,
-    //     isRequired: true,
-    //     props: {},
-    //     label: '右侧注释'
-    //   }
-    // },
     {
       name: 'placeholder',
       type: FieldTypes.string,
@@ -111,53 +71,6 @@ const manifest: ComponentManifest = {
         isRequired: true,
         props: {},
         label: '背景提示'
-      }
-    },
-    {
-      name: 'editable',
-      type: FieldTypes.boolean,
-      defaultValue: true,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '允许修改'
-      }
-    },
-    {
-      name: 'required',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '必填'
-      }
-    },
-    {
-      name: 'splitLine',
-      type: FieldTypes.boolean,
-      defaultValue: true,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '下划线'
-      }
-    },
-    {
-      name: 'disabled',
-      type: FieldTypes.boolean,
-      showDesign: false,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '是否禁用'
       }
     },
     {
@@ -203,7 +116,47 @@ const manifest: ComponentManifest = {
         props: {},
         label: 'onFocus'
       }
+    },
+    {
+      name: 'check',
+      type: FieldTypes.boolean,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '是否校验'
+      }
+    },
+    {
+      name: 'regRule',
+      type: FieldTypes.string,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '格式',
+        help: '正则字符串'
+      }
+    },
+    {
+      name: 'regRuleText',
+      type: FieldTypes.string,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '校验错误提示文本'
+      }
     }
+  ],
+  extension: [
+    ExtensionProps.disabled,
+    ExtensionProps.required,
+    ExtensionProps.singleLine,
+    ExtensionProps.splitLine
   ]
 }
 export default manifest

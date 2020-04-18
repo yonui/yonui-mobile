@@ -5,6 +5,7 @@
 import React, { Component } from 'react'
 import Carousel from '../index'
 import CarouselItem from '../../carousel-item'
+import Button from '../../button'
 import '../style'
 import './demo.less'
 export default class Demo1 extends Component {
@@ -16,9 +17,12 @@ export default class Demo1 extends Component {
   }
   setIndex = () => {
     console.log(123)
+    let { selectedIndex = 0 } = this.state
+    console.log(selectedIndex++)
     this.setState({
-      selectedIndex: this.state.selectedIndex ? '' : 1
+      selectedIndex
     })
+    console.log(this.state.selectedIndex)
   }
   render () {
     return (
