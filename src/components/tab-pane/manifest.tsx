@@ -10,7 +10,7 @@ const manifest: ComponentManifest = {
     {
       name: 'marginBottom',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: '64px',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
