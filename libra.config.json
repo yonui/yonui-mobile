@@ -6,6 +6,7 @@
   "device": "mobile",
   "lib": [],
   "excludeNidAndUiType": false,
+  "errorBoundary": true,
   "excludeNidAndUiTypeComp": ["CarouselItem", "ListView", "Button", "TabPane", "Tab", "Filter", "Label", "CardBox", "Checkbox", "Textarea", "Input", "InputNumber", "Icon", "Radio"],
   "staticPropsMap": {
     "ListView": "DataSource",

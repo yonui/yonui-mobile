@@ -5,11 +5,13 @@ interface InputYonuiProps extends React.defaultProps{
   pattern?: RegExp // 输入过程中的校验规则
   finalPattern?: RegExp | Array<{reg: RegExp, text: string}> // onBlur时的校验规则
   value?: string
+  defaultValue?: string
   textAlign?: 'left' | 'right' | 'center'
   placeholder?: string
   maxLength?: number
   inputStyle?: React.CSSProperties
   required?: boolean
+  disabled?: boolean
   onFocus?: (value: string) => void
   onBlur?: (value: string) => void
   onChange?: (value: string) => void
@@ -29,7 +31,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
   }
 
   state = {
-    _value: '',
+    _value: this.props.defaultValue || '',
     _className: ''
   }
 
@@ -100,7 +102,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
   }
 
   render () {
-    const { className, style, type, value, textAlign, beforeRender, placeholder, inputStyle } = this.props
+    const { className, style, type, value, textAlign, beforeRender, placeholder, inputStyle, disabled } = this.props
     const { _value, _className } = this.state
     const val = value || _value
     const displayValue = beforeRender ? beforeRender(val) : val
@@ -112,7 +114,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
       <div className={cls} style={style}>
         <input className='yonui-input-box' type={type} value={displayValue}
           onChange={this._onChange} onBlur={this._onBlur} style={_inputStyle}
-          onFocus={this._onFocus} placeholder={placeholder}
+          onFocus={this._onFocus} placeholder={placeholder} disabled={disabled}
         />
         <div className='yonui-clear' onClick={this.onClickClear}></div>
       </div>
