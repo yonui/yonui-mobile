@@ -26,7 +26,7 @@ export default class CardBox extends Component<CardBoxProps> {
   render () {
     const { text, onPress, rightStyle, style, className, children, viewStatus, ...other } = this.props
     const right = [{
-      text, onPress, style: rightStyle, className: 'yonui-card-box-btn'
+      text, onPress, style: { width: '25vw', ...rightStyle }, className: 'yonui-card-box-btn'
     }]
     const cls = classnames(className, 'yonui-card-box', `yonui-card-box-${viewStatus}`)
     let content
