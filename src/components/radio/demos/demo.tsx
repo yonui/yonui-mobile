@@ -34,7 +34,7 @@ export default class Demo1 extends Component {
               <Radio dataSource={selectData} label='标题' mode='tag' checkedValue={this.state.value}  onChange={this.onChange} tagSize='sm'  singleLine/>
               <Radio dataSource={selectData} label='标题' mode='list' />
               <Radio dataSource={selectData} label='标题' mode='tag' checkedValue={this.state.value}  onChange={this.onChange} tagSize='sm'  isMultiple/>
-              <Radio dataSource={selectData} label='标题' mode='list' isMultiple/>
+              <Radio dataSource={selectData} label='标题' mode='list' isMultiple disabled checkedValue={["value1"]} />
             </div>
         )
     }

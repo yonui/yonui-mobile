@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'Textarea',
   uiObject: UIObject.Controls,
@@ -127,42 +127,6 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'required',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '必填'
-      }
-    },
-    {
-      name: 'splitLine',
-      type: FieldTypes.boolean,
-      defaultValue: true,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '下划线'
-      }
-    },
-    {
-      name: 'disabled',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: false,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '禁用'
-      }
-    },
-    {
       name: 'clear',
       type: FieldTypes.boolean,
       showDesign: false,
@@ -219,7 +183,18 @@ const manifest: ComponentManifest = {
         label: 'onBlur'
       }
     }
-
+  ],
+  extension: [
+    ExtensionProps.required,
+    ExtensionProps.disabled,
+    ExtensionProps.splitLine,
+    ExtensionProps.bIsNull,
+    ExtensionProps.bMustSelect,
+    ExtensionProps.formula,
+    ExtensionProps.isExport,
+    ExtensionProps.bCheck,
+    ExtensionProps.bVmExclude,
+    ExtensionProps.cStyle
   ]
 }
 export default manifest

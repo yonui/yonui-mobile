@@ -19,7 +19,7 @@
     .yonui-radio-box{
       margin: 8*@hd;
       &-disabled{
-        color: #888888;
+        color: @color-text-disabled;
       }
     }
   }
@@ -29,6 +29,9 @@
    .radio-items-selected-value{
      color: @input-content-color;
      font-size: 16*@hd;
+     &-disabled{
+      color: @color-text-disabled
+     }
    }
     &-close{
       max-height: 0;
