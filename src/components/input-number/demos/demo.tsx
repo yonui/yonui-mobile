@@ -15,7 +15,7 @@ export default class Demo extends Component {
         return (
             <div>
               <MyComponent label='金额' />
-              <MyComponent label='金额' placeholder='默认三位小数' />
+              <MyComponent label='金额' placeholder='默认三位小数' value='1' disabled/>
               <MyComponent label='金额' min={0} placeholder='请输入' singleLine/>
               <MyComponent label='金额' defaultValue={10} min={0} max={16} placeholder='默认三位小数'/>
             </div>
