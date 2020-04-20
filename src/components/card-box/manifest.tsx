@@ -18,7 +18,8 @@ const manifest: ComponentManifest = {
           options: [
             { value: 'default', text: '浏览' },
             { value: 'select', text: '选择-未选中' },
-            { value: 'selected', text: '选择-选中' }
+            { value: 'selected', text: '选择-选中' },
+            { value: 'detail', text: '详情' }
           ]
         },
         label: '选择状态'
@@ -50,7 +51,20 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'onPress',
+      name: 'label',
+      type: FieldTypes.string,
+      defaultValue: '明细',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '标题',
+        help: '详情态有效'
+      }
+    },
+    {
+      name: 'onDelete',
       type: FieldTypes.action,
       showDesign: true,
       designConfig: {
@@ -58,7 +72,7 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '按钮点击事件',
-        help: '浏览态有效'
+        help: '浏览/详情态有效'
       }
     }
   ],

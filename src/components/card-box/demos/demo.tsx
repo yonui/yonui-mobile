@@ -10,7 +10,7 @@ export default class Demo extends Component {
     render() {
         return (
             <div>
-              <MyComponent onPress={()=>{console.log('x')}} >
+              <MyComponent onDelete={()=>{console.log('x')}} viewStatus='detail' label='标题' >
                 <div>123123123</div>
               </MyComponent>
             </div>
