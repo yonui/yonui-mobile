@@ -4,7 +4,7 @@ interface InputYonuiProps extends React.defaultProps{
   type?: 'text' | 'number' | 'tel'
   pattern?: RegExp // 输入过程中的校验规则
   finalPattern?: RegExp | Array<{reg: RegExp, text: string}> // onBlur时的校验规则
-  value?: string
+  value?: string | number
   defaultValue?: string
   textAlign?: 'left' | 'right' | 'center'
   placeholder?: string
@@ -12,6 +12,7 @@ interface InputYonuiProps extends React.defaultProps{
   inputStyle?: React.CSSProperties
   required?: boolean
   disabled?: boolean
+  customCheck?: (value: string) => boolean
   onFocus?: (value: string) => void
   onBlur?: (value: string) => void
   onChange?: (value: string) => void
@@ -37,21 +38,33 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
   }
 
   checkValue = (value: string, final?: boolean) => {
-    const { maxLength, pattern, onError, finalPattern, onSuccess, required } = this.props
-    if (pattern && !pattern.test(value)) return false
-    if (maxLength && value.length > maxLength) return false
+    const { maxLength, pattern, onError, finalPattern, onSuccess, required, customCheck } = this.props
+    if (customCheck && !customCheck(value)) {
+      console.log('customCheck error', value)
+      return false
+    }
+    if (pattern && !pattern.test(value)) {
+      console.log('pattern error')
+      return false
+    }
+    if (maxLength && value.length > maxLength) {
+      console.log('length error')
+      return false
+    }
     if (final) {
       const _finalPattern = finalPattern && !Array.isArray(finalPattern) ? [{ reg: finalPattern }] : finalPattern
       if (_finalPattern && value) {
         for (let i = 0; i < _finalPattern.length; i++) {
           if (!_finalPattern[i].reg.test(value)) {
             onError && onError(value, _finalPattern[i])
+            console.log('final pattern error')
             return false
           }
         }
       }
       if (!value && required) {
         onError && onError(value, { text: '' })
+        console.log('require error')
         return false
       }
       onSuccess && onSuccess(value)
@@ -62,8 +75,11 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
   _onChange = (event: React.ChangeEvent<HTMLInputElement> | '') => {
     const currentValue = event ? event.target.value : ''
     const { onChange, afterChange } = this.props
+    console.log(event, this.props, currentValue)
     const val = afterChange ? afterChange(currentValue) : currentValue
+    console.log(val)
     if (!this.checkValue(val)) {
+      console.log('error when check')
       return
     }
     onChange && onChange(val)
@@ -107,7 +123,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
   render () {
     const { className, style, type, value, textAlign, beforeRender, placeholder, inputStyle, disabled } = this.props
     const { _value, _className } = this.state
-    const val = value || _value
+    const val = value?.toString() || _value
     const displayValue = beforeRender ? beforeRender(val) : val
     const cls = classnames(className, 'yonui-input', {
       [_className]: val.length > 0

@@ -92,7 +92,8 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: () => true
+  children: () => true,
+  parent: () => true
 }
 
 export default manifest

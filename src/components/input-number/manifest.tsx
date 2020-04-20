@@ -54,19 +54,6 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'autoFill',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: true,
-        props: {},
-        label: '自动填充',
-        help: '保证小数点后有效数字位数'
-      }
-    },
-    {
       name: 'min',
       type: FieldTypes.number,
       showDesign: true,
@@ -113,6 +100,7 @@ const manifest: ComponentManifest = {
     {
       name: 'maxLength',
       type: FieldTypes.number,
+      defaultValue: 18,
       showDesign: true,
       designConfig: {
         type: EditTypes.Number,
@@ -134,6 +122,18 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'check',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: true,
+        props: {},
+        label: '是否校验'
+      }
+    },
+    {
       name: 'placeholder',
       type: FieldTypes.string,
       defaultValue: '请输入',
@@ -145,37 +145,37 @@ const manifest: ComponentManifest = {
         label: '提示文字'
       }
     },
-    {
-      name: 'textAlign',
-      type: FieldTypes.string,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Select,
-        isRequired: true,
-        props: {
-          options: [
-            { value: '', text: '默认' },
-            { value: 'left', text: '左对齐' },
-            { value: 'center', text: '居中' },
-            { value: 'right', text: '右对齐' }
-          ]
-        },
-        label: '对齐方式',
-        help: '单行默认右对齐，多行默认左对齐'
-      }
-    },
-    {
-      name: 'inputWrapperWidth',
-      type: FieldTypes.string,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: true,
-        props: {},
-        label: '输入框宽度'
-      }
-    },
+    // {
+    //   name: 'textAlign',
+    //   type: FieldTypes.string,
+    //   defaultValue: '',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Select,
+    //     isRequired: true,
+    //     props: {
+    //       options: [
+    //         { value: '', text: '默认' },
+    //         { value: 'left', text: '左对齐' },
+    //         { value: 'center', text: '居中' },
+    //         { value: 'right', text: '右对齐' }
+    //       ]
+    //     },
+    //     label: '对齐方式',
+    //     help: '单行默认右对齐，多行默认左对齐'
+    //   }
+    // },
+    // {
+    //   name: 'inputWrapperWidth',
+    //   type: FieldTypes.string,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     isRequired: true,
+    //     props: {},
+    //     label: '输入框宽度'
+    //   }
+    // },
     {
       name: 'onChange',
       type: FieldTypes.action,
