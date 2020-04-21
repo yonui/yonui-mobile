@@ -119,23 +119,27 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
     const labelCls = classnames('date-time-picker-label')
     const valueCls = classnames('date-time-picker-value')
     if (typeAndMode[0] === 'calendar') {
-      return (<Wrapper className='date-time-picker' style={style} splitLine={splitLine} singleLine label={label} required={required} onClick = {!disabled ? this.onOpenCalendar : undefined}>
-        <div className={valueCls} >
-          {valueTrs ? dateFormat(valueTrs, fmt) : extra}
-          {!disabled && <Icon type='right'/>}
-        </div>
-        <Calendar
-          // {...restProps}
-          title='title'
-          minDate={minDateTrs}
-          maxDate={maxDateTrs}
-          visible = {visible}
-          onCancel={this.onCancel}
-          onConfirm={this.onConfirm}
-          pickTime={typeAndMode[1] === 'datetime'}
-          type='one'
-        />
-      </Wrapper>)
+      return (<React.Fragment>
+        <Wrapper className='date-time-picker' style={style} splitLine={splitLine} singleLine label={label} required={required} onClick = {!disabled ? this.onOpenCalendar : undefined}>
+          <div className={valueCls} >
+            {valueTrs ? dateFormat(valueTrs, fmt) : extra}
+            {!disabled && <Icon type='right'/>}
+          </div>
+        </Wrapper>
+        <span className='date-time-picker-calendar-wrapper'>
+          <Calendar
+            // {...restProps}
+            title='title'
+            minDate={minDateTrs}
+            maxDate={maxDateTrs}
+            visible = {visible}
+            onCancel={this.onCancel}
+            onConfirm={this.onConfirm}
+            pickTime={typeAndMode[1] === 'datetime'}
+            type='one'
+          />
+        </span>
+      </React.Fragment>)
     } else {
       return (
         <DatePicker
