@@ -22,13 +22,18 @@ export default class Demo extends Component<any, any> {
       const { start, end} = this.state
         return (
             <div>
-              <MyComponent
+              {/* <MyComponent
                 label='日期范围' value={[ start, end]} onChangeDate={ this.onChangeDate}
                 onStartChange={(start)=>{this.setState({start})}}
                 onEndChange={(end)=>{this.setState({end})}}
                 mode='range'
+              /> */}
+              <MyComponent
+                label='日期范围' value={[ start, end]} onChangeDate={ this.onChangeDate}
+                onStartChange={(start)=>{this.setState({start})}}
+                onEndChange={(end)=>{this.setState({end})}}
               />
-              <Picker label='日期选择'/>
+              {/* <Picker label='日期选择'/> */}
             </div>
         )
     }

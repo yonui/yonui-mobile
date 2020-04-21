@@ -3,7 +3,7 @@ import { EditTypes } from 'yonui-extension'
 export const dateFormat = function dateFormat (dateObj: Date | string, fmt: string) {
   let date: Date
   if (dateObj) {
-    date = typeof dateObj === 'string' ? new Date(dateObj.replace(/-/, '/')) : dateObj
+    date = typeof dateObj === 'string' ? new Date(dateObj.replace(/-/g, '/')) : dateObj
   } else {
     date = new Date()
   }

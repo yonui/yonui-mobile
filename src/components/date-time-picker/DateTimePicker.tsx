@@ -110,7 +110,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
   render () {
     const { label, required, value, minDate, maxDate, arrow, disabled, style, dateMode, onCancel, format, extra, title, splitLine, ...restProps } = this.props
     const { visible, _value } = this.state
-    const valueTrs = (value === undefined) ? _value : ((typeof value === 'string') ? new Date(value.replace(/-/g, '/')) : value)
+    const valueTrs = (value === undefined) ? _value : ((value && typeof value === 'string') ? new Date(value.replace(/-/g, '/')) : undefined)
     const minDateTrs = (typeof minDate === 'string') ? new Date(minDate.replace(/-/g, '/')) : minDate
     const maxDateTrs = (typeof maxDate === 'string') ? new Date(maxDate.replace(/-/g, '/')) : maxDate
     const typeAndMode = dateMode?.split('-') || []
