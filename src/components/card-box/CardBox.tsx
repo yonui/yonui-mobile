@@ -8,8 +8,9 @@ interface CardBoxProps extends React.defaultProps{
   // onPress?: () => void
   onDelete?: () => void
   label?: string
+  footer?: string
   rightStyle?: React.CSSProperties
-  viewStatus?: 'default' | 'select' | 'selected' | 'detail'
+  viewStatus?: 'default' | 'select' | 'selected' | 'detail' | 'browse'
 }
 
 export default class CardBox extends Component<CardBoxProps> {
@@ -29,11 +30,14 @@ export default class CardBox extends Component<CardBoxProps> {
   }
 
   render () {
-    const { text, onDelete, rightStyle, style, className, children, viewStatus, label, ...other } = this.props
+    const { text, onDelete, rightStyle, style, className, children, viewStatus, label, footer, ...other } = this.props
     const right = [{
       text, onPress: onDelete, style: { width: '25vw', ...rightStyle }, className: 'yonui-card-box-btn'
     }]
     const cls = classnames(className, 'yonui-card-box', `yonui-card-box-${viewStatus}`)
+    const footerEle = footer ? <Wrapper label={footer} splitLine={false} singleLine labelStyle={{ color: '#e14c46' }}>
+      <Icon type='right' color='#e14c46'/>
+    </Wrapper> : null
     let content
     switch (viewStatus) {
       case 'select':
@@ -64,6 +68,7 @@ export default class CardBox extends Component<CardBoxProps> {
       default: {
         content = (<SwipeAction right={right} className='yonui-card-box-swipe' autoClose>
           {children}
+          {footerEle}
         </SwipeAction>)
         break
       }

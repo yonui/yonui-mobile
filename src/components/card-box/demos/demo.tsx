@@ -10,7 +10,7 @@ export default class Demo extends Component {
     render() {
         return (
             <div>
-              <MyComponent onDelete={()=>{console.log('x')}} viewStatus='detail' label='标题' >
+              <MyComponent onDelete={()=>{console.log('x')}}  label='标题' footer='查看更多'>
                 <div>123123123</div>
               </MyComponent>
             </div>

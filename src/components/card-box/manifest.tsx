@@ -64,6 +64,19 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'footer',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '底部文字',
+        help: '详情态有效'
+      }
+    },
+    {
       name: 'onDelete',
       type: FieldTypes.action,
       showDesign: true,

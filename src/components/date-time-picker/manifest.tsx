@@ -180,7 +180,7 @@ const manifest: ComponentManifest = {
           options: [
             { value: '', text: '默认' },
             { value: 'yyyy-MM-dd', text: 'yyyy-MM-dd' },
-            { value: 'HH:mm', text: '时间' },
+            { value: 'HH:mm', text: 'HH:mm' },
             { value: 'yyyy-MM-dd HH:mm', text: 'yyyy-MM-dd HH:mm' },
             { value: 'yyyy', text: 'yyyy' },
             { value: 'yyyy-MM', text: 'yyyy-MM' }
