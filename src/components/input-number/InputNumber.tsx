@@ -225,7 +225,6 @@ export default class Input extends Component<InputProps, InputState> {
 
   _onChange = (val: string) => {
     const { onChange } = this.props
-    console.log('onChange ', val)
     onChange && onChange(val)
     this.setState({
       _value: val
@@ -325,15 +324,13 @@ export default class Input extends Component<InputProps, InputState> {
     return val.replace(/,/g, '')
   }
 
-  checkFn = (value: string) => {
+  checkFn = (value: string, final: boolean) => {
     const val = value?.toString()
     const { precision = 2, min = -1 * Number.MAX_VALUE, max = Number.MAX_VALUE, maxLength = 24 } = this.props
-    console.log(val, '---val', Number(min), Number(max))
     const normalCheck = NumberReg.normal.test(val) || !val
     const precisionCheck = val.indexOf('.') === -1 ? true : val.length - val.indexOf('.') - 1 <= precision
-    const sizeCheck = Number.isNaN(Number(val)) || (Number(val) >= Number(min) && Number(val) <= Number(max))
+    const sizeCheck = !final || !val || Number.isNaN(Number(val)) || (Number(val) >= Number(min) && Number(val) <= Number(max))
     const LengthCheck = maxLength >= val.length
-    console.log(normalCheck, precisionCheck, sizeCheck, LengthCheck)
     return normalCheck && precisionCheck && sizeCheck && LengthCheck
   }
 

@@ -12,7 +12,7 @@ interface InputYonuiProps extends React.defaultProps{
   inputStyle?: React.CSSProperties
   required?: boolean
   disabled?: boolean
-  customCheck?: (value: string) => boolean
+  customCheck?: (value: string, final?: boolean) => boolean
   onFocus?: (value: string) => void
   onBlur?: (value: string) => void
   onChange?: (value: string) => void
@@ -39,7 +39,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
 
   checkValue = (value: string, final?: boolean) => {
     const { maxLength, pattern, onError, finalPattern, onSuccess, required, customCheck } = this.props
-    if (customCheck && !customCheck(value)) {
+    if (customCheck && !customCheck(value, false)) {
       console.log('customCheck error', value)
       return false
     }
@@ -52,6 +52,11 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
       return false
     }
     if (final) {
+      if (customCheck && !customCheck(value, true)) {
+        console.log('final customCheck error', value)
+        onError && onError(value, { text: '' })
+        return false
+      }
       const _finalPattern = finalPattern && !Array.isArray(finalPattern) ? [{ reg: finalPattern }] : finalPattern
       if (_finalPattern && value) {
         for (let i = 0; i < _finalPattern.length; i++) {
