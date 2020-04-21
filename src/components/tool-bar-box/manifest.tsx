@@ -1,4 +1,4 @@
-import { ComponentManifest, UIObject } from 'yonui-extension'
+import { ComponentManifest, UIObject, FieldTypes, EditTypes } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'ToolBar',
   label: '工具栏容器',
@@ -7,6 +7,23 @@ const manifest: ComponentManifest = {
   type: 'operationBar',
   icon: 'gongjulan1',
   props: [
+    {
+      name: 'layout',
+      type: FieldTypes.string,
+      defaultValue: 'horizontal',
+      showDesign: true,
+      designConfig: {
+        label: '排列方式',
+        type: EditTypes.Select,
+        isRequired: false,
+        props: {
+          options: [
+            { text: '水平', value: 'horizontal' },
+            { text: '竖直', value: 'vertical' }
+          ]
+        }
+      }
+    }
   ],
   children: ['button']
 }

@@ -2,7 +2,7 @@ import { EditTypes, FieldTypes, ComponentManifest, UIObject } from 'yonui-extens
 
 const manifest: ComponentManifest = {
   name: 'Flex',
-  label: 'flex布局',
+  label: '流式布局',
   type: 'layoutContainer',
   description: '实现css flex布局', // 描述
   uiObject: UIObject.Containers,

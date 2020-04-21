@@ -1,48 +1,72 @@
 @import '../../_style/index.less';
 @import '../../button/style/index.less';
 .yonui-mobile-tool-bars-2{
-  padding: 13*@hd 0;
   background-color: @fill-base;
-  .yonui-mobile-tool-bars-wrapper{
-    // display: flex;
-    // justify-content: space-between;
-    overflow: auto;
-    white-space: nowrap;
-    padding: 0 7*@hd;
-    min-height: 32*@hd;
-    direction: rtl;
-    .mdf-button{
-      margin: 0 5*@hd;
-      display: inline-block;
-      // &.mdf-button-default{
-      //   background-color: @toolbars-next-btn;
-      //   color: @toolbars-next-btn-color;
-      //   &::before{
-      //     border-color: @toolbars-next-btn;
-      //   }
-      //   &.mdf-button-active{
-      //     background-color: @default-button-fill-tap;
-      //   }
-      // }
+  font-size: 0;
+  &.vertical{
+    padding: 10*@hd;
+    .yonui-mobile-tool-bars-wrapper{
+      .mdf-button{
+        &:not(:last-child){
+          margin-bottom: 10*@hd;
+        }
+      }
     }
-    &.length-1 .mdf-button{
-      width: calc(~'100% - 10*@{hd}')
+  }
+  &.horizontal{
+    padding: 14*@hd 0;
+    .yonui-mobile-tool-bars-wrapper{
+      overflow: auto;
+      white-space: nowrap;
+      padding: 0 7*@hd;
+      min-height: 32*@hd;
+      direction: rtl;
+      line-height: 1;
+      display: flex;
+      justify-content: space-evenly;
+      .mdf-button{
+        margin: 0 5*@hd;
+        display: inline-block;
+        width: 100%;
+        padding: 0;
+        // &.mdf-button-default{
+        //   background-color: @toolbars-next-btn;
+        //   color: @toolbars-next-btn-color;
+        //   &::before{
+        //     border-color: @toolbars-next-btn;
+        //   }
+        //   &.mdf-button-active{
+        //     background-color: @default-button-fill-tap;
+        //   }
+        // }
+      }
     }
-    &.length-2 .mdf-button{
-      width: calc(~'50% - 10*@{hd}')
-    }
-    &.length-3 .mdf-button{
-      width: calc(~'33.33% - 10*@{hd}')
-    }
-    &.length-4 .mdf-button{
-      width: calc(~'25% - 10*@{hd}')
-    }
-    &.length-5 .mdf-button{
-      width: calc(~'22% - 10*@{hd}')
-    }
-
-
   }
 
 
+  &.yonui-mobile-tool-bars-runtime{
+    .yonui-mobile-tool-bars-wrapper{
+      min-height: 0;
+    }
+    &.length-0{
+      padding: 0;
+    }
+  }
 }
+
+
+    // &.length-1 .mdf-button{
+    //   width: calc(~'100% - 10*@{hd}')
+    // }
+    // &.length-2 .mdf-button{
+    //   width: calc(~'50% - 10*@{hd}')
+    // }
+    // &.length-3 .mdf-button{
+    //   width: calc(~'33.33% - 10*@{hd}')
+    // }
+    // &.length-4 .mdf-button{
+    //   width: calc(~'25% - 10*@{hd}')
+    // }
+    // &.length-5 .mdf-button{
+    //   width: calc(~'22% - 10*@{hd}')
+    // }

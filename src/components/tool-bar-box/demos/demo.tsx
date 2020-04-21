@@ -55,14 +55,14 @@ export default class Demo1 extends Component<any, any> {
       <div>
         {/* {this.renderTextToolbars(values)}
         {this.renderButtonToolbars(values)} */}
-        <ToolBar>
-          <Button size='small' mode='toolbar-primary'>btn1</Button>
+        <ToolBar layout='horizontal'>
+          <Button mode='primary' size='small'>btn1</Button>
           <Button size='small' mode='toolbar-default'>Btn2</Button>
-          {/* <Button size='small'>Btn3</Button>
-          <Button size='small'>Btn4</Button>
-          <Button size='small'>Btn5</Button>
-          <Button size='small'>btn1</Button>
-          <Button size='small'>Btn2</Button>
+          {/* <Button size='small'>Btn3</Button> */}
+          {/* <Button size='small'>Btn1231231234</Button> */}
+          {/* <Button size='small'>Btn5</Button> */}
+          {/* <Button size='small'>btn1</Button> */}
+          {/* <Button size='small'>Btn2</Button>
           <Button size='small'>Btn3</Button>
           <Button size='small'>Btn4</Button>
           <Button size='small'>Btn5</Button> */}

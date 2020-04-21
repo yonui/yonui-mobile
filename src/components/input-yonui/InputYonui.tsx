@@ -75,9 +75,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
   _onChange = (event: React.ChangeEvent<HTMLInputElement> | '') => {
     const currentValue = event ? event.target.value : ''
     const { onChange, afterChange } = this.props
-    console.log(event, this.props, currentValue)
     const val = afterChange ? afterChange(currentValue) : currentValue
-    console.log(val)
     if (!this.checkValue(val)) {
       console.log('error when check')
       return

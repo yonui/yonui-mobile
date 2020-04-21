@@ -21,4 +21,13 @@ declare module 'react' {
     nid?: string
     uitype?: string
   }
+
+  interface inputItemProps {
+    label?: string
+    disabled?: boolean
+    splitLine?: boolean
+    singleLine?: boolean
+    required?: boolean
+    value?: string | number
+  }
 }
