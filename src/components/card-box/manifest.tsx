@@ -1,8 +1,8 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'CardBox',
   label: '卡片容器',
-  type: 'dataContainer',
+  type: TypeProps.DataContainer,
   uiObject: UIObject.Containers,
   icon: 'card',
   props: [
