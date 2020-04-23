@@ -71,6 +71,7 @@
     "DateTimeRange": "./src/components/date-time-range",
     "InputNumber": "./src/components/input-number",
     "ListItemWrapper": "./src/components/list-item-wrapper",
-    "TabBar": "./src/components/tab-bar"
+    "TabBar": "./src/components/tab-bar",
+    "SimpleList": "./src/components/simple-list"
   }
 }

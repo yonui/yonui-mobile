@@ -108,3 +108,25 @@ export const decodeValue = (value: string, formatReg: string, hiddenChart = '*',
   }
   return newValue.join('')
 }
+
+export const checkVisibleInDocument = (node: HTMLElement) => {
+  if (!(node.offsetHeight || node.offsetWidth || node.getClientRects().length)) {
+    return false
+  }
+  // 获取元素的高度和元素顶部相对视口的距离
+  const { height, top } = node.getBoundingClientRect()
+  const windowHeight = window.innerHeight || document.documentElement.clientHeight
+  // 只需要确定元素顶部相对视口左上角的垂直距离小于视口的高度且元素底部相对视口左上角的垂直距离
+  // 大于0
+  return (top < windowHeight) && (top + height > 0)
+}
+
+export const debounce = (method: Function, delay: number) => {
+  let timer: NodeJS.Timeout
+  return (...param: any) => {
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+      method(...param)
+    }, delay)
+  }
+}
