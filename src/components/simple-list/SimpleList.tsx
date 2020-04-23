@@ -4,7 +4,7 @@ import classnames from 'classnames'
 import { checkVisibleInDocument, debounce } from '../_utils'
 interface SimpleListProps extends React.defaultProps{
   dataSource: any[]
-  renderRow: (param: any) => React.ReactChild
+  renderRow: (rowData: any, sectionId: any, rowId: number) => React.ReactChild
   onRefresh: () => void
   onReachFoot: () => void
   pullToRefresh?: boolean
@@ -43,7 +43,7 @@ const SimpleList = (props: SimpleListProps) => {
   </div>)
   const _listItems = dataSource.map((item, index) => {
     return <div key={index} className='yonui-simple-list-item'>
-      {renderRow && renderRow(item)}
+      {renderRow && renderRow(item, dataSource, index)}
     </div>
   })
 
