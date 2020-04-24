@@ -1,23 +1,21 @@
 import React, { Component } from 'react'
-import { Radio, Icon, Modal, Button } from 'antd-mobile'
+import { Icon, Modal, Button } from 'antd-mobile'
 import Wrapper from '../list-item-wrapper'
 import classnames from 'classnames'
 import selectedImg from './style/selected.png'
-type dataSourceType = Array<{ desc: string, value: string, disabled?: boolean }>
+interface dataType { text: string, value: string, disabled?: boolean }
 interface RadioProps extends React.defaultProps {
   mode?: 'tag' | 'list'
   isMultiple?: boolean // 支持多选
   // lines?: 'single' | 'multiple' | 'multiple-select'
   label?: string
-  dataSource?: dataSourceType // Array<{key: string, label: string}>
-  onClick?: (index: number, data: { desc: string, value: string, disabled?: boolean }) => void
-  onChange?: (index: number, selectedValue: string[], selectedData: any) => void
-  onConfirm?: (value: number[]) => void
-  checkedValue?: string | string[] | {value: string, text: string} | Array<{value: string, text: string}>
+  onClick?: (data: dataType) => void
+  onChange?: (selectedValue: string[], selectedData: dataType[]) => void
+  dataSource?: dataType[] // Array<{key: string, label: string}>
+  checkedValue?: string[]
   tagSize?: 'sm' | 'lg' | 'md' | 'default'
-  labelWidth?: number
   labelStyle?: React.CSSProperties
-  itemsStyle?: React.CSSProperties
+  // itemsStyle?: React.CSSProperties
   disabled?: boolean
   singleLine?: boolean
   splitLine?: boolean
@@ -30,17 +28,37 @@ const TextString = {
   selectAll: '全选'
 }
 interface RadioState {
-  _checkedIndex: Set<number>
-  _checkedIndexTemp: Set<number>
+  _checkedData: { [key: string]: dataType }
+  _checkedDataTemp: { [key: string]: dataType }
   open: boolean
+}
+
+// 转换state中存储的已选择数据的结构
+const getValueFromDataType: (data: { [key: string]: dataType}) => [ string[], dataType[]] = (data) => {
+  const _selectedValue: string[] = []
+  const _selectedData: dataType[] = []
+  Object.keys(data).forEach(item => {
+    const _value = data[item]
+    _value && _selectedValue.push(_value.value)
+    _value && _selectedData.push(_value)
+  })
+  return [_selectedValue, _selectedData]
 }
 
 export default class RadioControl extends Component<RadioProps, RadioState> {
   constructor (props: RadioProps) {
     super(props)
+    const { dataSource, checkedValue } = props
+    const checkedDataObj: { [key: string]: dataType } = {}
+    dataSource && dataSource.forEach(item => {
+      console.log(item.value)
+      if (checkedValue?.includes(item.value)) {
+        checkedDataObj[item.value] = item
+      }
+    })
     this.state = {
-      _checkedIndex: new Set(),
-      _checkedIndexTemp: new Set(),
+      _checkedData: checkedDataObj,
+      _checkedDataTemp: checkedDataObj,
       open: false
     }
   }
@@ -48,77 +66,67 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
   static defaultProps = {
     tagSize: 'default',
     disabled: false
-    // lines: 'multiple-select'
   }
 
-  onClickItem = (data: { desc: string, value: string, disabled?: boolean }, index: number, e?: React.MouseEvent<HTMLSpanElement, MouseEvent>, temp?: boolean) => {
+  onClickItem = (data: dataType, e?: React.MouseEvent<HTMLSpanElement, MouseEvent>, temp?: boolean) => {
     e && e.stopPropagation()
-    const { disabled, onChange, dataSource = [], isMultiple, onClick } = this.props
-    const { _checkedIndex, _checkedIndexTemp } = this.state
-    const cloneSet = temp ? new Set(Array.from(_checkedIndexTemp)) : new Set(Array.from(_checkedIndex))
+    const { disabled, onChange, isMultiple, onClick } = this.props
+    const { _checkedData, _checkedDataTemp } = this.state
     if (disabled) {
       return
     }
-    const currentIndex = isMultiple ? (cloneSet.delete(index) ? cloneSet : cloneSet.add(index)) : new Set([index])
+    let currentData: { [key: string]: dataType } = temp ? _checkedDataTemp : _checkedData
+    if (isMultiple) {
+      if (currentData[data.value]) {
+        delete currentData[data.value]
+      } else {
+        currentData = { ...currentData, [data.value]: data }
+      }
+    } else {
+      currentData = { [data.value]: data }
+    }
     if (temp) {
       this.setState({
-        _checkedIndexTemp: currentIndex
+        _checkedDataTemp: currentData
       })
     } else {
       this.setState({
-        _checkedIndex: currentIndex
+        _checkedData: currentData
       })
     }
-    onClick && onClick(index, data)
-    const _selectedValue: string[] = []
-    const _selectedData: any[] = []
-    Array.from(currentIndex).forEach(item => {
-      _selectedValue.push(dataSource[item]?.value)
-      _selectedData.push(dataSource[item])
-    })
-    onChange && onChange(index, _selectedValue, _selectedData)
+    onClick && onClick(data)
+    const _valueArr = getValueFromDataType(currentData)
+    !temp && onChange && onChange(_valueArr[0], _valueArr[1])
   }
 
-  renderRadio = (dataSource?: dataSourceType, selectedValue?: string | string[]) => {
-    const { disabled } = this.props
-    const { _checkedIndex } = this.state
-    const selectedValueSet = typeof selectedValue === 'string' ? new Set([selectedValue]) : new Set(selectedValue)
-    if (!dataSource || !Array.isArray(dataSource)) return null
-    return dataSource.map((item, index) => {
-      const cls = classnames('yonui-radio-box', { 'yonui-radio-box-disabled': disabled || item.disabled })
-      return <span key={index} className='yonui-radio-wrapper' onClick={(e) => { !item.disabled && this.onClickItem(item, index, e) }}><Radio className={cls} checked={selectedValue ? selectedValueSet.has(item.value) : _checkedIndex.has(index)} >{item.desc}</Radio></span>
-    })
-  }
-
-  renderSelection = (selectData?: dataSourceType, selectedValue?: string | string[], tagSize?: 'sm' | 'md' | 'lg' | 'default') => {
-    // const { } = this.props
-    const { _checkedIndex } = this.state
+  renderSelection = (selectData?: dataType[], selectedValue?: string[], tagSize?: 'sm' | 'md' | 'lg' | 'default') => {
+    const { _checkedData } = this.state
     if (!selectData || !Array.isArray(selectData)) return null
-    const selectedValueSet = typeof selectedValue === 'string' ? new Set([selectedValue]) : new Set(selectedValue)
+    const _selectedValue = selectedValue ?? getValueFromDataType(_checkedData)[0]
+    // const selectedValueSet = typeof selectedValue === 'string' ? new Set([selectedValue]) : new Set(selectedValue)
     return selectData.map((item, index) => {
       const cls = classnames(
         'radio-tag',
-        // 'am-tag-default',
         `radio-tag-${tagSize}`,
-        `${(selectedValue ? selectedValueSet.has(item.value) : _checkedIndex.has(index)) ? 'radio-tag-active' : 'radio-tag-normal'}`,
+        `${_selectedValue.includes(item.value) ? 'radio-tag-active' : 'radio-tag-normal'}`,
         {
           'radio-tag-disabled': this.props.disabled || item.disabled
         }
-
       )
-      return <div className={cls} key={index} onClick={() => { !item.disabled && this.onClickItem(item, index) }}>
-        <div className='radio-tag-text'>{item.desc}</div>
+      return <div className={cls} key={index} onClick={() => { !item.disabled && this.onClickItem(item) }}>
+        <div className='radio-tag-text'>{item.text}</div>
       </div>
     })
   }
 
-  renderRaioList = (selectData?: dataSourceType, selectedValue?: string | string[]) => {
+  renderRaioList = (selectData?: dataType[], selectedValue?: string[]) => {
     if (!selectData || !Array.isArray(selectData)) return null
     const { isMultiple } = this.props
-    const selectedValueSet = typeof selectedValue === 'string' ? new Set([selectedValue]) : new Set(selectedValue)
-    const { _checkedIndexTemp } = this.state
+    // const selectedValueSet = typeof selectedValue === 'string' ? new Set([selectedValue]) : new Set(selectedValue)
+    const { _checkedDataTemp } = this.state
+    const _selectedValue = selectedValue ?? getValueFromDataType(_checkedDataTemp)[0]
     const _list = selectData.map((item, index) => {
-      const _checked = selectedValue ? selectedValueSet.has(item.value) : _checkedIndexTemp.has(index)
+      const _checked = _selectedValue.includes(item.value)
       const cls = classnames({
         'yonui-radio-list-active': _checked,
         'yonui-radio-list-disabled': this.props.disabled || item.disabled
@@ -127,13 +135,13 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
         e && e.stopPropagation()
         if (item.disabled) return
         if (isMultiple) {
-          this.onClickItem(item, index, e, true)
+          this.onClickItem(item, e, true)
         } else {
-          this.onClickItem(item, index)
+          this.onClickItem(item)
           this.onCloseModal(e)
         }
       }
-      return <Wrapper labelCls={cls} key={index} label={item.desc} onClick={ onClickWrapper} singleLine>
+      return <Wrapper labelCls={cls} key={index} label={item.text} onClick={ onClickWrapper} singleLine>
         { _checked ? <img src={selectedImg} style={{ width: '17px', height: '14px' }}/> : ''}
       </Wrapper>
     })
@@ -151,7 +159,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
       </div>
       {isMultiple && <div className='yonui-radio-list-footer'>
         <div className='yonui-radio-list-footer-data'>
-          {TextString.selected} {_checkedIndexTemp.size}/{selectData.length}
+          {TextString.selected} {_selectedValue.length}/{selectData.length}
         </div>
         <Button size='small' type='primary' className='yonui-radio-list-footer-btn' onClick={this.onConfirm}>{TextString.confirm}</Button>
       </div>}
@@ -160,36 +168,38 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
 
   onConfirm = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     this.onCloseModal(e, true)
-    const { onConfirm } = this.props
-    const { _checkedIndex } = this.state
-    onConfirm && onConfirm(Array.from(_checkedIndex))
+    const { onChange } = this.props
+    const { _checkedData } = this.state
+    const valueArr = getValueFromDataType(_checkedData)
+    onChange && onChange(valueArr[0], valueArr[1])
   }
 
   selectAll = () => {
     const { dataSource } = this.props
-    // const length = dataSource?.map( (item, index) => index)
-    const _temp = new Set(dataSource?.map((item, index) => !item.disabled ? index : -1))
-    _temp.delete(-1)
+    const res: { [key: string]: dataType } = {}
+    dataSource && dataSource.forEach(item => {
+      !item.disabled && (res[item.value] = item)
+    })
     this.setState({
-      _checkedIndexTemp: _temp
+      _checkedDataTemp: res
     })
   }
 
   onOpenModal = () => {
-    const { _checkedIndex } = this.state
+    const { _checkedData } = this.state
     this.setState({
       open: true,
-      _checkedIndexTemp: _checkedIndex
+      _checkedDataTemp: _checkedData
     })
   }
 
   onCloseModal = (e?: React.MouseEvent<HTMLSpanElement, MouseEvent>, change?: boolean) => {
     e && e.stopPropagation()
-    const { _checkedIndexTemp } = this.state
+    const { _checkedDataTemp } = this.state
     if (change) {
       this.setState({
         open: false,
-        _checkedIndex: _checkedIndexTemp
+        _checkedData: _checkedDataTemp
       })
     } else {
       this.setState({
@@ -203,29 +213,10 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     this.onOpenModal()
   }
 
-  renderContent = (dataSource?: dataSourceType, checkedValue?: string | string[], checkedData?: string[]) => {
-    const { _checkedIndex } = this.state
+  renderContent = (dataSource?: dataType[], checkedValue?: string | string[], checkedData?: string[]) => {
+    const { _checkedData } = this.state
     const { disabled } = this.props
-    // if (disabled) return '不可选'
-    let res: string[] = []
-    if (checkedData && checkedData.length > 0) {
-      res = checkedData
-    } else if (checkedValue && typeof checkedValue === 'string') {
-      // eslint-disable-next-line no-unused-expressions
-      dataSource?.forEach(item => {
-        if (item.value === checkedValue) res.push(item.desc)
-      })
-    } else if (checkedValue && Array.isArray(checkedValue) && checkedValue.length > 0) {
-      // eslint-disable-next-line no-unused-expressions
-      dataSource?.forEach(item => {
-        if (checkedValue.indexOf(item.value) !== -1) res.push(item.desc)
-      })
-    } else {
-      Array.from(_checkedIndex).sort((a, b) => (a - b)).forEach(item => {
-        dataSource && res.push(dataSource[item].desc)
-      })
-    }
-    const displayValue = res.join(',')
+    const displayValue = getValueFromDataType(_checkedData)[1].map(item => item.text).join(',')
     const fontCls = classnames('radio-items-selected-value', {
       'radio-items-selected-value-disabled': disabled
     })
@@ -235,41 +226,9 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     </React.Fragment>
   }
 
-  getCheckValue = () => {
-    const { checkedValue } = this.props
-    if (!checkedValue) return []
-    if (Array.isArray(checkedValue)) {
-      const res: string[] = []
-      checkedValue.forEach((item: string | {value: string, text: string}) => {
-        res.push(typeof item === 'string' ? item : item.value)
-        // if (typeof item !== 'string') res.push(item.value)
-      })
-      return res
-    } else {
-      return typeof checkedValue === 'string' ? [checkedValue] : [checkedValue.value]
-    }
-  }
-
-  getCheckData = () => {
-    const { checkedValue } = this.props
-    if (!checkedValue) return []
-    if (Array.isArray(checkedValue)) {
-      const res: string[] = []
-      checkedValue.forEach((item: string | {value: string, text: string}) => {
-        // res.push(typeof item === 'string' ? item : (isText ? item.text : item.value))
-        if (typeof item !== 'string') res.push(item.text)
-      })
-      return res
-    } else {
-      return typeof checkedValue === 'string' ? [checkedValue] : [checkedValue.text]
-    }
-  }
-
   render () {
-    const { mode, dataSource, label, tagSize, className, nid, uitype, splitLine, singleLine, required } = this.props
+    const { mode, dataSource, label, tagSize, className, nid, uitype, splitLine, singleLine, required, checkedValue } = this.props
     const { open } = this.state
-    const checkedValue = this.getCheckValue()
-    const checkedData = this.getCheckData()
     let radioArr: any
     switch (mode) {
       case 'tag': {
@@ -277,7 +236,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
         break
       }
       case 'list': {
-        radioArr = this.renderContent(dataSource, checkedValue, checkedData)
+        radioArr = this.renderContent(dataSource, checkedValue)
         break
       }
       default: {

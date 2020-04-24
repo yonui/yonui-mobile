@@ -7,9 +7,9 @@ import Radio from '../index';
 import '../style';
 import './demo.less';
 const selectData = [
-  {value: 'value1',desc: '选项'},
-  {value: 'value2',desc: '选项'},
-  {value: 'value5',desc: '选项', disabled: true}
+  {value: 'value1',text: '选项1'},
+  {value: 'value2',text: '选项2'},
+  {value: 'value5',text: '选项3', disabled: true}
 ]
 export default class Demo1 extends Component {
     constructor(props : any) {
@@ -18,11 +18,11 @@ export default class Demo1 extends Component {
             value: ['value1'],
         }
     }
-    onChange = (...a:any) => {
-        console.log(a);
-        // this.setState({
-        //     value,
-        // });
+    onChange = (value: string[], data: any[]) => {
+        console.log(value);
+        this.setState({
+            value
+        });
     };
     render() {
         const data = [
@@ -31,10 +31,10 @@ export default class Demo1 extends Component {
         ];
         return (
             <div>
-              <Radio dataSource={selectData} label='标题' mode='tag' checkedValue={this.state.value}  onChange={this.onChange} tagSize='sm'  singleLine/>
-              <Radio dataSource={selectData} label='标题' mode='list' />
-              <Radio dataSource={selectData} label='标题' mode='tag' checkedValue={this.state.value}  onChange={this.onChange} tagSize='sm'  isMultiple/>
-              <Radio dataSource={selectData} label='标题' mode='list' isMultiple disabled checkedValue={["value1"]} />
+              <Radio dataSource={selectData} label='标题' mode='tag'  onChange={this.onChange} tagSize='sm'  singleLine/>
+              <Radio dataSource={selectData} label='标题' mode='list' onChange={this.onChange}  />
+              <Radio dataSource={selectData} label='标题' mode='tag'  onChange={this.onChange} tagSize='sm'  isMultiple/>
+              <Radio dataSource={selectData} label='标题' mode='list' isMultiple />
             </div>
         )
     }

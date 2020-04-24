@@ -1,9 +1,9 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps } from 'yonui-extension'
 // todo 未配置 onClick onChange
 const selectData = [
-  { value: 'value1', desc: '项目1' },
-  { value: 'value2', desc: '项目2' },
-  { value: 'value3', desc: '项目3', disabled: true }
+  { value: 'value1', text: '项目1' },
+  { value: 'value2', text: '项目2' },
+  { value: 'value3', text: '项目3', disabled: true }
 ]
 const manifest: ComponentManifest = {
   name: 'Radio',
@@ -43,24 +43,6 @@ const manifest: ComponentManifest = {
         label: '多选'
       }
     },
-    // {
-    //   name: 'lines',
-    //   type: FieldTypes.string,
-    //   defaultValue: 'multiple',
-    //   showDesign: true,
-    //   designConfig: {
-    //     type: EditTypes.Select,
-    //     isRequired: false,
-    //     props: {
-    //       options: [
-    //         { value: 'single', text: '单行' },
-    //         { value: 'multiple', text: '多行' },
-    //         { value: 'multiple-select', text: '多行(支持展开收起)' }
-    //       ]
-    //     },
-    //     label: '选项面板'
-    //   }
-    // },
     {
       name: 'label',
       type: FieldTypes.string,
@@ -97,39 +79,6 @@ const manifest: ComponentManifest = {
         label: '选中值'
       }
     },
-    // {
-    //   name: 'tagSize',
-    //   type: FieldTypes.string,
-    //   defaultValue: 'default',
-    //   showDesign: true,
-    //   designConfig: {
-    //     type: EditTypes.Select,
-    //     isRequired: true,
-    //     props: {
-    //       options: [
-    //         { value: 'default', text: '默认' },
-    //         { value: 'sm', text: '小尺寸' },
-    //         { value: 'md', text: '中尺寸' },
-    //         { value: 'lg', text: '大尺寸' }
-    //       ]
-    //     },
-    //     label: '标签大小',
-    //     help: '标签展示时有效'
-    //   }
-    // },
-    // {
-    //   name: 'labelWidth',
-    //   type: FieldTypes.number,
-    //   defaultValue: 20,
-    //   showDesign: true,
-    //   designConfig: {
-    //     type: EditTypes.Number,
-    //     isRequired: true,
-    //     props: {},
-    //     label: 'label宽度百分比',
-    //     help: '单行展示时有效'
-    //   }
-    // },
     {
       name: 'labelStyle',
       type: FieldTypes.object,
@@ -154,43 +103,6 @@ const manifest: ComponentManifest = {
         label: '选项样式'
       }
     }
-    // {
-    //   name: 'disabled',
-    //   type: FieldTypes.boolean,
-    //   defaultValue: false,
-    //   showDesign: true,
-    //   designConfig: {
-    //     type: EditTypes.Bool,
-    //     isRequired: true,
-    //     props: {},
-    //     label: '是否禁用',
-    //     help: '此项为禁用整个选项组'
-    //   }
-    // },
-    // {
-    //   name: 'singleLine',
-    //   type: FieldTypes.boolean,
-    //   defaultValue: false,
-    //   showDesign: true,
-    //   designConfig: {
-    //     type: EditTypes.Bool,
-    //     isRequired: true,
-    //     props: {},
-    //     label: '单行展示'
-    //   }
-    // },
-    // {
-    //   name: 'splitLine',
-    //   type: FieldTypes.boolean,
-    //   defaultValue: true,
-    //   showDesign: true,
-    //   designConfig: {
-    //     type: EditTypes.Bool,
-    //     isRequired: true,
-    //     props: {},
-    //     label: '分割线'
-    //   }
-    // }
   ],
   children: [],
   extension: [
