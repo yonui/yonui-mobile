@@ -46,7 +46,7 @@ const manifest: ComponentManifest = {
     {
       name: 'split',
       type: FieldTypes.string,
-      defaultValue: 'none',
+      defaultValue: 'blank',
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,

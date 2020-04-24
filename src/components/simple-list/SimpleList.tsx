@@ -13,9 +13,8 @@ interface SimpleListProps extends React.defaultProps{
   height?: number
   reservedHeight?: number
 }
-// const defaultFooterText = '加载中...'
 const SimpleList = (props: SimpleListProps) => {
-  const { dataSource, renderRow, onRefresh, pullToRefresh = true, split = 'line', onReachFoot, footerText, reservedHeight = 0, height } = props
+  const { dataSource, renderRow, onRefresh, pullToRefresh = true, split = 'blank', onReachFoot, footerText, reservedHeight = 0, height } = props
   let __list: HTMLElement | null
   const [listHeight, setListHeight] = useState(0)
   useEffect(() => {
