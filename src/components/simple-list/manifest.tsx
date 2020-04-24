@@ -4,6 +4,7 @@ const manifest: ComponentManifest = {
   label: '简单列表',
   type: TypeProps.DataContainer,
   uiObject: UIObject.Containers,
+  hidden: true,
   props: [
     {
       name: 'pullToRefresh',
@@ -133,7 +134,7 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: []
+  children: () => true
 }
 
 export default manifest
