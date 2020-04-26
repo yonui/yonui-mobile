@@ -68,14 +68,14 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     disabled: false
   }
 
-  onClickItem = (data: dataType, e?: React.MouseEvent<HTMLSpanElement, MouseEvent>, temp?: boolean) => {
+  onClickItem = (data: dataType, e?: React.MouseEvent<HTMLSpanElement, MouseEvent>, multiple?: boolean) => {
     e && e.stopPropagation()
     const { disabled, onChange, isMultiple, onClick } = this.props
     const { _checkedData, _checkedDataTemp } = this.state
     if (disabled) {
       return
     }
-    let currentData: { [key: string]: dataType } = temp ? _checkedDataTemp : _checkedData
+    let currentData: { [key: string]: dataType } = multiple ? _checkedDataTemp : _checkedData
     if (isMultiple) {
       if (currentData[data.value]) {
         delete currentData[data.value]
@@ -85,7 +85,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     } else {
       currentData = { [data.value]: data }
     }
-    if (temp) {
+    if (multiple) {
       this.setState({
         _checkedDataTemp: currentData
       })
@@ -96,7 +96,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     }
     onClick && onClick(data)
     const _valueArr = getValueFromDataType(currentData)
-    !temp && onChange && onChange(_valueArr[0], _valueArr[1])
+    !multiple && onChange && onChange(_valueArr[0], _valueArr[1])
   }
 
   renderSelection = (selectData?: dataType[], selectedValue?: string[], tagSize?: 'sm' | 'md' | 'lg' | 'default') => {
@@ -137,7 +137,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
         if (isMultiple) {
           this.onClickItem(item, e, true)
         } else {
-          this.onClickItem(item)
+          this.onClickItem(item, e)
           this.onCloseModal(e)
         }
       }
@@ -169,8 +169,11 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
   onConfirm = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     this.onCloseModal(e, true)
     const { onChange } = this.props
-    const { _checkedData } = this.state
-    const valueArr = getValueFromDataType(_checkedData)
+    const { _checkedDataTemp } = this.state
+    const valueArr = getValueFromDataType(_checkedDataTemp)
+    this.setState({
+      _checkedData: _checkedDataTemp
+    })
     onChange && onChange(valueArr[0], valueArr[1])
   }
 
