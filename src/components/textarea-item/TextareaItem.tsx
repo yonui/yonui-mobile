@@ -26,14 +26,15 @@ export default class MyComponent extends Component<TextareaProps, TextareaState>
   }
 
   _onBlur = (value: any) => {
-    const { required } = this.props
+    const { required, onBlur } = this.props
     this.setState({
       requiredError: !!required && !value
     })
+    onBlur && onBlur(value)
   }
 
   render () {
-    const { label, className, style, nid, uitype, required, maxLength, splitLine, rows = 3, errorText, ...other } = this.props
+    const { label, className, style, nid, uitype, required, maxLength, splitLine, rows = 3, errorText, onBlur, ...other } = this.props
     const { requiredError } = this.state
     const cls = classnames(className, 'yonui-textarea')
     return (
