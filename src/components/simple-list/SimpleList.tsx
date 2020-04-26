@@ -18,7 +18,7 @@ const SimpleList = (props: SimpleListProps) => {
   let __list: HTMLElement | null
   const [listHeight, setListHeight] = useState(0)
   useEffect(() => {
-    console.log(__list)
+    // console.log(__list)
     const topHeight = Math.min(__list?.offsetTop || 0, 1000)
     const listHeight = topHeight + reservedHeight
     setListHeight(listHeight)
@@ -26,6 +26,7 @@ const SimpleList = (props: SimpleListProps) => {
   const onScroll = (event: React.UIEvent<HTMLDivElement, UIEvent>) => {
     event && event.stopPropagation()
     if (__list && __list.childElementCount && __list.lastChild && checkVisibleInDocument(__list.lastChild)) {
+      console.log('------ onReachFoot ！！！ ------')
       onReachFoot && onReachFoot()
     }
   }
@@ -33,7 +34,7 @@ const SimpleList = (props: SimpleListProps) => {
     hidden: !footerText
   })
   const touch = (event: React.TouchEvent<HTMLDivElement>) => {
-    console.log(event)
+    // console.log(event)
     event.stopPropagation()
   }
   const footerStyle: React.CSSProperties = { }
@@ -48,8 +49,8 @@ const SimpleList = (props: SimpleListProps) => {
 
   const cls = classnames('yonui-simple-list', `split-${split}`)
   const style: React.CSSProperties = height ? { height } : { maxHeight: `calc(100vh - ${listHeight}px)` }
-  console.log(style)
-  const _list = (<div className={cls} onTouchMove={touch} onScroll={debounce(onScroll, 100)} ref={ (ref) => { __list = ref }}>
+  // console.log(style)
+  const _list = (<div className={cls} onTouchMove={touch} ref={ (ref) => { __list = ref }}>
     {_listItems}
     {renderFooter(footerText)}
   </div>)
@@ -64,6 +65,7 @@ const SimpleList = (props: SimpleListProps) => {
     refreshing={false}
     style={style}
     className='yonui-simple-list-pull'
+    onScroll={debounce(onScroll, 100)}
   >
     {_list}
   </PullToRefresh>)

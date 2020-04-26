@@ -14,6 +14,7 @@ export default class Demo1 extends Component {
         label='123123'
         // maxLength={1000}
         clear
+        required
       />
     )
   }

@@ -49,7 +49,7 @@ const manifest: ComponentManifest = {
       defaultValue: 'blank',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Bool,
+        type: EditTypes.Select,
         label: '分隔',
         isRequired: false,
         props: {
