@@ -14,6 +14,10 @@ interface TextareaState {
   requiredError: boolean
 }
 export default class MyComponent extends Component<TextareaProps, TextareaState> {
+  static defaultProps = {
+    errorText: ''
+  }
+
   constructor (props: TextAreaItemPropsType) {
     super(props)
     this.state = {
