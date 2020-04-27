@@ -65,7 +65,7 @@ const manifest: ComponentManifest = {
       name: 'dataSource',
       type: FieldTypes.array,
       defaultValue: [],
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Json,
         label: '数据源',

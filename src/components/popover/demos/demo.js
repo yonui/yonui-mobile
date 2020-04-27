@@ -10,7 +10,7 @@ import './demo.less';
 
 const Item = Popover.Item;
 
-import PNG from '../../Notice/style/img/popicon.png'
+import PNG from '../../notice/style/img/popicon.png'
 
 const myImg = src => <img src={PNG} className="am-icon am-icon-xs" alt="" />;
 export default class Demo1 extends Component {
@@ -49,6 +49,7 @@ export default class Demo1 extends Component {
                     placement={'bottomRight'}
                     overlayData={[{ icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg', label: '选项' }]}
                     onVisibleChange={this.handleVisibleChange}
+                    style={{color: 'red'}}
                 >
                     <span style={{ "display": 'inline-block', 'line-height': 40 }}>此处触发pop展开和关闭 深色</span>
                 </Popover>
