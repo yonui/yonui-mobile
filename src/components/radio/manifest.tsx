@@ -59,7 +59,7 @@ const manifest: ComponentManifest = {
       name: 'dataSource',
       type: FieldTypes.object,
       defaultValue: JSON.stringify(selectData),
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Json,
         isRequired: true,
@@ -71,7 +71,7 @@ const manifest: ComponentManifest = {
       name: 'checkedValue',
       type: FieldTypes.array,
       defaultValue: [],
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Json,
         isRequired: true,
