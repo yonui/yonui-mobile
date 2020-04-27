@@ -12,9 +12,10 @@ interface SimpleListProps extends React.defaultProps{
   split?: 'none' | 'line' | 'blank'
   height?: number
   reservedHeight?: number
+  children?: React.ReactChildren
 }
 const SimpleList = (props: SimpleListProps) => {
-  const { dataSource, renderRow, onRefresh, pullToRefresh = true, split = 'blank', onReachFoot, footerText, reservedHeight = 0, height } = props
+  const { dataSource, renderRow, onRefresh, pullToRefresh = true, split = 'blank', onReachFoot, footerText, reservedHeight = 0, height, children } = props
   let __list: HTMLElement | null
   const [listHeight, setListHeight] = useState(0)
   useEffect(() => {
@@ -43,7 +44,7 @@ const SimpleList = (props: SimpleListProps) => {
   </div>)
   const _listItems = dataSource.map((item, index) => {
     return <div key={index} className='yonui-simple-list-item'>
-      {renderRow && renderRow(item, dataSource, index)}
+      {renderRow ? renderRow(item, dataSource, index) : children}
     </div>
   })
 

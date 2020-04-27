@@ -10,7 +10,6 @@ export interface InputProps extends React.defaultProps {
   required?: boolean
   splitLine?: boolean
   className?: string
-  style?: React.CSSProperties
   singleLine?: boolean
   maxLength?: number
   subuitype?: 'text' | 'idCard' | 'email' | 'ipAddress' | 'bankCard16' | 'bankCard19' | 'customized'

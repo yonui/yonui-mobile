@@ -230,7 +230,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
   }
 
   render () {
-    const { mode, dataSource, label, tagSize, className, nid, uitype, splitLine, singleLine, required, checkedValue } = this.props
+    const { mode, dataSource, label, tagSize, className, nid, uitype, splitLine, singleLine, required, checkedValue, style } = this.props
     const { open } = this.state
     let radioArr: any
     switch (mode) {
@@ -249,7 +249,9 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     }
     const cls = classnames(className, 'yonui-radio')
     return (
-      <Wrapper className={cls} nid={nid} uitype={uitype} singleLine={singleLine || mode === 'list'} splitLine={splitLine} label={label} labelCls={'yonui-radio-label'} required={required}>
+      <Wrapper className={cls} nid={nid} uitype={uitype}
+        singleLine={singleLine || mode === 'list'} splitLine={splitLine} label={label}
+        labelCls={'yonui-radio-label'} required={required} style={style}>
         <div className='yonui-radio-items'>
           {radioArr}
         </div>
