@@ -11,7 +11,7 @@ import './demo.less';
 const children = [<MyComponent onDelete={()=>{console.log('x')}}  label='标题' >
 <div>123123123</div>
 </MyComponent>,
-<MyComponent onDelete={()=>{console.log('x')}}  label='标题' displayStyle='topic' selected>
+<MyComponent onDelete={()=>{console.log('x')}}  label='标题' displayStyle='detail' selected>
 <div>123123123</div>
 </MyComponent>,
 <MyComponent onDelete={()=>{console.log('x')}}  label='标题' displayStyle='slideable'>
