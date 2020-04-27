@@ -21,19 +21,19 @@ export default class Demo1 extends Component {
     }
     return (
       <div >
-        <Button type="primary" content="主要操作/N"></Button>
+        <Button type="primary" size='large' content="主要操作/N"></Button>
         <WhiteSpace/>
-        <Button type="primary" disabled={true}>主要操作/D</Button>
+        <Button type="primary" size='large' disabled={true}>主要操作/D</Button>
         <WhiteSpace/>
-        <Button>辅助操作/N</Button>
+        <Button size='large' >辅助操作/N</Button>
         <WhiteSpace/>
-        <Button disabled={true}>辅助操作/D</Button>
+        <Button disabled={true} size='large'>辅助操作/D</Button>
         <WhiteSpace/>
-        <Button type="warning">警示按钮/N</Button>
+        <Button type="warning" size='large'>警示按钮/N</Button>
         <WhiteSpace/>
-        <Button type="warning" disabled={true}>警示按钮/D</Button>
+        <Button type="warning" disabled={true} size='large'>警示按钮/D</Button>
         <WhiteSpace/>
-        <Button size="small" type="ghost">幽灵/N</Button>
+        <Button size="small" type="ghost" >幽灵/N</Button>
         <WhiteSpace/>
         <Button size="small" type="ghost" disabled={true}>幽灵/D</Button>
         <WhiteSpace/>
