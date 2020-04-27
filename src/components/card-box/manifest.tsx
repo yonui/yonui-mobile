@@ -7,22 +7,21 @@ const manifest: ComponentManifest = {
   icon: 'card',
   props: [
     {
-      name: 'viewStatus',
+      name: 'displayStyle',
       type: FieldTypes.string,
-      defaultValue: 'default',
+      defaultValue: 'normal',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
         isRequired: false,
         props: {
           options: [
-            { value: 'default', text: '浏览' },
-            { value: 'select', text: '选择-未选中' },
-            { value: 'selected', text: '选择-选中' },
-            { value: 'detail', text: '详情' }
+            { value: 'normal', text: '正常' },
+            { value: 'detail', text: '详情页(带头部)' },
+            { value: 'slideable', text: '可滑动删除' }
           ]
         },
-        label: '选择状态'
+        label: '展示状态'
       }
     },
     {

@@ -90,7 +90,7 @@
     "react-dom": "^16.12.0",
     "react-virtualized": "^9.21.2",
     "rmc-feedback": "^2.0.0",
-    "yonui-extension": "^0.7.17"
+    "yonui-extension": "^0.7.18"
   },
   "browserslist": {
     "production": [

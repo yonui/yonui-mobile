@@ -26,7 +26,8 @@
 
   .yonui-card-box-icon{
     width: 35 * @hd;
-    display: inline-flex;
+    // display: inline-flex;
+    display: none;
     justify-content: center;
     align-items: center;
   }
@@ -39,4 +40,12 @@
     box-shadow:0rem 0.01rem 0.07rem 0rem rgba(0,0,0,0.1);
   }
 
+}
+
+.yonui-simple-list{
+  .yonui-simple-list-item.editable{
+    .yonui-card-box-icon{
+      display: inline-flex;
+    }
+  }
 }

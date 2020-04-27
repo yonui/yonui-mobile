@@ -185,7 +185,7 @@ const manifest: ComponentManifest = {
     }
   ],
   extension: [
-    ExtensionProps.required,
+    // ExtensionProps.required,
     ExtensionProps.disabled,
     ExtensionProps.splitLine,
     ExtensionProps.bIsNull,
@@ -195,6 +195,9 @@ const manifest: ComponentManifest = {
     ExtensionProps.bCheck,
     ExtensionProps.bVmExclude,
     ExtensionProps.cStyle
-  ]
+  ],
+  propertyMap: {
+    bIsNull: 'required'
+  }
 }
 export default manifest
