@@ -17,7 +17,7 @@ const manifest: ComponentManifest = {
         props: {
           options: [
             { value: 'normal', text: '正常' },
-            { value: 'detail', text: '详情页(带头部)' },
+            { value: 'detail', text: '详情(带头部)' },
             { value: 'slideable', text: '可滑动删除' }
           ]
         },
@@ -34,7 +34,7 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '按钮文本',
-        help: '浏览态有效'
+        help: '滑动删除时有效'
       }
     },
     {
@@ -46,7 +46,7 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '按钮样式',
-        help: '浏览态有效'
+        help: '滑动删除时有效'
       }
     },
     {
@@ -63,19 +63,6 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'footer',
-      type: FieldTypes.string,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: '底部文字',
-        help: '详情态有效'
-      }
-    },
-    {
       name: 'onDelete',
       type: FieldTypes.action,
       showDesign: true,
@@ -84,7 +71,7 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '按钮点击事件',
-        help: '浏览/详情态有效'
+        help: '滑动删除/详情态有效'
       }
     }
   ],
