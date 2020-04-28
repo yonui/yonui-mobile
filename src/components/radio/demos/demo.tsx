@@ -15,7 +15,7 @@ export default class Demo1 extends Component {
     constructor(props : any) {
         super(props);
         this.state = {
-            value: ['value1'],
+            value: undefined,
         }
     }
     onChange = (value: string[], data: any[]) => {
@@ -31,10 +31,11 @@ export default class Demo1 extends Component {
         ];
         return (
             <div>
-              <Radio dataSource={selectData} label='标题' mode='tag'  onChange={this.onChange} tagSize='sm'  singleLine/>
-              <Radio dataSource={selectData} label='标题' mode='list' onChange={this.onChange}  />
+              <Radio dataSource={selectData} label='标题' mode='tag'  onChange={this.onChange} tagSize='sm'  singleLine checkedValue={this.state.value}/>
+              {/* <Radio dataSource={selectData} label='标题' mode='list' onChange={this.onChange}  />
               <Radio dataSource={selectData} label='标题' mode='tag'  onChange={this.onChange} tagSize='sm'  isMultiple/>
-              <Radio dataSource={selectData} label='标题' mode='list' isMultiple />
+              <Radio dataSource={selectData} label='标题' mode='list' isMultiple /> */}
+              <button onClick={()=>{this.onChange('value1')}}>btn</button>
             </div>
         )
     }
