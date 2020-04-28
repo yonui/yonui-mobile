@@ -22,8 +22,8 @@
       "css": ""
   },
   "buildImport": {
-    "js":[],
+    "js":["import a from '../s'"],
     "css":[],
-    "export":[]
+    "export":["a"]
   }
 }
