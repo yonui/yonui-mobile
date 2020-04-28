@@ -8,6 +8,8 @@ type dataSourceType = Array<{ short: string, name: string, en: string, tel: stri
 type emailType = Array<{type: string}>
 
 interface ContactProps extends React.defaultProps, React.inputItemProps{
+  label?: string
+  singleLine?: boolean
   area?: boolean // 是否选择国际区号
   isSelect?: boolean // 是否选择邮箱后缀
   mode?: 'telephone' | 'mobilephone' | 'email'
