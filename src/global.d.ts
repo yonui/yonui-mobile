@@ -31,3 +31,9 @@ declare module 'react' {
     value?: string | number
   }
 }
+
+declare global {
+  interface Window {
+    mtl: any
+  }
+}

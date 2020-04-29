@@ -4,6 +4,7 @@ import Input from '../input-yonui'
 import Icon from '../icon'
 import { Modal } from 'antd-mobile'
 import { defaultDataSource, defaultEmailTypeDataSource } from './datasource'
+import phoneIcon from './style/dianhua.png'
 type dataSourceType = Array<{ short: string, name: string, en: string, tel: string, pinyin: string }>
 type emailType = Array<{type: string}>
 
@@ -16,13 +17,16 @@ interface ContactProps extends React.defaultProps, React.inputItemProps{
   dataSource?: dataSourceType
   emailDataSource?: emailType
   onChange?: (value: string) => void
+  value?: string
 }
 interface ContactState {
   country?: string
   countryNum?: string
   open: boolean
   emailType: string
+  _value: string
 }
+
 export default class Contact extends Component<ContactProps, ContactState> {
   static defaultProps = {
     label: '电话',
@@ -41,7 +45,8 @@ export default class Contact extends Component<ContactProps, ContactState> {
       country: '中国',
       countryNum: '+86',
       open: false,
-      emailType: '@yonyou.com'
+      emailType: '@yonyou.com',
+      _value: props.value || ''
     }
   }
 
@@ -63,15 +68,47 @@ export default class Contact extends Component<ContactProps, ContactState> {
     }
   }
 
+  textOnChange= (value: string) => {
+    console.log(value)
+    const { onChange } = this.props
+    onChange && onChange(value)
+    this.setState({
+      _value: value
+    })
+  }
+
+  dailAction = () => {
+    const { mode, area } = this.props
+    const { countryNum, _value } = this.state
+    const countrynum = (mode !== 'email' && area) ? countryNum : ''
+    const phoneNum = `${countrynum}${_value}`
+    window.mtl.dail({
+      ...{
+        number: phoneNum
+      },
+      success: function (res: any) {
+        console.log('success')
+      },
+      fail: function (err: any) {
+        var message = err.message // 错误信息
+        console.log(message)
+      },
+      complete: () => {
+        console.log('complete')
+      }
+    })
+  }
+
   getContent = (mode?: 'telephone' | 'mobilephone' | 'email', area?: boolean, isSelectEmail?: boolean) => {
-    const { onChange, singleLine } = this.props
-    const { emailType, country, countryNum } = this.state
+    const { onChange, singleLine, value } = this.props
+    const { emailType, country, countryNum, _value } = this.state
+    const val = value !== undefined ? value : _value
     switch (mode) {
       case 'email': {
         const inputTextAlign = singleLine ? 'right' : 'left'
         const selectEmail = (
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <Input textAlign={inputTextAlign} placeholder='name' onChange={onChange}/>
+            <Input textAlign={inputTextAlign} placeholder='name' onChange={onChange} value={val}/>
             <span className='yonui-contact-button' onClick={() => { this.onOpenModal() }}>{emailType}</span>
             <Icon type='down'/>
           </div>)
@@ -79,7 +116,11 @@ export default class Contact extends Component<ContactProps, ContactState> {
         return isSelectEmail ? selectEmail : email
       }
       case 'mobilephone': {
-        const contact = <Input type='tel' style={{ width: '120px' }} placeholder='000 0000 0000' maxLength={11} onChange={onChange}/>
+        const contact = (
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Input type='tel' style={{ width: '120px' }} placeholder='000 0000 0000' value={val} onChange={(value) => { this.textOnChange(value) } }/>
+            <img className='yonui-img-icon small' src={phoneIcon} onClick={() => { this.dailAction() }}/>
+          </div>)
         const areaContact = (
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <span className='yonui-contact-button' onClick={() => { this.onOpenModal() }}>{country}</span>
@@ -91,15 +132,18 @@ export default class Contact extends Component<ContactProps, ContactState> {
         return area ? areaContact : contact
       }
       case 'telephone': {
+        const contact = (<div style={{ display: 'flex', alignItems: 'center' }}>
+          <Input type='tel' style={{ width: '140px' }} value={val} placeholder='座机号码-分机号码' onChange={(value) => { this.textOnChange(value) }}/>
+          <img className='yonui-img-icon small' src={phoneIcon} onClick={() => { this.dailAction() }}/>
+        </div>)
         const areaContact = (
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <span className='yonui-contact-button' onClick={() => { this.onOpenModal() }}>{country}</span>
             <Icon size='xxs' type='down'/>
             <span style={{ background: '#E6E6E6', display: 'block', width: '1px', height: '14px', marginLeft: '4px' }}></span>
             <span style={{ color: '#555555', fontSize: '15px', paddingTop: '1px', marginLeft: '8px', marginRight: '4px' }}>{countryNum}</span>
-            <Input type='tel' style={{ width: '140px' }} placeholder='区号-座机号码' onChange={onChange}/>
+            {contact}
           </div>)
-        const contact = <Input type='tel' style={{ width: '140px' }} placeholder='座机号码-分机号码' onChange={onChange}/>
         return area ? areaContact : contact
       }
     }
