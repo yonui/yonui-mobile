@@ -195,6 +195,7 @@ const manifest: ComponentManifest = {
     }
   ],
   extension: [
+    ExtensionProps.bIsNull,
     ExtensionProps.disabled,
     ExtensionProps.singleLine,
     ExtensionProps.splitLine,

@@ -56,6 +56,17 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'required',
+      type: FieldTypes.boolean,
+      showDesign: false,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: true,
+        props: {},
+        label: '必填'
+      }
+    },
+    {
       name: 'dataSource',
       type: FieldTypes.object,
       defaultValue: JSON.stringify(selectData),
