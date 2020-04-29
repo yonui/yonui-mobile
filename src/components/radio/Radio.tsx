@@ -6,8 +6,7 @@ import selectedImg from './style/selected.png'
 interface dataType { text: string, value: string, disabled?: boolean }
 interface RadioProps extends React.defaultProps {
   mode?: 'tag' | 'list'
-  isMultiple?: boolean // 支持多选
-  // lines?: 'single' | 'multiple' | 'multiple-select'
+  multiple?: boolean // 支持多选
   label?: string
   onClick?: (data: dataType) => void
   onChange?: (selectedValue: string[], selectedData: dataType[]) => void
@@ -70,7 +69,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
 
   onClickItem = (data: dataType, e?: React.MouseEvent<HTMLSpanElement, MouseEvent>, multiple?: boolean) => {
     e && e.stopPropagation()
-    const { disabled, onChange, isMultiple, onClick } = this.props
+    const { disabled, onChange, multiple: isMultiple, onClick } = this.props
     const { _checkedData, _checkedDataTemp } = this.state
     if (disabled) {
       return
@@ -121,7 +120,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
 
   renderRaioList = (selectData?: dataType[], selectedValue?: string[]) => {
     if (!selectData || !Array.isArray(selectData)) return null
-    const { isMultiple } = this.props
+    const { multiple: isMultiple } = this.props
     // const selectedValueSet = typeof selectedValue === 'string' ? new Set([selectedValue]) : new Set(selectedValue)
     const { _checkedDataTemp } = this.state
     const _selectedValue = selectedValue ?? getValueFromDataType(_checkedDataTemp)[0]

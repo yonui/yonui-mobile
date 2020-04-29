@@ -31,7 +31,7 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'isMultiple',
+      name: 'multiple',
       type: FieldTypes.boolean,
       defaultValue: false,
       showDesign: true,
