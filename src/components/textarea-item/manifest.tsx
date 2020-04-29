@@ -18,18 +18,18 @@ const manifest: ComponentManifest = {
         help: 'textarea 的 name'
       }
     },
-    {
-      name: 'label',
-      type: FieldTypes.string,
-      defaultValue: '',
-      showDesign: false,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: true,
-        props: {},
-        label: '标题文本'
-      }
-    },
+    // {
+    //   name: 'label',
+    //   type: FieldTypes.string,
+    //   defaultValue: '',
+    //   showDesign: false,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     isRequired: true,
+    //     props: {},
+    //     label: '标题文本'
+    //   }
+    // },
     {
       name: 'rows',
       type: FieldTypes.number,
@@ -105,12 +105,22 @@ const manifest: ComponentManifest = {
       name: 'editable',
       type: FieldTypes.boolean,
       showDesign: false,
-      defaultValue: true,
       designConfig: {
         type: EditTypes.Bool,
         isRequired: false,
         props: {},
         label: '允许修改'
+      }
+    },
+    {
+      name: 'required',
+      type: FieldTypes.boolean,
+      showDesign: false,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '必填项'
       }
     },
     {
@@ -197,7 +207,8 @@ const manifest: ComponentManifest = {
     ExtensionProps.cStyle
   ],
   propertyMap: {
-    bIsNull: 'required'
+    bIsNull: '!required',
+    cShowCaption: 'label'
   }
 }
 export default manifest
