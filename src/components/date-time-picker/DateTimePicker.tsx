@@ -7,7 +7,7 @@ import classnames from 'classnames'
 export interface ListDatePickerProps {
   label?: string
   required?: boolean
-  arrow?: boolean
+  // arrow?: boolean
   style?: object
   dateMode?: 'picker-date' | 'picker-time' | 'picker-datetime' | 'picker-year' | 'picker-month' | 'calendar-date' | 'calendar-datetime'
   splitLine?: boolean
@@ -59,7 +59,7 @@ const modeToFormat = (mode?: string) => {
 
 class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePickerState> {
   static defaultProps = {
-    arrow: true,
+    // arrow: true,
     dateMode: 'picker-date'
   }
 
@@ -108,16 +108,16 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
   }
 
   render () {
-    const { label, required, value, minDate, maxDate, arrow, disabled, style, dateMode, onCancel, format, extra, title, splitLine, ...restProps } = this.props
+    const { label, required, value, minDate, maxDate, disabled, style, dateMode, onCancel, format, extra, title, splitLine, ...restProps } = this.props
     const { visible, _value } = this.state
     const valueTrs = (value === undefined) ? _value : ((value && typeof value === 'string') ? new Date(value.replace(/-/g, '/')) : undefined)
-    const minDateTrs = (typeof minDate === 'string') ? new Date(minDate.replace(/-/g, '/')) : minDate
-    const maxDateTrs = (typeof maxDate === 'string') ? new Date(maxDate.replace(/-/g, '/')) : maxDate
+    const minDateTrs = minDate ? ((typeof minDate === 'string') ? new Date(minDate.replace(/-/g, '/')) : minDate) : undefined
+    const maxDateTrs = maxDate ? ((typeof maxDate === 'string') ? new Date(maxDate.replace(/-/g, '/')) : maxDate) : undefined
     const typeAndMode = dateMode?.split('-') || []
     // const fmt = (format && typeof format === 'string') ? format : ((format && value ? format(value) : 'yyyy-MM-dd'))
     const fmt = format || modeToFormat(dateMode)
     const labelCls = classnames('date-time-picker-label')
-    const valueCls = classnames('date-time-picker-value')
+    const valueCls = classnames('date-time-picker-value', { disabled })
     if (typeAndMode[0] === 'calendar') {
       return (<React.Fragment>
         <Wrapper className='date-time-picker' style={style} splitLine={splitLine} singleLine label={label} required={required} onClick = {!disabled ? this.onOpenCalendar : undefined}>
@@ -155,7 +155,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
           onOk={this.onConfirm}
           onDismiss={this.onCancel}
         >
-          <Wrapper className={`date-time-picker ${(disabled || !arrow) && 'no-arrow'}`} style={style} splitLine={splitLine}
+          <Wrapper className={`date-time-picker ${disabled && 'no-arrow'}`} style={style} splitLine={splitLine}
             label={label} labelCls={labelCls} required={required} singleLine
             onClick = {!disabled ? this.onOpenCalendar : undefined}>
             <div className={valueCls} >

@@ -5,19 +5,27 @@ import { checkVisibleInDocument, debounce } from '../_utils'
 interface SimpleListProps extends React.defaultProps{
   dataSource: any[]
   renderRow: (rowData: any, sectionId: any, rowId: number) => React.ReactChild
-  onRefresh: () => void
-  onReachFoot: () => void
+  onRefresh?: () => void
+  onReachFoot?: () => void
   pullToRefresh?: boolean
-  footerText?: string
+  loadingText?: string
+  completeText?: string
   split?: 'none' | 'line' | 'blank'
   height?: number
   reservedHeight?: number
   children?: React.ReactChildren
+  editable?: boolean
+  hasMore?: boolean
 }
 const SimpleList = (props: SimpleListProps) => {
-  const { dataSource, renderRow, onRefresh, pullToRefresh = true, split = 'blank', onReachFoot, footerText, reservedHeight = 0, height, children } = props
+  const {
+    dataSource, renderRow, onRefresh, pullToRefresh = true, split = 'blank',
+    onReachFoot, loadingText = '', completeText = '', reservedHeight = 0,
+    height, children, editable, hasMore = true
+  } = props
   let __list: HTMLElement | null
   const [listHeight, setListHeight] = useState(0)
+  const footerText = hasMore ? loadingText : completeText
   useEffect(() => {
     // console.log(__list)
     const topHeight = Math.min(__list?.offsetTop || 0, 1000)
@@ -42,10 +50,13 @@ const SimpleList = (props: SimpleListProps) => {
   const renderFooter = (text?: string) => (<div className={footerCls} style={footerStyle}>
     {text || ''}
   </div>)
+  const itemCls = classnames('yonui-simple-list-item', { editable })
   const _listItems = dataSource.map((item, index) => {
-    return <div key={index} className='yonui-simple-list-item'>
-      {renderRow ? renderRow(item, dataSource, index) : children}
-    </div>
+    return (
+      <div className={itemCls} key={index}>
+        {renderRow ? renderRow(item, dataSource, index) : children}
+      </div>
+    )
   })
 
   const cls = classnames('yonui-simple-list', `split-${split}`)
@@ -66,7 +77,7 @@ const SimpleList = (props: SimpleListProps) => {
     refreshing={false}
     style={style}
     className='yonui-simple-list-pull'
-    onScroll={debounce(onScroll, 100)}
+    onScroll={hasMore && debounce(onScroll, 100)}
   >
     {_list}
   </PullToRefresh>)

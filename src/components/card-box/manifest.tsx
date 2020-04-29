@@ -7,22 +7,21 @@ const manifest: ComponentManifest = {
   icon: 'card',
   props: [
     {
-      name: 'viewStatus',
+      name: 'displayStyle',
       type: FieldTypes.string,
-      defaultValue: 'default',
+      defaultValue: 'normal',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
         isRequired: false,
         props: {
           options: [
-            { value: 'default', text: '浏览' },
-            { value: 'select', text: '选择-未选中' },
-            { value: 'selected', text: '选择-选中' },
-            { value: 'detail', text: '详情' }
+            { value: 'normal', text: '正常' },
+            { value: 'detail', text: '详情(带头部)' },
+            { value: 'slideable', text: '可滑动删除' }
           ]
         },
-        label: '选择状态'
+        label: '展示状态'
       }
     },
     {
@@ -35,7 +34,7 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '按钮文本',
-        help: '浏览态有效'
+        help: '滑动删除时有效'
       }
     },
     {
@@ -47,7 +46,7 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '按钮样式',
-        help: '浏览态有效'
+        help: '滑动删除时有效'
       }
     },
     {
@@ -64,19 +63,6 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'footer',
-      type: FieldTypes.string,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: '底部文字',
-        help: '详情态有效'
-      }
-    },
-    {
       name: 'onDelete',
       type: FieldTypes.action,
       showDesign: true,
@@ -85,7 +71,7 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '按钮点击事件',
-        help: '浏览/详情态有效'
+        help: '滑动删除/详情态有效'
       }
     }
   ],

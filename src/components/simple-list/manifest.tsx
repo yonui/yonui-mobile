@@ -18,26 +18,39 @@ const manifest: ComponentManifest = {
         props: {}
       }
     },
-    // {
-    //   name: 'showFooter',
-    //   type: FieldTypes.boolean,
-    //   defaultValue: false,
-    //   showDesign: true,
-    //   designConfig: {
-    //     type: EditTypes.Bool,
-    //     label: '展示底部',
-    //     isRequired: false,
-    //     props: {}
-    //   }
-    // },
     {
-      name: 'footerText',
+      name: 'hasMore',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: false,
+      designConfig: {
+        type: EditTypes.Bool,
+        label: '是否加载更多',
+        isRequired: false,
+        props: {}
+      }
+    },
+    {
+      name: 'loadingText',
       type: FieldTypes.string,
       defaultValue: '加载中...',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
-        label: '底部文本',
+        label: '加载中底部文本',
+        isRequired: false,
+        props: {},
+        help: '为空时不展示底部'
+      }
+    },
+    {
+      name: 'completeText',
+      type: FieldTypes.string,
+      defaultValue: '已经到底了',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        label: '已完成底部文本',
         isRequired: false,
         props: {},
         help: '为空时不展示底部'

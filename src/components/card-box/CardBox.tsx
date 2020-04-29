@@ -8,9 +8,12 @@ interface CardBoxProps extends React.defaultProps{
   // onPress?: () => void
   onDelete?: () => void
   label?: string
-  footer?: string
   rightStyle?: React.CSSProperties
   viewStatus?: 'default' | 'select' | 'selected' | 'detail' | 'browse'
+  displayStyle?: 'normal' | 'detail' | 'slideable'
+  editSatus?: 'normal' | 'selected' | 'unselected'
+  editing?: boolean
+  selected?: boolean
 }
 
 export default class CardBox extends Component<CardBoxProps> {
@@ -30,29 +33,14 @@ export default class CardBox extends Component<CardBoxProps> {
   }
 
   render () {
-    const { text, onDelete, rightStyle, style, className, children, viewStatus, label, footer, ...other } = this.props
+    const { text, onDelete, rightStyle, style, className, children, viewStatus, label, displayStyle, selected, editSatus, ...other } = this.props
     const right = [{
       text, onPress: onDelete, style: { width: '25vw', ...rightStyle }, className: 'yonui-card-box-btn'
     }]
     const cls = classnames(className, 'yonui-card-box', `yonui-card-box-${viewStatus}`)
-    const footerEle = footer ? <Wrapper label={footer} splitLine={false} singleLine labelStyle={{ color: '#e14c46' }}>
-      <Icon type='right' color='#e14c46'/>
-    </Wrapper> : null
     let content
-    switch (viewStatus) {
-      case 'select':
-      case 'selected': {
-        const iconType = viewStatus === 'selected' ? 'icon-pass-c' : 'icon-done'
-        content = (<React.Fragment>
-          <div className='yonui-card-box-icon'>
-            <Icon type={iconType} />
-          </div>
-          <div className='yonui-card-box-swipe'>
-            {children}
-          </div>
-        </React.Fragment>)
-        break
-      }
+    const iconType = selected ? 'icon-pass-c' : 'icon-done'
+    switch (displayStyle) {
       case 'detail': {
         content = (<React.Fragment>
           <div className='yonui-card-box-swipe'>
@@ -64,17 +52,27 @@ export default class CardBox extends Component<CardBoxProps> {
         </React.Fragment>)
         break
       }
-      case 'default':
-      default: {
+      case 'slideable': {
         content = (<SwipeAction right={right} className='yonui-card-box-swipe' autoClose>
           {children}
-          {footerEle}
         </SwipeAction>)
+        break
+      }
+      case 'normal':
+      default: {
+        content = (<React.Fragment>
+          <div className='yonui-card-box-swipe'>
+            {children}
+          </div>
+        </React.Fragment>)
         break
       }
     }
     return (
       <div className={cls} style={style} {...other}>
+        <div className='yonui-card-box-icon'>
+          <Icon type={iconType} />
+        </div>
         {content}
       </div>
     )

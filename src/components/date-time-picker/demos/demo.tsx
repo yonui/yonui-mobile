@@ -16,9 +16,32 @@ export default class Demo extends Component<any, any> {
   }
 
     render() {
+      const props = {
+        "minDate": "",
+        "arrow": true,
+        "className": "",
+        "title": "",
+        "required": false,
+        "extra": "请选择",
+        "disabled": true,
+        "value": "",
+        "format": "YYYY-MM-DD",
+        "dateMode": "picker-datetime",
+        "label": "日期选择",
+        "use12Hours": false,
+        "minuteStep": 1,
+        "maxDate": "",
+        "splitLine": true,
+        "children": []
+      }
         return (
-            <MyComponent label='time' dateMode='calendar-datetime' onChangeDate={(val)=>{ this.setState({value: val})}}  />
-            // < Calendar title='xxx' visible={true}/>
+            <React.Fragment>
+              <MyComponent {...props} />
+              {/* <MyComponent label='time' dateMode='picker-date' onChangeDate={(val)=>{ this.setState({value: val})}}  />
+              <MyComponent label='time' dateMode='picker-datetime' onChangeDate={(val)=>{ this.setState({value: val})}}  />
+              <MyComponent label='time' dateMode='picker-month' onChangeDate={(val)=>{ this.setState({value: val})}}  />
+              <MyComponent label='time' dateMode='picker-year' onChangeDate={(val)=>{ this.setState({value: val})}}  /> */}
+            </React.Fragment>
         )
     }
 }

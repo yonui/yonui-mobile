@@ -216,17 +216,29 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     this.onOpenModal()
   }
 
-  renderContent = (dataSource?: dataType[], checkedValue?: string | string[], checkedData?: string[]) => {
+  renderContent = (dataSource?: dataType[], checkedValue?: string[], checkedData?: string[]) => {
     const { _checkedData } = this.state
     const { disabled } = this.props
     const displayValue = getValueFromDataType(_checkedData)[1].map(item => item.text).join(',')
+    const propsDisplayValue = this.getDisplayFromProps(dataSource, checkedValue)
     const fontCls = classnames('radio-items-selected-value', {
       'radio-items-selected-value-disabled': disabled
     })
     return <React.Fragment>
-      <span className={fontCls}>{displayValue}</span>
+      <span className={fontCls}>{propsDisplayValue || displayValue}</span>
       { !disabled && <Icon type='right' color='#BFBFBF' onClick={this.onClickIcon} />}
     </React.Fragment>
+  }
+
+  getDisplayFromProps = (dataSource?: dataType[], checkedValue?: string[]) => {
+    if (!checkedValue || checkedValue.length === 0) return null
+    const res: string[] = []
+    dataSource && dataSource.forEach(item => {
+      if (checkedValue.includes(item.value)) {
+        res.push(item.text)
+      }
+    })
+    return res.join(',')
   }
 
   render () {
