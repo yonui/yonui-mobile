@@ -210,7 +210,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
       <Wrapper label={label} singleLine={singleLine} splitLine={splitLine} required={required}>
         {content}
         <Modal visible={open} popup maskClosable onClose={ () => { this.onCloseModal() }} animationType='slide-up' className='yonui-radio-modal'>
-          { (mode === 'email') ? this.renderEmailList(emailDataSource) : this.renderAreaList(dataSource)}
+          { (mode === 'email') ? this.renderEmailList(emailDataSource || defaultEmailTypeDataSource) : this.renderAreaList(dataSource || defaultDataSource)}
         </Modal>
       </Wrapper>
     )
