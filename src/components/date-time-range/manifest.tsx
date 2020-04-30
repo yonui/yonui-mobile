@@ -186,8 +186,8 @@ const manifest: ComponentManifest = {
     {
       name: 'value',
       type: FieldTypes.array,
-      defaultValue: JSON.stringify([new Date(now), new Date(now.getFullYear(), now.getMonth(), now.getDate() + 5)]),
-      showDesign: true,
+      defaultValue: [],
+      showDesign: false,
       designConfig: {
         type: EditTypes.Json,
         isRequired: false,

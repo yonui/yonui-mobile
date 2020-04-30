@@ -76,11 +76,12 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
     const defaultTimeValueTrs = (defaultTimeValue && typeof defaultTimeValue === 'string') ? new Date(defaultTimeValue) : defaultTimeValue
     const start = (value && value.length && value[0]) ? dateFormat(value[0], format || 'yyyy-MM-dd') : ''
     const end = (value && value.length && value[1]) ? dateFormat(value[1], format || 'yyyy-MM-dd') : ''
+    console.log('props is ', this.props)
     if (mode === 'default') {
       const dateMode = pickTime ? 'picker-datetime' : 'picker-date'
-      return <div>
-        <DateTimePicker label={startLabel} dateMode={dateMode} onChangeDate={onStartChange} value={start} required={required} splitLine={splitLine}/>
-        <DateTimePicker label={endLabel} dateMode={dateMode} onChangeDate={onEndChange} value={end} required={required} splitLine={splitLine}/>
+      return <div className='date-time-range-wrapper' style={style}>
+        <DateTimePicker label={startLabel} dateMode={dateMode} onChangeDate={onStartChange} value={start} required={required} splitLine={splitLine} extra='请选择'/>
+        <DateTimePicker label={endLabel} dateMode={dateMode} onChangeDate={onEndChange} value={end} required={required} splitLine={splitLine} extra='请选择'/>
       </div>
     }
     return (
