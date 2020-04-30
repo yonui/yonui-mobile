@@ -35,7 +35,7 @@ export default class Demo1 extends Component {
               {/* <Radio dataSource={selectData} label='标题' mode='list' onChange={this.onChange}  />
               <Radio dataSource={selectData} label='标题' mode='tag'  onChange={this.onChange} tagSize='sm'  isMultiple/>
               <Radio dataSource={selectData} label='标题' mode='list' isMultiple /> */}
-              <button onClick={()=>{this.onChange('value1')}}>btn</button>
+              {/* <button onClick={()=>{this.onChange('value1')}}>btn</button> */}
             </div>
         )
     }

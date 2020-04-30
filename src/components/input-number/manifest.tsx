@@ -6,18 +6,18 @@ const manifest: ComponentManifest = {
   uiObject: UIObject.Controls,
   icon: 'digital',
   props: [
-    {
-      name: 'label',
-      type: FieldTypes.string,
-      defaultValue: '数值输入',
-      showDesign: false,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: true,
-        props: {},
-        label: '标签'
-      }
-    },
+    // {
+    //   name: 'label',
+    //   type: FieldTypes.string,
+    //   defaultValue: '数值输入',
+    //   showDesign: false,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     isRequired: true,
+    //     props: {},
+    //     label: '标签'
+    //   }
+    // },
     {
       name: 'defaultValue',
       type: FieldTypes.number,
@@ -41,7 +41,7 @@ const manifest: ComponentManifest = {
     //   }
     // },
     {
-      name: 'precision',
+      name: 'iNumPoint',
       type: FieldTypes.number,
       defaultValue: 2,
       showDesign: true,
@@ -192,7 +192,7 @@ const manifest: ComponentManifest = {
   ],
   children: [],
   extension: [
-    ExtensionProps.required,
+    // ExtensionProps.required,
     ExtensionProps.disabled,
     ExtensionProps.splitLine,
     ExtensionProps.singleLine,
@@ -200,7 +200,12 @@ const manifest: ComponentManifest = {
     ExtensionProps.bMustSelect,
     ExtensionProps.isExport,
     ExtensionProps.bVmExclude
-  ]
+  ],
+  propertyMap: {
+    bIsNull: '!required',
+    cShowCaption: 'label',
+    iNumPoint: 'precision'
+  }
 }
 
 export default manifest

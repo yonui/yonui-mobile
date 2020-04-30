@@ -8,18 +8,6 @@ const manifest: ComponentManifest = {
   systemProperties: [SysProps.DATA_FIELD],
   props: [
     {
-      name: 'label',
-      type: FieldTypes.string,
-      defaultValue: '',
-      showDesign: false,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: true,
-        props: {},
-        label: '标题文本'
-      }
-    },
-    {
       name: 'maxLength',
       type: FieldTypes.number,
       showDesign: true,
@@ -207,8 +195,8 @@ const manifest: ComponentManifest = {
     }
   ],
   extension: [
+    ExtensionProps.bIsNull,
     ExtensionProps.disabled,
-    ExtensionProps.required,
     ExtensionProps.singleLine,
     ExtensionProps.splitLine,
     ExtensionProps.bMustSelect,
@@ -217,6 +205,10 @@ const manifest: ComponentManifest = {
     ExtensionProps.bCheck,
     ExtensionProps.bVmExclude,
     ExtensionProps.cStyle
-  ]
+  ],
+  propertyMap: {
+    bIsNull: '!required',
+    cShowCaption: 'label'
+  }
 }
 export default manifest

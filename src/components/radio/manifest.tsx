@@ -31,7 +31,7 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'isMultiple',
+      name: 'multiple',
       type: FieldTypes.boolean,
       defaultValue: false,
       showDesign: true,
@@ -53,6 +53,17 @@ const manifest: ComponentManifest = {
         isRequired: true,
         props: {},
         label: 'label'
+      }
+    },
+    {
+      name: 'required',
+      type: FieldTypes.boolean,
+      showDesign: false,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: true,
+        props: {},
+        label: '必填'
       }
     },
     {

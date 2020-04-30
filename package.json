@@ -1,6 +1,6 @@
 {
   "name": "yonui-mobile",
-  "version": "0.3.86",
+  "version": "0.3.87",
   "description": "yonui mobile",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -92,7 +92,7 @@
     "react-dom": "^16.12.0",
     "react-virtualized": "^9.21.2",
     "rmc-feedback": "^2.0.0",
-    "yonui-extension": "^0.7.18"
+    "yonui-extension": "^0.7.19"
   },
   "browserslist": {
     "production": [
