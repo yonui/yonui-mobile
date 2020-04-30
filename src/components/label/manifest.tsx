@@ -8,20 +8,20 @@ const manifest: ComponentManifest = {
   icon: 'biaoqian1',
   uiObject: UIObject.Controls,
   props: [
+    // {
+    //   name: 'label',
+    //   type: FieldTypes.string,
+    //   defaultValue: '文本',
+    //   showDesign: true,
+    //   designConfig: {
+    //     label: '文本内容',
+    //     type: EditTypes.Text,
+    //     isRequired: false,
+    //     props: {}
+    //   }
+    // },
     {
-      name: 'label',
-      type: FieldTypes.string,
-      defaultValue: '文本',
-      showDesign: true,
-      designConfig: {
-        label: '文本内容',
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {}
-      }
-    },
-    {
-      name: 'mode',
+      name: 'type',
       type: FieldTypes.string,
       defaultValue: 'default',
       showDesign: true,
@@ -97,6 +97,9 @@ const manifest: ComponentManifest = {
         props: {}
       }
     }
-  ]
+  ],
+  propertyMap: {
+    cShowCaption: 'label'
+  }
 }
 export default manifest

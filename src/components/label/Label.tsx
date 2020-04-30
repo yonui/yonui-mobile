@@ -2,7 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 export interface LabelProps extends React.defaultProps{
   label?: string // 文本大小
-  mode?: 'default' | 'primary' | 'border' | 'label'
+  type?: 'default' | 'primary' | 'border' | 'label'
   color?: string
   bgColor?: string
   width?: string
@@ -16,8 +16,8 @@ export default class Label extends React.Component<LabelProps> {
     // }
   }
 
-  getStyle = (mode?: 'default' | 'primary' | 'border' | 'label', color?: string, bgColor?: string) => {
-    switch (mode) {
+  getStyle = (type?: 'default' | 'primary' | 'border' | 'label', color?: string, bgColor?: string) => {
+    switch (type) {
       case 'label': {
         return ({
           color: color,
@@ -48,10 +48,10 @@ export default class Label extends React.Component<LabelProps> {
   }
 
   render () {
-    const { label, style, className, color, mode, bgColor, width, textAlign, ...other } = this.props
-    const sty = { ...this.getStyle(mode, color, bgColor), ...style, width, textAlign }
+    const { label, style, className, color, type, bgColor, width, textAlign, ...other } = this.props
+    const sty = { ...this.getStyle(type, color, bgColor), ...style, width, textAlign }
     const cls = classnames(className, 'yonui-tag', {
-      'label-mode': mode === 'label'
+      'label-type': type === 'label'
     })
     return (
       <span className={cls} style={sty} {...other}>{label}</span>

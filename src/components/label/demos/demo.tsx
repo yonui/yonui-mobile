@@ -21,9 +21,9 @@ export default class Demo1 extends Component {
       <div className="spanDemo">
         <Flex>
           <MyComponent label={props.label} color='red' width='' />
-          <MyComponent label={props.label} color='red' mode='border' width='' />
-          <MyComponent label={props.label} color='red' mode='primary' width='' />
-          <MyComponent label={props.label} color='#e14c46' mode='label' width='' />
+          <MyComponent label={props.label} color='red' type='border' width='' />
+          <MyComponent label={props.label} color='red' type='primary' width='' />
+          <MyComponent label={props.label} color='#e14c46' type='label' width='' />
         </Flex>
         <Flex>
         <MyComponent label={props.label} style={{ ...style1, background: 'rgba(245,245,245,1)', color: 'rgba(0,199,230,1)' }} />
