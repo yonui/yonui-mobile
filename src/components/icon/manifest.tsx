@@ -21,7 +21,7 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'type',
+      name: 'icon',
       type: FieldTypes.string,
       defaultValue: 'check-circle',
       showDesign: true,
@@ -63,7 +63,10 @@ const manifest: ComponentManifest = {
         label: '图标大小'
       }
     }
-  ]
+  ],
+  propertyMap: {
+    icon: 'type'
+  }
 }
 
 export default manifest
