@@ -13,7 +13,7 @@ export default class Demo extends Component {
 
         return (
           <div>
-            <MyComponent label='手机' singleLine={true} mode='mobilephone' area={false} />
+            <MyComponent label='手机' singleLine={true} mode='mobilephone' area={false} required/>
             <MyComponent label='手机' singleLine={false} mode='mobilephone' area={false} />
             <MyComponent label='手机' singleLine={true} mode='mobilephone' area={true} />
             <MyComponent label='手机' singleLine={false} mode='mobilephone' area={true} value = '18811112222'/>
