@@ -1,6 +1,6 @@
 import { ComponentManifest, UIObject, TypeProps, FieldTypes, EditTypes } from 'yonui-extension'
 const manifest: ComponentManifest = {
-  name: 'Contact',
+  name: 'Mobile',
   label: '联系方式',
   type: TypeProps.BasicControls,
   uiObject: UIObject.Controls,
