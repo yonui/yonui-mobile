@@ -1,4 +1,4 @@
-import { ComponentManifest, UIObject, TypeProps, FieldTypes, EditTypes } from 'yonui-extension'
+import { ComponentManifest, UIObject, TypeProps, FieldTypes, EditTypes, ExtensionProps } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'Mobile',
   label: '联系方式',
@@ -102,7 +102,13 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: []
+  children: [],
+  extension: [
+    ExtensionProps.bIsNull
+  ],
+  propertyMap: {
+    bIsNull: '!required'
+  }
 }
 
 export default manifest

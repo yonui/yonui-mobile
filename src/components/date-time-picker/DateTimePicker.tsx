@@ -7,7 +7,6 @@ import classnames from 'classnames'
 export interface ListDatePickerProps {
   label?: string
   required?: boolean
-  // arrow?: boolean
   style?: object
   dateMode?: 'picker-date' | 'picker-time' | 'picker-datetime' | 'picker-year' | 'picker-month' | 'calendar-date' | 'calendar-datetime'
   splitLine?: boolean

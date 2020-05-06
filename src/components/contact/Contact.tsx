@@ -17,6 +17,7 @@ interface ContactProps extends React.defaultProps, React.inputItemProps{
   dataSource?: dataSourceType
   emailDataSource?: emailType
   onChange?: (value: string) => void
+  required?: boolean
   value?: string
 }
 interface ContactState {

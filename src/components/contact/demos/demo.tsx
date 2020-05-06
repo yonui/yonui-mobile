@@ -7,7 +7,7 @@ import MyComponent from '../index'
 import '../style';
 import './demo.less';
 import Vconsole from 'vconsole'
-const v = new Vconsole()
+new Vconsole()
 export default class Demo extends Component {
     render() {
 
@@ -16,7 +16,7 @@ export default class Demo extends Component {
             <MyComponent label='手机' singleLine={true} mode='mobilephone' area={false} />
             <MyComponent label='手机' singleLine={false} mode='mobilephone' area={false} />
             <MyComponent label='手机' singleLine={true} mode='mobilephone' area={true} />
-            <MyComponent label='手机' singleLine={false} mode='mobilephone' area={true} value = '18811639366'/>
+            <MyComponent label='手机' singleLine={false} mode='mobilephone' area={true} value = '18811112222'/>
             <MyComponent singleLine={true} mode='telephone' area={false} />
             <MyComponent singleLine={false} mode='telephone' area={false} />
             <MyComponent singleLine={true} mode='telephone' area={true} />
