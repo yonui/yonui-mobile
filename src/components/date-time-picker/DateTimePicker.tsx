@@ -110,11 +110,15 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
   render () {
     const { label, required, value, minDate, maxDate, disabled, style, dateMode, onCancel, format, extra, title, splitLine, ...restProps } = this.props
     const { visible, _value } = this.state
-    const valueTrs = (value === undefined) ? _value : ((value && typeof value === 'string') ? new Date(value.replace(/-/g, '/')) : undefined)
+    let valueTrs
+    if (dateMode === 'picker-time') {
+      valueTrs = (value === undefined) ? _value : ((value && typeof value === 'string') ? new Date(`1970/01/01 ${value.replace(/-/g, '/')}`) : undefined)
+    } else {
+      valueTrs = (value === undefined) ? _value : ((value && typeof value === 'string') ? new Date(value.replace(/-/g, '/')) : undefined)
+    }
     const minDateTrs = minDate ? ((typeof minDate === 'string') ? new Date(minDate.replace(/-/g, '/')) : minDate) : undefined
     const maxDateTrs = maxDate ? ((typeof maxDate === 'string') ? new Date(maxDate.replace(/-/g, '/')) : maxDate) : undefined
     const typeAndMode = dateMode?.split('-') || []
-    // const fmt = (format && typeof format === 'string') ? format : ((format && value ? format(value) : 'yyyy-MM-dd'))
     const fmt = format || modeToFormat(dateMode)
     const labelCls = classnames('date-time-picker-label')
     const valueCls = classnames('date-time-picker-value', { disabled })

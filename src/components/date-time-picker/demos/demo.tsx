@@ -17,21 +17,14 @@ export default class Demo extends Component<any, any> {
 
     render() {
       const props = {
-        "minDate": "",
-        "arrow": true,
-        "className": "",
-        "title": "",
-        "required": false,
-        "extra": "请选择",
-        "disabled": true,
-        "value": "",
-        "format": "YYYY-MM-DD",
-        "dateMode": "picker-datetime",
-        "label": "日期选择",
-        "use12Hours": false,
+        "label": "时间",
+        "dateMode": "picker-time",
         "minuteStep": 1,
-        "maxDate": "",
         "splitLine": true,
+        "arrow": true,
+        "extra": "请选择",
+        "value": "10:54",
+        "onChangeDate": "ƒ () {}",
         "children": []
       }
         return (
