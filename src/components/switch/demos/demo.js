@@ -34,6 +34,7 @@ export default class Demo1 extends Component {
               checked: !this.state.checked
             })
           }}
+          required
         />
       </div>
     )

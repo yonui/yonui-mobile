@@ -8,18 +8,18 @@ const manifest: ComponentManifest = {
   uiObject: UIObject.Controls,
   icon: 'radio',
   props: [
-    {
-      name: 'checked',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: true,
-        props: {},
-        label: '默认值'
-      }
-    },
+    // {
+    //   name: 'checked',
+    //   type: FieldTypes.boolean,
+    //   defaultValue: false,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Bool,
+    //     isRequired: true,
+    //     props: {},
+    //     label: '默认值'
+    //   }
+    // },
     // {
     //   name: 'disabled',
     //   type: FieldTypes.boolean,
@@ -45,18 +45,18 @@ const manifest: ComponentManifest = {
         help: 'dom上添加name属性'
       }
     },
-    {
-      name: 'title',
-      type: FieldTypes.string,
-      defaultValue: '',
-      showDesign: false,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: true,
-        props: {},
-        label: '标题文本'
-      }
-    },
+    // {
+    //   name: 'title',
+    //   type: FieldTypes.string,
+    //   defaultValue: '',
+    //   showDesign: false,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     isRequired: true,
+    //     props: {},
+    //     label: '标题文本'
+    //   }
+    // },
     {
       name: 'platform',
       type: FieldTypes.string,
@@ -104,7 +104,11 @@ const manifest: ComponentManifest = {
     ExtensionProps.bMustSelect,
     ExtensionProps.isExport,
     ExtensionProps.bVmExclude
-  ]
+  ],
+  propertyMap: {
+    bIsNull: '!required',
+    cShowCaption: 'title'
+  }
 }
 
 export default manifest
