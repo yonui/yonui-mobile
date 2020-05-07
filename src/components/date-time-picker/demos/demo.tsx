@@ -18,12 +18,12 @@ export default class Demo extends Component<any, any> {
     render() {
       const props = {
         "label": "时间",
-        "dateMode": "picker-time",
+        "dateMode": "picker-month",
         "minuteStep": 1,
         "splitLine": true,
         "arrow": true,
         "extra": "请选择",
-        "value": "10:54",
+        "value": "2020-05",
         "onChangeDate": "ƒ () {}",
         "children": []
       }

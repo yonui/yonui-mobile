@@ -1,7 +1,7 @@
 import React from 'react'
 import { DatePicker, Calendar, Icon } from 'antd-mobile'
 // import { DatePickerPropsType } from 'antd-mobile/lib/date-picker/PropsType'
-import { dateFormat } from '../_utils'
+import { dateFormat, formatStringToDate } from '../_utils'
 import Wrapper from '../list-item-wrapper'
 import classnames from 'classnames'
 export interface ListDatePickerProps {
@@ -111,12 +111,12 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
     const { visible, _value } = this.state
     let valueTrs
     if (dateMode === 'picker-time') {
-      valueTrs = (value === undefined) ? _value : ((value && typeof value === 'string') ? new Date(`1970/01/01 ${value.replace(/-/g, '/')}`) : undefined)
+      valueTrs = (value === undefined) ? _value : formatStringToDate(`1970 ${value}`)
     } else {
-      valueTrs = (value === undefined) ? _value : ((value && typeof value === 'string') ? new Date(value.replace(/-/g, '/')) : undefined)
+      valueTrs = (value === undefined) ? _value : formatStringToDate(value)
     }
-    const minDateTrs = minDate ? ((typeof minDate === 'string') ? new Date(minDate.replace(/-/g, '/')) : minDate) : undefined
-    const maxDateTrs = maxDate ? ((typeof maxDate === 'string') ? new Date(maxDate.replace(/-/g, '/')) : maxDate) : undefined
+    const minDateTrs = formatStringToDate(minDate)
+    const maxDateTrs = formatStringToDate(maxDate)
     const typeAndMode = dateMode?.split('-') || []
     const fmt = format || modeToFormat(dateMode)
     const labelCls = classnames('date-time-picker-label')

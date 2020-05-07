@@ -2,7 +2,7 @@ import React from 'react'
 import Calendar from '../calendar'
 import { Flex, InputItem } from 'antd-mobile'
 import { CalendarProps } from 'antd-mobile/lib/calendar/PropsType'
-import { dateFormat } from '../_utils'
+import { dateFormat, formatStringToDate } from '../_utils'
 import Wrapper from '../list-item-wrapper'
 import DateTimePicker from '../date-time-picker'
 export declare type SelectDateType = [Date, Date] | [Date];
@@ -70,10 +70,10 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
   render () {
     const { visible } = this.state
     const { label, required, value, format, maxDate, minDate, defaultDate, defaultTimeValue, style, pickTime, mode = 'default', onStartChange, onEndChange, splitLine, startLabel, endLabel } = this.props
-    const minDateTrs = (minDate && typeof minDate === 'string') ? new Date(minDate) : minDate
-    const maxDateTrs = (maxDate && typeof maxDate === 'string') ? new Date(maxDate) : maxDate
-    const defaultDateTrs = (defaultDate && typeof defaultDate === 'string') ? new Date(defaultDate) : defaultDate
-    const defaultTimeValueTrs = (defaultTimeValue && typeof defaultTimeValue === 'string') ? new Date(defaultTimeValue) : defaultTimeValue
+    const minDateTrs = formatStringToDate(minDate)
+    const maxDateTrs = formatStringToDate(maxDate)
+    const defaultDateTrs = formatStringToDate(defaultDate)
+    const defaultTimeValueTrs = formatStringToDate(defaultTimeValue)
     const start = (value && value.length && value[0]) ? dateFormat(value[0], format || 'yyyy-MM-dd') : ''
     const end = (value && value.length && value[1]) ? dateFormat(value[1], format || 'yyyy-MM-dd') : ''
     console.log('props is ', this.props)

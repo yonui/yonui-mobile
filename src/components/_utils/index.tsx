@@ -1,12 +1,16 @@
 import { EditTypes } from 'yonui-extension'
+import moment from 'moment'
+// 将不同格式的数据串转化成时间对象
+export const formatStringToDate = (dateStr: any) => {
+  switch (Object.prototype.toString.call(dateStr).toLowerCase()) {
+    case '[object date]': return dateStr
+    case '[object string]': return moment(dateStr).toDate()
+    default: return undefined
+  }
+}
 
 export const dateFormat = function dateFormat (dateObj: Date | string, fmt: string) {
-  let date: Date
-  if (dateObj) {
-    date = typeof dateObj === 'string' ? new Date(dateObj.replace(/-/g, '/')) : dateObj
-  } else {
-    date = new Date()
-  }
+  const date: Date = formatStringToDate(dateObj)
   const o: any = {
     'M+': date.getMonth() + 1,
     // 月份
@@ -121,6 +125,7 @@ export const checkVisibleInDocument = (node: HTMLElement) => {
   return (top < windowHeight) && (top + height > 0)
 }
 
+// 防抖
 export const debounce = (method: Function, delay: number) => {
   let timer: NodeJS.Timeout
   return (...param: any) => {
