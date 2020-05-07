@@ -225,7 +225,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     })
     return <React.Fragment>
       <span className={fontCls}>{propsDisplayValue || displayValue}</span>
-      { !disabled && <Icon type='right' color='#BFBFBF' onClick={this.onClickIcon} />}
+      { !disabled && <Icon type='right' color='#555555' onClick={this.onClickIcon} />}
     </React.Fragment>
   }
 
