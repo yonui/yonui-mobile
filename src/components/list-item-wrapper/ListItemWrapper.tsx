@@ -10,7 +10,6 @@ interface ListItemWrapperProps extends React.defaultProps{
   labelStyle?: React.CSSProperties
   contentCls?: string
   contentStyle?: React.CSSProperties
-  content?: JSX.Element
   error?: boolean
   errorText?: React.ReactNode
   showExtraLabelIcon?: boolean
