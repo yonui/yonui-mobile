@@ -25,7 +25,7 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'text',
+      name: 'btnText',
       type: FieldTypes.string,
       defaultValue: '删除',
       showDesign: true,
@@ -59,6 +59,32 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '标题',
+        help: '详情态有效'
+      }
+    },
+    {
+      name: 'showDeleteIcon',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '展示删除按钮',
+        help: '详情态有效'
+      }
+    },
+    {
+      name: 'showTitleExtraIcon',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '展示标题额外图标',
         help: '详情态有效'
       }
     },

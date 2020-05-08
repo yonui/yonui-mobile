@@ -6,8 +6,24 @@
   &-wrapper{
     padding-top: 5*@hd;
     min-height: 39*@hd;
+    position: relative;
+    &-extra-icon{
+      .yonui-card-box-title::after{
+        content: '';
+        position: absolute;
+        display: block;
+        width: 4*@hd;
+        height: 100%;
+        background-color: @brand-primary;
+        left: -12*@hd;
+        border-top-right-radius: 4*@hd;
+        border-bottom-right-radius: 4*@hd;
+        transform: scaleY(.7);
+      }
+    }
   }
   &-title{
+    position: relative;
     font-weight: 600;
   }
   &-select{

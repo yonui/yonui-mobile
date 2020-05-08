@@ -4,28 +4,29 @@ import Wrapper from '../list-item-wrapper'
 import deleteImg from './style/delete.png'
 import classnames from 'classnames'
 interface CardBoxProps extends React.defaultProps{
-  text: '删除'
-  // onPress?: () => void
+  btnText: '删除'
   onDelete?: () => void
   label?: string
   rightStyle?: React.CSSProperties
   viewStatus?: 'default' | 'select' | 'selected' | 'detail' | 'browse'
   displayStyle?: 'normal' | 'detail' | 'slideable'
-  editSatus?: 'normal' | 'selected' | 'unselected'
-  editing?: boolean
   selected?: boolean
+  showDeleteIcon?: boolean
+  showTitleExtraIcon?: boolean
 }
 
 export default class CardBox extends Component<CardBoxProps> {
   static defaultProps = {
-    text: '删除',
+    btnText: '删除',
     viewStatus: 'default',
-    label: '明细'
+    label: '明细',
+    showDeleteIcon: true,
+    showTitleExtraIcon: false
   }
 
   componentDidMount () {
     // const script = document.createElement('script')
-    // script.type = 'text/javascript'
+    // script.type = 'btnText/javascript'
     // script.async = true
     // script.src = 'https://at.alicdn.com/t/font_304307_jezcocolkm.js'
     // document.head.appendChild(script)
@@ -33,19 +34,20 @@ export default class CardBox extends Component<CardBoxProps> {
   }
 
   render () {
-    const { text, onDelete, rightStyle, style, className, children, viewStatus, label, displayStyle, selected, editSatus, ...other } = this.props
+    const { btnText, onDelete, rightStyle, style, className, children, viewStatus, label, displayStyle, selected, showTitleExtraIcon, showDeleteIcon, ...other } = this.props
     const right = [{
-      text, onPress: onDelete, style: { width: '25vw', ...rightStyle }, className: 'yonui-card-box-btn'
+      text: btnText, onPress: onDelete, style: { width: '25vw', ...rightStyle }, className: 'yonui-card-box-btn'
     }]
     const cls = classnames(className, 'yonui-card-box', `yonui-card-box-${viewStatus}`)
     let content
     const iconType = selected ? 'icon-pass-c' : 'icon-done'
     switch (displayStyle) {
       case 'detail': {
+        const wrapperCls = classnames('yonui-card-box-wrapper', { 'yonui-card-box-wrapper-extra-icon': showTitleExtraIcon })
         content = (<React.Fragment>
           <div className='yonui-card-box-swipe'>
-            <Wrapper className='yonui-card-box-wrapper' label={label} labelCls='yonui-card-box-title' singleLine>
-              <img className='yonui-img-icon small' src={deleteImg} onClick={onDelete}/>
+            <Wrapper className={wrapperCls} label={label} labelCls='yonui-card-box-title' singleLine>
+              {showDeleteIcon && <img className='yonui-img-icon small' src={deleteImg} onClick={onDelete}/>}
             </Wrapper>
             {children}
           </div>
