@@ -20,7 +20,7 @@ export default class Demo1 extends Component {
     return (
       <div className="spanDemo">
         <Flex>
-          <MyComponent label={props.label} color='red' width='' />
+          <MyComponent label={props.label} color='red' width='' leftIcon='left' rightIcon='right'/>
           <MyComponent label={props.label} color='red' type='border' width='' />
           <MyComponent label={props.label} color='red' type='primary' width='' />
           <MyComponent label={props.label} color='#e14c46' type='label' width='' />

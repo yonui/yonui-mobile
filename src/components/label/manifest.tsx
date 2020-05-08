@@ -8,18 +8,6 @@ const manifest: ComponentManifest = {
   icon: 'biaoqian1',
   uiObject: UIObject.Controls,
   props: [
-    // {
-    //   name: 'label',
-    //   type: FieldTypes.string,
-    //   defaultValue: '文本',
-    //   showDesign: true,
-    //   designConfig: {
-    //     label: '文本内容',
-    //     type: EditTypes.Text,
-    //     isRequired: false,
-    //     props: {}
-    //   }
-    // },
     {
       name: 'type',
       type: FieldTypes.string,
@@ -59,7 +47,7 @@ const manifest: ComponentManifest = {
       defaultValue: 'left',
       showDesign: true,
       designConfig: {
-        label: '渲染类型',
+        label: '文本对齐方式',
         type: EditTypes.Select,
         isRequired: false,
         props: {
@@ -95,6 +83,44 @@ const manifest: ComponentManifest = {
         type: EditTypes.Color,
         isRequired: false,
         props: {}
+      }
+    },
+    {
+      name: 'leftIcon',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: '/IconSelect?iframeId=leftIcon',
+          iframeId: 'iconSelectIframeleftIcon',
+          message: true,
+          footer: true
+        },
+        label: '左侧图标'
+      }
+    },
+    {
+      name: 'rightIcon',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.IframeModal,
+        props: {
+          caption: '图标库',
+          addText: '添加图标',
+          editText: '更换图标',
+          iframeUrl: '/IconSelect?iframeId=rightIcon',
+          iframeId: 'iconSelectIframerightIcon',
+          message: true,
+          footer: true
+        },
+        label: '右侧图标'
       }
     }
   ],

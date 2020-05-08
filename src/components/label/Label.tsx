@@ -1,5 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
+import { Icon } from 'antd-mobile'
 export interface LabelProps extends React.defaultProps{
   label?: string // 文本大小
   type?: 'default' | 'primary' | 'border' | 'label'
@@ -7,8 +8,16 @@ export interface LabelProps extends React.defaultProps{
   bgColor?: string
   width?: string
   textAlign?: 'left' | 'right' | 'center'
+  leftIcon?: React.ReactNode
+  rightIcon?: React.ReactNode
 }
-export default class Label extends React.Component<LabelProps> {
+
+const alignMap = {
+  left: 'flex-start',
+  right: 'flex-end',
+  center: 'center'
+}
+export default class Label extends React.PureComponent<LabelProps> {
   static defaultProps = {
     // style: {
     //   // color: 'rgba(255,255,255,1)',
@@ -48,13 +57,19 @@ export default class Label extends React.Component<LabelProps> {
   }
 
   render () {
-    const { label, style, className, color, type, bgColor, width, textAlign, ...other } = this.props
-    const sty = { ...this.getStyle(type, color, bgColor), ...style, width, textAlign }
+    const { label, style, className, color, type, bgColor, width, textAlign, leftIcon, rightIcon, ...other } = this.props
+    const sty: React.CSSProperties = { ...this.getStyle(type, color, bgColor), ...style, width, justifyContent: textAlign && alignMap[textAlign] }
     const cls = classnames(className, 'yonui-tag', {
       'label-type': type === 'label'
     })
+    const leftIconEle = typeof leftIcon === 'string' ? <Icon type={leftIcon} size='xs'/> : leftIcon
+    const rightIconEle = typeof rightIcon === 'string' ? <Icon type={rightIcon} size='xs'/> : rightIcon
     return (
-      <span className={cls} style={sty} {...other}>{label}</span>
+      <span className={cls} style={sty} {...other}>
+        {leftIcon && leftIconEle}
+        <span className='yonui-mobile-tag-text'>{label}</span>
+        {rightIcon && rightIconEle}
+      </span>
     )
   }
 }
