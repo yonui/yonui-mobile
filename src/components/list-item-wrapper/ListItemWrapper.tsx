@@ -5,6 +5,7 @@ interface ListItemWrapperProps extends React.defaultProps{
   singleLine?: boolean
   required?: boolean
   label?: string
+  subLabel?: string
   labelCls?: string
   labelStyle?: React.CSSProperties
   contentCls?: string
@@ -12,6 +13,7 @@ interface ListItemWrapperProps extends React.defaultProps{
   content?: JSX.Element
   error?: boolean
   errorText?: React.ReactNode
+  showExtraLabelIcon?: boolean
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 }
 export default class ListItemWrapper extends Component<ListItemWrapperProps> {
@@ -20,20 +22,26 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
   }
 
   render () {
-    const { splitLine = true, singleLine, label, labelCls, labelStyle, contentCls, contentStyle, className, style, children, required, nid, uitype, onClick, error, errorText } = this.props
+    const {
+      splitLine = true, singleLine, label, labelCls, labelStyle,
+      contentCls, contentStyle, className, style, children,
+      required, nid, uitype, onClick, error, errorText,
+      showExtraLabelIcon, subLabel
+    } = this.props
     const cls = classnames('list-item-wrapper', className, `${singleLine ? 'single-line' : 'multiple-line'}`, {
       'list-item-wrapper-split': splitLine
     })
     const errorCls = classnames('list-item-wrapper-error', {
       hidden: !error
     })
-    const _labelCls = classnames('list-item-wrapper-label', labelCls, { required })
+    const _labelCls = classnames('list-item-wrapper-label', labelCls, { required, 'list-item-wrapper-label-extra-icon': showExtraLabelIcon })
     const _contentCls = classnames('list-item-wrapper-content', contentCls)
     return (
       <div className='list-item-wrapper-box'>
         <div className={cls} style={style} nid={nid} uitype={uitype} onClick = {onClick}>
           <div className={_labelCls} style={labelStyle}>
             {label}
+            {subLabel && <span className='list-item-wrapper-label-sub'>{subLabel}</span>}
           </div>
           <div className={_contentCls} style={contentStyle}>
             {children}

@@ -26,12 +26,30 @@
     font-size: @input-font-size;
     display: flex;
     align-items: center;
+    position: relative;
+    &-sub{
+      color: @color-text-caption;
+      font-size: @font-size-caption-sm;
+      margin-left: 6*@hd;
+    }
     &.required::after {
       content: "*";
       color: @brand-primary;
       font-family: SimSun;
       padding-left: 3*@hd;
       vertical-align: top;
+    }
+    &-extra-icon::before{
+      content: '';
+      position: absolute;
+      display: block;
+      width: 4*@hd;
+      height: 100%;
+      background-color: @brand-primary;
+      left: -12*@hd;
+      border-top-right-radius: 4*@hd;
+      border-bottom-right-radius: 4*@hd;
+      transform: scaleY(.7);
     }
   }
 
