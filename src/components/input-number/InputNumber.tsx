@@ -33,6 +33,7 @@ export interface InputProps extends React.defaultProps {
   prefix?: string
   thousands?: boolean
   disabled?: boolean
+  inputBgColor?: string
   onFocus?: (value: string) => void
   onBlur?: (value: string) => void
   onChange?: (value: string) => void
@@ -182,7 +183,7 @@ export default class Input extends Component<InputProps, InputState> {
   }
 
   render () {
-    const { label, required, splitLine, className, singleLine, style, nid, uitype, onChange, onBlur, onFocus, value, maxLength, ...other } = this.props
+    const { label, required, splitLine, className, singleLine, style, nid, uitype, onChange, onBlur, onFocus, value, maxLength, inputBgColor, ...other } = this.props
     const { error, errorText, _displayValue } = this.state
     const cls = classnames('mdf-input', className)
     const inputCls = classnames('mdf-input-content')
@@ -195,7 +196,7 @@ export default class Input extends Component<InputProps, InputState> {
       >
         <YonuiInput className={inputCls} required={required} textAlign={singleLine ? 'right' : 'left'}
           onBlur={this._onBlur} onChange={this._onChange} onFocus={this._onFocus} onClickClear={this._onClickClear}
-          value={ _displayValue || value} {...other} {...inputProps}
+          value={ _displayValue || value} {...other} {...inputProps} style={{ backgroundColor: inputBgColor }}
           beforeRender={this._beforeRender} afterChange={this._afterChange} customCheck={this.checkFn}
         />
       </Wrapper>
