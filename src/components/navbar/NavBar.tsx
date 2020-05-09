@@ -4,13 +4,18 @@ import { NavBar, Icon } from 'antd-mobile'
 export interface NavBarProps {
   rightIcon1?: string
   rightIcon2?: string
+  rightIcon1Text?: string
+  rightIcon2Text?: string
   onRight1Click?: () => void
   onRight2Click?: () => void
   title: string
   subTitle: string
   titleIcon?: string
+  titleIconText?: string
   backIcon: string
+  backIconText: string
   closeIcon: string
+  closeIconText: string
   onBackClick?: () => void
   onCloseClick?: () => void
   mode: string
@@ -25,10 +30,12 @@ export default class MDFNavBar extends React.Component<NavBarProps, any> {
   }
 
   renderLeftContent = () => {
-    const { backIcon, closeIcon, onBackClick, onCloseClick } = this.props
+    const { backIcon, backIconText, closeIcon, closeIconText, onBackClick, onCloseClick } = this.props
     return <React.Fragment>
       <Icon type={backIcon} onClick={onBackClick} />
+      {backIconText}
       {closeIcon && <Icon type={closeIcon} style={{ marginLeft: 15 }} onClick={onCloseClick} />}
+      {closeIconText}
     </React.Fragment>
   }
 
@@ -44,30 +51,28 @@ export default class MDFNavBar extends React.Component<NavBarProps, any> {
   }
 
   renderRightContent = () => {
-    const { rightIcon1, rightIcon2, onRight1Click, onRight2Click, reghtIcons } = this.props
+    const { rightIcon1, rightIcon1Text, rightIcon2, rightIcon2Text, onRight1Click, onRight2Click, reghtIcons } = this.props
 
     if (reghtIcons) return reghtIcons
     return <React.Fragment>
       {rightIcon1 && <Icon type={rightIcon1} onClick={onRight1Click} />}
+      {rightIcon1Text}
       {rightIcon2 && <Icon type={rightIcon2} onClick={onRight2Click} style={{ marginLeft: 15 }} />}
+      {rightIcon2Text}
     </React.Fragment>
   }
 
   render () {
-    const { style } = this.props
+    const { style, mode } = this.props
+    const cls = mode === 'light' ? 'am-navbar-light' : ''
     return (
       <div>
-        {this.props.mode === 'light' ? <NavBar className={'am-navbar-light'}
+        <NavBar className={cls}
           style={{ ...style }}
           rightContent={this.renderRightContent()}
           leftContent={this.renderLeftContent()}>
           {this.props.children && this.props.children.length ? this.props.children : this.renderCenterContent()}
-        </NavBar> : <NavBar
-          style={{ ...style }}
-          rightContent={this.renderRightContent()}
-          leftContent={this.renderLeftContent()}>
-          {this.renderCenterContent()}
-        </NavBar>}
+        </NavBar>
       </div>
     )
   }

@@ -129,9 +129,21 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'rightIcon1Text',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        props: {
+        },
+        label: '右一图标文本'
+      }
+    },
+    {
       name: 'rightIcon2',
       type: FieldTypes.string,
-      defaultValue: 'ellipsis',
+      defaultValue: '',
       showDesign: true,
       designConfig: {
         type: EditTypes.IframeModal,
@@ -146,6 +158,18 @@ const manifest: ComponentManifest = {
         },
         label: '右二图标',
         help: '出现在最右边第二个的图标占位符'
+      }
+    },
+    {
+      name: 'rightIcon2Text',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        props: {
+        },
+        label: '右一图标文本'
       }
     },
     {
