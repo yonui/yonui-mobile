@@ -28,6 +28,17 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'showExtraLabelIcon',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        props: {},
+        label: '标题左侧图标'
+      }
+    },
+    {
       name: 'extraIcon',
       type: FieldTypes.string,
       defaultValue: '',

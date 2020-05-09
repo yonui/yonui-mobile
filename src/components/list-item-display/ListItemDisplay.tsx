@@ -6,18 +6,19 @@ interface ListItemDisplayProps extends React.defaultProps{
   subLabel?: string
   extraIcon?: string
   extraText?: string
+  showExtraLabelIcon?: boolean
   onClick?: () => void
 }
 const ListItemDisplay = (props: ListItemDisplayProps) => {
-  const { label, subLabel, extraIcon, extraText, onClick } = props
+  const { label, subLabel, extraIcon, extraText, onClick, showExtraLabelIcon } = props
   const _label = <div className='lsit-item-display-label-area'>
     <div className='lsit-item-display-label'>{label}</div>
     <div className='lsit-item-display-sublabel'>{subLabel}</div>
   </div>
-  const _icon = extraIcon && <Icon type={extraIcon} onTouchEndCapture={onClick}/>
-  return <ListItemWrapper label={_label} singleLine>
-    {_icon}
+  const _icon = extraIcon && <Icon type={extraIcon} onTouchEndCapture={onClick} />
+  return <ListItemWrapper label={_label} singleLine showExtraLabelIcon={showExtraLabelIcon}>
     {extraText}
+    {_icon}
   </ListItemWrapper>
 }
 export default memo(ListItemDisplay)
