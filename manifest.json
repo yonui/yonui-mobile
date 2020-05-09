@@ -75,6 +75,7 @@
     "SimpleList": "./src/components/simple-list",
     "Mobile": "./src/components/contact",
     "Picture":  "./src/components/picture",
-    "YonuiIframe": "./src/components/yonui-iframe"
+    "YonuiIframe": "./src/components/yonui-iframe",
+    "ListItemDisplay": "./src/components/list-item-display"
   }
 }

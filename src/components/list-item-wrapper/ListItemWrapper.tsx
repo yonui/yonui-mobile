@@ -4,7 +4,7 @@ interface ListItemWrapperProps extends React.defaultProps{
   splitLine?: boolean
   singleLine?: boolean
   required?: boolean
-  label?: string
+  label?: React.ReactNode
   subLabel?: string
   labelCls?: string
   labelStyle?: React.CSSProperties
