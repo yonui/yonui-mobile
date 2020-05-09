@@ -1,4 +1,5 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject, SysProps, ExtensionProps } from 'yonui-extension'
+import listItemProps from '../list-item-wrapper/manifestProps'
 const manifest: ComponentManifest = {
   name: 'Input',
   uiObject: UIObject.Controls,
@@ -192,13 +193,14 @@ const manifest: ComponentManifest = {
         label: '有效范围',
         help: '配置可输入的字符内容范围，例如：只能输入数字：^[0-9]*$， 只能输入字母：^[a-zA-Z]*$'
       }
-    }
+    },
+    ...listItemProps
   ],
   extension: [
     ExtensionProps.bIsNull,
     ExtensionProps.disabled,
-    ExtensionProps.singleLine,
-    ExtensionProps.splitLine,
+    // ExtensionProps.singleLine,
+    // ExtensionProps.splitLine,
     ExtensionProps.bMustSelect,
     ExtensionProps.formula,
     ExtensionProps.isExport,

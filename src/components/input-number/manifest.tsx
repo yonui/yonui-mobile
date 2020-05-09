@@ -1,4 +1,5 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps, ExtensionProps } from 'yonui-extension'
+import listItemProps from '../list-item-wrapper/manifestProps'
 const manifest: ComponentManifest = {
   name: 'InputNumber',
   label: '数值',
@@ -209,14 +210,15 @@ const manifest: ComponentManifest = {
           footer: true
         }
       }
-    }
+    },
+    ...listItemProps
   ],
   children: [],
   extension: [
     // ExtensionProps.required,
     ExtensionProps.disabled,
-    ExtensionProps.splitLine,
-    ExtensionProps.singleLine,
+    // ExtensionProps.splitLine,
+    // ExtensionProps.singleLine,
     ExtensionProps.bIsNull,
     ExtensionProps.bMustSelect,
     ExtensionProps.isExport,

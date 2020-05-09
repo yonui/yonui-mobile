@@ -1,4 +1,5 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
+import listItemProps from '../list-item-wrapper/manifestProps'
 const manifest: ComponentManifest = {
   name: 'DateTimePicker',
   label: '日期时间选择',
@@ -6,18 +7,6 @@ const manifest: ComponentManifest = {
   uiObject: UIObject.Controls,
   icon: 'time',
   props: [
-    {
-      name: 'label',
-      type: FieldTypes.string,
-      defaultValue: '',
-      showDesign: false,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: true,
-        props: {},
-        label: '标签'
-      }
-    },
     {
       name: 'dateMode',
       type: FieldTypes.string,
@@ -248,7 +237,8 @@ const manifest: ComponentManifest = {
         label: 'onDismiss',
         help: '取消回调'
       }
-    }
+    },
+    ...listItemProps
   ]
 }
 

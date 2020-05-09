@@ -1,4 +1,5 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps } from 'yonui-extension'
+import listItemProps from '../list-item-wrapper/manifestProps'
 const manifest: ComponentManifest = {
   name: 'Textarea',
   uiObject: UIObject.Controls,
@@ -112,17 +113,17 @@ const manifest: ComponentManifest = {
         label: '允许修改'
       }
     },
-    {
-      name: 'required',
-      type: FieldTypes.boolean,
-      showDesign: false,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '必填项'
-      }
-    },
+    // {
+    //   name: 'required',
+    //   type: FieldTypes.boolean,
+    //   showDesign: false,
+    //   designConfig: {
+    //     type: EditTypes.Bool,
+    //     isRequired: false,
+    //     props: {},
+    //     label: '必填项'
+    //   }
+    // },
     {
       name: 'autoHeight',
       type: FieldTypes.boolean,
@@ -192,12 +193,13 @@ const manifest: ComponentManifest = {
         props: {},
         label: 'onBlur'
       }
-    }
+    },
+    ...listItemProps
   ],
   extension: [
     // ExtensionProps.required,
     ExtensionProps.disabled,
-    ExtensionProps.splitLine,
+    // ExtensionProps.splitLine,
     ExtensionProps.bIsNull,
     ExtensionProps.bMustSelect,
     ExtensionProps.formula,
