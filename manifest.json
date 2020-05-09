@@ -74,6 +74,7 @@
     "TabBar": "./src/components/tab-bar",
     "SimpleList": "./src/components/simple-list",
     "Mobile": "./src/components/contact",
-    "Picture":  "./src/components/picture"
+    "Picture":  "./src/components/picture",
+    "YonuiIframe": "./src/components/yonui-iframe"
   }
 }
