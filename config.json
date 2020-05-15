@@ -25,5 +25,8 @@
     "js":[],
     "css":[],
     "export":[]
+  },
+  "iconMap": {
+    "Button": "anniu"
   }
 }

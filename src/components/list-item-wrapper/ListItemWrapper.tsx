@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
-interface ListItemWrapperProps extends React.defaultProps{
+export interface ListItemWrapperProps extends React.defaultProps{
   splitLine?: boolean
   singleLine?: boolean
   required?: boolean

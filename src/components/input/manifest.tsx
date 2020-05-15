@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject, SysProps, ExtensionProps } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps } from 'yonui-extension'
 import listItemProps from '../list-item-wrapper/manifestProps'
 const manifest: ComponentManifest = {
   name: 'Input',
@@ -6,7 +6,6 @@ const manifest: ComponentManifest = {
   label: '文本',
   type: 'basicControls',
   icon: 'text',
-  systemProperties: [SysProps.DATA_FIELD],
   props: [
     {
       name: 'maxLength',
