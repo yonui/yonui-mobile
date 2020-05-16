@@ -14,7 +14,7 @@
     display: block;
     position: absolute;
     width: calc(~'100% - 12*@{hd}');
-    height: 1px;
+    height: 1*@hd;
     background-color: @split-line;
     transform: scaleY(.5);
     bottom: 0;
@@ -76,7 +76,7 @@
   &-error{
     height: 32*@hd;
     position: relative;
-    // border-top: 1px solid @brand-primary;
+    // border-top: 1*@hd solid @brand-primary;
     color: @brand-error-2;
     background-color: fade(@brand-error-2, 6);
     display: flex;
@@ -87,7 +87,7 @@
       content: '';
       display: block;
       position: absolute;
-      height: 1px;
+      height: 1*@hd;
       width: 100%;
       top: 0;
       left: 0;

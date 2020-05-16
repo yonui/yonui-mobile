@@ -9,7 +9,7 @@ import './demo.less';
 export default class Demo extends Component {
     render() {
         return (
-            <MyComponent label='label' subLabel='hhh' extraIcon='right'/>
+            <MyComponent label='label' subLabel='hhh' extraIcon='right' extraText='x'/>
         )
     }
 }

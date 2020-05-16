@@ -15,9 +15,10 @@ const ListItemDisplay = (props: ListItemDisplayProps) => {
     <div className='lsit-item-display-label'>{label}</div>
     <div className='lsit-item-display-sublabel'>{subLabel}</div>
   </div>
+  const _extraText = extraText && <span className='lsit-item-display-extra'>{extraText}</span>
   const _icon = extraIcon && <Icon type={extraIcon} onTouchEndCapture={onClick} />
   return <ListItemWrapper label={_label} singleLine showExtraLabelIcon={showExtraLabelIcon}>
-    {extraText}
+    {_extraText}
     {_icon}
   </ListItemWrapper>
 }
