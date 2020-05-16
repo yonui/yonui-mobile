@@ -3,15 +3,12 @@ import React, { Component } from 'react'
 // import { InputItemPropsType } from 'antd-mobile/lib/input-item/PropsType'
 import YonuiInput from '../input-yonui'
 import classnames from 'classnames'
-import Wrapper from '../list-item-wrapper'
+import Wrapper, { ListItemWrapperProps } from '../list-item-wrapper'
 import { decodeValue } from '../_utils'
-export interface InputProps extends React.defaultProps {
+export interface InputProps extends React.defaultProps, ListItemWrapperProps {
   label?: string
   required?: boolean
-  splitLine?: boolean
   className?: string
-  singleLine?: boolean
-  maxLength?: number
   subuitype?: 'text' | 'idCard' | 'email' | 'ipAddress' | 'bankCard16' | 'bankCard19' | 'customized'
   defaultValue?: string
   value?: string
@@ -22,6 +19,7 @@ export interface InputProps extends React.defaultProps {
   hiddenChart?: '*'
   replaceChart?: '#'
   checkMask?: string
+  inputStyle?: React.CSSProperties
   onFocus?: (value: string) => void
   onBlur?: (value: string) => void
   onChange?: (value: string) => void
@@ -163,20 +161,29 @@ export default class Input extends Component<InputProps, InputState> {
   }
 
   render () {
-    const { label, required, splitLine, className, singleLine, style, nid, uitype, onChange, onBlur, onFocus, value, ...other } = this.props
+    const { label, required, splitLine, className, singleLine, style, inputStyle, nid, uitype, subLabel, onChange, onBlur, onFocus, showExtraLabelIcon, value, ...other } = this.props
     const { error, errorText, _displayValue } = this.state
     const cls = classnames('mdf-input', className)
     const inputCls = classnames('mdf-input-content')
     const inputProps = this.getInputProps()
     return (
-      <Wrapper className={cls} style={style} splitLine={splitLine}
-        singleLine={singleLine} nid={nid} uitype={uitype}
-        label={label} required={required} error={error}
+      <Wrapper
+        className={cls}
+        style={style}
+        splitLine={splitLine}
+        singleLine={singleLine}
+        nid={nid}
+        uitype={uitype}
+        label={label}
+        required={required}
+        error={error}
         errorText={errorText}
+        showExtraLabelIcon={showExtraLabelIcon}
+        subLabel={subLabel}
       >
         <YonuiInput className={inputCls} required={required} textAlign={singleLine ? 'right' : 'left'}
           onBlur={this._onBlur} onChange={this._onChange} onFocus={this._onFocus} onClickClear={this._onClickClear}
-          value={ _displayValue || value} {...other} {...inputProps}
+          value={ _displayValue || value} {...other} {...inputProps} style={inputStyle}
         />
       </Wrapper>
     )

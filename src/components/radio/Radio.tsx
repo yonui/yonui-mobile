@@ -14,7 +14,7 @@ interface RadioProps extends React.defaultProps {
   checkedValue?: string[]
   tagSize?: 'sm' | 'lg' | 'md' | 'default'
   labelStyle?: React.CSSProperties
-  // itemsStyle?: React.CSSProperties
+  itemsStyle?: React.CSSProperties
   disabled?: boolean
   singleLine?: boolean
   splitLine?: boolean
@@ -103,6 +103,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     if (!selectData || !Array.isArray(selectData)) return null
     const _selectedValue = selectedValue ?? getValueFromDataType(_checkedData)[0]
     // const selectedValueSet = typeof selectedValue === 'string' ? new Set([selectedValue]) : new Set(selectedValue)
+    const { itemsStyle } = this.props
     return selectData.map((item, index) => {
       const cls = classnames(
         'radio-tag',
@@ -112,7 +113,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
           'radio-tag-disabled': this.props.disabled || item.disabled
         }
       )
-      return <div className={cls} key={index} onClick={() => { !item.disabled && this.onClickItem(item) }}>
+      return <div className={cls} key={index} onClick={() => { !item.disabled && this.onClickItem(item) }} style={itemsStyle}>
         <div className='radio-tag-text'>{item.text}</div>
       </div>
     })
@@ -120,7 +121,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
 
   renderRaioList = (selectData?: dataType[], selectedValue?: string[]) => {
     if (!selectData || !Array.isArray(selectData)) return null
-    const { multiple: isMultiple } = this.props
+    const { multiple: isMultiple, itemsStyle } = this.props
     // const selectedValueSet = typeof selectedValue === 'string' ? new Set([selectedValue]) : new Set(selectedValue)
     const { _checkedDataTemp } = this.state
     const _selectedValue = selectedValue ?? getValueFromDataType(_checkedDataTemp)[0]
@@ -140,7 +141,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
           this.onCloseModal(e)
         }
       }
-      return <Wrapper labelCls={cls} key={index} label={item.text} onClick={ onClickWrapper} singleLine>
+      return <Wrapper labelCls={cls} key={index} label={item.text} onClick={ onClickWrapper} singleLine style={itemsStyle}>
         { _checked ? <img src={selectedImg} style={{ width: '17px', height: '14px' }}/> : ''}
       </Wrapper>
     })
@@ -241,7 +242,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
   }
 
   render () {
-    const { mode, dataSource, label, tagSize, className, nid, uitype, splitLine, singleLine, required, checkedValue, style } = this.props
+    const { mode, dataSource, label, tagSize, className, nid, labelStyle, uitype, splitLine, singleLine, required, checkedValue, style } = this.props
     const { open } = this.state
     let radioArr: any
     switch (mode) {
@@ -260,9 +261,17 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     }
     const cls = classnames(className, 'yonui-radio')
     return (
-      <Wrapper className={cls} nid={nid} uitype={uitype}
-        singleLine={singleLine || mode === 'list'} splitLine={splitLine} label={label}
-        labelCls={'yonui-radio-label'} required={required} style={style}>
+      <Wrapper
+        className={cls}
+        nid={nid}
+        uitype={uitype}
+        singleLine={singleLine || mode === 'list'}
+        splitLine={splitLine}
+        label={label}
+        labelCls={'yonui-radio-label'}
+        required={required}
+        labelStyle={labelStyle}
+        style={style}>
         <div className='yonui-radio-items'>
           {radioArr}
         </div>

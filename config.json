@@ -27,6 +27,37 @@
     "export":[]
   },
   "iconMap": {
-    "Button": "anniu"
+    "Icon": "icon",
+    "Button": "anniu",
+    "Carousel": "lunbo",
+    "CarouselItem": "lunboye",
+    "Divider": "fengexian",
+    "Search": "sousuo",
+    "Flex": "liushibuju",
+    "Result": "fankuiye",
+    "Empty": "kongshuju",
+    "Label": "biaoqian1",
+    "NavBar": "tuanduiyingyong",
+    "Div": "div",
+    "Notice": "tishi",
+    "popover": "qipao",
+    "Radio": "xuanxiang",
+    "Switch": "huadongkaiguan",
+    "Menu": "caidan",
+    "Checkbox": "checkBox",
+    "Tab": "duoyeqian",
+    "TabPane": "duoyeqianneirong",
+    "SharePanel": "fenxiangmianban",
+    "Loading": "jiazai",
+    "Grid": "table",
+    "Textarea": "duohangwenben",
+    "CardBox": "card",
+    "CardBoxGroup": "kapianrongqi1",
+    "InputNumber": "digital",
+    "Mobile": "shouji",
+    "YonuiIframe": "yemian",
+    "Rate": "pingfen",
+    "Picture": "tupianshangchuan",
+    "ListItemDisplay": "liebiaoxingshi"
   }
 }

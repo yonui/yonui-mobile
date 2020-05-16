@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import YonuiInput from '../input-yonui'
 import classnames from 'classnames'
-import Wrapper from '../list-item-wrapper'
+import Wrapper, { ListItemWrapperProps } from '../list-item-wrapper'
 import { decodeValue } from '../_utils'
 const NumberReg = {
   normal: /^-?0*(\d+\.\d*|[1-9]\d*|0)$|-/, // 基本数值校验
   format: /\d{1,3}(?=(\d{3})+$)/g // 整数匹配千分位
 }
-export interface InputProps extends React.defaultProps {
+export interface InputProps extends React.defaultProps, ListItemWrapperProps {
   label?: string
   required?: boolean
   splitLine?: boolean
@@ -183,7 +183,7 @@ export default class Input extends Component<InputProps, InputState> {
   }
 
   render () {
-    const { label, required, splitLine, className, singleLine, style, nid, uitype, onChange, onBlur, onFocus, value, maxLength, inputBgColor, ...other } = this.props
+    const { label, required, splitLine, className, singleLine, style, nid, uitype, onChange, onBlur, onFocus, subLabel, value, showExtraLabelIcon, maxLength, inputBgColor, ...other } = this.props
     const { error, errorText, _displayValue } = this.state
     const cls = classnames('mdf-input', className)
     const inputCls = classnames('mdf-input-content')
@@ -193,6 +193,8 @@ export default class Input extends Component<InputProps, InputState> {
         singleLine={singleLine} nid={nid} uitype={uitype}
         label={label} required={required} error={error}
         errorText={errorText}
+        showExtraLabelIcon={showExtraLabelIcon}
+        subLabel={subLabel}
       >
         <YonuiInput className={inputCls} required={required} textAlign={singleLine ? 'right' : 'left'}
           onBlur={this._onBlur} onChange={this._onChange} onFocus={this._onFocus} onClickClear={this._onClickClear}

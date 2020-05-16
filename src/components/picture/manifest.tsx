@@ -1,9 +1,10 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps, SysProps } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'Picture',
   label: '图片',
   type: TypeProps.BasicControls,
   uiObject: UIObject.Controls,
+  systemProperties: [SysProps.DATA_FIELD],
   props: [
     {
       name: 'url',
@@ -70,6 +71,27 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '标题文本'
+      }
+    },
+    {
+      name: 'labelStyle',
+      type: FieldTypes.action,
+      showDesign: true,
+      designConfig: {
+        label: '标题文本样式',
+        type: EditTypes.IframeModal,
+        help: '',
+        props: {
+          caption: '标题文本样式',
+          iframeUrl: '/CssSelect?iframeId=labelStyle',
+          iframeId: 'mobileCssIframeModallabelStyle',
+          iframeContext: 'mobileCssIframeModal',
+          addText: '新增样式',
+          editText: '修改样式',
+          message: true,
+          isRequired: false,
+          footer: true
+        }
       }
     }
   ],
