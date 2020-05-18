@@ -148,48 +148,6 @@ const manifest: ComponentManifest = {
         label: '提示文字'
       }
     },
-    // {
-    //   name: 'textAlign',
-    //   type: FieldTypes.string,
-    //   defaultValue: '',
-    //   showDesign: true,
-    //   designConfig: {
-    //     type: EditTypes.Select,
-    //     isRequired: true,
-    //     props: {
-    //       options: [
-    //         { value: '', text: '默认' },
-    //         { value: 'left', text: '左对齐' },
-    //         { value: 'center', text: '居中' },
-    //         { value: 'right', text: '右对齐' }
-    //       ]
-    //     },
-    //     label: '对齐方式',
-    //     help: '单行默认右对齐，多行默认左对齐'
-    //   }
-    // },
-    // {
-    //   name: 'inputWrapperWidth',
-    //   type: FieldTypes.string,
-    //   showDesign: true,
-    //   designConfig: {
-    //     type: EditTypes.Text,
-    //     isRequired: true,
-    //     props: {},
-    //     label: '输入框宽度'
-    //   }
-    // },
-    {
-      name: 'onChange',
-      type: FieldTypes.action,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: true,
-        props: {},
-        label: 'onChange'
-      }
-    },
     {
       name: 'inputStyle',
       type: FieldTypes.action,
