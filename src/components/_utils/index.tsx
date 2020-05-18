@@ -4,7 +4,7 @@ import moment from 'moment'
 export const formatStringToDate = (dateStr: any) => {
   switch (Object.prototype.toString.call(dateStr).toLowerCase()) {
     case '[object date]': return dateStr
-    case '[object string]': return moment(dateStr).toDate()
+    case '[object string]': return dateStr ? moment(dateStr).toDate() : undefined
     default: return undefined
   }
 }

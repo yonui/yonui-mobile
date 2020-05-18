@@ -25,7 +25,9 @@ export default class Demo extends Component<any, any> {
         "extra": "请选择",
         "value": "2020-05",
         "onChangeDate": "ƒ () {}",
-        "children": []
+        "children": [],
+        "maxDate": "",
+        "minDate": ""
       }
         return (
             <React.Fragment>
