@@ -9,7 +9,7 @@ export const formatStringToDate = (dateStr: any) => {
   }
 }
 
-export const dateFormat = function dateFormat (dateObj: Date | string, fmt: string) {
+export const dateFormat = function (dateObj: Date | string, fmt: string) {
   const date: Date = formatStringToDate(dateObj)
   const o: any = {
     'M+': date.getMonth() + 1,
@@ -58,7 +58,6 @@ export const dateFormat = function dateFormat (dateObj: Date | string, fmt: stri
       fmt = fmt.replace(RegExp.$1, RegExp.$1.length === 1 ? o[k].toString() : ('00' + `${o[k].toString()}`).substr(('' + `${o[k].toString()}`).length))
     }
   }
-
   return fmt
 }
 

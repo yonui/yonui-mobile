@@ -103,7 +103,6 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
       visible: false,
       _value: dateTime
     })
-    console.log(_dateTime)
   }
 
   render () {
@@ -111,12 +110,12 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
     const { visible, _value } = this.state
     let valueTrs
     if (dateMode === 'picker-time') {
-      valueTrs = (value === undefined) ? _value : formatStringToDate(`1970 ${value}`)
+      valueTrs = (value === undefined) ? _value : formatStringToDate(`1970/01/01 ${value}`)
     } else {
       valueTrs = (value === undefined) ? _value : formatStringToDate(value)
     }
-    const minDateTrs = formatStringToDate(minDate)
-    const maxDateTrs = formatStringToDate(maxDate)
+    const minDateTrs = dateMode === 'picker-time' ? undefined : formatStringToDate(minDate)
+    const maxDateTrs = dateMode === 'picker-time' ? undefined : formatStringToDate(maxDate)
     const typeAndMode = dateMode?.split('-') || []
     const fmt = format || modeToFormat(dateMode)
     const labelCls = classnames('date-time-picker-label')

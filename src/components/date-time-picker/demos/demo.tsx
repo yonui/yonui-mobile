@@ -18,20 +18,20 @@ export default class Demo extends Component<any, any> {
     render() {
       const props = {
         "label": "时间",
-        "dateMode": "picker-month",
+        "dateMode": "picker-time",
         "minuteStep": 1,
         "splitLine": true,
         "arrow": true,
         "extra": "请选择",
-        "value": "2020-05",
-        "onChangeDate": "ƒ () {}",
+        "value": this.state.value,
+        "onChangeDate": (value: any) => {this.setState({value })},
         "children": [],
         "maxDate": "",
         "minDate": ""
       }
         return (
             <React.Fragment>
-              <MyComponent {...props} />
+              <MyComponent {...props} use12Hours/>
               {/* <MyComponent label='time' dateMode='picker-date' onChangeDate={(val)=>{ this.setState({value: val})}}  />
               <MyComponent label='time' dateMode='picker-datetime' onChangeDate={(val)=>{ this.setState({value: val})}}  />
               <MyComponent label='time' dateMode='picker-month' onChangeDate={(val)=>{ this.setState({value: val})}}  />
