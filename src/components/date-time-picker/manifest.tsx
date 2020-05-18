@@ -239,7 +239,10 @@ const manifest: ComponentManifest = {
       }
     },
     ...listItemProps
-  ]
+  ],
+  propertyMap: {
+    cShowCaption: 'label'
+  }
 }
 
 export default manifest

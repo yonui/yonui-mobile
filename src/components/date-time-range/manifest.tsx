@@ -8,18 +8,18 @@ const manifest: ComponentManifest = {
   type: 'basicControls',
   icon: 'time',
   props: [
-    {
-      name: 'label',
-      type: FieldTypes.string,
-      defaultValue: '',
-      showDesign: false,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: true,
-        props: {},
-        label: '标签'
-      }
-    },
+    // {
+    //   name: 'label',
+    //   type: FieldTypes.string,
+    //   defaultValue: '',
+    //   showDesign: false,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     isRequired: true,
+    //     props: {},
+    //     label: '标签'
+    //   }
+    // },
     {
       name: 'startLabel',
       type: FieldTypes.string,
@@ -344,6 +344,9 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: []
+  children: [],
+  propertyMap: {
+    cShowCaption: 'label'
+  }
 }
 export default manifest
