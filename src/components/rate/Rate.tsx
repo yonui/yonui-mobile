@@ -4,7 +4,7 @@ import StarEmpty from './style/star.svg'
 import StarFull from './style/star_full.svg'
 import StarHalf from './style/star_half.svg'
 import ListItemWrapper from '../list-item-wrapper'
-interface RateProps {
+interface RateProps extends React.defaultProps{
   count: number
   allowHalf?: boolean
   defaultValue?: number
@@ -33,9 +33,9 @@ export default class Rate extends PureComponent<RateProps> {
   }
 
   render () {
-    const { allowHalf, defaultValue, count, disabled, onChange } = this.props
+    const { allowHalf, defaultValue, count, disabled, onChange, style } = this.props
     return (
-      <ListItemWrapper label='评分' contentCls='yonui-mobile-rate'>
+      <ListItemWrapper label='评分' contentCls='yonui-mobile-rate' style={style}>
         <RcRate
           allowHalf = {allowHalf}
           characterRender = {this.characterRender}
