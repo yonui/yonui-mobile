@@ -8,18 +8,29 @@ const manifest: ComponentManifest = {
   uiObject: UIObject.Controls,
   icon: 'radio',
   props: [
-    // {
-    //   name: 'checked',
-    //   type: FieldTypes.boolean,
-    //   defaultValue: false,
-    //   showDesign: true,
-    //   designConfig: {
-    //     type: EditTypes.Bool,
-    //     isRequired: true,
-    //     props: {},
-    //     label: '默认值'
-    //   }
-    // },
+    {
+      name: 'checked',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: false,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: true,
+        props: {},
+        label: '值'
+      }
+    },
+    {
+      name: 'defaultValue',
+      type: FieldTypes.boolean,
+      showDesign: false,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: true,
+        props: {},
+        label: '默认值'
+      }
+    },
     // {
     //   name: 'disabled',
     //   type: FieldTypes.boolean,
