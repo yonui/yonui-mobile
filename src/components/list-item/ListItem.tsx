@@ -76,7 +76,7 @@ export default class ListItem extends React.Component<ListItemProps, any> {
         {this.renderThumb('left')}
         {this.renderContent()}
         {this.renderThumb('right')}
-        {arrow && (<div className={arrowCls}></div>)}
+        {arrow && (<div className={arrowCls} />)}
       </div>
     )
   }

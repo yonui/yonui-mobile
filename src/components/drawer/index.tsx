@@ -189,5 +189,4 @@ const manifest: ComponentManifest = {
 }
 
 // 这边需要做的处理：需要生成sidebar然后传给<Drawer></Drawer>
-// export default ReactWrapper((props: any) => (<Drawer {...props} style={{ minHeight: document.documentElement.clientHeight }} sidebar={<List><List.Item thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png" multipleLine >Category</List.Item></List>}></Drawer>), manifest)
 export default ReactWrapper(Drawer, manifest)

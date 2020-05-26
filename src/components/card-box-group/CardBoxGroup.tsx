@@ -26,13 +26,13 @@ export default class CardBoxGroup extends Component<CardBoxGroupProps> {
     if (Array.isArray(node)) {
       return node.map((item, index) => (
         <div className='card-box-group-item' key={index}>
-          { select && <div className='card-box-group-item-icon'><Icon type='icon-pass-c'/></div>}
+          {select && <div className='card-box-group-item-icon'><Icon type='icon-pass-c' /></div>}
           {item}
         </div>)
       )
     }
-    return <div className='card-box-group-item' >
-      { select && <div className='card-box-group-item-icon'><Icon type='icon-pass-c'/></div>}
+    return <div className='card-box-group-item'>
+      {select && <div className='card-box-group-item-icon'><Icon type='icon-pass-c' /></div>}
       {node}
     </div>
   }
@@ -49,7 +49,7 @@ export default class CardBoxGroup extends Component<CardBoxGroupProps> {
     }
     return (
       <div className={cls} style={style}>
-        { content }
+        {content}
       </div>
     )
   }

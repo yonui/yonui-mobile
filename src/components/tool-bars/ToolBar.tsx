@@ -50,7 +50,7 @@ export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
             'tool-bar-popover-btn': popoverItem
           })
         const type = item.theme === 'next' ? 'default' : 'primary'
-        return <div className='button-wrapper' style={style}><Button className={cls} content={item.value} type={type} size='small' onClick={() => { this.onClickItem(item, index) }}/></div>
+        return <div className='button-wrapper' style={style}><Button className={cls} content={item.value} type={type} size='small' onClick={() => { this.onClickItem(item, index) }} /></div>
       }
       case 'text':
       default: {
@@ -95,7 +95,7 @@ export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
       'tool-bar-item-selected': selectedIndex > 3
     })
     const popoverItem = <Popover overlay={<div className='tool-bar-popover'>{overlay}</div>} placement={placement} onVisibleChange={this.handleVisibleChange} visible={this.state.visiable}>
-      <div className={cls} >
+      <div className={cls}>
         <Icon type='ellipsis' />
       </div>
     </Popover>
@@ -118,7 +118,7 @@ export default class ToolBar extends Component<ToolBarProps, ToolBarState> {
     const cls = classnames('yonui-tool-bar', className, { 'yonui-tool-bar-slide': mode === 'button' && values.length > 4 })
     const val = this.parseObj(values)
     return (
-      <div className={cls} style={style} >
+      <div className={cls} style={style}>
         {this.renderItems(val, selectedKey)}
       </div>
     )

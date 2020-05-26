@@ -80,18 +80,18 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
     if (mode === 'default') {
       const dateMode = pickTime ? 'picker-datetime' : 'picker-date'
       return <div className='date-time-range-wrapper' style={style}>
-        <DateTimePicker label={startLabel} dateMode={dateMode} onChangeDate={onStartChange} value={start} required={required} splitLine={splitLine} extra='请选择'/>
-        <DateTimePicker label={endLabel} dateMode={dateMode} onChangeDate={onEndChange} value={end} required={required} splitLine={splitLine} extra='请选择'/>
+        <DateTimePicker label={startLabel} dateMode={dateMode} onChangeDate={onStartChange} value={start} required={required} splitLine={splitLine} extra='请选择' />
+        <DateTimePicker label={endLabel} dateMode={dateMode} onChangeDate={onEndChange} value={end} required={required} splitLine={splitLine} extra='请选择' />
       </div>
     }
     return (
       <div className='date-time-range-wrapper' style={style}>
         <Wrapper className='date-time-range' label={label} required={required} singleLine splitLine={splitLine}>
-          <Flex className='calendar-range' onClick={this.handClick.bind(this)}>
+          <Flex className='calendar-range' onClick={this.handClick}>
             <Flex.Item>
-              <InputItem placeholder={startLabel} disabled clear value={start}/>
+              <InputItem placeholder={startLabel} disabled clear value={start} />
             </Flex.Item> - <Flex.Item>
-              <InputItem placeholder={endLabel} disabled clear value={end}/>
+              <InputItem placeholder={endLabel} disabled clear value={end} />
             </Flex.Item>
           </Flex>
         </Wrapper>
@@ -106,7 +106,7 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
           visible={visible}
           onCancel={this.onCancel}
           onConfirm={this.onConfirm}
-          defaultValue={value}/>
+          defaultValue={value} />
       </div>
     )
   }

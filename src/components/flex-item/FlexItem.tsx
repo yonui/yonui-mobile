@@ -11,7 +11,8 @@ export interface FlexItemProps {
 export default class FlexItem extends React.Component<FlexItemProps, any> {
   render () {
     return (
-      <Flex.Item className={this.props.flex === '1' ? 'am-flexbox-item-flex' : 'am-flexbox-item-auto'}
+      <Flex.Item
+        className={this.props.flex === '1' ? 'am-flexbox-item-flex' : 'am-flexbox-item-auto'}
         style={{
           ...this.props.style
         }}>

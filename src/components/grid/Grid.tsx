@@ -29,7 +29,7 @@ export default class GridComponent extends Component<GridComponentProps> {
     const { icon, text, number } = dataItem
     let content
     if (mode === 'image' && outContent) {
-      content = <div className='out-content'><img className="custom-grid-icon" src={icon}/></div>
+      content = <div className='out-content'><img className='custom-grid-icon' src={icon} /></div>
     } else if (mode === 'number') {
       if (outContent) {
         content = <div className='out-content content-number'>{number}</div>
@@ -38,12 +38,12 @@ export default class GridComponent extends Component<GridComponentProps> {
       }
     }
     return (
-      <React.Fragment>
-        <div className={'custom-item'}>
+      <>
+        <div className='custom-item'>
           {content}
         </div>
-        <div className={'am-grid-text custom-text'}>{text}</div>
-      </React.Fragment>)
+        <div className='am-grid-text custom-text'>{text}</div>
+      </>)
   }
 
   render () {
@@ -63,10 +63,11 @@ export default class GridComponent extends Component<GridComponentProps> {
     const activeStyleTrs = (typeof activeStyle === 'string') ? activeStyle === 'false' ? false : {} : activeStyle
     return (
       <div className={mdfCusCls} style={style}>
-        <Grid {...restProps}
+        <Grid
+          {...restProps}
           className={cusCls}
           activeStyle={activeStyleTrs}
-          renderItem={(mode === 'image' && outContent) || mode === 'number' ? this.renderItem : this.props.renderItem}/>
+          renderItem={(mode === 'image' && outContent) || mode === 'number' ? this.renderItem : this.props.renderItem} />
       </div>
     )
   }

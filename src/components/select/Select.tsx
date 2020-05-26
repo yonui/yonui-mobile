@@ -82,7 +82,7 @@ export default class SelectControl extends React.Component<MenuInfoProps, any> {
 
   getMenuTitle = (hasValue?: boolean, disabled?: boolean) => {
     if (disabled) return '不可选'
-    else return hasValue ? <Icon type='right' className='menu-title'/> : <span className='menu-title'>选项<Icon type='right'/></span>
+    else return hasValue ? <Icon type='right' className='menu-title' /> : <span className='menu-title'>选项<Icon type='right' /></span>
   }
 
   render () {
@@ -108,8 +108,8 @@ export default class SelectControl extends React.Component<MenuInfoProps, any> {
     })
     if (disabled) {
       return (
-        <div className="am-select">
-          <ListItem className={'am-select-list-item disabled'} extra={menuTitle} align='top'>
+        <div className='am-select'>
+          <ListItem className='am-select-list-item disabled' extra={menuTitle} align='top'>
             {title}
             {required && <span style={{ color: '#EE3D4B' }}>*</span>}
           </ListItem>
@@ -118,8 +118,8 @@ export default class SelectControl extends React.Component<MenuInfoProps, any> {
     }
 
     return (
-      <div className="am-select">
-        <ListItem className={'am-select-list-item'} extra={menuTitle} onClick={this.menuShow} align='top'>
+      <div className='am-select'>
+        <ListItem className='am-select-list-item' extra={menuTitle} onClick={this.menuShow} align='top'>
           {title}
           {required && <span style={{ color: '#EE3D4B' }}>*</span>}
           <List.Item.Brief>

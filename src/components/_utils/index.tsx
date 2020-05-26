@@ -90,7 +90,7 @@ export const decodeValue = (value: string, formatReg: string, hiddenChart = '*',
   }
   const formatRegArr = formatReg.split('')
   const valueArr = String(value).split('')
-  var newValue = []
+  let newValue = []
   for (let index = 0; index < formatRegArr.length; index++) {
     const element = formatRegArr[index]
 

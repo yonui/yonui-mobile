@@ -34,8 +34,7 @@ export default class SegmentedControlComponent extends Component<SegmentedContro
         <SegmentedControl
           onChange={this.onChange}
           className={this.props.className}
-          values={values}>
-        </SegmentedControl>
+          values={values} />
         {children.map((v: any, i: number) => (
           <div id={`${refName}${i}`} key={i}>
             <Card
@@ -45,8 +44,7 @@ export default class SegmentedControlComponent extends Component<SegmentedContro
               headerTitle={v.title}
               headerThumb={v.headerThumb}
               showFooter={v.showFooter}
-              content={v.content}>
-            </Card>
+              content={v.content} />
           </div>))}
       </div>
     )

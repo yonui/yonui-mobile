@@ -75,8 +75,7 @@ export default class Filter extends Component<FilterProps, FilterState> {
         onOpenChange={onOpenChange}
         position={position}
         {...other}
-      >
-      </Drawer>
+      />
     )
   }
 }

@@ -54,7 +54,7 @@ export default class FilterContent extends Component<FilterContentProps, any> {
       }
       case 'text':
       default:
-        content = <Input onChange={this.props.onSelect}/>
+        content = <Input onChange={this.props.onSelect} />
         break
     }
     return [title, content]

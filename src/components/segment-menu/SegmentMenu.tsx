@@ -38,11 +38,10 @@ export default class SegmentMenuComponent extends Component<SegmentMenuProps, an
         <SegmentedControl
           onChange={this.onClick}
           selectedIndex={this.state.selectedIndex}
-          className="mdf-segment"
-          values={values}>
-        </SegmentedControl>
-        <div className="segment-body">
-          <div className="segment-content" style={{ transform: `translateY(-${this.state.offsetH}px)` }}>{this.props.children}</div>
+          className='mdf-segment'
+          values={values} />
+        <div className='segment-body'>
+          <div className='segment-content' style={{ transform: `translateY(-${this.state.offsetH}px)` }}>{this.props.children}</div>
         </div>
       </div>
     )

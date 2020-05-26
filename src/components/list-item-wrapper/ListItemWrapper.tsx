@@ -37,7 +37,7 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
     const _contentCls = classnames('list-item-wrapper-content', contentCls)
     return (
       <div className='list-item-wrapper-box'>
-        <div className={cls} style={style} nid={nid} uitype={uitype} onClick = {onClick}>
+        <div className={cls} style={style} nid={nid} uitype={uitype} onClick={onClick}>
           <div className={_labelCls} style={labelStyle}>
             {label}
             {subLabel && <span className='list-item-wrapper-label-sub'>{subLabel}</span>}

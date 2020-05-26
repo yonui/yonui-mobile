@@ -35,7 +35,7 @@ export default class MyComponent extends Component<CalendarProps> {
         defaultValue={defaultValue}
         defaultTimeValue={defaultTimeValueTrs}
         minDate={minDateTrs}
-        maxDate={maxDateTrs}/>
+        maxDate={maxDateTrs} />
     )
   }
 }

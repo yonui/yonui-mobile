@@ -32,7 +32,9 @@ export default class Icon extends React.Component<IconProps, any> {
       `am-icon-${size}`
     )
     return (
-      <svg className={cls} {...restProps}
+      <svg
+        className={cls}
+        {...restProps}
         style={{
           ...style
         }}>

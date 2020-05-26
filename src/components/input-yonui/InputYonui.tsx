@@ -134,11 +134,18 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
     const _inputStyle: React.CSSProperties = { textAlign, ...inputStyle }
     return (
       <div className={cls} style={style}>
-        <input className='yonui-input-box' type={type} value={displayValue}
-          onChange={this._onChange} onBlur={this._onBlur} style={_inputStyle}
-          onFocus={this._onFocus} placeholder={placeholder} disabled={disabled}
+        <input
+          className='yonui-input-box'
+          type={type}
+          value={displayValue}
+          onChange={this._onChange}
+          onBlur={this._onBlur}
+          style={_inputStyle}
+          onFocus={this._onFocus}
+          placeholder={placeholder}
+          disabled={disabled}
         />
-        <div className='yonui-clear' onClick={this._onClickClear}></div>
+        <div className='yonui-clear' onClick={this._onClickClear} />
       </div>
     )
   }

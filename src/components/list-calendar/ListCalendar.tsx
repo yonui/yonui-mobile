@@ -82,23 +82,23 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
     const requiredCls = required ? 'required' : ''
     return (
       <List className='list-calendar' style={style}>
-        {type === 'one' ? <List onClick={this.handClick.bind(this)}>
+        {type === 'one' ? <List onClick={this.handClick}>
           <InputItem
             placeholder='选择日期'
             disabled
             clear
             value={start}
-            extra={(!disabled || !arrow) && <Icon type='right'/>}>
+            extra={(!disabled || !arrow) && <Icon type='right' />}>
             <div className={`form-label ${requiredCls}`}>{label}</div>
           </InputItem>
         </List>
           : <div className='list-calendar-range'>
             <div className={`form-label ${requiredCls} form-label-calendar`}>{label}</div>
-            <Flex className='calendar-range' onClick={this.handClick.bind(this)}>
+            <Flex className='calendar-range' onClick={this.handClick}>
               <Flex.Item>
-                <InputItem placeholder='开始日期' disabled clear value={start}/>
+                <InputItem placeholder='开始日期' disabled clear value={start} />
               </Flex.Item> - <Flex.Item>
-                <InputItem placeholder='结束日期' disabled clear value={end}/>
+                <InputItem placeholder='结束日期' disabled clear value={end} />
               </Flex.Item>
             </Flex>
           </div>}
@@ -112,7 +112,7 @@ export default class ListCalendar extends React.Component<ListCalendarProps, Lis
           visible={visible}
           onCancel={this.onCancel}
           onConfirm={this.onConfirm}
-          defaultValue={value}/>
+          defaultValue={value} />
       </List>
     )
   }

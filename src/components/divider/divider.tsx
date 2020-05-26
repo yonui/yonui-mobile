@@ -12,25 +12,31 @@ export default class Divider extends React.Component<any, any> {
 
   renderContent = () => {
     const { content } = this.props
-    return content ? <span className="content">{content}</span> : ''
+    return content ? <span className='content'>{content}</span> : ''
   }
 
   render () {
     const { prefixCls, type, width, color } = this.props
     // const wrapCls = classnames(prefixCls, `${prefixCls}-${type}`)
     return (
-      <div className={prefixCls} style={{
-        color
-      }}>
-        <span className="before" style={{
-          borderTopWidth: `${width}px`,
-          borderTopStyle: type
-        }}></span>
+      <div
+        className={prefixCls}
+        style={{
+          color
+        }}>
+        <span
+          className='before'
+          style={{
+            borderTopWidth: `${width}px`,
+            borderTopStyle: type
+          }} />
         {this.renderContent()}
-        <span className="after" style={{
-          borderTopWidth: `${width}px`,
-          borderTopStyle: type
-        }}></span>
+        <span
+          className='after'
+          style={{
+            borderTopWidth: `${width}px`,
+            borderTopStyle: type
+          }} />
       </div>
     )
   }

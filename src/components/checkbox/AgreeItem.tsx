@@ -8,9 +8,9 @@ const AgreeItem = Checkbox.AgreeItem
 function AgreeItemControl (props: any) {
   if (props.mode) {
     const _className = getClassName(props)
-    return <AgreeItem {...props} className={_className}></AgreeItem>
+    return <AgreeItem {...props} className={_className} />
   }
-  return <AgreeItem {...props}></AgreeItem>
+  return <AgreeItem {...props} />
 }
 
 export default AgreeItemControl

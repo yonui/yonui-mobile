@@ -62,7 +62,7 @@ const SimpleList = (props: SimpleListProps) => {
   const cls = classnames('yonui-simple-list', `split-${split}`)
   const style: React.CSSProperties = height ? { height } : { maxHeight: `calc(100vh - ${listHeight}px)` }
   // console.log(style)
-  const _list = (<div className={cls} onTouchMove={touch} ref={ (ref) => { __list = ref }}>
+  const _list = (<div className={cls} onTouchMove={touch} ref={(ref) => { __list = ref }}>
     {_listItems}
     {renderFooter(footerText)}
   </div>)

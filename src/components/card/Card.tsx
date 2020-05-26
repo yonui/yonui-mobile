@@ -34,17 +34,17 @@ export default class MDFCard extends React.Component<CardProps, any> {
   renderHeader () { // 判断是否渲染card header
     const { showHeader, headerTitle, headerThumb, onHeaderExtraClick, headerExtra, thumbStyle } = this.props
     const thumb = () => {
-      return headerThumb === 'thumb' ? <span className="thumb"></span> : (headerThumb || null)
+      return headerThumb === 'thumb' ? <span className='thumb' /> : (headerThumb || null)
     }
     const extra = () => {
-      return headerExtra === 'arrow' ? <Icon type="right" /> : (headerExtra || null)
+      return headerExtra === 'arrow' ? <Icon type='right' /> : (headerExtra || null)
     }
     return (
       showHeader ? <Card.Header
         title={headerTitle}
         thumb={thumb()}
         thumbStyle={thumbStyle}
-        extra={<span className="extra" onClick={onHeaderExtraClick}>{extra()}</span>}
+        extra={<span className='extra' onClick={onHeaderExtraClick}>{extra()}</span>}
       /> : ''
     )
   }
@@ -58,7 +58,7 @@ export default class MDFCard extends React.Component<CardProps, any> {
 
     return (
       <Card.Body className={classes}>
-        { children && children.length ? children : content }
+        {children && children.length ? children : content}
       </Card.Body>
     )
   }
@@ -77,9 +77,11 @@ export default class MDFCard extends React.Component<CardProps, any> {
   render () {
     console.log(this.props.style)
     return (
-      <Card style={{
-        ...this.props.style
-      }} full={this.props.full}>
+      <Card
+        style={{
+          ...this.props.style
+        }}
+        full={this.props.full}>
         {this.renderHeader()}
         {this.renderBody()}
         {this.renderFooter()}

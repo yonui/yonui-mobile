@@ -163,7 +163,7 @@ export default class Input extends Component<InputProps, InputState> {
     const valStr = val?.toString()
     const integer = valStr.split('.')[0]
     const decimal = valStr.split('.')[1]
-    return `${integer.replace(NumberReg.format, '$&,')}${valStr.indexOf('.') > -1 ? '.' + decimal : ''}`
+    return `${integer.replace(NumberReg.format, '$&,')}${valStr.includes('.') ? '.' + decimal : ''}`
   }
 
   _afterChange = (val: string) => {
@@ -176,7 +176,7 @@ export default class Input extends Component<InputProps, InputState> {
     const val = value?.toString()
     const { precision = 2, min = -1 * Number.MAX_VALUE, max = Number.MAX_VALUE, maxLength = 24 } = this.props
     const normalCheck = NumberReg.normal.test(val) || !val
-    const precisionCheck = val.indexOf('.') === -1 ? true : val.length - val.indexOf('.') - 1 <= precision
+    const precisionCheck = !val.includes('.') ? true : val.length - val.indexOf('.') - 1 <= precision
     const sizeCheck = !final || !val || Number.isNaN(Number(val)) || (Number(val) >= Number(min) && Number(val) <= Number(max))
     const LengthCheck = maxLength >= val.length
     return normalCheck && precisionCheck && sizeCheck && LengthCheck
@@ -189,17 +189,35 @@ export default class Input extends Component<InputProps, InputState> {
     const inputCls = classnames('mdf-input-content')
     const inputProps = this.getInputProps()
     return (
-      <Wrapper className={cls} style={style} splitLine={splitLine}
-        singleLine={singleLine} nid={nid} uitype={uitype}
-        label={label} required={required} error={error}
+      <Wrapper
+        className={cls}
+        style={style}
+        splitLine={splitLine}
+        singleLine={singleLine}
+        nid={nid}
+        uitype={uitype}
+        label={label}
+        required={required}
+        error={error}
         errorText={errorText}
         showExtraLabelIcon={showExtraLabelIcon}
         subLabel={subLabel}
       >
-        <YonuiInput className={inputCls} required={required} textAlign={singleLine ? 'right' : 'left'}
-          onBlur={this._onBlur} onChange={this._onChange} onFocus={this._onFocus} onClickClear={this._onClickClear}
-          value={ _displayValue || value} {...other} {...inputProps} style={{ backgroundColor: inputBgColor }}
-          beforeRender={this._beforeRender} afterChange={this._afterChange} customCheck={this.checkFn}
+        <YonuiInput
+          className={inputCls}
+          required={required}
+          textAlign={singleLine ? 'right' : 'left'}
+          onBlur={this._onBlur}
+          onChange={this._onChange}
+          onFocus={this._onFocus}
+          onClickClear={this._onClickClear}
+          value={_displayValue || value}
+          {...other}
+          {...inputProps}
+          style={{ backgroundColor: inputBgColor }}
+          beforeRender={this._beforeRender}
+          afterChange={this._afterChange}
+          customCheck={this.checkFn}
         />
       </Wrapper>
     )

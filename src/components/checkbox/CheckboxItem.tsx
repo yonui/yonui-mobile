@@ -6,9 +6,9 @@ import { getClassName } from './util'
 function CheckboxItemControl (props: any) {
   if (props.mode) {
     const _className = getClassName(props)
-    return <Checkbox.CheckboxItem {...props} className={_className}></Checkbox.CheckboxItem>
+    return <Checkbox.CheckboxItem {...props} className={_className} />
   }
-  return <Checkbox.CheckboxItem {...props} ></Checkbox.CheckboxItem>
+  return <Checkbox.CheckboxItem {...props} />
 }
 
 export default CheckboxItemControl

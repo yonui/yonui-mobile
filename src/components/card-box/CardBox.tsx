@@ -44,14 +44,14 @@ export default class CardBox extends Component<CardBoxProps> {
     switch (displayStyle) {
       case 'detail': {
         const wrapperCls = classnames('yonui-card-box-wrapper', { 'yonui-card-box-wrapper-extra-icon': showTitleExtraIcon })
-        content = (<React.Fragment>
+        content = (<>
           <div className='yonui-card-box-swipe'>
             <Wrapper className={wrapperCls} label={label} labelCls='yonui-card-box-title' singleLine>
-              {showDeleteIcon && <img className='yonui-img-icon small' src={deleteImg} onClick={onDelete}/>}
+              {showDeleteIcon && <img className='yonui-img-icon small' src={deleteImg} onClick={onDelete} />}
             </Wrapper>
             {children}
           </div>
-        </React.Fragment>)
+        </>)
         break
       }
       case 'slideable': {
@@ -62,11 +62,11 @@ export default class CardBox extends Component<CardBoxProps> {
       }
       case 'normal':
       default: {
-        content = (<React.Fragment>
+        content = (<>
           <div className='yonui-card-box-swipe'>
             {children}
           </div>
-        </React.Fragment>)
+        </>)
         break
       }
     }

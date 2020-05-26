@@ -38,14 +38,14 @@ export default class CalendarPanel extends Component<CalendarPanelProps, any> {
           {...this.props}
           className={`am-calendar-panel ${this.props.selectRange ? 'am-calendar-panel-range' : ''}`}
           onChange={this.onChange}
-          value ={value}
+          value={value}
           tileClassName='am-calendar-panel-item'
-          minDetail="year"
+          minDetail='year'
           minDate={minDateTrs}
           maxDate={maxDateTrs}
-          locale="zh"
-          prevLabel={<Icon type='left'/>}
-          nextLabel={<Icon type='right'/>}/>
+          locale='zh'
+          prevLabel={<Icon type='left' />}
+          nextLabel={<Icon type='right' />} />
       </div>
     )
   }

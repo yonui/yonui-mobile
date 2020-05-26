@@ -1,3 +1,3 @@
 import ListItemWrapper, { ListItemWrapperProps as I } from './ListItemWrapper'
-export interface ListItemWrapperProps extends I{}
+export type ListItemWrapperProps = I
 export default ListItemWrapper

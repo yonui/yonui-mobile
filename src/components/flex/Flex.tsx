@@ -10,7 +10,7 @@ export default class MDFFlex extends React.Component<MDFFlexProps, any> {
   render () {
     console.log('FlexItemProps: ', this.props)
     return (
-      <Flex { ...this.props} style={{ ...this.props.style }}>
+      <Flex {...this.props} style={{ ...this.props.style }}>
         {this.props.children}
       </Flex>
     )
