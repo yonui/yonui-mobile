@@ -21,9 +21,9 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'defaultValue',
+      name: 'cDefaultValue',
       type: FieldTypes.boolean,
-      showDesign: false,
+      showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
         isRequired: true,
@@ -118,7 +118,8 @@ const manifest: ComponentManifest = {
   ],
   propertyMap: {
     bIsNull: '!required',
-    cShowCaption: 'title'
+    cShowCaption: 'title',
+    cDefaultValue: 'defaultValue'
   }
 }
 
