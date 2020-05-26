@@ -11,7 +11,7 @@ export default class SegmentMenuItemComponent extends Component<SegmentMenuItemP
     // const refName = 'segmentMenuItem'
     const id = `segmentMenuItem${this.props.itemIndex}`
     return (
-      <div className="segment-content-item" id={id}>
+      <div className='segment-content-item' id={id}>
         {this.props.children}
       </div>
     )

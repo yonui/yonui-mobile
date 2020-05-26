@@ -31,35 +31,35 @@ export default class MDFNavBar extends React.Component<NavBarProps, any> {
 
   renderLeftContent = () => {
     const { backIcon, backIconText, closeIcon, closeIconText, onBackClick, onCloseClick } = this.props
-    return <React.Fragment>
+    return <>
       <Icon type={backIcon} onClick={onBackClick} />
       {backIconText}
       {closeIcon && <Icon type={closeIcon} style={{ marginLeft: 15 }} onClick={onCloseClick} />}
       {closeIconText}
-    </React.Fragment>
+    </>
   }
 
   renderCenterContent = () => {
     const { title, titleIcon, subTitle } = this.props
-    return <React.Fragment>
+    return <>
       <div>
         <div className='title'>{title}{titleIcon && <Icon type={titleIcon} />}</div>
         <div className='sub-title'>{subTitle}</div>
       </div>
 
-    </React.Fragment>
+    </>
   }
 
   renderRightContent = () => {
     const { rightIcon1, rightIcon1Text, rightIcon2, rightIcon2Text, onRight1Click, onRight2Click, reghtIcons } = this.props
 
     if (reghtIcons) return reghtIcons
-    return <React.Fragment>
+    return <>
       {rightIcon1 && <Icon type={rightIcon1} onClick={onRight1Click} />}
       {rightIcon1Text}
       {rightIcon2 && <Icon type={rightIcon2} onClick={onRight2Click} style={{ marginLeft: 15 }} />}
       {rightIcon2Text}
-    </React.Fragment>
+    </>
   }
 
   render () {
@@ -67,7 +67,8 @@ export default class MDFNavBar extends React.Component<NavBarProps, any> {
     const cls = mode === 'light' ? 'am-navbar-light' : ''
     return (
       <div>
-        <NavBar className={cls}
+        <NavBar
+          className={cls}
           style={{ ...style }}
           rightContent={this.renderRightContent()}
           leftContent={this.renderLeftContent()}>

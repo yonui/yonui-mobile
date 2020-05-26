@@ -28,7 +28,7 @@ export default class yonuiTabs extends Component<TabsProps> {
     renderTab: (tab: any) => {
       return <div className='tabs-item-content'>
         <span>{tab.title}</span>
-        <span className='tabs-item-content-underline'></span>
+        <span className='tabs-item-content-underline' />
       </div>
     },
     swipeable: false,
@@ -41,7 +41,7 @@ export default class yonuiTabs extends Component<TabsProps> {
 
   renderIcon = (ele: JSX.Element | string) => {
     return <span className='yonui-tabs-icon'>
-      {typeof ele === 'string' ? <Icon type={ele}/> : ele}
+      {typeof ele === 'string' ? <Icon type={ele} /> : ele}
     </span>
   }
 
@@ -59,7 +59,7 @@ export default class yonuiTabs extends Component<TabsProps> {
     const res: JSX.Element[] = [];
     [icon1, icon2, icon3].forEach((item, index) => {
       if (item) {
-        res.push(<Icon type={item} onClick={[onIcon1Click, onIcon2Click, onIcon3Click][index]}/>)
+        res.push(<Icon type={item} onClick={[onIcon1Click, onIcon2Click, onIcon3Click][index]} />)
       }
     })
     if (res.length > 0) return res
@@ -79,7 +79,11 @@ export default class yonuiTabs extends Component<TabsProps> {
     let tabsEle = null
     if (mode === 'normal') {
       tabsEle = pageSize
-        ? <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} renderTabBar={(props: any) => <Tabs.DefaultTabBar {...props} page={pageSize} />}
+        ? <Tabs
+          tabs={tabs}
+          tabBarBackgroundColor={tabBarBackgroundColor}
+          tabBarUnderlineStyle={underline}
+          renderTabBar={(props: any) => <Tabs.DefaultTabBar {...props} page={pageSize} />}
           {...other}>{children}</Tabs> : <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>
     } else {
       splitLine = splitLine || false

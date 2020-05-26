@@ -32,7 +32,7 @@ export default class Panel extends Component<PanelProps> {
   }
 
   renderItem = (item: { icon: React.ReactNode, title: string }, row: number, col: number) => {
-    const iconELe = typeof item.icon === 'string' ? <img src={item.icon} style={{ width: '100%' }}/> : item.icon
+    const iconELe = typeof item.icon === 'string' ? <img src={item.icon} style={{ width: '100%' }} /> : item.icon
     return <div className='panel-content-item'>
       <div className='item-icon-wrapper' onClick={() => { this.callbackFun(col, row) }}>
         <div className='item-icon'>
@@ -51,7 +51,7 @@ export default class Panel extends Component<PanelProps> {
     const cls = classnames('panel-content-items', {
       'panel-content-more': res.length > 5
     })
-    return <div className={cls} >
+    return <div className={cls}>
       {res}
     </div>
   }
@@ -88,7 +88,7 @@ export default class Panel extends Component<PanelProps> {
         popup
         visible={show}
         onClose={onClose}
-        animationType="slide-up"
+        animationType='slide-up'
         // afterClose={() => { alert('afterClose'); }}
         maskClosable={true}
       >

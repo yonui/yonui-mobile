@@ -52,11 +52,18 @@ export default class InputIdentity extends Component<InputIdentityProps> {
     return (
       <div className='yonui-input-identity'>
         <div className='yonui-input-identity-label form-label'>label</div>
-        <div className='yonui-input-identity-label form-label' >{type}</div>
-        <Input className='yonui-input-identity-input' type='text' value={value}
-          pattern={pattern} finalPattern={finalPattern} onError={ (val) => { console.log(val) } }
-          textAlign='right' beforeRender={this.beforeInputRender(type)} afterChange={this.afterInputRender(type)}
-          onChange = { onChange}
+        <div className='yonui-input-identity-label form-label'>{type}</div>
+        <Input
+          className='yonui-input-identity-input'
+          type='text'
+          value={value}
+          pattern={pattern}
+          finalPattern={finalPattern}
+          onError={(val) => { console.log(val) }}
+          textAlign='right'
+          beforeRender={this.beforeInputRender(type)}
+          afterChange={this.afterInputRender(type)}
+          onChange={onChange}
         />
       </div>
     )

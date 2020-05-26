@@ -155,7 +155,8 @@ export default class Search extends React.Component<SearchProps, any> {
       [`${prefixCls}-clear-show`]: !!(focus && value && value.length > 0)
     })
     return (
-      <div className={prefixCls}
+      <div
+        className={prefixCls}
         style={{
           backgroundColor,
           color
@@ -165,10 +166,10 @@ export default class Search extends React.Component<SearchProps, any> {
           style={{
             color: searchIconColor
           }}>
-          <Icon type="search" size="xs" />
+          <Icon type='search' size='xs' />
         </span>
         <input
-          type="text"
+          type='text'
           ref={el => (this.inputRef = el)}
           className={`${prefixCls}-input`}
           placeholder={placeholder}
@@ -177,18 +178,20 @@ export default class Search extends React.Component<SearchProps, any> {
           maxLength={maxLength}
           onChange={this.onChange}
           onFocus={this.onFocus}
-          onBlur={this.onBlur}/>
-        <a className={clearCls}
+          onBlur={this.onBlur} />
+        <a
+          className={clearCls}
           style={{
             color: clearIconColor
           }}>
-          <Icon type="cross-circle" size="xxs" onClick={this.onClear} />
+          <Icon type='cross-circle' size='xxs' onClick={this.onClear} />
         </a>
-        <a className={`${prefixCls}-voice`}
+        <a
+          className={`${prefixCls}-voice`}
           style={{
             color: voiceIconColor
           }}>
-          <Icon type="voice" size="xxs" />
+          <Icon type='voice' size='xxs' />
         </a>
       </div>
     )

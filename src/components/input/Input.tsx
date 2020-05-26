@@ -181,9 +181,18 @@ export default class Input extends Component<InputProps, InputState> {
         showExtraLabelIcon={showExtraLabelIcon}
         subLabel={subLabel}
       >
-        <YonuiInput className={inputCls} required={required} textAlign={singleLine ? 'right' : 'left'}
-          onBlur={this._onBlur} onChange={this._onChange} onFocus={this._onFocus} onClickClear={this._onClickClear}
-          value={ _displayValue || value} {...other} {...inputProps} style={inputStyle}
+        <YonuiInput
+          className={inputCls}
+          required={required}
+          textAlign={singleLine ? 'right' : 'left'}
+          onBlur={this._onBlur}
+          onChange={this._onChange}
+          onFocus={this._onFocus}
+          onClickClear={this._onClickClear}
+          value={_displayValue || value}
+          {...other}
+          {...inputProps}
+          style={inputStyle}
         />
       </Wrapper>
     )

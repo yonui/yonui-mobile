@@ -58,7 +58,7 @@ export default class CheckboxControl extends Component<CheckboxControlProps, Che
       <span className={cls} nid={nid} uitype={uitype} onClick={this._onChange}>
         {/* <Checkbox className={cls} {...other}>{content}</Checkbox> */}
         {/* <div className='yonui-checkbox-icon'> */}
-        {__c ? <img className='yonui-checkbox-icon' src={SelectedImg}/> : <img className='yonui-checkbox-icon' src={UnSelectedImg}/>}
+        {__c ? <img className='yonui-checkbox-icon' src={SelectedImg} /> : <img className='yonui-checkbox-icon' src={UnSelectedImg} />}
         {/* </div> */}
         <div className={labelCls}>
           {content}

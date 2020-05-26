@@ -104,7 +104,7 @@ class YSListView extends Component<YSListViewProps, State> {
     }
     if (length > showNum) controls = controls.slice(0, showNum)
     return (
-      <div className="listview-row" key={`listview-row-${rowID}`} onClick={e => this.onRowClick(e, rowID)}>
+      <div className='listview-row' key={`listview-row-${rowID}`} onClick={e => this.onRowClick(e, rowID)}>
         {controls}
       </div>
     )
@@ -112,11 +112,11 @@ class YSListView extends Component<YSListViewProps, State> {
 
   renderSeparator = (sectionID: any, rowID: any) => {
     if (!this.props.showSeparator) {
-      return <React.Fragment></React.Fragment>
+      return <></>
     }
     return (
       <div
-        className="listview-separator"
+        className='listview-separator'
         key={`${sectionID}-${rowID}`}
       />
     )
@@ -127,39 +127,39 @@ class YSListView extends Component<YSListViewProps, State> {
     const { finished } = this.state
     // const length = value ? value.length : dataSource.length
     const length = children ? children.length : showNum
-    const _placeholder = <div style={{ height: `${placeholdHeight}px` }}></div>
+    const _placeholder = <div style={{ height: `${placeholdHeight}px` }} />
     // const { showNum } = this.state
     if (finished) {
       return (
-        <React.Fragment>
-          <div className="listview-footer">
+        <>
+          <div className='listview-footer'>
             <span>{finished}</span>
           </div>
           {_placeholder}
-        </React.Fragment>
+        </>
       )
     }
     if (!footerContent) {
       if (length > showNum) {
         return (
-          <React.Fragment>
-            <div className="listview-footer" >
+          <>
+            <div className='listview-footer'>
               <span>展开剩余{length - showNum}商品</span>
-              <Icon type="down"></Icon>
+              <Icon type='down' />
             </div>
             {_placeholder}
-          </React.Fragment>
+          </>
         )
       }
       return _placeholder
     }
     return (
-      <React.Fragment>
-        <div className="listview-footer">
+      <>
+        <div className='listview-footer'>
           <span>{footerContent}</span>
         </div>
         {_placeholder}
-      </React.Fragment>
+      </>
     )
   }
 
@@ -191,7 +191,7 @@ class YSListView extends Component<YSListViewProps, State> {
     const { refreshing, pageSize, renderRow, showPullToReresh = true, initialListSize = 10, className, style, height: pHeight } = this.props
 
     if (dataSource && dataSource.length === 0) {
-      return <div style={{ height: pHeight || height }} className="no_data">暂无数据</div>
+      return <div style={{ height: pHeight || height }} className='no_data'>暂无数据</div>
     }
     console.log('render-datasource', dataSource)
     let hasPullToRereshProps = {}
@@ -202,8 +202,8 @@ class YSListView extends Component<YSListViewProps, State> {
           {... {} as any}
           refreshing={refreshing}
           indicator={{ release: <ActivityIndicator /> }}
-          className="listview-pulltorefresh"
-          direction={'down'}
+          className='listview-pulltorefresh'
+          direction='down'
           onRefresh={this.onRefresh}
         />
       }

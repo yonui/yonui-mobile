@@ -121,11 +121,11 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
     const labelCls = classnames('date-time-picker-label')
     const valueCls = classnames('date-time-picker-value', { disabled })
     if (typeAndMode[0] === 'calendar') {
-      return (<React.Fragment>
-        <Wrapper className='date-time-picker' style={style} splitLine={splitLine} singleLine label={label} required={required} onClick = {!disabled ? this.onOpenCalendar : undefined}>
-          <div className={valueCls} >
+      return (<>
+        <Wrapper className='date-time-picker' style={style} splitLine={splitLine} singleLine label={label} required={required} onClick={!disabled ? this.onOpenCalendar : undefined}>
+          <div className={valueCls}>
             {valueTrs ? dateFormat(valueTrs, fmt) : extra}
-            {!disabled && <Icon type='right'/>}
+            {!disabled && <Icon type='right' />}
           </div>
         </Wrapper>
         <span className='date-time-picker-calendar-wrapper'>
@@ -134,14 +134,14 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
             title='title'
             minDate={minDateTrs}
             maxDate={maxDateTrs}
-            visible = {visible}
+            visible={visible}
             onCancel={this.onCancel}
             onConfirm={this.onConfirm}
             pickTime={typeAndMode[1] === 'datetime'}
             type='one'
           />
         </span>
-      </React.Fragment>)
+      </>)
     } else {
       return (
         <DatePicker
@@ -157,12 +157,18 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
           onOk={this.onConfirm}
           onDismiss={this.onCancel}
         >
-          <Wrapper className={`date-time-picker ${disabled && 'no-arrow'}`} style={style} splitLine={splitLine}
-            label={label} labelCls={labelCls} required={required} singleLine
-            onClick = {!disabled ? this.onOpenCalendar : undefined}>
-            <div className={valueCls} >
+          <Wrapper
+            className={`date-time-picker ${disabled && 'no-arrow'}`}
+            style={style}
+            splitLine={splitLine}
+            label={label}
+            labelCls={labelCls}
+            required={required}
+            singleLine
+            onClick={!disabled ? this.onOpenCalendar : undefined}>
+            <div className={valueCls}>
               {valueTrs ? dateFormat(valueTrs, fmt || 'yyyy-MM-dd') : extra}
-              {!disabled && <Icon type='right'/>}
+              {!disabled && <Icon type='right' />}
             </div>
           </Wrapper>
         </DatePicker>

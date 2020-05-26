@@ -25,8 +25,9 @@ class MDFResult extends React.Component<MDFResultProps> {
       }
     })
     return (
-      <Result className='feedBack-page'
-        img={<img src={src} alt="" />}
+      <Result
+        className='feedBack-page'
+        img={<img src={src} alt='' />}
         message={message || msg}
         style={{
           ...this.props.style

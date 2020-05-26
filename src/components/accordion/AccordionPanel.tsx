@@ -1,7 +1,7 @@
 import { Accordion } from 'antd-mobile'
 import { FieldTypes, EditTypes, ReactWrapper, ComponentManifest } from 'yonui-extension'
 
-var AccordionPanel = Accordion.Panel
+const AccordionPanel = Accordion.Panel
 // todo 未配置 style activeStyle
 const manifest: ComponentManifest = {
   name: 'AccordionPanel', // 自定义组件名称

@@ -62,8 +62,8 @@ export default class Label extends React.PureComponent<LabelProps> {
     const cls = classnames(className, 'yonui-tag', {
       'label-type': type === 'label'
     })
-    const leftIconEle = typeof leftIcon === 'string' ? <Icon type={leftIcon} size='xxs'/> : leftIcon
-    const rightIconEle = typeof rightIcon === 'string' ? <Icon type={rightIcon} size='xxs'/> : rightIcon
+    const leftIconEle = typeof leftIcon === 'string' ? <Icon type={leftIcon} size='xxs' /> : leftIcon
+    const rightIconEle = typeof rightIcon === 'string' ? <Icon type={rightIcon} size='xxs' /> : rightIcon
     return (
       <span className={cls} style={sty} {...other}>
         {leftIcon && leftIconEle}

@@ -95,7 +95,7 @@ class Button extends React.Component<ButtonProps, any> {
     if (iconType && typeof iconType === 'string') {
       iconEl = (
         <Icon
-          aria-hidden="true"
+          aria-hidden='true'
           type={iconType}
           size={size === 'small' ? 'xxs' : 'md'}
           className={`${prefixCls}-icon`} />
@@ -116,7 +116,7 @@ class Button extends React.Component<ButtonProps, any> {
         activeClassName={`${prefixCls}-active`}
         disabled={disabled}>
         <a
-          role="button"
+          role='button'
           className={wrapCls}
           {...restProps}
           style={style}

@@ -111,7 +111,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
         console.log('success')
       },
       fail: function (err: any) {
-        var message = err.message // 错误信息
+        const message = err.message // 错误信息
         console.log(message)
       },
       complete: () => {
@@ -129,26 +129,34 @@ export default class Contact extends Component<ContactProps, ContactState> {
         const inputTextAlign = singleLine ? 'right' : 'left'
         const selectEmail = (
           <div className='yonui-monile-contact-content e-mail'>
-            <Input textAlign={inputTextAlign} placeholder='name' onChange={onChange} value={val} onSuccess={this.onSuccess} onError={this.onError} required={required}/>
+            <Input textAlign={inputTextAlign} placeholder='name' onChange={onChange} value={val} onSuccess={this.onSuccess} onError={this.onError} required={required} />
             <span className='yonui-contact-button' onClick={() => { this.onOpenModal() }}>{emailType}</span>
-            <Icon type='down'/>
+            <Icon type='down' />
           </div>)
-        const email = <Input textAlign={inputTextAlign} placeholder='name@yonyou.com' onChange={onChange} onSuccess={this.onSuccess} onError={this.onError} required={required}/>
+        const email = <Input textAlign={inputTextAlign} placeholder='name@yonyou.com' onChange={onChange} onSuccess={this.onSuccess} onError={this.onError} required={required} />
         return isSelectEmail ? selectEmail : email
       }
       case 'mobilephone': {
         const contact = (
           <div className='yonui-monile-contact-content mobile-phone'>
-            <Input type='tel' style={{ width: '120px' }} placeholder='000 0000 0000' value={val} onChange={(value) => { this.textOnChange(value) } }
-              {...patternMap.mobilePhone} onSuccess={this.onSuccess} onError={this.onError} required={required}
+            <Input
+              type='tel'
+              style={{ width: '120px' }}
+              placeholder='000 0000 0000'
+              value={val}
+              onChange={(value) => { this.textOnChange(value) }}
+              {...patternMap.mobilePhone}
+              onSuccess={this.onSuccess}
+              onError={this.onError}
+              required={required}
             />
-            <img className='yonui-img-icon small' src={phoneIcon} onClick={() => { this.dailAction() }}/>
+            <img className='yonui-img-icon small' src={phoneIcon} onClick={() => { this.dailAction() }} />
           </div>)
         const areaContact = (
           <div className='yonui-monile-contact-content area-phone'>
             <span className='yonui-contact-button' onClick={() => { this.onOpenModal() }}>{country}</span>
-            <Icon size='xxs' type='down'/>
-            <span style={{ background: '#E6E6E6', display: 'block', width: '1px', height: '14px', marginLeft: '4px' }}></span>
+            <Icon size='xxs' type='down' />
+            <span style={{ background: '#E6E6E6', display: 'block', width: '1px', height: '14px', marginLeft: '4px' }} />
             <span style={{ color: '#555555', fontSize: '15px', paddingTop: '1px', marginLeft: '8px', marginRight: '4px' }}>{countryNum}</span>
             {contact}
           </div>)
@@ -156,16 +164,23 @@ export default class Contact extends Component<ContactProps, ContactState> {
       }
       case 'telephone': {
         const contact = (<div className='yonui-monile-contact-content'>
-          <Input type='tel' style={{ width: '140px' }} value={val} placeholder='座机号码-分机号码' onChange={(value) => { this.textOnChange(value) }}
-            onSuccess={this.onSuccess} onError={this.onError} required={required}
+          <Input
+            type='tel'
+            style={{ width: '140px' }}
+            value={val}
+            placeholder='座机号码-分机号码'
+            onChange={(value) => { this.textOnChange(value) }}
+            onSuccess={this.onSuccess}
+            onError={this.onError}
+            required={required}
           />
-          <img className='yonui-img-icon small' src={phoneIcon} onClick={() => { this.dailAction() }}/>
+          <img className='yonui-img-icon small' src={phoneIcon} onClick={() => { this.dailAction() }} />
         </div>)
         const areaContact = (
           <div className='yonui-monile-contact-content'>
             <span className='yonui-contact-button' onClick={() => { this.onOpenModal() }}>{country}</span>
-            <Icon size='xxs' type='down'/>
-            <span style={{ background: '#E6E6E6', display: 'block', width: '1px', height: '14px', marginLeft: '4px' }}></span>
+            <Icon size='xxs' type='down' />
+            <span style={{ background: '#E6E6E6', display: 'block', width: '1px', height: '14px', marginLeft: '4px' }} />
             <span style={{ color: '#555555', fontSize: '15px', paddingTop: '1px', marginLeft: '8px', marginRight: '4px' }}>{countryNum}</span>
             {contact}
           </div>)
@@ -199,7 +214,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
         this.onClickAreaItem(item, index)
         this.onCloseModal()
       }
-      return <Wrapper key={index} label={item.name} onClick={ onClickWrapper} singleLine>
+      return <Wrapper key={index} label={item.name} onClick={onClickWrapper} singleLine>
         {item.tel}
       </Wrapper>
     })
@@ -217,8 +232,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
         this.onClickEmailItem(item, index)
         this.onCloseModal()
       }
-      return <Wrapper key={index} label={item.type} onClick={ onClickWrapper} singleLine>
-      </Wrapper>
+      return <Wrapper key={index} label={item.type} onClick={onClickWrapper} singleLine />
     })
     return <div className='yonui-radio-list'>
       <div className='yonui-radio-list-content' style={{ height: '308px', overflow: 'auto' }}>
@@ -234,8 +248,8 @@ export default class Contact extends Component<ContactProps, ContactState> {
     return (
       <Wrapper label={label} singleLine={singleLine} splitLine={splitLine} required={required} className='yonui-mobile-contact' error={error}>
         {content}
-        <Modal visible={open} popup maskClosable onClose={ () => { this.onCloseModal() }} animationType='slide-up' className='yonui-radio-modal'>
-          { (mode === 'email') ? this.renderEmailList(emailDataSource || defaultEmailTypeDataSource) : this.renderAreaList(dataSource || defaultDataSource)}
+        <Modal visible={open} popup maskClosable onClose={() => { this.onCloseModal() }} animationType='slide-up' className='yonui-radio-modal'>
+          {(mode === 'email') ? this.renderEmailList(emailDataSource || defaultEmailTypeDataSource) : this.renderAreaList(dataSource || defaultDataSource)}
         </Modal>
       </Wrapper>
     )

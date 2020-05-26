@@ -141,16 +141,16 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
           this.onCloseModal(e)
         }
       }
-      return <Wrapper labelCls={cls} key={index} label={item.text} onClick={ onClickWrapper} singleLine style={itemsStyle}>
-        { _checked ? <img src={selectedImg} style={{ width: '17px', height: '14px' }}/> : ''}
+      return <Wrapper labelCls={cls} key={index} label={item.text} onClick={onClickWrapper} singleLine style={itemsStyle}>
+        {_checked ? <img src={selectedImg} style={{ width: '17px', height: '14px' }} /> : ''}
       </Wrapper>
     })
     return <div className='yonui-radio-list'>
       {isMultiple ? <div className='yonui-radio-list-header'>
-        <span className='yonui-radio-list-header-btn-cancel' onClick={ (e) => { this.onCloseModal(e) }}>
+        <span className='yonui-radio-list-header-btn-cancel' onClick={(e) => { this.onCloseModal(e) }}>
           {TextString.cancel}
         </span>
-        <span className='yonui-radio-list-header-btn-confirm' onClick={ this.selectAll}>
+        <span className='yonui-radio-list-header-btn-confirm' onClick={this.selectAll}>
           {TextString.selectAll}
         </span>
       </div> : <div className='yonui-radio-list-header-empty'> </div>}
@@ -224,10 +224,10 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     const fontCls = classnames('radio-items-selected-value', {
       'radio-items-selected-value-disabled': disabled
     })
-    return <React.Fragment>
+    return <>
       <span className={fontCls}>{propsDisplayValue || displayValue}</span>
-      { !disabled && <Icon type='right' color='#555555' onClick={this.onClickIcon} />}
-    </React.Fragment>
+      {!disabled && <Icon type='right' color='#555555' onClick={this.onClickIcon} />}
+    </>
   }
 
   getDisplayFromProps = (dataSource?: dataType[], checkedValue?: string[]) => {
@@ -268,14 +268,14 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
         singleLine={singleLine || mode === 'list'}
         splitLine={splitLine}
         label={label}
-        labelCls={'yonui-radio-label'}
+        labelCls='yonui-radio-label'
         required={required}
         labelStyle={labelStyle}
         style={style}>
         <div className='yonui-radio-items'>
           {radioArr}
         </div>
-        <Modal visible={open} popup maskClosable onClose={ () => { this.onCloseModal() }} animationType='slide-up' className='yonui-radio-modal'>
+        <Modal visible={open} popup maskClosable onClose={() => { this.onCloseModal() }} animationType='slide-up' className='yonui-radio-modal'>
           {this.renderRaioList(dataSource, checkedValue)}
         </Modal>
       </Wrapper>

@@ -53,10 +53,12 @@ export default class MDFCarousel extends React.Component<CarouselProps, any> {
       [`${prefixCls}-ratio`]: !!ratio
     })
     return (
-      <div className={wrapCls} style={{
-        ...style,
-        paddingBottom: ratio ? this.getPaddingBottom() : undefined
-      }}>
+      <div
+        className={wrapCls}
+        style={{
+          ...style,
+          paddingBottom: ratio ? this.getPaddingBottom() : undefined
+        }}>
         <Carousel
           autoplayInterval={autoplayInterval * 1000}
           selectedIndex={+selectedIndex}

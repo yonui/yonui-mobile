@@ -51,7 +51,7 @@ export default class MyComponent extends Component<TextareaProps, TextareaState>
         showExtraLabelIcon={showExtraLabelIcon}
         subLabel={subLabel}
       >
-        <TextareaItem rows={rows} {...other} count={maxLength} onBlur={this._onBlur}/>
+        <TextareaItem rows={rows} {...other} count={maxLength} onBlur={this._onBlur} />
       </Wrapper>
     )
   }

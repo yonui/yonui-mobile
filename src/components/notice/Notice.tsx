@@ -32,11 +32,11 @@ class Notice extends React.Component<NoticeProps, any> {
     let classNameProps = props.className || ''
     classNameProps += `${noticeBarPrefixCls}-${props.mode}-container`
     // let icon = typeof props.icon === 'string' ? <Icon type={props.icon}/> : props.icon
-    const _icon = !icon ? null : (typeof icon === 'string' ? <Icon type={icon}/> : icon)
+    const _icon = !icon ? null : (typeof icon === 'string' ? <Icon type={icon} /> : icon)
     if (props.mode && props.mode === 'modal') {
       return (
         <Modal
-          visible ={noticeModalShow}
+          visible={noticeModalShow}
           transparent
           maskClosable={false}
           title={props.title || 'Title'}
@@ -49,15 +49,15 @@ class Notice extends React.Component<NoticeProps, any> {
     }
 
     if (props.mode && props.mode === 'pop') {
-      return <div className={classNameProps} >
-        <span className={`${noticeBarPrefixCls}-pop-triangle`}></span>
+      return <div className={classNameProps}>
+        <span className={`${noticeBarPrefixCls}-pop-triangle`} />
         <NoticeBar icon={_icon} {...props}>{props.content || props.children}</NoticeBar>
       </div>
     }
 
     if (props.mode && props.mode === 'light') {
-      return <div className={classNameProps} >
-        <NoticeBar icon={_icon} {...props} mode='link' >{props.content || props.children}</NoticeBar>
+      return <div className={classNameProps}>
+        <NoticeBar icon={_icon} {...props} mode='link'>{props.content || props.children}</NoticeBar>
       </div>
     }
 

@@ -10,9 +10,11 @@ export default class CarouselItem extends React.Component<BackgroundProps, any> 
   render () {
     const { background } = this.props
     return (
-      <div className="am-background" style={{
-        background: background
-      }}></div>
+      <div
+        className='am-background'
+        style={{
+          background: background
+        }} />
     )
   }
 }
