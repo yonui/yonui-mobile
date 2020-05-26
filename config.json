@@ -13,6 +13,7 @@
     "List": ["ListItem","ListItemBrief"],
     "Checkbox": ["CheckboxItem","AgreeItem"]
   },
+  "imgSize": 30000,
   "previewUrl": "http://tinper-libra-ui-demo.daily.app.yyuap.com/",
   "plugins": [
     ["import",{"libraryName":"antd-mobile","style":false}]
