@@ -33,7 +33,7 @@ const manifest: ComponentManifest = {
     {
       name: 'mode',
       type: FieldTypes.string,
-      defaultValue: 'telephone',
+      defaultValue: 'mobilephone',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
