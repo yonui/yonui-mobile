@@ -1,15 +1,15 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps } from 'yonui-extension'
 const manifest: ComponentManifest = {
-  name: 'cGroup',
-  label: 'cGroup',
-  description: '主子页面容器',
-  type: 'basicControls',
+  name: 'groupcontainer',
+  label: '主子页面',
+  description: '主子页面',
+  type: TypeProps.DataContainer,
   uiObject: UIObject.Containers,
-  hidden: true,
+  hidden: false,
   icon: 'div',
   props: [
     {
-      name: 'type',
+      name: 'isMainGroup',
       type: FieldTypes.boolean,
       defaultValue: false,
       value: '',
@@ -26,7 +26,6 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: () => true,
-  parent: () => false
+  children: () => true
 }
 export default manifest
