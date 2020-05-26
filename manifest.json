@@ -72,6 +72,7 @@
     "Picture":  "./src/components/picture",
     "YonuiIframe": "./src/components/yonui-iframe",
     "ListItemDisplay": "./src/components/list-item-display",
-    "Rate": "./src/components/rate"
+    "Rate": "./src/components/rate",
+    "GroupContainer": "./src/components/main-vice-group"
   }
 }

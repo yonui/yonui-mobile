@@ -1,6 +1,6 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps } from 'yonui-extension'
 const manifest: ComponentManifest = {
-  name: 'groupcontainer',
+  name: 'GroupContainer',
   label: '主子页面',
   description: '主子页面',
   type: TypeProps.DataContainer,
