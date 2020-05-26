@@ -20,5 +20,38 @@
   .yonui-monile-contact-content{
     display: flex;
     align-items: center;
+    &.mobile-phone{
+      .yonui-input{
+        width: 120 * @hd;
+      }
+    }
+    &.telephone{
+      .yonui-input{
+        width: 140 * @hd;
+      }
+    }
+  }
+  .split-line{
+    background: #E6E6E6;
+    display: block;
+    width: 1px;
+    height: 14px;
+    margin-left: 4px;
+  }
+  .phone-code{
+    color: #555555;
+    font-size: 15px;
+    padding-top: 1px;
+    margin-left: 8px;
+    margin-right: 4px;
+  }
+}
+
+.yonui-contact-modal{
+  .yonui-contact-list{
+    &-content{
+      height: 308*@hd;
+      overflow: auto;
+    }
   }
 }

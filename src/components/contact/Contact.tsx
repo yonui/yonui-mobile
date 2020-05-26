@@ -141,7 +141,6 @@ export default class Contact extends Component<ContactProps, ContactState> {
           <div className='yonui-monile-contact-content mobile-phone'>
             <Input
               type='tel'
-              style={{ width: '120px' }}
               placeholder='000 0000 0000'
               value={val}
               onChange={(value) => { this.textOnChange(value) }}
@@ -156,17 +155,16 @@ export default class Contact extends Component<ContactProps, ContactState> {
           <div className='yonui-monile-contact-content area-phone'>
             <span className='yonui-contact-button' onClick={() => { this.onOpenModal() }}>{country}</span>
             <Icon size='xxs' type='down' />
-            <span style={{ background: '#E6E6E6', display: 'block', width: '1px', height: '14px', marginLeft: '4px' }} />
-            <span style={{ color: '#555555', fontSize: '15px', paddingTop: '1px', marginLeft: '8px', marginRight: '4px' }}>{countryNum}</span>
+            <span className='split-line' />
+            <span className='phone-code'>{countryNum}</span>
             {contact}
           </div>)
         return area ? areaContact : contact
       }
       case 'telephone': {
-        const contact = (<div className='yonui-monile-contact-content'>
+        const contact = (<div className='yonui-monile-contact-content telephone'>
           <Input
             type='tel'
-            style={{ width: '140px' }}
             value={val}
             placeholder='座机号码-分机号码'
             onChange={(value) => { this.textOnChange(value) }}
@@ -180,8 +178,8 @@ export default class Contact extends Component<ContactProps, ContactState> {
           <div className='yonui-monile-contact-content'>
             <span className='yonui-contact-button' onClick={() => { this.onOpenModal() }}>{country}</span>
             <Icon size='xxs' type='down' />
-            <span style={{ background: '#E6E6E6', display: 'block', width: '1px', height: '14px', marginLeft: '4px' }} />
-            <span style={{ color: '#555555', fontSize: '15px', paddingTop: '1px', marginLeft: '8px', marginRight: '4px' }}>{countryNum}</span>
+            <span className='split-line' />
+            <span className='phone-code'>{countryNum}</span>
             {contact}
           </div>)
         return area ? areaContact : contact
@@ -218,8 +216,8 @@ export default class Contact extends Component<ContactProps, ContactState> {
         {item.tel}
       </Wrapper>
     })
-    return <div className='yonui-radio-list'>
-      <div className='yonui-radio-list-content' style={{ height: '308px', overflow: 'auto' }}>
+    return <div className='yonui-contact-list'>
+      <div className='yonui-contact-list-content'>
         {_list}
       </div>
     </div>
@@ -234,8 +232,8 @@ export default class Contact extends Component<ContactProps, ContactState> {
       }
       return <Wrapper key={index} label={item.type} onClick={onClickWrapper} singleLine />
     })
-    return <div className='yonui-radio-list'>
-      <div className='yonui-radio-list-content' style={{ height: '308px', overflow: 'auto' }}>
+    return <div className='yonui-contact-list'>
+      <div className='yonui-contact-list-content'>
         {_list}
       </div>
     </div>
@@ -248,7 +246,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
     return (
       <Wrapper label={label} singleLine={singleLine} splitLine={splitLine} required={required} className='yonui-mobile-contact' error={error}>
         {content}
-        <Modal visible={open} popup maskClosable onClose={() => { this.onCloseModal() }} animationType='slide-up' className='yonui-radio-modal'>
+        <Modal visible={open} popup maskClosable onClose={() => { this.onCloseModal() }} animationType='slide-up' className='yonui-contact-modal'>
           {(mode === 'email') ? this.renderEmailList(emailDataSource || defaultEmailTypeDataSource) : this.renderAreaList(dataSource || defaultDataSource)}
         </Modal>
       </Wrapper>
