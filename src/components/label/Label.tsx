@@ -3,10 +3,10 @@ import classnames from 'classnames'
 import { Icon } from 'antd-mobile'
 export interface LabelProps extends React.defaultProps{
   label?: string // 文本大小
-  type?: 'default' | 'primary' | 'border' | 'label'
-  color?: string
-  bgColor?: string
-  width?: string
+  // type?: 'default' | 'primary' | 'border' | 'label'
+  // color?: string
+  // bgColor?: string
+  // width?: string
   textAlign?: 'left' | 'right' | 'center'
   leftIcon?: React.ReactNode
   rightIcon?: React.ReactNode
@@ -25,43 +25,41 @@ export default class Label extends React.PureComponent<LabelProps> {
     // }
   }
 
-  getStyle = (type?: 'default' | 'primary' | 'border' | 'label', color?: string, bgColor?: string) => {
-    switch (type) {
-      case 'label': {
-        return ({
-          color: color,
-          backgroundColor: bgColor
-        })
-      }
-      case 'primary': {
-        return ({
-          color: '#ffffff',
-          backgroundColor: color
-        })
-      }
-      case 'border': {
-        return ({
-          color: color,
-          backgroundColor: '#ffffff',
-          border: `1px solid ${color}`
-        })
-      }
-      case 'default':
-      default: {
-        return ({
-          color: color,
-          backgroundColor: bgColor
-        })
-      }
-    }
-  }
+  // getStyle = (type?: 'default' | 'primary' | 'border' | 'label', color?: string, bgColor?: string) => {
+  //   switch (type) {
+  //     case 'label': {
+  //       return ({
+  //         color: color,
+  //         backgroundColor: bgColor
+  //       })
+  //     }
+  //     case 'primary': {
+  //       return ({
+  //         color: '#ffffff',
+  //         backgroundColor: color
+  //       })
+  //     }
+  //     case 'border': {
+  //       return ({
+  //         color: color,
+  //         backgroundColor: '#ffffff',
+  //         border: `1px solid ${color}`
+  //       })
+  //     }
+  //     case 'default':
+  //     default: {
+  //       return ({
+  //         color: color,
+  //         backgroundColor: bgColor
+  //       })
+  //     }
+  //   }
+  // }
 
   render () {
-    const { label, style, className, color, type, bgColor, width, textAlign, leftIcon, rightIcon, ...other } = this.props
-    const sty: React.CSSProperties = { ...this.getStyle(type, color, bgColor), ...style, width, justifyContent: textAlign && alignMap[textAlign] }
-    const cls = classnames(className, 'yonui-tag', {
-      'label-type': type === 'label'
-    })
+    const { label, style, className, textAlign, leftIcon, rightIcon, ...other } = this.props
+    const sty: React.CSSProperties = { ...style, justifyContent: textAlign && alignMap[textAlign] }
+    const cls = classnames(className, 'yonui-tag')
     const leftIconEle = typeof leftIcon === 'string' ? <Icon type={leftIcon} size='xxs' /> : leftIcon
     const rightIconEle = typeof rightIcon === 'string' ? <Icon type={rightIcon} size='xxs' /> : rightIcon
     return (
