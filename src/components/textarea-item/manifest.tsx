@@ -99,7 +99,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '提示文案'
+        label: '背景提示'
       }
     },
     {
