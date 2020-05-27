@@ -1,5 +1,5 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps } from 'yonui-extension'
-import listItemProps from '../list-item-wrapper/manifestProps'
+import { getFilterProps } from '../list-item-wrapper/manifestProps'
 const manifest: ComponentManifest = {
   name: 'Textarea',
   uiObject: UIObject.Controls,
@@ -194,7 +194,7 @@ const manifest: ComponentManifest = {
         label: 'onBlur'
       }
     },
-    ...listItemProps
+    ...getFilterProps(['singleLine'])
   ],
   extension: [
     // ExtensionProps.required,
