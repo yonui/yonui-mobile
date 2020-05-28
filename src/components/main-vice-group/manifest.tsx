@@ -1,8 +1,8 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'GroupContainer',
-  label: '主子页面',
-  description: '主子页面',
+  label: '页面',
+  description: '页面',
   type: TypeProps.DataContainer,
   uiObject: UIObject.Containers,
   hidden: false,
@@ -11,6 +11,19 @@ const manifest: ComponentManifest = {
     {
       name: 'isMainGroup',
       type: FieldTypes.boolean,
+      value: '',
+      showDesign: true,
+      defaultValue: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '是否主页面'
+      }
+    },
+    {
+      name: 'groupType',
+      type: FieldTypes.string,
       defaultValue: false,
       value: '',
       showDesign: true,
@@ -18,11 +31,11 @@ const manifest: ComponentManifest = {
         type: EditTypes.Select,
         props: {
           options: [
-            { value: true, text: '是' },
-            { value: false, text: '否' }
+            { value: 'component', text: '组件' },
+            { value: 'page', text: '页面' }
           ]
         },
-        label: '是否主页面'
+        label: '类型'
       }
     }
   ],

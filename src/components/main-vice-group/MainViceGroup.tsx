@@ -9,10 +9,6 @@ interface MainViceGroupProps {
 }
 
 export default class MainViceGroup extends Component<MainViceGroupProps> {
-  state = {
-
-  }
-
   render () {
     const { children, className, style } = this.props
     const cls = classnames([className, 'am-c-group-container'])
