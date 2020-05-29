@@ -24,6 +24,7 @@ yarn-debug.log*
 yarn-error.log*
 
 /lib
+/es
 package-lock.json
 /demo/build
 
