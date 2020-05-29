@@ -9,7 +9,7 @@ import './demo.less';
 export default class Demo extends Component {
     render() {
         return (
-            <MyComponent />
+            <MyComponent>页面引用</MyComponent>
         )
     }
 }

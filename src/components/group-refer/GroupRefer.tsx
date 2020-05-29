@@ -1,10 +1,17 @@
-import React, { Component } from 'react'
-export default class GroupRefer extends Component {
+import React from 'react'
+
+import { Flex } from 'antd-mobile'
+
+export interface MDFFlexProps {
+  style?: React.CSSProperties
+}
+export default class MDFFlex extends React.Component<MDFFlexProps, any> {
+  static Item: any
   render () {
     return (
-      <div>
-        页面引用
-      </div>
+      <Flex {...this.props} style={{ ...this.props.style }}>
+        {this.props.children}
+      </Flex>
     )
   }
 }
