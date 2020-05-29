@@ -1,14 +1,16 @@
-import { ComponentManifest, UIObject, TypeProps } from 'yonui-extension'
+import { ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
-  name: 'name',
+  name: 'GroupRefer',
   label: '页面引用',
-  type: TypeProps.BasicControls,
-  uiObject: UIObject.Controls,
+  type: 'layoutContainer',
+  uiObject: UIObject.Containers,
+  hidden: false,
+  icon: 'div',
   props: [
 
   ],
   children: () => false,
-  parent: ['MainViceGroup', 'mainVicegroup']
+  parent: ['GroupContainer', 'groupcontainer']
 }
 
 export default manifest
