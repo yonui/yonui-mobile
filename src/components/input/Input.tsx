@@ -109,10 +109,18 @@ export default class Input extends Component<InputProps, InputState> {
       onSuccess: _onSuccess,
       onError: _onError
     }
+
+    /**
+     * 用户自定义的最终校验规则
+     */
     const customReg = {
       reg: new RegExp(regRule),
       text: regRuleText
     }
+
+    /**
+     * 用户自定义的中间校验规则
+     */
     let customPattern: RegExp | null
     try {
       customPattern = checkMask ? new RegExp(checkMask) : null
@@ -125,7 +133,13 @@ export default class Input extends Component<InputProps, InputState> {
           ...res,
           type: 'tel',
           pattern: customPattern || /^[0-9xX]*$/,
-          finalPattern: /^[1-9]\d{5}(?:18|19|20)\d{2}(?:(?:0[1-9])|(?:1[0-2]))(?:(?:[0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/,
+          finalPattern: [
+            {
+              reg: /^[1-9]\d{5}(?:18|19|20)\d{2}(?:(?:0[1-9])|(?:1[0-2]))(?:(?:[0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/,
+              text: ''
+            },
+            customReg
+          ],
           maxLength: 18
         }
         break
@@ -143,6 +157,38 @@ export default class Input extends Component<InputProps, InputState> {
             customReg
           ],
           maxLength: 15
+        }
+        break
+      }
+      case 'bankCard16': {
+        res = {
+          ...res,
+          type: 'number',
+          pattern: customPattern || /^[0-9]*$/,
+          finalPattern: [
+            {
+              reg: /^\d{16}$/,
+              text: ''
+            },
+            customReg
+          ],
+          maxLength: 16
+        }
+        break
+      }
+      case 'bankCard19': {
+        res = {
+          ...res,
+          type: 'number',
+          pattern: customPattern || /^[0-9]*$/,
+          finalPattern: [
+            {
+              reg: /^\d{19}$/,
+              text: ''
+            },
+            customReg
+          ],
+          maxLength: 19
         }
         break
       }

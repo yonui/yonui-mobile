@@ -132,4 +132,21 @@ const propsArray: Props[] = [
     }
   }
 ]
+
+/**
+ * 获取经过过滤的 propsArray 数组。如多行文本不需要`单行展示`属性
+ * @param exclude 需要排除属性的 name 集合
+ */
+
+const getFilterProps: ((exclude: string[]) => Props[]) = (exclude = []) => {
+  const res = []
+  propsArray.forEach(item => {
+    if (!exclude.includes(item.name)) {
+      res.push(item)
+    }
+  })
+  return res
+}
+
+export { getFilterProps }
 export default propsArray
