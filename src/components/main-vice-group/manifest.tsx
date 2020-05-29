@@ -13,7 +13,7 @@ const manifest: ComponentManifest = {
       type: FieldTypes.boolean,
       value: '',
       showDesign: true,
-      defaultValue: true,
+      defaultValue: false,
       designConfig: {
         type: EditTypes.Bool,
         isRequired: false,
