@@ -57,6 +57,30 @@ const manifest: ComponentManifest = {
         },
         label: '抽屉方向'
       }
+    },
+    {
+      name: 'drawerWidth',
+      type: FieldTypes.number,
+      defaultValue: 256,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Number,
+        isRequired: false,
+        props: {},
+        label: '宽度'
+      }
+    },
+    {
+      name: 'drawerHeight',
+      type: FieldTypes.number,
+      defaultValue: 256,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Number,
+        isRequired: false,
+        props: {},
+        label: '高度'
+      }
     }
   ],
   children: () => true
