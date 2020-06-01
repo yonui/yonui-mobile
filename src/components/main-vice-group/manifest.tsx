@@ -32,10 +32,30 @@ const manifest: ComponentManifest = {
         props: {
           options: [
             { value: 'component', text: '组件' },
-            { value: 'page', text: '页面' }
+            { value: 'page', text: '页面' },
+            { value: 'drawer', text: '抽屉' },
           ]
         },
         label: '类型'
+      }
+    },
+    {
+      name: 'drawerPlacement',
+      type: FieldTypes.string,
+      defaultValue: false,
+      value: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        props: {
+          options: [
+            { value: 'top', text: '上' },
+            { value: 'right', text: '右' },
+            { value: 'bottom', text: '下' },
+            { value: 'left', text: '左' },
+          ]
+        },
+        label: '抽屉方向'
       }
     }
   ],
