@@ -142,6 +142,33 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 # README
 
+<<<<<<< HEAD
+=======
+- Tabs组件的专属容器子组件
+
+
+# README
+
+筛选组件的容器部分
+
+
+
+### API
+
+| 属性           | 说明               | 必填 | 类型     | 默认  |
+| -------------- | ------------------ | ---- | -------- | ----- |
+| *open*         | 筛选组件是否显示   | true | boolean  | false |
+| *onOpenChange* | open状态改变时调用 | 否   | ()=>void |       |
+| *btn1*         | 左侧按钮名称       | 否   | String   | 重置  |
+| *onBtn1Click*  | 左侧按钮点击事件   | 否   | ()=>void |       |
+| *btn2*         | 右侧按钮名称       | 否   | string   | 确定  |
+| *onBtn2Click*  | 右侧按钮点击事件   | 否   | ()=>void |       |
+
+
+
+# README
+
+>>>>>>> fix: 修改switch中标题属性为label
 ### API
 
 | 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
@@ -167,6 +194,7 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 
 # README
+<<<<<<< HEAD
 
 - Tabs组件的专属容器子组件
 
@@ -191,6 +219,8 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 
 # README
+=======
+>>>>>>> fix: 修改switch中标题属性为label
 工具栏
 
 ### API
@@ -223,6 +253,34 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 
 
+<<<<<<< HEAD
+=======
+# TextareaItem 多行输入
+**API**
+
+| TextareaItem |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 说明 | 类型 | 默认值 |
+| value    | value 值(受控与否参考https://facebook.github.io/react/docs/forms.html)  | String |  无  |
+| defaultValue    | 设置初始默认值        | String |  -  |
+| placeholder      | placeholder        | String | ''  |
+| editable    | 是否可编辑        | bool |  true  |
+| disabled    | 是否禁用        | bool |  false  |
+| clear      |  是否带清除功能(仅`editable`为`true`,`disabled`为`false`才生效) | bool | false  |
+| rows      |   显示几行      | number |   1 |
+| count      |  计数功能,兼具最大长度,默认为0,代表不开启计数功能      | number | -  |
+| onChange    | change 事件触发的回调函数 | (val: string): void |  -  |
+| onBlur     | blur 事件触发的回调函数 | (val: string): void |   -  |
+| onFocus    | focus 事件触发的回调函数 | (val: string): void |  -  |
+| error       | 报错样式        | bool |  false  |
+| onErrorClick       | 点击报错 icon 触发的回调   | (): void |  无  |
+| autoHeight       | 高度自适应, autoHeight 和 rows 请二选一    | bool  | false  |
+| name   | textarea 的 name       | String |   -  |
+| prefixListCls   |   列表 className 前缀      | String |  `am-list`  |
+| title   | 文案说明        | String/node |  '' |
+
+
+>>>>>>> fix: 修改switch中标题属性为label
 # README
 
 加载
@@ -269,6 +327,7 @@ interface dataType { text: string, value: string, disabled?: boolean }
 |activeClassName	|点击反馈的自定义类名	|string	||
 |itemStyle	|每个格子自定义样式	|object	|{}|
 
+<<<<<<< HEAD
 # TextareaItem 多行输入
 **API**
 
@@ -332,6 +391,8 @@ data | 传入的列表数据 | Array<{key, text, delete?}>,delete为true,操作�
 onClose | 关闭时回调 | () => void | |
 onClick | 点击时回调 | (object: DataItem) => void | |
 
+=======
+>>>>>>> fix: 修改switch中标题属性为label
 # README
 卡片容器组件
 
@@ -354,6 +415,22 @@ onClick | 点击时回调 | (object: DataItem) => void | |
 # README
 
 # README
+<<<<<<< HEAD
+=======
+## ListPanelPicker 基础组件-操作列表
+**API**
+
+| ListPanelPicker |  |  |  |
+| :---: | --- | --- | --- |
+属性 | 说明 | 类型 | 默认值 |
+visible | 是否显示 | boolean | false |
+header | 头部的值 | string | - |
+data | 传入的列表数据 | Array<{key, text, delete?}>,delete为true,操作列表项颜色为红色,key为主键,text为显示文本,不需要可以不写delete属性 | [] |
+onClose | 关闭时回调 | () => void | |
+onClick | 点击时回调 | (object: DataItem) => void | |
+
+# README
+>>>>>>> fix: 修改switch中标题属性为label
 
 # README
 
@@ -404,6 +481,30 @@ interface InputNumberPorps {
 
 
 # README
+<<<<<<< HEAD
+=======
+## Input 基础组件-输入框
+**API**
+
+| Input |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 类型 | 默认值 | 说明 |
+| type | string | text | 可以是银行卡bankCard; 手机号phone(此时最大长度固定为11,maxLength设置无效); 密码password; 数字number(为了尽量唤起带小数点的数字键盘，此类型并不是原生 number，而是'<'input type="text" pattern="[0-9]*"'/>'); digit(表示原生的 number 类型); money(带小数点的模拟的数字键盘) 以及其他标准 html input type 类型 |
+| label | string | - |  标签 |
+| defaultValue | string | - |  设置初始默认值 |
+| value | string | - |  value 值|
+| placeholder | string | '' |  placeholder |
+| labelNumber | number | 5 | 标签的文字个数，可用2-7之间的数字 |
+| maxLength |	number | 无。除money类型外，仅当text, email, search, password, tel, or url 有效。| 最大长度 |
+| required | boolean | false | 是否必填 |
+| editable | boolean | true | 是否可编辑 |
+| disabled | boolean | false | 是否禁用 |
+| clear | boolean | false | 是否带清除功能(仅editable为true,disabled为false才生效) |
+<!-- | extra	| string or node | '' | 右边注释 | -->
+| onChange | (val: string): void | - | change 事件触发的回调函数 |
+| onBlur | (val: string): void | - | blur 事件触发的回调函数 |	
+| onFocus |	(val: string): void	| - | focus 事件触发的回调函数 |
+>>>>>>> fix: 修改switch中标题属性为label
 
 # README
 
@@ -427,6 +528,13 @@ interface InputNumberPorps {
 
 # README
 
+<<<<<<< HEAD
+=======
+# README
+
+# README
+
+>>>>>>> fix: 修改switch中标题属性为label
 联系方式组件，支持通过设置mode，区分座机、手机、邮箱。
 
 ### API

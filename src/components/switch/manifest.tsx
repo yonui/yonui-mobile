@@ -118,7 +118,7 @@ const manifest: ComponentManifest = {
   ],
   propertyMap: {
     bIsNull: '!required',
-    cShowCaption: 'title',
+    cShowCaption: 'label',
     cDefaultValue: 'defaultValue'
   }
 }
