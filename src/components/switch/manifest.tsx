@@ -110,6 +110,7 @@ const manifest: ComponentManifest = {
   ],
   children: [],
   extension: [
+    ExtensionProps.singleLine,
     ExtensionProps.disabled,
     ExtensionProps.bIsNull,
     ExtensionProps.bMustSelect,
@@ -118,7 +119,7 @@ const manifest: ComponentManifest = {
   ],
   propertyMap: {
     bIsNull: '!required',
-    cShowCaption: 'title',
+    cShowCaption: 'label',
     cDefaultValue: 'defaultValue'
   }
 }
