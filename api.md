@@ -143,8 +143,33 @@ interface dataType { text: string, value: string, disabled?: boolean }
 # README
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 - Tabs组件的专属容器子组件
+=======
+### API
+
+| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
+| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
+| *tabs*                    | tab数据源                      | 是   | array                                | []     |
+| *animated*                | 是否使用切换动画效果           | 否   | boolean                              | true   |
+| *initialPage*             | initialPage                    | 否   | number\|string                       |        |
+| *page*                    | 当前Tab下标或key值             | 否   | number\|string                       |        |
+| *pageSize*                | 单页最大标签数，超出后滑动展示 | 否   | number                               | 5      |
+| *swipeable*              | 是否可滑动切换内容             | 否   | boolean                              | false  |
+| *onChange*                | tab变化时触发                  | 否   | (tab: object, index: number) => void |        |
+| *onTabClick*              | tab点击时时触发                | 否   | (tab: object, index: number) => void |        |
+| *icons*                   | tab右侧图标                    | 否   | Array< JSX.Element > |        |
+| *gather*                  | tab是否集中分布                | 否   | boolean                              | false  |
+| *splitLine*               | 是否展示tab-bar下方的分隔符    | 否   | boolean                              | true   |
+| *abBarBackgroundColor*    | 标签栏背景色                   | 否   | string                               |        |
+| *tabBarActiveTextColor*   | 激活文字颜色                   | 否   | string                               |        |
+| *tabBarInactiveTextColor* | 非激活文字颜色                 | 否   | string                               |        |
+| *iconsOccupy* | icons是否占位 | 否 | boolean | true |
+| *iconsClassName* | icons区域类名 | 否 | string |  |
+| *iconsStyle* | icons区域样式 | 否 | CSSProperties |  |
+
+>>>>>>> fix: 修改switch组件设置方式
 
 
 # README
@@ -168,6 +193,7 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 # README
 
+<<<<<<< HEAD
 >>>>>>> fix: 修改switch中标题属性为label
 ### API
 
@@ -191,6 +217,9 @@ interface dataType { text: string, value: string, disabled?: boolean }
 | *iconsClassName* | icons区域类名 | 否 | string |  |
 | *iconsStyle* | icons区域样式 | 否 | CSSProperties |  |
 
+=======
+- Tabs组件的专属容器子组件
+>>>>>>> fix: 修改switch组件设置方式
 
 
 # README
@@ -254,31 +283,34 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 # TextareaItem 多行输入
+=======
+# README
+## Grid 宫格
+>>>>>>> fix: 修改switch组件设置方式
 **API**
 
-| TextareaItem |  |  |  |
+| Grid |  |  |  |
 | :---: | --- | --- | --- |
 | 属性 | 说明 | 类型 | 默认值 |
-| value    | value 值(受控与否参考https://facebook.github.io/react/docs/forms.html)  | String |  无  |
-| defaultValue    | 设置初始默认值        | String |  -  |
-| placeholder      | placeholder        | String | ''  |
-| editable    | 是否可编辑        | bool |  true  |
-| disabled    | 是否禁用        | bool |  false  |
-| clear      |  是否带清除功能(仅`editable`为`true`,`disabled`为`false`才生效) | bool | false  |
-| rows      |   显示几行      | number |   1 |
-| count      |  计数功能,兼具最大长度,默认为0,代表不开启计数功能      | number | -  |
-| onChange    | change 事件触发的回调函数 | (val: string): void |  -  |
-| onBlur     | blur 事件触发的回调函数 | (val: string): void |   -  |
-| onFocus    | focus 事件触发的回调函数 | (val: string): void |  -  |
-| error       | 报错样式        | bool |  false  |
-| onErrorClick       | 点击报错 icon 触发的回调   | (): void |  无  |
-| autoHeight       | 高度自适应, autoHeight 和 rows 请二选一    | bool  | false  |
-| name   | textarea 的 name       | String |   -  |
-| prefixListCls   |   列表 className 前缀      | String |  `am-list`  |
-| title   | 文案说明        | String/node |  '' |
-
+|data	|传入的菜单数据|	Array<{icon, text}>|	[]|
+|onClick|	点击每个菜单的回调函数|	(el: Object, index: number): void	|-|
+|columnNum|	列数|	number|	4|
+|hasLine|	是否有边框|	boolean	|false|
+|outContent| 是否有外框内容,注(当outContent为true,renderItem方法无效) | boolean | false |
+|full|是否通栏| boolean | false |
+|transparent|是否透明|boolean|false|
+|isCarousel	|是否跑马灯|	boolean|	false|
+|mode|grid模式['image','number'] [图片,数字]| string | 'image' |
+|itemSize|item上icon的大小,可选sm,md,lg [小,中,大]| string | 'sm' |
+|carouselMaxRow	|如果是跑马灯, 一页跑马灯需要展示的行数|	number|	2|
+|renderItem	|自定义每个 grid 条目的创建函数	|(el, index) => React.Node	|-|
+|square|	每个格子是否固定为正方形|	boolean	|true|
+|activeStyle|	点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)	|{}/false|	{}|
+|activeClassName	|点击反馈的自定义类名	|string	||
+|itemStyle	|每个格子自定义样式	|object	|{}|
 
 >>>>>>> fix: 修改switch中标题属性为label
 # README
@@ -303,13 +335,13 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 
 
-# README
-## Grid 宫格
+# TextareaItem 多行输入
 **API**
 
-| Grid |  |  |  |
+| TextareaItem |  |  |  |
 | :---: | --- | --- | --- |
 | 属性 | 说明 | 类型 | 默认值 |
+<<<<<<< HEAD
 |data	|传入的菜单数据|	Array<{icon, text}>|	[]|
 |onClick|	点击每个菜单的回调函数|	(el: Object, index: number): void	|-|
 |columnNum|	列数|	number|	4|
@@ -334,6 +366,8 @@ interface dataType { text: string, value: string, disabled?: boolean }
 | TextareaItem |  |  |  |
 | :---: | --- | --- | --- |
 | 属性 | 说明 | 类型 | 默认值 |
+=======
+>>>>>>> fix: 修改switch组件设置方式
 | value    | value 值(受控与否参考https://facebook.github.io/react/docs/forms.html)  | String |  无  |
 | defaultValue    | 设置初始默认值        | String |  -  |
 | placeholder      | placeholder        | String | ''  |
@@ -351,6 +385,7 @@ interface dataType { text: string, value: string, disabled?: boolean }
 | name   | textarea 的 name       | String |   -  |
 | prefixListCls   |   列表 className 前缀      | String |  `am-list`  |
 | title   | 文案说明        | String/node |  '' |
+<<<<<<< HEAD
 
 
 # README
@@ -397,18 +432,32 @@ onClick | 点击时回调 | (object: DataItem) => void | |
 卡片容器组件
 
 ### API
-
-| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
-| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
-| displayStyle       | 展示类型                               | 否   | 'normal'\|'detail'\|'slideable' | 'normal' |
-| btnText | 删除按钮文本。slideable模式下有效 | 否   | string                               | '删除' |
-| rightStyle | 删除按钮样式。slideable模式下有效 | 否   | number                            | {} |
-| label | 标题文本，detail模式下有效             | 否   | string                              | '' |
-| showDeleteIcon | 是否展示删除按钮，detail模式下有效 | 否   | boolean | true |
-| showTitleExtraIcon | 是否展示标题左侧图标，detail模式下有效 | 否 | boolean | false |
-| onDelete | 删除事件。detail/slideable模式下有效 | 否 | ()=>void |  |
+=======
+>>>>>>> fix: 修改switch组件设置方式
 
 
+# README
+## Input 基础组件-输入框
+**API**
+
+| Input |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 类型 | 默认值 | 说明 |
+| type | string | text | 可以是银行卡bankCard; 手机号phone(此时最大长度固定为11,maxLength设置无效); 密码password; 数字number(为了尽量唤起带小数点的数字键盘，此类型并不是原生 number，而是'<'input type="text" pattern="[0-9]*"'/>'); digit(表示原生的 number 类型); money(带小数点的模拟的数字键盘) 以及其他标准 html input type 类型 |
+| label | string | - |  标签 |
+| defaultValue | string | - |  设置初始默认值 |
+| value | string | - |  value 值|
+| placeholder | string | '' |  placeholder |
+| labelNumber | number | 5 | 标签的文字个数，可用2-7之间的数字 |
+| maxLength |	number | 无。除money类型外，仅当text, email, search, password, tel, or url 有效。| 最大长度 |
+| required | boolean | false | 是否必填 |
+| editable | boolean | true | 是否可编辑 |
+| disabled | boolean | false | 是否禁用 |
+| clear | boolean | false | 是否带清除功能(仅editable为true,disabled为false才生效) |
+<!-- | extra	| string or node | '' | 右边注释 | -->
+| onChange | (val: string): void | - | change 事件触发的回调函数 |
+| onBlur | (val: string): void | - | blur 事件触发的回调函数 |	
+| onFocus |	(val: string): void	| - | focus 事件触发的回调函数 |
 
 # README
 
@@ -431,6 +480,25 @@ onClick | 点击时回调 | (object: DataItem) => void | |
 
 # README
 >>>>>>> fix: 修改switch中标题属性为label
+
+# README
+卡片容器组件
+
+### API
+
+| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
+| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
+| displayStyle       | 展示类型                               | 否   | 'normal'\|'detail'\|'slideable' | 'normal' |
+| btnText | 删除按钮文本。slideable模式下有效 | 否   | string                               | '删除' |
+| rightStyle | 删除按钮样式。slideable模式下有效 | 否   | number                            | {} |
+| label | 标题文本，detail模式下有效             | 否   | string                              | '' |
+| showDeleteIcon | 是否展示删除按钮，detail模式下有效 | 否   | boolean | true |
+| showTitleExtraIcon | 是否展示标题左侧图标，detail模式下有效 | 否 | boolean | false |
+| onDelete | 删除事件。detail/slideable模式下有效 | 否 | ()=>void |  |
+
+
+
+# README
 
 # README
 
@@ -482,6 +550,7 @@ interface InputNumberPorps {
 
 # README
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 ## Input 基础组件-输入框
 **API**
@@ -505,6 +574,8 @@ interface InputNumberPorps {
 | onBlur | (val: string): void | - | blur 事件触发的回调函数 |	
 | onFocus |	(val: string): void	| - | focus 事件触发的回调函数 |
 >>>>>>> fix: 修改switch中标题属性为label
+=======
+>>>>>>> fix: 修改switch组件设置方式
 
 # README
 
@@ -529,12 +600,15 @@ interface InputNumberPorps {
 # README
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 # README
 
 # README
 
 >>>>>>> fix: 修改switch中标题属性为label
+=======
+>>>>>>> fix: 修改switch组件设置方式
 联系方式组件，支持通过设置mode，区分座机、手机、邮箱。
 
 ### API
@@ -557,6 +631,19 @@ type emailType = Array<{type: string}>
 
 
 # README
+
+### API
+
+| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
+| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
+| *url*                    | 链接的url地址                      | 是   | string                                |      |
+| *width*                | iframe的样式宽度属性，默认为100%           | 否   | string                              |    |
+| *height*             | iframe的样式高度属性，默认为100%                    | 否   | string                       |        |
+
+
+# README
+
+# README
 图片组件。该组件仅作为图片展示组件，可用作头像展示等。
 
 ### API
@@ -570,19 +657,6 @@ type emailType = Array<{type: string}>
 | *label* | 标题文本 | 否   | string |               |
 
 
-
-# README
-
-### API
-
-| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
-| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
-| *url*                    | 链接的url地址                      | 是   | string                                |      |
-| *width*                | iframe的样式宽度属性，默认为100%           | 否   | string                              |    |
-| *height*             | iframe的样式高度属性，默认为100%                    | 否   | string                       |        |
-
-
-# README
 
 # README
 

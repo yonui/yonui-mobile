@@ -110,6 +110,7 @@ const manifest: ComponentManifest = {
   ],
   children: [],
   extension: [
+    ExtensionProps.singleLine,
     ExtensionProps.disabled,
     ExtensionProps.bIsNull,
     ExtensionProps.bMustSelect,
