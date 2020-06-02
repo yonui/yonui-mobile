@@ -1,19 +1,13 @@
 import React, { Component } from 'react'
 import YonuiInput from '../input-yonui'
 import classnames from 'classnames'
-import Wrapper, { ListItemWrapperProps } from '../list-item-wrapper'
+import Wrapper, { ListItemWrapperProps, getListItemProps } from '../list-item-wrapper'
 import { decodeValue } from '../_utils'
 const NumberReg = {
   normal: /^-?0*(\d+\.\d*|[1-9]\d*|0)$|-/, // 基本数值校验
   format: /\d{1,3}(?=(\d{3})+$)/g // 整数匹配千分位
 }
-export interface InputProps extends React.defaultProps, ListItemWrapperProps {
-  label?: string
-  required?: boolean
-  splitLine?: boolean
-  className?: string
-  style?: React.CSSProperties
-  singleLine?: boolean
+export interface InputProps extends ListItemWrapperProps {
   maxLength?: number
   mode?: 'normal' | 'percent' | 'permillage'
   value?: string | number
@@ -188,21 +182,9 @@ export default class Input extends Component<InputProps, InputState> {
     const cls = classnames('mdf-input', className)
     const inputCls = classnames('mdf-input-content')
     const inputProps = this.getInputProps()
+    const wrapperProps = getListItemProps(this.props, {className: cls, error, errorText})
     return (
-      <Wrapper
-        className={cls}
-        style={style}
-        splitLine={splitLine}
-        singleLine={singleLine}
-        nid={nid}
-        uitype={uitype}
-        label={label}
-        required={required}
-        error={error}
-        errorText={errorText}
-        showExtraLabelIcon={showExtraLabelIcon}
-        subLabel={subLabel}
-      >
+      <Wrapper {...wrapperProps}>
         <YonuiInput
           className={inputCls}
           required={required}
