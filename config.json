@@ -33,6 +33,9 @@
   "plugins": [
     ["import",{"libraryName":"antd-mobile","style":false}]
   ],
+  "outputConfig": {
+    "library": "__[name]__"
+  },
   "extraImport": {
       "js": "",
       "css": ""
@@ -53,7 +56,7 @@
     "Result": "fankuiye",
     "Empty": "kongshuju",
     "Label": "biaoqian1",
-    "NavBar": "tuanduiyingyong",
+    "NavBar": "daohang",
     "Div": "div",
     "Notice": "tishi",
     "popover": "qipao",
@@ -65,15 +68,18 @@
     "TabPane": "duoyeqianneirong",
     "SharePanel": "fenxiangmianban",
     "Loading": "jiazai",
-    "Grid": "table",
+    "Grid": "gongge",
     "Textarea": "duohangwenben",
     "CardBox": "card",
     "CardBoxGroup": "kapianrongqi1",
     "InputNumber": "digital",
     "Mobile": "shouji",
-    "YonuiIframe": "yemian",
+    "YonuiIframe": "iframe",
     "Rate": "pingfen",
-    "Picture": "tupianshangchuan",
-    "ListItemDisplay": "liebiaoxingshi"
+    "Picture": "tupian",
+    "ListItemDisplay": "danhangshujuzhanshi",
+    "Tips": "huibiaoshu",
+    "Slider": "huadongshurutiao",
+    "ToolBar": "daohang"
   }
 }
