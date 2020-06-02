@@ -20,6 +20,9 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
     // errorText: '填写信息有误!请重新填写'
   }
 
+  static getListItemProps: (props: any, other?: any) => {}
+  static manifestProps: any
+
   render () {
     const {
       splitLine = true, singleLine, label, labelCls, labelStyle,

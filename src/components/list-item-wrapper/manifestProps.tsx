@@ -70,11 +70,22 @@ const propsArray: Props[] = [
   {
     name: 'labelStyle',
     type: FieldTypes.object,
-    showDesign: false,
+    showDesign: true,
     designConfig: {
-      type: EditTypes.Json,
-      props: {},
-      label: '标题的style属性'
+      label: '标签样式',
+      type: EditTypes.IframeModal,
+      help: '',
+      props: {
+        caption: '标签样式',
+        iframeUrl: '/CssSelect?iframeId=labelStyle',
+        iframeId: 'mobileCssIframeModallabelStyle',
+        iframeContext: 'mobileCssIframeModal',
+        addText: '新增样式',
+        editText: '修改样式',
+        message: true,
+        isRequired: false,
+        footer: true
+      }
     }
   },
   {
@@ -93,9 +104,20 @@ const propsArray: Props[] = [
     type: FieldTypes.object,
     showDesign: false,
     designConfig: {
-      type: EditTypes.Json,
-      props: {},
-      label: '内容的style属性'
+      label: '内容样式',
+      type: EditTypes.IframeModal,
+      help: '',
+      props: {
+        caption: '内容样式',
+        iframeUrl: '/CssSelect?iframeId=contentStyle',
+        iframeId: 'mobileCssIframeModalcontentStyle',
+        iframeContext: 'mobileCssIframeModal',
+        addText: '新增样式',
+        editText: '修改样式',
+        message: true,
+        isRequired: false,
+        footer: true
+      }
     }
   },
   {

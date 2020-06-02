@@ -3,12 +3,9 @@ import React, { Component } from 'react'
 // import { InputItemPropsType } from 'antd-mobile/lib/input-item/PropsType'
 import YonuiInput from '../input-yonui'
 import classnames from 'classnames'
-import Wrapper, { ListItemWrapperProps } from '../list-item-wrapper'
+import Wrapper, { ListItemWrapperProps, getListItemProps } from '../list-item-wrapper'
 import { decodeValue } from '../_utils'
-export interface InputProps extends React.defaultProps, ListItemWrapperProps {
-  label?: string
-  required?: boolean
-  className?: string
+export interface InputProps extends ListItemWrapperProps {
   subuitype?: 'text' | 'idCard' | 'email' | 'ipAddress' | 'bankCard16' | 'bankCard19' | 'customized'
   defaultValue?: string
   value?: string
@@ -34,7 +31,7 @@ interface InputState {
   _value?: string
   _displayValue?: string
 }
-export default class Input extends Component<InputProps, InputState> {
+class Input extends Component<InputProps, InputState> {
   constructor (props: InputProps) {
     super(props)
     const { value, formatReg, hiddenChart, replaceChart, defaultValue } = props
@@ -207,26 +204,14 @@ export default class Input extends Component<InputProps, InputState> {
   }
 
   render () {
-    const { label, required, splitLine, className, singleLine, style, inputStyle, nid, uitype, subLabel, onChange, onBlur, onFocus, showExtraLabelIcon, value, ...other } = this.props
+    const { required, className, singleLine, inputStyle, onChange, onBlur, onFocus, value, ...other} = this.props
     const { error, errorText, _displayValue } = this.state
     const cls = classnames('mdf-input', className)
     const inputCls = classnames('mdf-input-content')
     const inputProps = this.getInputProps()
+    const wrapperProps = getListItemProps(this.props, {error, errorText, className: cls})
     return (
-      <Wrapper
-        className={cls}
-        style={style}
-        splitLine={splitLine}
-        singleLine={singleLine}
-        nid={nid}
-        uitype={uitype}
-        label={label}
-        required={required}
-        error={error}
-        errorText={errorText}
-        showExtraLabelIcon={showExtraLabelIcon}
-        subLabel={subLabel}
-      >
+      <Wrapper {...wrapperProps}>
         <YonuiInput
           className={inputCls}
           required={required}
@@ -244,3 +229,4 @@ export default class Input extends Component<InputProps, InputState> {
     )
   }
 }
+export default Input

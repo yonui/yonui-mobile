@@ -10,12 +10,13 @@ interface PictureProps extends React.defaultProps{
 }
 
 const Picture = (props: PictureProps) => {
-  const { url, label, borderRadius, size = 'md', showLabel, className, style, labelStyle } = props
+  const { url, label, borderRadius, size = 'md', showLabel, className, style, labelStyle, ...other } = props
   const cls = classnames(className, 'yonui-mobile-picture-wrapper')
   const imgCls = classnames('yonui-mobile-picture', `yonui-mobile-picture-size-${size}`)
   const imgStyle: React.CSSProperties = { borderRadius: `${borderRadius}%`, ...style }
+  const sty = {width: 'auto'}
   return (
-    <div className={cls}>
+    <div className={cls} {...other} style={sty}>
       <img className={imgCls} style={imgStyle} src={url} />
       {showLabel && label && <div className='yonui-mobile-picture-label' style={labelStyle}>{label}</div>}
     </div>

@@ -21,12 +21,14 @@
     "Input",
     "InputNumber",
     "Icon",
-    "Radio"
+    "Radio",
+    "Picture"
   ],
   "staticPropsMap": {
     "ListView": "DataSource",
     "List": ["ListItem","ListItemBrief"],
-    "Checkbox": ["CheckboxItem","AgreeItem"]
+    "Checkbox": ["CheckboxItem","AgreeItem"],
+    "ListItemWrapper": ["getListItemProps","manifestProps"]
   },
   "imgSize": 30000,
   "previewUrl": "http://tinper-libra-ui-demo.daily.app.yyuap.com/",
