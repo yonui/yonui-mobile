@@ -127,7 +127,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     const _selectedValue = getValueFromDataType(_checkedDataTemp)[0]
     const _list = selectData.map((item, index) => {
       const _checked = _selectedValue.includes(item.value)
-      const cls = classnames({
+      const cls = classnames('yonui-radio-list-content-item', {
         'yonui-radio-list-active': _checked,
         'yonui-radio-list-disabled': this.props.disabled || item.disabled
       })
