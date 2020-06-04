@@ -2,14 +2,10 @@ import React from 'react'
 import { DatePicker, Calendar, Icon } from 'antd-mobile'
 // import { DatePickerPropsType } from 'antd-mobile/lib/date-picker/PropsType'
 import { dateFormat, formatStringToDate } from '../_utils'
-import Wrapper from '../list-item-wrapper'
+import Wrapper, { ListItemWrapperProps, getListItemProps } from '../list-item-wrapper'
 import classnames from 'classnames'
-export interface ListDatePickerProps {
-  label?: string
-  required?: boolean
-  style?: object
+export interface ListDatePickerProps extends ListItemWrapperProps{
   dateMode?: 'picker-date' | 'picker-time' | 'picker-datetime' | 'picker-year' | 'picker-month' | 'calendar-date' | 'calendar-datetime'
-  splitLine?: boolean
   minDate?: Date | string
   maxDate?: Date | string
   format?: string
@@ -106,7 +102,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
   }
 
   render () {
-    const { label, required, value, minDate, maxDate, disabled, style, dateMode, onCancel, format, extra, title, splitLine, ...restProps } = this.props
+    const { label, required, value, minDate, maxDate, disabled, style, dateMode, onCancel, format, extra, title, splitLine, labelCls: lbc, ...restProps } = this.props
     const { visible, _value } = this.state
     let valueTrs
     if (dateMode === 'picker-time') {
@@ -118,11 +114,17 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
     const maxDateTrs = dateMode === 'picker-time' ? undefined : formatStringToDate(maxDate)
     const typeAndMode = dateMode?.split('-') || []
     const fmt = format || modeToFormat(dateMode)
-    const labelCls = classnames('date-time-picker-label')
+    const labelCls = classnames(lbc, 'date-time-picker-label')
     const valueCls = classnames('date-time-picker-value', { disabled })
     if (typeAndMode[0] === 'calendar') {
+      const wrapperProps = getListItemProps(this.props, {
+        labelCls,
+        className: 'date-time-picker',
+        singleLine: true,
+        onClick: !disabled ? this.onOpenCalendar : undefined
+      })
       return (<>
-        <Wrapper className='date-time-picker' style={style} splitLine={splitLine} singleLine label={label} required={required} onClick={!disabled ? this.onOpenCalendar : undefined}>
+        <Wrapper {...wrapperProps}>
           <div className={valueCls}>
             {valueTrs ? dateFormat(valueTrs, fmt) : extra}
             {!disabled && <Icon type='right' />}
@@ -143,6 +145,11 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
         </span>
       </>)
     } else {
+      const wrapperProps = getListItemProps(this.props, {
+        className: `date-time-picker ${disabled && 'no-arrow'}`,
+        singleLine: true,
+        onClick: !disabled ? this.onOpenCalendar : undefined
+      })
       return (
         <DatePicker
           {...restProps}
@@ -157,15 +164,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
           onOk={this.onConfirm}
           onDismiss={this.onCancel}
         >
-          <Wrapper
-            className={`date-time-picker ${disabled && 'no-arrow'}`}
-            style={style}
-            splitLine={splitLine}
-            label={label}
-            labelCls={labelCls}
-            required={required}
-            singleLine
-            onClick={!disabled ? this.onOpenCalendar : undefined}>
+          <Wrapper {...wrapperProps}>
             <div className={valueCls}>
               {valueTrs ? dateFormat(valueTrs, fmt || 'yyyy-MM-dd') : extra}
               {!disabled && <Icon type='right' />}

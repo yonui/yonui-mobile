@@ -124,7 +124,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     const { multiple: isMultiple, itemsStyle } = this.props
     // const selectedValueSet = typeof selectedValue === 'string' ? new Set([selectedValue]) : new Set(selectedValue)
     const { _checkedDataTemp } = this.state
-    const _selectedValue = selectedValue ?? getValueFromDataType(_checkedDataTemp)[0]
+    const _selectedValue = getValueFromDataType(_checkedDataTemp)[0]
     const _list = selectData.map((item, index) => {
       const _checked = _selectedValue.includes(item.value)
       const cls = classnames({
