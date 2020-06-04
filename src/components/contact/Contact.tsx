@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Wrapper from '../list-item-wrapper'
+import Wrapper, { getListItemProps } from '../list-item-wrapper'
 import Input from '../input-yonui'
 import Icon from '../icon'
 import { Modal } from 'antd-mobile'
@@ -240,11 +240,12 @@ export default class Contact extends Component<ContactProps, ContactState> {
   }
 
   render () {
-    const { label, dataSource, singleLine, mode, area, isSelect, emailDataSource, splitLine, required } = this.props
+    const { dataSource, mode, area, isSelect, emailDataSource} = this.props
     const { open, error } = this.state
     const content = this.getContent(mode, area, isSelect)
+    const wrapperProps = getListItemProps(this.props, { error })
     return (
-      <Wrapper label={label} singleLine={singleLine} splitLine={splitLine} required={required} className='yonui-mobile-contact' error={error}>
+      <Wrapper {...wrapperProps} className='yonui-mobile-contact'>
         {content}
         <Modal visible={open} popup maskClosable onClose={() => { this.onCloseModal() }} animationType='slide-up' className='yonui-contact-modal'>
           {(mode === 'email') ? this.renderEmailList(emailDataSource || defaultEmailTypeDataSource) : this.renderAreaList(dataSource || defaultDataSource)}

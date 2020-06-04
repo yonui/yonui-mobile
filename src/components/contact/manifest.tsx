@@ -6,30 +6,18 @@ const manifest: ComponentManifest = {
   uiObject: UIObject.Controls,
   icon: 'chengyuan',
   props: [
-    {
-      name: 'label',
-      type: FieldTypes.string,
-      defaultValue: '电话',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: '标题文本'
-      }
-    },
-    {
-      name: 'singleLine',
-      type: FieldTypes.boolean,
-      defaultValue: true,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '是否单行'
-      }
-    },
+    // {
+    //   name: 'singleLine',
+    //   type: FieldTypes.boolean,
+    //   defaultValue: true,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Bool,
+    //     isRequired: false,
+    //     props: {},
+    //     label: '是否单行'
+    //   }
+    // },
     {
       name: 'mode',
       type: FieldTypes.string,
@@ -104,10 +92,20 @@ const manifest: ComponentManifest = {
   ],
   children: [],
   extension: [
-    ExtensionProps.bIsNull
+    ExtensionProps.bIsNull,
+    // ExtensionProps.disabled,
+    ExtensionProps.singleLine,
+    ExtensionProps.splitLine,
+    ExtensionProps.bMustSelect,
+    ExtensionProps.formula,
+    ExtensionProps.isExport,
+    ExtensionProps.bCheck,
+    ExtensionProps.bVmExclude,
+    ExtensionProps.cStyle
   ],
   propertyMap: {
-    bIsNull: '!required'
+    bIsNull: '!required',
+    cShowCaption: 'label'
   }
 }
 

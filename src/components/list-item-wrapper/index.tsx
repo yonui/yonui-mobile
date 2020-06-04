@@ -45,7 +45,7 @@ export const getListItemProps = (props: ListItemWrapperProps, other?: ListItemWr
   const res = {}
   selfPropsArray.forEach(key => {
     if (props[key] !== undefined) res[key] = props[key]
-    if (other[key] !== undefined) res[key] = other[key]
+    if (other?.[key] !== undefined) res[key] = other[key]
   })
   return res
 }
