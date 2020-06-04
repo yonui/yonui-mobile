@@ -87,7 +87,7 @@ const manifest: ComponentManifest = {
       name: 'inline',
       type: FieldTypes.boolean,
       defaultValue: false,
-      showDesign: true,
+      showDesign: false,
       designConfig: {
         type: EditTypes.Bool,
         isRequired: true,
