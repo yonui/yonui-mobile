@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps, ExtensionProps } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'Rate',
   label: '评分',
@@ -41,18 +41,6 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'disabled',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '禁用'
-      }
-    },
-    {
       name: 'onChange',
       type: FieldTypes.action,
       showDesign: false,
@@ -64,7 +52,23 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: []
+  children: [],
+  extension: [
+    ExtensionProps.bIsNull,
+    ExtensionProps.disabled,
+    ExtensionProps.singleLine,
+    ExtensionProps.splitLine,
+    ExtensionProps.bMustSelect,
+    ExtensionProps.formula,
+    ExtensionProps.isExport,
+    ExtensionProps.bCheck,
+    ExtensionProps.bVmExclude,
+    ExtensionProps.cStyle
+  ],
+  propertyMap: {
+    bIsNull: '!required',
+    cShowCaption: 'label'
+  }
 }
 
 export default manifest
