@@ -30,6 +30,17 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'value',
+      type: FieldTypes.number,
+      showDesign: false,
+      designConfig: {
+        type: EditTypes.Number,
+        isRequired: false,
+        props: {},
+        label: '值'
+      }
+    },
+    {
       name: 'defaultValue',
       type: FieldTypes.number,
       showDesign: true,

@@ -8,6 +8,7 @@ interface RateProps extends React.defaultProps{
   count: number
   allowHalf?: boolean
   defaultValue?: number
+  value?: number
   disabled?: boolean
   onChange?: (value: number) => void
 }
@@ -33,7 +34,7 @@ export default class Rate extends PureComponent<RateProps> {
   }
 
   render () {
-    const { allowHalf, defaultValue, count, disabled, onChange } = this.props
+    const { allowHalf, defaultValue, value, count, disabled, onChange } = this.props
     const wrapperProps = getListItemProps(this.props, {
       contentCls: 'yonui-mobile-rate'
     })
@@ -42,7 +43,7 @@ export default class Rate extends PureComponent<RateProps> {
         <RcRate
           allowHalf={allowHalf}
           characterRender={this.characterRender}
-          defaultValue={defaultValue}
+          defaultValue={value || defaultValue}
           onChange={onChange}
           count={count}
           disabled={disabled}
