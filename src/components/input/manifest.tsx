@@ -1,5 +1,5 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps } from 'yonui-extension'
-import listItemProps from '../list-item-wrapper/manifestProps'
+import { getFilterProps } from '../list-item-wrapper/manifestProps'
 const manifest: ComponentManifest = {
   name: 'Input',
   uiObject: UIObject.Controls,
@@ -37,6 +37,19 @@ const manifest: ComponentManifest = {
           ]
         },
         label: '类型'
+      }
+    },
+    {
+      name: 'check',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '是否校验',
+        help: '此处为是否执行组件内置的校验规则'
       }
     },
     {
@@ -97,18 +110,6 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'check',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '是否校验'
-      }
-    },
-    {
       name: 'regRule',
       type: FieldTypes.string,
       showDesign: true,
@@ -128,7 +129,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '校验错误提示文本'
+        label: '格式错误提示文本',
+        help: '对应自定义格式不正确的情况'
       }
     },
     {
@@ -216,7 +218,7 @@ const manifest: ComponentManifest = {
         }
       }
     },
-    ...listItemProps
+    ...getFilterProps(['errorText'])
   ],
   extension: [
     ExtensionProps.bIsNull,

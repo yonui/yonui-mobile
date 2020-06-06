@@ -99,7 +99,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.IframeModal,
         help: '',
         props: {
-          caption: '输入框样式',
+          caption: '标题样式',
           iframeUrl: '/CssSelect?iframeId=labelStyle',
           iframeId: 'mobileCssIframeModallabelStyle',
           iframeContext: 'mobileCssIframeModal',

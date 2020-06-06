@@ -1,5 +1,5 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
-import listItemProps from '../list-item-wrapper/manifestProps'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps } from 'yonui-extension'
+import { getFilterProps } from '../list-item-wrapper/manifestProps'
 const manifest: ComponentManifest = {
   name: 'DateTimePicker',
   label: '日期时间选择',
@@ -87,30 +87,30 @@ const manifest: ComponentManifest = {
         help: '分钟数递增步长设置'
       }
     },
-    {
-      name: 'required',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '必填'
-      }
-    },
-    {
-      name: 'splitLine',
-      type: FieldTypes.boolean,
-      defaultValue: true,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '下划线'
-      }
-    },
+    // {
+    //   name: 'required',
+    //   type: FieldTypes.boolean,
+    //   defaultValue: false,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Bool,
+    //     isRequired: false,
+    //     props: {},
+    //     label: '必填'
+    //   }
+    // },
+    // {
+    //   name: 'splitLine',
+    //   type: FieldTypes.boolean,
+    //   defaultValue: true,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Bool,
+    //     isRequired: false,
+    //     props: {},
+    //     label: '下划线'
+    //   }
+    // },
     {
       name: 'arrow',
       type: FieldTypes.boolean,
@@ -123,17 +123,17 @@ const manifest: ComponentManifest = {
         label: '显示箭头'
       }
     },
-    {
-      name: 'disabled',
-      type: FieldTypes.boolean,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '禁用'
-      }
-    },
+    // {
+    //   name: 'disabled',
+    //   type: FieldTypes.boolean,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Bool,
+    //     isRequired: false,
+    //     props: {},
+    //     label: '禁用'
+    //   }
+    // },
     {
       name: 'onChangeDate',
       type: FieldTypes.action,
@@ -214,34 +214,47 @@ const manifest: ComponentManifest = {
     //     label: 'class前缀'
     //   }
     // },
-    {
-      name: 'onOk',
-      type: FieldTypes.action,
-      showDesign: false,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: 'onOk',
-        help: '选中回调'
-      }
-    },
-    {
-      name: 'onDismiss',
-      type: FieldTypes.action,
-      showDesign: false,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: 'onDismiss',
-        help: '取消回调'
-      }
-    },
-    ...listItemProps
+    // {
+    //   name: 'onOk',
+    //   type: FieldTypes.action,
+    //   showDesign: false,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     isRequired: false,
+    //     props: {},
+    //     label: 'onOk',
+    //     help: '选中回调'
+    //   }
+    // },
+    // {
+    //   name: 'onDismiss',
+    //   type: FieldTypes.action,
+    //   showDesign: false,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     isRequired: false,
+    //     props: {},
+    //     label: 'onDismiss',
+    //     help: '取消回调'
+    //   }
+    // },
+    ...getFilterProps(['singleLine'])
+  ],
+  extension: [
+    ExtensionProps.bIsNull,
+    ExtensionProps.disabled,
+    // ExtensionProps.singleLine,
+    // ExtensionProps.splitLine,
+    ExtensionProps.bMustSelect,
+    ExtensionProps.formula,
+    ExtensionProps.isExport,
+    ExtensionProps.bCheck,
+    ExtensionProps.bVmExclude,
+    ExtensionProps.cStyle
   ],
   propertyMap: {
-    cShowCaption: 'label'
+    cShowCaption: 'label',
+    bIsNull: '!required'
   }
 }
 

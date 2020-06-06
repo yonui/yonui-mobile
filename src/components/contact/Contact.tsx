@@ -18,7 +18,9 @@ interface ContactProps extends React.defaultProps, React.inputItemProps{
   emailDataSource?: emailType
   onChange?: (value: string) => void
   required?: boolean
+  defaultValue?: string
   value?: string
+  disabled?: boolean
 }
 interface ContactState {
   country?: string
@@ -121,7 +123,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
   }
 
   getContent = (mode?: 'telephone' | 'mobilephone' | 'email', area?: boolean, isSelectEmail?: boolean) => {
-    const { onChange, singleLine, value, required } = this.props
+    const { onChange, singleLine, value, required, disabled, defaultValue } = this.props
     const { emailType, country, countryNum, _value } = this.state
     const val = value !== undefined ? value : _value
     switch (mode) {
@@ -129,11 +131,31 @@ export default class Contact extends Component<ContactProps, ContactState> {
         const inputTextAlign = singleLine ? 'right' : 'left'
         const selectEmail = (
           <div className='yonui-monile-contact-content e-mail'>
-            <Input textAlign={inputTextAlign} placeholder='name' onChange={onChange} value={val} onSuccess={this.onSuccess} onError={this.onError} required={required} />
+            <Input
+              textAlign={inputTextAlign}
+              placeholder='name'
+              onChange={onChange}
+              value={val}
+              onSuccess={this.onSuccess}
+              onError={this.onError}
+              required={required}
+              disabled={disabled}
+              defaultValue={defaultValue}
+            />
             <span className='yonui-contact-button' onClick={() => { this.onOpenModal() }}>{emailType}</span>
             <Icon type='down' />
           </div>)
-        const email = <Input textAlign={inputTextAlign} placeholder='name@yonyou.com' onChange={onChange} onSuccess={this.onSuccess} onError={this.onError} required={required} />
+        const email = (
+          <Input
+            textAlign={inputTextAlign}
+            placeholder='name@yonyou.com'
+            onChange={onChange}
+            onSuccess={this.onSuccess}
+            onError={this.onError}
+            required={required}
+            disabled={disabled}
+            defaultValue={defaultValue}
+          />)
         return isSelectEmail ? selectEmail : email
       }
       case 'mobilephone': {
@@ -148,6 +170,8 @@ export default class Contact extends Component<ContactProps, ContactState> {
               onSuccess={this.onSuccess}
               onError={this.onError}
               required={required}
+              disabled={disabled}
+              defaultValue={defaultValue}
             />
             <img className='yonui-img-icon small' src={phoneIcon} onClick={() => { this.dailAction() }} />
           </div>)
@@ -171,6 +195,8 @@ export default class Contact extends Component<ContactProps, ContactState> {
             onSuccess={this.onSuccess}
             onError={this.onError}
             required={required}
+            disabled={disabled}
+            defaultValue={defaultValue}
           />
           <img className='yonui-img-icon small' src={phoneIcon} onClick={() => { this.dailAction() }} />
         </div>)

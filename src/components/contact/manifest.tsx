@@ -6,18 +6,18 @@ const manifest: ComponentManifest = {
   uiObject: UIObject.Controls,
   icon: 'chengyuan',
   props: [
-    // {
-    //   name: 'singleLine',
-    //   type: FieldTypes.boolean,
-    //   defaultValue: true,
-    //   showDesign: true,
-    //   designConfig: {
-    //     type: EditTypes.Bool,
-    //     isRequired: false,
-    //     props: {},
-    //     label: '是否单行'
-    //   }
-    // },
+    {
+      name: 'defaultValue',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '默认值'
+      }
+    },
     {
       name: 'mode',
       type: FieldTypes.string,
@@ -93,7 +93,7 @@ const manifest: ComponentManifest = {
   children: [],
   extension: [
     ExtensionProps.bIsNull,
-    // ExtensionProps.disabled,
+    ExtensionProps.disabled,
     ExtensionProps.singleLine,
     ExtensionProps.splitLine,
     ExtensionProps.bMustSelect,
