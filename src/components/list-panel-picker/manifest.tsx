@@ -38,19 +38,19 @@ const manifest: ComponentManifest = {
         help: '传入的列表数据'
       }
     },
-    {
-      name: 'onClick',
-      type: FieldTypes.action,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: 'onClick',
-        help: '点击每个列表项的回调函数'
-      }
-    },
+    // {
+    //   name: 'onClick',
+    //   type: FieldTypes.action,
+    //   defaultValue: '',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     isRequired: false,
+    //     props: {},
+    //     label: 'onClick',
+    //     help: '点击每个列表项的回调函数'
+    //   }
+    // },
     {
       name: 'onClose',
       type: FieldTypes.action,

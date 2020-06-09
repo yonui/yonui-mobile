@@ -116,45 +116,45 @@ const manifest: ComponentManifest = {
         help: '是否支持菜单多选'
       }
     },
-    {
-      name: 'onChange',
-      type: FieldTypes.action,
-      defaultValue: '',
-      value: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        props: {},
-        label: 'onChange',
-        help: '选择后的回调函数'
-      }
-    },
-    {
-      name: 'onOk',
-      type: FieldTypes.action,
-      defaultValue: '',
-      value: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        props: {},
-        label: 'onOk',
-        help: '多选状态下确认按钮回调'
-      }
-    },
-    {
-      name: 'onCancel',
-      type: FieldTypes.action,
-      defaultValue: '',
-      value: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        props: {},
-        label: 'onCancel',
-        help: '多选状态下取消按钮回调'
-      }
-    }
+    // {
+    //   name: 'onChange',
+    //   type: FieldTypes.action,
+    //   defaultValue: '',
+    //   value: '',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     props: {},
+    //     label: 'onChange',
+    //     help: '选择后的回调函数'
+    //   }
+    // },
+    // {
+    //   name: 'onOk',
+    //   type: FieldTypes.action,
+    //   defaultValue: '',
+    //   value: '',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     props: {},
+    //     label: 'onOk',
+    //     help: '多选状态下确认按钮回调'
+    //   }
+    // },
+    // {
+    //   name: 'onCancel',
+    //   type: FieldTypes.action,
+    //   defaultValue: '',
+    //   value: '',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     props: {},
+    //     label: 'onCancel',
+    //     help: '多选状态下取消按钮回调'
+    //   }
+    // }
   ],
   children: []
 }
