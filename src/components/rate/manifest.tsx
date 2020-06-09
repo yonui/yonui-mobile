@@ -50,17 +50,6 @@ const manifest: ComponentManifest = {
         props: {},
         label: '默认值'
       }
-    },
-    {
-      name: 'onChange',
-      type: FieldTypes.action,
-      showDesign: false,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: 'onChange'
-      }
     }
   ],
   children: [],

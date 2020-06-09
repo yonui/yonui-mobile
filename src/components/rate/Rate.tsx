@@ -24,7 +24,7 @@ export default class Rate extends PureComponent<RateProps> {
     if (index >= value) {
       icon = <StarEmpty />
     } else if (value - index === 0.5) {
-      icon = [<StarHalf key='half' className='star-half' />, <StarEmpty key='half-wrapper' />]
+      icon = [<StarHalf key='half' {...{className: 'star-half'}} />, <StarEmpty key='half-wrapper' />]
     } else {
       icon = <StarFull />
     }
@@ -43,7 +43,8 @@ export default class Rate extends PureComponent<RateProps> {
         <RcRate
           allowHalf={allowHalf}
           characterRender={this.characterRender}
-          defaultValue={value || defaultValue}
+          value={value || defaultValue}
+          // defaultValue={defaultValue}
           onChange={onChange}
           count={count}
           disabled={disabled}
