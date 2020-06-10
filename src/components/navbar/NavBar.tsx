@@ -18,6 +18,7 @@ export interface NavBarProps {
   closeIconText: string
   onBackClick?: () => void
   onCloseClick?: () => void
+  onTitleClick?: () => void
   mode: string
   reghtIcons: any
   style?: React.CSSProperties
@@ -40,9 +41,9 @@ export default class MDFNavBar extends React.Component<NavBarProps, any> {
   }
 
   renderCenterContent = () => {
-    const { title, titleIcon, subTitle } = this.props
+    const { title, titleIcon, subTitle, onTitleClick } = this.props
     return <>
-      <div>
+      <div onClick={onTitleClick}>
         <div className='title'>{title}{titleIcon && <Icon type={titleIcon} />}</div>
         <div className='sub-title'>{subTitle}</div>
       </div>
