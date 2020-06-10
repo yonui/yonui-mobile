@@ -116,12 +116,7 @@ const manifest: ComponentManifest = {
     ExtensionProps.bMustSelect,
     ExtensionProps.isExport,
     ExtensionProps.bVmExclude
-  ],
-  propertyMap: {
-    bIsNull: '!required',
-    cShowCaption: 'label',
-    cDefaultValue: 'defaultValue'
-  }
+  ]
 }
 
 export default manifest

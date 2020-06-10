@@ -87,18 +87,6 @@ const manifest: ComponentManifest = {
         label: '展示标题额外图标',
         help: '详情态有效'
       }
-    },
-    {
-      name: 'onDelete',
-      type: FieldTypes.action,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: '按钮点击事件',
-        help: '滑动删除/详情态有效'
-      }
     }
   ],
   children: () => true
