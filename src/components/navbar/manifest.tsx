@@ -169,7 +169,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         props: {
         },
-        label: '右一图标文本'
+        label: '右二图标文本'
       }
     },
     {

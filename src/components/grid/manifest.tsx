@@ -59,19 +59,19 @@ const manifest: ComponentManifest = {
         help: '传入的菜单数据'
       }
     },
-    {
-      name: 'onClick',
-      type: FieldTypes.action,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: 'onClick',
-        help: '点击每个菜单的回调函数'
-      }
-    },
+    // {
+    //   name: 'onClick',
+    //   type: FieldTypes.action,
+    //   defaultValue: '',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     isRequired: false,
+    //     props: {},
+    //     label: 'onClick',
+    //     help: '点击每个菜单的回调函数'
+    //   }
+    // },
     {
       name: 'columnNum',
       type: FieldTypes.number,
