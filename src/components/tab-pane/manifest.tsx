@@ -4,7 +4,6 @@ const manifest: ComponentManifest = {
   label: '多页签内容',
   description: 'Tabs组件的子组件',
   uiObject: UIObject.Containers,
-  type: 'layoutContainer',
   icon: 'wenziyeqian',
   props: [
     {

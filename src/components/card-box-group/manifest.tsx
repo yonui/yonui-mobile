@@ -2,7 +2,6 @@ import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extens
 const manifest: ComponentManifest = {
   name: 'CardBoxGroup',
   label: '卡片容器组',
-  type: 'dataContainer',
   uiObject: UIObject.Containers,
   icon: 'card',
   props: [
