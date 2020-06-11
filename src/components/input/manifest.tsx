@@ -49,7 +49,7 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '是否校验',
-        help: '此处为是否执行组件内置的校验规则'
+        help: '是否执行校验规则'
       }
     },
     {
