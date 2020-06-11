@@ -17,6 +17,8 @@ interface ContactProps extends React.defaultProps, React.inputItemProps{
   dataSource?: dataSourceType
   emailDataSource?: emailType
   onChange?: (value: string) => void
+  onBlur?: (value: string) => void
+  onFocus?: (value: string) => void
   required?: boolean
   defaultValue?: string
   value?: string
@@ -100,6 +102,16 @@ export default class Contact extends Component<ContactProps, ContactState> {
     })
   }
 
+  _onFocus = (val: string) => {
+    const { onFocus } = this.props
+    onFocus && onFocus(val)
+  }
+
+  _onBlur = (val: string) => {
+    const { onBlur } = this.props
+    onBlur && onBlur(val)
+  }
+
   dailAction = () => {
     const { mode, area } = this.props
     const { countryNum, _value } = this.state
@@ -135,6 +147,8 @@ export default class Contact extends Component<ContactProps, ContactState> {
               textAlign={inputTextAlign}
               placeholder='name'
               onChange={onChange}
+              onBlur={this._onBlur}
+              onFocus={this._onFocus}
               value={val}
               onSuccess={this.onSuccess}
               onError={this.onError}
@@ -166,6 +180,8 @@ export default class Contact extends Component<ContactProps, ContactState> {
               placeholder='000 0000 0000'
               value={val}
               onChange={(value) => { this.textOnChange(value) }}
+              onBlur={this._onBlur}
+              onFocus={this._onFocus}
               {...patternMap.mobilePhone}
               onSuccess={this.onSuccess}
               onError={this.onError}
@@ -192,6 +208,8 @@ export default class Contact extends Component<ContactProps, ContactState> {
             value={val}
             placeholder='座机号码-分机号码'
             onChange={(value) => { this.textOnChange(value) }}
+            onBlur={this._onBlur}
+            onFocus={this._onFocus}
             onSuccess={this.onSuccess}
             onError={this.onError}
             required={required}
