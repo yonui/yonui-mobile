@@ -4,7 +4,7 @@ const manifest: ComponentManifest = {
   label: '页面引用',
   type: 'layoutContainer',
   uiObject: UIObject.Containers,
-  hidden: false,
+  hidden: true,
   icon: 'div',
   props: [
 

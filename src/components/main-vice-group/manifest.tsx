@@ -5,7 +5,7 @@ const manifest: ComponentManifest = {
   description: '页面',
   type: 'layoutContainer',
   uiObject: UIObject.Containers,
-  hidden: false,
+  hidden: true,
   icon: 'div',
   props: [
     {
