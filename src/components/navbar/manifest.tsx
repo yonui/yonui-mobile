@@ -1,9 +1,9 @@
-import { EditTypes, FieldTypes, ComponentManifest, UIObject } from 'yonui-extension'
+import { EditTypes, FieldTypes, ComponentManifest, UIObject, TypeProps } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'NavBar',
   label: '导航',
   description: '位于 app 内容区的上方，系统状态栏的下方，并且提供在一系列页面中的导航能力。', // 描述
-  type: 'operationBar',
+  type: TypeProps.FunctionalControls,
   uiObject: UIObject.Containers,
   icon: 'chaxunmoban',
   props: [// adapter适配层数据

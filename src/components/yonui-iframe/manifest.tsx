@@ -2,7 +2,7 @@ import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps } from 'y
 const manifest: ComponentManifest = {
   name: 'YonuiIframe',
   label: 'iframe',
-  type: TypeProps.BasicControls,
+  type: TypeProps.FunctionalControls,
   uiObject: UIObject.Controls,
   props: [
     {

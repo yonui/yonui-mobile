@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps } from 'yonui-extension'
 const data = [
   { key: '1', text: '修改所有日程' },
   { key: '2', text: '修改将来所有日程' },
@@ -9,7 +9,7 @@ const manifest: ComponentManifest = {
   uiObject: UIObject.Controls,
   label: '底部弹出菜单',
   description: '底部弹出菜单',
-  type: 'operationBar',
+  type: TypeProps.FunctionalControls,
   icon: 'list',
   props: [
     {
