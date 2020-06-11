@@ -1,10 +1,10 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps, TypeProps } from 'yonui-extension'
 import { getFilterProps } from '../list-item-wrapper/manifestProps'
 const manifest: ComponentManifest = {
   name: 'Textarea',
   uiObject: UIObject.Controls,
   label: '多行文本',
-  type: 'basicControls',
+  type: TypeProps.FormControls,
   icon: 'rich_text',
   props: [
     {

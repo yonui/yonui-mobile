@@ -1,9 +1,9 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps, TypeProps } from 'yonui-extension'
 import { getFilterProps } from '../list-item-wrapper/manifestProps'
 const manifest: ComponentManifest = {
   name: 'DateTimePicker',
   label: '日期时间选择',
-  type: 'basicControls',
+  type: TypeProps.FormControls,
   uiObject: UIObject.Controls,
   icon: 'time',
   props: [

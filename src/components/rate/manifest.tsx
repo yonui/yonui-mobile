@@ -2,7 +2,7 @@ import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps, Extensio
 const manifest: ComponentManifest = {
   name: 'Rate',
   label: '评分',
-  type: TypeProps.BasicControls,
+  type: TypeProps.FormControls,
   uiObject: UIObject.Controls,
   props: [
     {

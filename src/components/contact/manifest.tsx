@@ -2,7 +2,7 @@ import { ComponentManifest, UIObject, TypeProps, FieldTypes, EditTypes, Extensio
 const manifest: ComponentManifest = {
   name: 'Mobile',
   label: '联系方式',
-  type: TypeProps.BasicControls,
+  type: TypeProps.FormControls,
   uiObject: UIObject.Controls,
   icon: 'chengyuan',
   props: [

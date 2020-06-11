@@ -3,7 +3,7 @@ import listItemProps from '../list-item-wrapper/manifestProps'
 const manifest: ComponentManifest = {
   name: 'InputNumber',
   label: '数值',
-  type: TypeProps.BasicControls,
+  type: TypeProps.FormControls,
   uiObject: UIObject.Controls,
   icon: 'digital',
   props: [

@@ -3,7 +3,7 @@ import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps } from 'y
 const manifest: ComponentManifest = {
   name: 'Button',
   label: '按钮',
-  type: TypeProps.BasicControls,
+  type: TypeProps.FormControls,
   icon: 'anniu',
   uiObject: UIObject.Controls,
   props: [

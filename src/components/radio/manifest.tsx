@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps, TypeProps } from 'yonui-extension'
 // todo 未配置 onClick onChange
 const selectData = [
   { value: 'value1', text: '项目1' },
@@ -9,7 +9,7 @@ const manifest: ComponentManifest = {
   name: 'Radio',
   label: '选项',
   description: '',
-  type: 'basicControls',
+  type: TypeProps.FormControls,
   uiObject: UIObject.Controls,
   icon: 'radio',
   props: [

@@ -4,7 +4,7 @@ const manifest: ComponentManifest = {
   name: 'Switch',
   label: '滑动开关',
   description: '',
-  type: TypeProps.BasicControls,
+  type: TypeProps.FormControls,
   uiObject: UIObject.Controls,
   icon: 'radio',
   props: [
