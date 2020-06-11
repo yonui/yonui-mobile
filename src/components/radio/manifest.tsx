@@ -1,10 +1,10 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps, TypeProps } from 'yonui-extension'
 // todo 未配置 onClick onChange
-const selectData = [
-  { value: 'value1', text: '项目1' },
-  { value: 'value2', text: '项目2' },
-  { value: 'value3', text: '项目3', disabled: true }
-]
+// const selectData = [
+//   { value: 'value1', text: '项目1' },
+//   { value: 'value2', text: '项目2' },
+//   { value: 'value3', text: '项目3', disabled: true }
+// ]
 const manifest: ComponentManifest = {
   name: 'Radio',
   label: '选项',
@@ -69,7 +69,7 @@ const manifest: ComponentManifest = {
     {
       name: 'dataSource',
       type: FieldTypes.object,
-      defaultValue: JSON.stringify(selectData),
+      defaultValue: JSON.stringify([]),
       showDesign: false,
       designConfig: {
         type: EditTypes.Json,
