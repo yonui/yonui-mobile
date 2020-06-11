@@ -1,9 +1,9 @@
-import { EditTypes, FieldTypes, ComponentManifest, UIObject } from 'yonui-extension'
+import { EditTypes, FieldTypes, ComponentManifest, UIObject, TypeProps } from 'yonui-extension'
 
 const manifest: ComponentManifest = {
   name: 'Flex',
   label: '流式布局',
-  type: 'layoutContainer',
+  type: TypeProps.LayoutContainer,
   description: '实现css flex布局', // 描述
   uiObject: UIObject.Containers,
   icon: 'icon_wangye',

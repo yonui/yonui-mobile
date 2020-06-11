@@ -1,8 +1,8 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'Divider',
   label: '分割线',
-  type: 'type',
+  type: TypeProps.LayoutContainer,
   uiObject: UIObject.Controls,
   props: [
     {

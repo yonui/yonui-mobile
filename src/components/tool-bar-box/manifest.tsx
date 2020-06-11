@@ -1,10 +1,10 @@
-import { ComponentManifest, UIObject, FieldTypes, EditTypes } from 'yonui-extension'
+import { ComponentManifest, UIObject, FieldTypes, EditTypes, TypeProps } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'ToolBar',
   label: '工具栏容器',
   description: '简化工具栏变成一个简单容器,需要手动拖放按钮组件',
   uiObject: UIObject.Containers,
-  type: 'operationBar',
+  type: TypeProps.LayoutContainer,
   props: [
     {
       name: 'layout',
