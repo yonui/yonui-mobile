@@ -22,7 +22,8 @@
     "InputNumber",
     "Icon",
     "Radio",
-    "Picture"
+    "Picture",
+    "Footer"
   ],
   "staticPropsMap": {
     "ListView": "DataSource",

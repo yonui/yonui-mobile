@@ -2,7 +2,8 @@ import React from 'react'
 import classnames from 'classnames'
 import { Icon } from 'antd-mobile'
 export interface LabelProps extends React.defaultProps{
-  label?: string // 文本大小
+  label?: string // 文本
+  spareLabel?: string
   // type?: 'default' | 'primary' | 'border' | 'label'
   // color?: string
   // bgColor?: string
@@ -57,7 +58,7 @@ export default class Label extends React.PureComponent<LabelProps> {
   // }
 
   render () {
-    const { label, style, className, textAlign, leftIcon, rightIcon, ...other } = this.props
+    const { label, spareLabel, style, className, textAlign, leftIcon, rightIcon, ...other } = this.props
     const sty: React.CSSProperties = { ...style, justifyContent: textAlign && alignMap[textAlign] }
     const cls = classnames(className, 'yonui-tag')
     const leftIconEle = typeof leftIcon === 'string' ? <Icon type={leftIcon} size='xxs' /> : leftIcon
@@ -65,7 +66,7 @@ export default class Label extends React.PureComponent<LabelProps> {
     return (
       <span className={cls} style={sty} {...other}>
         {leftIcon && leftIconEle}
-        <span className='yonui-mobile-tag-text'>{label}</span>
+        <span className='yonui-mobile-tag-text'>{label ?? spareLabel}</span>
         {rightIcon && rightIconEle}
       </span>
     )

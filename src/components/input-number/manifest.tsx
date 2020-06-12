@@ -42,7 +42,7 @@ const manifest: ComponentManifest = {
     //   }
     // },
     {
-      name: 'iNumPoint',
+      name: 'precision',
       type: FieldTypes.number,
       defaultValue: 2,
       showDesign: true,
@@ -183,9 +183,9 @@ const manifest: ComponentManifest = {
     ExtensionProps.bVmExclude
   ],
   propertyMap: {
-    bIsNull: '!required',
+    // bIsNull: '!required',
     cShowCaption: 'label',
-    iNumPoint: 'precision'
+    // iNumPoint: 'precision'
   }
 }
 

@@ -60,31 +60,6 @@ const manifest: ComponentManifest = {
         }
       }
     },
-    // {
-    //   name: 'color',
-    //   type: FieldTypes.string,
-    //   defaultValue: '#e14c46',
-    //   showDesign: true,
-    //   designConfig: {
-    //     label: '颜色',
-    //     type: EditTypes.Color,
-    //     isRequired: false,
-    //     props: {}
-    //   }
-    // },
-    // {
-    //   name: 'bgColor',
-    //   type: FieldTypes.string,
-    //   defaultValue: '#ffffff',
-    //   showDesign: true,
-    //   designConfig: {
-    //     label: '背景色',
-    //     help: '仅在默认、Label模式下有效',
-    //     type: EditTypes.Color,
-    //     isRequired: false,
-    //     props: {}
-    //   }
-    // },
     {
       name: 'leftIcon',
       type: FieldTypes.string,
@@ -123,9 +98,6 @@ const manifest: ComponentManifest = {
         label: '右侧图标'
       }
     }
-  ],
-  propertyMap: {
-    cShowCaption: 'label'
-  }
+  ]
 }
 export default manifest

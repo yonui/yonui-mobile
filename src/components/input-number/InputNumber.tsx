@@ -28,6 +28,7 @@ export interface InputProps extends ListItemWrapperProps {
   thousands?: boolean
   disabled?: boolean
   inputBgColor?: string
+  bIsNull?: boolean
   onFocus?: (value: string) => void
   onBlur?: (value: string) => void
   onChange?: (value: string) => void
@@ -177,17 +178,18 @@ export default class Input extends Component<InputProps, InputState> {
   }
 
   render () {
-    const { label, required, splitLine, className, singleLine, style, nid, uitype, onChange, onBlur, onFocus, subLabel, value, showExtraLabelIcon, maxLength, inputBgColor, ...other } = this.props
+    const { required, bIsNull, className, singleLine, nid, uitype, onChange, onBlur, onFocus, value, showExtraLabelIcon, inputBgColor, ...other } = this.props
     const { error, errorText, _displayValue } = this.state
     const cls = classnames('mdf-input', className)
     const inputCls = classnames('mdf-input-content')
     const inputProps = this.getInputProps()
     const wrapperProps = getListItemProps(this.props, {className: cls, error, errorText})
+    const _required = bIsNull !== undefined ? bIsNull : required
     return (
       <Wrapper {...wrapperProps}>
         <YonuiInput
           className={inputCls}
-          required={required}
+          required={_required}
           textAlign={singleLine ? 'right' : 'left'}
           onBlur={this._onBlur}
           onChange={this._onChange}
