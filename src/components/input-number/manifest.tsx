@@ -57,7 +57,7 @@ const manifest: ComponentManifest = {
     {
       name: 'min',
       type: FieldTypes.number,
-      defaultValue: -4294967296,
+      defaultValue: -2147483648,
       showDesign: true,
       designConfig: {
         type: EditTypes.Number,
@@ -69,7 +69,7 @@ const manifest: ComponentManifest = {
     {
       name: 'max',
       type: FieldTypes.number,
-      defaultValue: 4294967296,
+      defaultValue: 2147483648,
       showDesign: true,
       designConfig: {
         type: EditTypes.Number,
