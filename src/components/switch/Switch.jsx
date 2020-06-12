@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch } from 'antd-mobile'
-import ListItemWrapper from '../list-item-wrapper'
+import ListItemWrapper, { getListItemProps } from '../list-item-wrapper'
 import classnames from 'classnames'
 export default class SwitchControl extends React.Component {
   render () {
@@ -8,13 +8,11 @@ export default class SwitchControl extends React.Component {
     const { label, required, className, defaultValue, checked, singleLine, ...ohter } = this.props
     const _checked = checked ?? defaultValue
     const labelCls = classnames('switch-title', 'form-label', { required })
-    // console.log(this.props)
-    // return <div className='switch-control'>
-    //   <span className={labelCls}>{label}</span>
+    const wrapperProps = getListItemProps(this.props, {
+      labelCls
+    })
 
-    // </div>
-
-    return <ListItemWrapper label={label} labelCls={labelCls} singleLine={singleLine}>
+    return <ListItemWrapper {...wrapperProps}>
       <Switch checked={_checked} {...ohter} />
     </ListItemWrapper>
   }

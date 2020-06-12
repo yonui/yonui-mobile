@@ -1,5 +1,6 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps, TypeProps } from 'yonui-extension'
 // todo 未配置 onClick onChange
+import { getFilterProps } from '../list-item-wrapper/manifestProps'
 const manifest: ComponentManifest = {
   name: 'Switch',
   label: '滑动开关',
@@ -106,11 +107,12 @@ const manifest: ComponentManifest = {
         props: {},
         label: 'onChange'
       }
-    }
+    },
+    ...getFilterProps(['errorText'])
   ],
   children: [],
   extension: [
-    ExtensionProps.singleLine,
+    // ExtensionProps.singleLine,
     ExtensionProps.disabled,
     ExtensionProps.bIsNull,
     ExtensionProps.bMustSelect,
