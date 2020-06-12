@@ -23,12 +23,18 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'cDefaultValue',
-      type: FieldTypes.boolean,
+      type: FieldTypes.string,
+      defaultValue: 'false',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Bool,
+        type: EditTypes.Select,
         isRequired: true,
-        props: {},
+        props: {
+          options: [
+            { value: 'false', text: '否' },
+            { value: 'true', text: '是' }
+          ]
+        },
         label: '默认值'
       }
     },

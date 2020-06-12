@@ -20,6 +20,7 @@ interface ContactProps extends React.defaultProps, React.inputItemProps{
   onBlur?: (value: string) => void
   onFocus?: (value: string) => void
   required?: boolean
+  bIsNull?: boolean
   defaultValue?: string
   value?: string
   disabled?: boolean
@@ -57,7 +58,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
       country: '中国',
       countryNum: '+86',
       open: false,
-      emailType: '@yonyou.com',
+      emailType: '@email.com',
       _value: props.value || '',
       error: false
     }
@@ -135,7 +136,8 @@ export default class Contact extends Component<ContactProps, ContactState> {
   }
 
   getContent = (mode?: 'telephone' | 'mobilephone' | 'email', area?: boolean, isSelectEmail?: boolean) => {
-    const { onChange, singleLine, value, required, disabled, defaultValue } = this.props
+    const { onChange, singleLine, value, required, disabled, defaultValue, bIsNull } = this.props
+    const _required = bIsNull !== undefined ? bIsNull : required
     const { emailType, country, countryNum, _value } = this.state
     const val = value !== undefined ? value : _value
     switch (mode) {
@@ -152,7 +154,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
               value={val}
               onSuccess={this.onSuccess}
               onError={this.onError}
-              required={required}
+              required={_required}
               disabled={disabled}
               defaultValue={defaultValue}
             />
@@ -162,11 +164,11 @@ export default class Contact extends Component<ContactProps, ContactState> {
         const email = (
           <Input
             textAlign={inputTextAlign}
-            placeholder='name@yonyou.com'
+            placeholder='name@email.com'
             onChange={onChange}
             onSuccess={this.onSuccess}
             onError={this.onError}
-            required={required}
+            required={_required}
             disabled={disabled}
             defaultValue={defaultValue}
           />)
@@ -185,7 +187,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
               {...patternMap.mobilePhone}
               onSuccess={this.onSuccess}
               onError={this.onError}
-              required={required}
+              required={_required}
               disabled={disabled}
               defaultValue={defaultValue}
             />
@@ -212,7 +214,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
             onFocus={this._onFocus}
             onSuccess={this.onSuccess}
             onError={this.onError}
-            required={required}
+            required={_required}
             disabled={disabled}
             defaultValue={defaultValue}
           />
