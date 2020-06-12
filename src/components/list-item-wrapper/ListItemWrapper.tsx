@@ -22,6 +22,7 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
 
   static getListItemProps: (props: any, other?: any) => {}
   static manifestProps: any
+  static getFilterProps: any
 
   render () {
     const {

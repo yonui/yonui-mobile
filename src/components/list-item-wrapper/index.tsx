@@ -1,5 +1,5 @@
 import ListItemWrapper from './ListItemWrapper'
-import manifestProps from './manifestProps'
+import manifestProps, { getFilterProps } from './manifestProps'
 export interface ListItemWrapperProps {
   splitLine?: boolean
   singleLine?: boolean
@@ -49,7 +49,7 @@ export const getListItemProps = (props: ListItemWrapperProps, other?: ListItemWr
   })
   return res
 }
-
+ListItemWrapper.getFilterProps = getFilterProps
 ListItemWrapper.getListItemProps = getListItemProps
 ListItemWrapper.manifestProps = manifestProps
 export default ListItemWrapper

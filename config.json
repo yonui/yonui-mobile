@@ -28,7 +28,7 @@
     "ListView": "DataSource",
     "List": ["ListItem","ListItemBrief"],
     "Checkbox": ["CheckboxItem","AgreeItem"],
-    "ListItemWrapper": ["getListItemProps","manifestProps"]
+    "ListItemWrapper": ["getListItemProps", "manifestProps", "getFilterProps"]
   },
   "imgSize": 30000,
   "previewUrl": "http://tinper-libra-ui-demo.daily.app.yyuap.com/",
