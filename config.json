@@ -22,8 +22,8 @@
     "InputNumber",
     "Icon",
     "Radio",
-    "Picture",
-    "Footer"
+    "Footer",
+    "ToolBar"
   ],
   "staticPropsMap": {
     "ListView": "DataSource",
@@ -79,7 +79,6 @@
     "Mobile": "shouji",
     "YonuiIframe": "iframe",
     "Rate": "pingfen",
-    "Picture": "tupian",
     "ListItemDisplay": "danhangshujuzhanshi",
     "Tips": "huibiaoshu",
     "Slider": "huadongshurutiao",
