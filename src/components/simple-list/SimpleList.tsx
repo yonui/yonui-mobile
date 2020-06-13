@@ -21,7 +21,7 @@ const SimpleList = (props: SimpleListProps) => {
   const {
     dataSource, renderRow, onRefresh, pullToRefresh = true, split = 'blank',
     onReachFoot, loadingText = '', completeText = '', reservedHeight = 0,
-    height, children, editable, hasMore = true
+    height, children, editable, hasMore = true, style
   } = props
   let __list: HTMLElement | null
   const [listHeight, setListHeight] = useState(0)
@@ -60,8 +60,7 @@ const SimpleList = (props: SimpleListProps) => {
   })
 
   const cls = classnames('yonui-simple-list', `split-${split}`)
-  const style: React.CSSProperties = height ? { height } : { maxHeight: `calc(100vh - ${listHeight}px)` }
-  // console.log(style)
+  const _style: React.CSSProperties = height ? { ...style, height } : { ...style, maxHeight: `calc(100vh - ${listHeight}px)` }
   const _list = (<div className={cls} onTouchMove={touch} ref={(ref) => { __list = ref }}>
     {_listItems}
     {renderFooter(footerText)}
@@ -75,7 +74,7 @@ const SimpleList = (props: SimpleListProps) => {
     distanceToRefresh={50}
     direction='down'
     refreshing={false}
-    style={style}
+    style={_style}
     className='yonui-simple-list-pull'
     onScroll={hasMore && debounce(onScroll, 100)}
   >

@@ -10,14 +10,22 @@ interface ListItemDisplayProps extends React.defaultProps{
   onClick?: () => void
 }
 const ListItemDisplay = (props: ListItemDisplayProps) => {
-  const { label, subLabel, extraIcon, extraText, onClick, showExtraLabelIcon } = props
+  const { label, subLabel, extraIcon, extraText, onClick, showExtraLabelIcon, nid, uitype, style, className } = props
   const _label = <div className='list-item-display-label-area'>
     <div className='list-item-display-label'>{label}</div>
     <div className='list-item-display-sublabel'>{subLabel}</div>
   </div>
   const _extraText = extraText && <span className='list-item-display-extra'>{extraText}</span>
   const _icon = extraIcon && <Icon type={extraIcon} onClick={onClick} />
-  return <ListItemWrapper label={_label} singleLine showExtraLabelIcon={showExtraLabelIcon}>
+  return <ListItemWrapper
+    label={_label}
+    singleLine
+    showExtraLabelIcon={showExtraLabelIcon}
+    nid={nid}
+    uitype={uitype}
+    style={style}
+    className={className}
+  >
     {_extraText}
     {_icon}
   </ListItemWrapper>

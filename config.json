@@ -23,7 +23,8 @@
     "Icon",
     "Radio",
     "Footer",
-    "ToolBar"
+    "ToolBar",
+    "Divider"
   ],
   "staticPropsMap": {
     "ListView": "DataSource",

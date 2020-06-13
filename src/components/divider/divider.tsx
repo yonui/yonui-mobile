@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { defaultProps } from 'react'
 // import classnames from 'classnames'
-
-export default class Divider extends React.Component<any, any> {
+interface DividerProps extends defaultProps {
+  content?: string
+  prefixCls?: string
+  width?: number
+  color?: string
+  type?: 'solid' | 'dashed' | 'dotted' | 'double' | 'none'
+}
+export default class Divider extends React.Component<DividerProps, any> {
   static defaultProps = {
     prefixCls: 'mdf-divider',
     content: '',
@@ -16,27 +22,25 @@ export default class Divider extends React.Component<any, any> {
   }
 
   render () {
-    const { prefixCls, type, width, color } = this.props
+    const { prefixCls, style, width, type, color, nid, uitype } = this.props
     // const wrapCls = classnames(prefixCls, `${prefixCls}-${type}`)
+    const _style = { ...style, color }
+    const boderStyle: React.CSSProperties = {
+      borderTopWidth: `${width}px`,
+      borderTopStyle: type
+    }
     return (
       <div
         className={prefixCls}
-        style={{
-          color
-        }}>
-        <span
-          className='before'
-          style={{
-            borderTopWidth: `${width}px`,
-            borderTopStyle: type
-          }} />
+        style={_style}
+        nid={nid}
+        uitype={uitype}
+      >
+        <span className='before' style={boderStyle} />
         {this.renderContent()}
         <span
           className='after'
-          style={{
-            borderTopWidth: `${width}px`,
-            borderTopStyle: type
-          }} />
+          style={boderStyle} />
       </div>
     )
   }

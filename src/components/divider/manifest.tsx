@@ -8,7 +8,7 @@ const manifest: ComponentManifest = {
     {
       name: 'type',
       type: FieldTypes.string,
-      defaultValue: 'default',
+      defaultValue: 'solid',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
@@ -57,7 +57,10 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: []
+  children: [],
+  propertyMap: {
+    cShowCaption: 'content'
+  }
 }
 
 export default manifest
