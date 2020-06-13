@@ -4,7 +4,6 @@ const manifest: ComponentManifest = {
   label: '加载',
   description: '渲染加载状态',
   uiObject: UIObject.Controls,
-  type: 'basicControls',
   icon: 'timelimit',
   props: [
     {

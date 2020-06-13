@@ -5,7 +5,6 @@ const manifest: ComponentManifest = {
   uiObject: UIObject.Controls,
   label: '日期时间范围',
   description: '',
-  type: 'basicControls',
   icon: 'time',
   props: [
     // {

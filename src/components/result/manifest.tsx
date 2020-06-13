@@ -3,7 +3,6 @@ import { EditTypes, FieldTypes, ComponentManifest, UIObject } from 'yonui-extens
 const manifest: ComponentManifest = {
   name: 'result',
   label: '反馈页',
-  type: 'basicControls',
   uiObject: UIObject.Controls,
   icon: 'table-report',
   props: [

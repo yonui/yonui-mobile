@@ -4,7 +4,6 @@ const manifest: ComponentManifest = {
   name: 'Slider',
   label: '滑动输入条',
   description: '滑动输入条',
-  type: 'basicControls',
   uiObject: UIObject.Controls,
   icon: 'data-s',
   props: [{

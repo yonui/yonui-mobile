@@ -1,7 +1,7 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'YonuiIframe',
-  label: 'iframe',
+  label: '内嵌网页',
   type: TypeProps.FunctionalControls,
   uiObject: UIObject.Controls,
   props: [

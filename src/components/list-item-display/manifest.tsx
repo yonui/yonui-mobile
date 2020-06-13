@@ -1,7 +1,7 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps, SysProps } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'ListItemDisplay',
-  label: '单行数据展示',
+  label: '列表项',
   type: TypeProps.BasicControls,
   uiObject: UIObject.Controls,
   systemProperties: [SysProps.DATA_FIELD],

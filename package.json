@@ -104,7 +104,7 @@
     "react-virtualized": "^9.21.2",
     "rmc-feedback": "^2.0.0",
     "validator": "^13.1.1",
-    "yonui-extension": "^0.7.19"
+    "yonui-extension": "^0.7.26"
   },
   "browserslist": {
     "production": [

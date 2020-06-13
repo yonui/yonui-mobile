@@ -2,7 +2,7 @@ import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps, Typ
 import { getFilterProps } from '../list-item-wrapper/manifestProps'
 const manifest: ComponentManifest = {
   name: 'DateTimePicker',
-  label: '日期时间选择',
+  label: '时间选择',
   type: TypeProps.FormControls,
   uiObject: UIObject.Controls,
   icon: 'time',

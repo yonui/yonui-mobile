@@ -43,7 +43,6 @@ const manifest: ComponentManifest = {
   name: 'Menu',
   label: '菜单',
   description: '在一个临时的面板上显示一组操作', // 描述
-  type: 'basicControls',
   uiObject: UIObject.Containers,
   icon: 'row',
   props: [// adapter适配层数据

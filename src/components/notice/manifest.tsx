@@ -2,7 +2,6 @@ import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extens
 const manifest: ComponentManifest = {
   name: 'Notice',
   label: '提示',
-  type: 'basicControls',
   icon: 'title',
   uiObject: UIObject.Controls,
   props: [

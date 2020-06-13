@@ -4,7 +4,6 @@ import { getCssSelectParams } from '../_utils'
 const manifest: ComponentManifest = {
   name: 'Empty',
   label: '空数据',
-  type: 'basicControls',
   uiObject: UIObject.Controls,
   icon: 'yincang',
   props: [

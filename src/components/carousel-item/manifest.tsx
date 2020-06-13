@@ -5,7 +5,6 @@ const manifest: ComponentManifest = {
   name: 'CarouselItem',
   label: '轮播页',
   uiObject: UIObject.Containers,
-  type: 'basicControls',
   icon: 'arrow',
   props: [
     {
