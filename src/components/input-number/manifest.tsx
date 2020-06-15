@@ -183,7 +183,7 @@ const manifest: ComponentManifest = {
     ExtensionProps.bVmExclude
   ],
   propertyMap: {
-    // bIsNull: '!required',
+    bIsNull: 'notRequired',
     cShowCaption: 'label',
     // iNumPoint: 'precision'
   }

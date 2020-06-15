@@ -4,6 +4,7 @@ export interface ListItemWrapperProps extends React.defaultProps{
   splitLine?: boolean
   singleLine?: boolean
   required?: boolean
+  notRequired?: boolean
   label?: React.ReactNode
   subLabel?: string
   labelCls?: string
@@ -29,7 +30,7 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
       splitLine = true, singleLine, label, labelCls, labelStyle,
       contentCls, contentStyle, className, style, children,
       required, nid, uitype, onClick, error, errorText,
-      showExtraLabelIcon, subLabel
+      showExtraLabelIcon, subLabel, notRequired
     } = this.props
     const cls = classnames('list-item-wrapper', className, `${singleLine ? 'single-line' : 'multiple-line'}`, {
       'list-item-wrapper-split': splitLine
@@ -37,7 +38,8 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
     const errorCls = classnames('list-item-wrapper-error', {
       hidden: !error
     })
-    const _labelCls = classnames('list-item-wrapper-label', labelCls, { required, 'list-item-wrapper-label-extra-icon': showExtraLabelIcon })
+    const _required = required ?? !notRequired
+    const _labelCls = classnames('list-item-wrapper-label', labelCls, { required: _required, 'list-item-wrapper-label-extra-icon': showExtraLabelIcon })
     const _contentCls = classnames('list-item-wrapper-content', contentCls)
     return (
       <div className='list-item-wrapper-box'>

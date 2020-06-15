@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Icon, Modal, Button } from 'antd-mobile'
-import Wrapper from '../list-item-wrapper'
+import Wrapper, { getListItemProps } from '../list-item-wrapper'
 import classnames from 'classnames'
 import selectedImg from './style/selected.png'
 interface dataType { text: string, value: string, disabled?: boolean }
@@ -242,7 +242,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
   }
 
   render () {
-    const { mode, dataSource, label, tagSize, className, nid, labelStyle, uitype, splitLine, singleLine, required, checkedValue, style } = this.props
+    const { mode, dataSource, tagSize, className, singleLine, checkedValue } = this.props
     const { open } = this.state
     let radioArr: any
     switch (mode) {
@@ -260,18 +260,14 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
       }
     }
     const cls = classnames(className, 'yonui-radio')
+    const wrapperProps = getListItemProps(this.props, {
+      className: cls,
+      singleLine: singleLine || mode === 'list',
+      labelCls: 'yonui-radio-label',
+
+    })
     return (
-      <Wrapper
-        className={cls}
-        nid={nid}
-        uitype={uitype}
-        singleLine={singleLine || mode === 'list'}
-        splitLine={splitLine}
-        label={label}
-        labelCls='yonui-radio-label'
-        required={required}
-        labelStyle={labelStyle}
-        style={style}>
+      <Wrapper {...wrapperProps}>
         <div className='yonui-radio-items'>
           {radioArr}
         </div>

@@ -254,7 +254,7 @@ const manifest: ComponentManifest = {
   ],
   propertyMap: {
     cShowCaption: 'label',
-    bIsNull: '!required'
+    bIsNull: 'notRequired',
   }
 }
 

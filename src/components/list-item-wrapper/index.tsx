@@ -38,7 +38,8 @@ export const selfPropsArray = [
   'className',
   'style',
   'nid',
-  'uitype'
+  'uitype',
+  'notRequired'
 ]
 
 export const getListItemProps = (props: ListItemWrapperProps, other?: ListItemWrapperProps) => {
