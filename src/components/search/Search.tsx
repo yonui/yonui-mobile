@@ -67,7 +67,7 @@ export default class Search extends React.Component<SearchProps, any> {
   UNSAFE_componentWillReceiveProps (nextProps: SearchProps) {
     if ('value' in nextProps || 'defaultVlaue' in nextProps) {
       this.setState({
-        value: nextProps.value || nextProps.defaultValue
+        value: nextProps.value ?? nextProps.defaultValue
       })
     }
   }
@@ -112,6 +112,20 @@ export default class Search extends React.Component<SearchProps, any> {
         }
       }, 100)
       this.props.onBlur()
+    }
+  }
+
+  // 判断点击的键盘的keyCode是否为13，是就调用上面的搜索函数
+  handleEnterKey = (e) => {
+    if (e.nativeEvent.keyCode === 13) { // e.nativeEvent获取原生的事件对像
+      this.onSearchText()
+    }
+  }
+
+  onSearchText = () => {
+    const value = this.state.value
+    if (this.props.onSubmit) {
+      this.props.onSubmit(value)
     }
   }
 
@@ -160,12 +174,14 @@ export default class Search extends React.Component<SearchProps, any> {
         style={{
           backgroundColor,
           color
-        }}>
+        }}
+      >
         <span
           className={`${prefixCls}-icon`}
           style={{
             color: searchIconColor
-          }}>
+          }}
+        >
           <Icon type='search' size='xs' />
         </span>
         <input
@@ -178,19 +194,23 @@ export default class Search extends React.Component<SearchProps, any> {
           maxLength={maxLength}
           onChange={this.onChange}
           onFocus={this.onFocus}
-          onBlur={this.onBlur} />
+          onBlur={this.onBlur}
+          onKeyPress={this.handleEnterKey}
+        />
         <a
           className={clearCls}
           style={{
             color: clearIconColor
-          }}>
+          }}
+        >
           <Icon type='cross-circle' size='xxs' onClick={this.onClear} />
         </a>
         <a
           className={`${prefixCls}-voice`}
           style={{
             color: voiceIconColor
-          }}>
+          }}
+        >
           <Icon type='voice' size='xxs' />
         </a>
       </div>
