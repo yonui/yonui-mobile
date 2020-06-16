@@ -8,7 +8,7 @@ import List from '../../simple-list'
 import '../../simple-list/style/index.less'
 import '../style';
 import './demo.less';
-const children = [<MyComponent onDelete={()=>{console.log('x')}}  label='标题'  >
+const children = [<MyComponent onDelete={()=>{console.log('x')}}  label='标题'  displayStyle='extra'>
 <div>123123123</div>
 </MyComponent>,
 <MyComponent onDelete={()=>{console.log('x')}}  label='标题' displayStyle='detail' selected showTitleExtraIcon>

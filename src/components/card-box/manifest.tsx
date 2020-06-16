@@ -18,7 +18,8 @@ const manifest: ComponentManifest = {
           options: [
             { value: 'normal', text: '正常' },
             { value: 'detail', text: '详情(带头部)' },
-            { value: 'slideable', text: '可滑动删除' }
+            { value: 'slideable', text: '可滑动删除' },
+            { value: 'extra', text: '拓展模式' }
           ]
         },
         label: '展示状态'

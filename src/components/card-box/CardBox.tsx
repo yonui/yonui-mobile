@@ -9,19 +9,28 @@ interface CardBoxProps extends React.defaultProps{
   label?: string
   rightStyle?: React.CSSProperties
   viewStatus?: 'default' | 'select' | 'selected' | 'detail' | 'browse'
-  displayStyle?: 'normal' | 'detail' | 'slideable'
+  displayStyle?: 'normal' | 'detail' | 'slideable' | 'extra'
   selected?: boolean
   showDeleteIcon?: boolean
   showTitleExtraIcon?: boolean
 }
-
-export default class CardBox extends Component<CardBoxProps> {
+interface CardBoxState {
+  showMore: boolean
+}
+export default class CardBox extends Component<CardBoxProps, CardBoxState> {
   static defaultProps = {
     btnText: '删除',
     viewStatus: 'default',
     label: '明细',
     showDeleteIcon: true,
     showTitleExtraIcon: false
+  }
+
+  constructor (props) {
+    super(props)
+    this.state = {
+      showMore: false
+    }
   }
 
   componentDidMount () {
@@ -33,8 +42,17 @@ export default class CardBox extends Component<CardBoxProps> {
     // this.forceUpdate()
   }
 
+  onChangeShowMore = (showMore: boolean) => {
+    return () => {
+      this.setState({
+        showMore
+      })
+    }
+  }
+
   render () {
     const { btnText, onDelete, rightStyle, style, className, children, viewStatus, label, displayStyle, selected, showTitleExtraIcon, showDeleteIcon, ...other } = this.props
+    const { showMore } = this.state
     const right = [{
       text: btnText, onPress: onDelete, style: { width: '25vw', ...rightStyle }, className: 'yonui-card-box-btn'
     }]
@@ -45,7 +63,7 @@ export default class CardBox extends Component<CardBoxProps> {
       case 'detail': {
         const wrapperCls = classnames('yonui-card-box-wrapper', { 'yonui-card-box-wrapper-extra-icon': showTitleExtraIcon })
         content = (<>
-          <div className='yonui-card-box-swipe'>
+          <div className='yonui-card-box-swipe' style={style}>
             <Wrapper className={wrapperCls} label={label} labelCls='yonui-card-box-title' singleLine>
               {showDeleteIcon && <img className='yonui-img-icon small' src={deleteImg} onClick={onDelete} />}
             </Wrapper>
@@ -55,15 +73,26 @@ export default class CardBox extends Component<CardBoxProps> {
         break
       }
       case 'slideable': {
-        content = (<SwipeAction right={right} className='yonui-card-box-swipe' autoClose>
+        content = (<SwipeAction right={right} className='yonui-card-box-swipe' autoClose style={style}>
           {children}
         </SwipeAction>)
+        break
+      }
+      case 'extra': {
+        content = (<>
+          <div className='yonui-card-box-swipe extra' style={style}>
+            {showMore && children}
+            {showMore
+              ? <div onClick={this.onChangeShowMore(false)} className='yonui-card-box-extra'>收起<Icon type='up' /></div>
+              : <div onClick={this.onChangeShowMore(true)} className='yonui-card-box-extra'>查看更多<Icon type='down' /></div>}
+          </div>
+        </>)
         break
       }
       case 'normal':
       default: {
         content = (<>
-          <div className='yonui-card-box-swipe'>
+          <div className='yonui-card-box-swipe' style={style}>
             {children}
           </div>
         </>)
@@ -71,7 +100,7 @@ export default class CardBox extends Component<CardBoxProps> {
       }
     }
     return (
-      <div className={cls} style={style} {...other}>
+      <div className={cls} {...other}>
         <div className='yonui-card-box-icon'>
           <Icon type={iconType} />
         </div>
