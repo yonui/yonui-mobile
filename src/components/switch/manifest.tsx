@@ -10,18 +10,6 @@ const manifest: ComponentManifest = {
   icon: 'radio',
   props: [
     {
-      name: 'checked',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: false,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: true,
-        props: {},
-        label: '值'
-      }
-    },
-    {
       name: 'cDefaultValue',
       type: FieldTypes.string,
       defaultValue: 'false',

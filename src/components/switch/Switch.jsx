@@ -6,7 +6,7 @@ export default class SwitchControl extends React.Component {
   render () {
     // eslint-disable-next-line react/prop-types
     const { label, required, className, defaultValue, checked, singleLine, ...ohter } = this.props
-    const _checked = checked ?? (defaultValue === 'true' || defaultValue === true)
+    const _checked = checked ? (checked === true || checked === 'true') : (defaultValue === 'true' || defaultValue === true)
     const labelCls = classnames('switch-title', 'form-label', { required })
     const wrapperProps = getListItemProps(this.props, {
       labelCls
