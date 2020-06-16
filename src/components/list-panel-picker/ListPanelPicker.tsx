@@ -10,7 +10,7 @@ export interface ListPanelPickerProps {
   header?: string
   data: DataItem[]
   onClose: () => void
-  onClick: (object: DataItem) => void
+  onSelect: (object: DataItem) => void
   style?: object
 }
 export default class ListPanelPicker extends Component<ListPanelPickerProps> {
@@ -27,7 +27,7 @@ export default class ListPanelPicker extends Component<ListPanelPickerProps> {
   }
 
   onClick = (object: DataItem) => {
-    this.props.onClick && this.props.onClick(object)
+    this.props.onSelect && this.props.onSelect(object)
   }
 
   render () {
