@@ -18,6 +18,7 @@ export interface TabsProps extends DeafultTabsProps {
   onIcon1Click?: () => void
   onIcon2Click?: () => void
   onIcon3Click?: () => void
+  onTabClick?: (tab: any, index: number) => void
   mode?: 'normal' | 'transparent'
   nid?: string
   uitype?: string
@@ -70,6 +71,12 @@ export default class yonuiTabs extends Component<TabsProps> {
     return <Tabs.DefaultTabBar {...props} page={pageSize} tabBarBackgroundColor='transparent' />
   }
 
+  _onTabClick = (tab: any, index: number) => {
+    if (this.props.onTabClick) {
+      this.props.onTabClick(tab, index)
+    }
+  }
+
   render () {
     let { nid, uitype, tabs, children, mode = 'normal', tabBarUnderlineStyle, pageSize, icons, icon1, icon2, icon3, splitLine, gather, style, className, iconsClassName, iconsStyle, iconsOccupy, tabBarBackgroundColor, ...other } = this.props
     const tabBarIcon = this.getTabBarIcon()
@@ -82,6 +89,7 @@ export default class yonuiTabs extends Component<TabsProps> {
         ? <Tabs
           tabs={tabs}
           tabBarBackgroundColor={tabBarBackgroundColor}
+          onTabClick={this._onTabClick}
           tabBarUnderlineStyle={underline}
           renderTabBar={(props: any) => <Tabs.DefaultTabBar {...props} page={pageSize} />}
           {...other}>{children}</Tabs> : <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>

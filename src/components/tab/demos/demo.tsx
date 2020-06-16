@@ -40,12 +40,15 @@ const fixedTabs5 = [
   { title: '更多', key: '5-6' }
 ]
 export default class Demo extends Component {
+  _onTabClick = (tab: any, index: number) => {
+    console.log(tab, "   ", index)
+  }
   render () {
     return (
       <div>
         <div>导航</div>
         <br/>
-        <Tab tabs={fixedTabs1} icons={['search', <Icon type='plus' size='sm'/>]} gather={true} splitLine={false} iconsOccupy={false}>
+        <Tab onTabClick={this._onTabClick} tabs={fixedTabs1} icons={['search', <Icon type='plus' size='sm'/>]} gather={true} splitLine={false} iconsOccupy={false}>
         </Tab>
         <br/>
         <div>固定Tab</div>
@@ -54,7 +57,7 @@ export default class Demo extends Component {
         <br/>
         <Tab tabs={fixedTabs2}></Tab>
         <br/>
-        <Tab tabs={fixedTabs3} animated={false} useOnPan={false} pageSize={3}>
+        <Tab onTabClick={this._onTabClick} tabs={fixedTabs3} animated={false} useOnPan={false} pageSize={3}>
           {
             fixedTabs3.map((item: any) => {
               return (<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '1rem', backgroundColor: '#fff' }} key={item.key}>
