@@ -30,7 +30,7 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
       splitLine = true, singleLine, label, labelCls, labelStyle,
       contentCls, contentStyle, className, style, children,
       required, nid, uitype, onClick, error, errorText,
-      showExtraLabelIcon, subLabel, notRequired
+      showExtraLabelIcon, subLabel, notRequired = true
     } = this.props
     const cls = classnames('list-item-wrapper', className, `${singleLine ? 'single-line' : 'multiple-line'}`, {
       'list-item-wrapper-split': splitLine

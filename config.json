@@ -24,7 +24,8 @@
     "Radio",
     "Footer",
     "ToolBar",
-    "Divider"
+    "Divider",
+    "Flex"
   ],
   "staticPropsMap": {
     "ListView": "DataSource",
