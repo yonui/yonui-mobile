@@ -100,7 +100,7 @@ const manifest: ComponentManifest = {
     {
       name: 'reservedHeight',
       type: FieldTypes.number,
-      defaultValue: 60,
+      defaultValue: 100,
       showDesign: true,
       designConfig: {
         type: EditTypes.Number,

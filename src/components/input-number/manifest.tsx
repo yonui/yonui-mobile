@@ -1,5 +1,5 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps, ExtensionProps } from 'yonui-extension'
-import listItemProps from '../list-item-wrapper/manifestProps'
+import { getFilterProps } from '../list-item-wrapper/manifestProps'
 const manifest: ComponentManifest = {
   name: 'InputNumber',
   label: '数值',
@@ -169,7 +169,7 @@ const manifest: ComponentManifest = {
         }
       }
     },
-    ...listItemProps
+    ...getFilterProps(['errorText'])
   ],
   children: [],
   extension: [
