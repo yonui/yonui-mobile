@@ -65,20 +65,6 @@
   &-text {
     .mdf-button-variant(@warning-button-text-color; transparent; transparent);
   }
-  &-small {
-    display: inline-flex;
-    justify-content: center;
-    padding: 0 @h-spacing-lg;
-
-    font-size: @button-font-size-sm;
-    height: @button-height-sm;
-    line-height: @button-height-sm - 1;
-    padding: 0 @h-spacing-lg;
-    border-radius: @radius-sm;
-    &.@{mdfButtonPrefixCls}-active { // tap
-      border-radius: @radius-sm;
-    }
-  }
   &-large {
     width: 100%;
   }
@@ -105,7 +91,7 @@
     font-size: @button-font-size-sm;
     height: @button-height-sm;
     line-height: @button-height-sm - 1;
-    padding: 0 21 * @hd;
+    // padding: 0 21 * @hd;
     border-radius: @radius-sm;
     &.@{mdfButtonPrefixCls}-active { // tap
       border-radius: @radius-sm;
