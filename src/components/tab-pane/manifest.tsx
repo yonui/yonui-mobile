@@ -20,7 +20,7 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'height',
+      name: 'minHeight',
       type: FieldTypes.string,
       defaultValue: '40px',
       showDesign: true,
@@ -28,7 +28,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '高度'
+        label: '最小高度'
       }
     },
     {
