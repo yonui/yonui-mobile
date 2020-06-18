@@ -204,7 +204,7 @@ class Input extends Component<InputProps, InputState> {
   }
 
   render () {
-    const { required, className, singleLine, inputStyle, onChange, onBlur, onFocus, value, ...other} = this.props
+    const { required, className, singleLine, inputStyle, onChange, onBlur, onFocus, value, style, ...other} = this.props
     const { error, errorText, _displayValue } = this.state
     const cls = classnames('mdf-input', className)
     const inputCls = classnames('mdf-input-content')
