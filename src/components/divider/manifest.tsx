@@ -2,7 +2,7 @@ import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps } from 'y
 const manifest: ComponentManifest = {
   name: 'Divider',
   label: '分割线',
-  type: TypeProps.LayoutContainer,
+  type: TypeProps.BasicControls,
   uiObject: UIObject.Controls,
   props: [
     {

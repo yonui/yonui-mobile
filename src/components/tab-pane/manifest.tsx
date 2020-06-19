@@ -1,9 +1,10 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'TabPane',
   label: '多页签内容',
   description: 'Tabs组件的子组件',
   uiObject: UIObject.Containers,
+  type: TypeProps.LayoutContainer,
   icon: 'wenziyeqian',
   props: [
     {
