@@ -171,60 +171,59 @@ const manifest: ComponentManifest = {
         },
         label: '右二图标文本'
       }
-    },
-    {
-      name: 'onBackClick',
-      type: FieldTypes.action,
-      defaultValue: '',
-      value: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        props: {},
-        label: 'onBackClick',
-        help: '导航左边点击回调'
-      }
-    },
-    {
-      name: 'onCloseClick',
-      type: FieldTypes.action,
-      defaultValue: '',
-      value: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        props: {},
-        label: 'onCloseClick',
-        help: '导航左边关闭点击回调'
-      }
-    },
-    {
-      name: 'onRight1Click',
-      type: FieldTypes.action,
-      defaultValue: '',
-      value: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        props: {},
-        label: 'onRight1Click',
-        help: '右边第一个按钮回调'
-      }
-    },
-    {
-      name: 'onRight2Click',
-      type: FieldTypes.action,
-      defaultValue: '',
-      value: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        props: {},
-        label: 'onRight2Click',
-        help: '右边第2个按钮回调'
-      }
     }
-
+    // {
+    //   name: 'onBackClick',
+    //   type: FieldTypes.action,
+    //   defaultValue: '',
+    //   value: '',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     props: {},
+    //     label: 'onBackClick',
+    //     help: '导航左边点击回调'
+    //   }
+    // },
+    // {
+    //   name: 'onCloseClick',
+    //   type: FieldTypes.action,
+    //   defaultValue: '',
+    //   value: '',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     props: {},
+    //     label: 'onCloseClick',
+    //     help: '导航左边关闭点击回调'
+    //   }
+    // },
+    // {
+    //   name: 'onRight1Click',
+    //   type: FieldTypes.action,
+    //   defaultValue: '',
+    //   value: '',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     props: {},
+    //     label: 'onRight1Click',
+    //     help: '右边第一个按钮回调'
+    //   }
+    // },
+    // {
+    //   name: 'onRight2Click',
+    //   type: FieldTypes.action,
+    //   defaultValue: '',
+    //   value: '',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     props: {},
+    //     label: 'onRight2Click',
+    //     help: '右边第2个按钮回调'
+    //   }
+    // }
   ],
   children: []
 }
