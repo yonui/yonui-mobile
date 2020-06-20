@@ -16,7 +16,7 @@ const manifest: ComponentManifest = {
     {
       name: 'mode',
       type: FieldTypes.string,
-      defaultValue: 'tag',
+      defaultValue: 'list',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,

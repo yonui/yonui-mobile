@@ -64,7 +64,8 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
 
   static defaultProps = {
     tagSize: 'default',
-    disabled: false
+    disabled: false,
+    mode: 'list'
   }
 
   onClickItem = (data: dataType, e?: React.MouseEvent<HTMLSpanElement, MouseEvent>, multiple?: boolean) => {
