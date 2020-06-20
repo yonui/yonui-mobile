@@ -7,6 +7,10 @@ const NumberReg = {
   normal: /^-?0*(\d+\.\d*|[1-9]\d*|0)$|-/, // 基本数值校验
   format: /\d{1,3}(?=(\d{3})+$)/g // 整数匹配千分位
 }
+
+const multiply = (numA: number | string, numB: number | string) => {
+  return Number(numA) * Number(numB)
+}
 export interface InputProps extends ListItemWrapperProps {
   maxLength?: number
   mode?: 'normal' | 'percent' | 'permillage'
@@ -29,6 +33,7 @@ export interface InputProps extends ListItemWrapperProps {
   disabled?: boolean
   inputBgColor?: string
   bIsNull?: boolean
+  scaleValue?: number
   onFocus?: (value: string) => void
   onBlur?: (value: string) => void
   onChange?: (value: string) => void
@@ -63,7 +68,8 @@ export default class Input extends Component<InputProps, InputState> {
     mode: 'normal',
     check: true,
     prefix: '',
-    suffix: ''
+    suffix: '',
+    scaleValue: 1
   }
 
   _onChange = (val: string) => {
@@ -83,10 +89,10 @@ export default class Input extends Component<InputProps, InputState> {
   }
 
   _onBlur = (val: string) => {
-    const { onBlur, value, mode, precision = 2, prefix, suffix } = this.props
+    const { onBlur, value, mode, precision = 2, prefix, suffix, scaleValue } = this.props
     const { _value: stateValue } = this.state
     onBlur && onBlur(val)
-    const _value = Number(value || stateValue).toFixed(precision) // value?.toString() || stateValue?.toString()
+    const _value = multiply(value || stateValue, scaleValue).toFixed(precision) // value?.toString() || stateValue?.toString()
     let _displayValue: string = ''
     switch (mode) {
       case 'percent': {

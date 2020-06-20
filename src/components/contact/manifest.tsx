@@ -65,8 +65,8 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'dataSource',
-      type: FieldTypes.string,
-      defaultValue: '',
+      type: FieldTypes.object,
+      defaultValue: [],
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,

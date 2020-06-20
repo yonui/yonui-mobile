@@ -7,18 +7,24 @@ const manifest: ComponentManifest = {
   uiObject: UIObject.Controls,
   icon: 'digital',
   props: [
-    // {
-    //   name: 'label',
-    //   type: FieldTypes.string,
-    //   defaultValue: '数值输入',
-    //   showDesign: false,
-    //   designConfig: {
-    //     type: EditTypes.Text,
-    //     isRequired: true,
-    //     props: {},
-    //     label: '标签'
-    //   }
-    // },
+    {
+      name: 'mode',
+      type: FieldTypes.string,
+      defaultValue: 'normal',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        isRequired: true,
+        props: {
+          option: [
+            { text: '自定义', value: 'normal'},
+            { text: '百分比', value: 'percent'},
+            { text: '千分比', value: 'permillage'}
+          ]
+        },
+        label: '格式类型'
+      }
+    },
     {
       name: 'defaultValue',
       type: FieldTypes.number,
@@ -47,11 +53,24 @@ const manifest: ComponentManifest = {
       defaultValue: 2,
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Number,
         isRequired: true,
         props: {},
         label: '精度',
         help: '小数点后保留位数'
+      }
+    },
+    {
+      name: 'scaleValue',
+      type: FieldTypes.number,
+      defaultValue: 1,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Number,
+        isRequired: true,
+        props: {},
+        label: '缩放数值',
+        help: '缩放显示值，不影响实际值'
       }
     },
     {
