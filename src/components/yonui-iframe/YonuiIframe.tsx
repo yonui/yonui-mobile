@@ -2,15 +2,17 @@ import React, { memo } from 'react'
 import classnames from 'classnames'
 interface YonuiIframeProps extends React.defaultProps{
   url?: string
-  width?: string
-  height?: string
 }
 
 const YonuiIframe = (props: YonuiIframeProps) => {
-  const { url, className, style, width, height } = props
+  const { url, className, ...other } = props
   const cls = classnames(className, 'yonui-mobile-iframe')
-  const sty: React.CSSProperties = { ...style, width, height }
-  const _iframe = url ? <iframe src={url} className={cls} style={sty} /> : <div className={cls} style={sty} />
+  const _props: any = {
+    src: url,
+    className: cls,
+    ...other
+  }
+  const _iframe = url ? <iframe {..._props} /> : <div {..._props} />
   return _iframe
 }
 
