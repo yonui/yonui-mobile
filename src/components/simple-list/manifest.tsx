@@ -86,17 +86,17 @@ const manifest: ComponentManifest = {
         props: {}
       }
     },
-    {
-      name: 'height',
-      type: FieldTypes.number,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Number,
-        label: '高度',
-        isRequired: false,
-        props: {}
-      }
-    },
+    // {
+    //   name: 'height',
+    //   type: FieldTypes.number,
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Number,
+    //     label: '高度',
+    //     isRequired: false,
+    //     props: {}
+    //   }
+    // },
     {
       name: 'reservedHeight',
       type: FieldTypes.number,
@@ -106,8 +106,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Number,
         label: '底部预留高度',
         isRequired: false,
-        props: {},
-        help: '设置高度属性时此项无效'
+        props: {}
+        // help: ''
       }
     },
     {

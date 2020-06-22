@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { PullToRefresh } from 'antd-mobile'
 import classnames from 'classnames'
 import { checkVisibleInDocument, debounce } from '../_utils'
@@ -21,16 +21,17 @@ const SimpleList = (props: SimpleListProps) => {
   const {
     dataSource, renderRow, onRefresh, pullToRefresh = true, split = 'blank',
     onReachFoot, loadingText = '', completeText = '', reservedHeight = 0,
-    height, children, editable, hasMore = true, style
+    children, editable, hasMore = true, style
   } = props
   let __list: HTMLElement | null
-  const [listHeight, setListHeight] = useState(0)
+  let topHeight = 0
+  // const [listHeight, setListHeight] = useState(0)
   const footerText = hasMore ? loadingText : completeText
   useEffect(() => {
     // console.log(__list)
-    const topHeight = Math.min(__list?.offsetTop || 0, 1000)
-    const listHeight = topHeight + reservedHeight
-    setListHeight(listHeight)
+    topHeight = Math.min(__list?.offsetTop || 0, 1000)
+    // const listHeight = topHeight + reservedHeight
+    // setListHeight(listHeight)
   }, [])
   const onScroll = (event: React.UIEvent<HTMLDivElement, UIEvent>) => {
     event && event.stopPropagation()
@@ -60,7 +61,7 @@ const SimpleList = (props: SimpleListProps) => {
   })
 
   const cls = classnames('yonui-simple-list', `split-${split}`)
-  const _style: React.CSSProperties = height ? { ...style, height } : { ...style, maxHeight: `calc(100vh - ${listHeight}px)` }
+  const _style: React.CSSProperties = { ...style, maxHeight: `calc(100vh - ${topHeight + reservedHeight}px)` }
   const _list = (<div className={cls} onTouchMove={touch} ref={(ref) => { __list = ref }}>
     {_listItems}
     {renderFooter(footerText)}
