@@ -19,10 +19,22 @@ const manifest: ComponentManifest = {
           options: [
             { text: '自定义', value: 'normal'},
             { text: '百分比', value: 'percent'},
-            { text: '千分比', value: 'permillage'}
+            { text: '千分比', value: 'permillage'},
+            { text: '整数', value: 'int'}
           ]
         },
         label: '格式类型'
+      }
+    },
+    {
+      name: 'subuitype',
+      type: FieldTypes.string,
+      showDesign: false,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: 'subuitype'
       }
     },
     {
@@ -48,7 +60,7 @@ const manifest: ComponentManifest = {
     //   }
     // },
     {
-      name: 'precision',
+      name: 'iNumPoint',
       type: FieldTypes.number,
       defaultValue: 2,
       showDesign: true,
@@ -57,7 +69,7 @@ const manifest: ComponentManifest = {
         isRequired: true,
         props: {},
         label: '精度',
-        help: '小数点后保留位数'
+        help: '小数点后保留位数。元数据为整数类型时无效'
       }
     },
     {
@@ -204,7 +216,7 @@ const manifest: ComponentManifest = {
   propertyMap: {
     bIsNull: 'notRequired',
     cShowCaption: 'label',
-    // iNumPoint: 'precision'
+    iNumPoint: 'precision'
   }
 }
 

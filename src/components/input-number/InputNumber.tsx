@@ -14,6 +14,7 @@ const multiply = (numA: number | string, numB: number | string) => {
 export interface InputProps extends ListItemWrapperProps {
   maxLength?: number
   mode?: 'normal' | 'percent' | 'permillage'
+  subuitype?: string
   value?: string | number
   defaultValue?: string | number
   regRule?: string | RegExp
@@ -89,10 +90,11 @@ export default class Input extends Component<InputProps, InputState> {
   }
 
   _onBlur = (val: string) => {
-    const { onBlur, value, mode, precision = 2, prefix, suffix, scaleValue } = this.props
+    const { onBlur, value, mode, precision = 2, prefix, suffix, scaleValue, subuitype } = this.props
     const { _value: stateValue } = this.state
     onBlur && onBlur(val)
-    const _value = multiply(value || stateValue, scaleValue).toFixed(precision) // value?.toString() || stateValue?.toString()
+    const _precision = subuitype === 'int' ? 0 : precision
+    const _value = multiply(value || stateValue, scaleValue).toFixed(_precision) // value?.toString() || stateValue?.toString()
     let _displayValue: string = ''
     switch (mode) {
       case 'percent': {
@@ -123,7 +125,7 @@ export default class Input extends Component<InputProps, InputState> {
   }
 
   getInputProps = () => {
-    const { onError, onSuccess, check, mode } = this.props
+    const { onError, onSuccess, check, mode, subuitype } = this.props
     const _onError = (value: string, pattern: { reg?: RegExp, text?: string}) => {
       onError && onError(value, pattern)
       this.setState({
@@ -140,6 +142,11 @@ export default class Input extends Component<InputProps, InputState> {
     let res: any = {
       onSuccess: _onSuccess,
       onError: _onError
+    }
+    if (subuitype === 'int') {
+      res = Object.assign(res, {
+        pattern: /^-?(\d+)$/
+      })
     }
     switch (mode) {
       case 'percent':
@@ -175,9 +182,10 @@ export default class Input extends Component<InputProps, InputState> {
 
   checkFn = (value: string, final: boolean) => {
     const val = value?.toString()
-    const { precision = 2, min = -1 * Number.MAX_VALUE, max = Number.MAX_VALUE, maxLength = 24 } = this.props
+    const { precision = 2, min = -1 * Number.MAX_VALUE, max = Number.MAX_VALUE, maxLength = 24, subuitype } = this.props
     const normalCheck = NumberReg.normal.test(val) || !val
-    const precisionCheck = !val.includes('.') ? true : val.length - val.indexOf('.') - 1 <= precision
+    const _precision = subuitype === 'int' ? 0 : precision
+    const precisionCheck = !val.includes('.') ? true : val.length - val.indexOf('.') - 1 <= _precision
     const sizeCheck = !final || !val || Number.isNaN(Number(val)) || (Number(val) >= Number(min) && Number(val) <= Number(max))
     const LengthCheck = maxLength >= val.length
     return normalCheck && precisionCheck && sizeCheck && LengthCheck
