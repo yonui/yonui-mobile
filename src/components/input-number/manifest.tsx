@@ -16,7 +16,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Select,
         isRequired: true,
         props: {
-          option: [
+          options: [
             { text: '自定义', value: 'normal'},
             { text: '百分比', value: 'percent'},
             { text: '千分比', value: 'permillage'}
