@@ -112,6 +112,18 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
     })
   }
 
+  formatValue = (value) => {
+    let valueObj
+    try {
+      valueObj = JSON.parse(value)
+    } catch (error) {
+      valueObj = {
+        displayValue: value
+      }
+    }
+    return valueObj
+  }
+
   _onClickClear = () => {
     const { onChange, onClickClear } = this.props
     const { _value } = this.state
@@ -127,7 +139,11 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
     const { className, style, type, value, textAlign, beforeRender, placeholder, inputStyle, disabled } = this.props
     const { _value, _className } = this.state
     const val = value?.toString() || _value
-    const displayValue = beforeRender ? beforeRender(val) : val
+    const displayVal = beforeRender ? beforeRender(val) : val
+    // 兼容处理单据列表上数据是JOSN对象的问题，统一取对象里的displayValue字段
+    const displayValue = this.formatValue(displayVal).displayValue || displayVal
+    // 兼容处理单据列表不可编辑是不显示背景提示的问题，或者说不可编辑就不用提示
+    const displayPlaceholder = disabled ? '' : placeholder
     const cls = classnames(className, 'yonui-input', {
       [_className]: val.length > 0
     })
@@ -142,7 +158,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
           onBlur={this._onBlur}
           style={_inputStyle}
           onFocus={this._onFocus}
-          placeholder={placeholder}
+          placeholder={displayPlaceholder}
           disabled={disabled}
         />
         <div className='yonui-clear' onClick={this._onClickClear} />
