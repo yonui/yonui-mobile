@@ -197,28 +197,28 @@ const manifest: ComponentManifest = {
         help: '配置可输入的字符内容范围，例如：只能输入数字：^[0-9]*$， 只能输入字母：^[a-zA-Z]*$'
       }
     },
-    {
-      name: 'inputStyle',
-      type: FieldTypes.action,
-      showDesign: true,
-      designConfig: {
-        label: '输入框样式',
-        type: EditTypes.IframeModal,
-        help: '',
-        props: {
-          caption: '输入框样式',
-          iframeUrl: '/CssSelect?iframeId=inputStyle',
-          iframeId: 'mobileCssIframeModalinputStyle',
-          iframeContext: 'mobileCssIframeModal',
-          addText: '新增样式',
-          editText: '修改样式',
-          message: true,
-          isRequired: false,
-          footer: true
-        }
-      }
-    },
-    ...getFilterProps(['errorText'])
+    // {
+    //   name: 'inputStyle',
+    //   type: FieldTypes.action,
+    //   showDesign: true,
+    //   designConfig: {
+    //     label: '输入框样式',
+    //     type: EditTypes.IframeModal,
+    //     help: '',
+    //     props: {
+    //       caption: '输入框样式',
+    //       iframeUrl: '/CssSelect?iframeId=inputStyle',
+    //       iframeId: 'mobileCssIframeModalinputStyle',
+    //       iframeContext: 'mobileCssIframeModal',
+    //       addText: '新增样式',
+    //       editText: '修改样式',
+    //       message: true,
+    //       isRequired: false,
+    //       footer: true
+    //     }
+    //   }
+    // },
+    ...getFilterProps(['errorText', 'labelStyle'])
   ],
   extension: [
     ExtensionProps.bIsNull,

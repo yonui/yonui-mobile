@@ -102,7 +102,7 @@ const manifest: ComponentManifest = {
         label: 'onChange'
       }
     },
-    ...getFilterProps(['errorText'])
+    ...getFilterProps(['errorText', 'labelStyle'])
   ],
   children: [],
   extension: [

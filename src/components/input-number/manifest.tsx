@@ -179,28 +179,28 @@ const manifest: ComponentManifest = {
         label: '背景提示'
       }
     },
-    {
-      name: 'inputStyle',
-      type: FieldTypes.action,
-      showDesign: true,
-      designConfig: {
-        label: '输入框样式',
-        type: EditTypes.IframeModal,
-        help: '',
-        props: {
-          caption: '输入框样式',
-          iframeUrl: '/CssSelect?iframeId=inputStyle',
-          iframeId: 'mobileCssIframeModalinputStyle',
-          iframeContext: 'mobileCssIframeModal',
-          addText: '新增样式',
-          editText: '修改样式',
-          message: true,
-          isRequired: false,
-          footer: true
-        }
-      }
-    },
-    ...getFilterProps(['errorText'])
+    // {
+    //   name: 'inputStyle',
+    //   type: FieldTypes.action,
+    //   showDesign: true,
+    //   designConfig: {
+    //     label: '输入框样式',
+    //     type: EditTypes.IframeModal,
+    //     help: '',
+    //     props: {
+    //       caption: '输入框样式',
+    //       iframeUrl: '/CssSelect?iframeId=inputStyle',
+    //       iframeId: 'mobileCssIframeModalinputStyle',
+    //       iframeContext: 'mobileCssIframeModal',
+    //       addText: '新增样式',
+    //       editText: '修改样式',
+    //       message: true,
+    //       isRequired: false,
+    //       footer: true
+    //     }
+    //   }
+    // },
+    ...getFilterProps(['errorText', 'labelStyle'])
   ],
   children: [],
   extension: [

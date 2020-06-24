@@ -90,48 +90,48 @@ const manifest: ComponentManifest = {
         label: '选中值'
       }
     },
-    {
-      name: 'labelStyle',
-      type: FieldTypes.object,
-      showDesign: true,
-      designConfig: {
-        label: '标题样式',
-        type: EditTypes.IframeModal,
-        help: '',
-        props: {
-          caption: '标题样式',
-          iframeUrl: '/CssSelect?iframeId=labelStyle',
-          iframeId: 'mobileCssIframeModallabelStyle',
-          iframeContext: 'mobileCssIframeModal',
-          addText: '新增样式',
-          editText: '修改样式',
-          message: true,
-          isRequired: false,
-          footer: true
-        }
-      }
-    },
-    {
-      name: 'itemsStyle',
-      type: FieldTypes.object,
-      showDesign: true,
-      designConfig: {
-        label: '选项样式',
-        type: EditTypes.IframeModal,
-        help: '',
-        props: {
-          caption: '选项样式',
-          iframeUrl: '/CssSelect?iframeId=itemsStyle',
-          iframeId: 'mobileCssIframeModalitemsStyle',
-          iframeContext: 'mobileCssIframeModal',
-          addText: '新增样式',
-          editText: '修改样式',
-          message: true,
-          isRequired: false,
-          footer: true
-        }
-      }
-    }
+    // {
+    //   name: 'labelStyle',
+    //   type: FieldTypes.object,
+    //   showDesign: true,
+    //   designConfig: {
+    //     label: '标题样式',
+    //     type: EditTypes.IframeModal,
+    //     help: '',
+    //     props: {
+    //       caption: '标题样式',
+    //       iframeUrl: '/CssSelect?iframeId=labelStyle',
+    //       iframeId: 'mobileCssIframeModallabelStyle',
+    //       iframeContext: 'mobileCssIframeModal',
+    //       addText: '新增样式',
+    //       editText: '修改样式',
+    //       message: true,
+    //       isRequired: false,
+    //       footer: true
+    //     }
+    //   }
+    // },
+    // {
+    //   name: 'itemsStyle',
+    //   type: FieldTypes.object,
+    //   showDesign: true,
+    //   designConfig: {
+    //     label: '选项样式',
+    //     type: EditTypes.IframeModal,
+    //     help: '',
+    //     props: {
+    //       caption: '选项样式',
+    //       iframeUrl: '/CssSelect?iframeId=itemsStyle',
+    //       iframeId: 'mobileCssIframeModalitemsStyle',
+    //       iframeContext: 'mobileCssIframeModal',
+    //       addText: '新增样式',
+    //       editText: '修改样式',
+    //       message: true,
+    //       isRequired: false,
+    //       footer: true
+    //     }
+    //   }
+    // }
   ],
   children: [],
   extension: [

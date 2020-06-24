@@ -238,7 +238,7 @@ const manifest: ComponentManifest = {
     //     help: '取消回调'
     //   }
     // },
-    ...getFilterProps(['singleLine'])
+    ...getFilterProps(['singleLine', 'labelStyle', 'errorText'])
   ],
   extension: [
     ExtensionProps.bIsNull,
