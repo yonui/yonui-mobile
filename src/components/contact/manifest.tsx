@@ -66,10 +66,9 @@ const manifest: ComponentManifest = {
     {
       name: 'dataSource',
       type: FieldTypes.object,
-      defaultValue: [],
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         isRequired: false,
         props: {},
         label: '国际区号数据源',
@@ -78,11 +77,10 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'emailDataSource',
-      type: FieldTypes.string,
-      defaultValue: '',
+      type: FieldTypes.object,
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
+        type: EditTypes.Json,
         isRequired: false,
         props: {},
         label: '邮箱后缀数据源',
