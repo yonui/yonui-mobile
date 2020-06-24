@@ -8,6 +8,7 @@ export interface ListDatePickerProps extends ListItemWrapperProps{
   dateMode?: 'picker-date' | 'picker-time' | 'picker-datetime' | 'picker-year' | 'picker-month' | 'calendar-date' | 'calendar-datetime'
   minDate?: Date | string
   maxDate?: Date | string
+  defafultValue?: Date | string
   format?: string
   disabled?: boolean
   value?: Date | string
@@ -62,7 +63,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
     super(props)
     this.state = {
       visible: false,
-      _value: undefined
+      _value: formatStringToDate(props.defafultValue)
     }
   }
 

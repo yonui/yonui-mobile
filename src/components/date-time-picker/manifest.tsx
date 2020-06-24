@@ -62,18 +62,18 @@ const manifest: ComponentManifest = {
         label: '最大可选日期'
       }
     },
-    // {
-    //   name: 'use12Hours',
-    //   type: FieldTypes.boolean,
-    //   defaultValue: false,
-    //   showDesign: true,
-    //   designConfig: {
-    //     type: EditTypes.Bool,
-    //     isRequired: false,
-    //     props: {},
-    //     label: '12小时制'
-    //   }
-    // },
+    {
+      name: 'defafultValue',
+      type: FieldTypes.date,
+      defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Date,
+        isRequired: false,
+        props: {},
+        label: '默认值'
+      }
+    },
     // {
     //   name: 'minuteStep',
     //   type: FieldTypes.number,
