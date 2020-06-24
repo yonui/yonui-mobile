@@ -51,7 +51,6 @@
 		"Checkbox": "./src/components/checkbox",
 		"Tab": "./src/components/tab",
 		"TabPane": "./src/components/tab-pane",
-		"Filter": "./src/components/filter",
 		"ToolBar": "./src/components/tool-bar-box",
 		"SharePanel": "./src/components/share-panel",
 		"Loading": "./src/components/loading",
