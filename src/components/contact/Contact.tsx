@@ -55,13 +55,51 @@ export default class Contact extends Component<ContactProps, ContactState> {
   constructor (props: ContactProps) {
     super(props)
     this.state = {
-      country: '中国',
-      countryNum: '+86',
+      country: this.valueAdapt(1, props.value) || '中国',
+      countryNum: this.valueAdapt(0, props.value) || '86',
       open: false,
       emailType: '@email.com',
-      _value: props.value || '',
+      _value: this.valueAdapt(2, props.value),
       error: false
     }
+  }
+
+  shouldComponentUpdate (nextProps) {
+    if (this.props.value === undefined && nextProps.value) {
+      this.setState({
+        country: this.valueAdapt(1, nextProps.value) || '中国',
+        countryNum: this.valueAdapt(0, nextProps.value) || '+86',
+        _value: this.valueAdapt(2, nextProps.value),
+      })
+    }
+    return true
+  }
+
+  valueAdapt = (index?: number, value?: string) => {
+    if (value) {
+      const valueArray = value.split('=')
+      if (valueArray.length > 0) {
+        switch (index) {
+          case 0:
+            return valueArray[0]
+          case 1:
+            return valueArray[1]
+          case 2:
+            return valueArray[2]
+          default:
+            return valueArray[2]
+        }
+      } else {
+        return ''
+      }
+    } else {
+      return ''
+    }
+  }
+
+  returnValueAdapt = (inputValue?: string) => {
+    const { country, countryNum } = this.state;
+    return `${countryNum}=${country}=${inputValue}`
   }
 
   onOpenModal = () => {
@@ -95,9 +133,9 @@ export default class Contact extends Component<ContactProps, ContactState> {
   }
 
   textOnChange= (value: string) => {
-    console.log(value)
     const { onChange } = this.props
-    onChange && onChange(value)
+    const returnValue = this.returnValueAdapt(value)
+    onChange && onChange(returnValue)
     this.setState({
       _value: value
     })
@@ -105,12 +143,14 @@ export default class Contact extends Component<ContactProps, ContactState> {
 
   _onFocus = (val: string) => {
     const { onFocus } = this.props
-    onFocus && onFocus(val)
+    const returnValue = this.returnValueAdapt(val)
+    onFocus && onFocus(returnValue)
   }
 
   _onBlur = (val: string) => {
     const { onBlur } = this.props
-    onBlur && onBlur(val)
+    const returnValue = this.returnValueAdapt(val)
+    onBlur && onBlur(returnValue)
   }
 
   dailAction = () => {
@@ -139,7 +179,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
     const { onChange, singleLine, value, required, disabled, defaultValue, bIsNull } = this.props
     const _required = bIsNull !== undefined ? bIsNull : required
     const { emailType, country, countryNum, _value } = this.state
-    const val = value !== undefined ? value : _value
+    const val = value !== undefined ? this.valueAdapt(2, value) : _value
     switch (mode) {
       case 'email': {
         const inputTextAlign = singleLine ? 'right' : 'left'
@@ -198,7 +238,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
             <span className='yonui-contact-button' onClick={() => { this.onOpenModal() }}>{country}</span>
             <Icon size='xxs' type='down' />
             <span className='split-line' />
-            <span className='phone-code'>{countryNum}</span>
+            <span className='phone-code'>{`+${countryNum}`}</span>
             {contact}
           </div>)
         return area ? areaContact : contact
@@ -225,7 +265,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
             <span className='yonui-contact-button' onClick={() => { this.onOpenModal() }}>{country}</span>
             <Icon size='xxs' type='down' />
             <span className='split-line' />
-            <span className='phone-code'>{countryNum}</span>
+            <span className='phone-code'>{`+${countryNum}`}</span>
             {contact}
           </div>)
         return area ? areaContact : contact
