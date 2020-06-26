@@ -52,14 +52,18 @@ interface InputState {
 export default class Input extends Component<InputProps, InputState> {
   constructor (props: InputProps) {
     super(props)
-    const { value, formatReg, hiddenChart, replaceChart, defaultValue } = props
+    const { value, formatReg, hiddenChart, replaceChart, defaultValue, prefix, suffix, precision = 2, subuitype, scaleValue } = props
     const _value = value?.toString() || defaultValue?.toString()
     const _displayValue = formatReg && _value ? decodeValue(_value, formatReg, hiddenChart, replaceChart) : ''
+    const _precision = subuitype === 'int' ? 0 : precision
+    const _fixValue = multiply(_displayValue || value, scaleValue).toFixed(_precision) // value?.toString() || stateValue?.toString()
+
+    const preValue = `${prefix}${_fixValue}${suffix}`;
     this.state = {
       error: false,
       errorText: '',
       _value: _value || '',
-      _displayValue: _displayValue
+      _displayValue: preValue
     }
   }
 
