@@ -78,7 +78,7 @@ const manifest: ComponentManifest = {
       defaultValue: 1,
       showDesign: true,
       designConfig: {
-        type: EditTypes.Number,
+        type: EditTypes.Text,
         isRequired: true,
         props: {},
         label: '缩放数值',

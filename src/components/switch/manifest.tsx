@@ -91,17 +91,6 @@ const manifest: ComponentManifest = {
         label: 'onClick'
       }
     },
-    {
-      name: 'onChange',
-      type: FieldTypes.action,
-      showDesign: false,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: 'onChange'
-      }
-    },
     ...getFilterProps(['errorText', 'labelStyle'])
   ],
   children: [],
