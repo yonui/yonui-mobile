@@ -76,30 +76,40 @@ export default class Contact extends Component<ContactProps, ContactState> {
   }
 
   valueAdapt = (index?: number, value?: string) => {
-    if (value) {
-      const valueArray = value.split('=')
-      if (valueArray.length > 0) {
-        switch (index) {
-          case 0:
-            return valueArray[0]
-          case 1:
-            return valueArray[1]
-          case 2:
-            return valueArray[2]
-          default:
-            return valueArray[2]
+    const { mode } = this.props
+    if (mode === 'telephone' || mode === 'mobilephone') {
+      if (value) {
+        const valueArray = value.split('=')
+        if (valueArray.length > 0) {
+          switch (index) {
+            case 0:
+              return valueArray[0]
+            case 1:
+              return valueArray[1]
+            case 2:
+              return valueArray[2]
+            default:
+              return valueArray[2]
+          }
+        } else {
+          return ''
         }
       } else {
         return ''
       }
     } else {
-      return ''
+      return value
     }
   }
 
   returnValueAdapt = (inputValue?: string) => {
-    const { country, countryNum } = this.state;
-    return `${countryNum}=${country}=${inputValue}`
+    const { country, countryNum } = this.state
+    const { mode } = this.props
+    if (mode === 'telephone' || mode === 'mobilephone') {
+      return `${countryNum}=${country}=${inputValue}`
+    } else {
+      return inputValue
+    }
   }
 
   onOpenModal = () => {
@@ -208,6 +218,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
             onChange={onChange}
             onSuccess={this.onSuccess}
             onError={this.onError}
+            value={val}
             required={_required}
             disabled={disabled}
             defaultValue={defaultValue}

@@ -34,10 +34,12 @@ import './demo.less';
 
 export default function Demo1(props) {
   const [value, setValue] = useState('86=中国=18811112222')
+  const [eValue, setEvalue] = useState('333@yonyou.com')
   return(
   <div>
     <MyComponent label='手机' singleLine={false} mode='mobilephone' area={true} value = {value} onChange={setValue}/>
     <MyComponent label='手机' singleLine={true} mode='mobilephone' value = {value} onChange={setValue}/>
+    <MyComponent label='邮箱' singleLine={true} mode='email' isSelectEmail={false} value = {eValue} onChange={setEvalue}/>
   </div>
   )
 }
