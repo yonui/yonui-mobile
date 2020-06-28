@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import YonuiInput from '../input-yonui'
 import classnames from 'classnames'
 import Wrapper, { ListItemWrapperProps, getListItemProps } from '../list-item-wrapper'
-import { decodeValue } from '../_utils'
+// import { decodeValue } from '../_utils'
 const NumberReg = {
   normal: /^-?0*(\d+\.\d*|[1-9]\d*|0)$|-/, // 基本数值校验
   format: /\d{1,3}(?=(\d{3})+$)/g // 整数匹配千分位
@@ -48,27 +48,43 @@ interface InputState {
   errorText?: string
   _value?: string
   _displayValue?: string
+  isFocus?: boolean
 }
 export default class Input extends Component<InputProps, InputState> {
   constructor (props: InputProps) {
     super(props)
-    const { value, formatReg, hiddenChart, replaceChart, defaultValue, prefix, suffix, precision = 2, subuitype, scaleValue } = props
-    const _value = value?.toString() || defaultValue?.toString()
-    const _displayValue = formatReg && _value ? decodeValue(_value, formatReg, hiddenChart, replaceChart) : ''
-    let preValue;
-    if (_displayValue || value) {
-      const _precision = subuitype === 'int' ? 0 : precision
-      const _fixValue = multiply(_displayValue || value, scaleValue).toFixed(_precision) // value?.toString() || stateValue?.toString()
-      preValue = `${prefix}${_fixValue}${suffix}`;
-    } else {
-      preValue = _displayValue || value;
-    }
     this.state = {
       error: false,
       errorText: '',
-      _value: _value || '',
-      _displayValue: preValue
+      isFocus: false // 记录是否获取焦点
     }
+  }
+
+  changeValue = (props) => {
+    const { _value: stateValue } = this.state
+    const { value, mode, prefix, suffix, precision = 2, subuitype, scaleValue } = props
+    // const _value = value?.toString() || defaultValue?.toString()
+    // const _displayValue = formatReg && _value ? decodeValue(_value, formatReg, hiddenChart, replaceChart) : ''
+    let preValue: string = ''
+    if (value || stateValue) {
+      const _precision = subuitype === 'int' ? 0 : precision
+      const _fixValue = multiply(value || stateValue, scaleValue).toFixed(_precision)
+      switch (mode) {
+        case 'percent': {
+          preValue = `${prefix}${_fixValue}${suffix}%`
+          break
+        }
+        case 'permillage': {
+          preValue = `${prefix}${_fixValue}${suffix}‰`
+          break
+        }
+        default: {
+          preValue = `${prefix}${_fixValue}${suffix}`
+          break
+        }
+      }
+    }
+    return preValue;
   }
 
   static defaultProps = {
@@ -93,34 +109,19 @@ export default class Input extends Component<InputProps, InputState> {
     const { onFocus } = this.props
     onFocus && onFocus(val)
     this.setState({
-      _displayValue: ''
+      _displayValue: '',
+      isFocus: true
     })
   }
 
   _onBlur = (val: string) => {
-    const { onBlur, value, mode, precision = 2, prefix, suffix, scaleValue, subuitype } = this.props
-    const { _value: stateValue } = this.state
+    const { onBlur } = this.props
     onBlur && onBlur(val)
-    const _precision = subuitype === 'int' ? 0 : precision
-    const _value = value || stateValue ? multiply(value || stateValue, scaleValue).toFixed(_precision) : '' // value?.toString() || stateValue?.toString()
-    let _displayValue: string = ''
-    switch (mode) {
-      case 'percent': {
-        _displayValue = `${prefix}${_value}${suffix}%`
-        break
-      }
-      case 'permillage': {
-        _displayValue = `${prefix}${_value}${suffix}‰`
-        break
-      }
-      default: {
-        _displayValue = `${prefix}${_value}${suffix}`
-        break
-      }
-    }
+    let _displayValue = this.changeValue(this.props)
     if (!val) _displayValue = ''
     this.setState({
-      _displayValue: _displayValue
+      _displayValue: _displayValue,
+      isFocus: false
     })
   }
 
@@ -207,6 +208,7 @@ export default class Input extends Component<InputProps, InputState> {
     const inputProps = this.getInputProps()
     const wrapperProps = getListItemProps(this.props, {className: cls, error, errorText})
     const _required = bIsNull !== undefined ? bIsNull : required
+    const preValue = this.state.isFocus ? value : this.changeValue(this.props);
     return (
       <Wrapper {...wrapperProps}>
         <YonuiInput
@@ -217,7 +219,7 @@ export default class Input extends Component<InputProps, InputState> {
           onChange={this._onChange}
           onFocus={this._onFocus}
           onClickClear={this._onClickClear}
-          value={_displayValue || value}
+          value={_displayValue || preValue}
           {...other}
           {...inputProps}
           style={{ backgroundColor: inputBgColor }}
