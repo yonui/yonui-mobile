@@ -51,19 +51,19 @@ const manifest: ComponentManifest = {
     //     help: '点击每个列表项的回调函数'
     //   }
     // },
-    {
-      name: 'onClose',
-      type: FieldTypes.action,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: 'onClose',
-        help: '关闭的回调'
-      }
-    },
+    // {
+    //   name: 'onClose',
+    //   type: FieldTypes.action,
+    //   defaultValue: '',
+    //   showDesign: true,
+    //   designConfig: {
+    //     type: EditTypes.Text,
+    //     isRequired: false,
+    //     props: {},
+    //     label: 'onClose',
+    //     help: '关闭的回调'
+    //   }
+    // },
     {
       name: 'visible',
       type: FieldTypes.boolean,

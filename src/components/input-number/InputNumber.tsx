@@ -55,10 +55,14 @@ export default class Input extends Component<InputProps, InputState> {
     const { value, formatReg, hiddenChart, replaceChart, defaultValue, prefix, suffix, precision = 2, subuitype, scaleValue } = props
     const _value = value?.toString() || defaultValue?.toString()
     const _displayValue = formatReg && _value ? decodeValue(_value, formatReg, hiddenChart, replaceChart) : ''
-    const _precision = subuitype === 'int' ? 0 : precision
-    const _fixValue = multiply(_displayValue || value, scaleValue).toFixed(_precision) // value?.toString() || stateValue?.toString()
-
-    const preValue = `${prefix}${_fixValue}${suffix}`;
+    let preValue;
+    if (_displayValue || value) {
+      const _precision = subuitype === 'int' ? 0 : precision
+      const _fixValue = multiply(_displayValue || value, scaleValue).toFixed(_precision) // value?.toString() || stateValue?.toString()
+      preValue = `${prefix}${_fixValue}${suffix}`;
+    } else {
+      preValue = _displayValue || value;
+    }
     this.state = {
       error: false,
       errorText: '',
