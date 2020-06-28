@@ -58,7 +58,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
       country: this.valueAdapt(1, props.value) || '中国',
       countryNum: this.valueAdapt(0, props.value) || '86',
       open: false,
-      emailType: '@email.com',
+      emailType: this.emailValueAdapt(1, props.value) || '@email.com',
       _value: this.valueAdapt(2, props.value),
       error: false
     }
@@ -70,6 +70,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
         country: this.valueAdapt(1, nextProps.value) || '中国',
         countryNum: this.valueAdapt(0, nextProps.value) || '+86',
         _value: this.valueAdapt(2, nextProps.value),
+        emailType: this.emailValueAdapt(1, nextProps.value)
       })
     }
     return true
@@ -98,17 +99,45 @@ export default class Contact extends Component<ContactProps, ContactState> {
         return ''
       }
     } else {
-      return value
+      return this.emailValueAdapt(0, value)
     }
   }
 
   returnValueAdapt = (inputValue?: string) => {
-    const { country, countryNum } = this.state
-    const { mode } = this.props
+    const { country, countryNum, emailType } = this.state
+    const { mode, isSelect } = this.props
     if (mode === 'telephone' || mode === 'mobilephone') {
       return `${countryNum}=${country}=${inputValue}`
     } else {
-      return inputValue
+      if (isSelect) {
+        return `${inputValue}${emailType}`
+      } else {
+        return inputValue
+      }
+    }
+  }
+
+  emailValueAdapt = (index?: number, value?: string) => {
+    const { isSelect } = this.props
+    if (isSelect) {
+      if (value) {
+        const valueArray = value.split('@')
+        if (valueArray.length > 0) {
+          switch (index) {
+            case 0:
+              return valueArray[0]
+            case 1:
+              return `@${valueArray[1]}`
+          }
+          return valueArray[index]
+        } else {
+          return value
+        }
+      } else {
+        return ''
+      }
+    } else {
+      return value
     }
   }
 
@@ -145,7 +174,8 @@ export default class Contact extends Component<ContactProps, ContactState> {
   textOnChange= (value: string) => {
     const { onChange } = this.props
     const returnValue = this.returnValueAdapt(value)
-    onChange && onChange(returnValue)
+    console.log('dddd', returnValue);
+    onChange?.(returnValue)
     this.setState({
       _value: value
     })
@@ -154,13 +184,13 @@ export default class Contact extends Component<ContactProps, ContactState> {
   _onFocus = (val: string) => {
     const { onFocus } = this.props
     const returnValue = this.returnValueAdapt(val)
-    onFocus && onFocus(returnValue)
+    onFocus?.(returnValue)
   }
 
   _onBlur = (val: string) => {
     const { onBlur } = this.props
     const returnValue = this.returnValueAdapt(val)
-    onBlur && onBlur(returnValue)
+    onBlur?.(returnValue)
   }
 
   dailAction = () => {
@@ -186,7 +216,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
   }
 
   getContent = (mode?: 'telephone' | 'mobilephone' | 'email', area?: boolean, isSelectEmail?: boolean) => {
-    const { onChange, singleLine, value, required, disabled, defaultValue, bIsNull } = this.props
+    const { singleLine, value, required, disabled, defaultValue, bIsNull } = this.props
     const _required = bIsNull !== undefined ? bIsNull : required
     const { emailType, country, countryNum, _value } = this.state
     const val = value !== undefined ? this.valueAdapt(2, value) : _value
@@ -198,7 +228,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
             <Input
               textAlign={inputTextAlign}
               placeholder='name'
-              onChange={onChange}
+              onChange={(value) => { this.textOnChange(value) }}
               onBlur={this._onBlur}
               onFocus={this._onFocus}
               value={val}
@@ -215,7 +245,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
           <Input
             textAlign={inputTextAlign}
             placeholder='name@email.com'
-            onChange={onChange}
+            onChange={(value) => { this.textOnChange(value) }}
             onSuccess={this.onSuccess}
             onError={this.onError}
             value={val}
@@ -285,9 +315,14 @@ export default class Contact extends Component<ContactProps, ContactState> {
   }
 
   onClickAreaItem = (data: { short: string, name: string, en: string, tel: string, pinyin: string }, index: number, e?: React.MouseEvent<HTMLSpanElement, MouseEvent>, temp?: boolean) => {
-    e && e.stopPropagation()
+    e?.stopPropagation()
+    const { onChange } = this.props
     const { dataSource = [] } = this.props
+    const { _value } = this.state
     const item = dataSource[index]
+    const returnValue = `${item.tel}=${item.name}=${_value}`
+    console.log('mmmd', returnValue);
+    onChange?.(returnValue)
     this.setState({
       country: item.name,
       countryNum: item.tel
@@ -295,8 +330,12 @@ export default class Contact extends Component<ContactProps, ContactState> {
   }
 
   onClickEmailItem = (data: { type: string }, index: number, e?: React.MouseEvent<HTMLSpanElement, MouseEvent>, temp?: boolean) => {
-    e && e.stopPropagation()
+    e?.stopPropagation()
+    const { onChange } = this.props
+    const { _value } = this.state
     const item = defaultEmailTypeDataSource[index]
+    const returnValue = `${_value}${item.type}`
+    onChange?.(returnValue)
     this.setState({
       emailType: item.type
     })
