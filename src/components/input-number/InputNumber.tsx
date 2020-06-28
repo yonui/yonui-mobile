@@ -102,7 +102,7 @@ export default class Input extends Component<InputProps, InputState> {
     const { _value: stateValue } = this.state
     onBlur && onBlur(val)
     const _precision = subuitype === 'int' ? 0 : precision
-    const _value = multiply(value || stateValue, scaleValue).toFixed(_precision) // value?.toString() || stateValue?.toString()
+    const _value = value || stateValue ? multiply(value || stateValue, scaleValue).toFixed(_precision) : '' // value?.toString() || stateValue?.toString()
     let _displayValue: string = ''
     switch (mode) {
       case 'percent': {
