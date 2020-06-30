@@ -194,7 +194,7 @@ const manifest: ComponentManifest = {
         label: 'onBlur'
       }
     },
-    ...getFilterProps(['singleLine', 'errorText'])
+    ...getFilterProps(['singleLine', 'errorText', 'labelStyle'])
   ],
   extension: [
     // ExtensionProps.required,
