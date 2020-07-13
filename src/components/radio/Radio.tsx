@@ -158,12 +158,12 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
       <div className='yonui-radio-list-content'>
         {_list}
       </div>
-      {isMultiple && <div className='yonui-radio-list-footer'>
+      {isMultiple ? <div className='yonui-radio-list-footer'>
         <div className='yonui-radio-list-footer-data'>
           {TextString.selected} {_selectedValue.length}/{selectData.length}
         </div>
         <Button size='small' type='primary' className='yonui-radio-list-footer-btn' onClick={this.onConfirm}>{TextString.confirm}</Button>
-      </div>}
+      </div> : null}
     </div>
   }
 

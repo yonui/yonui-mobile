@@ -11,7 +11,7 @@ interface SimpleListProps extends React.defaultProps{
   loadingText?: string
   completeText?: string
   split?: 'none' | 'line' | 'blank'
-  height?: number
+  // height?: number
   reservedHeight?: number
   children?: React.ReactChildren
   editable?: boolean
