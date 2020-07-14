@@ -19,10 +19,10 @@ const manifest: ComponentManifest = {
         props: {
           options:
             [
-              { value: 'row', text: '从左横向排布' },
-              { value: 'row-reverse', text: '从右横向排布' },
-              { value: 'column', text: '从上往下纵向排布' },
-              { value: 'column-reverse', text: '从下往上纵向排布' }
+              { value: 'row', text: '从左到右' },
+              { value: 'row-reverse', text: '从右到左' },
+              { value: 'column', text: '从上到下' },
+              { value: 'column-reverse', text: '从下到上' }
             ]
         },
         label: '项目定位方向',
@@ -67,8 +67,8 @@ const manifest: ComponentManifest = {
               { value: 'around', text: '从中间等分' }
             ]
         },
-        label: '主轴对齐方式',
-        help: '子元素在主轴上的对齐方式'
+        label: '水平方向对齐',
+        help: '子元素在水平方向对齐'
       }
     },
     {
@@ -82,13 +82,13 @@ const manifest: ComponentManifest = {
         props: {
           options:
             [
-              { value: 'start', text: '顶部对齐' },
-              { value: 'end', text: '底部对齐' },
+              { value: 'start', text: '上对齐' },
+              { value: 'end', text: '下对齐' },
               { value: 'center', text: '水平对齐' }
             ]
         },
-        label: '交叉轴对齐方式',
-        help: '子元素在交叉轴上的对齐方式'
+        label: '垂直方向对齐',
+        help: '子元素在交垂直方向对齐'
       }
     }
   ],
