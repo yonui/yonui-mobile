@@ -24,6 +24,7 @@ interface ContactProps extends React.defaultProps, React.inputItemProps{
   defaultValue?: string
   value?: string
   disabled?: boolean
+  notVerify?: boolean // 是否需要校验格式，暂时用于查询组件设置为true不需要校验
 }
 interface ContactState {
   country?: string
@@ -148,6 +149,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
   }
 
   onError = () => {
+    if (this.props.notVerify) return
     this.setState({
       error: true
     })
