@@ -17,16 +17,7 @@
 | message | string | '' |  文字描述|
 
 
-# empty 情感化页面空数据
-## 情感化页面
-**API**
-
-| empty |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 设计器类型 | 默认值 | 说明 |
-| mode | string | 'success' |  模式 取值范围 ['noData','client','blankPage','error','review','server','noNetwork']|
-| message | string | '' |  文字描述|
-
+# README
 
 # README
 ## tips 基础组件-徽标数
@@ -42,16 +33,32 @@
 
 
 # README
+label组件可用作标签等单纯的数据展示。
 
-# README
-## navbar 导航栏
+### API
+
+| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
+| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
+| *type*        | 渲染类型              | 否 | 'default'\|'primary'\|'border'\|'label'    | 'default' |
+| *label* | 文本内容 | 否 | string |  |
+| *width* | 图片的尺寸                            | 否   | string                               |  |
+| *textAlign* | 图片圆角百分值              | 否   | 'left'\|'center'\|'right' |  |
+| *color* | 主题色                             | 否   | string                      |  |
+| *bgColor* | 背景色 | 否   | string |               |
+| *leftIcon* | 左侧插入图标 | 否 | ReactNode | |
+| *rightIcon* | 右侧插入图标 | 否 | ReactNode | |
+
+
+
+# empty 情感化页面空数据
+## 情感化页面
 **API**
 
-| navbar |  |  |  |
+| empty |  |  |  |
 | :---: | --- | --- | --- |
-| 属性 | 类型 | 默认值 | 说明 |
-| label | string | - |  标签 |
-| style | object | - |  样式描述 |
+| 属性 | 设计器类型 | 默认值 | 说明 |
+| mode | string | 'success' |  模式 取值范围 ['noData','client','blankPage','error','review','server','noNetwork']|
+| message | string | '' |  文字描述|
 
 
 # README
@@ -120,28 +127,33 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 # README
 
+### API
+
+| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
+| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
+| *tabs*                    | tab数据源                      | 是   | array                                | []     |
+| *animated*                | 是否使用切换动画效果           | 否   | boolean                              | true   |
+| *initialPage*             | initialPage                    | 否   | number\|string                       |        |
+| *page*                    | 当前Tab下标或key值             | 否   | number\|string                       |        |
+| *pageSize*                | 单页最大标签数，超出后滑动展示 | 否   | number                               | 5      |
+| *swipeable*              | 是否可滑动切换内容             | 否   | boolean                              | false  |
+| *onChange*                | tab变化时触发                  | 否   | (tab: object, index: number) => void |        |
+| *onTabClick*              | tab点击时时触发                | 否   | (tab: object, index: number) => void |        |
+| *icons*                   | tab右侧图标                    | 否   | Array< JSX.Element > |        |
+| *gather*                  | tab是否集中分布                | 否   | boolean                              | false  |
+| *splitLine*               | 是否展示tab-bar下方的分隔符    | 否   | boolean                              | true   |
+| *abBarBackgroundColor*    | 标签栏背景色                   | 否   | string                               |        |
+| *tabBarActiveTextColor*   | 激活文字颜色                   | 否   | string                               |        |
+| *tabBarInactiveTextColor* | 非激活文字颜色                 | 否   | string                               |        |
+| *iconsOccupy* | icons是否占位 | 否 | boolean | true |
+| *iconsClassName* | icons区域类名 | 否 | string |  |
+| *iconsStyle* | icons区域样式 | 否 | CSSProperties |  |
+
+
+
 # README
 
 - Tabs组件的专属容器子组件
-
-
-# README
-
-筛选组件的容器部分
-
-
-
-### API
-
-| 属性           | 说明               | 必填 | 类型     | 默认  |
-| -------------- | ------------------ | ---- | -------- | ----- |
-| *open*         | 筛选组件是否显示   | true | boolean  | false |
-| *onOpenChange* | open状态改变时调用 | 否   | ()=>void |       |
-| *btn1*         | 左侧按钮名称       | 否   | String   | 重置  |
-| *onBtn1Click*  | 左侧按钮点击事件   | 否   | ()=>void |       |
-| *btn2*         | 右侧按钮名称       | 否   | string   | 确定  |
-| *onBtn2Click*  | 右侧按钮点击事件   | 否   | ()=>void |       |
-
 
 
 # README
@@ -223,30 +235,18 @@ interface dataType { text: string, value: string, disabled?: boolean }
 |activeClassName	|点击反馈的自定义类名	|string	||
 |itemStyle	|每个格子自定义样式	|object	|{}|
 
-# TextareaItem 多行输入
+# README
+## navbar 导航栏
 **API**
 
-| TextareaItem |  |  |  |
+| navbar |  |  |  |
 | :---: | --- | --- | --- |
-| 属性 | 说明 | 类型 | 默认值 |
-| value    | value 值(受控与否参考https://facebook.github.io/react/docs/forms.html)  | String |  无  |
-| defaultValue    | 设置初始默认值        | String |  -  |
-| placeholder      | placeholder        | String | ''  |
-| editable    | 是否可编辑        | bool |  true  |
-| disabled    | 是否禁用        | bool |  false  |
-| clear      |  是否带清除功能(仅`editable`为`true`,`disabled`为`false`才生效) | bool | false  |
-| rows      |   显示几行      | number |   1 |
-| count      |  计数功能,兼具最大长度,默认为0,代表不开启计数功能      | number | -  |
-| onChange    | change 事件触发的回调函数 | (val: string): void |  -  |
-| onBlur     | blur 事件触发的回调函数 | (val: string): void |   -  |
-| onFocus    | focus 事件触发的回调函数 | (val: string): void |  -  |
-| error       | 报错样式        | bool |  false  |
-| onErrorClick       | 点击报错 icon 触发的回调   | (): void |  无  |
-| autoHeight       | 高度自适应, autoHeight 和 rows 请二选一    | bool  | false  |
-| name   | textarea 的 name       | String |   -  |
-| prefixListCls   |   列表 className 前缀      | String |  `am-list`  |
-| title   | 文案说明        | String/node |  '' |
+| 属性 | 类型 | 默认值 | 说明 |
+| label | string | - |  标签 |
+| style | object | - |  样式描述 |
 
+
+# README
 
 # README
 ## Input 基础组件-输入框
@@ -274,6 +274,19 @@ interface dataType { text: string, value: string, disabled?: boolean }
 # README
 
 # README
+## ListPanelPicker 基础组件-操作列表
+**API**
+
+| ListPanelPicker |  |  |  |
+| :---: | --- | --- | --- |
+属性 | 说明 | 类型 | 默认值 |
+visible | 是否显示 | boolean | false |
+header | 头部的值 | string | - |
+data | 传入的列表数据 | Array<{key, text, delete?}>,delete为true,操作列表项颜色为红色,key为主键,text为显示文本,不需要可以不写delete属性 | [] |
+onClose | 关闭时回调 | () => void | |
+onClick | 点击时回调 | (object: DataItem) => void | |
+
+# README
 
 # README
 卡片容器组件
@@ -290,6 +303,31 @@ interface dataType { text: string, value: string, disabled?: boolean }
 | showTitleExtraIcon | 是否展示标题左侧图标，detail模式下有效 | 否 | boolean | false |
 | onDelete | 删除事件。detail/slideable模式下有效 | 否 | ()=>void |  |
 
+
+
+# TextareaItem 多行输入
+**API**
+
+| TextareaItem |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 说明 | 类型 | 默认值 |
+| value    | value 值(受控与否参考https://facebook.github.io/react/docs/forms.html)  | String |  无  |
+| defaultValue    | 设置初始默认值        | String |  -  |
+| placeholder      | placeholder        | String | ''  |
+| editable    | 是否可编辑        | bool |  true  |
+| disabled    | 是否禁用        | bool |  false  |
+| clear      |  是否带清除功能(仅`editable`为`true`,`disabled`为`false`才生效) | bool | false  |
+| rows      |   显示几行      | number |   1 |
+| count      |  计数功能,兼具最大长度,默认为0,代表不开启计数功能      | number | -  |
+| onChange    | change 事件触发的回调函数 | (val: string): void |  -  |
+| onBlur     | blur 事件触发的回调函数 | (val: string): void |   -  |
+| onFocus    | focus 事件触发的回调函数 | (val: string): void |  -  |
+| error       | 报错样式        | bool |  false  |
+| onErrorClick       | 点击报错 icon 触发的回调   | (): void |  无  |
+| autoHeight       | 高度自适应, autoHeight 和 rows 请二选一    | bool  | false  |
+| name   | textarea 的 name       | String |   -  |
+| prefixListCls   |   列表 className 前缀      | String |  `am-list`  |
+| title   | 文案说明        | String/node |  '' |
 
 
 # README
@@ -322,6 +360,8 @@ interface InputNumberPorps {
 }
 ```
 
+
+# README
 
 # README
 列表行容器组件，用来规范同类组件样式。
@@ -370,98 +410,6 @@ interface InputNumberPorps {
 
 # README
 
-### API
-
-| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
-| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
-| *tabs*                    | tab数据源                      | 是   | array                                | []     |
-| *animated*                | 是否使用切换动画效果           | 否   | boolean                              | true   |
-| *initialPage*             | initialPage                    | 否   | number\|string                       |        |
-| *page*                    | 当前Tab下标或key值             | 否   | number\|string                       |        |
-| *pageSize*                | 单页最大标签数，超出后滑动展示 | 否   | number                               | 5      |
-| *swipeable*              | 是否可滑动切换内容             | 否   | boolean                              | false  |
-| *onChange*                | tab变化时触发                  | 否   | (tab: object, index: number) => void |        |
-| *onTabClick*              | tab点击时时触发                | 否   | (tab: object, index: number) => void |        |
-| *icons*                   | tab右侧图标                    | 否   | Array< JSX.Element > |        |
-| *gather*                  | tab是否集中分布                | 否   | boolean                              | false  |
-| *splitLine*               | 是否展示tab-bar下方的分隔符    | 否   | boolean                              | true   |
-| *abBarBackgroundColor*    | 标签栏背景色                   | 否   | string                               |        |
-| *tabBarActiveTextColor*   | 激活文字颜色                   | 否   | string                               |        |
-| *tabBarInactiveTextColor* | 非激活文字颜色                 | 否   | string                               |        |
-| *iconsOccupy* | icons是否占位 | 否 | boolean | true |
-| *iconsClassName* | icons区域类名 | 否 | string |  |
-| *iconsStyle* | icons区域样式 | 否 | CSSProperties |  |
-
-
-
-# README
-图片组件。该组件仅作为图片展示组件，可用作头像展示等。
-
-### API
-
-| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
-| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
-| *url*        | 图片的链接或base64字符串                     | 是   | Array< string >                                              |               |
-| *size* | 图片的尺寸                            | 否   | 'sm'\|'md'\|'lg'                                     | 'md' |
-| *borderRadius* | 图片圆角百分值              | 否   | number                            | 0 |
-| *showLabel* | 渲染选项的模式                                  | 否   | boolean                                    | false   |
-| *label* | 标题文本 | 否   | string |               |
-
-
-
-# README
-
-### API
-
-| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
-| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
-| *url*                    | 链接的url地址                      | 是   | string                                |      |
-| *width*                | iframe的样式宽度属性，默认为100%           | 否   | string                              |    |
-| *height*             | iframe的样式高度属性，默认为100%                    | 否   | string                       |        |
-
-
-# README
-
-# README
-
-评分组件
-
-### API
-
-| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
-| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
-| count         | 评分总分 | 是 | number            | 5      |
-| allowHalf | 是否允许半分 | 否 | boolean | false  |
-| defaultValue | 默认值 | 否 | number | -      |
-| disabled | 禁用 | 否 | boolean | -      |
-| onChange | 评分变化时间 | 否 | (value: number)=>void |        |
-
-
-
-# README
-
-# README
-
-# README
-label组件可用作标签等单纯的数据展示。
-
-### API
-
-| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
-| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
-| *type*        | 渲染类型              | 否 | 'default'\|'primary'\|'border'\|'label'    | 'default' |
-| *label* | 文本内容 | 否 | string |  |
-| *width* | 图片的尺寸                            | 否   | string                               |  |
-| *textAlign* | 图片圆角百分值              | 否   | 'left'\|'center'\|'right' |  |
-| *color* | 主题色                             | 否   | string                      |  |
-| *bgColor* | 背景色 | 否   | string |               |
-| *leftIcon* | 左侧插入图标 | 否 | ReactNode | |
-| *rightIcon* | 右侧插入图标 | 否 | ReactNode | |
-
-
-
-# README
-
 联系方式组件，支持通过设置mode，区分座机、手机、邮箱。
 
 ### API
@@ -484,15 +432,35 @@ type emailType = Array<{type: string}>
 
 
 # README
-## ListPanelPicker 基础组件-操作列表
-**API**
 
-| ListPanelPicker |  |  |  |
-| :---: | --- | --- | --- |
-属性 | 说明 | 类型 | 默认值 |
-visible | 是否显示 | boolean | false |
-header | 头部的值 | string | - |
-data | 传入的列表数据 | Array<{key, text, delete?}>,delete为true,操作列表项颜色为红色,key为主键,text为显示文本,不需要可以不写delete属性 | [] |
-onClose | 关闭时回调 | () => void | |
-onClick | 点击时回调 | (object: DataItem) => void | |
+### API
+
+| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
+| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
+| *url*                    | 链接的url地址                      | 是   | string                                |      |
+| *width*                | iframe的样式宽度属性，默认为100%           | 否   | string                              |    |
+| *height*             | iframe的样式高度属性，默认为100%                    | 否   | string                       |        |
+
+
+# README
+
+# README
+
+# README
+
+# README
+
+评分组件
+
+### API
+
+| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
+| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
+| count         | 评分总分 | 是 | number            | 5      |
+| allowHalf | 是否允许半分 | 否 | boolean | false  |
+| defaultValue | 默认值 | 否 | number | -      |
+| disabled | 禁用 | 否 | boolean | -      |
+| onChange | 评分变化时间 | 否 | (value: number)=>void |        |
+
+
 

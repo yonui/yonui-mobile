@@ -136,7 +136,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
   }
 
   render () {
-    const { className, style, type, value, textAlign, beforeRender, placeholder, inputStyle, disabled } = this.props
+    const { className, style, type, value, textAlign, beforeRender, placeholder, inputStyle, disabled, mReadOnly } = this.props
     const { _value, _className } = this.state
     const val = value?.toString() || _value
     const displayVal = beforeRender ? beforeRender(val) : val
@@ -159,7 +159,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
           style={_inputStyle}
           onFocus={this._onFocus}
           placeholder={displayPlaceholder}
-          disabled={disabled}
+          disabled={disabled || mReadOnly}
         />
         <div className='yonui-clear' onClick={this._onClickClear} />
       </div>
