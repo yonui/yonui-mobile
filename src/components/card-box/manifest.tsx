@@ -1,4 +1,11 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps } from 'yonui-extension'
+const transformer = ({ meta, vm }) => {
+  return (props) => {
+    props.mReadOnly = vm?.get('mActionList')?.getReadOnly()
+    console.log('xxxxxx props: ', props)
+    return props;
+  };
+};
 const manifest: ComponentManifest = {
   name: 'CardBox',
   label: '卡片容器',
@@ -90,7 +97,11 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: () => true
+  children: () => true,
+  transformers: [
+    'inherit',
+    transformer
+  ]
 }
 
 export default manifest

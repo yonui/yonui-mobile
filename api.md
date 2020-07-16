@@ -50,15 +50,15 @@ label组件可用作标签等单纯的数据展示。
 
 
 
-# empty 情感化页面空数据
-## 情感化页面
+# README
+## navbar 导航栏
 **API**
 
-| empty |  |  |  |
+| navbar |  |  |  |
 | :---: | --- | --- | --- |
-| 属性 | 设计器类型 | 默认值 | 说明 |
-| mode | string | 'success' |  模式 取值范围 ['noData','client','blankPage','error','review','server','noNetwork']|
-| message | string | '' |  文字描述|
+| 属性 | 类型 | 默认值 | 说明 |
+| label | string | - |  标签 |
+| style | object | - |  样式描述 |
 
 
 # README
@@ -235,18 +235,16 @@ interface dataType { text: string, value: string, disabled?: boolean }
 |activeClassName	|点击反馈的自定义类名	|string	||
 |itemStyle	|每个格子自定义样式	|object	|{}|
 
-# README
-## navbar 导航栏
+# empty 情感化页面空数据
+## 情感化页面
 **API**
 
-| navbar |  |  |  |
+| empty |  |  |  |
 | :---: | --- | --- | --- |
-| 属性 | 类型 | 默认值 | 说明 |
-| label | string | - |  标签 |
-| style | object | - |  样式描述 |
+| 属性 | 设计器类型 | 默认值 | 说明 |
+| mode | string | 'success' |  模式 取值范围 ['noData','client','blankPage','error','review','server','noNetwork']|
+| message | string | '' |  文字描述|
 
-
-# README
 
 # README
 ## Input 基础组件-输入框
@@ -274,6 +272,8 @@ interface dataType { text: string, value: string, disabled?: boolean }
 # README
 
 # README
+
+# README
 ## ListPanelPicker 基础组件-操作列表
 **API**
 
@@ -285,25 +285,6 @@ header | 头部的值 | string | - |
 data | 传入的列表数据 | Array<{key, text, delete?}>,delete为true,操作列表项颜色为红色,key为主键,text为显示文本,不需要可以不写delete属性 | [] |
 onClose | 关闭时回调 | () => void | |
 onClick | 点击时回调 | (object: DataItem) => void | |
-
-# README
-
-# README
-卡片容器组件
-
-### API
-
-| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
-| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
-| displayStyle       | 展示类型                               | 否   | 'normal'\|'detail'\|'slideable' | 'normal' |
-| btnText | 删除按钮文本。slideable模式下有效 | 否   | string                               | '删除' |
-| rightStyle | 删除按钮样式。slideable模式下有效 | 否   | number                            | {} |
-| label | 标题文本，detail模式下有效             | 否   | string                              | '' |
-| showDeleteIcon | 是否展示删除按钮，detail模式下有效 | 否   | boolean | true |
-| showTitleExtraIcon | 是否展示标题左侧图标，detail模式下有效 | 否 | boolean | false |
-| onDelete | 删除事件。detail/slideable模式下有效 | 否 | ()=>void |  |
-
-
 
 # TextareaItem 多行输入
 **API**
@@ -338,6 +319,27 @@ onClick | 点击时回调 | (object: DataItem) => void | |
 
 # README
 
+# README
+卡片容器组件
+
+### API
+
+| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
+| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
+| displayStyle       | 展示类型                               | 否   | 'normal'\|'detail'\|'slideable' | 'normal' |
+| btnText | 删除按钮文本。slideable模式下有效 | 否   | string                               | '删除' |
+| rightStyle | 删除按钮样式。slideable模式下有效 | 否   | number                            | {} |
+| label | 标题文本，detail模式下有效             | 否   | string                              | '' |
+| showDeleteIcon | 是否展示删除按钮，detail模式下有效 | 否   | boolean | true |
+| showTitleExtraIcon | 是否展示标题左侧图标，detail模式下有效 | 否 | boolean | false |
+| onDelete | 删除事件。detail/slideable模式下有效 | 否 | ()=>void |  |
+
+
+
+# README
+
+# README
+
 ```js
 interface InputNumberPorps {
   label?: string
@@ -362,8 +364,6 @@ interface InputNumberPorps {
 
 
 # README
-
-# README
 列表行容器组件，用来规范同类组件样式。
 
 ### API
@@ -383,28 +383,6 @@ interface InputNumberPorps {
 | errorText | 错误提示文本 | 否 | string | '填写信息有误!请重新填写' |
 | showExtraLabelIcon | 是否展示标题左侧图标 | 否 | boolean | false |
 | onClick | 行点击事件 | 否 | (*event*: React.MouseEvent<HTMLDivElement, MouseEvent>) => void | |
-
-
-
-# README
-
-# README
-
-一个简单的列表组件，支持下拉刷新和触底加载。大数据浏览时使用会产生性能问题。
-
-### API
-
-| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
-| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
-| dataSource         | 列表数据源                 | 是   | array                                | []     |
-| pullToRefresh | 是否启用下拉刷新 | 否 | boolean | true |
-| footerText | 底部区域文本，为空时不展示底部文字 | 否 | string | '' |
-| split | 列表项之间的分隔符号，分为无、分割线和分隔块 | 否 | 'none'\|'line'\|'blank' | 'line' |
-| height | 列表高度 | 否 | number | - |
-| reserverdHeight | 列表底部预留高度，设置height属性时无效 | 否 | number | - |
-| renderRow | 渲染每一行数据的方法，参数为数据源的每一项 | 是 | (item: any, dataSource any[], index: number) => React.ReactChild | - |
-| onRefresh | 触发下拉刷新事件的回调 | 否 | () => void | - |
-| onReachFoot | 页面滑动到底部时的回调 | 否 | () => void | - |
 
 
 
@@ -433,6 +411,26 @@ type emailType = Array<{type: string}>
 
 # README
 
+一个简单的列表组件，支持下拉刷新和触底加载。大数据浏览时使用会产生性能问题。
+
+### API
+
+| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
+| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
+| dataSource         | 列表数据源                 | 是   | array                                | []     |
+| pullToRefresh | 是否启用下拉刷新 | 否 | boolean | true |
+| footerText | 底部区域文本，为空时不展示底部文字 | 否 | string | '' |
+| split | 列表项之间的分隔符号，分为无、分割线和分隔块 | 否 | 'none'\|'line'\|'blank' | 'line' |
+| height | 列表高度 | 否 | number | - |
+| reserverdHeight | 列表底部预留高度，设置height属性时无效 | 否 | number | - |
+| renderRow | 渲染每一行数据的方法，参数为数据源的每一项 | 是 | (item: any, dataSource any[], index: number) => React.ReactChild | - |
+| onRefresh | 触发下拉刷新事件的回调 | 否 | () => void | - |
+| onReachFoot | 页面滑动到底部时的回调 | 否 | () => void | - |
+
+
+
+# README
+
 ### API
 
 | 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
@@ -441,8 +439,6 @@ type emailType = Array<{type: string}>
 | *width*                | iframe的样式宽度属性，默认为100%           | 否   | string                              |    |
 | *height*             | iframe的样式高度属性，默认为100%                    | 否   | string                       |        |
 
-
-# README
 
 # README
 
@@ -463,4 +459,8 @@ type emailType = Array<{type: string}>
 | onChange | 评分变化时间 | 否 | (value: number)=>void |        |
 
 
+
+# README
+
+# README
 
