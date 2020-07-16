@@ -2,7 +2,6 @@ import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps } from 'y
 const transformer = ({ meta, vm }) => {
   return (props) => {
     props.mReadOnly = vm?.get('mActionList')?.getReadOnly()
-    console.log('xxxxxx props: ', props)
     return props;
   };
 };
