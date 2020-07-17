@@ -9,7 +9,7 @@ interface CardBoxProps extends React.defaultProps{
   label?: string
   rightStyle?: React.CSSProperties
   viewStatus?: 'default' | 'select' | 'selected' | 'detail' | 'browse'
-  displayStyle?: 'normal' | 'detail' | 'slideable' | 'extra'
+  displayStyle?: 'normal' | 'detail' | 'slideable' | 'extra' | 'editable'
   selected?: boolean
   showDeleteIcon?: boolean
   showTitleExtraIcon?: boolean
@@ -85,6 +85,14 @@ export default class CardBox extends Component<CardBoxProps, CardBoxState> {
             {showMore
               ? <div onClick={this.onChangeShowMore(false)} className='yonui-card-box-extra'>收起<Icon type='up' /></div>
               : <div onClick={this.onChangeShowMore(true)} className='yonui-card-box-extra'>查看更多<Icon type='down' /></div>}
+          </div>
+        </>)
+        break
+      }
+      case 'editable': {
+        content = (<>
+          <div className='yonui-card-box-swipe' style={style}>
+            {children}
           </div>
         </>)
         break
