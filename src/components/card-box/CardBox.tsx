@@ -90,6 +90,14 @@ export default class CardBox extends Component<CardBoxProps, CardBoxState> {
         break
       }
       case 'editable': {
+        const __RUNTIME_CONTEXT__ = children?.[0]?.props?.__RUNTIME_CONTEXT__
+        if (__RUNTIME_CONTEXT__) {
+          const rowIndex = __RUNTIME_CONTEXT__.rowIndex
+          const gridModel = __RUNTIME_CONTEXT__.gridModel
+          const itemSelected = gridModel?.getData()?.[rowIndex].selected || false
+          console.log('xxxxx rowIndex: ', rowIndex, ' itemSelected: ', itemSelected);
+          // TODO itemSelected 即为选中状态，用于控制item选中反选的UI显示
+        }
         content = (<>
           <div className='yonui-card-box-swipe' style={style}>
             {children}
