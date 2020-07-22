@@ -65,6 +65,59 @@
     }
   }
 
+  .yonui-card-box-editable-selected {
+    display: flex;
+    width: 100%;
+    padding: 5*@hd 0;
+    background-color: rgba(225, 76, 70, 0.1);
+  }
+
+  .yonui-card-box-editable-unselected {
+    display: flex;
+    width: 100%;
+    padding: 5*@hd 0;
+    background-color: #F6F6F6;
+  }
+
+  .yonui-card-box-editable-content{
+    width: 100%;
+    padding: 5*@hd 0;
+    background-color: #ffffff;
+    border-bottom-left-radius: 8 * @hd;
+    border-top-left-radius: 8 * @hd;
+    .yonui-card-box-extra {
+      color: @brand-primary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 44 * @hd;
+      font-size: 15 * @hd;
+    }
+  }
+
+  .yonui-card-box-checkbox {
+    align-self: center;
+    margin-left: 7*@hd;
+    margin-right: 7*@hd;
+    .yonui-checkbox-icon{
+      width: 17*@hd;
+      height: 17*@hd;
+    }
+  }
+
+  .yonui-card-box-editable-title::after{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 4*@hd;
+    height: 100%;
+    background-color: @brand-primary;
+    left: -12*@hd;
+    border-top-right-radius: 4*@hd;
+    border-bottom-right-radius: 4*@hd;
+    transform: scaleY(.7);
+  }
+
 }
 
 .yonui-simple-list{

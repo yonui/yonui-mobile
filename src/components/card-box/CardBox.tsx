@@ -3,6 +3,7 @@ import { SwipeAction, Icon } from 'antd-mobile'
 import Wrapper from '../list-item-wrapper'
 import deleteImg from './style/delete.png'
 import classnames from 'classnames'
+import CheckBox from '../checkbox'
 interface CardBoxProps extends React.defaultProps{
   btnText: '删除'
   onDelete?: () => void
@@ -50,6 +51,10 @@ export default class CardBox extends Component<CardBoxProps, CardBoxState> {
     }
   }
 
+  checkBoxOnChange = () => {
+    console.log('222')
+  }
+
   render () {
     const { btnText, onDelete, rightStyle, style, className, children, viewStatus, label, displayStyle, selected, showTitleExtraIcon, showDeleteIcon, ...other } = this.props
     const { showMore } = this.state
@@ -91,16 +96,25 @@ export default class CardBox extends Component<CardBoxProps, CardBoxState> {
       }
       case 'editable': {
         const __RUNTIME_CONTEXT__ = children?.[0]?.props?.__RUNTIME_CONTEXT__
+        let itemSelected: boolean = false
         if (__RUNTIME_CONTEXT__) {
           const rowIndex = __RUNTIME_CONTEXT__.rowIndex
           const gridModel = __RUNTIME_CONTEXT__.gridModel
-          const itemSelected = gridModel?.getData()?.[rowIndex].selected || false
+          itemSelected = gridModel?.getData()?.[rowIndex].selected || false
           console.log('xxxxx rowIndex: ', rowIndex, ' itemSelected: ', itemSelected);
           // TODO itemSelected 即为选中状态，用于控制item选中反选的UI显示
         }
+        const wrapperCls = classnames('yonui-card-box-wrapper', { 'yonui-card-box-wrapper-extra-icon': showTitleExtraIcon })
+        const editableCls = itemSelected ? 'yonui-card-box-editable-selected' : 'yonui-card-box-editable-unselected'
         content = (<>
-          <div className='yonui-card-box-swipe' style={style}>
-            {children}
+          <div className={editableCls} style={style}>
+            <CheckBox checked={itemSelected} type='circle' className='yonui-card-box-checkbox' />
+            <div className='yonui-card-box-editable-content' style={style}>
+              <Wrapper className={wrapperCls} label={label} labelCls='yonui-card-box-editable-title' singleLine>
+                {}
+              </Wrapper>
+              {children}
+            </div>
           </div>
         </>)
         break

@@ -10,14 +10,17 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
 // const checkboxWarpPrefixCls = 'am-checkbox'
-import SelectedImg from './style/selected.png'
-import UnSelectedImg from './style/unselected.png'
+import DefaultSelectedImg from './style/selected.png'
+import DefaultUnSelectedImg from './style/unselected.png'
+import CircleSelectedImg from './style/circleSelected.png'
+import CircleUnSelectedImg from './style/circleUnSelected.png'
 
 interface CheckboxControlProps extends React.defaultProps{
   mode?: string
   defaultChecked?: boolean
   checked?: boolean
   disabled?: boolean
+  type?: 'default' | 'circle'
   content?: string
   onChange?: (value: boolean) => void
 }
@@ -44,16 +47,17 @@ export default class CheckboxControl extends Component<CheckboxControlProps, Che
     this.setState({
       _checked: !_checked
     })
-    console.log(_checked)
-    onChange && onChange(_checked)
+    onChange?.(_checked)
   }
 
   render () {
-    const { className, content, nid, uitype, checked, disabled } = this.props
+    const { className, content, nid, uitype, checked, disabled, type } = this.props
     const { _checked } = this.state
     const cls = classnames(className, 'yonui-checkbox-wrapper')
     const labelCls = classnames('yonui-checkbox-text', 'form-label', { disabled })
     const __c = checked === undefined ? _checked : checked
+    const SelectedImg = type === 'circle' ? CircleSelectedImg : DefaultSelectedImg
+    const UnSelectedImg = type === 'circle' ? CircleUnSelectedImg : DefaultUnSelectedImg
     return (
       <span className={cls} nid={nid} uitype={uitype} onClick={this._onChange}>
         {/* <Checkbox className={cls} {...other}>{content}</Checkbox> */}

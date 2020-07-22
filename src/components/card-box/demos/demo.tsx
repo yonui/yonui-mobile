@@ -16,6 +16,9 @@ const children = [<MyComponent onDelete={()=>{console.log('x')}}  label='标题'
 </MyComponent>,
 <MyComponent onDelete={()=>{console.log('x')}}  label='标题' displayStyle='slideable'>
 <div>123123123</div>
+</MyComponent>,
+<MyComponent onDelete={()=>{console.log('x')}}  label='标题' displayStyle='editable'>
+<div>444444444444</div>
 </MyComponent>]
 export default class Demo extends Component {
     render() {
