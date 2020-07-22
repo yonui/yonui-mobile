@@ -10,7 +10,7 @@ interface CardBoxProps extends React.defaultProps{
   label?: string
   rightStyle?: React.CSSProperties
   viewStatus?: 'default' | 'select' | 'selected' | 'detail' | 'browse'
-  displayStyle?: 'normal' | 'detail' | 'slideable' | 'extra' | 'editable'
+  displayStyle?: 'normal' | 'detail' | 'slideable' | 'extra' | 'editable' | 'child'
   selected?: boolean
   showDeleteIcon?: boolean
   showTitleExtraIcon?: boolean
@@ -56,7 +56,15 @@ export default class CardBox extends Component<CardBoxProps, CardBoxState> {
   }
 
   render () {
-    const { btnText, onDelete, rightStyle, style, className, children, viewStatus, label, displayStyle, selected, showTitleExtraIcon, showDeleteIcon, ...other } = this.props
+    const { btnText, onDelete, rightStyle, style, className, children, viewStatus, label, displayStyle, selected, showTitleExtraIcon, ...other } = this.props
+    let { showDeleteIcon } = this.props
+    if (showDeleteIcon) {
+      if (other.mReadOnly) {
+        showDeleteIcon = false
+      } else {
+        showDeleteIcon = true
+      }
+    }
     const { showMore } = this.state
     const right = [{
       text: btnText, onPress: onDelete, style: { width: '25vw', ...rightStyle }, className: 'yonui-card-box-btn'
@@ -64,6 +72,9 @@ export default class CardBox extends Component<CardBoxProps, CardBoxState> {
     const cls = classnames(className, 'yonui-card-box', `yonui-card-box-${viewStatus}`)
     let content
     const iconType = selected ? 'icon-pass-c' : 'icon-done'
+    const __RUNTIME_CONTEXT__ = children?.[0]?.props?.__RUNTIME_CONTEXT__
+    const rowIndex = __RUNTIME_CONTEXT__?.rowIndex
+    const gridModel = __RUNTIME_CONTEXT__?.gridModel
     switch (displayStyle) {
       case 'detail': {
         const wrapperCls = classnames('yonui-card-box-wrapper', { 'yonui-card-box-wrapper-extra-icon': showTitleExtraIcon })
@@ -95,15 +106,9 @@ export default class CardBox extends Component<CardBoxProps, CardBoxState> {
         break
       }
       case 'editable': {
-        const __RUNTIME_CONTEXT__ = children?.[0]?.props?.__RUNTIME_CONTEXT__
-        let itemSelected: boolean = false
-        if (__RUNTIME_CONTEXT__) {
-          const rowIndex = __RUNTIME_CONTEXT__.rowIndex
-          const gridModel = __RUNTIME_CONTEXT__.gridModel
-          itemSelected = gridModel?.getData()?.[rowIndex].selected || false
-          console.log('xxxxx rowIndex: ', rowIndex, ' itemSelected: ', itemSelected);
-          // TODO itemSelected 即为选中状态，用于控制item选中反选的UI显示
-        }
+        const itemSelected = gridModel?.getData()?.[rowIndex].selected || false
+        console.log('xxxxx rowIndex: ', rowIndex, ' itemSelected: ', itemSelected);
+        // TODO itemSelected 即为选中状态，用于控制item选中反选的UI显示
         const wrapperCls = classnames('yonui-card-box-wrapper', { 'yonui-card-box-wrapper-extra-icon': showTitleExtraIcon })
         const editableCls = itemSelected ? 'yonui-card-box-editable-selected' : 'yonui-card-box-editable-unselected'
         content = (<>
@@ -118,6 +123,19 @@ export default class CardBox extends Component<CardBoxProps, CardBoxState> {
           </div>
         </>)
         break
+      }
+      case 'child': {
+        const itemShow = gridModel?.getData()?.[rowIndex].show || false
+        if (itemShow) {
+          content = (<>
+            <div className='yonui-card-box-swipe' style={style}>
+              {children}
+            </div>
+          </>)
+          break
+        } else {
+          return null
+        }
       }
       case 'normal':
       default: {
