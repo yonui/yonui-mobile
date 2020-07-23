@@ -2,6 +2,14 @@ import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps } from 'y
 const transformer = ({ meta, vm }) => {
   return (props) => {
     props.mReadOnly = vm?.get('mActionList')?.getReadOnly()
+    const temp = []
+    vm?.getGridModel()?.getData()?.forEach(item => {
+      if (item.selected) {
+        temp.push(item)
+      }
+      return temp
+    })
+    vm?.get('labSelectNum')?.setValue(temp.length)
     return props;
   };
 };
