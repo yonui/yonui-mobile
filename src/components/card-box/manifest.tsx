@@ -26,7 +26,8 @@ const manifest: ComponentManifest = {
             { value: 'detail', text: '详情(带头部)' },
             { value: 'slideable', text: '可滑动删除' },
             { value: 'extra', text: '拓展模式' },
-            { value: 'editable', text: '编辑模式' }
+            { value: 'editable', text: '编辑模式' },
+            { value: 'child', text: '子表详情' }
           ]
         },
         label: '展示状态'

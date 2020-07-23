@@ -10,6 +10,7 @@ export interface ButtonProps extends React.defaultProps{
   size?: 'large' | 'small'
   inline?: boolean
   disabled?: boolean
+  mReadOnly?: boolean
   visible?: boolean
   loading?: boolean
   icon?: React.ReactNode | string
@@ -69,9 +70,9 @@ class Button extends React.Component<ButtonProps, any> {
       style,
       onClick,
       className,
+      mReadOnly,
       ...restProps
     } = this.props
-
     if (!visible) return null
 
     const iconType: any = loading ? 'loading' : icon
@@ -114,14 +115,14 @@ class Button extends React.Component<ButtonProps, any> {
     return (
       <TouchFeedback
         activeClassName={`${prefixCls}-active`}
-        disabled={disabled}>
+        disabled={disabled || mReadOnly}>
         <a
           role='button'
           className={wrapCls}
           {...restProps}
           style={style}
-          onClick={disabled ? undefined : onClick}
-          aria-disabled={disabled}
+          onClick={disabled || mReadOnly ? undefined : onClick}
+          aria-disabled={disabled || mReadOnly}
           aria-visible={visible}>
           {iconEl}
           {(kids && kids.length) ? kids : content}
