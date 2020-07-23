@@ -12,12 +12,18 @@ interface MainViceGroupProps {
 export default class MainViceGroup extends Component<MainViceGroupProps> {
   render () {
     const { children, className, style, drawerHeight } = this.props
+    let customStyle: React.CSSProperties = {}
+    if (style) {
+      customStyle = style
+    }
     if (drawerHeight !== 256) {
-      style.height = `${drawerHeight}px`
+      if (!Object.prototype.hasOwnProperty.call(customStyle, 'height')) {
+        customStyle.height = `${drawerHeight}px`
+      }
     }
     const cls = classnames([className, 'am-c-group-container'])
     return (
-      <div style={style} className={cls}>
+      <div style={customStyle} className={cls}>
         {children || ''}
       </div>
     )

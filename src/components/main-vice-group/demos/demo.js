@@ -14,8 +14,8 @@ export default class Demo1 extends Component {
 
   render () {
     return (
-      <div style={{ height: '100%'}}>
-        <MyComponent>c-group</MyComponent>
+      <div>
+        <MyComponent style={{ marginTop: '40px' ,background:'#FFFFFF', height:'600px'}} drawerHeight={256}>c-group</MyComponent>
       </div>
     )
   }
