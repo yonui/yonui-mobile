@@ -378,10 +378,10 @@ export default class Contact extends Component<ContactProps, ContactState> {
   }
 
   render () {
-    const { dataSource, mode, area, isSelect, emailDataSource} = this.props
-    const { open, error } = this.state
+    const { dataSource, mode, area, isSelect, emailDataSource } = this.props
+    const { open } = this.state
     const content = this.getContent(mode, area, isSelect)
-    const wrapperProps = getListItemProps(this.props, { error })
+    const wrapperProps = getListItemProps(this.props)
     return (
       <Wrapper {...wrapperProps} className='yonui-mobile-contact'>
         {content}
