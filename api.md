@@ -114,12 +114,6 @@ interface dataType { text: string, value: string, disabled?: boolean }
 # README
 
 # README
-
-# README
-
-# README
-
-# README
 ## Grid 宫格
 **API**
 
@@ -205,6 +199,77 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 
 # README
+
+加载
+
+
+
+### api
+
+| 属性      | 说明                      | 必填 | 类型                       | 默认值    |
+| --------- | ------------------------- | ---- | -------------------------- | --------- |
+| *show*    | 是否展示加载组件          | 否   | boolean                    | 'title'   |
+| *theme*   | 主题                      | 否   | 'primary'\|'dark'\|'light' | 'primary' |
+| *type*    | 加载类型                  | 否   | 'toast'\|'jump'\|'local'   | 'toast'   |
+| *percent* | type='jump'时的百分比     | 否   | number                     |           |
+| *inline*  | type='jump'时是否行内模式 | 否   | boolean                    | false     |
+| *content* | typr='toast'时文字内容    | 否   | string                     | ''        |
+| *size*    | type='local'时图标大小    | 否   | 'small' \| 'large'         | 'small'   |
+
+
+
+
+
+# README
+## Grid 宫格
+**API**
+
+| Grid |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 说明 | 类型 | 默认值 |
+|data	|传入的菜单数据|	Array<{icon, text}>|	[]|
+|onClick|	点击每个菜单的回调函数|	(el: Object, index: number): void	|-|
+|columnNum|	列数|	number|	4|
+|hasLine|	是否有边框|	boolean	|false|
+|outContent| 是否有外框内容,注(当outContent为true,renderItem方法无效) | boolean | false |
+|full|是否通栏| boolean | false |
+|transparent|是否透明|boolean|false|
+|isCarousel	|是否跑马灯|	boolean|	false|
+|mode|grid模式['image','number'] [图片,数字]| string | 'image' |
+|itemSize|item上icon的大小,可选sm,md,lg [小,中,大]| string | 'sm' |
+|carouselMaxRow	|如果是跑马灯, 一页跑马灯需要展示的行数|	number|	2|
+|renderItem	|自定义每个 grid 条目的创建函数	|(el, index) => React.Node	|-|
+|square|	每个格子是否固定为正方形|	boolean	|true|
+|activeStyle|	点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)	|{}/false|	{}|
+|activeClassName	|点击反馈的自定义类名	|string	||
+|itemStyle	|每个格子自定义样式	|object	|{}|
+
+# TextareaItem 多行输入
+**API**
+
+| TextareaItem |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 说明 | 类型 | 默认值 |
+| value    | value 值(受控与否参考https://facebook.github.io/react/docs/forms.html)  | String |  无  |
+| defaultValue    | 设置初始默认值        | String |  -  |
+| placeholder      | placeholder        | String | ''  |
+| editable    | 是否可编辑        | bool |  true  |
+| disabled    | 是否禁用        | bool |  false  |
+| clear      |  是否带清除功能(仅`editable`为`true`,`disabled`为`false`才生效) | bool | false  |
+| rows      |   显示几行      | number |   1 |
+| count      |  计数功能,兼具最大长度,默认为0,代表不开启计数功能      | number | -  |
+| onChange    | change 事件触发的回调函数 | (val: string): void |  -  |
+| onBlur     | blur 事件触发的回调函数 | (val: string): void |   -  |
+| onFocus    | focus 事件触发的回调函数 | (val: string): void |  -  |
+| error       | 报错样式        | bool |  false  |
+| onErrorClick       | 点击报错 icon 触发的回调   | (): void |  无  |
+| autoHeight       | 高度自适应, autoHeight 和 rows 请二选一    | bool  | false  |
+| name   | textarea 的 name       | String |   -  |
+| prefixListCls   |   列表 className 前缀      | String |  `am-list`  |
+| title   | 文案说明        | String/node |  '' |
+
+
+# README
 ## Input 基础组件-输入框
 **API**
 
@@ -245,28 +310,21 @@ onClose | 关闭时回调 | () => void | |
 onClick | 点击时回调 | (object: DataItem) => void | |
 
 # README
-## Grid 宫格
-**API**
+卡片容器组件
 
-| Grid |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 说明 | 类型 | 默认值 |
-|data	|传入的菜单数据|	Array<{icon, text}>|	[]|
-|onClick|	点击每个菜单的回调函数|	(el: Object, index: number): void	|-|
-|columnNum|	列数|	number|	4|
-|hasLine|	是否有边框|	boolean	|false|
-|outContent| 是否有外框内容,注(当outContent为true,renderItem方法无效) | boolean | false |
-|full|是否通栏| boolean | false |
-|transparent|是否透明|boolean|false|
-|isCarousel	|是否跑马灯|	boolean|	false|
-|mode|grid模式['image','number'] [图片,数字]| string | 'image' |
-|itemSize|item上icon的大小,可选sm,md,lg [小,中,大]| string | 'sm' |
-|carouselMaxRow	|如果是跑马灯, 一页跑马灯需要展示的行数|	number|	2|
-|renderItem	|自定义每个 grid 条目的创建函数	|(el, index) => React.Node	|-|
-|square|	每个格子是否固定为正方形|	boolean	|true|
-|activeStyle|	点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)	|{}/false|	{}|
-|activeClassName	|点击反馈的自定义类名	|string	||
-|itemStyle	|每个格子自定义样式	|object	|{}|
+### API
+
+| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
+| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
+| displayStyle       | 展示类型                               | 否   | 'normal'\|'detail'\|'slideable' | 'normal' |
+| btnText | 删除按钮文本。slideable模式下有效 | 否   | string                               | '删除' |
+| rightStyle | 删除按钮样式。slideable模式下有效 | 否   | number                            | {} |
+| label | 标题文本，detail模式下有效             | 否   | string                              | '' |
+| showDeleteIcon | 是否展示删除按钮，detail模式下有效 | 否   | boolean | true |
+| showTitleExtraIcon | 是否展示标题左侧图标，detail模式下有效 | 否 | boolean | false |
+| onDelete | 删除事件。detail/slideable模式下有效 | 否 | ()=>void |  |
+
+
 
 # README
 
@@ -325,23 +383,6 @@ interface InputNumberPorps {
 # README
 
 # README
-卡片容器组件
-
-### API
-
-| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
-| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
-| displayStyle       | 展示类型                               | 否   | 'normal'\|'detail'\|'slideable' | 'normal' |
-| btnText | 删除按钮文本。slideable模式下有效 | 否   | string                               | '删除' |
-| rightStyle | 删除按钮样式。slideable模式下有效 | 否   | number                            | {} |
-| label | 标题文本，detail模式下有效             | 否   | string                              | '' |
-| showDeleteIcon | 是否展示删除按钮，detail模式下有效 | 否   | boolean | true |
-| showTitleExtraIcon | 是否展示标题左侧图标，detail模式下有效 | 否 | boolean | false |
-| onDelete | 删除事件。detail/slideable模式下有效 | 否 | ()=>void |  |
-
-
-
-# README
 
 一个简单的列表组件，支持下拉刷新和触底加载。大数据浏览时使用会产生性能问题。
 
@@ -360,59 +401,6 @@ interface InputNumberPorps {
 | onReachFoot | 页面滑动到底部时的回调 | 否 | () => void | - |
 
 
-
-# README
-
-### API
-
-| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
-| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
-| *url*                    | 链接的url地址                      | 是   | string                                |      |
-| *width*                | iframe的样式宽度属性，默认为100%           | 否   | string                              |    |
-| *height*             | iframe的样式高度属性，默认为100%                    | 否   | string                       |        |
-
-
-# README
-
-加载
-
-
-
-### api
-
-| 属性      | 说明                      | 必填 | 类型                       | 默认值    |
-| --------- | ------------------------- | ---- | -------------------------- | --------- |
-| *show*    | 是否展示加载组件          | 否   | boolean                    | 'title'   |
-| *theme*   | 主题                      | 否   | 'primary'\|'dark'\|'light' | 'primary' |
-| *type*    | 加载类型                  | 否   | 'toast'\|'jump'\|'local'   | 'toast'   |
-| *percent* | type='jump'时的百分比     | 否   | number                     |           |
-| *inline*  | type='jump'时是否行内模式 | 否   | boolean                    | false     |
-| *content* | typr='toast'时文字内容    | 否   | string                     | ''        |
-| *size*    | type='local'时图标大小    | 否   | 'small' \| 'large'         | 'small'   |
-
-
-
-
-
-# README
-
-# README
-
-评分组件
-
-### API
-
-| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
-| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
-| count         | 评分总分 | 是 | number            | 5      |
-| allowHalf | 是否允许半分 | 否 | boolean | false  |
-| defaultValue | 默认值 | 否 | number | -      |
-| disabled | 禁用 | 否 | boolean | -      |
-| onChange | 评分变化时间 | 否 | (value: number)=>void |        |
-
-
-
-# README
 
 # README
 
@@ -439,28 +427,40 @@ type emailType = Array<{type: string}>
 
 # README
 
-# TextareaItem 多行输入
-**API**
+### API
 
-| TextareaItem |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 说明 | 类型 | 默认值 |
-| value    | value 值(受控与否参考https://facebook.github.io/react/docs/forms.html)  | String |  无  |
-| defaultValue    | 设置初始默认值        | String |  -  |
-| placeholder      | placeholder        | String | ''  |
-| editable    | 是否可编辑        | bool |  true  |
-| disabled    | 是否禁用        | bool |  false  |
-| clear      |  是否带清除功能(仅`editable`为`true`,`disabled`为`false`才生效) | bool | false  |
-| rows      |   显示几行      | number |   1 |
-| count      |  计数功能,兼具最大长度,默认为0,代表不开启计数功能      | number | -  |
-| onChange    | change 事件触发的回调函数 | (val: string): void |  -  |
-| onBlur     | blur 事件触发的回调函数 | (val: string): void |   -  |
-| onFocus    | focus 事件触发的回调函数 | (val: string): void |  -  |
-| error       | 报错样式        | bool |  false  |
-| onErrorClick       | 点击报错 icon 触发的回调   | (): void |  无  |
-| autoHeight       | 高度自适应, autoHeight 和 rows 请二选一    | bool  | false  |
-| name   | textarea 的 name       | String |   -  |
-| prefixListCls   |   列表 className 前缀      | String |  `am-list`  |
-| title   | 文案说明        | String/node |  '' |
+| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
+| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
+| *url*                    | 链接的url地址                      | 是   | string                                |      |
+| *width*                | iframe的样式宽度属性，默认为100%           | 否   | string                              |    |
+| *height*             | iframe的样式高度属性，默认为100%                    | 否   | string                       |        |
 
+
+# README
+
+# README
+
+评分组件
+
+### API
+
+| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
+| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
+| count         | 评分总分 | 是 | number            | 5      |
+| allowHalf | 是否允许半分 | 否 | boolean | false  |
+| defaultValue | 默认值 | 否 | number | -      |
+| disabled | 禁用 | 否 | boolean | -      |
+| onChange | 评分变化时间 | 否 | (value: number)=>void |        |
+
+
+
+# README
+
+# README
+
+# README
+
+# README
+
+# README
 

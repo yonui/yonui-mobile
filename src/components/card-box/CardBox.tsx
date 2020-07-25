@@ -10,7 +10,7 @@ interface CardBoxProps extends React.defaultProps{
   label?: string
   rightStyle?: React.CSSProperties
   viewStatus?: 'default' | 'select' | 'selected' | 'detail' | 'browse'
-  displayStyle?: 'normal' | 'detail' | 'slideable' | 'extra' | 'editable' | 'child'
+  displayStyle?: 'normal' | 'detail' | 'slideable' | 'extra' | 'editable' | 'listDetail'
   selected?: boolean
   showDeleteIcon?: boolean
   showTitleExtraIcon?: boolean
@@ -124,7 +124,7 @@ export default class CardBox extends Component<CardBoxProps, CardBoxState> {
         </>)
         break
       }
-      case 'child': {
+      case 'listDetail': {
         const itemShow = gridModel?.getData()?.[rowIndex].show || false
         if (itemShow) {
           content = (<>
