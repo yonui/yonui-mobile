@@ -25,8 +25,8 @@ const manifest: ComponentManifest = {
               { value: 'column-reverse', text: '从下到上' }
             ]
         },
-        label: '项目定位方向',
-        help: '项目定位方向'
+        label: '布局方向',
+        help: '布局方向'
       }
     },
     {
@@ -84,7 +84,7 @@ const manifest: ComponentManifest = {
             [
               { value: 'start', text: '上对齐' },
               { value: 'end', text: '下对齐' },
-              { value: 'center', text: '水平对齐' }
+              { value: 'center', text: '居中' }
             ]
         },
         label: '垂直方向对齐',
