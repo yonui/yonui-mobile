@@ -154,7 +154,7 @@ export default class Input extends Component<InputProps, InputState> {
     }
     if (subuitype === 'int') {
       res = Object.assign(res, {
-        pattern: /^-?(\d+)$/
+        pattern: /^-?(\d*)$/
       })
     }
     switch (mode) {
