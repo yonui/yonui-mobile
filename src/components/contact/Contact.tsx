@@ -32,6 +32,7 @@ interface ContactState {
   open: boolean
   emailType: string
   _value: string
+  exValue: string // 分机号
   error: boolean
 }
 
@@ -61,6 +62,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
       open: false,
       emailType: this.emailValueAdapt(1, props.value) || '@email.com',
       _value: this.valueAdapt(2, props.value),
+      exValue: '',
       error: false
     }
   }
@@ -79,7 +81,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
 
   valueAdapt = (index?: number, value?: string) => {
     const { mode } = this.props
-    if (mode === 'telephone' || mode === 'mobilephone') {
+    if (mode === 'mobilephone') {
       if (value) {
         const valueArray = value.split('=')
         if (valueArray.length > 0) {
@@ -99,6 +101,22 @@ export default class Contact extends Component<ContactProps, ContactState> {
       } else {
         return ''
       }
+    }
+    if (mode === 'telephone') {
+      if (value) {
+        let valueObj
+        try {
+          valueObj = JSON.parse(value)
+        } catch (error) {
+          valueObj = { T: '', L: '' }
+        }
+        if (index === 2) {
+          return valueObj.T
+        }
+        return valueObj
+      } else {
+        return { T: '', L: '' }
+      }
     } else {
       return this.emailValueAdapt(0, value)
     }
@@ -107,7 +125,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
   returnValueAdapt = (inputValue?: string) => {
     const { country, countryNum, emailType } = this.state
     const { mode, isSelect } = this.props
-    if (mode === 'telephone' || mode === 'mobilephone') {
+    if (mode === 'telephone') {
       return `${countryNum}=${country}=${inputValue}`
     } else {
       if (isSelect) {
@@ -176,10 +194,31 @@ export default class Contact extends Component<ContactProps, ContactState> {
   textOnChange= (value: string) => {
     const { onChange } = this.props
     const returnValue = this.returnValueAdapt(value)
-    console.log('dddd', returnValue);
     onChange?.(returnValue)
     this.setState({
       _value: value
+    })
+  }
+
+  telTextOnChange= (value: string) => {
+    const { onChange } = this.props
+    const { exValue } = this.state
+    const returnValue = JSON.stringify({ T: value, L: exValue })
+    console.log('tel', returnValue)
+    onChange?.(returnValue)
+    this.setState({
+      _value: value
+    })
+  }
+
+  exTextOnChange= (value: string) => {
+    const { onChange } = this.props
+    const { _value } = this.state
+    const returnValue = JSON.stringify({ T: _value, L: value })
+    console.log('ex', returnValue)
+    onChange?.(returnValue)
+    this.setState({
+      exValue: value
     })
   }
 
@@ -222,6 +261,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
     const _required = bIsNull !== undefined ? bIsNull : required
     const { emailType, country, countryNum, _value } = this.state
     const val = value !== undefined ? this.valueAdapt(2, value) : _value
+    const telValue = this.valueAdapt(0, value);
     switch (mode) {
       case 'email': {
         const inputTextAlign = singleLine ? 'right' : 'left'
@@ -290,9 +330,9 @@ export default class Contact extends Component<ContactProps, ContactState> {
         const contact = (<div className='yonui-monile-contact-content telephone'>
           <Input
             type='tel'
-            value={val}
-            placeholder='座机号码-分机号码'
-            onChange={(value) => { this.textOnChange(value) }}
+            value={telValue.T}
+            placeholder='座机号码'
+            onChange={(value) => { this.telTextOnChange(value) }}
             onBlur={this._onBlur}
             onFocus={this._onFocus}
             onSuccess={this.onSuccess}
@@ -300,18 +340,34 @@ export default class Contact extends Component<ContactProps, ContactState> {
             required={_required}
             disabled={disabled}
             defaultValue={defaultValue}
+            textAlign='right'
+          />
+          <span> - </span>
+          <Input
+            type='tel'
+            value={telValue.L}
+            placeholder='分机号码'
+            onChange={(value) => { this.exTextOnChange(value) }}
+            onBlur={this._onBlur}
+            onFocus={this._onFocus}
+            onSuccess={this.onSuccess}
+            onError={this.onError}
+            required={_required}
+            disabled={disabled}
+            defaultValue={defaultValue}
+            style={{ width: '120px' }}
           />
           <img className='yonui-img-icon small' src={phoneIcon} onClick={() => { this.dailAction() }} />
         </div>)
-        const areaContact = (
-          <div className='yonui-monile-contact-content'>
-            <span className='yonui-contact-button' onClick={() => { this.onOpenModal() }}>{country}</span>
-            <Icon size='xxs' type='down' />
-            <span className='split-line' />
-            <span className='phone-code'>{`+${countryNum}`}</span>
-            {contact}
-          </div>)
-        return area ? areaContact : contact
+        // const areaContact = (
+        //   <div className='yonui-monile-contact-content'>
+        //     <span className='yonui-contact-button' onClick={() => { this.onOpenModal() }}>{country}</span>
+        //     <Icon size='xxs' type='down' />
+        //     <span className='split-line' />
+        //     <span className='phone-code'>{`+${countryNum}`}</span>
+        //     {contact}
+        //   </div>)
+        return contact
       }
     }
   }
