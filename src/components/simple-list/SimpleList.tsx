@@ -16,12 +16,13 @@ interface SimpleListProps extends React.defaultProps{
   children?: React.ReactChildren
   editable?: boolean
   hasMore?: boolean
+  meta?: object
 }
 const SimpleList = (props: SimpleListProps) => {
   const {
     dataSource, renderRow, onRefresh, pullToRefresh = true, split = 'blank',
     onReachFoot, loadingText = '', completeText = '', reservedHeight = 0,
-    children, editable, hasMore = true, style
+    children, editable, hasMore = true, style, meta
   } = props
   let __list: HTMLElement | null
   let topHeight = 0
@@ -48,9 +49,26 @@ const SimpleList = (props: SimpleListProps) => {
     event.stopPropagation()
   }
   const footerStyle: React.CSSProperties = { }
-  const renderFooter = (text?: string) => (<div className={footerCls} style={footerStyle}>
-    {text || ''}
-  </div>)
+  const _hiddenFooter = (meta) => {
+    if (meta?.containers?.length > 0) {
+      const isListDetail = meta.containers.find(item => {
+        if (item.displayStyle === 'listDetail') {
+          return true
+        } else {
+          _hiddenFooter(item.containers)
+        }
+      })
+      return isListDetail
+    }
+    return false
+  }
+  const renderFooter = (text?: string) => {
+    console.log('zzzzzzzzzzzz meta: ', meta);
+    return (_hiddenFooter(meta) ? null
+      : <div className={footerCls} style={footerStyle}>
+        {text || ''}
+      </div>)
+  }
   const itemCls = classnames('yonui-simple-list-item', { editable })
   const _listItems = dataSource.map((item, index) => {
     return (
