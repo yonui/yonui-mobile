@@ -14,6 +14,8 @@ export interface ButtonProps extends React.defaultProps{
   visible?: boolean
   loading?: boolean
   icon?: React.ReactNode | string
+  uimeta?: string
+  meta?: object
   onClick?: React.MouseEventHandler<HTMLAnchorElement>
 }
 
@@ -54,6 +56,11 @@ class Button extends React.Component<ButtonProps, any> {
     style: {}
   }
 
+  _onClick = e => {
+    const { onClick } = this.props
+    onClick && onClick(e)
+  }
+
   render () {
     const {
       prefixCls,
@@ -71,6 +78,7 @@ class Button extends React.Component<ButtonProps, any> {
       onClick,
       className,
       mReadOnly,
+      meta,
       ...restProps
     } = this.props
     if (!visible) return null
@@ -117,11 +125,12 @@ class Button extends React.Component<ButtonProps, any> {
         activeClassName={`${prefixCls}-active`}
         disabled={disabled || mReadOnly}>
         <a
+          uimeta={meta && JSON.stringify(meta)}
           role='button'
           className={wrapCls}
           {...restProps}
           style={style}
-          onClick={disabled || mReadOnly ? undefined : onClick}
+          onClick={disabled || mReadOnly ? undefined : this._onClick}
           aria-disabled={disabled || mReadOnly}
           aria-visible={visible}>
           {iconEl}

@@ -27,7 +27,7 @@ export interface SearchProps {
   backgroundColor?: string
   searchIconColor?: string
   clearIconColor?: string
-  voiceIconColor?: string
+  // voiceIconColor?: string
   solutionId?: number
   term?: string
   onSubmit?: (value: object) => void
@@ -52,7 +52,7 @@ export default class Search extends React.Component<SearchProps, any> {
     backgroundColor: '',
     searchIconColor: '',
     clearIconColor: '',
-    voiceIconColor: ''
+    // voiceIconColor: ''
   }
 
   inputRef: HTMLInputElement | null
@@ -162,7 +162,7 @@ export default class Search extends React.Component<SearchProps, any> {
       searchIconColor,
       backgroundColor,
       clearIconColor,
-      voiceIconColor
+      // voiceIconColor
     } = this.props
     const {
       value,
@@ -208,14 +208,14 @@ export default class Search extends React.Component<SearchProps, any> {
         >
           <Icon type='cross-circle' size='xxs' onClick={this.onClear} />
         </a>
-        <a
+        {/* <a
           className={`${prefixCls}-voice`}
           style={{
             color: voiceIconColor
           }}
         >
           <Icon type='voice' size='xxs' />
-        </a>
+        </a> */}
       </div>
     )
   }
