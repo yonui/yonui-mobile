@@ -6,6 +6,8 @@
 
 # README
 
+# README
+
 # result 反馈页
 ## 反馈页面
 **API**
@@ -14,17 +16,6 @@
 | :---: | --- | --- | --- |
 | 属性 | 设计器类型 | 默认值 | 说明 |
 | mode | string | 'success' |  模式 取值范围 ['success','wait','reject']|
-| message | string | '' |  文字描述|
-
-
-# empty 情感化页面空数据
-## 情感化页面
-**API**
-
-| empty |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 设计器类型 | 默认值 | 说明 |
-| mode | string | 'success' |  模式 取值范围 ['noData','client','blankPage','error','review','server','noNetwork']|
 | message | string | '' |  文字描述|
 
 
@@ -59,15 +50,15 @@ label组件可用作标签等单纯的数据展示。
 
 
 
-# README
-## navbar 导航栏
+# empty 情感化页面空数据
+## 情感化页面
 **API**
 
-| navbar |  |  |  |
+| empty |  |  |  |
 | :---: | --- | --- | --- |
-| 属性 | 类型 | 默认值 | 说明 |
-| label | string | - |  标签 |
-| style | object | - |  样式描述 |
+| 属性 | 设计器类型 | 默认值 | 说明 |
+| mode | string | 'success' |  模式 取值范围 ['noData','client','blankPage','error','review','server','noNetwork']|
+| message | string | '' |  文字描述|
 
 
 # README
@@ -114,51 +105,17 @@ interface dataType { text: string, value: string, disabled?: boolean }
 # README
 
 # README
-## Grid 宫格
+## navbar 导航栏
 **API**
 
-| Grid |  |  |  |
+| navbar |  |  |  |
 | :---: | --- | --- | --- |
-| 属性 | 说明 | 类型 | 默认值 |
-|data	|传入的菜单数据|	Array<{icon, text}>|	[]|
-|onClick|	点击每个菜单的回调函数|	(el: Object, index: number): void	|-|
-|columnNum|	列数|	number|	4|
-|hasLine|	是否有边框|	boolean	|true|
-|outContent| 是否有外框内容,注(当outContent为true,renderItem方法无效) | boolean | false |
-|isCarousel	|是否跑马灯|	boolean|	false|
-|carouselMaxRow	|如果是跑马灯, 一页跑马灯需要展示的行数|	number|	2|
-|renderItem	|自定义每个 grid 条目的创建函数	|(el, index) => React.Node	|-|
-|square|	每个格子是否固定为正方形|	boolean	|true|
-|activeStyle|	点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)	|{}/false|	{}|
-|activeClassName	|点击反馈的自定义类名	|string	||
-|itemStyle	|每个格子自定义样式	|object	|{}|
+| 属性 | 类型 | 默认值 | 说明 |
+| label | string | - |  标签 |
+| style | object | - |  样式描述 |
 
 
 # README
-
-### API
-
-| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
-| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
-| *tabs*                    | tab数据源                      | 是   | array                                | []     |
-| *animated*                | 是否使用切换动画效果           | 否   | boolean                              | true   |
-| *initialPage*             | initialPage                    | 否   | number\|string                       |        |
-| *page*                    | 当前Tab下标或key值             | 否   | number\|string                       |        |
-| *pageSize*                | 单页最大标签数，超出后滑动展示 | 否   | number                               | 5      |
-| *swipeable*              | 是否可滑动切换内容             | 否   | boolean                              | false  |
-| *onChange*                | tab变化时触发                  | 否   | (tab: object, index: number) => void |        |
-| *onTabClick*              | tab点击时时触发                | 否   | (tab: object, index: number) => void |        |
-| *icons*                   | tab右侧图标                    | 否   | Array< JSX.Element > |        |
-| *gather*                  | tab是否集中分布                | 否   | boolean                              | false  |
-| *splitLine*               | 是否展示tab-bar下方的分隔符    | 否   | boolean                              | true   |
-| *abBarBackgroundColor*    | 标签栏背景色                   | 否   | string                               |        |
-| *tabBarActiveTextColor*   | 激活文字颜色                   | 否   | string                               |        |
-| *tabBarInactiveTextColor* | 非激活文字颜色                 | 否   | string                               |        |
-| *iconsOccupy* | icons是否占位 | 否 | boolean | true |
-| *iconsClassName* | icons区域类名 | 否 | string |  |
-| *iconsStyle* | icons区域样式 | 否 | CSSProperties |  |
-
-
 
 # README
 
@@ -295,6 +252,25 @@ interface dataType { text: string, value: string, disabled?: boolean }
 # README
 
 # README
+## Grid 宫格
+**API**
+
+| Grid |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 说明 | 类型 | 默认值 |
+|data	|传入的菜单数据|	Array<{icon, text}>|	[]|
+|onClick|	点击每个菜单的回调函数|	(el: Object, index: number): void	|-|
+|columnNum|	列数|	number|	4|
+|hasLine|	是否有边框|	boolean	|true|
+|outContent| 是否有外框内容,注(当outContent为true,renderItem方法无效) | boolean | false |
+|isCarousel	|是否跑马灯|	boolean|	false|
+|carouselMaxRow	|如果是跑马灯, 一页跑马灯需要展示的行数|	number|	2|
+|renderItem	|自定义每个 grid 条目的创建函数	|(el, index) => React.Node	|-|
+|square|	每个格子是否固定为正方形|	boolean	|true|
+|activeStyle|	点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)	|{}/false|	{}|
+|activeClassName	|点击反馈的自定义类名	|string	||
+|itemStyle	|每个格子自定义样式	|object	|{}|
+
 
 # README
 ## ListPanelPicker 基础组件-操作列表
@@ -463,4 +439,28 @@ type emailType = Array<{type: string}>
 # README
 
 # README
+
+### API
+
+| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
+| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
+| *tabs*                    | tab数据源                      | 是   | array                                | []     |
+| *animated*                | 是否使用切换动画效果           | 否   | boolean                              | true   |
+| *initialPage*             | initialPage                    | 否   | number\|string                       |        |
+| *page*                    | 当前Tab下标或key值             | 否   | number\|string                       |        |
+| *pageSize*                | 单页最大标签数，超出后滑动展示 | 否   | number                               | 5      |
+| *swipeable*              | 是否可滑动切换内容             | 否   | boolean                              | false  |
+| *onChange*                | tab变化时触发                  | 否   | (tab: object, index: number) => void |        |
+| *onTabClick*              | tab点击时时触发                | 否   | (tab: object, index: number) => void |        |
+| *icons*                   | tab右侧图标                    | 否   | Array< JSX.Element > |        |
+| *gather*                  | tab是否集中分布                | 否   | boolean                              | false  |
+| *splitLine*               | 是否展示tab-bar下方的分隔符    | 否   | boolean                              | true   |
+| *abBarBackgroundColor*    | 标签栏背景色                   | 否   | string                               |        |
+| *tabBarActiveTextColor*   | 激活文字颜色                   | 否   | string                               |        |
+| *tabBarInactiveTextColor* | 非激活文字颜色                 | 否   | string                               |        |
+| *iconsOccupy* | icons是否占位 | 否 | boolean | true |
+| *iconsClassName* | icons区域类名 | 否 | string |  |
+| *iconsStyle* | icons区域样式 | 否 | CSSProperties |  |
+
+
 
