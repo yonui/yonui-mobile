@@ -63,7 +63,6 @@ const SimpleList = (props: SimpleListProps) => {
     return false
   }
   const renderFooter = (text?: string) => {
-    console.log('zzzzzzzzzzzz meta: ', meta);
     return (_hiddenFooter(meta) ? null
       : <div className={footerCls} style={footerStyle}>
         {text || ''}
