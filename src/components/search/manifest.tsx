@@ -43,19 +43,6 @@ const manifest: ComponentManifest = {
     }
   },
   {
-    name: 'term',
-    type: FieldTypes.string,
-    defaultValue: '',
-    showDesign: true,
-    designConfig: {
-      type: EditTypes.Text,
-      isRequired: true,
-      props: {},
-      label: '字段搜索',
-      help: '搜索的字段名称'
-    }
-  },
-  {
     name: 'maxLength',
     type: FieldTypes.number,
     showDesign: true,

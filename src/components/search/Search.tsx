@@ -1,6 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import { Icon } from 'antd-mobile'
+import { ScanOutlined } from '@ant-design/icons'
 
 // function onNextFrame(cb) {
 //     if (window.requestAnimationFrame) {
@@ -68,6 +69,8 @@ export default class Search extends React.Component<SearchProps, any> {
 
   UNSAFE_componentWillReceiveProps (nextProps: SearchProps) {
     if ('value' in nextProps || 'defaultVlaue' in nextProps) {
+      const value = nextProps.value ?? nextProps.defaultValue
+      console.log('xxzzzzzzzzz value: ', value, ' nextProps: ', nextProps, ' this.pro: ', this.props)
       this.setState({
         value: nextProps.value ?? nextProps.defaultValue
       })
@@ -141,6 +144,23 @@ export default class Search extends React.Component<SearchProps, any> {
     }
   }
 
+  onScan = () => {
+    window.mtl.scanQRCode({
+      scanType: ['qrCode', 'barCode'],
+      needResult: 1,
+      success: function (res) {
+        const result = res.resultStr;
+        this.setState({
+          value: result
+        })
+      },
+      fail: function (err) {
+        const message = err.message // 错误信息
+        console.log('Search Component scan fail: ', message)
+      }
+    })
+  }
+
   // method
   focus = () => {
     if (this.inputRef) {
@@ -188,7 +208,7 @@ export default class Search extends React.Component<SearchProps, any> {
           <Icon type='search' size='xs' />
         </span>
         <input
-          type='text'
+          type='search'
           ref={el => (this.inputRef = el)}
           className={`${prefixCls}-input`}
           placeholder={placeholder}
@@ -208,14 +228,15 @@ export default class Search extends React.Component<SearchProps, any> {
         >
           <Icon type='cross-circle' size='xxs' onClick={this.onClear} />
         </a>
-        {/* <a
+        <a
           className={`${prefixCls}-voice`}
           style={{
-            color: voiceIconColor
+            color: searchIconColor
           }}
         >
-          <Icon type='voice' size='xxs' />
-        </a> */}
+          <ScanOutlined onClick={this.onScan} />
+          {/* <Icon type='voice' size='xxs' /> */}
+        </a>
       </div>
     )
   }
