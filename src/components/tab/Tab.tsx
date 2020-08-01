@@ -68,8 +68,26 @@ export default class yonuiTabs extends Component<TabsProps> {
 
   renderTabBar = (props: any) => {
     const { pageSize } = props
-    return <Tabs.DefaultTabBar {...props} page={pageSize} tabBarBackgroundColor='transparent' />
+    return <Tabs.DefaultTabBar renderTab={this.renderTab} {...props} page={pageSize} tabBarBackgroundColor='transparent' />
   }
+
+  renderTab = (tab) => {
+    const { children, tabs } = this.props;
+    const tabIndex = tabs.findIndex((item) => item.title == tab.title);
+    if (tabIndex >= 0) {
+      const indexItem = children[tabIndex];
+      const { nid, uitype } = indexItem.props?.meta;
+      return (
+        <span key={nid} nid={nid} uitype={uitype} style={{ backgroundColor: 'transparent' }}>
+          {tab.title}
+        </span>
+      );
+    } else {
+      return (
+        <span style={{ backgroundColor: 'transparent' }}>{tab.title}</span>
+      );
+    }
+  };
 
   _onTabClick = (tab: any, index: number) => {
     if (this.props.onTabClick) {
