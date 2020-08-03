@@ -31,7 +31,6 @@ const manifest: ComponentManifest = {
         type: EditTypes.Select,
         props: {
           options: [
-            { value: 'component', text: '组件' },
             { value: 'page', text: '页面' },
             { value: 'drawer', text: '抽屉' },
           ]
