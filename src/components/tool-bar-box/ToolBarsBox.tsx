@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
 interface ToolBarBoxProps extends React.defaultProps{
-  children?: JSX.Element[] | JSX.Element
+  children?: any
   length?: number
   layout?: 'vertical' | 'horizontal'
   runTime?: boolean
@@ -13,7 +13,7 @@ export default class ToolBarBox extends Component<ToolBarBoxProps> {
 
   render () {
     const { children = [], layout, runTime, className, style, nid, uitype } = this.props
-    const childrenLength = Array.isArray(children) ? Math.min(children.length, 5) : 1
+    // const childrenLength = Array.isArray(children) ? Math.min(children.length, 5) : 1
     // const _length = layout === 'vertical' ? 1 : childrenLength
     const wrapperCls = classnames('yonui-mobile-tool-bars-wrapper')
     const cls = classnames(className, 'yonui-mobile-tool-bars-2', layout, {
@@ -32,16 +32,16 @@ export default class ToolBarBox extends Component<ToolBarBoxProps> {
         showBtnNum++
       }
     }
-    let newChildren = []
+    const newChildren = []
     if (btnNum !== 1) {
       for (let i = 0; i < btnNum; i++) {
-        let item = <div className={classnames(`length-${Math.min(showBtnNum,5)}`)}>{children[i]}</div>
+        const item = <div className={classnames(`length-${Math.min(showBtnNum, 5)}`)}>{children[i]}</div>
         if (children[i].props.visible) {
           newChildren.push(item)
         }
       }
     } else {
-      let item = <div className={classnames(`length-${Math.min(showBtnNum,5)}`)}>{children}</div>
+      const item = <div className={classnames(`length-${Math.min(showBtnNum, 5)}`)}>{children}</div>
       if (children.props.visible) {
         newChildren.push(item)
       }
