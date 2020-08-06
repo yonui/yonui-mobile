@@ -21,7 +21,7 @@ export interface InputProps extends ListItemWrapperProps {
   onBlur?: (value: string) => void
   onChange?: (value: string) => void
   onClickClear?: (value: string) => void
-  onError?: (value: string, pattern: { reg?: RegExp, text?: string}) => void
+  onError?: (value: string, pattern: { reg?: RegExp, text?: string }) => void
   onSuccess?: (value: string) => void
 }
 
@@ -49,12 +49,13 @@ class Input extends Component<InputProps, InputState> {
     // singleLine: false
     // maxLength: 255,
     subuitype: 'text',
+    textCenter: false,
     check: true
   }
 
   _onChange = (val: string) => {
     const { onChange } = this.props
-    onChange && onChange(val)
+    onChange?.(val)
     this.setState({
       _value: val
     })
@@ -62,7 +63,7 @@ class Input extends Component<InputProps, InputState> {
 
   _onFocus = (val: string) => {
     const { onFocus } = this.props
-    onFocus && onFocus(val)
+    onFocus?.(val)
     this.setState({
       _displayValue: ''
     })
@@ -71,7 +72,7 @@ class Input extends Component<InputProps, InputState> {
   _onBlur = (val: string) => {
     const { onBlur, value, formatReg, hiddenChart, replaceChart } = this.props
     const { _value: stateValue } = this.state
-    onBlur && onBlur(val)
+    onBlur?.(val)
     const _value = value || stateValue
     const _displayValue = _value && formatReg ? decodeValue(_value, formatReg, hiddenChart, replaceChart) : ''
     this.setState({
@@ -81,7 +82,7 @@ class Input extends Component<InputProps, InputState> {
 
   _onClickClear = (val: string) => {
     const { onClickClear } = this.props
-    onClickClear && onClickClear(val)
+    onClickClear?.(val)
     this.setState({
       _displayValue: ''
     })
@@ -89,15 +90,15 @@ class Input extends Component<InputProps, InputState> {
 
   getInputProps = () => {
     const { subuitype, onError, onSuccess, check, regRule = '', regRuleText, checkMask } = this.props
-    const _onError = (value: string, pattern: { reg?: RegExp, text?: string}) => {
-      onError && onError(value, pattern)
+    const _onError = (value: string, pattern: { reg?: RegExp, text?: string }) => {
+      onError?.(value, pattern)
       this.setState({
         error: check && true,
         errorText: pattern.text
       })
     }
     const _onSuccess = (value: string) => {
-      onSuccess && onSuccess(value)
+      onSuccess?.(value)
       this.setState({
         error: check && false
       })
@@ -204,18 +205,17 @@ class Input extends Component<InputProps, InputState> {
   }
 
   render () {
-    const { required, className, singleLine, inputStyle, onChange, onBlur, onFocus, value, style, ...other} = this.props
+    const { required, className, singleLine, inputStyle, onChange, onBlur, onFocus, value, style, ...other } = this.props
     const { error, errorText, _displayValue } = this.state
     const cls = classnames('mdf-input', className)
     const inputCls = classnames('mdf-input-content')
     const inputProps = this.getInputProps()
-    const wrapperProps = getListItemProps(this.props, {error, errorText, className: cls})
+    const wrapperProps = getListItemProps(this.props, { error, errorText, className: cls })
     return (
       <Wrapper {...wrapperProps}>
         <YonuiInput
           className={inputCls}
           required={required}
-          textAlign={singleLine ? 'right' : 'left'}
           onBlur={this._onBlur}
           onChange={this._onChange}
           onFocus={this._onFocus}

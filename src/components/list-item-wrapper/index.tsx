@@ -1,6 +1,9 @@
 import ListItemWrapper from './ListItemWrapper'
 import manifestProps, { getFilterProps } from './manifestProps'
-export interface ListItemWrapperProps {
+interface ListItemWrapperPopsKeys {
+  [key: string]: any
+}
+export interface ListItemWrapperProps extends ListItemWrapperPopsKeys {
   splitLine?: boolean
   singleLine?: boolean
   required?: boolean
@@ -21,11 +24,12 @@ export interface ListItemWrapperProps {
   // [other: string]: any
 }
 
-export const selfPropsArray = [
+export const selfPropsArray: string[] = [
   'label',
   'splitLine',
   'required',
   'singleLine',
+  'singleLineCenter',
   'subLabel',
   'labelCls',
   'labelStyle',
@@ -43,7 +47,7 @@ export const selfPropsArray = [
 ]
 
 export const getListItemProps = (props: ListItemWrapperProps, other?: ListItemWrapperProps) => {
-  const res = {}
+  const res: ListItemWrapperPopsKeys = {}
   selfPropsArray.forEach(key => {
     if (props[key] !== undefined) res[key] = props[key]
     if (other?.[key] !== undefined) res[key] = other[key]

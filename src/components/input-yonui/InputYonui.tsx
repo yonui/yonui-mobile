@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
-interface InputYonuiProps extends React.defaultProps{
+interface InputYonuiProps extends React.defaultProps {
   type?: 'text' | 'number' | 'tel'
   pattern?: RegExp // 输入过程中的校验规则
-  finalPattern?: RegExp | Array<{reg: RegExp, text: string}> // onBlur时的校验规则
+  finalPattern?: RegExp | Array<{ reg: RegExp, text: string }> // onBlur时的校验规则
   value?: string | number
   defaultValue?: string
   textAlign?: 'left' | 'right' | 'center'
@@ -12,11 +12,12 @@ interface InputYonuiProps extends React.defaultProps{
   inputStyle?: React.CSSProperties
   required?: boolean
   disabled?: boolean
+  mReadOnly?: boolean
   customCheck?: (value: string, final?: boolean) => boolean
   onFocus?: (value: string) => void
   onBlur?: (value: string) => void
   onChange?: (value: string) => void
-  onError?: (value: string, pattern: { reg?: RegExp, text?: string}) => void
+  onError?: (value: string, pattern: { reg?: RegExp, text?: string }) => void
   onSuccess?: (value: string) => void
   onClickClear?: (value: string) => void
   beforeRender?: (value: string) => string
@@ -54,25 +55,25 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
     if (final) {
       if (customCheck && !customCheck(value, true)) {
         console.log('final customCheck error', value)
-        onError && onError(value, { text: '' })
+        onError?.(value, { text: '' })
         return false
       }
-      const _finalPattern = finalPattern && !Array.isArray(finalPattern) ? [{ reg: finalPattern }] : finalPattern
+      const _finalPattern: any = finalPattern && !Array.isArray(finalPattern) ? [{ reg: finalPattern }] : finalPattern
       if (_finalPattern && value) {
         for (let i = 0; i < _finalPattern.length; i++) {
           if (!_finalPattern[i].reg.test(value)) {
-            onError && onError(value, _finalPattern[i])
+            onError?.(value, _finalPattern[i])
             console.log('final pattern error')
             return false
           }
         }
       }
       if (!value && required) {
-        onError && onError(value, { text: '' })
+        onError?.(value, { text: '' })
         console.log('require error')
         return false
       }
-      onSuccess && onSuccess(value)
+      onSuccess?.(value)
     }
     return true
   }
@@ -85,7 +86,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
       console.log('error when check')
       return
     }
-    onChange && onChange(val)
+    onChange?.(val)
     this.setState({
       _value: val
     })
@@ -94,7 +95,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
   _onBlur = (event?: React.FocusEvent<HTMLInputElement>) => {
     const { _value } = this.state
     const { onBlur } = this.props
-    onBlur && onBlur(_value)
+    onBlur?.(_value)
     if (this.checkValue(_value, true)) {
       setTimeout(() => {
         this.setState({
@@ -106,13 +107,13 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
 
   _onFocus = (event: React.FocusEvent<HTMLInputElement>) => {
     const { onFocus } = this.props
-    onFocus && onFocus(event.target.value)
+    onFocus?.(event.target.value)
     this.setState({
       _className: 'yonui-input-focus'
     })
   }
 
-  formatValue = (value) => {
+  formatValue = (value: string) => {
     let valueObj
     try {
       valueObj = JSON.parse(value)
@@ -127,8 +128,8 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
   _onClickClear = () => {
     const { onChange, onClickClear } = this.props
     const { _value } = this.state
-    onChange && onChange('')
-    onClickClear && onClickClear(_value)
+    onChange?.('')
+    onClickClear?.(_value)
     this.setState({
       _value: ''
     })
@@ -148,6 +149,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
       [_className]: val.length > 0
     })
     const _inputStyle: React.CSSProperties = { textAlign, ...inputStyle }
+    // console.log(_inputStyle)
     return (
       <div className={cls} style={style}>
         <input
