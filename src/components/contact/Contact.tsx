@@ -80,23 +80,27 @@ export default class Contact extends Component<ContactProps, ContactState> {
   }
 
   valueAdapt = (index?: number, value?: string) => {
-    const { mode } = this.props
+    const { mode, area } = this.props
     if (mode === 'mobilephone') {
       if (value) {
-        const valueArray = value.split('=')
-        if (valueArray.length > 0) {
-          switch (index) {
-            case 0:
-              return valueArray[0]
-            case 1:
-              return valueArray[1]
-            case 2:
-              return valueArray[2]
-            default:
-              return valueArray[2]
+        if (area) {
+          const valueArray = value.split('=')
+          if (valueArray.length > 0) {
+            switch (index) {
+              case 0:
+                return valueArray[0]
+              case 1:
+                return valueArray[1]
+              case 2:
+                return valueArray[2]
+              default:
+                return valueArray[2]
+            }
+          } else {
+            return ''
           }
         } else {
-          return ''
+          return value
         }
       } else {
         return ''
@@ -124,9 +128,13 @@ export default class Contact extends Component<ContactProps, ContactState> {
 
   returnValueAdapt = (inputValue?: string) => {
     const { country, countryNum, emailType } = this.state
-    const { mode, isSelect } = this.props
-    if (mode === 'telephone') {
-      return `${countryNum}=${country}=${inputValue}`
+    const { mode, area, isSelect } = this.props
+    if (mode === 'mobilephone') {
+      if (area) {
+        return `${countryNum}=${country}=${inputValue}`
+      } else {
+        return inputValue
+      }
     } else {
       if (isSelect) {
         return `${inputValue}${emailType}`
@@ -379,7 +387,6 @@ export default class Contact extends Component<ContactProps, ContactState> {
     const { _value } = this.state
     const item = dataSource[index]
     const returnValue = `${item.tel}=${item.name}=${_value}`
-    console.log('mmmd', returnValue);
     onChange?.(returnValue)
     this.setState({
       country: item.name,
@@ -438,8 +445,12 @@ export default class Contact extends Component<ContactProps, ContactState> {
     const { open } = this.state
     const content = this.getContent(mode, area, isSelect)
     const wrapperProps = getListItemProps(this.props)
+    let telContentStyle: React.CSSProperties
+    if (mode === 'telephone') {
+      telContentStyle = { width: '70%' }
+    }
     return (
-      <Wrapper {...wrapperProps} className='yonui-mobile-contact'>
+      <Wrapper {...wrapperProps} className='yonui-mobile-contact' contentStyle={telContentStyle}>
         {content}
         <Modal visible={open} popup maskClosable onClose={() => { this.onCloseModal() }} animationType='slide-up' className='yonui-contact-modal'>
           {(mode === 'email') ? this.renderEmailList(emailDataSource || defaultEmailTypeDataSource) : this.renderAreaList(dataSource || defaultDataSource)}

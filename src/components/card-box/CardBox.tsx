@@ -126,7 +126,7 @@ export default class CardBox extends Component<CardBoxProps, CardBoxState> {
       }
       case 'listDetail': {
         const itemShow = gridModel?.getData()?.[rowIndex].show || false
-        if (itemShow) {
+        if (itemShow || !__RUNTIME_CONTEXT__) {
           content = (<>
             <div className='yonui-card-box-swipe' style={style}>
               {children}

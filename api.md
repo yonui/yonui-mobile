@@ -6,16 +6,7 @@
 
 # README
 
-# result 反馈页
-## 反馈页面
-**API**
-
-| result |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 设计器类型 | 默认值 | 说明 |
-| mode | string | 'success' |  模式 取值范围 ['success','wait','reject']|
-| message | string | '' |  文字描述|
-
+# README
 
 # empty 情感化页面空数据
 ## 情感化页面
@@ -80,59 +71,24 @@ label组件可用作标签等单纯的数据展示。
 
 # README
 
-# README
-
-选项组件，支持单选和多选，支持标签和列表两种形态。
-
-### API
-
-| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
-| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
-| dataSource         | 渲染类型，支持标签和列表形式 | 否 | 'tag'\|'list'                  | 'tag' |
-| multiple | 是否启用下拉刷新 | 否 | boolean | true |
-| label | 底部区域文本，为空时不展示底部文字 | 否 | string | '' |
-| dataSource | 数据源 | 是 | dataType[] | - |
-| checkedValue | 已经选择数据的value数组 | 否 | number | - |
-| tagSize | 渲染类型为标签时，标签的尺寸 | 否 | 'sm'\|'md'\|'g'\|'default' | 'default' |
-| disabled | 禁用 | 否 | boolean | false |
-| singleLine | 当行展示 | 否 | boolean | false |
-| splitLine | 是否展示分割线 | 否 | boolean | true |
-| required | 是否必填项 | 否 | boolean | false |
-| onClick | 点击某个选项时的回调 | 否 | (selectedValue: string[], selectedData: dataType[]) => void | false |
-| onChange | 选项值改变时的回调，列表多选时为确定时的回调 | 否 | (selectedValue: string[], selectedData: dataType[]) => void | false |
-
-```typescript
-interface dataType { text: string, value: string, disabled?: boolean }
-```
-
-
-
-# README
-
-# README
-
-# README
-
-# README
-## Grid 宫格
+# result 反馈页
+## 反馈页面
 **API**
 
-| Grid |  |  |  |
+| result |  |  |  |
 | :---: | --- | --- | --- |
-| 属性 | 说明 | 类型 | 默认值 |
-|data	|传入的菜单数据|	Array<{icon, text}>|	[]|
-|onClick|	点击每个菜单的回调函数|	(el: Object, index: number): void	|-|
-|columnNum|	列数|	number|	4|
-|hasLine|	是否有边框|	boolean	|true|
-|outContent| 是否有外框内容,注(当outContent为true,renderItem方法无效) | boolean | false |
-|isCarousel	|是否跑马灯|	boolean|	false|
-|carouselMaxRow	|如果是跑马灯, 一页跑马灯需要展示的行数|	number|	2|
-|renderItem	|自定义每个 grid 条目的创建函数	|(el, index) => React.Node	|-|
-|square|	每个格子是否固定为正方形|	boolean	|true|
-|activeStyle|	点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)	|{}/false|	{}|
-|activeClassName	|点击反馈的自定义类名	|string	||
-|itemStyle	|每个格子自定义样式	|object	|{}|
+| 属性 | 设计器类型 | 默认值 | 说明 |
+| mode | string | 'success' |  模式 取值范围 ['success','wait','reject']|
+| message | string | '' |  文字描述|
 
+
+# README
+
+# README
+
+# README
+
+# README
 
 # README
 
@@ -200,23 +156,28 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 # README
 
-加载
+选项组件，支持单选和多选，支持标签和列表两种形态。
 
+### API
 
+| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
+| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
+| dataSource         | 渲染类型，支持标签和列表形式 | 否 | 'tag'\|'list'                  | 'tag' |
+| multiple | 是否启用下拉刷新 | 否 | boolean | true |
+| label | 底部区域文本，为空时不展示底部文字 | 否 | string | '' |
+| dataSource | 数据源 | 是 | dataType[] | - |
+| checkedValue | 已经选择数据的value数组 | 否 | number | - |
+| tagSize | 渲染类型为标签时，标签的尺寸 | 否 | 'sm'\|'md'\|'g'\|'default' | 'default' |
+| disabled | 禁用 | 否 | boolean | false |
+| singleLine | 当行展示 | 否 | boolean | false |
+| splitLine | 是否展示分割线 | 否 | boolean | true |
+| required | 是否必填项 | 否 | boolean | false |
+| onClick | 点击某个选项时的回调 | 否 | (selectedValue: string[], selectedData: dataType[]) => void | false |
+| onChange | 选项值改变时的回调，列表多选时为确定时的回调 | 否 | (selectedValue: string[], selectedData: dataType[]) => void | false |
 
-### api
-
-| 属性      | 说明                      | 必填 | 类型                       | 默认值    |
-| --------- | ------------------------- | ---- | -------------------------- | --------- |
-| *show*    | 是否展示加载组件          | 否   | boolean                    | 'title'   |
-| *theme*   | 主题                      | 否   | 'primary'\|'dark'\|'light' | 'primary' |
-| *type*    | 加载类型                  | 否   | 'toast'\|'jump'\|'local'   | 'toast'   |
-| *percent* | type='jump'时的百分比     | 否   | number                     |           |
-| *inline*  | type='jump'时是否行内模式 | 否   | boolean                    | false     |
-| *content* | typr='toast'时文字内容    | 否   | string                     | ''        |
-| *size*    | type='local'时图标大小    | 否   | 'small' \| 'large'         | 'small'   |
-
-
+```typescript
+interface dataType { text: string, value: string, disabled?: boolean }
+```
 
 
 
@@ -310,21 +271,6 @@ onClose | 关闭时回调 | () => void | |
 onClick | 点击时回调 | (object: DataItem) => void | |
 
 # README
-卡片容器组件
-
-### API
-
-| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
-| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
-| displayStyle       | 展示类型                               | 否   | 'normal'\|'detail'\|'slideable' | 'normal' |
-| btnText | 删除按钮文本。slideable模式下有效 | 否   | string                               | '删除' |
-| rightStyle | 删除按钮样式。slideable模式下有效 | 否   | number                            | {} |
-| label | 标题文本，detail模式下有效             | 否   | string                              | '' |
-| showDeleteIcon | 是否展示删除按钮，detail模式下有效 | 否   | boolean | true |
-| showTitleExtraIcon | 是否展示标题左侧图标，detail模式下有效 | 否 | boolean | false |
-| onDelete | 删除事件。detail/slideable模式下有效 | 否 | ()=>void |  |
-
-
 
 # README
 
@@ -439,6 +385,53 @@ type emailType = Array<{type: string}>
 # README
 
 # README
+## Grid 宫格
+**API**
+
+| Grid |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 说明 | 类型 | 默认值 |
+|data	|传入的菜单数据|	Array<{icon, text}>|	[]|
+|onClick|	点击每个菜单的回调函数|	(el: Object, index: number): void	|-|
+|columnNum|	列数|	number|	4|
+|hasLine|	是否有边框|	boolean	|true|
+|outContent| 是否有外框内容,注(当outContent为true,renderItem方法无效) | boolean | false |
+|isCarousel	|是否跑马灯|	boolean|	false|
+|carouselMaxRow	|如果是跑马灯, 一页跑马灯需要展示的行数|	number|	2|
+|renderItem	|自定义每个 grid 条目的创建函数	|(el, index) => React.Node	|-|
+|square|	每个格子是否固定为正方形|	boolean	|true|
+|activeStyle|	点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)	|{}/false|	{}|
+|activeClassName	|点击反馈的自定义类名	|string	||
+|itemStyle	|每个格子自定义样式	|object	|{}|
+
+
+# README
+
+# README
+
+# README
+
+加载
+
+
+
+### api
+
+| 属性      | 说明                      | 必填 | 类型                       | 默认值    |
+| --------- | ------------------------- | ---- | -------------------------- | --------- |
+| *show*    | 是否展示加载组件          | 否   | boolean                    | 'title'   |
+| *theme*   | 主题                      | 否   | 'primary'\|'dark'\|'light' | 'primary' |
+| *type*    | 加载类型                  | 否   | 'toast'\|'jump'\|'local'   | 'toast'   |
+| *percent* | type='jump'时的百分比     | 否   | number                     |           |
+| *inline*  | type='jump'时是否行内模式 | 否   | boolean                    | false     |
+| *content* | typr='toast'时文字内容    | 否   | string                     | ''        |
+| *size*    | type='local'时图标大小    | 否   | 'small' \| 'large'         | 'small'   |
+
+
+
+
+
+# README
 
 评分组件
 
@@ -455,12 +448,19 @@ type emailType = Array<{type: string}>
 
 
 # README
+卡片容器组件
 
-# README
+### API
 
-# README
+| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
+| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
+| displayStyle       | 展示类型                               | 否   | 'normal'\|'detail'\|'slideable' | 'normal' |
+| btnText | 删除按钮文本。slideable模式下有效 | 否   | string                               | '删除' |
+| rightStyle | 删除按钮样式。slideable模式下有效 | 否   | number                            | {} |
+| label | 标题文本，detail模式下有效             | 否   | string                              | '' |
+| showDeleteIcon | 是否展示删除按钮，detail模式下有效 | 否   | boolean | true |
+| showTitleExtraIcon | 是否展示标题左侧图标，detail模式下有效 | 否 | boolean | false |
+| onDelete | 删除事件。detail/slideable模式下有效 | 否 | ()=>void |  |
 
-# README
 
-# README
 
