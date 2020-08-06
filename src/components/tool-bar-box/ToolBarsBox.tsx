@@ -20,12 +20,32 @@ export default class ToolBarBox extends Component<ToolBarBoxProps> {
       'yonui-mobile-tool-bars-runtime': runTime
     })
     const btnNum = Array.isArray(children) ? children.length : 1
-    const newChildren = []
+    let showBtnNum = 0
     if (btnNum !== 1) {
       for (let i = 0; i < btnNum; i++) {
-        newChildren[i] = <div className={classnames(`length-${childrenLength}`)}>{children[i]}</div>
+        if (children[i].props.visible) {
+          showBtnNum++
+        }
       }
-    } else newChildren[0] = <div className={classnames(`length-${childrenLength}`)}>{children}</div>
+    } else {
+      if (children.props.visible) {
+        showBtnNum++
+      }
+    }
+    let newChildren = []
+    if (btnNum !== 1) {
+      for (let i = 0; i < btnNum; i++) {
+        let item = <div className={classnames(`length-${Math.min(showBtnNum,5)}`)}>{children[i]}</div>
+        if (children[i].props.visible) {
+          newChildren.push(item)
+        }
+      }
+    } else {
+      let item = <div className={classnames(`length-${Math.min(showBtnNum,5)}`)}>{children}</div>
+      if (children.props.visible) {
+        newChildren.push(item)
+      }
+    }
     return (
       <div className={cls} style={style} nid={nid} uitype={uitype}>
         <div className={wrapperCls}>
