@@ -4,5 +4,5 @@ build
 dist
 jslib/
 
-src/components/*/demos/*.*
+/src/components/*/demos/*.*
 static

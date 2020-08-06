@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
-export interface ListItemWrapperProps extends React.defaultProps{
+export interface ListItemWrapperProps extends React.defaultProps {
   splitLine?: boolean
   singleLine?: boolean
+  singleLineCenter?: boolean
   required?: boolean
   notRequired?: boolean
   label?: React.ReactNode
@@ -27,19 +28,46 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
 
   render () {
     const {
-      splitLine = true, singleLine, label, labelCls, labelStyle,
-      contentCls, contentStyle, className, style, children,
-      required, nid, uitype, onClick, error, errorText,
-      showExtraLabelIcon, subLabel, notRequired = true
+      splitLine = true,
+      singleLine,
+      singleLineCenter,
+      label,
+      labelCls,
+      labelStyle,
+      contentCls,
+      contentStyle,
+      className,
+      style,
+      children,
+      required,
+      nid,
+      uitype,
+      onClick,
+      error,
+      errorText,
+      showExtraLabelIcon,
+      subLabel,
+      notRequired = true
     } = this.props
-    const cls = classnames('list-item-wrapper', className, `${singleLine ? 'single-line' : 'multiple-line'}`, {
-      'list-item-wrapper-split': splitLine
-    })
+    const cls = classnames(
+      'list-item-wrapper',
+      className,
+      `${singleLine || singleLineCenter ? 'single-line' : 'multiple-line'}`,
+      {
+        'list-item-wrapper-split': splitLine
+      },
+      {
+        'single-line-center': singleLineCenter
+      }
+    )
     const errorCls = classnames('list-item-wrapper-error', {
       hidden: !error
     })
     const _required = required ?? !notRequired
-    const _labelCls = classnames('list-item-wrapper-label', labelCls, { required: _required, 'list-item-wrapper-label-extra-icon': showExtraLabelIcon })
+    const _labelCls = classnames('list-item-wrapper-label', labelCls, {
+      required: _required,
+      'list-item-wrapper-label-extra-icon': showExtraLabelIcon
+    })
     const _contentCls = classnames('list-item-wrapper-content', contentCls)
     return (
       <div className='list-item-wrapper-box'>
@@ -52,9 +80,7 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
             {children}
           </div>
         </div>
-        <div className={errorCls}>
-          {errorText || '填写信息有误!请重新填写'}
-        </div>
+        <div className={errorCls}>{errorText || '填写信息有误!请重新填写'}</div>
       </div>
     )
   }

@@ -57,6 +57,17 @@ const propsArray: Props[] = [
     }
   },
   {
+    name: 'singleLineCenter',
+    type: FieldTypes.boolean,
+    defaultValue: false,
+    showDesign: true,
+    designConfig: {
+      type: EditTypes.Bool,
+      props: {},
+      label: '单行集中'
+    }
+  },
+  {
     name: 'labelCls',
     type: FieldTypes.string,
     defaultValue: '',
@@ -160,8 +171,8 @@ const propsArray: Props[] = [
  * @param exclude 需要排除属性的 name 集合
  */
 
-const getFilterProps: ((exclude: string[]) => Props[]) = (exclude = []) => {
-  const res = []
+const getFilterProps: (exclude: string[]) => Props[] = (exclude = []) => {
+  const res: Props[] = []
   propsArray.forEach(item => {
     if (!exclude.includes(item.name)) {
       res.push(item)
