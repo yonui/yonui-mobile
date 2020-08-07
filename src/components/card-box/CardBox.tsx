@@ -8,6 +8,7 @@ interface CardBoxProps extends React.defaultProps{
   btnText: '删除'
   onDelete?: () => void
   label?: string
+  splitLine?: boolean
   rightStyle?: React.CSSProperties
   viewStatus?: 'default' | 'select' | 'selected' | 'detail' | 'browse'
   displayStyle?: 'normal' | 'detail' | 'slideable' | 'extra' | 'editable' | 'listDetail'
@@ -21,6 +22,7 @@ interface CardBoxState {
 export default class CardBox extends Component<CardBoxProps, CardBoxState> {
   static defaultProps = {
     btnText: '删除',
+    splitLine: true,
     viewStatus: 'default',
     label: '明细',
     showDeleteIcon: true,
@@ -56,7 +58,7 @@ export default class CardBox extends Component<CardBoxProps, CardBoxState> {
   }
 
   render () {
-    const { btnText, onDelete, rightStyle, style, className, children, viewStatus, label, displayStyle, selected, showTitleExtraIcon, ...other } = this.props
+    const { splitLine, btnText, onDelete, rightStyle, style, className, children, viewStatus, label, displayStyle, selected, showTitleExtraIcon, ...other } = this.props
     let { showDeleteIcon } = this.props
     if (showDeleteIcon) {
       if (other.mReadOnly) {
@@ -80,7 +82,7 @@ export default class CardBox extends Component<CardBoxProps, CardBoxState> {
         const wrapperCls = classnames('yonui-card-box-wrapper', { 'yonui-card-box-wrapper-extra-icon': showTitleExtraIcon })
         content = (<>
           <div className='yonui-card-box-swipe' style={style}>
-            <Wrapper className={wrapperCls} label={label} labelCls='yonui-card-box-title' singleLine>
+            <Wrapper splitLine={splitLine} className={wrapperCls} label={label} labelCls='yonui-card-box-title' singleLine>
               {showDeleteIcon && <img className='yonui-img-icon small' src={deleteImg} onClick={onDelete} />}
             </Wrapper>
             {children}
@@ -109,15 +111,15 @@ export default class CardBox extends Component<CardBoxProps, CardBoxState> {
         const itemSelected = gridModel?.getData()?.[rowIndex].selected || false
         // console.log('xxxxx rowIndex: ', rowIndex, ' itemSelected: ', itemSelected);
         // TODO itemSelected 即为选中状态，用于控制item选中反选的UI显示
-        const wrapperCls = classnames('yonui-card-box-wrapper', { 'yonui-card-box-wrapper-extra-icon': showTitleExtraIcon })
+        // const wrapperCls = classnames('yonui-card-box-wrapper', { 'yonui-card-box-wrapper-extra-icon': showTitleExtraIcon })
         const editableCls = itemSelected ? 'yonui-card-box-editable-selected' : 'yonui-card-box-editable-unselected'
         content = (<>
           <div className={editableCls} style={style}>
             <CheckBox checked={itemSelected} type='circle' className='yonui-card-box-checkbox' />
             <div className='yonui-card-box-editable-content' style={style}>
-              <Wrapper className={wrapperCls} label={label} labelCls='yonui-card-box-editable-title' singleLine>
+              {/* <Wrapper className={wrapperCls} label={label} labelCls='yonui-card-box-editable-title' singleLine>
                 {}
-              </Wrapper>
+              </Wrapper> */}
               {children}
             </div>
           </div>

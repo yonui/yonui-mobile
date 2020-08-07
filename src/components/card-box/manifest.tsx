@@ -101,6 +101,19 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'splitLine',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '展示标题下划线',
+        help: '详情态有效'
+      }
+    },
+    {
       name: 'showTitleExtraIcon',
       type: FieldTypes.boolean,
       defaultValue: false,
