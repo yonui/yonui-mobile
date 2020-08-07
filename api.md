@@ -8,6 +8,21 @@
 
 # README
 
+# README
+
+# README
+
+# result 反馈页
+## 反馈页面
+**API**
+
+| result |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 设计器类型 | 默认值 | 说明 |
+| mode | string | 'success' |  模式 取值范围 ['success','wait','reject']|
+| message | string | '' |  文字描述|
+
+
 # empty 情感化页面空数据
 ## 情感化页面
 **API**
@@ -33,6 +48,17 @@
 
 
 # README
+## navbar 导航栏
+**API**
+
+| navbar |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 类型 | 默认值 | 说明 |
+| label | string | - |  标签 |
+| style | object | - |  样式描述 |
+
+
+# README
 label组件可用作标签等单纯的数据展示。
 
 ### API
@@ -51,27 +77,14 @@ label组件可用作标签等单纯的数据展示。
 
 
 # README
-## navbar 导航栏
-**API**
-
-| navbar |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 类型 | 默认值 | 说明 |
-| label | string | - |  标签 |
-| style | object | - |  样式描述 |
-
-
-# README
-
-# README
-
-# README
 
 # README
 
 # README
 
 包含noticebar和notice
+
+# README
 
 # README
 
@@ -104,16 +117,7 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 # README
 
-# result 反馈页
-## 反馈页面
-**API**
-
-| result |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 设计器类型 | 默认值 | 说明 |
-| mode | string | 'success' |  模式 取值范围 ['success','wait','reject']|
-| message | string | '' |  文字描述|
-
+# README
 
 # README
 ## Grid 宫格
@@ -134,11 +138,6 @@ interface dataType { text: string, value: string, disabled?: boolean }
 |activeStyle|	点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)	|{}/false|	{}|
 |activeClassName	|点击反馈的自定义类名	|string	||
 |itemStyle	|每个格子自定义样式	|object	|{}|
-
-
-# README
-
-- Tabs组件的专属容器子组件
 
 
 # README
@@ -174,6 +173,35 @@ interface dataType { text: string, value: string, disabled?: boolean }
 | *iconsClassName* | icons区域类名 | 否 | string |  |
 | *iconsStyle* | icons区域样式 | 否 | CSSProperties |  |
 
+
+
+# README
+
+### 活动面板
+
+分为固定模式和滑动模式。固定模式中，标题居中，选项内容平铺，每行最多显示5个；滑动模式中，标题居左，每个选项最小宽度为页面宽度的20%，超出部分可滑动展示。
+
+### API
+
+| 属性             | 说明                                                         | 必填    | 类型                                                         | 默认值  |
+| ---------------- | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ | ------- |
+| show             | 是否显示                                                     | false   | boolean                                                      | false   |
+| title            | 标题                                                         | false   | string                                                       | ''      |
+| options          | 选项数组，可为一维数组或二维数组。icon字段为React.ReactNode或图片的url低值或base64编码。 | false   | Array<Array<{ icon: React.ReactNode , title: string }>> \|Array<{ icon: React.ReactNode |         |
+| cancelButtonText | 取消按钮文本内容                                             | false   | string                                                       | 取消    |
+| type             | 活动面板渲染模式                                             | false   | 'fixed'\|'slideable'                                         | 'fixed' |
+| onClose          | 点击取消、遮罩时的回调函数                                   | false   | ()=>void                                                     |         |
+| callback         | 点击选项内容时的回调函数。参数为选项所在列/行的下标，从0开始计数。当为一维数组时，row恒为0 | 发fasle | (col:number,row?:number)=>void                               |         |
+
+
+
+
+
+
+
+# README
+
+- Tabs组件的专属容器子组件
 
 
 # README
@@ -278,6 +306,17 @@ interface dataType { text: string, value: string, disabled?: boolean }
 # README
 
 # README
+## ListPanelPicker 基础组件-操作列表
+**API**
+
+| ListPanelPicker |  |  |  |
+| :---: | --- | --- | --- |
+属性 | 说明 | 类型 | 默认值 |
+visible | 是否显示 | boolean | false |
+header | 头部的值 | string | - |
+data | 传入的列表数据 | Array<{key, text, delete?}>,delete为true,操作列表项颜色为红色,key为主键,text为显示文本,不需要可以不写delete属性 | [] |
+onClose | 关闭时回调 | () => void | |
+onClick | 点击时回调 | (object: DataItem) => void | |
 
 # README
 卡片容器组件
@@ -304,28 +343,27 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 # README
 
-# README
-
-### 活动面板
-
-分为固定模式和滑动模式。固定模式中，标题居中，选项内容平铺，每行最多显示5个；滑动模式中，标题居左，每个选项最小宽度为页面宽度的20%，超出部分可滑动展示。
-
-### API
-
-| 属性             | 说明                                                         | 必填    | 类型                                                         | 默认值  |
-| ---------------- | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ | ------- |
-| show             | 是否显示                                                     | false   | boolean                                                      | false   |
-| title            | 标题                                                         | false   | string                                                       | ''      |
-| options          | 选项数组，可为一维数组或二维数组。icon字段为React.ReactNode或图片的url低值或base64编码。 | false   | Array<Array<{ icon: React.ReactNode , title: string }>> \|Array<{ icon: React.ReactNode |         |
-| cancelButtonText | 取消按钮文本内容                                             | false   | string                                                       | 取消    |
-| type             | 活动面板渲染模式                                             | false   | 'fixed'\|'slideable'                                         | 'fixed' |
-| onClose          | 点击取消、遮罩时的回调函数                                   | false   | ()=>void                                                     |         |
-| callback         | 点击选项内容时的回调函数。参数为选项所在列/行的下标，从0开始计数。当为一维数组时，row恒为0 | 发fasle | (col:number,row?:number)=>void                               |         |
-
-
-
-
-
+```js
+interface InputNumberPorps {
+  label?: string
+  precision?: number
+  type?: 'normal' | 'money' | 'integer'
+  min?: number | string
+  max?: number | string
+  prefix?: React.ReactNode
+  suffix?: React.ReactNode
+  thousands?: boolean
+  defaultValue?: number | string
+  value?: number | string
+  disabled?: boolean
+  placeholder?: string
+  autoFill?: boolean
+  textAlign?: 'left' | 'center' | 'right'
+  inputWrapperWidth?: string
+  labelWidth?: string
+  onChange?: (value: string) => void
+}
+```
 
 
 # README
@@ -398,33 +436,6 @@ type emailType = Array<{type: string}>
 
 # README
 
-```js
-interface InputNumberPorps {
-  label?: string
-  precision?: number
-  type?: 'normal' | 'money' | 'integer'
-  min?: number | string
-  max?: number | string
-  prefix?: React.ReactNode
-  suffix?: React.ReactNode
-  thousands?: boolean
-  defaultValue?: number | string
-  value?: number | string
-  disabled?: boolean
-  placeholder?: string
-  autoFill?: boolean
-  textAlign?: 'left' | 'center' | 'right'
-  inputWrapperWidth?: string
-  labelWidth?: string
-  onChange?: (value: string) => void
-}
-```
-
-
-# README
-
-# README
-
 ### API
 
 | 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
@@ -433,6 +444,8 @@ interface InputNumberPorps {
 | *width*                | iframe的样式宽度属性，默认为100%           | 否   | string                              |    |
 | *height*             | iframe的样式高度属性，默认为100%                    | 否   | string                       |        |
 
+
+# README
 
 # README
 
@@ -451,19 +464,6 @@ interface InputNumberPorps {
 
 
 # README
-
-# README
-## ListPanelPicker 基础组件-操作列表
-**API**
-
-| ListPanelPicker |  |  |  |
-| :---: | --- | --- | --- |
-属性 | 说明 | 类型 | 默认值 |
-visible | 是否显示 | boolean | false |
-header | 头部的值 | string | - |
-data | 传入的列表数据 | Array<{key, text, delete?}>,delete为true,操作列表项颜色为红色,key为主键,text为显示文本,不需要可以不写delete属性 | [] |
-onClose | 关闭时回调 | () => void | |
-onClick | 点击时回调 | (object: DataItem) => void | |
 
 # README
 

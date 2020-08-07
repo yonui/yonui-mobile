@@ -11,8 +11,8 @@ const transformer = ({ meta, vm }) => {
       return temp
     })
     vm?.get('labSelectNum')?.setValue(temp.length)
-    if (meta.displayStyle === 'editable' && gridData?.length > 0) {
-      if (gridData[0].verifystate) {
+    if (gridData?.length > 0) {
+      if (typeof (gridData[0].verifystate) !== 'undefined') {
         vm?.get('btnBatchSubmit')?.setVisible(true)
       } else {
         vm?.get('btnBatchSubmit')?.setVisible(false)
