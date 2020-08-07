@@ -107,7 +107,7 @@ export default class CardBox extends Component<CardBoxProps, CardBoxState> {
       }
       case 'editable': {
         const itemSelected = gridModel?.getData()?.[rowIndex].selected || false
-        console.log('xxxxx rowIndex: ', rowIndex, ' itemSelected: ', itemSelected);
+        // console.log('xxxxx rowIndex: ', rowIndex, ' itemSelected: ', itemSelected);
         // TODO itemSelected 即为选中状态，用于控制item选中反选的UI显示
         const wrapperCls = classnames('yonui-card-box-wrapper', { 'yonui-card-box-wrapper-extra-icon': showTitleExtraIcon })
         const editableCls = itemSelected ? 'yonui-card-box-editable-selected' : 'yonui-card-box-editable-unselected'

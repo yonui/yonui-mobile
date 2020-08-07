@@ -3,13 +3,21 @@ const transformer = ({ meta, vm }) => {
   return (props) => {
     props.mReadOnly = vm?.get('mActionList')?.getReadOnly()
     const temp = []
-    vm?.getGridModel()?.getData()?.forEach(item => {
+    const gridData = vm?.getGridModel()?.getData()
+    gridData?.forEach(item => {
       if (item.selected) {
         temp.push(item)
       }
       return temp
     })
     vm?.get('labSelectNum')?.setValue(temp.length)
+    if (meta.displayStyle === 'editable' && gridData?.length > 0) {
+      if (gridData[0].verifystate === 0) {
+        vm?.get('btnBatchSubmit')?.setVisible(true)
+      } else {
+        vm?.get('btnBatchSubmit')?.setVisible(false)
+      }
+    }
     return props;
   };
 };
