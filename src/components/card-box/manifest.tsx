@@ -3,13 +3,21 @@ const transformer = ({ meta, vm }) => {
   return (props) => {
     props.mReadOnly = vm?.get('mActionList')?.getReadOnly()
     const temp = []
-    vm?.getGridModel()?.getData()?.forEach(item => {
+    const gridData = vm?.getGridModel()?.getData()
+    gridData?.forEach(item => {
       if (item.selected) {
         temp.push(item)
       }
       return temp
     })
     vm?.get('labSelectNum')?.setValue(temp.length)
+    if (gridData?.length > 0) {
+      if (typeof (gridData[0].verifystate) !== 'undefined') {
+        vm?.get('btnBatchSubmit')?.setVisible(true)
+      } else {
+        vm?.get('btnBatchSubmit')?.setVisible(false)
+      }
+    }
     return props;
   };
 };
@@ -89,6 +97,19 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '展示删除按钮',
+        help: '详情态有效'
+      }
+    },
+    {
+      name: 'splitLine',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '展示标题下划线',
         help: '详情态有效'
       }
     },

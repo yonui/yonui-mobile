@@ -145,12 +145,13 @@ export default class Search extends React.Component<SearchProps, any> {
   }
 
   onScan = () => {
+    const _self = this
     window.mtl.scanQRCode({
       scanType: ['qrCode', 'barCode'],
       needResult: 1,
       success: function (res) {
         const result = res.resultStr;
-        this.setState({
+        _self.setState({
           value: result
         })
       },

@@ -22,9 +22,14 @@
       min-height: 32*@hd;
       direction: rtl;
       line-height: 1;
+      display: flex;
       justify-content: space-evenly;
       .mdf-button{
         direction: ltr;
+        margin: 0 5*@hd;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
         padding: 0;
         // &.mdf-button-default{
@@ -37,10 +42,8 @@
         //     background-color: @default-button-fill-tap;
         //   }
         // }
-        }
-        
+      }
     }
-    
   }
 
 
@@ -54,31 +57,7 @@
   }
 }
 
-.length{
-  display: inline-block;
-  margin: 0 5*@hd;
-}
 
-.length-1{
-  .length;
-  width: calc(~'100% - 10*@{hd}')
-}
-.length-2{
-  .length;
-  width: calc(~'50% - 10*@{hd}')
-}
-.length-3{
-  .length;
-  width: calc(~'33.33% - 10*@{hd}')
-}
-.length-4{
-  .length;
-  width: calc(~'25% - 10*@{hd}')
-}
-.length-5{
-  .length;
-  width: calc(~'22% - 10*@{hd}')
-}
     // &.length-1 .mdf-button{
     //   width: calc(~'100% - 10*@{hd}')
     // }
