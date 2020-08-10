@@ -50,6 +50,7 @@ interface InputState {
   _displayValue?: string
   isFocus?: boolean
 }
+
 export default class Input extends Component<InputProps, InputState> {
   constructor (props: InputProps) {
     super(props)
@@ -201,14 +202,15 @@ export default class Input extends Component<InputProps, InputState> {
   }
 
   render () {
-    const { required, bIsNull, className, singleLine, nid, uitype, onChange, onBlur, onFocus, value, showExtraLabelIcon, inputBgColor, ...other } = this.props
+    const { mReadOnly, required, bIsNull, className, singleLine, nid, uitype, onChange, onBlur, onFocus, value, showExtraLabelIcon, inputBgColor, ...other } = this.props
     const { error, errorText, _displayValue } = this.state
     const cls = classnames('mdf-input', className)
     const inputCls = classnames('mdf-input-content')
     const inputProps = this.getInputProps()
-    const wrapperProps = getListItemProps(this.props, {className: cls, error, errorText})
+    const wrapperProps = getListItemProps(this.props, { className: cls, error, errorText })
     const _required = bIsNull !== undefined ? bIsNull : required
     const preValue = this.state.isFocus ? value : this.changeValue(this.props);
+    const showValue = mReadOnly ? preValue : (this.state.isFocus ? _displayValue || preValue : preValue)
     return (
       <Wrapper {...wrapperProps}>
         <YonuiInput
@@ -219,13 +221,14 @@ export default class Input extends Component<InputProps, InputState> {
           onChange={this._onChange}
           onFocus={this._onFocus}
           onClickClear={this._onClickClear}
-          value={_displayValue || preValue}
+          value={showValue}
           {...other}
           {...inputProps}
           style={{ backgroundColor: inputBgColor }}
           beforeRender={this._beforeRender}
           afterChange={this._afterChange}
           customCheck={this.checkFn}
+          mReadOnly={mReadOnly}
         />
       </Wrapper>
     )
