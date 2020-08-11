@@ -4,6 +4,7 @@ import { DatePicker, Calendar, Icon } from 'antd-mobile'
 import { dateFormat, formatStringToDate } from '../_utils'
 import Wrapper, { ListItemWrapperProps, getListItemProps } from '../list-item-wrapper'
 import classnames from 'classnames'
+import moment from 'moment'
 export interface ListDatePickerProps extends ListItemWrapperProps{
   dateMode?: 'picker-date' | 'picker-time' | 'picker-datetime' | 'picker-year' | 'picker-month' | 'calendar-date' | 'calendar-datetime'
   minDate?: Date | string
@@ -94,8 +95,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
     if (!dateTime) return
     const { onChangeDate, format, dateMode } = this.props
     const _format = format || modeToFormat(dateMode)
-    const _dateTime = dateFormat(dateTime, _format)
-    onChangeDate && onChangeDate(_dateTime)
+    onChangeDate && onChangeDate(moment(dateTime).format(_format))
     this.setState({
       visible: false,
       _value: dateTime
@@ -106,10 +106,10 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
     const { label, required, value, minDate, maxDate, disabled, style, dateMode, onCancel, format, extra, title, splitLine, labelCls: lbc, ...restProps } = this.props
     const { visible, _value } = this.state
     let valueTrs
-    if (dateMode === 'picker-time') {
-      valueTrs = (value === undefined) ? _value : formatStringToDate(`1970/01/01 ${value}`)
+    if (dateMode === 'picker-time' && !/\/|\-/.test(value+'')) {
+      valueTrs = (value === ''||value === undefined ) ? _value : formatStringToDate(`1970/01/01 ${value}`)
     } else {
-      valueTrs = (value === undefined) ? _value : formatStringToDate(value)
+      valueTrs = (value === ''||value === undefined) ? _value : formatStringToDate(value)
     }
     const minDateTrs = dateMode === 'picker-time' ? undefined : formatStringToDate(minDate)
     const maxDateTrs = dateMode === 'picker-time' ? undefined : formatStringToDate(maxDate)
@@ -127,7 +127,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
       return (<>
         <Wrapper {...wrapperProps}>
           <div className={valueCls}>
-            {valueTrs ? dateFormat(valueTrs, fmt) : extra}
+            {valueTrs ? dateFormat(valueTrs, fmt) : dateFormat(new Date(),fmt)}
             {!disabled && <Icon type='right' />}
           </div>
         </Wrapper>
@@ -167,7 +167,8 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
         >
           <Wrapper {...wrapperProps}>
             <div className={valueCls}>
-              {valueTrs ? dateFormat(valueTrs, fmt || 'yyyy-MM-dd') : extra}
+              {/* {valueTrs ? dateFormat(valueTrs, fmt || 'yyyy-MM-dd') : dateFormat(new Date(),fmt || 'yyyy-MM-dd')} */}
+              {valueTrs ? moment(valueTrs).format( fmt || 'yyyy-MM-dd') : moment(new Date()).format(fmt || 'yyyy-MM-dd')}
               {!disabled && <Icon type='right' />}
             </div>
           </Wrapper>
