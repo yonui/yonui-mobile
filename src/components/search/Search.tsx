@@ -208,21 +208,19 @@ export default class Search extends React.Component<SearchProps, any> {
         >
           <Icon type='search' size='xs' />
         </span>
-        <form action=''>
-          <input
-            type='search'
-            ref={el => (this.inputRef = el)}
-            className={`${prefixCls}-input`}
-            placeholder={placeholder}
-            value={value}
-            disabled={disabled}
-            maxLength={maxLength}
-            onChange={this.onChange}
-            onFocus={this.onFocus}
-            onBlur={this.onBlur}
-            onKeyPress={this.handleEnterKey}
-          />
-        </form>
+        <input
+          type='search'
+          ref={el => (this.inputRef = el)}
+          className={`${prefixCls}-input`}
+          placeholder={placeholder}
+          value={value}
+          disabled={disabled}
+          maxLength={maxLength}
+          onChange={this.onChange}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
+          onKeyPress={this.handleEnterKey}
+        />
         <a
           className={clearCls}
           style={{
