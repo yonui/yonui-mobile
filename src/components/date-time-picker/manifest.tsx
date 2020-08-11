@@ -168,9 +168,9 @@ const manifest: ComponentManifest = {
         props: {
           options: [
             { value: '', text: '默认' },
-            { value: 'yyyy-MM-dd', text: 'yyyy-MM-dd' },
+            { value: 'yyyy-MM-DD', text: 'yyyy-MM-DD' },
             { value: 'HH:mm', text: 'HH:mm' },
-            { value: 'yyyy-MM-dd HH:mm', text: 'yyyy-MM-dd HH:mm' },
+            { value: 'yyyy-MM-DD HH:mm', text: 'yyyy-MM-DD HH:mm' },
             { value: 'yyyy', text: 'yyyy' },
             { value: 'yyyy-MM', text: 'yyyy-MM' }
           ]
