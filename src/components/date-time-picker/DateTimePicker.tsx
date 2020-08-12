@@ -24,11 +24,11 @@ interface ListDatePickerState {
 }
 
 enum DateFormatMap {
-  date = 'yyyy-MM-DD',
+  date = 'YYYY-MM-DD',
   time = 'HH:mm',
-  dateTime = 'yyyy-MM-DD HH:mm',
-  year = 'yyyy',
-  month = 'yyyy-MM'
+  dateTime = 'YYYY-MM-DD HH:mm',
+  year = 'YYYY',
+  month = 'YYYY-MM'
 }
 
 const modeToFormat = (mode?: string) => {
@@ -95,6 +95,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
     if (!dateTime) return
     const { onChangeDate, format, dateMode } = this.props
     const _format = format || modeToFormat(dateMode)
+    // console.log(moment(dateTime), moment(dateTime).format('YYYY-MM-DD HH:mm'))
     onChangeDate?.(moment(dateTime).format(_format))
     this.setState({
       visible: false,

@@ -11,7 +11,7 @@ export default class Demo extends Component<any, any> {
     super(props)
 
     this.state = {
-       value: '2012-12-12 08:15:22'
+       value: ''
     }
   }
 
