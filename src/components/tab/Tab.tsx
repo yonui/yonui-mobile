@@ -67,16 +67,8 @@ export default class yonuiTabs extends Component<TabsProps> {
   }
 
   renderTabBar = (props: any) => {
-    const { pageSize, tabs = {} } = props
-    if (tabs.length === 1) {
-      return (
-        <div style={{ display: 'none' }}>
-          <Tabs.DefaultTabBar renderTab={this.renderTab} {...props} page={pageSize} tabBarBackgroundColor='transparent' />
-        </div>
-      )
-    } else {
-      return <Tabs.DefaultTabBar renderTab={this.renderTab} {...props} page={pageSize} tabBarBackgroundColor='transparent' />
-    }
+    const { pageSize } = props
+    return <Tabs.DefaultTabBar renderTab={this.renderTab} {...props} page={pageSize} tabBarBackgroundColor='transparent' />
   }
 
   renderTab = (tab) => {
