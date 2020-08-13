@@ -31,7 +31,7 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'multiple',
+      name: 'canMultiple',
       type: FieldTypes.boolean,
       defaultValue: false,
       showDesign: true,
