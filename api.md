@@ -6,18 +6,18 @@
 
 # README
 
-# result 反馈页
-## 反馈页面
+# README
+
+# empty 情感化页面空数据
+## 情感化页面
 **API**
 
-| result |  |  |  |
+| empty |  |  |  |
 | :---: | --- | --- | --- |
 | 属性 | 设计器类型 | 默认值 | 说明 |
-| mode | string | 'success' |  模式 取值范围 ['success','wait','reject']|
+| mode | string | 'success' |  模式 取值范围 ['noData','client','blankPage','error','review','server','noNetwork']|
 | message | string | '' |  文字描述|
 
-
-# README
 
 # README
 ## tips 基础组件-徽标数
@@ -32,22 +32,15 @@
 | overflowCount | number | - |  展示封顶的数字值 |
 
 
-# README
-label组件可用作标签等单纯的数据展示。
+# result 反馈页
+## 反馈页面
+**API**
 
-### API
-
-| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
-| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
-| *type*        | 渲染类型              | 否 | 'default'\|'primary'\|'border'\|'label'    | 'default' |
-| *label* | 文本内容 | 否 | string |  |
-| *width* | 图片的尺寸                            | 否   | string                               |  |
-| *textAlign* | 图片圆角百分值              | 否   | 'left'\|'center'\|'right' |  |
-| *color* | 主题色                             | 否   | string                      |  |
-| *bgColor* | 背景色 | 否   | string |               |
-| *leftIcon* | 左侧插入图标 | 否 | ReactNode | |
-| *rightIcon* | 右侧插入图标 | 否 | ReactNode | |
-
+| result |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 设计器类型 | 默认值 | 说明 |
+| mode | string | 'success' |  模式 取值范围 ['success','wait','reject']|
+| message | string | '' |  文字描述|
 
 
 # README
@@ -68,6 +61,8 @@ label组件可用作标签等单纯的数据展示。
 # README
 
 包含noticebar和notice
+
+# README
 
 # README
 
@@ -99,23 +94,28 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 
 # README
+label组件可用作标签等单纯的数据展示。
+
+### API
+
+| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
+| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
+| *type*        | 渲染类型              | 否 | 'default'\|'primary'\|'border'\|'label'    | 'default' |
+| *label* | 文本内容 | 否 | string |  |
+| *width* | 图片的尺寸                            | 否   | string                               |  |
+| *textAlign* | 图片圆角百分值              | 否   | 'left'\|'center'\|'right' |  |
+| *color* | 主题色                             | 否   | string                      |  |
+| *bgColor* | 背景色 | 否   | string |               |
+| *leftIcon* | 左侧插入图标 | 否 | ReactNode | |
+| *rightIcon* | 右侧插入图标 | 否 | ReactNode | |
+
+
 
 # README
 
 # README
 
 # README
-
-# empty 情感化页面空数据
-## 情感化页面
-**API**
-
-| empty |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 设计器类型 | 默认值 | 说明 |
-| mode | string | 'success' |  模式 取值范围 ['noData','client','blankPage','error','review','server','noNetwork']|
-| message | string | '' |  文字描述|
-
 
 # README
 
@@ -138,15 +138,6 @@ interface dataType { text: string, value: string, disabled?: boolean }
 |activeStyle|	点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)	|{}/false|	{}|
 |activeClassName	|点击反馈的自定义类名	|string	||
 |itemStyle	|每个格子自定义样式	|object	|{}|
-
-
-# README
-工具栏
-
-### API
-
-| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
-| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
 
 
 # README
@@ -181,6 +172,15 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 
 # README
+工具栏
+
+### API
+
+| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
+| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
+
+
+# README
 
 ### 活动面板
 
@@ -199,28 +199,6 @@ interface dataType { text: string, value: string, disabled?: boolean }
 | callback         | 点击选项内容时的回调函数。参数为选项所在列/行的下标，从0开始计数。当为一维数组时，row恒为0 | 发fasle | (col:number,row?:number)=>void                               |         |
 
 
-
-
-
-
-
-# README
-
-加载
-
-
-
-### api
-
-| 属性      | 说明                      | 必填 | 类型                       | 默认值    |
-| --------- | ------------------------- | ---- | -------------------------- | --------- |
-| *show*    | 是否展示加载组件          | 否   | boolean                    | 'title'   |
-| *theme*   | 主题                      | 否   | 'primary'\|'dark'\|'light' | 'primary' |
-| *type*    | 加载类型                  | 否   | 'toast'\|'jump'\|'local'   | 'toast'   |
-| *percent* | type='jump'时的百分比     | 否   | number                     |           |
-| *inline*  | type='jump'时是否行内模式 | 否   | boolean                    | false     |
-| *content* | typr='toast'时文字内容    | 否   | string                     | ''        |
-| *size*    | type='local'时图标大小    | 否   | 'small' \| 'large'         | 'small'   |
 
 
 
@@ -250,6 +228,28 @@ interface dataType { text: string, value: string, disabled?: boolean }
 |activeClassName	|点击反馈的自定义类名	|string	||
 |itemStyle	|每个格子自定义样式	|object	|{}|
 
+# README
+
+加载
+
+
+
+### api
+
+| 属性      | 说明                      | 必填 | 类型                       | 默认值    |
+| --------- | ------------------------- | ---- | -------------------------- | --------- |
+| *show*    | 是否展示加载组件          | 否   | boolean                    | 'title'   |
+| *theme*   | 主题                      | 否   | 'primary'\|'dark'\|'light' | 'primary' |
+| *type*    | 加载类型                  | 否   | 'toast'\|'jump'\|'local'   | 'toast'   |
+| *percent* | type='jump'时的百分比     | 否   | number                     |           |
+| *inline*  | type='jump'时是否行内模式 | 否   | boolean                    | false     |
+| *content* | typr='toast'时文字内容    | 否   | string                     | ''        |
+| *size*    | type='local'时图标大小    | 否   | 'small' \| 'large'         | 'small'   |
+
+
+
+
+
 # TextareaItem 多行输入
 **API**
 
@@ -274,6 +274,36 @@ interface dataType { text: string, value: string, disabled?: boolean }
 | prefixListCls   |   列表 className 前缀      | String |  `am-list`  |
 | title   | 文案说明        | String/node |  '' |
 
+
+# README
+
+# README
+## Input 基础组件-输入框
+**API**
+
+| Input |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 类型 | 默认值 | 说明 |
+| type | string | text | 可以是银行卡bankCard; 手机号phone(此时最大长度固定为11,maxLength设置无效); 密码password; 数字number(为了尽量唤起带小数点的数字键盘，此类型并不是原生 number，而是'<'input type="text" pattern="[0-9]*"'/>'); digit(表示原生的 number 类型); money(带小数点的模拟的数字键盘) 以及其他标准 html input type 类型 |
+| label | string | - |  标签 |
+| defaultValue | string | - |  设置初始默认值 |
+| value | string | - |  value 值|
+| placeholder | string | '' |  placeholder |
+| labelNumber | number | 5 | 标签的文字个数，可用2-7之间的数字 |
+| maxLength |	number | 无。除money类型外，仅当text, email, search, password, tel, or url 有效。| 最大长度 |
+| required | boolean | false | 是否必填 |
+| editable | boolean | true | 是否可编辑 |
+| disabled | boolean | false | 是否禁用 |
+| clear | boolean | false | 是否带清除功能(仅editable为true,disabled为false才生效) |
+| singleLine | boolean | false | 是否单行展示 |
+| singleLineCenter | boolean | false | 是否单行展示，并集中对齐 |
+<!-- | extra	| string or node | '' | 右边注释 | -->
+| onChange | (val: string): void | - | change 事件触发的回调函数 |
+| onBlur | (val: string): void | - | blur 事件触发的回调函数 |	
+| onFocus |	(val: string): void	| - | focus 事件触发的回调函数 |
+
+
+# README
 
 # README
 ## ListPanelPicker 基础组件-操作列表
@@ -313,6 +343,29 @@ onClick | 点击时回调 | (object: DataItem) => void | |
 
 # README
 
+```js
+interface InputNumberPorps {
+  label?: string
+  precision?: number
+  type?: 'normal' | 'money' | 'integer'
+  min?: number | string
+  max?: number | string
+  prefix?: React.ReactNode
+  suffix?: React.ReactNode
+  thousands?: boolean
+  defaultValue?: number | string
+  value?: number | string
+  disabled?: boolean
+  placeholder?: string
+  autoFill?: boolean
+  textAlign?: 'left' | 'center' | 'right'
+  inputWrapperWidth?: string
+  labelWidth?: string
+  onChange?: (value: string) => void
+}
+```
+
+
 # README
 列表行容器组件，用来规范同类组件样式。
 
@@ -337,50 +390,6 @@ onClick | 点击时回调 | (object: DataItem) => void | |
 
 
 # README
-## Input 基础组件-输入框
-**API**
-
-| Input |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 类型 | 默认值 | 说明 |
-| type | string | text | 可以是银行卡bankCard; 手机号phone(此时最大长度固定为11,maxLength设置无效); 密码password; 数字number(为了尽量唤起带小数点的数字键盘，此类型并不是原生 number，而是'<'input type="text" pattern="[0-9]*"'/>'); digit(表示原生的 number 类型); money(带小数点的模拟的数字键盘) 以及其他标准 html input type 类型 |
-| label | string | - |  标签 |
-| defaultValue | string | - |  设置初始默认值 |
-| value | string | - |  value 值|
-| placeholder | string | '' |  placeholder |
-| labelNumber | number | 5 | 标签的文字个数，可用2-7之间的数字 |
-| maxLength |	number | 无。除money类型外，仅当text, email, search, password, tel, or url 有效。| 最大长度 |
-| required | boolean | false | 是否必填 |
-| editable | boolean | true | 是否可编辑 |
-| disabled | boolean | false | 是否禁用 |
-| clear | boolean | false | 是否带清除功能(仅editable为true,disabled为false才生效) |
-| singleLine | boolean | false | 是否单行展示 |
-| singleLineCenter | boolean | false | 是否单行展示，并集中对齐 |
-<!-- | extra	| string or node | '' | 右边注释 | -->
-| onChange | (val: string): void | - | change 事件触发的回调函数 |
-| onBlur | (val: string): void | - | blur 事件触发的回调函数 |	
-| onFocus |	(val: string): void	| - | focus 事件触发的回调函数 |
-
-
-# README
-
-一个简单的列表组件，支持下拉刷新和触底加载。大数据浏览时使用会产生性能问题。
-
-### API
-
-| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
-| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
-| dataSource         | 列表数据源                 | 是   | array                                | []     |
-| pullToRefresh | 是否启用下拉刷新 | 否 | boolean | true |
-| footerText | 底部区域文本，为空时不展示底部文字 | 否 | string | '' |
-| split | 列表项之间的分隔符号，分为无、分割线和分隔块 | 否 | 'none'\|'line'\|'blank' | 'line' |
-| height | 列表高度 | 否 | number | - |
-| reserverdHeight | 列表底部预留高度，设置height属性时无效 | 否 | number | - |
-| renderRow | 渲染每一行数据的方法，参数为数据源的每一项 | 是 | (item: any, dataSource any[], index: number) => React.ReactChild | - |
-| onRefresh | 触发下拉刷新事件的回调 | 否 | () => void | - |
-| onReachFoot | 页面滑动到底部时的回调 | 否 | () => void | - |
-
-
 
 # README
 
@@ -407,7 +416,34 @@ type emailType = Array<{type: string}>
 
 # README
 
+### API
+
+| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
+| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
+| *url*                    | 链接的url地址                      | 是   | string                                |      |
+| *width*                | iframe的样式宽度属性，默认为100%           | 否   | string                              |    |
+| *height*             | iframe的样式高度属性，默认为100%                    | 否   | string                       |        |
+
+
 # README
+
+一个简单的列表组件，支持下拉刷新和触底加载。大数据浏览时使用会产生性能问题。
+
+### API
+
+| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
+| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
+| dataSource         | 列表数据源                 | 是   | array                                | []     |
+| pullToRefresh | 是否启用下拉刷新 | 否 | boolean | true |
+| footerText | 底部区域文本，为空时不展示底部文字 | 否 | string | '' |
+| split | 列表项之间的分隔符号，分为无、分割线和分隔块 | 否 | 'none'\|'line'\|'blank' | 'line' |
+| height | 列表高度 | 否 | number | - |
+| reserverdHeight | 列表底部预留高度，设置height属性时无效 | 否 | number | - |
+| renderRow | 渲染每一行数据的方法，参数为数据源的每一项 | 是 | (item: any, dataSource any[], index: number) => React.ReactChild | - |
+| onRefresh | 触发下拉刷新事件的回调 | 否 | () => void | - |
+| onReachFoot | 页面滑动到底部时的回调 | 否 | () => void | - |
+
+
 
 # README
 
@@ -426,42 +462,6 @@ type emailType = Array<{type: string}>
 
 
 # README
-
-### API
-
-| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
-| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
-| *url*                    | 链接的url地址                      | 是   | string                                |      |
-| *width*                | iframe的样式宽度属性，默认为100%           | 否   | string                              |    |
-| *height*             | iframe的样式高度属性，默认为100%                    | 否   | string                       |        |
-
-
-# README
-
-# README
-
-```js
-interface InputNumberPorps {
-  label?: string
-  precision?: number
-  type?: 'normal' | 'money' | 'integer'
-  min?: number | string
-  max?: number | string
-  prefix?: React.ReactNode
-  suffix?: React.ReactNode
-  thousands?: boolean
-  defaultValue?: number | string
-  value?: number | string
-  disabled?: boolean
-  placeholder?: string
-  autoFill?: boolean
-  textAlign?: 'left' | 'center' | 'right'
-  inputWrapperWidth?: string
-  labelWidth?: string
-  onChange?: (value: string) => void
-}
-```
-
 
 # README
 
