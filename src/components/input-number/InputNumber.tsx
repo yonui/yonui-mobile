@@ -35,6 +35,7 @@ export interface InputProps extends ListItemWrapperProps {
   inputBgColor?: string
   bIsNull?: boolean
   scaleValue?: number
+  visible?: boolean
   onFocus?: (value: string) => void
   onBlur?: (value: string) => void
   onChange?: (value: string) => void
@@ -95,7 +96,8 @@ export default class Input extends Component<InputProps, InputState> {
     check: true,
     prefix: '',
     suffix: '',
-    scaleValue: 1
+    scaleValue: 1,
+    visible: true
   }
 
   _onChange = (val: string) => {
@@ -202,7 +204,7 @@ export default class Input extends Component<InputProps, InputState> {
   }
 
   render () {
-    const { mReadOnly, required, bIsNull, className, singleLine, nid, uitype, onChange, onBlur, onFocus, value, showExtraLabelIcon, inputBgColor, ...other } = this.props
+    const { mReadOnly, required, bIsNull, className, singleLine, nid, uitype, onChange, onBlur, onFocus, value, showExtraLabelIcon, inputBgColor, visible, ...other } = this.props
     const { error, errorText, _displayValue } = this.state
     const cls = classnames('mdf-input', className)
     const inputCls = classnames('mdf-input-content')
@@ -211,6 +213,7 @@ export default class Input extends Component<InputProps, InputState> {
     const _required = bIsNull !== undefined ? bIsNull : required
     const preValue = this.state.isFocus ? value : this.changeValue(this.props);
     const showValue = mReadOnly ? preValue : (this.state.isFocus ? _displayValue || preValue : preValue)
+    if (!visible) return null
     return (
       <Wrapper {...wrapperProps}>
         <YonuiInput

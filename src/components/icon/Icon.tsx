@@ -11,11 +11,13 @@ React.HTMLProps<SVGSVGElement>,
 export interface IconProps extends IconPropsType, SvgProps {
   size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg'
   onClick?: React.MouseEventHandler<SVGSVGElement>
+  visible?: boolean
 }
 
 export default class Icon extends React.Component<IconProps, any> {
   static defaultProps = {
-    size: 'md'
+    size: 'md',
+    visible: true
   }
 
   componentDidMount () {
@@ -24,13 +26,14 @@ export default class Icon extends React.Component<IconProps, any> {
   }
 
   render () {
-    const { type, className, size, style, ...restProps } = this.props
+    const { type, className, size, style, visible, ...restProps } = this.props
     const cls = classnames(
       className,
       'am-icon',
       `am-icon-${type}`,
       `am-icon-${size}`
     )
+    if (!visible) return null
     return (
       <svg
         className={cls}
