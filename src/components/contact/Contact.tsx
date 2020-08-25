@@ -25,6 +25,7 @@ interface ContactProps extends React.defaultProps, React.inputItemProps{
   value?: string
   disabled?: boolean
   notVerify?: boolean // 是否需要校验格式，暂时用于查询组件设置为true不需要校验
+  visible?: boolean
 }
 interface ContactState {
   country?: string
@@ -51,7 +52,8 @@ export default class Contact extends Component<ContactProps, ContactState> {
     dataSource: defaultDataSource,
     open: false,
     isSelectEmail: false,
-    emailDataSource: defaultEmailTypeDataSource
+    emailDataSource: defaultEmailTypeDataSource,
+    visible: true
   }
 
   constructor (props: ContactProps) {
@@ -441,7 +443,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
   }
 
   render () {
-    const { dataSource, mode, area, isSelect, emailDataSource } = this.props
+    const { dataSource, mode, area, isSelect, emailDataSource, visible } = this.props
     const { open } = this.state
     const content = this.getContent(mode, area, isSelect)
     const wrapperProps = getListItemProps(this.props)
@@ -449,6 +451,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
     if (mode === 'telephone') {
       telContentStyle = { width: '70%' }
     }
+    if (!visible) return null
     return (
       <Wrapper {...wrapperProps} className='yonui-mobile-contact' contentStyle={telContentStyle}>
         {content}
