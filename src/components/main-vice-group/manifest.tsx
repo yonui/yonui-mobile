@@ -25,13 +25,13 @@ const manifest: ComponentManifest = {
       name: 'groupType',
       type: FieldTypes.string,
       defaultValue: false,
-      value: '',
+      value: 'page',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
         props: {
           options: [
-            { value: 'page', text: '页面' },
+            { value: 'page', text: '常规' },
             { value: 'drawer', text: '抽屉' },
           ]
         },
