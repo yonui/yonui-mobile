@@ -69,8 +69,6 @@ export default class Search extends React.Component<SearchProps, any> {
 
   UNSAFE_componentWillReceiveProps (nextProps: SearchProps) {
     if ('value' in nextProps || 'defaultVlaue' in nextProps) {
-      const value = nextProps.value ?? nextProps.defaultValue
-      console.log('xxzzzzzzzzz value: ', value, ' nextProps: ', nextProps, ' this.pro: ', this.props)
       this.setState({
         value: nextProps.value ?? nextProps.defaultValue
       })
