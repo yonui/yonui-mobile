@@ -7,9 +7,19 @@ interface MainViceGroupProps {
   className?: string
   style?: React.CSSProperties
   drawerHeight?: number
+  onPageDidMount?: () => void
+  onPageWillUnmount?: () => void
 }
 
 export default class MainViceGroup extends Component<MainViceGroupProps> {
+  componentDidMount () {
+    this.props.onPageDidMount && this.props.onPageDidMount()
+  }
+
+  componentWillUnmount () {
+    this.props.onPageWillUnmount && this.props.onPageWillUnmount()
+  }
+
   render () {
     const { children, className, style, drawerHeight } = this.props
     let customStyle: React.CSSProperties = {}

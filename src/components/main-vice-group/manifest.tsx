@@ -82,6 +82,20 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: () => true
+  children: () => true,
+  events: [
+    {
+      name: 'onPageDidMount',
+      des: '页面加载完成'
+    },
+    {
+      name: 'onPageWillUnmount',
+      des: '页面销毁之前'
+    }
+  ],
+  transformers: [
+    'inherit',
+    ['bindEvent', { events: ['onPageDidMount', 'onPageWillUnmount'] }],
+  ]
 }
 export default manifest
