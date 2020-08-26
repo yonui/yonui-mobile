@@ -51,7 +51,6 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     if (checkedValue === []) {
       checkedValue = ['']
     }
-    console.log('xxxxzzzzzzz props: ', props)
     const checkedDataObj: { [key: string]: dataType } = {}
     dataSource && dataSource.forEach(item => {
       console.log(item.value)
@@ -224,7 +223,6 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
   renderContent = (dataSource?: dataType[], checkedValue?: string[], checkedData?: string[]) => {
     const { _checkedData } = this.state
     const { disabled } = this.props
-    console.log('xxxxxxxzzzzzz this.state: ', this.state, '  this.props: ', this.props)
     const displayValue = getValueFromDataType(_checkedData)[1].map(item => item.text).join(',')
     const propsDisplayValue = this.getDisplayFromProps(dataSource, checkedValue)
     const fontCls = classnames('radio-items-selected-value', {
