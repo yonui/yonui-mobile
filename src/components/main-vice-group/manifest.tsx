@@ -24,8 +24,7 @@ const manifest: ComponentManifest = {
     {
       name: 'groupType',
       type: FieldTypes.string,
-      defaultValue: false,
-      value: 'page',
+      defaultValue: 'page',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
