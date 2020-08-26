@@ -15,11 +15,12 @@ export interface ListDatePickerProps extends ListItemWrapperProps{
   value?: Date | string
   extra?: string
   title?: string
+  visible?: boolean
   onChangeDate?: (dateTime?: string) => void
   onCancel?: () => void
 }
 interface ListDatePickerState {
-  visible?: boolean
+  aVisible?: boolean
   _value?: Date
 }
 
@@ -57,27 +58,28 @@ const modeToFormat = (mode?: string) => {
 class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePickerState> {
   static defaultProps = {
     // arrow: true,
-    dateMode: 'picker-date'
+    dateMode: 'picker-date',
+    visible: true
   }
 
   constructor (props: ListDatePickerProps) {
     super(props)
     this.state = {
-      visible: false,
+      aVisible: false,
       _value: formatStringToDate(props.defafultValue)
     }
   }
 
   onOpenCalendar = () => {
     this.setState({
-      visible: true
+      aVisible: true
     })
   }
 
   onCancel = () => {
     this.props.onCancel && this.props.onCancel()
     this.setState({
-      visible: false
+      aVisible: false
     })
   }
 
@@ -87,7 +89,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
       return
     }
     this.setState({
-      visible: true
+      aVisible: true
     })
   }
 
@@ -98,14 +100,15 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
     // console.log(moment(dateTime), moment(dateTime).format('YYYY-MM-DD HH:mm'))
     onChangeDate?.(moment(dateTime).format(_format))
     this.setState({
-      visible: false,
+      aVisible: false,
       _value: dateTime
     })
   }
 
   render () {
-    const { label, required, value, minDate, maxDate, disabled, style, dateMode, onCancel, format, extra, title, splitLine, labelCls: lbc, ...restProps } = this.props
-    const { visible, _value } = this.state
+    const { label, required, value, minDate, maxDate, disabled, style, dateMode, onCancel, format, extra, title, splitLine, labelCls: lbc, visible, ...restProps } = this.props
+    const { aVisible, _value } = this.state
+    if (!visible) return null
     let valueTrs
     if (dateMode === 'picker-time' && !/\/|-/.test(value + '')) {
       valueTrs = (value === '' || value === undefined) ? _value : formatStringToDate(`1970/01/01 ${value}`)
@@ -138,7 +141,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
             title='title'
             minDate={minDateTrs}
             maxDate={maxDateTrs}
-            visible={visible}
+            visible={aVisible}
             onCancel={this.onCancel}
             onConfirm={this.onConfirm}
             pickTime={typeAndMode[1] === 'datetime'}
