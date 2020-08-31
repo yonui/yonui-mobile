@@ -11,6 +11,7 @@ interface InputYonuiProps extends React.defaultProps {
   maxLength?: number
   inputStyle?: React.CSSProperties
   required?: boolean
+  bCanModify?: boolean
   disabled?: boolean
   mReadOnly?: boolean
   customCheck?: (value: string, final?: boolean) => boolean
@@ -137,7 +138,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
   }
 
   render () {
-    const { className, style, type, value, textAlign, beforeRender, placeholder, inputStyle, disabled, mReadOnly } = this.props
+    const { className, style, type, value, textAlign, beforeRender, placeholder, inputStyle, bCanModify, disabled, mReadOnly } = this.props
     const { _value, _className } = this.state
     const val = value?.toString() || _value
     const displayVal = beforeRender ? beforeRender(val) : val
@@ -161,7 +162,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
           style={_inputStyle}
           onFocus={this._onFocus}
           placeholder={displayPlaceholder}
-          disabled={disabled || mReadOnly}
+          disabled={disabled || mReadOnly || bCanModify}
         />
         <div className='yonui-clear' onClick={this._onClickClear} />
       </div>

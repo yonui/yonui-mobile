@@ -32,6 +32,7 @@ export interface InputProps extends ListItemWrapperProps {
   prefix?: string
   thousands?: boolean
   disabled?: boolean
+  bCanModify?: boolean
   inputBgColor?: string
   bIsNull?: boolean
   scaleValue?: number
