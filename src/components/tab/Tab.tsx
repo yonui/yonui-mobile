@@ -67,20 +67,40 @@ export default class yonuiTabs extends Component<TabsProps> {
   }
 
   renderTabBar = (props: any) => {
-    const { pageSize } = props
+    let { pageSize } = props
+    if (!pageSize) {
+      pageSize = 3
+    }
     return <Tabs.DefaultTabBar renderTab={this.renderTab} {...props} page={pageSize} tabBarBackgroundColor='transparent' />
   }
 
   renderTab = (tab) => {
-    const { children, tabs } = this.props;
+    const { children, tabs, page } = this.props;
     const tabIndex = tabs.findIndex((item) => item.title == tab.title);
     if (tabIndex >= 0) {
       const indexItem = children[tabIndex];
       const { nid, uitype } = indexItem.props?.meta;
+      let widthPercentage = '50%';
+      if (tab.title.length <= 2) {
+        widthPercentage = '100%';
+      } else if (tab.title.length < 4) {
+        widthPercentage = '66.7%';
+      }
       return (
-        <span key={nid} nid={nid} uitype={uitype} style={{ backgroundColor: 'transparent' }}>
-          {tab.title}
-        </span>
+        <div
+          key={nid}
+          nid={nid}
+          uitype={uitype}
+          style={{
+            backgroundColor: 'transparent',
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+            whiteSpace: 'nowrap'
+          }}
+        >
+          <span>{tab.title}</span>
+          {tabIndex === page ? (<div style={{ width: widthPercentage, backgroundColor: 'red', height: '2px' }} />) : null}
+        </div>
       );
     } else {
       return (
@@ -110,7 +130,8 @@ export default class yonuiTabs extends Component<TabsProps> {
           onTabClick={this._onTabClick}
           tabBarUnderlineStyle={underline}
           renderTabBar={(props: any) => <Tabs.DefaultTabBar {...props} page={pageSize} />}
-          {...other}>{children}</Tabs> : <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>
+          {...other}
+        >{children}</Tabs> : <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>
     } else {
       splitLine = splitLine || false
       gather = true
