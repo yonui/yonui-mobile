@@ -11,6 +11,7 @@ export interface LabelProps extends React.defaultProps{
   textAlign?: 'left' | 'right' | 'center'
   leftIcon?: React.ReactNode
   rightIcon?: React.ReactNode
+  textClamp?: number
 }
 
 const alignMap = {
@@ -58,16 +59,20 @@ export default class Label extends React.PureComponent<LabelProps> {
   // }
 
   render () {
-    const { label, spareLabel, style, className, textAlign, leftIcon, rightIcon, ...other } = this.props
+    const { label, spareLabel, style, className, textAlign, textClamp, leftIcon, rightIcon, ...other } = this.props
     const sty: React.CSSProperties = { ...style, justifyContent: textAlign && alignMap[textAlign] }
     const cls = classnames(className, 'yonui-tag')
+    const tagsCls = classnames('yonui-mobile-tag-text', 'yonui-mobile-tag-clamp')
     const leftIconEle = typeof leftIcon === 'string' ? <Icon type={leftIcon} size='xxs' /> : leftIcon
     const rightIconEle = typeof rightIcon === 'string' ? <Icon type={rightIcon} size='xxs' /> : rightIcon
+    console.log(textClamp)
     return (
-      <span className={cls} style={sty} {...other}>
-        {leftIcon && leftIconEle}
-        <span className='yonui-mobile-tag-text'>{label ?? spareLabel}</span>
-        {rightIcon && rightIconEle}
+      <span className='yonui-tag-out'>
+        <span className={cls} style={sty} {...other}>
+          {leftIcon && leftIconEle}
+          <span className={tagsCls} style={{ WebkitLineClamp: textClamp }}>{label ?? spareLabel}</span>
+          {rightIcon && rightIconEle}
+        </span>
       </span>
     )
   }

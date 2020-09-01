@@ -61,6 +61,27 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'textClamp',
+      type: FieldTypes.string,
+      defaultValue: 1,
+      showDesign: true,
+      designConfig: {
+        label: '文本行省略',
+        type: EditTypes.Select,
+        isRequired: false,
+        help: '需要设置宽度，否则整行才可以显示省略号',
+        props: {
+          options:
+            [
+              { value: 1, text: '1' },
+              { value: 2, text: '2' },
+              { value: 3, text: '3' },
+              { value: 4, text: '4' },
+            ]
+        }
+      }
+    },
+    {
       name: 'leftIcon',
       type: FieldTypes.string,
       defaultValue: '',
