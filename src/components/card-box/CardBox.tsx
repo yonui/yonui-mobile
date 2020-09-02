@@ -82,9 +82,9 @@ export default class CardBox extends Component<CardBoxProps, CardBoxState> {
         const wrapperCls = classnames('yonui-card-box-wrapper', { 'yonui-card-box-wrapper-extra-icon': showTitleExtraIcon })
         content = (<>
           <div className='yonui-card-box-swipe' style={style}>
-            <Wrapper splitLine={splitLine} className={wrapperCls} label={label} labelCls='yonui-card-box-title' singleLine>
-              {showDeleteIcon && <img className='yonui-img-icon small' src={deleteImg} onClick={onDelete} />}
-            </Wrapper>
+            {showDeleteIcon && <Wrapper splitLine={splitLine} className={wrapperCls} label={label} labelCls='yonui-card-box-title' singleLine>
+              <img className='yonui-img-icon small' src={deleteImg} onClick={onDelete} />
+            </Wrapper>}
             {children}
           </div>
         </>)
