@@ -7,17 +7,17 @@ interface MainViceGroupProps {
   className?: string
   style?: React.CSSProperties
   drawerHeight?: number
-  onPageDidMount?: () => void
-  onPageWillUnmount?: () => void
+  onShow?: () => void
+  // onPageWillUnmount?: () => void
 }
 
 export default class MainViceGroup extends Component<MainViceGroupProps> {
   componentDidMount () {
-    this.props.onPageDidMount && this.props.onPageDidMount()
+    this.props.onShow && this.props.onShow()
   }
 
   componentWillUnmount () {
-    this.props.onPageWillUnmount && this.props.onPageWillUnmount()
+    // this.props.onPageWillUnmount && this.props.onPageWillUnmount()
   }
 
   render () {
