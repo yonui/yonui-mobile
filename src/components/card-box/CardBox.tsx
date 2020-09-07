@@ -82,9 +82,9 @@ export default class CardBox extends Component<CardBoxProps, CardBoxState> {
         const wrapperCls = classnames('yonui-card-box-wrapper', { 'yonui-card-box-wrapper-extra-icon': showTitleExtraIcon })
         content = (<>
           <div className='yonui-card-box-swipe' style={style}>
-            <Wrapper splitLine={splitLine} className={wrapperCls} label={label} labelCls='yonui-card-box-title' singleLine>
-              {showDeleteIcon && <img className='yonui-img-icon small' src={deleteImg} onClick={onDelete} />}
-            </Wrapper>
+            {showDeleteIcon && <Wrapper splitLine={splitLine} className={wrapperCls} label={label} labelCls='yonui-card-box-title' singleLine>
+              <img className='yonui-img-icon small' src={deleteImg} onClick={onDelete} />
+            </Wrapper>}
             {children}
           </div>
         </>)
@@ -110,7 +110,7 @@ export default class CardBox extends Component<CardBoxProps, CardBoxState> {
       case 'editable': {
         const itemSelected = gridModel?.getData()?.[rowIndex].selected || false
         // console.log('xxxxx rowIndex: ', rowIndex, ' itemSelected: ', itemSelected);
-        // TODO itemSelected 即为选中状态，用于控制item选中反选的UI显示
+        // itemSelected 即为选中状态，用于控制item选中反选的UI显示
         // const wrapperCls = classnames('yonui-card-box-wrapper', { 'yonui-card-box-wrapper-extra-icon': showTitleExtraIcon })
         const editableCls = itemSelected ? 'yonui-card-box-editable-selected' : 'yonui-card-box-editable-unselected'
         content = (<>

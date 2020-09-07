@@ -22,16 +22,16 @@
       min-height: 32*@hd;
       direction: rtl;
       line-height: 1;
-      display: flex;
-      justify-content: space-evenly;
+      //display: flex;
+      //justify-content: space-evenly;
       .mdf-button{
         direction: ltr;
-        margin: 0 5*@hd;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        padding: 0;
+        //margin: 0 5*@hd;
+        //display: inline-flex;
+        //align-items: center;
+        //justify-content: center;
+        //width: 100%;
+        //padding: 0;
         // &.mdf-button-default{
         //   background-color: @toolbars-next-btn;
         //   color: @toolbars-next-btn-color;
@@ -57,6 +57,39 @@
   }
 }
 
+.tool-bars-wrapper-item-common {
+  display: inline-flex;
+  margin: 0 5*@hd;
+  padding: 0;
+}
+.yonui-mobile-tool-bars-wrapper>:only-child{
+  .tool-bars-wrapper-item-common;
+  width: calc(~'100% - 10*@{hd}');
+}
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(2),
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(2) ~ .mdf-button,
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(2) ~ div {
+  .tool-bars-wrapper-item-common;
+  width: calc(~'50% - 10*@{hd}');
+}
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(3),
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(3) ~ .mdf-button,
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(3) ~ div {
+  .tool-bars-wrapper-item-common;
+  width: calc(~'33.33% - 10*@{hd}');
+}
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(4),
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(4) ~ .mdf-button,
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(4) ~ div {
+  .tool-bars-wrapper-item-common;
+  width: calc(~'25% - 10*@{hd}');
+}
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(n+5),
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(n+5) ~ .mdf-button,
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(n+5) ~ div {
+  .tool-bars-wrapper-item-common;
+  width: calc(~'22% - 10*@{hd}');
+}
 
     // &.length-1 .mdf-button{
     //   width: calc(~'100% - 10*@{hd}')

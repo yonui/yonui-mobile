@@ -24,14 +24,13 @@ const manifest: ComponentManifest = {
     {
       name: 'groupType',
       type: FieldTypes.string,
-      defaultValue: false,
-      value: '',
+      defaultValue: 'page',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
         props: {
           options: [
-            { value: 'page', text: '页面' },
+            { value: 'page', text: '常规' },
             { value: 'drawer', text: '抽屉' },
           ]
         },
@@ -82,6 +81,16 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: () => true
+  children: () => true,
+  events: [
+    {
+      name: 'onShow',
+      des: '页面加载完成'
+    }
+  ],
+  transformers: [
+    'inherit',
+    ['bindEvent', { events: ['onShow'] }],
+  ]
 }
 export default manifest

@@ -24,7 +24,9 @@ interface ContactProps extends React.defaultProps, React.inputItemProps{
   defaultValue?: string
   value?: string
   disabled?: boolean
+  bCanModify?: boolean
   notVerify?: boolean // 是否需要校验格式，暂时用于查询组件设置为true不需要校验
+  visible?: boolean
 }
 interface ContactState {
   country?: string
@@ -51,7 +53,8 @@ export default class Contact extends Component<ContactProps, ContactState> {
     dataSource: defaultDataSource,
     open: false,
     isSelectEmail: false,
-    emailDataSource: defaultEmailTypeDataSource
+    emailDataSource: defaultEmailTypeDataSource,
+    visible: true
   }
 
   constructor (props: ContactProps) {
@@ -265,7 +268,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
   }
 
   getContent = (mode?: 'telephone' | 'mobilephone' | 'email', area?: boolean, isSelectEmail?: boolean) => {
-    const { singleLine, value, required, disabled, defaultValue, bIsNull } = this.props
+    const { singleLine, value, required, disabled, defaultValue, bIsNull, bCanModify } = this.props
     const _required = bIsNull !== undefined ? bIsNull : required
     const { emailType, country, countryNum, _value } = this.state
     const val = value !== undefined ? this.valueAdapt(2, value) : _value
@@ -285,7 +288,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
               onSuccess={this.onSuccess}
               onError={this.onError}
               required={_required}
-              disabled={disabled}
+              disabled={disabled || bCanModify}
               defaultValue={defaultValue}
             />
             <span className='yonui-contact-button' onClick={() => { this.onOpenModal() }}>{emailType}</span>
@@ -300,7 +303,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
             onError={this.onError}
             value={val}
             required={_required}
-            disabled={disabled}
+            disabled={disabled || bCanModify}
             defaultValue={defaultValue}
           />)
         return isSelectEmail ? selectEmail : email
@@ -319,7 +322,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
               onSuccess={this.onSuccess}
               onError={this.onError}
               required={_required}
-              disabled={disabled}
+              disabled={disabled || bCanModify}
               defaultValue={defaultValue}
             />
             <img className='yonui-img-icon small' src={phoneIcon} onClick={() => { this.dailAction() }} />
@@ -346,7 +349,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
             onSuccess={this.onSuccess}
             onError={this.onError}
             required={_required}
-            disabled={disabled}
+            disabled={disabled || bCanModify}
             defaultValue={defaultValue}
             textAlign='right'
           />
@@ -361,7 +364,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
             onSuccess={this.onSuccess}
             onError={this.onError}
             required={_required}
-            disabled={disabled}
+            disabled={disabled || bCanModify}
             defaultValue={defaultValue}
             style={{ width: '120px' }}
           />
@@ -441,7 +444,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
   }
 
   render () {
-    const { dataSource, mode, area, isSelect, emailDataSource } = this.props
+    const { dataSource, mode, area, isSelect, emailDataSource, visible } = this.props
     const { open } = this.state
     const content = this.getContent(mode, area, isSelect)
     const wrapperProps = getListItemProps(this.props)
@@ -449,6 +452,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
     if (mode === 'telephone') {
       telContentStyle = { width: '70%' }
     }
+    if (!visible) return null
     return (
       <Wrapper {...wrapperProps} className='yonui-mobile-contact' contentStyle={telContentStyle}>
         {content}

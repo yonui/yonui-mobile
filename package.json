@@ -1,6 +1,6 @@
 {
   "name": "yonui-mobile",
-  "version": "0.4.50",
+  "version": "0.4.56",
   "description": "yonui mobile",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -97,7 +97,7 @@
     "classnames": "^2.2.1",
     "eslint-plugin-react": "^7.16.0",
     "moment": "^2.25.3",
-    "mtl-js-sdk": "^1.0.20-beta",
+    "mtl-js-sdk": "^5.0.6",
     "rc-rate": "^2.6.0",
     "react": "^16.12.0",
     "react-calendar": "2.19.2",

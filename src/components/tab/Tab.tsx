@@ -22,9 +22,8 @@ export interface TabsProps extends DeafultTabsProps {
   mode?: 'normal' | 'transparent'
   nid?: string
   uitype?: string
-
 }
-export default class yonuiTabs extends Component<TabsProps> {
+export default class yonuiTabs extends Component<TabsProps, any> {
   static defaultProps = {
     renderTab: (tab: any) => {
       return <div className='tabs-item-content'>
@@ -36,6 +35,14 @@ export default class yonuiTabs extends Component<TabsProps> {
     // splitLine: true,
     // gather: false,
     iconsOccupy: true
+  }
+
+  constructor (props: any) {
+    super(props)
+    const { page } = props;
+    this.state = {
+      tabPage: page || 0// 用于记录运行态 选中位置
+    }
   }
 
   parseObj = (param: any) => typeof param === 'string' ? JSON.parse(param) : param
@@ -67,20 +74,49 @@ export default class yonuiTabs extends Component<TabsProps> {
   }
 
   renderTabBar = (props: any) => {
-    const { pageSize } = props
+    let { pageSize } = props
+    if (!pageSize) {
+      pageSize = 3
+    }
     return <Tabs.DefaultTabBar renderTab={this.renderTab} {...props} page={pageSize} tabBarBackgroundColor='transparent' />
   }
 
+  renderTabClick = (tab, index) => {
+    this.setState({ tabPage: index })
+    if (this.props.onTabClick) {
+      this.props.onTabClick(tab, index)
+    }
+  }
+
   renderTab = (tab) => {
-    const { children, tabs } = this.props;
+    const { children, tabs, page, tabBarActiveTextColor } = this.props;
     const tabIndex = tabs.findIndex((item) => item.title == tab.title);
     if (tabIndex >= 0) {
       const indexItem = children[tabIndex];
       const { nid, uitype } = indexItem.props?.meta;
+      let widthPercentage = '50%';
+      if (tab.title.length <= 2) {
+        widthPercentage = '100%';
+      } else if (tab.title.length < 4) {
+        widthPercentage = '66.7%';
+      }
+      // 处理当前选中位置 nid 用于判断是否是运行态，运行态实用tabPage， 编辑态使用page
+      const selectPage = nid ? page : this.state.tabPage;
       return (
-        <span key={nid} nid={nid} uitype={uitype} style={{ backgroundColor: 'transparent' }}>
-          {tab.title}
-        </span>
+        <div
+          key={nid}
+          nid={nid}
+          uitype={uitype}
+          style={{
+            backgroundColor: 'transparent',
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+            whiteSpace: 'nowrap'
+          }}
+        >
+          <span>{tab.title}</span>
+          {tabIndex === selectPage ? (<div style={{ width: widthPercentage, backgroundColor: tabBarActiveTextColor || '#E14C46', height: '2px' }} />) : null}
+        </div>
       );
     } else {
       return (
@@ -110,11 +146,19 @@ export default class yonuiTabs extends Component<TabsProps> {
           onTabClick={this._onTabClick}
           tabBarUnderlineStyle={underline}
           renderTabBar={(props: any) => <Tabs.DefaultTabBar {...props} page={pageSize} />}
-          {...other}>{children}</Tabs> : <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>
+          {...other}
+        >{children}</Tabs> : <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>
     } else {
       splitLine = splitLine || false
       gather = true
-      tabsEle = <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} renderTabBar={this.renderTabBar} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>
+      tabsEle = <Tabs
+        tabs={tabs}
+        tabBarBackgroundColor={tabBarBackgroundColor}
+        renderTabBar={this.renderTabBar}
+        tabBarUnderlineStyle={underline}
+        {...other}
+        onTabClick={this.renderTabClick}
+      >{children}</Tabs>
     }
     // const tabsEle = pageSize
     //   ? <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} renderTabBar={(props: any) => <Tabs.DefaultTabBar {...props} page={pageSize} />}
@@ -123,7 +167,7 @@ export default class yonuiTabs extends Component<TabsProps> {
       className,
       'yonui-tabs',
       `yonui-tabs-${mode}`,
-      `yonui-tabs-${splitLine === false ? 'no-' : ''}split-line`,
+      `yonui-tabs-${!splitLine ? 'no-' : ''}split-line`,
       {
         'yonui-tabs-with-icons': tabBarIcon,
         'yonui-tabs-gather': gather,

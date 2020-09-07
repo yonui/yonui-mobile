@@ -11,13 +11,13 @@ const getValue = (value: string | boolean, defaultValue: string) => {
 export default class SwitchControl extends React.Component<any> {
   render () {
     // eslint-disable-next-line react/prop-types
-    const { label, required, className, defaultValue, checked, singleLine, ...ohter } = this.props
+    const { label, required, className, defaultValue, checked, singleLine, visible = true, ...ohter } = this.props
     const _checked = getValue(checked, defaultValue)
     const labelCls = classnames('switch-title', 'form-label', { required })
     const wrapperProps = getListItemProps(this.props, {
       labelCls
     })
-
+    if (!visible) return null
     return <ListItemWrapper {...wrapperProps}>
       <Switch checked={_checked} {...ohter} />
     </ListItemWrapper>

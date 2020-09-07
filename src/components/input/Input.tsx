@@ -23,6 +23,7 @@ export interface InputProps extends ListItemWrapperProps {
   onClickClear?: (value: string) => void
   onError?: (value: string, pattern: { reg?: RegExp, text?: string }) => void
   onSuccess?: (value: string) => void
+  visible?: boolean
 }
 
 interface InputState {
@@ -50,7 +51,8 @@ class Input extends Component<InputProps, InputState> {
     // maxLength: 255,
     subuitype: 'text',
     textCenter: false,
-    check: true
+    check: true,
+    visible: true
   }
 
   _onChange = (val: string) => {
@@ -205,12 +207,13 @@ class Input extends Component<InputProps, InputState> {
   }
 
   render () {
-    const { required, className, singleLine, inputStyle, onChange, onBlur, onFocus, value, style, ...other } = this.props
+    const { required, className, singleLine, inputStyle, onChange, onBlur, onFocus, value, style, visible, ...other } = this.props
     const { error, errorText, _displayValue } = this.state
     const cls = classnames('mdf-input', className)
     const inputCls = classnames('mdf-input-content')
     const inputProps = this.getInputProps()
     const wrapperProps = getListItemProps(this.props, { error, errorText, className: cls })
+    if (!visible) return null
     return (
       <Wrapper {...wrapperProps}>
         <YonuiInput
