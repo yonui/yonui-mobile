@@ -17,17 +17,6 @@
 | message | string | '' |  文字描述|
 
 
-# empty 情感化页面空数据
-## 情感化页面
-**API**
-
-| empty |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 设计器类型 | 默认值 | 说明 |
-| mode | string | 'success' |  模式 取值范围 ['noData','client','blankPage','error','review','server','noNetwork']|
-| message | string | '' |  文字描述|
-
-
 # README
 
 # README
@@ -42,21 +31,6 @@
 | dot | boolean | false |  不展示数字，只有一个小红点 |
 | overflowCount | number | - |  展示封顶的数字值 |
 
-
-# README
-## navbar 导航栏
-**API**
-
-| navbar |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 类型 | 默认值 | 说明 |
-| label | string | - |  标签 |
-| style | object | - |  样式描述 |
-
-
-# README
-
-# README
 
 # README
 label组件可用作标签等单纯的数据展示。
@@ -77,12 +51,23 @@ label组件可用作标签等单纯的数据展示。
 
 
 # README
+## navbar 导航栏
+**API**
+
+| navbar |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 类型 | 默认值 | 说明 |
+| label | string | - |  标签 |
+| style | object | - |  样式描述 |
+
 
 # README
 
 # README
 
 # README
+
+包含noticebar和notice
 
 # README
 
@@ -115,7 +100,7 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 # README
 
-包含noticebar和notice
+# README
 
 # README
 
@@ -205,6 +190,77 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 
 # README
+
+加载
+
+
+
+### api
+
+| 属性      | 说明                      | 必填 | 类型                       | 默认值    |
+| --------- | ------------------------- | ---- | -------------------------- | --------- |
+| *show*    | 是否展示加载组件          | 否   | boolean                    | 'title'   |
+| *theme*   | 主题                      | 否   | 'primary'\|'dark'\|'light' | 'primary' |
+| *type*    | 加载类型                  | 否   | 'toast'\|'jump'\|'local'   | 'toast'   |
+| *percent* | type='jump'时的百分比     | 否   | number                     |           |
+| *inline*  | type='jump'时是否行内模式 | 否   | boolean                    | false     |
+| *content* | typr='toast'时文字内容    | 否   | string                     | ''        |
+| *size*    | type='local'时图标大小    | 否   | 'small' \| 'large'         | 'small'   |
+
+
+
+
+
+# README
+## Grid 宫格
+**API**
+
+| Grid |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 说明 | 类型 | 默认值 |
+|data	|传入的菜单数据|	Array<{icon, text}>|	[]|
+|onClick|	点击每个菜单的回调函数|	(el: Object, index: number): void	|-|
+|columnNum|	列数|	number|	4|
+|hasLine|	是否有边框|	boolean	|false|
+|outContent| 是否有外框内容,注(当outContent为true,renderItem方法无效) | boolean | false |
+|full|是否通栏| boolean | false |
+|transparent|是否透明|boolean|false|
+|isCarousel	|是否跑马灯|	boolean|	false|
+|mode|grid模式['image','number'] [图片,数字]| string | 'image' |
+|itemSize|item上icon的大小,可选sm,md,lg [小,中,大]| string | 'sm' |
+|carouselMaxRow	|如果是跑马灯, 一页跑马灯需要展示的行数|	number|	2|
+|renderItem	|自定义每个 grid 条目的创建函数	|(el, index) => React.Node	|-|
+|square|	每个格子是否固定为正方形|	boolean	|true|
+|activeStyle|	点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)	|{}/false|	{}|
+|activeClassName	|点击反馈的自定义类名	|string	||
+|itemStyle	|每个格子自定义样式	|object	|{}|
+
+# TextareaItem 多行输入
+**API**
+
+| TextareaItem |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 说明 | 类型 | 默认值 |
+| value    | value 值(受控与否参考https://facebook.github.io/react/docs/forms.html)  | String |  无  |
+| defaultValue    | 设置初始默认值        | String |  -  |
+| placeholder      | placeholder        | String | ''  |
+| editable    | 是否可编辑        | bool |  true  |
+| disabled    | 是否禁用        | bool |  false  |
+| clear      |  是否带清除功能(仅`editable`为`true`,`disabled`为`false`才生效) | bool | false  |
+| rows      |   显示几行      | number |   1 |
+| count      |  计数功能,兼具最大长度,默认为0,代表不开启计数功能      | number | -  |
+| onChange    | change 事件触发的回调函数 | (val: string): void |  -  |
+| onBlur     | blur 事件触发的回调函数 | (val: string): void |   -  |
+| onFocus    | focus 事件触发的回调函数 | (val: string): void |  -  |
+| error       | 报错样式        | bool |  false  |
+| onErrorClick       | 点击报错 icon 触发的回调   | (): void |  无  |
+| autoHeight       | 高度自适应, autoHeight 和 rows 请二选一    | bool  | false  |
+| name   | textarea 的 name       | String |   -  |
+| prefixListCls   |   列表 className 前缀      | String |  `am-list`  |
+| title   | 文案说明        | String/node |  '' |
+
+
+# README
 ## Input 基础组件-输入框
 **API**
 
@@ -235,28 +291,17 @@ interface dataType { text: string, value: string, disabled?: boolean }
 # README
 
 # README
-## Grid 宫格
+## ListPanelPicker 基础组件-操作列表
 **API**
 
-| Grid |  |  |  |
+| ListPanelPicker |  |  |  |
 | :---: | --- | --- | --- |
-| 属性 | 说明 | 类型 | 默认值 |
-|data	|传入的菜单数据|	Array<{icon, text}>|	[]|
-|onClick|	点击每个菜单的回调函数|	(el: Object, index: number): void	|-|
-|columnNum|	列数|	number|	4|
-|hasLine|	是否有边框|	boolean	|false|
-|outContent| 是否有外框内容,注(当outContent为true,renderItem方法无效) | boolean | false |
-|full|是否通栏| boolean | false |
-|transparent|是否透明|boolean|false|
-|isCarousel	|是否跑马灯|	boolean|	false|
-|mode|grid模式['image','number'] [图片,数字]| string | 'image' |
-|itemSize|item上icon的大小,可选sm,md,lg [小,中,大]| string | 'sm' |
-|carouselMaxRow	|如果是跑马灯, 一页跑马灯需要展示的行数|	number|	2|
-|renderItem	|自定义每个 grid 条目的创建函数	|(el, index) => React.Node	|-|
-|square|	每个格子是否固定为正方形|	boolean	|true|
-|activeStyle|	点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)	|{}/false|	{}|
-|activeClassName	|点击反馈的自定义类名	|string	||
-|itemStyle	|每个格子自定义样式	|object	|{}|
+属性 | 说明 | 类型 | 默认值 |
+visible | 是否显示 | boolean | false |
+header | 头部的值 | string | - |
+data | 传入的列表数据 | Array<{key, text, delete?}>,delete为true,操作列表项颜色为红色,key为主键,text为显示文本,不需要可以不写delete属性 | [] |
+onClose | 关闭时回调 | () => void | |
+onClick | 点击时回调 | (object: DataItem) => void | |
 
 # README
 卡片容器组件
@@ -307,17 +352,27 @@ interface InputNumberPorps {
 
 
 # README
-## ListPanelPicker 基础组件-操作列表
-**API**
+列表行容器组件，用来规范同类组件样式。
 
-| ListPanelPicker |  |  |  |
-| :---: | --- | --- | --- |
-属性 | 说明 | 类型 | 默认值 |
-visible | 是否显示 | boolean | false |
-header | 头部的值 | string | - |
-data | 传入的列表数据 | Array<{key, text, delete?}>,delete为true,操作列表项颜色为红色,key为主键,text为显示文本,不需要可以不写delete属性 | [] |
-onClose | 关闭时回调 | () => void | |
-onClick | 点击时回调 | (object: DataItem) => void | |
+### API
+
+| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
+| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
+| label  | 标题                            | 否   | string |  |
+| subLabel | 副标题文本 | 否   | string                               |  |
+| required | 是否必填 | 否   | boolean                     | false |
+| splitLine | 是否展示分割线             | 否   | boolean                 | true |
+| singleLine | 是否单行展示 | 否   | boolean | false |
+| labelCls | 标题className | 否 | string |  |
+| labelStyle | 标题style属性 | 否 | React.CSSProperties |  |
+| contentCls | 内容className | 否 | string | |
+| contentStyle | 内容style属性 | 否 | React.CSSProperties | |
+| error | 是否错误 | 否 | boolean | false |
+| errorText | 错误提示文本 | 否 | string | '填写信息有误!请重新填写' |
+| showExtraLabelIcon | 是否展示标题左侧图标 | 否 | boolean | false |
+| onClick | 行点击事件 | 否 | (*event*: React.MouseEvent<HTMLDivElement, MouseEvent>) => void | |
+
+
 
 # README
 
@@ -342,26 +397,26 @@ onClick | 点击时回调 | (object: DataItem) => void | |
 
 
 # README
-列表行容器组件，用来规范同类组件样式。
+
+联系方式组件，支持通过设置mode，区分座机、手机、邮箱。
 
 ### API
 
-| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
-| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
-| label  | 标题                            | 否   | string |  |
-| subLabel | 副标题文本 | 否   | string                               |  |
-| required | 是否必填 | 否   | boolean                     | false |
-| splitLine | 是否展示分割线             | 否   | boolean                 | true |
-| singleLine | 是否单行展示 | 否   | boolean | false |
-| labelCls | 标题className | 否 | string |  |
-| labelStyle | 标题style属性 | 否 | React.CSSProperties |  |
-| contentCls | 内容className | 否 | string | |
-| contentStyle | 内容style属性 | 否 | React.CSSProperties | |
-| error | 是否错误 | 否 | boolean | false |
-| errorText | 错误提示文本 | 否 | string | '填写信息有误!请重新填写' |
-| showExtraLabelIcon | 是否展示标题左侧图标 | 否 | boolean | false |
-| onClick | 行点击事件 | 否 | (*event*: React.MouseEvent<HTMLDivElement, MouseEvent>) => void | |
+| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
+| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
+| label         | 标题文本 | 否 | string | '电话' |
+| singleLine | 是否单行展示 | 否 | boolean | true |
+| mode         | 联系方式类型 | 否 | 'telephone' / 'mobilephone' / 'email' | 'telephone' |
+| area | 是否显示国际区号(当mode为telephone和mobilephone时生效) | 否 | boolean | false |
+| isSelect | 是否显示选择邮箱后缀(当mode为email时生效) | 否 | boolean | false |
+| dataSource | 国际区号数据源(当mode为telephone和mobilephone时生效) | 否 | dataSourceType | - |
+| emailDataSource | 邮箱后缀数据源(当mode为email时生效) | 否 | emailType | - |
 
+``` typescript
+type dataSourceType = Array<{ short: string, name: string, en: string, tel: string, pinyin: string }>
+
+type emailType = Array<{type: string}>
+```
 
 
 # README
@@ -397,73 +452,18 @@ onClick | 点击时回调 | (object: DataItem) => void | |
 
 # README
 
-# README
-
-加载
-
-
-
-### api
-
-| 属性      | 说明                      | 必填 | 类型                       | 默认值    |
-| --------- | ------------------------- | ---- | -------------------------- | --------- |
-| *show*    | 是否展示加载组件          | 否   | boolean                    | 'title'   |
-| *theme*   | 主题                      | 否   | 'primary'\|'dark'\|'light' | 'primary' |
-| *type*    | 加载类型                  | 否   | 'toast'\|'jump'\|'local'   | 'toast'   |
-| *percent* | type='jump'时的百分比     | 否   | number                     |           |
-| *inline*  | type='jump'时是否行内模式 | 否   | boolean                    | false     |
-| *content* | typr='toast'时文字内容    | 否   | string                     | ''        |
-| *size*    | type='local'时图标大小    | 否   | 'small' \| 'large'         | 'small'   |
-
-
-
-
-
-# TextareaItem 多行输入
+# empty 情感化页面空数据
+## 情感化页面
 **API**
 
-| TextareaItem |  |  |  |
+| empty |  |  |  |
 | :---: | --- | --- | --- |
-| 属性 | 说明 | 类型 | 默认值 |
-| value    | value 值(受控与否参考https://facebook.github.io/react/docs/forms.html)  | String |  无  |
-| defaultValue    | 设置初始默认值        | String |  -  |
-| placeholder      | placeholder        | String | ''  |
-| editable    | 是否可编辑        | bool |  true  |
-| disabled    | 是否禁用        | bool |  false  |
-| clear      |  是否带清除功能(仅`editable`为`true`,`disabled`为`false`才生效) | bool | false  |
-| rows      |   显示几行      | number |   1 |
-| count      |  计数功能,兼具最大长度,默认为0,代表不开启计数功能      | number | -  |
-| onChange    | change 事件触发的回调函数 | (val: string): void |  -  |
-| onBlur     | blur 事件触发的回调函数 | (val: string): void |   -  |
-| onFocus    | focus 事件触发的回调函数 | (val: string): void |  -  |
-| error       | 报错样式        | bool |  false  |
-| onErrorClick       | 点击报错 icon 触发的回调   | (): void |  无  |
-| autoHeight       | 高度自适应, autoHeight 和 rows 请二选一    | bool  | false  |
-| name   | textarea 的 name       | String |   -  |
-| prefixListCls   |   列表 className 前缀      | String |  `am-list`  |
-| title   | 文案说明        | String/node |  '' |
+| 属性 | 设计器类型 | 默认值 | 说明 |
+| mode | string | 'success' |  模式 取值范围 ['noData','client','blankPage','error','review','server','noNetwork']|
+| message | string | '' |  文字描述|
 
 
 # README
 
-联系方式组件，支持通过设置mode，区分座机、手机、邮箱。
-
-### API
-
-| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
-| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
-| label         | 标题文本 | 否 | string | '电话' |
-| singleLine | 是否单行展示 | 否 | boolean | true |
-| mode         | 联系方式类型 | 否 | 'telephone' / 'mobilephone' / 'email' | 'telephone' |
-| area | 是否显示国际区号(当mode为telephone和mobilephone时生效) | 否 | boolean | false |
-| isSelect | 是否显示选择邮箱后缀(当mode为email时生效) | 否 | boolean | false |
-| dataSource | 国际区号数据源(当mode为telephone和mobilephone时生效) | 否 | dataSourceType | - |
-| emailDataSource | 邮箱后缀数据源(当mode为email时生效) | 否 | emailType | - |
-
-``` typescript
-type dataSourceType = Array<{ short: string, name: string, en: string, tel: string, pinyin: string }>
-
-type emailType = Array<{type: string}>
-```
-
+# README
 

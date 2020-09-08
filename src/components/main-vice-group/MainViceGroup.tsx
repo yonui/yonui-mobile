@@ -10,12 +10,15 @@ interface MainViceGroupProps {
   onShow?: () => void
   groupType?: string
   drawerWidth?: number
+  nid?: string
   // onPageWillUnmount?: () => void
 }
 
 export default class MainViceGroup extends Component<MainViceGroupProps> {
   componentDidMount () {
-    this.props.onShow && this.props.onShow()
+    if (!this.props.nid) { // 运行时才调用
+      this.props.onShow && this.props.onShow()
+    }
   }
 
   componentWillMount () {
