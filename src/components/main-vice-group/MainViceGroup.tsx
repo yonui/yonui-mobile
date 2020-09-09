@@ -17,7 +17,10 @@ interface MainViceGroupProps {
 export default class MainViceGroup extends Component<MainViceGroupProps> {
   componentDidMount () {
     if (!this.props.nid) { // 运行时才调用
-      this.props.onShow && this.props.onShow()
+      setTimeout(() => { // 延时调用，等扩展js加载
+        console.log('MainViceGroup componentDidMount')
+        this.props.onShow && this.props.onShow()
+      }, 666)
     }
   }
 

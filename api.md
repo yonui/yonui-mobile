@@ -17,20 +17,18 @@
 | message | string | '' |  文字描述|
 
 
-# README
-
-# README
-## tips 基础组件-徽标数
+# empty 情感化页面空数据
+## 情感化页面
 **API**
 
-| label |  |  |  |
+| empty |  |  |  |
 | :---: | --- | --- | --- |
-| 属性 | 类型 | 默认值 | 说明 |
-| text | string | - |  展示的数字或文案，当为数字时候，大于 overflowCount |
-| corner | boolean | false |  置于角落 |
-| dot | boolean | false |  不展示数字，只有一个小红点 |
-| overflowCount | number | - |  展示封顶的数字值 |
+| 属性 | 设计器类型 | 默认值 | 说明 |
+| mode | string | 'success' |  模式 取值范围 ['noData','client','blankPage','error','review','server','noNetwork']|
+| message | string | '' |  文字描述|
 
+
+# README
 
 # README
 label组件可用作标签等单纯的数据展示。
@@ -67,8 +65,6 @@ label组件可用作标签等单纯的数据展示。
 
 # README
 
-包含noticebar和notice
-
 # README
 
 # README
@@ -101,6 +97,8 @@ interface dataType { text: string, value: string, disabled?: boolean }
 # README
 
 # README
+
+包含noticebar和notice
 
 # README
 
@@ -166,27 +164,16 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 
 # README
+## tips 基础组件-徽标数
+**API**
 
-### 活动面板
-
-分为固定模式和滑动模式。固定模式中，标题居中，选项内容平铺，每行最多显示5个；滑动模式中，标题居左，每个选项最小宽度为页面宽度的20%，超出部分可滑动展示。
-
-### API
-
-| 属性             | 说明                                                         | 必填    | 类型                                                         | 默认值  |
-| ---------------- | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ | ------- |
-| show             | 是否显示                                                     | false   | boolean                                                      | false   |
-| title            | 标题                                                         | false   | string                                                       | ''      |
-| options          | 选项数组，可为一维数组或二维数组。icon字段为React.ReactNode或图片的url低值或base64编码。 | false   | Array<Array<{ icon: React.ReactNode , title: string }>> \|Array<{ icon: React.ReactNode |         |
-| cancelButtonText | 取消按钮文本内容                                             | false   | string                                                       | 取消    |
-| type             | 活动面板渲染模式                                             | false   | 'fixed'\|'slideable'                                         | 'fixed' |
-| onClose          | 点击取消、遮罩时的回调函数                                   | false   | ()=>void                                                     |         |
-| callback         | 点击选项内容时的回调函数。参数为选项所在列/行的下标，从0开始计数。当为一维数组时，row恒为0 | 发fasle | (col:number,row?:number)=>void                               |         |
-
-
-
-
-
+| label |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 类型 | 默认值 | 说明 |
+| text | string | - |  展示的数字或文案，当为数字时候，大于 overflowCount |
+| corner | boolean | false |  置于角落 |
+| dot | boolean | false |  不展示数字，只有一个小红点 |
+| overflowCount | number | - |  展示封顶的数字值 |
 
 
 # README
@@ -450,18 +437,31 @@ type emailType = Array<{type: string}>
 
 # README
 
+### 活动面板
+
+分为固定模式和滑动模式。固定模式中，标题居中，选项内容平铺，每行最多显示5个；滑动模式中，标题居左，每个选项最小宽度为页面宽度的20%，超出部分可滑动展示。
+
+### API
+
+| 属性             | 说明                                                         | 必填    | 类型                                                         | 默认值  |
+| ---------------- | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ | ------- |
+| show             | 是否显示                                                     | false   | boolean                                                      | false   |
+| title            | 标题                                                         | false   | string                                                       | ''      |
+| options          | 选项数组，可为一维数组或二维数组。icon字段为React.ReactNode或图片的url低值或base64编码。 | false   | Array<Array<{ icon: React.ReactNode , title: string }>> \|Array<{ icon: React.ReactNode |         |
+| cancelButtonText | 取消按钮文本内容                                             | false   | string                                                       | 取消    |
+| type             | 活动面板渲染模式                                             | false   | 'fixed'\|'slideable'                                         | 'fixed' |
+| onClose          | 点击取消、遮罩时的回调函数                                   | false   | ()=>void                                                     |         |
+| callback         | 点击选项内容时的回调函数。参数为选项所在列/行的下标，从0开始计数。当为一维数组时，row恒为0 | 发fasle | (col:number,row?:number)=>void                               |         |
+
+
+
+
+
+
+
 # README
 
-# empty 情感化页面空数据
-## 情感化页面
-**API**
-
-| empty |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 设计器类型 | 默认值 | 说明 |
-| mode | string | 'success' |  模式 取值范围 ['noData','client','blankPage','error','review','server','noNetwork']|
-| message | string | '' |  文字描述|
-
+# README
 
 # README
 
