@@ -128,9 +128,16 @@ export default class Search extends React.Component<SearchProps, any> {
   onSearchText = () => {
     const { solutionId, term, onSubmit } = this.props
     const value = this.state.value
-    const condition = { solutionId, [term]: value }
+    const condition = { solutionId }
+    if (Array.isArray(term)) {
+      term.forEach((item) => {
+        condition[item.name] = value;
+      })
+    } else {
+      condition[term] = value;
+    }
     console.log('search condition: ', condition);
-    onSubmit && onSubmit(condition)
+    onSubmit?.(condition)
   }
 
   onFocus = () => {
