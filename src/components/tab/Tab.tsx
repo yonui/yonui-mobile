@@ -111,11 +111,12 @@ export default class yonuiTabs extends Component<TabsProps, any> {
             backgroundColor: 'transparent',
             textOverflow: 'ellipsis',
             overflow: 'hidden',
-            whiteSpace: 'nowrap'
+            whiteSpace: 'nowrap',
+            height: '100%'
           }}
         >
-          <span>{tab.title}</span>
-          {tabIndex === selectPage ? (<div style={{ width: widthPercentage, backgroundColor: tabBarActiveTextColor || '#E14C46', height: '2px' }} />) : null}
+          <span style={{ height: 'calc(100% - 4px)' }}>{tab.title}</span>
+          {tabIndex === selectPage ? (<div style={{ width: widthPercentage, backgroundColor: tabBarActiveTextColor || '#E14C46', height: '4px', borderRadius: '2px', marginTop: '-4px' }} />) : null}
         </div>
       );
     } else {
