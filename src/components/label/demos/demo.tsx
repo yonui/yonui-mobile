@@ -49,7 +49,10 @@ export default class Demo1 extends Component {
           <MyComponent label={props.label} style={{ ...style1, border: '1px solid rgba(101,175,71,1)', color: 'rgba(101,175,71,1)' }} />
           <MyComponent label={props.label} style={{ ...style1, border: '1px solid rgba(255,171,0,1)', color: 'rgba(255,171,0,1)' }} />
           <MyComponent label={props.label} style={{ ...style1, border: '1px solid rgba(225,76,70,1)', color: 'rgba(225,76,70,1)' }} />
-          <MyComponent label={props.label} style={{ ...style1, border: '1px solid rgba(101,84,192,1)', color: 'rgba(101,84,192,1)' }} />
+        </Flex>
+        <Flex>
+        <MyComponent label={ 'props.label文本文本文本文本文本文本' } textLangth={ 10 } style={{ ...style1, border: '1px solid rgba(101,84,192,1)', color: 'rgba(101,84,192,1)' }} />
+
         </Flex>
 
       </div>

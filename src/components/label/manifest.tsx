@@ -82,6 +82,21 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'textLangth',
+      type: FieldTypes.number,
+      defaultValue: 0,
+      showDesign: true,
+      designConfig: {
+        label: '文本字数',
+        type: EditTypes.Number,
+        isRequired: false,
+        help: '文本字数省略，仅可设置正整数，禁止填写非整数以及其他字符！为0时候表示不隐藏，此功能与文本行省略需要小心调整，以免发生错误',
+        props: {
+
+        }
+      }
+    },
+    {
       name: 'leftIcon',
       type: FieldTypes.string,
       defaultValue: '',

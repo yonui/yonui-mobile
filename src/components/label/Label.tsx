@@ -12,6 +12,7 @@ export interface LabelProps extends React.defaultProps{
   leftIcon?: React.ReactNode
   rightIcon?: React.ReactNode
   textClamp?: number
+  textLangth?: number
   visible?: boolean
 }
 
@@ -61,7 +62,7 @@ export default class Label extends React.PureComponent<LabelProps> {
   // }
 
   render () {
-    const { label, spareLabel, style, className, textAlign, textClamp, leftIcon, rightIcon, visible, ...other } = this.props
+    const { label, spareLabel, style, className, textAlign, textClamp, textLangth, leftIcon, rightIcon, visible, ...other } = this.props
     const sty: React.CSSProperties = { ...style, justifyContent: textAlign && alignMap[textAlign] }
     const cls = classnames(className, 'yonui-tag')
     const tagsCls = classnames('yonui-mobile-tag-text', 'yonui-mobile-tag-clamp')
@@ -72,7 +73,8 @@ export default class Label extends React.PureComponent<LabelProps> {
       <span className='yonui-tag-out'>
         <span className={cls} style={sty} {...other}>
           {leftIcon && leftIconEle}
-          <span className={tagsCls} style={{ WebkitLineClamp: textClamp, textAlign: textAlign }}>{label ?? spareLabel}</span>
+          {console.log(textLangth === 0 ? (label ?? spareLabel) : `${(label ?? spareLabel)?.slice(0, textLangth)}`, textLangth)}
+          <span className={tagsCls} style={{ WebkitLineClamp: textClamp, textAlign: textAlign }}>{(textLangth === undefined || +textLangth === 0) ? (label ?? spareLabel) : `${(label ?? spareLabel)?.slice(0, textLangth)}...`}</span>
           {rightIcon && rightIconEle}
         </span>
       </span>
