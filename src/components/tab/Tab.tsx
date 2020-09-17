@@ -39,9 +39,9 @@ export default class yonuiTabs extends Component<TabsProps, any> {
 
   constructor (props: any) {
     super(props)
-    const { page } = props;
+    const { tabPage } = props;
     this.state = {
-      tabPage: page || 0// 用于记录运行态 选中位置
+      tabPage: tabPage || 0// 用于记录运行态 选中位置
     }
   }
 
@@ -158,6 +158,7 @@ export default class yonuiTabs extends Component<TabsProps, any> {
         renderTabBar={this.renderTabBar}
         tabBarUnderlineStyle={underline}
         {...other}
+        page={nid ? this.props.page : this.state.tabPage}
         onTabClick={this.renderTabClick}
       >{children}</Tabs>
     }
