@@ -39,9 +39,9 @@ export default class yonuiTabs extends Component<TabsProps, any> {
 
   constructor (props: any) {
     super(props)
-    const { page } = props;
+    const { tabPage } = props;
     this.state = {
-      tabPage: page || 0// 用于记录运行态 选中位置
+      tabPage: tabPage || 0// 用于记录运行态 选中位置
     }
   }
 
@@ -115,8 +115,8 @@ export default class yonuiTabs extends Component<TabsProps, any> {
             height: '100%'
           }}
         >
-          <span style={{ height: 'calc(100% - 4px)' }}>{tab.title}</span>
-          {tabIndex === selectPage ? (<div style={{ width: widthPercentage, backgroundColor: tabBarActiveTextColor || '#E14C46', height: '4px', borderRadius: '2px', marginTop: '-4px' }} />) : null}
+          <span style={{ fontWeight: tabIndex === selectPage ? 'bolder' : 'normal' }}>{tab.title}</span>
+          {tabIndex === selectPage ? (<div style={{ width: widthPercentage, backgroundColor: tabBarActiveTextColor || '#E14C46', height: '4px', borderRadius: '2px', marginTop: '-6px' }} />) : null}
         </div>
       );
     } else {
@@ -158,6 +158,7 @@ export default class yonuiTabs extends Component<TabsProps, any> {
         renderTabBar={this.renderTabBar}
         tabBarUnderlineStyle={underline}
         {...other}
+        page={nid ? this.props.page : this.state.tabPage}
         onTabClick={this.renderTabClick}
       >{children}</Tabs>
     }
