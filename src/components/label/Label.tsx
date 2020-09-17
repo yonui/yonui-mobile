@@ -73,7 +73,6 @@ export default class Label extends React.PureComponent<LabelProps> {
       <span className='yonui-tag-out'>
         <span className={cls} style={sty} {...other}>
           {leftIcon && leftIconEle}
-          {console.log(textLangth === 0 ? (label ?? spareLabel) : `${(label ?? spareLabel)?.slice(0, textLangth)}`, textLangth)}
           <span className={tagsCls} style={{ WebkitLineClamp: textClamp, textAlign: textAlign }}>{(textLangth === undefined || +textLangth === 0) ? (label ?? spareLabel) : `${(label ?? spareLabel)?.slice(0, textLangth)}...`}</span>
           {rightIcon && rightIconEle}
         </span>
