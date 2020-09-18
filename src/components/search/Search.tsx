@@ -30,7 +30,7 @@ export interface SearchProps {
   clearIconColor?: string
   // voiceIconColor?: string
   solutionId?: number
-  term?: string
+  term?: any
   onSubmit?: (value: object) => void
   onChange?: (value: string) => void
   onFocus?: () => void
@@ -129,10 +129,8 @@ export default class Search extends React.Component<SearchProps, any> {
     const { solutionId, term, onSubmit } = this.props
     const value = this.state.value
     const condition = { solutionId }
-    if (Array.isArray(term)) {
-      term.forEach((item) => {
-        condition[item.name] = value;
-      })
+    if (term && typeof (term) === 'object') {
+      condition[term.name] = value;
     } else {
       condition[term] = value;
     }
