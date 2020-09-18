@@ -13,7 +13,7 @@ const multiply = (numA: number | string, numB: number | string) => {
 }
 export interface InputProps extends ListItemWrapperProps {
   maxLength?: number
-  mode?: 'normal' | 'percent' | 'permillage'
+  mode?: 'normal' | 'percent' | 'permillage' | 'int'
   subuitype?: string
   value?: string | number
   defaultValue?: string | number
@@ -65,13 +65,13 @@ export default class Input extends Component<InputProps, InputState> {
 
   changeValue = (props) => {
     const { _value: stateValue } = this.state
-    const { value, mode, prefix, suffix, precision = 2, subuitype, scaleValue } = props
+    const { value, mode, prefix, suffix, precision = 2, scaleValue = 1 } = props
     // const _value = value?.toString() || defaultValue?.toString()
     // const _displayValue = formatReg && _value ? decodeValue(_value, formatReg, hiddenChart, replaceChart) : ''
     let preValue: string = ''
-    if (value || stateValue) {
-      const _precision = subuitype === 'int' ? 0 : precision
-      const _fixValue = multiply(value || stateValue, scaleValue).toFixed(_precision)
+    if (value === 0 || value || stateValue) {
+      const _precision = mode === 'int' ? 0 : precision
+      const _fixValue = multiply(value === 0 ? value : value || stateValue, scaleValue).toFixed(_precision)
       switch (mode) {
         case 'percent': {
           preValue = `${prefix}${_fixValue}${suffix}%`
@@ -139,7 +139,7 @@ export default class Input extends Component<InputProps, InputState> {
   }
 
   getInputProps = () => {
-    const { onError, onSuccess, check, mode, subuitype } = this.props
+    const { onError, onSuccess, check, mode } = this.props
     const _onError = (value: string, pattern: { reg?: RegExp, text?: string}) => {
       onError && onError(value, pattern)
       this.setState({
@@ -157,7 +157,7 @@ export default class Input extends Component<InputProps, InputState> {
       onSuccess: _onSuccess,
       onError: _onError
     }
-    if (subuitype === 'int') {
+    if (mode === 'int') {
       res = Object.assign(res, {
         pattern: /^-?(\d*)$/
       })
@@ -196,9 +196,9 @@ export default class Input extends Component<InputProps, InputState> {
 
   checkFn = (value: string, final: boolean) => {
     const val = value?.toString()
-    const { precision = 2, min = -1 * Number.MAX_VALUE, max = Number.MAX_VALUE, maxLength = 24, subuitype } = this.props
+    const { precision = 2, min = -1 * Number.MAX_VALUE, max = Number.MAX_VALUE, maxLength = 24, mode } = this.props
     const normalCheck = NumberReg.normal.test(val) || !val
-    const _precision = subuitype === 'int' ? 0 : precision
+    const _precision = mode === 'int' ? 0 : precision
     const precisionCheck = !val.includes('.') ? true : val.length - val.indexOf('.') - 1 <= _precision
     const sizeCheck = !final || !val || Number.isNaN(Number(val)) || (Number(val) >= Number(min) && Number(val) <= Number(max))
     const LengthCheck = maxLength >= val.length
