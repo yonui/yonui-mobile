@@ -102,11 +102,11 @@ export default class Input extends Component<InputProps, InputState> {
   }
 
   _onChange = (val: string) => {
-    const value = typeof val == 'string' ? (parseFloat(val) || '') : val;
+    // const value = typeof val == 'string' ? (parseFloat(val) || '') : val;
     const { onChange } = this.props
-    onChange && onChange(value)
+    onChange && onChange(val)
     this.setState({
-      _value: value
+      _value: val
     })
   }
 
