@@ -63,16 +63,17 @@ const manifest: ComponentManifest = {
     {
       name: 'textClamp',
       type: FieldTypes.string,
-      defaultValue: 1,
+      defaultValue: 0,
       showDesign: true,
       designConfig: {
         label: '文本行省略',
         type: EditTypes.Select,
         isRequired: false,
-        help: '需要设置宽度，否则整行才可以显示省略号',
+        help: '为0时无换行，无省略，其他值需要与宽度和文本字数配合设置',
         props: {
           options:
             [
+              { value: 0, text: '0' },
               { value: 1, text: '1' },
               { value: 2, text: '2' },
               { value: 3, text: '3' },
