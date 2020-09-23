@@ -102,11 +102,11 @@ export default class Input extends Component<InputProps, InputState> {
   }
 
   _onChange = (val: string) => {
-    // const value = typeof val == 'string' ? (parseFloat(val) || '') : val;
+    const value = !/\.$/.test(`${val}`) ? (Number(val) || '') : val;
     const { onChange } = this.props
-    onChange && onChange(val)
+    onChange && onChange(value)
     this.setState({
-      _value: val
+      _value: value
     })
   }
 
@@ -120,13 +120,17 @@ export default class Input extends Component<InputProps, InputState> {
   }
 
   _onBlur = (val: string) => {
-    const { onBlur } = this.props
+    const { onBlur, onChange } = this.props
+    if (/\.$/.test(`${val}`)) {
+      onChange && onChange(Number(val) || '')
+    }
     onBlur && onBlur(val)
     let _displayValue = this.changeValue(this.props)
     if (!val) _displayValue = ''
     this.setState({
       _displayValue: _displayValue,
-      isFocus: false
+      isFocus: false,
+      // _value: Number(val) || ''
     })
   }
 
