@@ -20,6 +20,17 @@
     bottom: 0;
     right: 0;
   }
+  &-designer::after{
+    content: '';
+    display: block;
+    position: absolute;
+    width: calc(~'100% - 12*@{hd}');
+    height: 1px;
+    background-color: @split-line;
+    transform: scaleY(.5);
+    bottom: 0;
+    right: 0;
+  }
 
   &-label{
     color: @input-label-color;

@@ -49,12 +49,16 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
       subLabel,
       notRequired = true
     } = this.props
+    let classNameWrapper = 'list-item-wrapper-split';
+    if (nid) {
+      classNameWrapper = 'list-item-wrapper-designer'
+    }
     const cls = classnames(
       'list-item-wrapper',
       className,
       `${singleLine || singleLineCenter ? 'single-line' : 'multiple-line'}`,
       {
-        'list-item-wrapper-split': splitLine
+        [classNameWrapper]: splitLine
       },
       {
         'single-line-center': singleLineCenter
