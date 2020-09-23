@@ -162,7 +162,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
           style={_inputStyle}
           onFocus={this._onFocus}
           placeholder={displayPlaceholder}
-          disabled={disabled || mReadOnly || bCanModify}
+          disabled={disabled || mReadOnly || !bCanModify}
         />
         <div className='yonui-clear' onClick={this._onClickClear} />
       </div>

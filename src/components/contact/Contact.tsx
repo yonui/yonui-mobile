@@ -288,7 +288,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
               onSuccess={this.onSuccess}
               onError={this.onError}
               required={_required}
-              disabled={disabled || bCanModify}
+              disabled={disabled || !bCanModify}
               defaultValue={defaultValue}
             />
             <span className='yonui-contact-button' onClick={() => { this.onOpenModal() }}>{emailType}</span>
@@ -303,7 +303,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
             onError={this.onError}
             value={val}
             required={_required}
-            disabled={disabled || bCanModify}
+            disabled={disabled || !bCanModify}
             defaultValue={defaultValue}
           />)
         return isSelectEmail ? selectEmail : email
@@ -322,7 +322,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
               onSuccess={this.onSuccess}
               onError={this.onError}
               required={_required}
-              disabled={disabled || bCanModify}
+              disabled={disabled || !bCanModify}
               defaultValue={defaultValue}
             />
             <img className='yonui-img-icon small' src={phoneIcon} onClick={() => { this.dailAction() }} />
@@ -349,7 +349,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
             onSuccess={this.onSuccess}
             onError={this.onError}
             required={_required}
-            disabled={disabled || bCanModify}
+            disabled={disabled || !bCanModify}
             defaultValue={defaultValue}
             textAlign='right'
           />
@@ -364,7 +364,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
             onSuccess={this.onSuccess}
             onError={this.onError}
             required={_required}
-            disabled={disabled || bCanModify}
+            disabled={disabled || !bCanModify}
             defaultValue={defaultValue}
             style={{ width: '120px' }}
           />
