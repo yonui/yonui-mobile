@@ -16,11 +16,6 @@ export interface LabelProps extends React.defaultProps{
   visible?: boolean
 }
 
-const alignMap = {
-  left: 'flex-start',
-  right: 'flex-end',
-  center: 'center'
-}
 export default class Label extends React.PureComponent<LabelProps> {
   static defaultProps = {
     visible: true
@@ -63,7 +58,7 @@ export default class Label extends React.PureComponent<LabelProps> {
 
   render () {
     const { label, spareLabel, style, className, textAlign, textClamp, textLangth, leftIcon, rightIcon, visible, ...other } = this.props
-    const sty: React.CSSProperties = { ...style, justifyContent: textAlign && alignMap[textAlign] }
+    const sty: React.CSSProperties = { ...style, textAlign }
     const cls = classnames(className, 'yonui-tag')
     const tagsCls = classnames('yonui-mobile-tag-text', 'yonui-mobile-tag-clamp')
     const leftIconEle = typeof leftIcon === 'string' ? <Icon type={leftIcon} size='xxs' /> : leftIcon
