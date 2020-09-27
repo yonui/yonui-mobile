@@ -40,8 +40,7 @@ interface ContactState {
 
 const patternMap = {
   mobilePhone: {
-    pattern: /^\d{0,11}$/,
-    finalPattern: /^1[345678]\d{9}$/
+    pattern: /^\d{0,11}$/
   }
 }
 export default class Contact extends Component<ContactProps, ContactState> {
@@ -346,6 +345,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
             onChange={(value) => { this.telTextOnChange(value) }}
             onBlur={this._onBlur}
             onFocus={this._onFocus}
+            {...patternMap.mobilePhone}
             onSuccess={this.onSuccess}
             onError={this.onError}
             required={_required}
@@ -361,6 +361,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
             onChange={(value) => { this.exTextOnChange(value) }}
             onBlur={this._onBlur}
             onFocus={this._onFocus}
+            {...patternMap.mobilePhone}
             onSuccess={this.onSuccess}
             onError={this.onError}
             required={_required}
