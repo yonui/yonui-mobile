@@ -36,7 +36,7 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {
         },
-        label: '根据平台自动显示'
+        label: '根据平台显示'
       }
     },
     {
