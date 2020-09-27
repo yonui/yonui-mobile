@@ -27,6 +27,19 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'autoShow',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {
+        },
+        label: '根据平台自动显示'
+      }
+    },
+    {
       name: 'title',
       type: FieldTypes.string,
       defaultValue: '标题',
