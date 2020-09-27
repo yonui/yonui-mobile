@@ -43,7 +43,10 @@ export const selfPropsArray: string[] = [
   'style',
   'nid',
   'uitype',
-  'notRequired'
+  'notRequired',
+  'previewMode',
+  'mReadOnly',
+  'disabled'
 ]
 
 export const getListItemProps = (props: ListItemWrapperProps, other?: ListItemWrapperProps) => {
