@@ -66,6 +66,14 @@ export default class MDFNavBar extends React.Component<NavBarProps, any> {
   render () {
     const { style, mode } = this.props
     const cls = mode === 'light' ? 'am-navbar-light' : ''
+    // console.log('navbarAutoShow', autoShow)
+    // if (autoShow) {
+    //   const platform = window.mtl.platform;
+    //   console.log('navbarplatform', platform)
+    //   if (platform === 'wx' || platform === 'upesn') {
+    //     return null
+    //   }
+    // }
     return (
       <div>
         <NavBar
