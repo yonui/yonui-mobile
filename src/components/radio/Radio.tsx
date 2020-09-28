@@ -19,6 +19,7 @@ interface RadioProps extends React.defaultProps {
   singleLine?: boolean
   splitLine?: boolean
   required?: boolean
+  mReadOnly?: boolean
 }
 const TextString = {
   cancel: '取消',
@@ -222,11 +223,11 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
 
   renderContent = (dataSource?: dataType[], checkedValue?: string[], checkedData?: string[]) => {
     const { _checkedData } = this.state
-    const { disabled } = this.props
+    const { disabled, mReadOnly } = this.props
     const displayValue = getValueFromDataType(_checkedData)[1].map(item => item.text).join(',')
     const propsDisplayValue = this.getDisplayFromProps(dataSource, checkedValue)
     const fontCls = classnames('radio-items-selected-value', {
-      'radio-items-selected-value-disabled': disabled
+      'radio-items-selected-value-disabled': (mReadOnly || disabled)
     })
     return <>
       <span className={fontCls}>{propsDisplayValue || displayValue}</span>

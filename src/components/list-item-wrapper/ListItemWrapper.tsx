@@ -70,6 +70,7 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
     if (nid) {
       previewMode = 'design'
     } else {
+      // 列表浏览时没有mReadOnly属性
       previewMode = (mReadOnly || disabled) ? 'browse' : 'edit'
     }
     const cls = classnames(
