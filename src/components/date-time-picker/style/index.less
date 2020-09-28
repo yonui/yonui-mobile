@@ -103,11 +103,16 @@
     }
   }
 }
-
+.am-picker-popup-header::after{
+  height: 0.5px;
+}
 .date-time-picker-calendar-wrapper{
   .header{
     .left,.right{
       color: @brand-primary;
+    }
+    ::after{
+      height: 0.5px;
     }
   }
   .am-calendar .single-month .row .cell .info{

@@ -231,7 +231,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     })
     return <>
       <span className={fontCls}>{propsDisplayValue || displayValue}</span>
-      {!disabled && <Icon type='right' color='#555555' onClick={this.onClickIcon} />}
+      {!disabled && <Icon type='right' color='#bfbfbf' style={{ marginRight: '-6px' }} onClick={this.onClickIcon} />}
     </>
   }
 
