@@ -172,7 +172,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
           <Wrapper {...wrapperProps}>
             <div className={valueCls}>
               {/* {valueTrs ? dateFormat(valueTrs, fmt || 'yyyy-MM-dd') : dateFormat(new Date(),fmt || 'yyyy-MM-dd')} */}
-              {valueTrs ? moment(valueTrs).format(fmt || 'yyyy-MM-DD') : extra}
+              {valueTrs ? moment(valueTrs).format(fmt || 'yyyy-MM-DD') : ''}
               {!disabled && <Icon style={{ color: '#bfbfbf', marginRight: '-6px' }} type='right' />}
             </div>
           </Wrapper>
