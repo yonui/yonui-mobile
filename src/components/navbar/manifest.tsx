@@ -49,6 +49,18 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'autoShow',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '根据平台显示'
+      }
+    },
+    {
       name: 'backIcon',
       type: FieldTypes.string,
       defaultValue: 'left',
