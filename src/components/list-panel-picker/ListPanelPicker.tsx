@@ -13,27 +13,50 @@ export interface ListPanelPickerProps {
   onSelect: (object: DataItem) => void
   style?: object
 }
-export default class ListPanelPicker extends Component<ListPanelPickerProps> {
+interface ListPanelPickerState {
+  open: boolean
+}
+export default class ListPanelPicker extends Component<ListPanelPickerProps, ListPanelPickerState> {
   constructor (props: ListPanelPickerProps) {
     super(props)
 
     this.state = {
-
+      open: false
     }
+  }
+
+  componentDidMount () {
+    const { visible } = this.props
+    this.setState({
+      open: visible
+    })
+  }
+
+  UNSAFE_componentWillReceiveProps (nextProps: ListPanelPickerProps) {
+    this.setState({
+      open: nextProps.visible
+    })
   }
 
   onClose = () => {
     this.props.onClose && this.props.onClose()
+    this.setState({
+      open: false
+    })
   }
 
   onClick = (object: DataItem) => {
     this.props.onSelect && this.props.onSelect(object)
+    this.setState({
+      open: false
+    })
   }
 
   render () {
-    const { visible, data, header, style } = this.props
+    const { data, header, style } = this.props
+    const { open } = this.state
     return (
-      <Modal visible={visible} popup animationType='slide-up' style={style} className='mdf-modal'>
+      <Modal visible={open} popup animationType='slide-up' style={style} className='mdf-modal'>
         <div className='am-list-panel-picker'>
           {header && <div className='header'>{header}</div>}
           <div className='content'>
