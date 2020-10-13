@@ -14,6 +14,8 @@ export interface LabelProps extends React.defaultProps{
   textClamp?: number
   textLangth?: number
   visible?: boolean
+  prefix: string
+  suffix: string
 }
 
 export default class Label extends React.PureComponent<LabelProps> {
@@ -56,8 +58,23 @@ export default class Label extends React.PureComponent<LabelProps> {
   //   }
   // }
 
+  parseValue = (value: any) => {
+    try {
+      return JSON.parse(value)
+    } catch {
+      return {}
+    }
+  }
+
   render () {
-    const { label, spareLabel, style, className, textAlign, textClamp, textLangth, leftIcon, rightIcon, visible, ...other } = this.props
+    const { prefix, suffix, label, spareLabel, style, className, textAlign, textClamp, textLangth, leftIcon, rightIcon, visible, ...other } = this.props
+    let parseValue = label
+    if (label && label !== '') {
+      if (label.slice(0, 1) === '{' && label.slice(-1) === '}') {
+        const obj = this.parseValue(label)
+        parseValue = obj.address
+      }
+    }
     const sty: React.CSSProperties = { ...style, textAlign }
     const cls = classnames(className, 'yonui-tag')
     const tagsCls = classnames('yonui-mobile-tag-text', 'yonui-mobile-tag-clamp')
@@ -68,7 +85,9 @@ export default class Label extends React.PureComponent<LabelProps> {
       <span className='yonui-tag-out'>
         <span className={cls} style={sty} {...other}>
           {leftIcon && leftIconEle}
-          <span className={tagsCls} style={+textClamp ? { WebkitLineClamp: textClamp, textAlign: textAlign } : { whiteSpace: 'nowrap' }}>{(textLangth === undefined || +textLangth === 0 || (label || spareLabel)?.length <= textLangth) ? (label || spareLabel) : `${(label || spareLabel)?.slice(0, textLangth)}...`}</span>
+          {prefix && <span className='yonui-mobile-tag-clamp' style={+textClamp ? { WebkitLineClamp: textClamp, textAlign: textAlign } : { whiteSpace: 'nowrap' }}>{prefix}</span>}
+          <span className={tagsCls} style={+textClamp ? { WebkitLineClamp: textClamp, textAlign: textAlign } : { whiteSpace: 'nowrap' }}>{(textLangth === undefined || +textLangth === 0 || (parseValue || spareLabel)?.length <= textLangth) ? (parseValue || spareLabel) : `${(parseValue || spareLabel)?.slice(0, textLangth)}...`}</span>
+          {suffix && <span className='yonui-mobile-tag-clamp' style={+textClamp ? { WebkitLineClamp: textClamp, textAlign: textAlign } : { whiteSpace: 'nowrap' }}>{suffix}</span>}
           {rightIcon && rightIconEle}
         </span>
       </span>

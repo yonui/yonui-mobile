@@ -134,6 +134,30 @@ const manifest: ComponentManifest = {
         },
         label: '右侧图标'
       }
+    },
+    {
+      name: 'prefix',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '前缀'
+      }
+    },
+    {
+      name: 'suffix',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '后缀'
+      }
     }
   ]
 }

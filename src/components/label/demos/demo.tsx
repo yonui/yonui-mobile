@@ -54,7 +54,21 @@ export default class Demo1 extends Component {
         <MyComponent label={ 'props.label文本文本文本文本文本文本' } textLangth={ 10 } style={{ ...style1, border: '1px solid rgba(101,84,192,1)', color: 'rgba(101,84,192,1)' }} />
 
         </Flex>
-
+        <Flex>
+          <MyComponent label={ '1.5' } prefix={'¥'} suffix={'万元'} />
+        </Flex>
+        <Flex>
+        <MyComponent label={ '1.5' } prefix={'¥'} suffix={'万元'} leftIcon='left' rightIcon='right' />
+        </Flex>
+        <Flex>
+          <MyComponent label={ '4.5' } prefix={'$'} />
+        </Flex>
+        <Flex>
+          <MyComponent label={ '9.5' } suffix={'万元'} />
+        </Flex>
+        <Flex>
+          <MyComponent spareLabel={'哈哈哈'} label={ '1.5' } prefix={'&'} suffix={'*'} />
+        </Flex>
       </div>
     )
   }
