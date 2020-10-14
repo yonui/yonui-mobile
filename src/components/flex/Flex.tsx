@@ -6,9 +6,38 @@ export interface MDFFlexProps {
   style?: React.CSSProperties
   className?: string
   nid?: string
+  onClick: () => void
+  onLongPress: () => void
 }
 export default class MDFFlex extends React.Component<MDFFlexProps, any> {
   static Item: any
+  timeOutEvent: any
+  onClick = () => {
+    this.props.onClick && this.props.onClick()
+  }
+
+  touchStart = () => {
+    const { onLongPress } = this.props
+    this.timeOutEvent = setTimeout(function () {
+      this.timeOutEvent = 0;
+      // console.log('长按了');
+      onLongPress && onLongPress()
+    }, 500);
+  }
+
+  touchMove = () => {
+    clearTimeout(this.timeOutEvent);
+    this.timeOutEvent = 0;
+  }
+
+  touchEnd = () => {
+    clearTimeout(this.timeOutEvent);
+    // if (this.timeOutEvent != 0) {
+    //     console.log('点击了');
+    // }
+    return false
+  }
+
   render () {
     const { className, nid, ...other } = this.props
     let cls = classnames(className, 'yonui-mobile-flex')
@@ -18,7 +47,14 @@ export default class MDFFlex extends React.Component<MDFFlexProps, any> {
       cls = 'yonui-mobile-flex-runtime'
     }
     return (
-      <Flex className={cls} {...other}>
+      <Flex
+        className={cls}
+        {...other}
+        onClick={this.onClick}
+        onTouchStart={this.touchStart}
+        onTouchMove={this.touchMove}
+        onTouchEnd={this.touchEnd}
+      >
         {this.props.children}
       </Flex>
     )

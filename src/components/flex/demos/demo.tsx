@@ -7,6 +7,7 @@ import { WhiteSpace } from "antd-mobile"
 import FlexItem from '../../flex-item'
 import Flex from '../index'
 import Button from '../../button'
+import MyComponent from '../index'
 
 import '../style'
 import './demo.less'
@@ -21,6 +22,9 @@ const PlaceHolder = ({ className = '', ...restProps }) => (
 const FlexExample = () => (
   <div className="flex-container">
     <div className="sub-title">Basic</div>
+    <Button type="primary" onClick={(e) => {
+      e.stopPropagation();
+      console.log('ggggggg')}}>按钮1</Button>
     <Flex>
       <Flex.Item><PlaceHolder /></Flex.Item>
       <Flex.Item><PlaceHolder /></Flex.Item>
@@ -108,7 +112,7 @@ export default class Demo1 extends Component {
   render() {
     return (
       <div>
-        <div>
+        {/* <div>
           横向布局默认
         </div>
         <Flex direction="row">
@@ -140,7 +144,8 @@ export default class Demo1 extends Component {
           </FlexItem>
           <WhiteSpace />
         </Flex>
-        {FlexExample()}
+        {FlexExample()} */}
+        <MyComponent children={FlexExample()} onClick={() => {console.log('jjjkkkk')}} onLongPress={() => {console.log('hdhdhhdhd')}}/>
       </div>
     )
   }

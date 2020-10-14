@@ -93,7 +93,21 @@ const manifest: ComponentManifest = {
     }
   ],
   children: () => true,
-  parent: () => true
+  parent: () => true,
+  events: [
+    {
+      name: 'onClick',
+      des: '点击'
+    },
+    {
+      name: 'onLongPress',
+      des: '长按'
+    }
+  ],
+  transformers: [
+    'inherit',
+    ['bindEvent', { events: ['onClick', 'onLongPress'] }],
+  ]
 }
 
 export default manifest
