@@ -3,7 +3,8 @@ const transformer = ({ meta, vm }) => {
   return (props) => {
     props.mReadOnly = vm?.get('mActionList')?.getReadOnly()
     const temp = []
-    const gridData = vm?.getGridModel()?.getData()
+    // const gridData = vm?.getGridModel()?.getData()
+    const gridData = vm?.getGridModel()?.getSelectData()
     gridData?.forEach(item => {
       if (item.selected) {
         temp.push(item)

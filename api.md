@@ -6,12 +6,6 @@
 
 # README
 
-# README
-
-# README
-
-# README
-
 # result 反馈页
 ## 反馈页面
 **API**
@@ -66,15 +60,6 @@ label组件可用作标签等单纯的数据展示。
 
 
 # README
-## navbar 导航栏
-**API**
-
-| navbar |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 类型 | 默认值 | 说明 |
-| label | string | - |  标签 |
-| style | object | - |  样式描述 |
-
 
 # README
 
@@ -87,31 +72,6 @@ label组件可用作标签等单纯的数据展示。
 # README
 
 # README
-
-选项组件，支持单选和多选，支持标签和列表两种形态。
-
-### API
-
-| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
-| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
-| dataSource         | 渲染类型，支持标签和列表形式 | 否 | 'tag'\|'list'                  | 'tag' |
-| multiple | 是否启用下拉刷新 | 否 | boolean | true |
-| label | 底部区域文本，为空时不展示底部文字 | 否 | string | '' |
-| dataSource | 数据源 | 是 | dataType[] | - |
-| checkedValue | 已经选择数据的value数组 | 否 | number | - |
-| tagSize | 渲染类型为标签时，标签的尺寸 | 否 | 'sm'\|'md'\|'g'\|'default' | 'default' |
-| disabled | 禁用 | 否 | boolean | false |
-| singleLine | 当行展示 | 否 | boolean | false |
-| splitLine | 是否展示分割线 | 否 | boolean | true |
-| required | 是否必填项 | 否 | boolean | false |
-| onClick | 点击某个选项时的回调 | 否 | (selectedValue: string[], selectedData: dataType[]) => void | false |
-| onChange | 选项值改变时的回调，列表多选时为确定时的回调 | 否 | (selectedValue: string[], selectedData: dataType[]) => void | false |
-
-```typescript
-interface dataType { text: string, value: string, disabled?: boolean }
-```
-
-
 
 # README
 
@@ -138,6 +98,33 @@ interface dataType { text: string, value: string, disabled?: boolean }
 |activeStyle|	点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)	|{}/false|	{}|
 |activeClassName	|点击反馈的自定义类名	|string	||
 |itemStyle	|每个格子自定义样式	|object	|{}|
+
+
+# README
+
+选项组件，支持单选和多选，支持标签和列表两种形态。
+
+### API
+
+| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
+| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
+| dataSource         | 渲染类型，支持标签和列表形式 | 否 | 'tag'\|'list'                  | 'tag' |
+| multiple | 是否启用下拉刷新 | 否 | boolean | true |
+| label | 底部区域文本，为空时不展示底部文字 | 否 | string | '' |
+| dataSource | 数据源 | 是 | dataType[] | - |
+| checkedValue | 已经选择数据的value数组 | 否 | number | - |
+| tagSize | 渲染类型为标签时，标签的尺寸 | 否 | 'sm'\|'md'\|'g'\|'default' | 'default' |
+| disabled | 禁用 | 否 | boolean | false |
+| singleLine | 当行展示 | 否 | boolean | false |
+| splitLine | 是否展示分割线 | 否 | boolean | true |
+| required | 是否必填项 | 否 | boolean | false |
+| onClick | 点击某个选项时的回调 | 否 | (selectedValue: string[], selectedData: dataType[]) => void | false |
+| onChange | 选项值改变时的回调，列表多选时为确定时的回调 | 否 | (selectedValue: string[], selectedData: dataType[]) => void | false |
+
+```typescript
+interface dataType { text: string, value: string, disabled?: boolean }
+```
+
 
 
 # README
@@ -181,6 +168,19 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 
 # README
+## navbar 导航栏
+**API**
+
+| navbar |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 类型 | 默认值 | 说明 |
+| label | string | - |  标签 |
+| style | object | - |  样式描述 |
+
+
+# README
+
+# README
 
 ### 活动面板
 
@@ -199,28 +199,6 @@ interface dataType { text: string, value: string, disabled?: boolean }
 | callback         | 点击选项内容时的回调函数。参数为选项所在列/行的下标，从0开始计数。当为一维数组时，row恒为0 | 发fasle | (col:number,row?:number)=>void                               |         |
 
 
-
-
-
-
-
-# README
-
-加载
-
-
-
-### api
-
-| 属性      | 说明                      | 必填 | 类型                       | 默认值    |
-| --------- | ------------------------- | ---- | -------------------------- | --------- |
-| *show*    | 是否展示加载组件          | 否   | boolean                    | 'title'   |
-| *theme*   | 主题                      | 否   | 'primary'\|'dark'\|'light' | 'primary' |
-| *type*    | 加载类型                  | 否   | 'toast'\|'jump'\|'local'   | 'toast'   |
-| *percent* | type='jump'时的百分比     | 否   | number                     |           |
-| *inline*  | type='jump'时是否行内模式 | 否   | boolean                    | false     |
-| *content* | typr='toast'时文字内容    | 否   | string                     | ''        |
-| *size*    | type='local'时图标大小    | 否   | 'small' \| 'large'         | 'small'   |
 
 
 
@@ -250,6 +228,28 @@ interface dataType { text: string, value: string, disabled?: boolean }
 |activeClassName	|点击反馈的自定义类名	|string	||
 |itemStyle	|每个格子自定义样式	|object	|{}|
 
+# README
+
+加载
+
+
+
+### api
+
+| 属性      | 说明                      | 必填 | 类型                       | 默认值    |
+| --------- | ------------------------- | ---- | -------------------------- | --------- |
+| *show*    | 是否展示加载组件          | 否   | boolean                    | 'title'   |
+| *theme*   | 主题                      | 否   | 'primary'\|'dark'\|'light' | 'primary' |
+| *type*    | 加载类型                  | 否   | 'toast'\|'jump'\|'local'   | 'toast'   |
+| *percent* | type='jump'时的百分比     | 否   | number                     |           |
+| *inline*  | type='jump'时是否行内模式 | 否   | boolean                    | false     |
+| *content* | typr='toast'时文字内容    | 否   | string                     | ''        |
+| *size*    | type='local'时图标大小    | 否   | 'small' \| 'large'         | 'small'   |
+
+
+
+
+
 # TextareaItem 多行输入
 **API**
 
@@ -274,6 +274,19 @@ interface dataType { text: string, value: string, disabled?: boolean }
 | prefixListCls   |   列表 className 前缀      | String |  `am-list`  |
 | title   | 文案说明        | String/node |  '' |
 
+
+# README
+## ListPanelPicker 基础组件-操作列表
+**API**
+
+| ListPanelPicker |  |  |  |
+| :---: | --- | --- | --- |
+属性 | 说明 | 类型 | 默认值 |
+visible | 是否显示 | boolean | false |
+header | 头部的值 | string | - |
+data | 传入的列表数据 | Array<{key, text, delete?}>,delete为true,操作列表项颜色为红色,key为主键,text为显示文本,不需要可以不写delete属性 | [] |
+onClose | 关闭时回调 | () => void | |
+onClick | 点击时回调 | (object: DataItem) => void | |
 
 # README
 ## Input 基础组件-输入框
@@ -306,65 +319,8 @@ interface dataType { text: string, value: string, disabled?: boolean }
 # README
 
 # README
-## ListPanelPicker 基础组件-操作列表
-**API**
-
-| ListPanelPicker |  |  |  |
-| :---: | --- | --- | --- |
-属性 | 说明 | 类型 | 默认值 |
-visible | 是否显示 | boolean | false |
-header | 头部的值 | string | - |
-data | 传入的列表数据 | Array<{key, text, delete?}>,delete为true,操作列表项颜色为红色,key为主键,text为显示文本,不需要可以不写delete属性 | [] |
-onClose | 关闭时回调 | () => void | |
-onClick | 点击时回调 | (object: DataItem) => void | |
 
 # README
-卡片容器组件
-
-### API
-
-| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
-| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
-| displayStyle       | 展示类型                               | 否   | 'normal'\|'detail'\|'slideable' | 'normal' |
-| btnText | 删除按钮文本。slideable模式下有效 | 否   | string                               | '删除' |
-| rightStyle | 删除按钮样式。slideable模式下有效 | 否   | number                            | {} |
-| label | 标题文本，detail模式下有效             | 否   | string                              | '' |
-| showDeleteIcon | 是否展示删除按钮，detail模式下有效 | 否   | boolean | true |
-| showTitleExtraIcon | 是否展示标题左侧图标，detail模式下有效 | 否 | boolean | false |
-| onDelete | 删除事件。detail/slideable模式下有效 | 否 | ()=>void |  |
-
-
-
-# README
-
-# README
-
-# README
-
-# README
-
-```js
-interface InputNumberPorps {
-  label?: string
-  precision?: number
-  type?: 'normal' | 'money' | 'integer'
-  min?: number | string
-  max?: number | string
-  prefix?: React.ReactNode
-  suffix?: React.ReactNode
-  thousands?: boolean
-  defaultValue?: number | string
-  value?: number | string
-  disabled?: boolean
-  placeholder?: string
-  autoFill?: boolean
-  textAlign?: 'left' | 'center' | 'right'
-  inputWrapperWidth?: string
-  labelWidth?: string
-  onChange?: (value: string) => void
-}
-```
-
 
 # README
 列表行容器组件，用来规范同类组件样式。
@@ -392,22 +348,19 @@ interface InputNumberPorps {
 # README
 
 # README
-
-一个简单的列表组件，支持下拉刷新和触底加载。大数据浏览时使用会产生性能问题。
+卡片容器组件
 
 ### API
 
-| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
-| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
-| dataSource         | 列表数据源                 | 是   | array                                | []     |
-| pullToRefresh | 是否启用下拉刷新 | 否 | boolean | true |
-| footerText | 底部区域文本，为空时不展示底部文字 | 否 | string | '' |
-| split | 列表项之间的分隔符号，分为无、分割线和分隔块 | 否 | 'none'\|'line'\|'blank' | 'line' |
-| height | 列表高度 | 否 | number | - |
-| reserverdHeight | 列表底部预留高度，设置height属性时无效 | 否 | number | - |
-| renderRow | 渲染每一行数据的方法，参数为数据源的每一项 | 是 | (item: any, dataSource any[], index: number) => React.ReactChild | - |
-| onRefresh | 触发下拉刷新事件的回调 | 否 | () => void | - |
-| onReachFoot | 页面滑动到底部时的回调 | 否 | () => void | - |
+| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
+| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
+| displayStyle       | 展示类型                               | 否   | 'normal'\|'detail'\|'slideable' | 'normal' |
+| btnText | 删除按钮文本。slideable模式下有效 | 否   | string                               | '删除' |
+| rightStyle | 删除按钮样式。slideable模式下有效 | 否   | number                            | {} |
+| label | 标题文本，detail模式下有效             | 否   | string                              | '' |
+| showDeleteIcon | 是否展示删除按钮，detail模式下有效 | 否   | boolean | true |
+| showTitleExtraIcon | 是否展示标题左侧图标，detail模式下有效 | 否 | boolean | false |
+| onDelete | 删除事件。detail/slideable模式下有效 | 否 | ()=>void |  |
 
 
 
@@ -436,15 +389,6 @@ type emailType = Array<{type: string}>
 
 # README
 
-### API
-
-| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
-| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
-| *url*                    | 链接的url地址                      | 是   | string                                |      |
-| *width*                | iframe的样式宽度属性，默认为100%           | 否   | string                              |    |
-| *height*             | iframe的样式高度属性，默认为100%                    | 否   | string                       |        |
-
-
 # README
 
 # README
@@ -466,4 +410,60 @@ type emailType = Array<{type: string}>
 # README
 
 # README
+
+# README
+
+一个简单的列表组件，支持下拉刷新和触底加载。大数据浏览时使用会产生性能问题。
+
+### API
+
+| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
+| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
+| dataSource         | 列表数据源                 | 是   | array                                | []     |
+| pullToRefresh | 是否启用下拉刷新 | 否 | boolean | true |
+| footerText | 底部区域文本，为空时不展示底部文字 | 否 | string | '' |
+| split | 列表项之间的分隔符号，分为无、分割线和分隔块 | 否 | 'none'\|'line'\|'blank' | 'line' |
+| height | 列表高度 | 否 | number | - |
+| reserverdHeight | 列表底部预留高度，设置height属性时无效 | 否 | number | - |
+| renderRow | 渲染每一行数据的方法，参数为数据源的每一项 | 是 | (item: any, dataSource any[], index: number) => React.ReactChild | - |
+| onRefresh | 触发下拉刷新事件的回调 | 否 | () => void | - |
+| onReachFoot | 页面滑动到底部时的回调 | 否 | () => void | - |
+
+
+
+# README
+
+### API
+
+| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
+| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
+| *url*                    | 链接的url地址                      | 是   | string                                |      |
+| *width*                | iframe的样式宽度属性，默认为100%           | 否   | string                              |    |
+| *height*             | iframe的样式高度属性，默认为100%                    | 否   | string                       |        |
+
+
+# README
+
+```js
+interface InputNumberPorps {
+  label?: string
+  precision?: number
+  type?: 'normal' | 'money' | 'integer'
+  min?: number | string
+  max?: number | string
+  prefix?: React.ReactNode
+  suffix?: React.ReactNode
+  thousands?: boolean
+  defaultValue?: number | string
+  value?: number | string
+  disabled?: boolean
+  placeholder?: string
+  autoFill?: boolean
+  textAlign?: 'left' | 'center' | 'right'
+  inputWrapperWidth?: string
+  labelWidth?: string
+  onChange?: (value: string) => void
+}
+```
+
 
