@@ -129,13 +129,13 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
         labelCls,
         className: 'date-time-picker',
         singleLine: true,
-        onClick: !disabled ? this.onOpenCalendar : undefined
+        onClick: !(disabled || mReadOnly) ? this.onOpenCalendar : undefined
       })
       return (<>
         <Wrapper {...wrapperProps}>
           <div className={valueCls}>
             {valueTrs ? dateFormat(valueTrs, fmt) : extra}
-            {!disabled && <Icon type='right' />}
+            {!(disabled || mReadOnly) && <Icon type='right' />}
           </div>
         </Wrapper>
         <span className='date-time-picker-calendar-wrapper'>
@@ -154,9 +154,9 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
       </>)
     } else {
       const wrapperProps = getListItemProps(this.props, {
-        className: `date-time-picker ${disabled && 'no-arrow'}`,
+        className: `date-time-picker ${(disabled || mReadOnly) && 'no-arrow'}`,
         singleLine: true,
-        onClick: !disabled ? this.onOpenCalendar : undefined
+        onClick: !(disabled || mReadOnly) ? this.onOpenCalendar : undefined
       })
       return (
         <DatePicker
@@ -164,7 +164,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
           title={title}
           extra={extra}
           format={format}
-          disabled={disabled}
+          disabled={disabled || mReadOnly}
           value={valueTrs}
           minDate={minDateTrs}
           maxDate={maxDateTrs}
@@ -176,7 +176,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
             <div className={valueCls}>
               {/* {valueTrs ? dateFormat(valueTrs, fmt || 'yyyy-MM-dd') : dateFormat(new Date(),fmt || 'yyyy-MM-dd')} */}
               {valueTrs ? moment(valueTrs).format(fmt || 'yyyy-MM-DD') : ''}
-              {!disabled && <Icon style={{ color: '#bfbfbf', marginRight: '-6px' }} type='right' />}
+              {!(disabled || mReadOnly) && <Icon style={{ color: '#bfbfbf', marginRight: '-6px' }} type='right' />}
             </div>
           </Wrapper>
         </DatePicker>

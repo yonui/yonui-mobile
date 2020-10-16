@@ -267,7 +267,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
   }
 
   getContent = (mode?: 'telephone' | 'mobilephone' | 'email', area?: boolean, isSelectEmail?: boolean) => {
-    const { singleLine, value, required, disabled, defaultValue, bIsNull, bCanModify } = this.props
+    const { singleLine, value, required, disabled, mReadOnly, defaultValue, bIsNull, bCanModify } = this.props
     const _required = bIsNull !== undefined ? bIsNull : required
     const { emailType, country, countryNum, _value } = this.state
     const val = value !== undefined ? this.valueAdapt(2, value) : _value
@@ -287,6 +287,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
               onSuccess={this.onSuccess}
               onError={this.onError}
               required={_required}
+              mReadOnly={mReadOnly}
               disabled={disabled || (bCanModify !== undefined ? !bCanModify : bCanModify)}
               defaultValue={defaultValue}
             />
@@ -302,6 +303,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
             onError={this.onError}
             value={val}
             required={_required}
+            mReadOnly={mReadOnly}
             disabled={disabled || (bCanModify !== undefined ? !bCanModify : bCanModify)}
             defaultValue={defaultValue}
           />)
@@ -321,6 +323,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
               onSuccess={this.onSuccess}
               onError={this.onError}
               required={_required}
+              mReadOnly={mReadOnly}
               disabled={disabled || (bCanModify !== undefined ? !bCanModify : bCanModify)}
               defaultValue={defaultValue}
             />
@@ -349,6 +352,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
             onSuccess={this.onSuccess}
             onError={this.onError}
             required={_required}
+            mReadOnly={mReadOnly}
             disabled={disabled || (bCanModify !== undefined ? !bCanModify : bCanModify)}
             defaultValue={defaultValue}
             textAlign='right'
@@ -365,6 +369,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
             onSuccess={this.onSuccess}
             onError={this.onError}
             required={_required}
+            mReadOnly={mReadOnly}
             disabled={disabled || (bCanModify !== undefined ? !bCanModify : bCanModify)}
             defaultValue={defaultValue}
             style={{ width: '120px' }}
