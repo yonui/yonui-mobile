@@ -160,7 +160,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
           onChange={this._onChange}
           onBlur={this._onBlur}
           style={_inputStyle}
-          onFocus={this._onFocus}
+          onFocus={!mReadOnly && this._onFocus}
           placeholder={displayPlaceholder}
           readOnly={mReadOnly}
           disabled={disabled || (bCanModify !== undefined ? !bCanModify : bCanModify)}
