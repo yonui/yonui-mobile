@@ -227,11 +227,12 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     const displayValue = getValueFromDataType(_checkedData)[1].map(item => item.text).join(',')
     const propsDisplayValue = this.getDisplayFromProps(dataSource, checkedValue)
     const fontCls = classnames('radio-items-selected-value', {
-      'radio-items-selected-value-disabled': (mReadOnly || disabled)
+      'radio-items-selected-value-read-only': !disabled && mReadOnly,
+      'radio-items-selected-value-disabled': disabled
     })
     return <>
       <span className={fontCls}>{propsDisplayValue || displayValue}</span>
-      {!disabled && <Icon type='right' color='#bfbfbf' style={{ marginRight: '-6px' }} onClick={this.onClickIcon} />}
+      {!disabled && !mReadOnly && <Icon type='right' color='#bfbfbf' style={{ marginRight: '-6px' }} onClick={this.onClickIcon} />}
     </>
   }
 

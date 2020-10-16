@@ -5,18 +5,27 @@
   width: 100%;
   .yonui-input-box{
     border: none;
-    color: #111111;
+    color: @color-text-base;
     font-size: @input-font-size;
     width: 100%;
     line-height: 1.5;
     width: 100%;
     background-color: inherit;
+    &:read-only{
+      color: @color-text-input;
+      -webkit-text-fill-color: @color-text-input;
+    }
+    &:-moz-read-only{
+      color: @color-text-input;
+      -webkit-text-fill-color: @color-text-input;
+    }
     &:disabled{
       // background-color: #fff;
-      color: #555555;
-      -webkit-text-fill-color: #555555;
+      color: @color-text-disabled;
+      -webkit-text-fill-color: @color-text-disabled;
       opacity: 1;
     }
+    
     &::-webkit-input-placeholder { /* WebKit browsers */
       color: #BFBFBF;
     }
