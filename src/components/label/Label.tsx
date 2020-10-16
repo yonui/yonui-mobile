@@ -69,11 +69,13 @@ export default class Label extends React.PureComponent<LabelProps> {
   render () {
     const { prefix, suffix, label, spareLabel, style, className, textAlign, textClamp, textLangth, leftIcon, rightIcon, visible, ...other } = this.props
     let parseValue = label
-    if (label && label !== '') {
-      if (label.slice(0, 1) === '{' && label.slice(-1) === '}') {
+    try {
+      if (label?.slice(0, 1) === '{' && label?.slice(-1) === '}') {
         const obj = this.parseValue(label)
         parseValue = obj.address
       }
+    } catch (e) {
+      parseValue = label
     }
     const sty: React.CSSProperties = { ...style, textAlign }
     const cls = classnames(className, 'yonui-tag')
