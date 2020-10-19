@@ -121,8 +121,8 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
     const fmt = format || modeToFormat(dateMode)
     const labelCls = classnames(lbc, 'date-time-picker-label')
     const valueCls = classnames('date-time-picker-value', {
-      'date-time-picker-value-read-only': !disabled && mReadOnly,
-      'date-time-picker-value-disabled': disabled
+      'date-time-picker-value-read-only': mReadOnly,
+      'date-time-picker-value-disabled': !mReadOnly && disabled
     })
     if (typeAndMode[0] === 'calendar') {
       const wrapperProps = getListItemProps(this.props, {
