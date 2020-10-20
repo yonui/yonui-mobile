@@ -5,7 +5,7 @@ import { Flex } from 'antd-mobile'
 export interface MDFFlexProps {
   style?: React.CSSProperties
   className?: string
-  nid?: string
+  // nid?: string
   onClick: () => void
   onLongPress: () => void
 }
@@ -39,8 +39,9 @@ export default class MDFFlex extends React.Component<MDFFlexProps, any> {
   }
 
   render () {
-    const { className, nid, ...other } = this.props
+    const { className, ...other } = this.props
     let cls = classnames(className, 'yonui-mobile-flex')
+    const nid = this.props.nid
     console.log('flexNid', nid)
     // nid为undefined为运行态
     if (typeof (nid) === 'undefined') {
