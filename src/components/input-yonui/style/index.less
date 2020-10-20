@@ -11,6 +11,12 @@
     line-height: 1.5;
     width: 100%;
     background-color: inherit;
+    &:disabled{
+      // background-color: #fff;
+      color: @color-text-disabled;
+      -webkit-text-fill-color: @color-text-disabled;
+      opacity: 1;
+    }
     &:read-only{
       color: @color-text-input;
       -webkit-text-fill-color: @color-text-input;
@@ -19,13 +25,6 @@
       color: @color-text-input;
       -webkit-text-fill-color: @color-text-input;
     }
-    &:disabled{
-      // background-color: #fff;
-      color: @color-text-disabled;
-      -webkit-text-fill-color: @color-text-disabled;
-      opacity: 1;
-    }
-    
     &::-webkit-input-placeholder { /* WebKit browsers */
       color: #BFBFBF;
     }
