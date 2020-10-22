@@ -284,8 +284,9 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
       className: cls,
       singleLine: singleLine || mode === 'list',
       labelCls: 'yonui-radio-label',
-      required: !bIsNull
+      required: bIsNull === undefined ? undefined : !bIsNull
     })
+    // if (bIsNull !== undefined) wrapperProps.notRequired = undefined
     return (
       <Wrapper {...wrapperProps}>
         <div className='yonui-radio-items'>

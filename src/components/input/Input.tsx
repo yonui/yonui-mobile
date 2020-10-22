@@ -214,7 +214,8 @@ class Input extends Component<InputProps, InputState> {
     const inputCls = classnames('mdf-input-content')
     const inputProps = this.getInputProps()
     const bIsNull = model?._get_data('bIsNull')
-    const wrapperProps = getListItemProps(this.props, { error, errorText, className: cls, required: !bIsNull })
+    const wrapperProps = getListItemProps(this.props, { error, errorText, className: cls, required: bIsNull === undefined ? undefined : !bIsNull })
+    // if (bIsNull !== undefined) wrapperProps.notRequired = undefined
     if (!visible) return null
     return (
       <Wrapper {...wrapperProps}>
