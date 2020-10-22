@@ -248,6 +248,18 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     return res.join(',')
   }
 
+  shouldComponentUpdate (nextProps) {
+    const clearMultiple = this.props.checkedValue.length !== 0 && nextProps.checkedValue.length === 0
+    const clearSingle = this.props.checkedValue.length !== 0 && this.props.checkedValue[0] !== '' && nextProps.checkedValue.length !== 0 && nextProps.checkedValue[0] === ''
+    if (clearMultiple || clearSingle) {
+      this.setState({
+        _checkedData: {},
+        _checkedDataTemp: {}
+      })
+    }
+    return true
+  }
+
   render () {
     const { mode, dataSource, tagSize, className, singleLine, checkedValue, model } = this.props
     const { open } = this.state
