@@ -24,6 +24,7 @@ export interface InputProps extends ListItemWrapperProps {
   onError?: (value: string, pattern: { reg?: RegExp, text?: string }) => void
   onSuccess?: (value: string) => void
   visible?: boolean
+  model?: any
 }
 
 interface InputState {
@@ -207,12 +208,13 @@ class Input extends Component<InputProps, InputState> {
   }
 
   render () {
-    const { required, className, singleLine, inputStyle, onChange, onBlur, onFocus, value, style, visible, ...other } = this.props
+    const { required, className, singleLine, inputStyle, onChange, onBlur, onFocus, value, model, style, visible, ...other } = this.props
     const { error, errorText, _displayValue } = this.state
     const cls = classnames('mdf-input', className)
     const inputCls = classnames('mdf-input-content')
     const inputProps = this.getInputProps()
-    const wrapperProps = getListItemProps(this.props, { error, errorText, className: cls })
+    const bIsNull = model?._get_data('bIsNull')
+    const wrapperProps = getListItemProps(this.props, { error, errorText, className: cls, required: !bIsNull })
     if (!visible) return null
     return (
       <Wrapper {...wrapperProps}>

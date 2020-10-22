@@ -233,7 +233,7 @@ const manifest: ComponentManifest = {
     ExtensionProps.cStyle
   ],
   propertyMap: {
-    bIsNull: 'notRequired',
+    // bIsNull: 'notRequired',
     cShowCaption: 'label'
   }
 }

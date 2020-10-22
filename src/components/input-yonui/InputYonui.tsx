@@ -140,7 +140,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
   render () {
     const { className, style, type, value, textAlign, beforeRender, placeholder, inputStyle, bCanModify, disabled, mReadOnly } = this.props
     const { _value, _className } = this.state
-    const val = value?.toString() || _value
+    const val = value === '' ? value : value?.toString() || _value
     const displayVal = beforeRender ? beforeRender(val) : val
     // 兼容处理单据列表上数据是JOSN对象的问题，统一取对象里的displayValue字段
     const displayValue = this.formatValue(displayVal).displayValue || displayVal
@@ -150,7 +150,6 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
       [_className]: val.length > 0
     })
     const _inputStyle: React.CSSProperties = { textAlign, ...inputStyle }
-    // console.log(_inputStyle)
     return (
       <div className={cls} style={style}>
         <input

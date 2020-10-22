@@ -20,6 +20,7 @@ interface RadioProps extends React.defaultProps {
   splitLine?: boolean
   required?: boolean
   mReadOnly?: boolean
+  model?: any
 }
 const TextString = {
   cancel: '取消',
@@ -222,16 +223,16 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
   }
 
   renderContent = (dataSource?: dataType[], checkedValue?: string[], checkedData?: string[]) => {
-    const { _checkedData } = this.state
+    // const { _checkedData } = this.state
     const { disabled, mReadOnly } = this.props
-    const displayValue = getValueFromDataType(_checkedData)[1].map(item => item.text).join(',')
+    // const displayValue = getValueFromDataType(_checkedData)[1].map(item => item.text).join(',')
     const propsDisplayValue = this.getDisplayFromProps(dataSource, checkedValue)
     const fontCls = classnames('radio-items-selected-value', {
       'radio-items-selected-value-read-only': mReadOnly,
       'radio-items-selected-value-disabled': !mReadOnly && disabled
     })
     return <>
-      <span className={fontCls}>{propsDisplayValue || displayValue}</span>
+      <span className={fontCls}>{propsDisplayValue}</span>
       {!disabled && !mReadOnly && <Icon type='right' color='#bfbfbf' style={{ marginRight: '-6px' }} onClick={this.onClickIcon} />}
     </>
   }
@@ -248,7 +249,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
   }
 
   render () {
-    const { mode, dataSource, tagSize, className, singleLine, checkedValue } = this.props
+    const { mode, dataSource, tagSize, className, singleLine, checkedValue, model } = this.props
     const { open } = this.state
     let radioArr: any
     switch (mode) {
@@ -266,11 +267,12 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
       }
     }
     const cls = classnames(className, 'yonui-radio')
+    const bIsNull = model?._get_data('bIsNull')
     const wrapperProps = getListItemProps(this.props, {
       className: cls,
       singleLine: singleLine || mode === 'list',
       labelCls: 'yonui-radio-label',
-
+      required: !bIsNull
     })
     return (
       <Wrapper {...wrapperProps}>
