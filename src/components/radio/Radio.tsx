@@ -223,16 +223,16 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
   }
 
   renderContent = (dataSource?: dataType[], checkedValue?: string[], checkedData?: string[]) => {
-    // const { _checkedData } = this.state
+    const { _checkedData } = this.state
     const { disabled, mReadOnly } = this.props
-    // const displayValue = getValueFromDataType(_checkedData)[1].map(item => item.text).join(',')
+    const displayValue = getValueFromDataType(_checkedData)[1].map(item => item.text).join(',')
     const propsDisplayValue = this.getDisplayFromProps(dataSource, checkedValue)
     const fontCls = classnames('radio-items-selected-value', {
       'radio-items-selected-value-read-only': mReadOnly,
       'radio-items-selected-value-disabled': !mReadOnly && disabled
     })
     return <>
-      <span className={fontCls}>{propsDisplayValue}</span>
+      <span className={fontCls}>{propsDisplayValue || displayValue}</span>
       {!disabled && !mReadOnly && <Icon type='right' color='#bfbfbf' style={{ marginRight: '-6px' }} onClick={this.onClickIcon} />}
     </>
   }
@@ -249,8 +249,16 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
   }
 
   shouldComponentUpdate (nextProps) {
-    const clearMultiple = this.props.checkedValue.length !== 0 && nextProps.checkedValue.length === 0
-    const clearSingle = this.props.checkedValue.length !== 0 && this.props.checkedValue[0] !== '' && nextProps.checkedValue.length !== 0 && nextProps.checkedValue[0] === ''
+    // 查询方案中radio的checkedValue是undefined
+    const withCheckedValue = this.props.checkedValue && nextProps.checkedValue
+    let clearMultiple = false
+    let clearSingle = false
+    if (withCheckedValue) {
+      // 多选置空
+      clearMultiple = this.props.checkedValue.length !== 0 && nextProps.checkedValue.length === 0
+      // 单选置空
+      clearSingle = this.props.checkedValue.length !== 0 && this.props.checkedValue[0] !== '' && nextProps.checkedValue.length !== 0 && nextProps.checkedValue[0] === ''
+    }
     if (clearMultiple || clearSingle) {
       this.setState({
         _checkedData: {},
