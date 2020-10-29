@@ -253,16 +253,39 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     const withCheckedValue = this.props.checkedValue && nextProps.checkedValue
     let clearMultiple = false
     let clearSingle = false
+    let newMultiple = false
+    let newSingle = false
     if (withCheckedValue) {
       // 多选置空
       clearMultiple = this.props.checkedValue.length !== 0 && nextProps.checkedValue.length === 0
       // 单选置空
       clearSingle = this.props.checkedValue.length !== 0 && this.props.checkedValue[0] !== '' && nextProps.checkedValue.length !== 0 && nextProps.checkedValue[0] === ''
+      // 多选新值
+      newMultiple = this.props.checkedValue.length === 0 && nextProps.checkedValue.length !== 0
+      // 单选新值
+      newSingle = this.props.checkedValue.length !== 0 && this.props.checkedValue[0] === '' && nextProps.checkedValue.length !== 0 && nextProps.checkedValue[0] !== ''
     }
     if (clearMultiple || clearSingle) {
       this.setState({
         _checkedData: {},
         _checkedDataTemp: {}
+      })
+    }
+    if (newMultiple || newSingle) {
+      let { dataSource, checkedValue } = nextProps
+      if (checkedValue === []) {
+        checkedValue = ['']
+      }
+      const checkedDataObj: { [key: string]: dataType } = {}
+      dataSource && dataSource.forEach(item => {
+        console.log(item.value)
+        if (checkedValue?.includes(item.value)) {
+          checkedDataObj[item.value] = item
+        }
+      })
+      this.setState({
+        _checkedData: checkedDataObj,
+        _checkedDataTemp: checkedDataObj
       })
     }
     return true
