@@ -230,7 +230,7 @@ export default class Search extends React.Component<SearchProps, any> {
             color: clearIconColor
           }}
         >
-          <Icon type='cross-circle' size='xxs' onClick={this.onClear} />
+          <i onClick={this.onClear} />
         </a>
         <a
           className={`${prefixCls}-voice`}
