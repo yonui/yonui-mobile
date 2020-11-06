@@ -88,7 +88,11 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
         currentData = { ...currentData, [data.value]: data }
       }
     } else {
-      currentData = { [data.value]: data }
+      if (currentData[data.value]) {
+        delete currentData[data.value]
+      } else {
+        currentData = { [data.value]: data }
+      }
     }
     if (canMultiple) {
       this.setState({
