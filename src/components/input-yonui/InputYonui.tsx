@@ -145,7 +145,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
     // 兼容处理单据列表上数据是JOSN对象的问题，统一取对象里的displayValue字段
     const displayValue = this.formatValue(displayVal).displayValue || displayVal
     // 兼容处理单据列表不可编辑是不显示背景提示的问题，或者说不可编辑就不用提示
-    const displayPlaceholder = disabled ? '' : placeholder
+    const displayPlaceholder = disabled || mReadOnly ? '' : placeholder
     const cls = classnames(className, 'yonui-input', {
       [_className]: val.length > 0
     })
