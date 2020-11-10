@@ -92,6 +92,37 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 
 # README
+
+# README
+
+# README
+
+# README
+
+# README
+
+# README
+## Grid 宫格
+**API**
+
+| Grid |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 说明 | 类型 | 默认值 |
+|data	|传入的菜单数据|	Array<{icon, text}>|	[]|
+|onClick|	点击每个菜单的回调函数|	(el: Object, index: number): void	|-|
+|columnNum|	列数|	number|	4|
+|hasLine|	是否有边框|	boolean	|true|
+|outContent| 是否有外框内容,注(当outContent为true,renderItem方法无效) | boolean | false |
+|isCarousel	|是否跑马灯|	boolean|	false|
+|carouselMaxRow	|如果是跑马灯, 一页跑马灯需要展示的行数|	number|	2|
+|renderItem	|自定义每个 grid 条目的创建函数	|(el, index) => React.Node	|-|
+|square|	每个格子是否固定为正方形|	boolean	|true|
+|activeStyle|	点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)	|{}/false|	{}|
+|activeClassName	|点击反馈的自定义类名	|string	||
+|itemStyle	|每个格子自定义样式	|object	|{}|
+
+
+# README
 label组件可用作标签等单纯的数据展示。
 
 ### API
@@ -111,9 +142,17 @@ label组件可用作标签等单纯的数据展示。
 
 # README
 
-# README
+- Tabs组件的专属容器子组件
+
 
 # README
+工具栏
+
+### API
+
+| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
+| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
+
 
 # README
 
@@ -143,16 +182,24 @@ label组件可用作标签等单纯的数据展示。
 
 # README
 
-- Tabs组件的专属容器子组件
+加载
 
 
-# README
-工具栏
 
-### API
+### api
 
-| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
-| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
+| 属性      | 说明                      | 必填 | 类型                       | 默认值    |
+| --------- | ------------------------- | ---- | -------------------------- | --------- |
+| *show*    | 是否展示加载组件          | 否   | boolean                    | 'title'   |
+| *theme*   | 主题                      | 否   | 'primary'\|'dark'\|'light' | 'primary' |
+| *type*    | 加载类型                  | 否   | 'toast'\|'jump'\|'local'   | 'toast'   |
+| *percent* | type='jump'时的百分比     | 否   | number                     |           |
+| *inline*  | type='jump'时是否行内模式 | 否   | boolean                    | false     |
+| *content* | typr='toast'时文字内容    | 否   | string                     | ''        |
+| *size*    | type='local'时图标大小    | 否   | 'small' \| 'large'         | 'small'   |
+
+
+
 
 
 # README
@@ -174,28 +221,6 @@ label组件可用作标签等单纯的数据展示。
 | callback         | 点击选项内容时的回调函数。参数为选项所在列/行的下标，从0开始计数。当为一维数组时，row恒为0 | 发fasle | (col:number,row?:number)=>void                               |         |
 
 
-
-
-
-
-
-# README
-
-加载
-
-
-
-### api
-
-| 属性      | 说明                      | 必填 | 类型                       | 默认值    |
-| --------- | ------------------------- | ---- | -------------------------- | --------- |
-| *show*    | 是否展示加载组件          | 否   | boolean                    | 'title'   |
-| *theme*   | 主题                      | 否   | 'primary'\|'dark'\|'light' | 'primary' |
-| *type*    | 加载类型                  | 否   | 'toast'\|'jump'\|'local'   | 'toast'   |
-| *percent* | type='jump'时的百分比     | 否   | number                     |           |
-| *inline*  | type='jump'时是否行内模式 | 否   | boolean                    | false     |
-| *content* | typr='toast'时文字内容    | 否   | string                     | ''        |
-| *size*    | type='local'时图标大小    | 否   | 'small' \| 'large'         | 'small'   |
 
 
 
@@ -225,6 +250,8 @@ label组件可用作标签等单纯的数据展示。
 |activeClassName	|点击反馈的自定义类名	|string	||
 |itemStyle	|每个格子自定义样式	|object	|{}|
 
+# README
+
 # TextareaItem 多行输入
 **API**
 
@@ -249,6 +276,19 @@ label组件可用作标签等单纯的数据展示。
 | prefixListCls   |   列表 className 前缀      | String |  `am-list`  |
 | title   | 文案说明        | String/node |  '' |
 
+
+# README
+## ListPanelPicker 基础组件-操作列表
+**API**
+
+| ListPanelPicker |  |  |  |
+| :---: | --- | --- | --- |
+属性 | 说明 | 类型 | 默认值 |
+visible | 是否显示 | boolean | false |
+header | 头部的值 | string | - |
+data | 传入的列表数据 | Array<{key, text, delete?}>,delete为true,操作列表项颜色为红色,key为主键,text为显示文本,不需要可以不写delete属性 | [] |
+onClose | 关闭时回调 | () => void | |
+onClick | 点击时回调 | (object: DataItem) => void | |
 
 # README
 
@@ -283,44 +323,6 @@ label组件可用作标签等单纯的数据展示。
 # README
 
 # README
-## ListPanelPicker 基础组件-操作列表
-**API**
-
-| ListPanelPicker |  |  |  |
-| :---: | --- | --- | --- |
-属性 | 说明 | 类型 | 默认值 |
-visible | 是否显示 | boolean | false |
-header | 头部的值 | string | - |
-data | 传入的列表数据 | Array<{key, text, delete?}>,delete为true,操作列表项颜色为红色,key为主键,text为显示文本,不需要可以不写delete属性 | [] |
-onClose | 关闭时回调 | () => void | |
-onClick | 点击时回调 | (object: DataItem) => void | |
-
-# README
-## Grid 宫格
-**API**
-
-| Grid |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 说明 | 类型 | 默认值 |
-|data	|传入的菜单数据|	Array<{icon, text}>|	[]|
-|onClick|	点击每个菜单的回调函数|	(el: Object, index: number): void	|-|
-|columnNum|	列数|	number|	4|
-|hasLine|	是否有边框|	boolean	|true|
-|outContent| 是否有外框内容,注(当outContent为true,renderItem方法无效) | boolean | false |
-|isCarousel	|是否跑马灯|	boolean|	false|
-|carouselMaxRow	|如果是跑马灯, 一页跑马灯需要展示的行数|	number|	2|
-|renderItem	|自定义每个 grid 条目的创建函数	|(el, index) => React.Node	|-|
-|square|	每个格子是否固定为正方形|	boolean	|true|
-|activeStyle|	点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)	|{}/false|	{}|
-|activeClassName	|点击反馈的自定义类名	|string	||
-|itemStyle	|每个格子自定义样式	|object	|{}|
-
-
-# README
-
-# README
-
-# README
 卡片容器组件
 
 ### API
@@ -336,8 +338,6 @@ onClick | 点击时回调 | (object: DataItem) => void | |
 | onDelete | 删除事件。detail/slideable模式下有效 | 否 | ()=>void |  |
 
 
-
-# README
 
 # README
 
@@ -367,8 +367,6 @@ interface InputNumberPorps {
 
 
 # README
-
-# README
 列表行容器组件，用来规范同类组件样式。
 
 ### API
@@ -390,6 +388,8 @@ interface InputNumberPorps {
 | onClick | 行点击事件 | 否 | (*event*: React.MouseEvent<HTMLDivElement, MouseEvent>) => void | |
 
 
+
+# README
 
 # README
 
@@ -447,6 +447,8 @@ type emailType = Array<{type: string}>
 
 # README
 
+# README
+
 评分组件
 
 ### API
@@ -460,8 +462,6 @@ type emailType = Array<{type: string}>
 | onChange | 评分变化时间 | 否 | (value: number)=>void |        |
 
 
-
-# README
 
 # README
 
