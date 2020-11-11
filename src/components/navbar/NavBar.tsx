@@ -24,6 +24,9 @@ export interface NavBarProps {
   style?: React.CSSProperties
   autoShow: boolean
 }
+// 默认颜色
+const defaultColor = '#111';
+const subTitleDefaultColor = 'rgba(136, 136, 136, 1)';
 export default class MDFNavBar extends React.Component<NavBarProps, any> {
   static defaultProps = {
     title: '标题',
@@ -33,40 +36,39 @@ export default class MDFNavBar extends React.Component<NavBarProps, any> {
   }
 
   renderLeftContent = () => {
-    const { backIcon, backIconText, closeIcon, closeIconText, onBackClick, onCloseClick } = this.props
+    const { style = {}, backIcon, backIconText, closeIcon, closeIconText, onBackClick, onCloseClick } = this.props
     return <>
-      <Icon type={backIcon} onClick={onBackClick} />
+      <Icon color={style.color ? style.color : defaultColor} type={backIcon} onClick={onBackClick} />
       {backIconText}
-      {closeIcon && <Icon type={closeIcon} style={{ marginLeft: 15 }} onClick={onCloseClick} />}
+      {closeIcon && <Icon color={style.color ? style.color : defaultColor} type={closeIcon} style={{ marginLeft: 15 }} onClick={onCloseClick} />}
       {closeIconText}
     </>
   }
 
   renderCenterContent = () => {
-    const { title, titleIcon, subTitle, onTitleClick } = this.props
+    const { style = {}, title, titleIcon, subTitle, onTitleClick } = this.props
     return <>
       <div onClick={onTitleClick}>
-        <div className='title'>{title}{titleIcon && <Icon type={titleIcon} />}</div>
-        <div className='sub-title'>{subTitle}</div>
+        <div style={{ color: style.color ? style.color : defaultColor }} className='title'>{title}{titleIcon && <Icon type={titleIcon} />}</div>
+        <div style={{ color: style.color ? style.color : subTitleDefaultColor }} className='sub-title'>{subTitle}</div>
       </div>
 
     </>
   }
 
   renderRightContent = () => {
-    const { rightIcon1, rightIcon1Text, rightIcon2, rightIcon2Text, onRight1Click, onRight2Click, reghtIcons } = this.props
-
+    const { style = {}, rightIcon1, rightIcon1Text, rightIcon2, rightIcon2Text, onRight1Click, onRight2Click, reghtIcons } = this.props
     if (reghtIcons) return reghtIcons
     return <>
-      {rightIcon1 && <Icon type={rightIcon1} onClick={onRight1Click} />}
+      {rightIcon1 && <Icon color={style.color ? style.color : defaultColor} type={rightIcon1} onClick={onRight1Click} />}
       {rightIcon1Text}
-      {rightIcon2 && <Icon type={rightIcon2} onClick={onRight2Click} style={{ marginLeft: 15 }} />}
+      {rightIcon2 && <Icon color={style.color ? style.color : defaultColor} type={rightIcon2} onClick={onRight2Click} style={{ marginLeft: 15 }} />}
       {rightIcon2Text}
     </>
   }
 
   render () {
-    const { style, mode, autoShow } = this.props
+    const { style = {}, mode, autoShow } = this.props
     const cls = mode === 'light' ? 'am-navbar-light' : ''
     console.log('navbarAutoShow', autoShow)
     if (autoShow) {
@@ -80,7 +82,7 @@ export default class MDFNavBar extends React.Component<NavBarProps, any> {
       <div>
         <NavBar
           className={cls}
-          style={{ ...style }}
+          style={{ ...style, color: style.color ? style.color : defaultColor }}
           rightContent={this.renderRightContent()}
           leftContent={this.renderLeftContent()}
         >
