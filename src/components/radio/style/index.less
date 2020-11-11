@@ -45,12 +45,13 @@
     // margin: 3*@hd;
     // width:73*@hd;
     height:32*@hd;
-    border-radius:4*@hd;
-    border:1*@hd solid rgba(136,136,136,0.6);
+    border-radius:16*@hd;
+    background-color: #F5F5F5;
+    border:1*@hd solid #F5F5F5;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 8*@hd;
+    padding: 8*@hd 16*@hd;
     margin-right: 8*@hd;
     margin-top: 8*@hd;
     &:last-child{
@@ -72,6 +73,7 @@
     &.radio-tag-active{
       color: @brand-primary;
       border-color: @brand-primary;
+      background-color: #fff;
     }
     &.radio-tag-normal{
       color: #111111;
