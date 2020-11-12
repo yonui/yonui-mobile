@@ -16,6 +16,9 @@ export interface LabelProps extends React.defaultProps{
   visible?: boolean
   prefix: string
   suffix: string
+  dataSource: string
+  controlType: string
+  multiple: boolean
 }
 
 export default class Label extends React.PureComponent<LabelProps> {
@@ -66,17 +69,50 @@ export default class Label extends React.PureComponent<LabelProps> {
     }
   }
 
+  adaptValue = (label: string) => {
+    const { controlType, dataSource, multiple } = this.props
+    if (controlType === 'switch') {
+      return label ? '是' : '否'
+    } else if (controlType === 'optionwidget') {
+      if (dataSource) {
+        try {
+          if (dataSource?.slice(0, 1) === '{' && dataSource?.slice(-1) === '}') {
+            const obj = this.parseValue(dataSource)
+            if (multiple) {
+              if (label.includes(',')) {
+                const items = label.split(',')
+                let result = ''
+                items.forEach(element => {
+                  const value = obj[element]
+                  result = result.concat(`${value},`)
+                })
+                return result.replace(/^,+|,+$/g, '')
+              } else {
+                return obj[label]
+              }
+            } else {
+              return obj[label]
+            }
+          }
+        } catch (e) {
+          return label
+        }
+      }
+    } else {
+      try {
+        if (label?.slice(0, 1) === '{' && label?.slice(-1) === '}') {
+          const obj = this.parseValue(label)
+          return obj.address
+        }
+      } catch (e) {
+        return label
+      }
+    }
+  }
+
   render () {
     const { prefix, suffix, label, spareLabel, style, className, textAlign, textClamp, textLangth, leftIcon, rightIcon, visible, ...other } = this.props
-    let parseValue = label
-    try {
-      if (label?.slice(0, 1) === '{' && label?.slice(-1) === '}') {
-        const obj = this.parseValue(label)
-        parseValue = obj.address
-      }
-    } catch (e) {
-      parseValue = label
-    }
+    const parseValue = this.adaptValue(label)
     const sty: React.CSSProperties = { ...style, textAlign }
     const cls = classnames(className, 'yonui-tag')
     const tagsCls = classnames('yonui-mobile-tag-text', 'yonui-mobile-tag-clamp')
