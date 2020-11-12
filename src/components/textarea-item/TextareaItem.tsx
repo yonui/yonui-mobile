@@ -38,8 +38,8 @@ export default class MyComponent extends Component<TextareaProps, TextareaState>
   }
 
   render () {
-    const { label, className, style, nid, uitype, required, maxLength, splitLine, rows = 3, errorText, onBlur, subLabel, showExtraLabelIcon, visible = true, ...other } = this.props
-    other.disabled = other.disabled || other.mReadOnly || (other.bCanModify !== undefined ? !other.bCanModify : other.bCanModify)
+    const { label, className, mReadOnly, style, nid, uitype, required, maxLength, splitLine, rows = 3, errorText, onBlur, subLabel, showExtraLabelIcon, visible = true, ...other } = this.props
+    // other.disabled = other.disabled || other.mReadOnly || (other.bCanModify !== undefined ? !other.bCanModify : other.bCanModify)
     const { requiredError } = this.state
     const cls = classnames(className, 'yonui-textarea')
     const wrapperProps = getListItemProps(this.props, {
@@ -49,7 +49,7 @@ export default class MyComponent extends Component<TextareaProps, TextareaState>
     if (!visible) return null
     return (
       <Wrapper {...wrapperProps}>
-        <TextareaItem rows={rows} {...other} count={maxLength} onBlur={this._onBlur} />
+        <TextareaItem editable={!mReadOnly} rows={rows} {...other} count={maxLength} onBlur={this._onBlur} />
       </Wrapper>
     )
   }

@@ -22,8 +22,22 @@ div[uitype='TextareaItem'] {
     width: 100%;
     .am-textarea-control {
       textarea{
-        color: @input-content-color;
+        // color: @input-content-color;
         font-family: @yy-font-family;
+        &:disabled{
+          // background-color: #fff;
+          color: @color-text-disabled;
+          -webkit-text-fill-color: @color-text-disabled;
+          opacity: 1;
+        }
+        &:read-only{
+          color: @color-text-input;
+          -webkit-text-fill-color: @color-text-input;
+        }
+        &:-moz-read-only{
+          color: @color-text-input;
+          -webkit-text-fill-color: @color-text-input;
+        }
       }
     }
   }
