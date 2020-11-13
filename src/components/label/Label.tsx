@@ -103,6 +103,8 @@ export default class Label extends React.PureComponent<LabelProps> {
         if (label?.slice(0, 1) === '{' && label?.slice(-1) === '}') {
           const obj = this.parseValue(label)
           return obj.address
+        } else {
+          return label
         }
       } catch (e) {
         return label
