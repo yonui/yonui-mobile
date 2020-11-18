@@ -51,6 +51,7 @@ interface InputState {
   _value?: string
   _displayValue?: string
   isFocus?: boolean
+  _showValue?: string | number
 }
 
 export default class Input extends Component<InputProps, InputState> {
@@ -106,7 +107,8 @@ export default class Input extends Component<InputProps, InputState> {
     const { onChange } = this.props
     onChange && onChange(value)
     this.setState({
-      _value: value
+      _value: value,
+      _showValue: value
     })
   }
 
@@ -220,6 +222,10 @@ export default class Input extends Component<InputProps, InputState> {
     const preValue = this.state.isFocus ? value : this.changeValue(this.props);
     const showValue = mReadOnly ? preValue : (this.state.isFocus ? _displayValue || preValue : preValue)
     if (!visible) return null
+    // 解决展示数据修改不触发onChange事件的问题
+    if (showValue && showValue != this.state._showValue) {
+      this._onChange(String(showValue));
+    }
     return (
       <Wrapper {...wrapperProps}>
         <YonuiInput

@@ -35,6 +35,7 @@
   text-align: center;
   font-size: @button-font-size;
   height: @button-height;
+  border-radius: @button-height*0.5;
   line-height: @button-height;
   overflow: initial;
   text-overflow: ellipsis;
@@ -58,6 +59,7 @@
   &-toolbar-primary,
   &-primary {
     .mdf-button-variant(@color-text-base-inverse; @primary-button-fill; @primary-button-fill);
+    background: linear-gradient(45deg, #FC4C2F 0%, #EE2233 100%);
   }
   &-warning {
     .mdf-button-variant(@warning-button-text-color; @warning-button-fill; @border-color-base);
@@ -95,9 +97,23 @@
     height: @button-height-sm;
     line-height: @button-height-sm - 1;
     // padding: 0 21 * @hd;
-    border-radius: @radius-sm;
+    border-radius: @button-height-sm*0.5;
     &.@{mdfButtonPrefixCls}-active { // tap
-      border-radius: @radius-sm;
+      border-radius: @button-height-sm*0.5;
     }
+  }
+}
+
+@media (min-resolution: 2dppx) {
+  html:not([data-scale]) .mdf-button-toolbar-primary::before,
+  html:not([data-scale]) .mdf-button-primary::before {
+    border: none;
+  }
+  html:not([data-scale]) .mdf-button-toolbar-default::before,
+  html:not([data-scale]) .mdf-button-default::before {
+    border: none;
+  }
+  html:not([data-scale]) .mdf-button-default {
+    border: 1PX solid #dcdcdc;
   }
 }
