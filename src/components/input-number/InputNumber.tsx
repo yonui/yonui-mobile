@@ -219,8 +219,6 @@ export default class Input extends Component<InputProps, InputState> {
     const inputProps = this.getInputProps()
     const wrapperProps = getListItemProps(this.props, { className: cls, error, errorText })
     const _required = bIsNull !== undefined ? !bIsNull : required
-    console.log('------------inputnumber-render--------------------')
-    console.log('required', required, 'bisnull', bIsNull, '_required', _required)
     const preValue = this.state.isFocus ? value : this.changeValue(this.props);
     const showValue = mReadOnly ? preValue : (this.state.isFocus ? _displayValue || preValue : preValue)
     if (!visible) return null
