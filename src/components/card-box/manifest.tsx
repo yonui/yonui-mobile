@@ -129,8 +129,19 @@ const manifest: ComponentManifest = {
     }
   ],
   children: () => true,
+  events: [
+    {
+      name: 'onShowMore',
+      des: '点击查看更多'
+    },
+    {
+      name: 'onCloseMore',
+      des: '点击收起'
+    },
+  ],
   transformers: [
     'inherit',
+    ['bindEvent', { events: ['onShowMore', 'onCloseMore'] }],
     transformer
   ]
 }

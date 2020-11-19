@@ -7,6 +7,8 @@ import CheckBox from '../checkbox'
 interface CardBoxProps extends React.defaultProps{
   btnText: '删除'
   onDelete?: () => void
+  onShowMore?: () => void
+  onCloseMore?: () => void
   label?: string
   splitLine?: boolean
   rightStyle?: React.CSSProperties
@@ -46,6 +48,12 @@ export default class CardBox extends Component<CardBoxProps, CardBoxState> {
   }
 
   onChangeShowMore = (showMore: boolean) => {
+    const { onShowMore, onCloseMore } = this.props
+    if (showMore) {
+      onShowMore?.()
+    } else {
+      onCloseMore?.()
+    }
     return () => {
       this.setState({
         showMore

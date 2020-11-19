@@ -29,16 +29,25 @@
 
 
 # README
-## tips 基础组件-徽标数
-**API**
 
-| label |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 类型 | 默认值 | 说明 |
-| text | string | - |  展示的数字或文案，当为数字时候，大于 overflowCount |
-| corner | boolean | false |  置于角落 |
-| dot | boolean | false |  不展示数字，只有一个小红点 |
-| overflowCount | number | - |  展示封顶的数字值 |
+# README
+
+# README
+label组件可用作标签等单纯的数据展示。
+
+### API
+
+| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
+| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
+| *type*        | 渲染类型              | 否 | 'default'\|'primary'\|'border'\|'label'    | 'default' |
+| *label* | 文本内容 | 否 | string |  |
+| *width* | 图片的尺寸                            | 否   | string                               |  |
+| *textAlign* | 图片圆角百分值              | 否   | 'left'\|'center'\|'right' |  |
+| *color* | 主题色                             | 否   | string                      |  |
+| *bgColor* | 背景色 | 否   | string |               |
+| *leftIcon* | 左侧插入图标 | 否 | ReactNode | |
+| *rightIcon* | 右侧插入图标 | 否 | ReactNode | |
+
 
 
 # README
@@ -56,11 +65,11 @@
 
 # README
 
-# README
-
-# README
-
 包含noticebar和notice
+
+# README
+
+# README
 
 # README
 
@@ -94,10 +103,17 @@ interface dataType { text: string, value: string, disabled?: boolean }
 # README
 
 # README
+## tips 基础组件-徽标数
+**API**
 
-# README
+| label |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 类型 | 默认值 | 说明 |
+| text | string | - |  展示的数字或文案，当为数字时候，大于 overflowCount |
+| corner | boolean | false |  置于角落 |
+| dot | boolean | false |  不展示数字，只有一个小红点 |
+| overflowCount | number | - |  展示封顶的数字值 |
 
-# README
 
 # README
 
@@ -123,24 +139,6 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 
 # README
-label组件可用作标签等单纯的数据展示。
-
-### API
-
-| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
-| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
-| *type*        | 渲染类型              | 否 | 'default'\|'primary'\|'border'\|'label'    | 'default' |
-| *label* | 文本内容 | 否 | string |  |
-| *width* | 图片的尺寸                            | 否   | string                               |  |
-| *textAlign* | 图片圆角百分值              | 否   | 'left'\|'center'\|'right' |  |
-| *color* | 主题色                             | 否   | string                      |  |
-| *bgColor* | 背景色 | 否   | string |               |
-| *leftIcon* | 左侧插入图标 | 否 | ReactNode | |
-| *rightIcon* | 右侧插入图标 | 否 | ReactNode | |
-
-
-
-# README
 
 - Tabs组件的专属容器子组件
 
@@ -153,6 +151,8 @@ label组件可用作标签等单纯的数据展示。
 | 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
 | ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
 
+
+# README
 
 # README
 
@@ -182,28 +182,6 @@ label组件可用作标签等单纯的数据展示。
 
 # README
 
-加载
-
-
-
-### api
-
-| 属性      | 说明                      | 必填 | 类型                       | 默认值    |
-| --------- | ------------------------- | ---- | -------------------------- | --------- |
-| *show*    | 是否展示加载组件          | 否   | boolean                    | 'title'   |
-| *theme*   | 主题                      | 否   | 'primary'\|'dark'\|'light' | 'primary' |
-| *type*    | 加载类型                  | 否   | 'toast'\|'jump'\|'local'   | 'toast'   |
-| *percent* | type='jump'时的百分比     | 否   | number                     |           |
-| *inline*  | type='jump'时是否行内模式 | 否   | boolean                    | false     |
-| *content* | typr='toast'时文字内容    | 否   | string                     | ''        |
-| *size*    | type='local'时图标大小    | 否   | 'small' \| 'large'         | 'small'   |
-
-
-
-
-
-# README
-
 ### 活动面板
 
 分为固定模式和滑动模式。固定模式中，标题居中，选项内容平铺，每行最多显示5个；滑动模式中，标题居左，每个选项最小宽度为页面宽度的20%，超出部分可滑动展示。
@@ -221,6 +199,28 @@ label组件可用作标签等单纯的数据展示。
 | callback         | 点击选项内容时的回调函数。参数为选项所在列/行的下标，从0开始计数。当为一维数组时，row恒为0 | 发fasle | (col:number,row?:number)=>void                               |         |
 
 
+
+
+
+
+
+# README
+
+加载
+
+
+
+### api
+
+| 属性      | 说明                      | 必填 | 类型                       | 默认值    |
+| --------- | ------------------------- | ---- | -------------------------- | --------- |
+| *show*    | 是否展示加载组件          | 否   | boolean                    | 'title'   |
+| *theme*   | 主题                      | 否   | 'primary'\|'dark'\|'light' | 'primary' |
+| *type*    | 加载类型                  | 否   | 'toast'\|'jump'\|'local'   | 'toast'   |
+| *percent* | type='jump'时的百分比     | 否   | number                     |           |
+| *inline*  | type='jump'时是否行内模式 | 否   | boolean                    | false     |
+| *content* | typr='toast'时文字内容    | 否   | string                     | ''        |
+| *size*    | type='local'时图标大小    | 否   | 'small' \| 'large'         | 'small'   |
 
 
 
@@ -250,8 +250,6 @@ label组件可用作标签等单纯的数据展示。
 |activeClassName	|点击反馈的自定义类名	|string	||
 |itemStyle	|每个格子自定义样式	|object	|{}|
 
-# README
-
 # TextareaItem 多行输入
 **API**
 
@@ -278,17 +276,6 @@ label组件可用作标签等单纯的数据展示。
 
 
 # README
-## ListPanelPicker 基础组件-操作列表
-**API**
-
-| ListPanelPicker |  |  |  |
-| :---: | --- | --- | --- |
-属性 | 说明 | 类型 | 默认值 |
-visible | 是否显示 | boolean | false |
-header | 头部的值 | string | - |
-data | 传入的列表数据 | Array<{key, text, delete?}>,delete为true,操作列表项颜色为红色,key为主键,text为显示文本,不需要可以不写delete属性 | [] |
-onClose | 关闭时回调 | () => void | |
-onClick | 点击时回调 | (object: DataItem) => void | |
 
 # README
 
@@ -319,10 +306,6 @@ onClick | 点击时回调 | (object: DataItem) => void | |
 
 
 # README
-
-# README
-
-# README
 卡片容器组件
 
 ### API
@@ -338,6 +321,10 @@ onClick | 点击时回调 | (object: DataItem) => void | |
 | onDelete | 删除事件。detail/slideable模式下有效 | 否 | ()=>void |  |
 
 
+
+# README
+
+# README
 
 # README
 
@@ -367,27 +354,17 @@ interface InputNumberPorps {
 
 
 # README
-列表行容器组件，用来规范同类组件样式。
+## ListPanelPicker 基础组件-操作列表
+**API**
 
-### API
-
-| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
-| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
-| label  | 标题                            | 否   | string |  |
-| subLabel | 副标题文本 | 否   | string                               |  |
-| required | 是否必填 | 否   | boolean                     | false |
-| splitLine | 是否展示分割线             | 否   | boolean                 | true |
-| singleLine | 是否单行展示 | 否   | boolean | false |
-| labelCls | 标题className | 否 | string |  |
-| labelStyle | 标题style属性 | 否 | React.CSSProperties |  |
-| contentCls | 内容className | 否 | string | |
-| contentStyle | 内容style属性 | 否 | React.CSSProperties | |
-| error | 是否错误 | 否 | boolean | false |
-| errorText | 错误提示文本 | 否 | string | '填写信息有误!请重新填写' |
-| showExtraLabelIcon | 是否展示标题左侧图标 | 否 | boolean | false |
-| onClick | 行点击事件 | 否 | (*event*: React.MouseEvent<HTMLDivElement, MouseEvent>) => void | |
-
-
+| ListPanelPicker |  |  |  |
+| :---: | --- | --- | --- |
+属性 | 说明 | 类型 | 默认值 |
+visible | 是否显示 | boolean | false |
+header | 头部的值 | string | - |
+data | 传入的列表数据 | Array<{key, text, delete?}>,delete为true,操作列表项颜色为红色,key为主键,text为显示文本,不需要可以不写delete属性 | [] |
+onClose | 关闭时回调 | () => void | |
+onClick | 点击时回调 | (object: DataItem) => void | |
 
 # README
 
@@ -408,6 +385,29 @@ interface InputNumberPorps {
 | renderRow | 渲染每一行数据的方法，参数为数据源的每一项 | 是 | (item: any, dataSource any[], index: number) => React.ReactChild | - |
 | onRefresh | 触发下拉刷新事件的回调 | 否 | () => void | - |
 | onReachFoot | 页面滑动到底部时的回调 | 否 | () => void | - |
+
+
+
+# README
+列表行容器组件，用来规范同类组件样式。
+
+### API
+
+| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
+| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
+| label  | 标题                            | 否   | string |  |
+| subLabel | 副标题文本 | 否   | string                               |  |
+| required | 是否必填 | 否   | boolean                     | false |
+| splitLine | 是否展示分割线             | 否   | boolean                 | true |
+| singleLine | 是否单行展示 | 否   | boolean | false |
+| labelCls | 标题className | 否 | string |  |
+| labelStyle | 标题style属性 | 否 | React.CSSProperties |  |
+| contentCls | 内容className | 否 | string | |
+| contentStyle | 内容style属性 | 否 | React.CSSProperties | |
+| error | 是否错误 | 否 | boolean | false |
+| errorText | 错误提示文本 | 否 | string | '填写信息有误!请重新填写' |
+| showExtraLabelIcon | 是否展示标题左侧图标 | 否 | boolean | false |
+| onClick | 行点击事件 | 否 | (*event*: React.MouseEvent<HTMLDivElement, MouseEvent>) => void | |
 
 
 
