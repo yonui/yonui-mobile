@@ -4,8 +4,8 @@
 
 .mdf-button-color(@color; @background; @border) {
   color: @color;
-  background-color: @background;
-  .hairline('all', @border, @radius-md);
+  background: @background;
+  .hairline('all', @border, @button-height-sm*0.5);
 }
 
 .mdf-button-variant(@color; @background; @border) {
@@ -46,7 +46,7 @@
   // default
   color: @color-text-base;
   background-color: @fill-base;
-  .hairline('all', @border-color-base, @radius-md);
+  // .hairline('all', @border-color-base, @radius-md);
 
   &-default {
     .mdf-button-variant(@color-text-base; @fill-base; @border-color-base);
@@ -101,19 +101,5 @@
     &.@{mdfButtonPrefixCls}-active { // tap
       border-radius: @button-height-sm*0.5;
     }
-  }
-}
-
-@media (min-resolution: 2dppx) and (min-resolution: 3dppx) {
-  html:not([data-scale]) .mdf-button-toolbar-primary::before,
-  html:not([data-scale]) .mdf-button-primary::before {
-    border: none;
-  }
-  html:not([data-scale]) .mdf-button-toolbar-default::before,
-  html:not([data-scale]) .mdf-button-default::before {
-    border: none;
-  }
-  html:not([data-scale]) .mdf-button-default {
-    border: 1PX solid #dcdcdc;
   }
 }
