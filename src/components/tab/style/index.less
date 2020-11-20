@@ -113,3 +113,30 @@
 html:not([data-scale]) .@{tabsPrefixCls}-default-bar-top .@{tabsPrefixCls}-default-bar-tab::after{
     display: none;
 }
+
+.am-tabs-default-bar-top .am-tabs-default-bar-tab{
+  border: none;
+}
+
+@media (min-resolution: 2dppx) {
+  html:not([data-scale]) .am-tabs-default-bar-top .am-tabs-default-bar-tab::after {
+    content: '';
+    position: absolute;
+    background-color: #dcdcdc;
+    display: block;
+    z-index: 1;
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1*@hd;
+    transform-origin: 50% 100%;
+    transform: scaleY(0.5);
+  }
+}
+@media (min-resolution: 3dppx) {
+  html:not([data-scale]) .am-tabs-default-bar-top .am-tabs-default-bar-tab::after {
+    transform: scaleY(0.5);
+  }
+}
