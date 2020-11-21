@@ -1,5 +1,5 @@
 import React, { defaultProps } from 'react'
-// import classnames from 'classnames'
+import classnames from 'classnames'
 interface DividerProps extends defaultProps {
   content?: string
   prefixCls?: string
@@ -21,6 +21,18 @@ export default class Divider extends React.Component<DividerProps, any> {
     return content ? <span className='content'>{content}</span> : ''
   }
 
+  getDividerCls = (position) => {
+    const { width } = this.props
+    switch (position) {
+      case 'before':
+        return classnames('before', { 'before-1-mobile': width === 1 })
+      case 'after':
+        return classnames('after', { 'after-1-mobile': width === 1 })
+      default:
+        return null
+    }
+  }
+
   render () {
     const { prefixCls, style, width, type, color, nid, uitype } = this.props
     // const wrapCls = classnames(prefixCls, `${prefixCls}-${type}`)
@@ -36,11 +48,9 @@ export default class Divider extends React.Component<DividerProps, any> {
         nid={nid}
         uitype={uitype}
       >
-        <span className='before' style={boderStyle} />
+        <span className={this.getDividerCls('before')} style={boderStyle} />
         {this.renderContent()}
-        <span
-          className='after'
-          style={boderStyle} />
+        <span className={this.getDividerCls('after')} style={boderStyle} />
       </div>
     )
   }

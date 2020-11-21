@@ -30,6 +30,18 @@
     //   border-top-width: 3*@hd;
     // }
   }
+  .before-1-mobile, .after-1-mobile {
+    border-top-width: 0 !important;
+    padding: 0;
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1*@hd;
+      background-color: currentColor;
+      transform: scaleY(.4);
+    }
+  }
   & > span {
     padding: 0 10*@hd;
   }
