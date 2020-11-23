@@ -32,17 +32,17 @@
         .am-tabs-default-bar-tab{
           padding: 0 12*@hd;
           text-align: -webkit-center;
-          &:not(:first-child)::after{
+          &:not(:first-child)::before{
             content: "";
             position: absolute;
             background-color: #ddd;
             display: block;
             z-index: 1;
             top: 0;
-            right: 0;
+            left: 0;
             width: 1*@hd;
             height: 100%;
-            transform: scaleY(0.4);
+            transform: scale(0.3, 0.5);
             transform-origin: center;
           }
         }
