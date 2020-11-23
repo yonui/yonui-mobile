@@ -19,6 +19,7 @@ export interface LabelProps extends React.defaultProps{
   dataSource: string
   controlType: string
   multiple: boolean
+  dateMode: string
 }
 
 export default class Label extends React.PureComponent<LabelProps> {
@@ -70,10 +71,13 @@ export default class Label extends React.PureComponent<LabelProps> {
   }
 
   adaptValue = (label: string) => {
-    const { controlType, dataSource, multiple } = this.props
+    const { controlType, dataSource, multiple, dateMode } = this.props
+    console.log('-----label------\n', 'type', controlType, 'dateMode', dateMode, 'value', label)
     switch (controlType) {
       case 'switch':
-        return label ? '是' : '否'
+        return label === undefined
+          ? label
+          : label ? '是' : '否'
       case 'optionwidget':
         if (dataSource) {
           try {
