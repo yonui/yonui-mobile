@@ -133,6 +133,11 @@ html:not([data-scale]) .@{tabsPrefixCls}-default-bar-top .@{tabsPrefixCls}-defau
 }
 @media (min-resolution: 3dppx) {
   html:not([data-scale]) .am-tabs-default-bar-top .am-tabs-default-bar-tab::after {
-    transform: scaleY(0.5);
+    transform: scaleY(0.3);
+  }
+}
+@media (min-resolution: 4dppx) {
+  html:not([data-scale]) .am-tabs-default-bar-top .am-tabs-default-bar-tab::after {
+    transform: scaleY(0.2);
   }
 }
