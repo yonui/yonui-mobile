@@ -89,8 +89,8 @@ export default class yonuiTabs extends Component<TabsProps, any> {
   }
 
   renderTab = (tab) => {
-    const { children, tabs, page, tabBarActiveTextColor } = this.props;
-    const tabIndex = tabs.findIndex((item) => item.title == tab.title);
+    const { children, page, tabBarActiveTextColor } = this.props;
+    const tabIndex = tab.tabIndex;
     if (tabIndex >= 0) {
       const indexItem = children[tabIndex];
       const { nid, uitype } = indexItem.props?.meta;
