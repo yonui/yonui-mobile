@@ -89,8 +89,8 @@ export default class yonuiTabs extends Component<TabsProps, any> {
   }
 
   renderTab = (tab) => {
-    const { children, tabs, page, tabBarActiveTextColor } = this.props;
-    const tabIndex = tabs.findIndex((item) => item.title == tab.title);
+    const { children, page, tabBarActiveTextColor } = this.props;
+    const tabIndex = tab.tabIndex;
     if (tabIndex >= 0) {
       const indexItem = children[tabIndex];
       const { nid, uitype } = indexItem.props?.meta;
@@ -140,15 +140,14 @@ export default class yonuiTabs extends Component<TabsProps, any> {
     const underline = { display: 'none', ...tabBarUnderlineStyle }
     let tabsEle = null
     if (mode === 'normal') {
-      tabsEle = pageSize
-        ? <Tabs
-          tabs={tabs}
-          tabBarBackgroundColor={tabBarBackgroundColor}
-          onTabClick={this._onTabClick}
-          tabBarUnderlineStyle={underline}
-          renderTabBar={(props: any) => <Tabs.DefaultTabBar {...props} page={pageSize} />}
-          {...other}
-        >{children}</Tabs> : <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>
+      tabsEle = pageSize ? <Tabs
+        tabs={tabs}
+        tabBarBackgroundColor={tabBarBackgroundColor}
+        onTabClick={this._onTabClick}
+        tabBarUnderlineStyle={underline}
+        renderTabBar={(props: any) => <Tabs.DefaultTabBar {...props} page={pageSize} />}
+        {...other}
+      >{children}</Tabs> : <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>
     } else {
       splitLine = splitLine || false
       gather = true
