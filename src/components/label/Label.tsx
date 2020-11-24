@@ -19,6 +19,7 @@ export interface LabelProps extends React.defaultProps{
   dataSource: string
   controlType: string
   multiple: boolean
+  dateMode: string
 }
 
 export default class Label extends React.PureComponent<LabelProps> {
@@ -70,7 +71,8 @@ export default class Label extends React.PureComponent<LabelProps> {
   }
 
   adaptValue = (label: string) => {
-    const { controlType, dataSource, multiple } = this.props
+    const { controlType, dataSource, multiple, dateMode } = this.props
+    // console.log('---------label---------\n', 'dataSource:', dataSource, '\ntype', controlType, '\ndateMode', dateMode, '\nvalue', label)
     switch (controlType) {
       case 'switch':
         return label === undefined
@@ -102,6 +104,12 @@ export default class Label extends React.PureComponent<LabelProps> {
           }
         }
         break
+      // datetimepicker选择只显示日期
+      case 'datetimepicker':
+        return dateMode === 'picker-date'
+          ? label?.split(' ')[0]
+          : label
+      // 只显示日期
       case 'datepicker':
         return label?.split(' ')[0]
       default :
