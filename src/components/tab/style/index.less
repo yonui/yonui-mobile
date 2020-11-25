@@ -119,7 +119,10 @@ html:not([data-scale]) .@{tabsPrefixCls}-default-bar-top .@{tabsPrefixCls}-defau
   screen and (     -o-min-device-pixel-ratio: 2/1),
   screen and (        min-device-pixel-ratio: 2),
   screen and (                min-resolution: 192dpi),
-  screen and (                min-resolution: 2dppx) { 
+  screen and (                min-resolution: 2dppx) {
+    html:not([data-scale]) .am-tabs-default-bar-top .am-tabs-default-bar-tab{
+      border-bottom: none;
+    }
     html:not([data-scale]) .am-tabs-default-bar-top .am-tabs-default-bar-tab::after {
       content: '';
       position: absolute;

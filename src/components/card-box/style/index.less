@@ -135,3 +135,62 @@
     }
   }
 }
+
+
+// 覆盖弹窗分割线样式，暂时写这里
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+  screen and (   min--moz-device-pixel-ratio: 2),
+  screen and (     -o-min-device-pixel-ratio: 2/1),
+  screen and (        min-device-pixel-ratio: 2),
+  screen and (                min-resolution: 192dpi),
+  screen and (                min-resolution: 2dppx) {
+    html:not([data-scale]) .am-modal-button-group-h {
+      border-top: none;
+    }
+    html:not([data-scale]) .am-modal-button-group-h .am-modal-button:last-child {
+      border-left: none;
+    }
+    html:not([data-scale]) .am-modal-button-group-h::before {
+      content: '';
+      position: absolute;
+      background-color: #ddd;
+      display: block;
+      z-index: 1;
+      top: 0;
+      right: auto;
+      bottom: auto;
+      left: 0;
+      width: 100%;
+      height: 1PX;
+      transform-origin: 50% 50%;
+      transform: scaleY(0.3);
+    }
+    html:not([data-scale]) .am-modal-button-group-h .am-modal-button:last-child::before {
+      content: '';
+      position: absolute;
+      background-color: #ddd;
+      display: block;
+      z-index: 1;
+      top: 0;
+      right: auto;
+      bottom: auto;
+      left: 0;
+      width: 1PX;
+      height: 100%;
+      transform-origin: 100% 50%;
+      transform: scaleX(0.3);
+    }
+}
+@media screen and (-webkit-min-device-pixel-ratio: 3),
+  screen and (   min--moz-device-pixel-ratio: 3),
+  screen and (     -o-min-device-pixel-ratio: 3/1),
+  screen and (        min-device-pixel-ratio: 3),
+  screen and (                min-resolution: 384dpi),
+  screen and (                min-resolution: 3dppx) { 
+    html:not([data-scale]) .am-modal-button-group-h::before {
+      transform: scaleY(0.3);
+    }
+    html:not([data-scale]) .am-modal-button-group-h .am-modal-button:last-child::before {
+      transform: scaleX(0.3);
+    }
+}
