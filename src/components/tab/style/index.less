@@ -114,30 +114,35 @@ html:not([data-scale]) .@{tabsPrefixCls}-default-bar-top .@{tabsPrefixCls}-defau
     display: none;
 }
 
-@media (min-resolution: 2dppx) {
-  html:not([data-scale]) .am-tabs-default-bar-top .am-tabs-default-bar-tab::after {
-    content: '';
-    position: absolute;
-    background-color: #dcdcdc;
-    display: block;
-    z-index: 1;
-    top: auto;
-    right: auto;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1*@hd;
-    transform-origin: 50% 100%;
-    transform: scaleY(0.5);
-  }
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+  screen and (   min--moz-device-pixel-ratio: 2),
+  screen and (     -o-min-device-pixel-ratio: 2/1),
+  screen and (        min-device-pixel-ratio: 2),
+  screen and (                min-resolution: 192dpi),
+  screen and (                min-resolution: 2dppx) { 
+    html:not([data-scale]) .am-tabs-default-bar-top .am-tabs-default-bar-tab::after {
+      content: '';
+      position: absolute;
+      background-color: #dcdcdc;
+      display: block;
+      z-index: 1;
+      top: auto;
+      right: auto;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      transform-origin: 50% 100%;
+      transform: scaleY(0.3);
+    }
 }
-@media (min-resolution: 3dppx) {
-  html:not([data-scale]) .am-tabs-default-bar-top .am-tabs-default-bar-tab::after {
-    transform: scaleY(0.3);
-  }
-}
-@media (min-resolution: 4dppx) {
-  html:not([data-scale]) .am-tabs-default-bar-top .am-tabs-default-bar-tab::after {
-    transform: scaleY(0.2);
-  }
+@media screen and (-webkit-min-device-pixel-ratio: 3),
+  screen and (   min--moz-device-pixel-ratio: 3),
+  screen and (     -o-min-device-pixel-ratio: 3/1),
+  screen and (        min-device-pixel-ratio: 3),
+  screen and (                min-resolution: 384dpi),
+  screen and (                min-resolution: 3dppx) { 
+    html:not([data-scale]) .am-tabs-default-bar-top .am-tabs-default-bar-tab::after {
+      transform: scaleY(0.3);
+    }
 }
