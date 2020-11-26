@@ -193,7 +193,7 @@ const manifest: ComponentManifest = {
     {
       name: 'extra',
       type: FieldTypes.string,
-      defaultValue: '请选择',
+      defaultValue: '',
       showDesign: true,
       designConfig: {
         type: EditTypes.Text,
