@@ -137,10 +137,16 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
     this.checkValue('', true)
   }
 
+  getVal = (value, _value) => {
+    const { defaultValue } = this.props
+    if (value === '' && (defaultValue === '' || defaultValue !== _value)) return ''
+    return value?.toString() || _value
+  }
+
   render () {
     const { className, style, type, value, textAlign, beforeRender, placeholder, inputStyle, bCanModify, disabled, mReadOnly } = this.props
     const { _value, _className } = this.state
-    const val = value === '' ? value : value?.toString() || _value
+    const val = this.getVal(value, _value)
     const displayVal = beforeRender ? beforeRender(val) : val
     // 兼容处理单据列表上数据是JOSN对象的问题，统一取对象里的displayValue字段
     const displayValue = this.formatValue(displayVal).displayValue || displayVal
