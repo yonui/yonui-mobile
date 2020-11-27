@@ -11,18 +11,13 @@ const manifest: ComponentManifest = {
   props: [
     {
       name: 'cDefaultValue',
-      type: FieldTypes.string,
-      defaultValue: 'false',
+      type: FieldTypes.boolean,
+      defaultValue: false,
       showDesign: true,
       designConfig: {
-        type: EditTypes.Select,
-        isRequired: true,
-        props: {
-          options: [
-            { value: 'false', text: '否' },
-            { value: 'true', text: '是' }
-          ]
-        },
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
         label: '默认值'
       }
     },
