@@ -16,6 +16,7 @@ interface TextareaProps extends TextAreaItemPropsType, React.defaultProps, ListI
 }
 interface TextareaState {
   requiredError: boolean
+  _value: string
 }
 export default class MyComponent extends Component<TextareaProps, TextareaState> {
   static defaultProps = {
@@ -25,8 +26,18 @@ export default class MyComponent extends Component<TextareaProps, TextareaState>
   constructor (props: TextAreaItemPropsType) {
     super(props)
     this.state = {
+      _value: this.props.defaultValue || '',
       requiredError: false
     }
+  }
+
+  _onChange = (currentValue) => {
+    const { onChange, afterChange } = this.props
+    const val = afterChange ? afterChange(currentValue) : currentValue
+    onChange?.(val)
+    this.setState({
+      _value: val
+    })
   }
 
   _onBlur = (value: any) => {
@@ -35,6 +46,13 @@ export default class MyComponent extends Component<TextareaProps, TextareaState>
       requiredError: !!required && !value
     })
     onBlur && onBlur(value)
+  }
+
+  getVal = () => {
+    const { defaultValue, value } = this.props
+    const { _value } = this.state
+    if (value === '' && (defaultValue === '' || defaultValue !== _value)) return ''
+    return value?.toString() || _value
   }
 
   render () {
@@ -46,10 +64,18 @@ export default class MyComponent extends Component<TextareaProps, TextareaState>
       className: cls,
       error: requiredError
     })
+    other.value = this.getVal()
     if (!visible) return null
     return (
       <Wrapper {...wrapperProps}>
-        <TextareaItem editable={!mReadOnly} rows={rows} {...other} count={maxLength} onBlur={this._onBlur} />
+        <TextareaItem
+          editable={!mReadOnly}
+          rows={rows}
+          {...other}
+          count={maxLength}
+          onBlur={this._onBlur}
+          onChange={this._onChange}
+        />
       </Wrapper>
     )
   }
