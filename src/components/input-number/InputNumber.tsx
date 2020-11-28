@@ -48,7 +48,7 @@ export interface InputProps extends ListItemWrapperProps {
 interface InputState {
   error?: boolean
   errorText?: string
-  _value?: string
+  _value?: string | number
   _displayValue?: string
   isFocus?: boolean
   _showValue?: string | number
@@ -59,6 +59,7 @@ export default class Input extends Component<InputProps, InputState> {
     super(props)
     this.state = {
       error: false,
+      _value: props.defaultValue,
       errorText: '',
       isFocus: false // 记录是否获取焦点
     }
@@ -223,9 +224,9 @@ export default class Input extends Component<InputProps, InputState> {
     const showValue = mReadOnly ? preValue : (this.state.isFocus ? _displayValue || preValue : preValue)
     if (!visible) return null
     // 解决展示数据修改不触发onChange事件的问题
-    if (showValue && showValue != this.state._showValue) {
-      this._onChange(String(showValue));
-    }
+    // if (showValue && showValue != this.state._showValue) {
+    //   this._onChange(String(showValue));
+    // }
     return (
       <Wrapper {...wrapperProps}>
         <YonuiInput
