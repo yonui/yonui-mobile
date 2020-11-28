@@ -120,10 +120,10 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
         `radio-tag-${tagSize}`,
         `${_selectedValue.includes(item.value) ? 'radio-tag-active' : 'radio-tag-normal'}`,
         {
-          'radio-tag-disabled': this.props.disabled || item.disabled
+          'radio-tag-disabled': this.props.mReadOnly || this.props.disabled || item.disabled
         }
       )
-      return <div className={cls} key={index} onClick={() => { !item.disabled && this.onClickItem(item) }} style={itemsStyle}>
+      return <div className={cls} key={index} onClick={() => { !(this.props.mReadOnly || item.disabled) && this.onClickItem(item) }} style={itemsStyle}>
         <div className='radio-tag-text'>{item.text}</div>
       </div>
     })
