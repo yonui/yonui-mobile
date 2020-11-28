@@ -3,10 +3,10 @@ import { Switch } from 'antd-mobile'
 import ListItemWrapper, { getListItemProps } from '../list-item-wrapper'
 import classnames from 'classnames'
 
-const getValue = (value: string | boolean, defaultValue: string) => {
+const getValue = (value: string | boolean, defaultValue: boolean) => {
   if (value === true || value === 'true') return true
   if (value === false || value === 'false') return false
-  return defaultValue === 'true'
+  return defaultValue
 }
 export default class SwitchControl extends React.Component<any> {
   render () {

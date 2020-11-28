@@ -106,9 +106,6 @@
     }
   }
 }
-.am-picker-popup-header{
-  border: none !important;
-}
 .date-time-picker-calendar-wrapper{
   // .header{
   //   .left,.right{
@@ -118,4 +115,90 @@
   .am-calendar .single-month .row .cell .info{
     height: 24*@hd;
   }
+}
+// 分割线样式
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+  screen and (   min--moz-device-pixel-ratio: 2),
+  screen and (     -o-min-device-pixel-ratio: 2/1),
+  screen and (        min-device-pixel-ratio: 2),
+  screen and (                min-resolution: 192dpi),
+  screen and (                min-resolution: 2dppx) {
+    html:not([data-scale]) .am-picker-col-indicator{
+      border-top: none;
+      border-bottom: none;
+    }
+    html:not([data-scale]) .am-picker-col-indicator::before{
+      content: '';
+      position: absolute;
+      background-color: #ddd;
+      display: block;
+      z-index: 1;
+      top: 0;
+      right: auto;
+      bottom: auto;
+      left: 0;
+      width: 100%;
+      height: 1PX;
+      transform-origin: 50% 50%;
+      transform: scaleY(0.3);
+    }
+    html:not([data-scale]) .am-picker-col-indicator::after{
+      content: '';
+      position: absolute;
+      background-color: #ddd;
+      display: block;
+      z-index: 1;
+      top: auto;
+      right: auto;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1PX;
+      transform-origin: 50% 100%;
+      transform: scaleY(0.3);
+    }
+    html:not([data-scale]) .am-picker-popup-header{
+      border-bottom: none;
+    }
+    html:not([data-scale]) .am-picker-popup-header::after {
+      content: '';
+      position: absolute;
+      background-color: #ddd;
+      display: block;
+      z-index: 1;
+      top: auto;
+      right: auto;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1PX;
+      transform-origin: 50% 100%;
+      transform: scaleY(0.3);
+    }
+}
+@media screen and (-webkit-min-device-pixel-ratio: 3),
+  screen and (   min--moz-device-pixel-ratio: 3),
+  screen and (     -o-min-device-pixel-ratio: 3/1),
+  screen and (        min-device-pixel-ratio: 3),
+  screen and (                min-resolution: 384dpi),
+  screen and (                min-resolution: 3dppx) {
+    html:not([data-scale]) .am-picker-col-indicator::before{
+      transform: scaleY(0.3);
+    }
+    html:not([data-scale]) .am-picker-col-indicator::after{
+      transform: scaleY(0.3);
+    } 
+    html:not([data-scale]) .am-picker-popup-header::after {
+      transform: scaleY(0.3);
+    }
+}
+// 取消按钮颜色
+.am-picker-popup-header{
+  .am-picker-popup-header-left{
+    color: #111111;
+  }
+}
+// 弹窗圆角
+.am-picker-popup{
+  border-radius: 0.2rem 0.2rem 0 0 !important;
 }
