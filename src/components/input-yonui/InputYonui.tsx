@@ -49,7 +49,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
       console.log('pattern error')
       return false
     }
-    if (maxLength && value.length > maxLength) {
+    if (maxLength && value?.length > maxLength) {
       console.log('length error')
       return false
     }
@@ -156,7 +156,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
     // 兼容处理单据列表不可编辑是不显示背景提示的问题，或者说不可编辑就不用提示
     const displayPlaceholder = disabled || mReadOnly ? '' : placeholder
     const cls = classnames(className, 'yonui-input', {
-      [_className]: val.length > 0
+      [_className]: val?.length > 0
     })
     const _inputStyle: React.CSSProperties = { textAlign, ...inputStyle }
     // console.log('-------inputBox-render---------\n', 'val', val)
