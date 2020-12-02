@@ -188,11 +188,13 @@ export default class Input extends Component<InputProps, InputState> {
 
   _beforeRender = (val: string | number) => {
     const { thousands } = this.props
-    if (!thousands) return val
-    const valStr = val?.toString()
-    const integer = valStr.split('.')[0]
-    const decimal = valStr.split('.')[1]
-    return `${integer.replace(NumberReg.format, '$&,')}${valStr.includes('.') ? '.' + decimal : ''}`
+    if (val !== undefined && thousands) {
+      const valStr = val?.toString()
+      const integer = valStr.split('.')[0]
+      const decimal = valStr.split('.')[1]
+      return `${integer.replace(NumberReg.format, '$&,')}${valStr.includes('.') ? '.' + decimal : ''}`
+    }
+    return val
   }
 
   _afterChange = (val: string) => {
