@@ -59,7 +59,7 @@ export default class Input extends Component<InputProps, InputState> {
     super(props)
     this.state = {
       error: false,
-      _value: props.defaultValue,
+      _value: props.defaultValue?.toString(),
       errorText: '',
       isFocus: false // 记录是否获取焦点
     }

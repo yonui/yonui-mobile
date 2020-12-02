@@ -35,7 +35,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
   }
 
   state = {
-    _value: this.props.defaultValue || '',
+    _value: this.props.defaultValue,
     _className: ''
   }
 
@@ -139,6 +139,9 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
 
   getVal = (value, _value) => {
     const { defaultValue } = this.props
+    // console.log('------inputBox-getVal--------\n', 'value', value)
+    // console.log('_value', _value)
+    // console.log('defaultValue', defaultValue)
     if (value === '' && (defaultValue === '' || defaultValue !== _value)) return ''
     return value?.toString() || _value
   }
@@ -156,6 +159,9 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
       [_className]: val.length > 0
     })
     const _inputStyle: React.CSSProperties = { textAlign, ...inputStyle }
+    // console.log('-------inputBox-render---------\n', 'val', val)
+    // console.log('displayVal', displayVal)
+    // console.log('displayValue', displayValue)
     return (
       <div className={cls} style={style}>
         <input

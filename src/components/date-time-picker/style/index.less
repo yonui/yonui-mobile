@@ -192,13 +192,14 @@
       transform: scaleY(0.3);
     }
 }
-// 取消按钮颜色
-.am-picker-popup-header{
-  .am-picker-popup-header-left{
-    color: #111111;
-  }
-}
+
 // 弹窗圆角
 .am-picker-popup{
-  border-radius: 0.2rem 0.2rem 0 0 !important;
+  border-radius: 0.2rem 0.2rem 0 0;
+  // 取消按钮颜色
+  .am-picker-popup-header{
+    .am-picker-popup-header-left{
+      color: #111111;
+    }
+  }
 }
