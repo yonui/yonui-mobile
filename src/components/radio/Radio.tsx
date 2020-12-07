@@ -282,7 +282,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
       }
       const checkedDataObj: { [key: string]: dataType } = {}
       dataSource && dataSource.forEach(item => {
-        console.log(item.value)
+        // console.log(item.value)
         if (checkedValue?.includes(item.value)) {
           checkedDataObj[item.value] = item
         }
