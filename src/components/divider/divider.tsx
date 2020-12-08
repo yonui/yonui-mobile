@@ -6,6 +6,7 @@ interface DividerProps extends defaultProps {
   width?: number
   color?: string
   type?: 'solid' | 'dashed' | 'dotted' | 'double' | 'none'
+  visible?: boolean
 }
 export default class Divider extends React.Component<DividerProps, any> {
   static defaultProps = {
@@ -13,7 +14,8 @@ export default class Divider extends React.Component<DividerProps, any> {
     content: '',
     type: 'solid',
     width: 1,
-    color: '#d0d0d0'
+    color: '#d0d0d0',
+    visible: true
   }
 
   renderContent = () => {
@@ -34,13 +36,14 @@ export default class Divider extends React.Component<DividerProps, any> {
   }
 
   render () {
-    const { prefixCls, style, width, type, color, nid, uitype } = this.props
+    const { prefixCls, style, width, type, color, nid, uitype, visible } = this.props
     // const wrapCls = classnames(prefixCls, `${prefixCls}-${type}`)
     const _style = { ...style, color }
     const boderStyle: React.CSSProperties = {
       borderTopWidth: `${width}px`,
       borderTopStyle: type
     }
+    if (!visible) return null
     return (
       <div
         className={prefixCls}
