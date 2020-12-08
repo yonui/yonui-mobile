@@ -20,7 +20,7 @@ export default class MainViceGroup extends Component<MainViceGroupProps> {
       setTimeout(() => { // 延时调用，等扩展js加载
         console.log('MainViceGroup componentDidMount')
         this.props.onShow && this.props.onShow()
-      }, 666)
+      }, 1566)
     }
   }
 
