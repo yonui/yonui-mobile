@@ -164,7 +164,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
           {TextString.selectAll}
         </span>
       </div> : <div className='yonui-radio-list-header-empty'> </div>}
-      <div className='yonui-radio-list-content'>
+      <div className='yonui-radio-list-content' style={isMultiple ? { padding: '0.88rem 0' } : {}}>
         {_list}
       </div>
       {isMultiple ? <div className='yonui-radio-list-footer'>
@@ -327,7 +327,15 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
         <div className='yonui-radio-items'>
           {radioArr}
         </div>
-        <Modal visible={open} popup maskClosable onClose={() => { this.onCloseModal() }} animationType='slide-up' className='yonui-radio-modal'>
+        <Modal
+          visible={open}
+          popup
+          maskClosable
+          onClose={() => { this.onCloseModal() }}
+          animationType='slide-up'
+          className='yonui-radio-modal'
+          wrapClassName='yonui-radio-modal-wrap'
+        >
           {this.renderRaioList(dataSource, checkedValue)}
         </Modal>
       </Wrapper>
