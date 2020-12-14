@@ -34,7 +34,6 @@ export default class Empty extends Component<EmptyProps> {
 
   render () {
     const { mode, message, style } = this.props
-    console.log(style, typeof style)
     let msg = message
     let src = ''
     data.filter((item) => {
