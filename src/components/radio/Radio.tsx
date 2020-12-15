@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Icon, Modal, Button } from 'antd-mobile'
 import Wrapper, { getListItemProps } from '../list-item-wrapper'
 import classnames from 'classnames'
-import selectedImg from './style/selected.png'
 interface dataType { text: string, value: string, disabled?: boolean }
 interface RadioProps extends React.defaultProps {
   mode?: 'tag' | 'list'
@@ -135,6 +134,20 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     // const selectedValueSet = typeof selectedValue === 'string' ? new Set([selectedValue]) : new Set(selectedValue)
     const { _checkedDataTemp } = this.state
     const _selectedValue = getValueFromDataType(_checkedDataTemp)[0]
+    const checkedSty = {
+      background: '#ee2233',
+      borderRadius: '50%',
+      padding: '0.05rem',
+      paddingTop: '0.06rem',
+      marginRight: '0.1rem'
+    }
+    const unCheckedSty = {
+      background: '#fff',
+      border: '1px solid #888',
+      borderRadius: '50%',
+      padding: '0.05rem',
+      marginRight: '0.1rem'
+    }
     const _list = selectData.map((item, index) => {
       const _checked = _selectedValue.includes(item.value)
       const cls = classnames('yonui-radio-list-content-item', {
@@ -151,26 +164,29 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
           this.onCloseModal(e)
         }
       }
-      return <Wrapper labelCls={cls} key={index} label={item.text} onClick={onClickWrapper} singleLine style={itemsStyle}>
-        {_checked ? <img src={selectedImg} style={{ width: '17px', height: '14px' }} /> : ''}
+      const listItem = <div style={{ display: 'inline-flex', alignItems: 'center' }}>
+        <Icon type='icon-yes' size='xs' color='#fff' style={_checked ? checkedSty : unCheckedSty} />
+        {item.text}
+      </div>
+      return <Wrapper labelCls={cls} key={index} label={listItem} labelStyle={{ fontSize: '0.3rem' }} onClick={onClickWrapper} singleLine style={itemsStyle}>
+        {/* {_checked ? <img src={selectedImg} style={{ width: '17px', height: '14px' }} /> : ''} */}
       </Wrapper>
     })
+
     return <div className='yonui-radio-list'>
       {isMultiple ? <div className='yonui-radio-list-header'>
         <span className='yonui-radio-list-header-btn-cancel' onClick={(e) => { this.onCloseModal(e) }}>
-          {TextString.cancel}
-        </span>
-        <span className='yonui-radio-list-header-btn-confirm' onClick={this.selectAll}>
-          {TextString.selectAll}
+          <Icon type='icon-X' size='xxs' color='#111111' />
         </span>
       </div> : <div className='yonui-radio-list-header-empty'> </div>}
       <div className='yonui-radio-list-content' style={isMultiple ? { padding: '0.88rem 0' } : {}}>
         {_list}
       </div>
       {isMultiple ? <div className='yonui-radio-list-footer'>
-        <div className='yonui-radio-list-footer-data'>
-          {TextString.selected} {_selectedValue.length}/{selectData.length}
-        </div>
+        <span className='yonui-radio-list-footer-btn-confirm' onClick={this.selectAll}>
+          <Icon type='icon-yes' size='xs' color='#fff' style={_selectedValue.length === selectData.length ? checkedSty : unCheckedSty} />
+          {TextString.selectAll}  {TextString.selected}{_selectedValue.length}条
+        </span>
         <Button size='small' type='primary' className='yonui-radio-list-footer-btn' onClick={this.onConfirm}>{TextString.confirm}</Button>
       </div> : null}
     </div>

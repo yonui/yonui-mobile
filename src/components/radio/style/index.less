@@ -142,10 +142,6 @@
             bottom: 0;
             right: 0;
         }
-        &-btn-confirm{
-          color: @brand-primary;
-          font-size: 16*@hd;
-        }
         &-btn-cancel{
           color: @color-text-base;
           font-size: 16*@hd;
@@ -175,8 +171,15 @@
         z-index: 5;
         width: 100%;
         bottom: 0;
-        &-data{
-          color: @brand-primary;
+        &-btn-confirm{
+          color: #555;
+          font-size: 14*@hd;
+          display: inline-flex;
+          align-items: center;
+          &-data{
+            color: #555;
+            padding-left: 14*@hd;
+          }
         }
         &-btn{
           width: 78*@hd;
