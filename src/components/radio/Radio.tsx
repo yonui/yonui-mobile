@@ -179,7 +179,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
           <Icon type='icon-X' size='xxs' color='#111111' />
         </span>
       </div> : <div className='yonui-radio-list-header-empty'> </div>}
-      <div className='yonui-radio-list-content' style={isMultiple ? { padding: '0.88rem 0' } : {}}>
+      <div className='yonui-radio-list-content'>
         {_list}
       </div>
       {isMultiple ? <div className='yonui-radio-list-footer'>

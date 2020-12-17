@@ -113,8 +113,6 @@
   border-radius: 10*@hd 10*@hd 0 0;
   .yonui-radio-modal{
     font-size: 15*@hd;
-    max-height: 85%;
-    overflow: scroll;
     .yonui-radio-list{
       &-disabled{
         color: #888888;
@@ -128,9 +126,6 @@
         // border-radius: 10*@hd 10*@hd 0 0;
         border-radius: 10*@hd 10*@hd 0 0;
         background: white;
-        position: fixed;
-        z-index: 5;
-        width: 100%;
         &::after{
           content: '';
             display: block;
@@ -154,6 +149,8 @@
       }
   
       &-content{
+        max-height: 70vh;
+        overflow: scroll;
         background-color: #fff;
         &-item{
           white-space: nowrap;
@@ -167,10 +164,6 @@
         justify-content: space-between;
         align-items: center;
         padding: 6*@hd 12*@hd;
-        position: fixed;
-        z-index: 5;
-        width: 100%;
-        bottom: 0;
         &-btn-confirm{
           color: #555;
           font-size: 14*@hd;
