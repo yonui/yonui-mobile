@@ -272,6 +272,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
     const { emailType, country, countryNum, _value } = this.state
     const val = value !== undefined ? this.valueAdapt(2, value) : _value
     const telValue = this.valueAdapt(0, value);
+    const editable = !mReadOnly && !disabled
     switch (mode) {
       case 'email': {
         const inputTextAlign = singleLine ? 'right' : 'left'
@@ -291,8 +292,10 @@ export default class Contact extends Component<ContactProps, ContactState> {
               disabled={disabled || (bCanModify !== undefined ? !bCanModify : bCanModify)}
               defaultValue={defaultValue}
             />
-            <span className='yonui-contact-button' onClick={() => { this.onOpenModal() }}>{emailType}</span>
-            <Icon type='down' />
+            <span className='yonui-contact-button' onClick={() => { editable && this.onOpenModal() }}>
+              {emailType}
+              {editable && <Icon size='xxs' type='down' />}
+            </span>
           </div>)
         const email = (
           <Input
@@ -331,8 +334,10 @@ export default class Contact extends Component<ContactProps, ContactState> {
           </div>)
         const areaContact = (
           <div className='yonui-monile-contact-content area-phone'>
-            <span className='yonui-contact-button' onClick={() => { this.onOpenModal() }}>{country}</span>
-            <Icon size='xxs' type='down' />
+            <span className='yonui-contact-button' onClick={() => { editable && this.onOpenModal() }}>
+              {country}
+              {editable && <Icon size='xxs' type='down' />}
+            </span>
             <span className='split-line' />
             <span className='phone-code'>{`+${countryNum}`}</span>
             {contact}
