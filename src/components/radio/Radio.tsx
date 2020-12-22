@@ -185,7 +185,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
       {isMultiple ? <div className='yonui-radio-list-footer'>
         <span className='yonui-radio-list-footer-btn-confirm' onClick={this.selectAll}>
           <Icon type='icon-yes' size='xs' color='#fff' style={_selectedValue.length === selectData.length ? checkedSty : unCheckedSty} />
-          {TextString.selectAll}  {TextString.selected}{_selectedValue.length}条
+          <span className='select-all-text'>{TextString.selectAll}</span>{TextString.selected}{_selectedValue.length}条
         </span>
         <Button size='small' type='primary' className='yonui-radio-list-footer-btn' onClick={this.onConfirm}>{TextString.confirm}</Button>
       </div> : null}
@@ -253,7 +253,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     })
     return <>
       <span className={fontCls}>{propsDisplayValue || displayValue}</span>
-      {!disabled && !mReadOnly && <Icon type='right' color='#bfbfbf' style={{ marginRight: '-6px' }} onClick={this.onClickIcon} />}
+      {!disabled && !mReadOnly && <Icon className='radio-select-icon' type='right' color='#bfbfbf' onClick={this.onClickIcon} />}
     </>
   }
 
@@ -333,11 +333,12 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     const bIsNull = model?._get_data('bIsNull')
     const wrapperProps = getListItemProps(this.props, {
       className: cls,
-      singleLine: singleLine || mode === 'list',
+      singleLine: singleLine,
       labelCls: 'yonui-radio-label',
       required: bIsNull === undefined ? undefined : !bIsNull
     })
     // if (bIsNull !== undefined) wrapperProps.notRequired = undefined
+    console.log('wrapperProps', wrapperProps)
     return (
       <Wrapper {...wrapperProps}>
         <div className='yonui-radio-items'>
