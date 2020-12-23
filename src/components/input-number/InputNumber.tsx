@@ -106,7 +106,7 @@ export default class Input extends Component<InputProps, InputState> {
   }
 
   _onChange = (val: string) => {
-    const value = !/^0$|\.0*$/.test(`${val}`) ? (Number(val) || '') : val;
+    const value = !/^-$|^0$|\.0*$/.test(`${val}`) ? (Number(val) || '') : val;
     const { onChange } = this.props
     onChange && onChange(value)
     this.setState({
