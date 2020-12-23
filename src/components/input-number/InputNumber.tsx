@@ -46,6 +46,7 @@ export interface InputProps extends ListItemWrapperProps {
 }
 
 interface InputState {
+  check?: boolean
   error?: boolean
   errorText?: string
   _value?: string | number
@@ -58,6 +59,7 @@ export default class Input extends Component<InputProps, InputState> {
   constructor (props: InputProps) {
     super(props)
     this.state = {
+      check: this.props.check,
       error: false,
       _value: props.defaultValue?.toString(),
       errorText: '',
@@ -146,7 +148,8 @@ export default class Input extends Component<InputProps, InputState> {
   }
 
   getInputProps = () => {
-    const { onError, onSuccess, check, mode } = this.props
+    const { onError, onSuccess, mode } = this.props
+    const { check } = this.state
     const _onError = (value: string, pattern: { reg?: RegExp, text?: string}) => {
       onError && onError(value, pattern)
       this.setState({
@@ -204,14 +207,19 @@ export default class Input extends Component<InputProps, InputState> {
   }
 
   checkFn = (value: string, final: boolean) => {
-    const val = value?.toString()
-    const { precision = 2, min = -1 * Number.MAX_VALUE, max = Number.MAX_VALUE, maxLength = 24, mode } = this.props
-    const normalCheck = NumberReg.normal.test(val) || !val
-    const _precision = mode === 'int' ? 0 : precision
-    const precisionCheck = !val.includes('.') ? true : val.length - val.indexOf('.') - 1 <= _precision
-    const sizeCheck = !final || !val || Number.isNaN(Number(val)) || (Number(val) >= Number(min) && Number(val) <= Number(max))
-    const LengthCheck = maxLength >= val.length
-    return normalCheck && precisionCheck && sizeCheck && LengthCheck
+    const { check } = this.state
+    if (check) {
+      const val = value?.toString()
+      const { precision = 2, min = -1 * Number.MAX_VALUE, max = Number.MAX_VALUE, maxLength = 24, mode } = this.props
+      const normalCheck = NumberReg.normal.test(val) || !val
+      const _precision = mode === 'int' ? 0 : precision
+      const precisionCheck = !val.includes('.') ? true : val.length - val.indexOf('.') - 1 <= _precision
+      const sizeCheck = !final || !val || Number.isNaN(Number(val)) || (Number(val) >= Number(min) && Number(val) <= Number(max))
+      const LengthCheck = maxLength >= val.length
+      return normalCheck && precisionCheck && sizeCheck && LengthCheck
+    } else {
+      return true
+    }
   }
 
   render () {

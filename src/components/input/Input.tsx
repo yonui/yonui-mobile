@@ -148,7 +148,7 @@ class Input extends Component<InputProps, InputState> {
       case 'ipAddress': {
         res = {
           ...res,
-          type: 'number',
+          type: 'text',
           pattern: customPattern || /^[0-9.]*$/,
           finalPattern: [
             {
