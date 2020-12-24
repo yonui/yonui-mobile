@@ -338,7 +338,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
       required: bIsNull === undefined ? undefined : !bIsNull
     })
     // if (bIsNull !== undefined) wrapperProps.notRequired = undefined
-    console.log('wrapperProps', wrapperProps)
+    // console.log('wrapperProps', wrapperProps)
     return (
       <Wrapper {...wrapperProps}>
         <div className='yonui-radio-items'>
