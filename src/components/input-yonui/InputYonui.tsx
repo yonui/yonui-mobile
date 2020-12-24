@@ -14,6 +14,7 @@ interface InputYonuiProps extends React.defaultProps {
   bCanModify?: boolean
   disabled?: boolean
   mReadOnly?: boolean
+  check?: boolean
   customCheck?: (value: string, final?: boolean) => boolean
   onFocus?: (value: string) => void
   onBlur?: (value: string) => void
@@ -40,7 +41,8 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
   }
 
   checkValue = (value: string, final?: boolean) => {
-    const { maxLength, pattern, onError, finalPattern, onSuccess, required, customCheck } = this.props
+    const { maxLength, pattern, onError, finalPattern, onSuccess, required, customCheck, check } = this.props
+    if (check != undefined && !check) return true
     if (customCheck && !customCheck(value, false)) {
       console.log('customCheck error', value)
       return false
