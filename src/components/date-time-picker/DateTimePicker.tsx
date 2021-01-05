@@ -135,7 +135,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
         <Wrapper {...wrapperProps}>
           <div className={valueCls}>
             {valueTrs ? dateFormat(valueTrs, fmt) : extra}
-            {!(disabled || mReadOnly) && <Icon type='right' />}
+            {!(disabled || mReadOnly) && <Icon style={{ color: '#bfbfbf', marginRight: '-6px' }} type='right' />}
           </div>
         </Wrapper>
         <span className='date-time-picker-calendar-wrapper'>
