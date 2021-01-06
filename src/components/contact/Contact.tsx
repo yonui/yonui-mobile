@@ -58,9 +58,11 @@ export default class Contact extends Component<ContactProps, ContactState> {
 
   constructor (props: ContactProps) {
     super(props)
+    const { mode, area } = props
+    const mobileWithArea = mode === 'mobilephone' && area
     this.state = {
-      country: this.valueAdapt(1, props.value) || '中国',
-      countryNum: this.valueAdapt(0, props.value) || '86',
+      country: (mobileWithArea && this.valueAdapt(1, props.value)) || '中国',
+      countryNum: (mobileWithArea && this.valueAdapt(0, props.value)) || '86',
       open: false,
       emailType: this.emailValueAdapt(1, props.value) || '@email.com',
       _value: this.valueAdapt(2, props.value),
