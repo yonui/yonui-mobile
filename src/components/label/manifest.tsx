@@ -158,6 +158,18 @@ const manifest: ComponentManifest = {
         props: {},
         label: '后缀'
       }
+    },
+    {
+      name: 'showZero',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '显示零值'
+      }
     }
   ]
 }
