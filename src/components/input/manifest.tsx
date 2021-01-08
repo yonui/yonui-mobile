@@ -30,6 +30,7 @@ const manifest: ComponentManifest = {
         props: {
           options: [
             { value: 'text', text: '文本' },
+            { value: 'password', text: '密码' },
             { value: 'idCard', text: '身份证' },
             { value: 'ipAddress', text: 'ip地址' },
             { value: 'bankCard16', text: '16位银行卡' },

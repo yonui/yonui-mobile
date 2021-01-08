@@ -6,7 +6,7 @@ import classnames from 'classnames'
 import Wrapper, { ListItemWrapperProps, getListItemProps } from '../list-item-wrapper'
 import { decodeValue } from '../_utils'
 export interface InputProps extends ListItemWrapperProps {
-  subuitype?: 'text' | 'idCard' | 'email' | 'ipAddress' | 'bankCard16' | 'bankCard19' | 'customized'
+  subuitype?: 'text' | 'password' | 'idCard' | 'email' | 'ipAddress' | 'bankCard16' | 'bankCard19' | 'customized'
   defaultValue?: string
   value?: string
   regRule?: string | RegExp
@@ -193,6 +193,14 @@ class Input extends Component<InputProps, InputState> {
         }
         break
       }
+      case 'password':
+        res = {
+          ...res,
+          type: 'password',
+          finalPattern: [customReg],
+          pattern: customPattern
+        }
+        break
       case 'text':
       default: {
         res = {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
 interface InputYonuiProps extends React.defaultProps {
-  type?: 'text' | 'number' | 'tel'
+  type?: 'text' | 'number' | 'tel' | 'password'
   pattern?: RegExp // 输入过程中的校验规则
   finalPattern?: RegExp | Array<{ reg: RegExp, text: string }> // onBlur时的校验规则
   value?: string | number
