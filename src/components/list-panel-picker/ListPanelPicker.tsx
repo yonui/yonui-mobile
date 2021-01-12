@@ -12,6 +12,7 @@ export interface ListPanelPickerProps {
   onClose: () => void
   onSelect: (object: DataItem) => void
   style?: object
+  model?: any
 }
 interface ListPanelPickerState {
   open: boolean
@@ -40,6 +41,8 @@ export default class ListPanelPicker extends Component<ListPanelPickerProps, Lis
 
   onClose = () => {
     this.props.onClose && this.props.onClose()
+    const { model } = this.props
+    model?.setVisible(false)
     this.setState({
       open: false
     })
