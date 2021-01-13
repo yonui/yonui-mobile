@@ -21,6 +21,7 @@ export interface LabelProps extends React.defaultProps{
   multiple: boolean
   dateMode: string
   showZero: boolean
+  showTitle: boolean
 }
 
 export default class Label extends React.PureComponent<LabelProps> {
@@ -130,7 +131,9 @@ export default class Label extends React.PureComponent<LabelProps> {
   }
 
   render () {
-    const { prefix, suffix, label, spareLabel, style, className, textAlign, textClamp, textLangth, leftIcon, rightIcon, visible, ...other } = this.props
+    const { prefix, showTitle, suffix, label, style, className, textAlign, textClamp, textLangth, leftIcon, rightIcon, visible, ...other } = this.props
+    let { spareLabel } = this.props
+    spareLabel = showTitle ? spareLabel : ''
     const parseValue = this.adaptValue(label)
     const sty: React.CSSProperties = { ...style, textAlign }
     const cls = classnames(className, 'yonui-tag')
@@ -143,7 +146,9 @@ export default class Label extends React.PureComponent<LabelProps> {
         <span className={cls} style={sty} {...other}>
           {leftIcon && leftIconEle}
           {prefix && <span className='yonui-mobile-tag-clamp' style={+textClamp ? { WebkitLineClamp: textClamp, textAlign: textAlign } : { whiteSpace: 'nowrap' }}>{prefix}</span>}
-          <span className={tagsCls} style={+textClamp ? { WebkitLineClamp: textClamp, textAlign: textAlign } : { whiteSpace: 'nowrap' }}>{(textLangth === undefined || +textLangth === 0 || (parseValue || spareLabel)?.length <= textLangth) ? (parseValue || spareLabel) : `${(parseValue || spareLabel)?.slice(0, textLangth)}...`}</span>
+          <span className={tagsCls} style={+textClamp ? { WebkitLineClamp: textClamp, textAlign: textAlign } : { whiteSpace: 'nowrap' }}>
+            {(textLangth === undefined || +textLangth === 0 || (parseValue || spareLabel)?.length <= textLangth) ? (parseValue || spareLabel) : `${(parseValue || spareLabel)?.slice(0, textLangth)}...`}
+          </span>
           {suffix && <span className='yonui-mobile-tag-clamp' style={+textClamp ? { WebkitLineClamp: textClamp, textAlign: textAlign } : { whiteSpace: 'nowrap' }}>{suffix}</span>}
           {rightIcon && rightIconEle}
         </span>

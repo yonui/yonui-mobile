@@ -170,6 +170,19 @@ const manifest: ComponentManifest = {
         props: {},
         label: '显示零值'
       }
+    },
+    {
+      name: 'showTitle',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '显示名称',
+        help: '值为空时是否显示名称'
+      }
     }
   ]
 }
