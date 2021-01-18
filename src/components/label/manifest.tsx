@@ -168,7 +168,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: false,
         props: {},
-        label: '显示零值'
+        label: '显示零值',
+        help: '绑定数值/整数类型时生效，打开：为0时展示0；关闭：为0时展示空'
       }
     },
     {
