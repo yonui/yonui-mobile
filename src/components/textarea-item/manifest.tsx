@@ -3,7 +3,7 @@ import { getFilterProps } from '../list-item-wrapper/manifestProps'
 const manifest: ComponentManifest = {
   name: 'Textarea',
   uiObject: UIObject.Controls,
-  label: '多行文本',
+  label: '多行文本框',
   type: TypeProps.FormControls,
   icon: 'rich_text',
   props: [

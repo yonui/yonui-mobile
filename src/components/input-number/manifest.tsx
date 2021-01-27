@@ -2,7 +2,7 @@ import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps, Extensio
 import { getFilterProps } from '../list-item-wrapper/manifestProps'
 const manifest: ComponentManifest = {
   name: 'InputNumber',
-  label: '数值',
+  label: '数值框',
   type: TypeProps.FormControls,
   uiObject: UIObject.Controls,
   icon: 'digital',

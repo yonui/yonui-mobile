@@ -3,7 +3,7 @@ import { getFilterProps } from '../list-item-wrapper/manifestProps'
 const manifest: ComponentManifest = {
   name: 'Input',
   uiObject: UIObject.Controls,
-  label: '文本',
+  label: '文本框',
   type: TypeProps.FormControls,
   icon: 'text',
   props: [
