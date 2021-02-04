@@ -156,9 +156,9 @@ export default class yonuiTabs extends Component<TabsProps, any> {
         tabBarBackgroundColor={tabBarBackgroundColor}
         renderTabBar={this.renderTabBar}
         tabBarUnderlineStyle={underline}
+        onChange={this.renderTabClick}
         {...other}
         page={nid ? this.props.page : this.state.tabPage}
-        onTabClick={this.renderTabClick}
       >{children}</Tabs>
     }
     // const tabsEle = pageSize
