@@ -125,7 +125,10 @@ export default class Label extends React.PureComponent<LabelProps> {
             return label
           }
         } catch (e) {
-          return label
+          if (typeof label === 'boolean') {
+            return label ? '是' : '否'
+          }
+          return showZero ? label?.toString() : label
         }
     }
   }
