@@ -85,6 +85,7 @@ export default class CardBox extends Component<CardBoxProps, CardBoxState> {
     const __RUNTIME_CONTEXT__ = children?.[0]?.props?.__RUNTIME_CONTEXT__
     const rowIndex = __RUNTIME_CONTEXT__?.rowIndex
     const gridModel = __RUNTIME_CONTEXT__?.gridModel
+    console.log('xxxxx displayStyle: ', displayStyle)
     switch (displayStyle) {
       case 'detail': {
         const wrapperCls = classnames('yonui-card-box-wrapper', { 'yonui-card-box-wrapper-extra-icon': showTitleExtraIcon })
