@@ -1,4 +1,4 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps, SysProps } from 'yonui-extension'
 const transformer = ({ meta, vm }) => {
   return (props) => {
     props.mReadOnly = vm?.get('mActionList')?.getReadOnly()
@@ -28,6 +28,7 @@ const manifest: ComponentManifest = {
   type: TypeProps.DataContainer,
   uiObject: UIObject.Containers,
   icon: 'card',
+  systemProperties: [SysProps.DATA_COLLECTION],
   props: [
     {
       name: 'displayStyle',
