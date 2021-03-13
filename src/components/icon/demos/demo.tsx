@@ -4,21 +4,12 @@
  */
 import React, { Component } from 'react'
 import Icon from '../index'
-import data from '../iconSource'
+import data from '../iconSource2'
 import '../style'
 import './demo.less'
 export default class Demo1 extends Component {
   renderIcon = () => {
-    return Object.keys(data).map(value => {
-      return <span style={{
-        display: "inline-block",
-        backgroundColor: "#fff",
-        margin: '5px',
-        padding: '5px',
-        borderRadius: '2px',
-        color: '#111'
-      }}><Icon type={value}>value</Icon></span>
-    })
+    return <Icon type={'penguin'} data={data}>value</Icon>
   }
   render () {
     return (

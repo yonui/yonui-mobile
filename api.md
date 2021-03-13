@@ -17,7 +17,16 @@
 | message | string | '' |  文字描述|
 
 
-# README
+# empty 情感化页面空数据
+## 情感化页面
+**API**
+
+| empty |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 设计器类型 | 默认值 | 说明 |
+| mode | string | 'success' |  模式 取值范围 ['noData','client','blankPage','error','review','server','noNetwork']|
+| message | string | '' |  文字描述|
+
 
 # README
 ## tips 基础组件-徽标数
@@ -31,8 +40,6 @@
 | dot | boolean | false |  不展示数字，只有一个小红点 |
 | overflowCount | number | - |  展示封顶的数字值 |
 
-
-# README
 
 # README
 label组件可用作标签等单纯的数据展示。
@@ -53,27 +60,6 @@ label组件可用作标签等单纯的数据展示。
 
 
 # README
-
-# empty 情感化页面空数据
-## 情感化页面
-**API**
-
-| empty |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 设计器类型 | 默认值 | 说明 |
-| mode | string | 'success' |  模式 取值范围 ['noData','client','blankPage','error','review','server','noNetwork']|
-| message | string | '' |  文字描述|
-
-
-# README
-
-包含noticebar和notice
-
-# README
-
-# README
-
-# README
 ## navbar 导航栏
 **API**
 
@@ -83,6 +69,16 @@ label组件可用作标签等单纯的数据展示。
 | label | string | - |  标签 |
 | style | object | - |  样式描述 |
 
+
+# README
+
+# README
+
+# README
+
+包含noticebar和notice
+
+# README
 
 # README
 
@@ -116,6 +112,8 @@ interface dataType { text: string, value: string, disabled?: boolean }
 # README
 
 # README
+
+# README
 ## Grid 宫格
 **API**
 
@@ -134,46 +132,6 @@ interface dataType { text: string, value: string, disabled?: boolean }
 |activeStyle|	点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)	|{}/false|	{}|
 |activeClassName	|点击反馈的自定义类名	|string	||
 |itemStyle	|每个格子自定义样式	|object	|{}|
-
-
-# README
-
-- Tabs组件的专属容器子组件
-
-
-# README
-工具栏
-
-### API
-
-| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
-| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
-
-
-# README
-
-# README
-
-# README
-
-加载
-
-
-
-### api
-
-| 属性      | 说明                      | 必填 | 类型                       | 默认值    |
-| --------- | ------------------------- | ---- | -------------------------- | --------- |
-| *show*    | 是否展示加载组件          | 否   | boolean                    | 'title'   |
-| *theme*   | 主题                      | 否   | 'primary'\|'dark'\|'light' | 'primary' |
-| *type*    | 加载类型                  | 否   | 'toast'\|'jump'\|'local'   | 'toast'   |
-| *percent* | type='jump'时的百分比     | 否   | number                     |           |
-| *inline*  | type='jump'时是否行内模式 | 否   | boolean                    | false     |
-| *content* | typr='toast'时文字内容    | 否   | string                     | ''        |
-| *size*    | type='local'时图标大小    | 否   | 'small' \| 'large'         | 'small'   |
-
-
-
 
 
 # README
@@ -201,6 +159,22 @@ interface dataType { text: string, value: string, disabled?: boolean }
 | *iconsStyle* | icons区域样式 | 否 | CSSProperties |  |
 
 
+
+# README
+
+- Tabs组件的专属容器子组件
+
+
+# README
+工具栏
+
+### API
+
+| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
+| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
+
+
+# README
 
 # README
 
@@ -276,19 +250,6 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 
 # README
-## ListPanelPicker 基础组件-操作列表
-**API**
-
-| ListPanelPicker |  |  |  |
-| :---: | --- | --- | --- |
-属性 | 说明 | 类型 | 默认值 |
-visible | 是否显示 | boolean | false |
-header | 头部的值 | string | - |
-data | 传入的列表数据 | Array<{key, text, delete?}>,delete为true,操作列表项颜色为红色,key为主键,text为显示文本,不需要可以不写delete属性 | [] |
-onClose | 关闭时回调 | () => void | |
-onClick | 点击时回调 | (object: DataItem) => void | |
-
-# README
 ## Input 基础组件-输入框
 **API**
 
@@ -319,8 +280,17 @@ onClick | 点击时回调 | (object: DataItem) => void | |
 # README
 
 # README
+## ListPanelPicker 基础组件-操作列表
+**API**
 
-# README
+| ListPanelPicker |  |  |  |
+| :---: | --- | --- | --- |
+属性 | 说明 | 类型 | 默认值 |
+visible | 是否显示 | boolean | false |
+header | 头部的值 | string | - |
+data | 传入的列表数据 | Array<{key, text, delete?}>,delete为true,操作列表项颜色为红色,key为主键,text为显示文本,不需要可以不写delete属性 | [] |
+onClose | 关闭时回调 | () => void | |
+onClick | 点击时回调 | (object: DataItem) => void | |
 
 # README
 卡片容器组件
@@ -342,27 +312,8 @@ onClick | 点击时回调 | (object: DataItem) => void | |
 # README
 
 # README
-列表行容器组件，用来规范同类组件样式。
 
-### API
-
-| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
-| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
-| label  | 标题                            | 否   | string |  |
-| subLabel | 副标题文本 | 否   | string                               |  |
-| required | 是否必填 | 否   | boolean                     | false |
-| splitLine | 是否展示分割线             | 否   | boolean                 | true |
-| singleLine | 是否单行展示 | 否   | boolean | false |
-| labelCls | 标题className | 否 | string |  |
-| labelStyle | 标题style属性 | 否 | React.CSSProperties |  |
-| contentCls | 内容className | 否 | string | |
-| contentStyle | 内容style属性 | 否 | React.CSSProperties | |
-| error | 是否错误 | 否 | boolean | false |
-| errorText | 错误提示文本 | 否 | string | '填写信息有误!请重新填写' |
-| showExtraLabelIcon | 是否展示标题左侧图标 | 否 | boolean | false |
-| onClick | 行点击事件 | 否 | (*event*: React.MouseEvent<HTMLDivElement, MouseEvent>) => void | |
-
-
+# README
 
 # README
 
@@ -387,6 +338,29 @@ interface InputNumberPorps {
   onChange?: (value: string) => void
 }
 ```
+
+
+# README
+列表行容器组件，用来规范同类组件样式。
+
+### API
+
+| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
+| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
+| label  | 标题                            | 否   | string |  |
+| subLabel | 副标题文本 | 否   | string                               |  |
+| required | 是否必填 | 否   | boolean                     | false |
+| splitLine | 是否展示分割线             | 否   | boolean                 | true |
+| singleLine | 是否单行展示 | 否   | boolean | false |
+| labelCls | 标题className | 否 | string |  |
+| labelStyle | 标题style属性 | 否 | React.CSSProperties |  |
+| contentCls | 内容className | 否 | string | |
+| contentStyle | 内容style属性 | 否 | React.CSSProperties | |
+| error | 是否错误 | 否 | boolean | false |
+| errorText | 错误提示文本 | 否 | string | '填写信息有误!请重新填写' |
+| showExtraLabelIcon | 是否展示标题左侧图标 | 否 | boolean | false |
+| onClick | 行点击事件 | 否 | (*event*: React.MouseEvent<HTMLDivElement, MouseEvent>) => void | |
+
 
 
 # README
@@ -436,6 +410,28 @@ type emailType = Array<{type: string}>
 
 # README
 
+加载
+
+
+
+### api
+
+| 属性      | 说明                      | 必填 | 类型                       | 默认值    |
+| --------- | ------------------------- | ---- | -------------------------- | --------- |
+| *show*    | 是否展示加载组件          | 否   | boolean                    | 'title'   |
+| *theme*   | 主题                      | 否   | 'primary'\|'dark'\|'light' | 'primary' |
+| *type*    | 加载类型                  | 否   | 'toast'\|'jump'\|'local'   | 'toast'   |
+| *percent* | type='jump'时的百分比     | 否   | number                     |           |
+| *inline*  | type='jump'时是否行内模式 | 否   | boolean                    | false     |
+| *content* | typr='toast'时文字内容    | 否   | string                     | ''        |
+| *size*    | type='local'时图标大小    | 否   | 'small' \| 'large'         | 'small'   |
+
+
+
+
+
+# README
+
 ### API
 
 | 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
@@ -444,8 +440,6 @@ type emailType = Array<{type: string}>
 | *width*                | iframe的样式宽度属性，默认为100%           | 否   | string                              |    |
 | *height*             | iframe的样式高度属性，默认为100%                    | 否   | string                       |        |
 
-
-# README
 
 # README
 
@@ -462,6 +456,12 @@ type emailType = Array<{type: string}>
 | onChange | 评分变化时间 | 否 | (value: number)=>void |        |
 
 
+
+# README
+
+# README
+
+# README
 
 # README
 
