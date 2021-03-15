@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import loadSprite from './loadSprite'
+import { loadSprite, loadSpriteForDesign } from './loadSprite'
 import { IconPropsType } from './PropsType'
 import { Omit } from '../_utils/types'
 import axios from 'axios'
@@ -14,45 +14,52 @@ export interface IconProps extends IconPropsType, SvgProps {
   onClick?: React.MouseEventHandler<SVGSVGElement>
   visible?: boolean
 }
-
+let cls = null
 export default class Icon extends React.Component<IconProps, any> {
   static defaultProps = {
     size: 'md',
     visible: true
   }
 
-  constructor (props) {
-    super(props)
-    let type = this.props.type || ''
-    type = type.replace('icon-', '') // 去掉icon id 的前缀
-    console.log('------- icon type: ', type)
-    if (type) {
-      const _url = `/iconfont/geticonsvg?type=${type}`
-      axios.get(_url, {
-        withCredentials: true
-      }).then(res => {
-        console.log('------- icon return res: ', res.data)
-        loadSprite(res?.data?.data)
-      }).catch(() => {})
-    }
-  }
-
   componentDidMount () {
-    // loadSprite(this.props?.data?.penguin)
-    // loadSprite(this.props.type)
-  }
-
-  render () {
-    let { type, className, size, style, visible, ...restProps } = this.props
-    type = type.replace('icon-', '') // 去掉icon id 的前缀
-    const cls = classnames(
+    // loadSprite(this.props?.data?.penguin) // 测试demo
+    const { nid, type, className, size } = this.props
+    let defaultClass = ''
+    if (nid) { // 设计态
+      loadSpriteForDesign(type)
+    } else {
+      defaultClass = 'am-icon-default' // 运行时icon图标显示反转180°
+      console.log('------- icon type: ', type)
+      if (type) {
+        const _url = `/iconfont/geticonsvg?type=${type}`
+        axios.get(_url, {
+          withCredentials: true
+        }).then(res => {
+          console.log('------- icon return res: ', res.data)
+          loadSprite(res?.data?.data)
+        }).catch(() => {})
+      }
+    }
+    cls = classnames(
       className,
-      'am-icon-default',
+      defaultClass,
       'am-icon',
       `am-icon-${type}`,
       `am-icon-${size}`
     )
+  }
+
+  render () {
+    const { type, className, size, style, visible, ...restProps } = this.props
     if (!visible) return null
+    if (!cls) {
+      cls = classnames(
+        className,
+        'am-icon',
+        `am-icon-${type}`,
+        `am-icon-${size}`
+      )
+    }
     return (
       <svg
         className={cls}

@@ -6,16 +6,7 @@
 
 # README
 
-# result 反馈页
-## 反馈页面
-**API**
-
-| result |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 设计器类型 | 默认值 | 说明 |
-| mode | string | 'success' |  模式 取值范围 ['success','wait','reject']|
-| message | string | '' |  文字描述|
-
+# README
 
 # empty 情感化页面空数据
 ## 情感化页面
@@ -76,8 +67,6 @@ label组件可用作标签等单纯的数据展示。
 
 # README
 
-包含noticebar和notice
-
 # README
 
 # README
@@ -113,6 +102,8 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 # README
 
+包含noticebar和notice
+
 # README
 ## Grid 宫格
 **API**
@@ -136,30 +127,6 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 # README
 
-### API
-
-| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
-| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
-| *tabs*                    | tab数据源                      | 是   | array                                | []     |
-| *animated*                | 是否使用切换动画效果           | 否   | boolean                              | true   |
-| *initialPage*             | initialPage                    | 否   | number\|string                       |        |
-| *page*                    | 当前Tab下标或key值             | 否   | number\|string                       |        |
-| *pageSize*                | 单页最大标签数，超出后滑动展示 | 否   | number                               | 5      |
-| *swipeable*              | 是否可滑动切换内容             | 否   | boolean                              | false  |
-| *onChange*                | tab变化时触发                  | 否   | (tab: object, index: number) => void |        |
-| *onTabClick*              | tab点击时时触发                | 否   | (tab: object, index: number) => void |        |
-| *icons*                   | tab右侧图标                    | 否   | Array< JSX.Element > |        |
-| *gather*                  | tab是否集中分布                | 否   | boolean                              | false  |
-| *splitLine*               | 是否展示tab-bar下方的分隔符    | 否   | boolean                              | true   |
-| *abBarBackgroundColor*    | 标签栏背景色                   | 否   | string                               |        |
-| *tabBarActiveTextColor*   | 激活文字颜色                   | 否   | string                               |        |
-| *tabBarInactiveTextColor* | 非激活文字颜色                 | 否   | string                               |        |
-| *iconsOccupy* | icons是否占位 | 否 | boolean | true |
-| *iconsClassName* | icons区域类名 | 否 | string |  |
-| *iconsStyle* | icons区域样式 | 否 | CSSProperties |  |
-
-
-
 # README
 
 - Tabs组件的专属容器子组件
@@ -173,8 +140,6 @@ interface dataType { text: string, value: string, disabled?: boolean }
 | 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
 | ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
 
-
-# README
 
 # README
 
@@ -195,6 +160,28 @@ interface dataType { text: string, value: string, disabled?: boolean }
 | callback         | 点击选项内容时的回调函数。参数为选项所在列/行的下标，从0开始计数。当为一维数组时，row恒为0 | 发fasle | (col:number,row?:number)=>void                               |         |
 
 
+
+
+
+
+
+# README
+
+加载
+
+
+
+### api
+
+| 属性      | 说明                      | 必填 | 类型                       | 默认值    |
+| --------- | ------------------------- | ---- | -------------------------- | --------- |
+| *show*    | 是否展示加载组件          | 否   | boolean                    | 'title'   |
+| *theme*   | 主题                      | 否   | 'primary'\|'dark'\|'light' | 'primary' |
+| *type*    | 加载类型                  | 否   | 'toast'\|'jump'\|'local'   | 'toast'   |
+| *percent* | type='jump'时的百分比     | 否   | number                     |           |
+| *inline*  | type='jump'时是否行内模式 | 否   | boolean                    | false     |
+| *content* | typr='toast'时文字内容    | 否   | string                     | ''        |
+| *size*    | type='local'时图标大小    | 否   | 'small' \| 'large'         | 'small'   |
 
 
 
@@ -311,7 +298,16 @@ onClick | 点击时回调 | (object: DataItem) => void | |
 
 # README
 
-# README
+# result 反馈页
+## 反馈页面
+**API**
+
+| result |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 设计器类型 | 默认值 | 说明 |
+| mode | string | 'success' |  模式 取值范围 ['success','wait','reject']|
+| message | string | '' |  文字描述|
+
 
 # README
 
@@ -341,6 +337,10 @@ interface InputNumberPorps {
 
 
 # README
+
+# README
+
+# README
 列表行容器组件，用来规范同类组件样式。
 
 ### API
@@ -365,23 +365,27 @@ interface InputNumberPorps {
 
 # README
 
-# README
-
-一个简单的列表组件，支持下拉刷新和触底加载。大数据浏览时使用会产生性能问题。
-
 ### API
 
 | 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
 | ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
-| dataSource         | 列表数据源                 | 是   | array                                | []     |
-| pullToRefresh | 是否启用下拉刷新 | 否 | boolean | true |
-| footerText | 底部区域文本，为空时不展示底部文字 | 否 | string | '' |
-| split | 列表项之间的分隔符号，分为无、分割线和分隔块 | 否 | 'none'\|'line'\|'blank' | 'line' |
-| height | 列表高度 | 否 | number | - |
-| reserverdHeight | 列表底部预留高度，设置height属性时无效 | 否 | number | - |
-| renderRow | 渲染每一行数据的方法，参数为数据源的每一项 | 是 | (item: any, dataSource any[], index: number) => React.ReactChild | - |
-| onRefresh | 触发下拉刷新事件的回调 | 否 | () => void | - |
-| onReachFoot | 页面滑动到底部时的回调 | 否 | () => void | - |
+| *tabs*                    | tab数据源                      | 是   | array                                | []     |
+| *animated*                | 是否使用切换动画效果           | 否   | boolean                              | true   |
+| *initialPage*             | initialPage                    | 否   | number\|string                       |        |
+| *page*                    | 当前Tab下标或key值             | 否   | number\|string                       |        |
+| *pageSize*                | 单页最大标签数，超出后滑动展示 | 否   | number                               | 5      |
+| *swipeable*              | 是否可滑动切换内容             | 否   | boolean                              | false  |
+| *onChange*                | tab变化时触发                  | 否   | (tab: object, index: number) => void |        |
+| *onTabClick*              | tab点击时时触发                | 否   | (tab: object, index: number) => void |        |
+| *icons*                   | tab右侧图标                    | 否   | Array< JSX.Element > |        |
+| *gather*                  | tab是否集中分布                | 否   | boolean                              | false  |
+| *splitLine*               | 是否展示tab-bar下方的分隔符    | 否   | boolean                              | true   |
+| *abBarBackgroundColor*    | 标签栏背景色                   | 否   | string                               |        |
+| *tabBarActiveTextColor*   | 激活文字颜色                   | 否   | string                               |        |
+| *tabBarInactiveTextColor* | 非激活文字颜色                 | 否   | string                               |        |
+| *iconsOccupy* | icons是否占位 | 否 | boolean | true |
+| *iconsClassName* | icons区域类名 | 否 | string |  |
+| *iconsStyle* | icons区域样式 | 否 | CSSProperties |  |
 
 
 
@@ -410,25 +414,7 @@ type emailType = Array<{type: string}>
 
 # README
 
-加载
-
-
-
-### api
-
-| 属性      | 说明                      | 必填 | 类型                       | 默认值    |
-| --------- | ------------------------- | ---- | -------------------------- | --------- |
-| *show*    | 是否展示加载组件          | 否   | boolean                    | 'title'   |
-| *theme*   | 主题                      | 否   | 'primary'\|'dark'\|'light' | 'primary' |
-| *type*    | 加载类型                  | 否   | 'toast'\|'jump'\|'local'   | 'toast'   |
-| *percent* | type='jump'时的百分比     | 否   | number                     |           |
-| *inline*  | type='jump'时是否行内模式 | 否   | boolean                    | false     |
-| *content* | typr='toast'时文字内容    | 否   | string                     | ''        |
-| *size*    | type='local'时图标大小    | 否   | 'small' \| 'large'         | 'small'   |
-
-
-
-
+# README
 
 # README
 
@@ -440,6 +426,28 @@ type emailType = Array<{type: string}>
 | *width*                | iframe的样式宽度属性，默认为100%           | 否   | string                              |    |
 | *height*             | iframe的样式高度属性，默认为100%                    | 否   | string                       |        |
 
+
+# README
+
+一个简单的列表组件，支持下拉刷新和触底加载。大数据浏览时使用会产生性能问题。
+
+### API
+
+| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
+| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
+| dataSource         | 列表数据源                 | 是   | array                                | []     |
+| pullToRefresh | 是否启用下拉刷新 | 否 | boolean | true |
+| footerText | 底部区域文本，为空时不展示底部文字 | 否 | string | '' |
+| split | 列表项之间的分隔符号，分为无、分割线和分隔块 | 否 | 'none'\|'line'\|'blank' | 'line' |
+| height | 列表高度 | 否 | number | - |
+| reserverdHeight | 列表底部预留高度，设置height属性时无效 | 否 | number | - |
+| renderRow | 渲染每一行数据的方法，参数为数据源的每一项 | 是 | (item: any, dataSource any[], index: number) => React.ReactChild | - |
+| onRefresh | 触发下拉刷新事件的回调 | 否 | () => void | - |
+| onReachFoot | 页面滑动到底部时的回调 | 否 | () => void | - |
+
+
+
+# README
 
 # README
 
@@ -456,14 +464,6 @@ type emailType = Array<{type: string}>
 | onChange | 评分变化时间 | 否 | (value: number)=>void |        |
 
 
-
-# README
-
-# README
-
-# README
-
-# README
 
 # README
 

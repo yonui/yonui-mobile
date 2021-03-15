@@ -19,6 +19,7 @@ const renderSvgSprite = (type: string) => {
   cacheSvgSprites[type] = icons[type]
   return Object.keys(cacheSvgSprites).map(iconName => {
     const svgContent = cacheSvgSprites[iconName].split('svg')[1]
+    console.log(svgContent)
     return `<symbol id=${iconName}${svgContent}symbol>`
   }).join('')
 }
