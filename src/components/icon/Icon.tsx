@@ -31,7 +31,7 @@ export default class Icon extends React.Component<IconProps, any> {
       defaultClass = 'am-icon-default' // 运行时icon图标显示反转180°
       console.log('------- icon type: ', type)
       if (type) {
-        const _url = `/iconfont/geticonsvg?type=${type}`
+        const _url = `${window.DOMAIN_PREFIX || ''}/iconfont/geticonsvg?type=${type}`
         axios.get(_url, {
           withCredentials: true
         }).then(res => {
