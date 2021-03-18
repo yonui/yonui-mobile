@@ -132,7 +132,7 @@ class Input extends Component<InputProps, InputState> {
       case 'idCard': {
         res = {
           ...res,
-          type: 'tel',
+          type: 'text',
           pattern: customPattern || /^[0-9xX]*$/,
           finalPattern: [
             {

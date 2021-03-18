@@ -23,7 +23,7 @@ const manifest: ComponentManifest = {
             { text: '整数', value: 'int'}
           ]
         },
-        label: '格式类型'
+        label: '数值类型'
       }
     },
     {
@@ -81,7 +81,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: true,
         props: {},
-        label: '缩放数值',
+        label: '缩放比例',
         help: '缩放显示值，不影响实际值'
       }
     },
@@ -140,7 +140,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Number,
         isRequired: true,
         props: {},
-        label: '输入长度'
+        label: '最大长度'
       }
     },
     {
