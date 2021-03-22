@@ -37,6 +37,7 @@ export const selfPropsArray: string[] = [
   'contentStyle',
   'error',
   'errorText',
+  'regRuleText',
   'showExtraLabelIcon',
   'onClick',
   'className',
