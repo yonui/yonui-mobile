@@ -1,5 +1,6 @@
 import React from 'react'
-import { NavBar, Icon } from 'antd-mobile'
+import { NavBar } from 'antd-mobile'
+import Icon from '../../components/icon'
 
 export interface NavBarProps {
   rightIcon1?: string
