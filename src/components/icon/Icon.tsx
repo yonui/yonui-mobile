@@ -23,12 +23,10 @@ export default class Icon extends React.Component<IconProps, any> {
 
   componentDidMount () {
     // loadSprite(this.props?.data?.penguin) // 测试demo
-    const { nid, type, className, size } = this.props
-    let defaultClass = ''
+    const { nid, type } = this.props
     if (nid) { // 设计态
       loadSpriteForDesign(type)
     } else {
-      defaultClass = 'am-icon-default' // 运行时icon图标显示反转180°
       console.log('------- icon type: ', type)
       if (type) {
         const _url = `${window.DOMAIN_PREFIX || ''}/iconfont/geticonsvg?type=${type}`
@@ -40,21 +38,15 @@ export default class Icon extends React.Component<IconProps, any> {
         }).catch(() => {})
       }
     }
-    cls = classnames(
-      className,
-      defaultClass,
-      'am-icon',
-      `am-icon-${type}`,
-      `am-icon-${size}`
-    )
   }
 
   render () {
-    const { type, className, size, style, visible, ...restProps } = this.props
+    const { type, className, size, style, visible, nid, ...restProps } = this.props
     if (!visible) return null
     if (!cls) {
       cls = classnames(
         className,
+        { 'am-icon-default': nid !== undefined },
         'am-icon',
         `am-icon-${type}`,
         `am-icon-${size}`
