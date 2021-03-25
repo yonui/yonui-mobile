@@ -43,15 +43,13 @@ export default class Icon extends React.Component<IconProps, any> {
   render () {
     const { type, className, size, style, visible, nid, ...restProps } = this.props
     if (!visible) return null
-    if (!cls) {
-      cls = classnames(
-        className,
-        { 'am-icon-default': nid !== undefined },
-        'am-icon',
-        `am-icon-${type}`,
-        `am-icon-${size}`
-      )
-    }
+    cls = classnames([
+      className,
+      'am-icon',
+      `am-icon-${type}`,
+      `am-icon-${size}`,
+      { 'am-icon-default': nid !== undefined }
+    ])
     return (
       <svg
         className={cls}
