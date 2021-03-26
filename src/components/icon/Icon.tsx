@@ -15,6 +15,7 @@ export interface IconProps extends IconPropsType, SvgProps {
   visible?: boolean
 }
 let cls = null
+let defaultClass = ''
 export default class Icon extends React.Component<IconProps, any> {
   static defaultProps = {
     size: 'md',
@@ -23,10 +24,11 @@ export default class Icon extends React.Component<IconProps, any> {
 
   componentDidMount () {
     // loadSprite(this.props?.data?.penguin) // 测试demo
-    const { nid, type } = this.props
+    const { nid, type, className, size } = this.props
     if (nid) { // 设计态
       loadSpriteForDesign(type)
     } else {
+      defaultClass = 'am-icon-default' // 运行时icon图标显示反转180°
       console.log('------- icon type: ', type)
       if (type) {
         const _url = `${window.DOMAIN_PREFIX || ''}/iconfont/geticonsvg?type=${type}`
@@ -38,20 +40,25 @@ export default class Icon extends React.Component<IconProps, any> {
         }).catch(() => {})
       }
     }
+    cls = classnames(
+      className,
+      defaultClass,
+      'am-icon',
+      `am-icon-${type}`,
+      `am-icon-${size}`
+    )
   }
 
   render () {
-    const { type, className, size, style, visible, nid, ...restProps } = this.props
+    const { type, className, size, style, visible, ...restProps } = this.props
     if (!visible) return null
-    cls = classnames([
+    cls = classnames(
       className,
+      defaultClass,
       'am-icon',
       `am-icon-${type}`,
-      `am-icon-${size}`,
-      { 'am-icon-default': nid === undefined }
-    ])
-    // console.log('zyh-icon', 'type:', type, 'size:', size, 'nid:', nid)
-    // console.log('zyh-icon', 'cls:', cls)
+      `am-icon-${size}`
+    )
     return (
       <svg
         className={cls}
