@@ -48,8 +48,10 @@ export default class Icon extends React.Component<IconProps, any> {
       'am-icon',
       `am-icon-${type}`,
       `am-icon-${size}`,
-      { 'am-icon-default': nid !== undefined }
+      { 'am-icon-default': nid === undefined }
     ])
+    // console.log('zyh-icon', 'type:', type, 'size:', size, 'nid:', nid)
+    // console.log('zyh-icon', 'cls:', cls)
     return (
       <svg
         className={cls}
