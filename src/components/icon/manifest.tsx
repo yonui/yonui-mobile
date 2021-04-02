@@ -35,7 +35,7 @@ const manifest: ComponentManifest = {
           caption: '图标库',
           addText: '添加图标',
           editText: '更换图标',
-          iframeUrl: '/IconSelect',
+          iframeUrl: '/designviewer-mobile/iconSelect',
           iframeId: 'iconSelectIframe',
           message: true,
           footer: true
