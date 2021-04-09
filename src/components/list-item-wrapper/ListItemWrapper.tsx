@@ -4,6 +4,7 @@ export interface ListItemWrapperProps extends React.defaultProps {
   splitLine?: boolean
   singleLine?: boolean
   singleLineCenter?: boolean
+  singleAlignType?: string
   required?: boolean
   notRequired?: boolean
   label?: React.ReactNode
@@ -43,6 +44,7 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
       splitLine = true,
       singleLine,
       singleLineCenter,
+      singleAlignType,
       label,
       labelCls,
       labelStyle,
@@ -84,7 +86,8 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
       },
       {
         'single-line-center': singleLineCenter
-      }
+      },
+      `${singleAlignType && singleLine ? ('single-line-' + singleAlignType) : ''}`
     )
     const errorCls = classnames('list-item-wrapper-error', {
       hidden: !error

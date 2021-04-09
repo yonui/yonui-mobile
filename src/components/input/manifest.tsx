@@ -198,6 +198,24 @@ const manifest: ComponentManifest = {
         help: '配置可输入的字符内容范围，例如：只能输入数字：^[0-9]*$， 只能输入字母：^[a-zA-Z]*$'
       }
     },
+    {
+      name: 'singleAlignType',
+      type: FieldTypes.string,
+      defaultValue: 'right',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        isRequired: false,
+        props: {
+          options: [
+            { text: '左对齐', value: 'left' },
+            { text: '单行集中', value: 'center' },
+            { text: '右对齐', value: 'right' }
+          ]
+        },
+        label: '单行对齐方式'
+      }
+    },
     // {
     //   name: 'inputStyle',
     //   type: FieldTypes.action,
@@ -219,7 +237,7 @@ const manifest: ComponentManifest = {
     //     }
     //   }
     // },
-    ...getFilterProps(['errorText', 'labelStyle'])
+    ...getFilterProps(['singleLineCenter', 'errorText', 'labelStyle'])
   ],
   extension: [
     ExtensionProps.bIsNull,

@@ -30,6 +30,7 @@ export const selfPropsArray: string[] = [
   'required',
   'singleLine',
   'singleLineCenter',
+  'singleAlignType',
   'subLabel',
   'labelCls',
   'labelStyle',

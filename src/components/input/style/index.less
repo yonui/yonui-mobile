@@ -62,6 +62,36 @@
     }
 
   }
+  &.single-line-left{
+    .list-item-wrapper-label{
+      flex: 1;
+      white-space: nowrap;
+      margin-right: 10*@hd;
+    }
+    .list-item-wrapper-content{
+      flex: 3;
+      .yonui-input{
+        input{
+          text-align: left;
+        }
+      }
+    }
+  }
+  &.single-line-right{
+    .list-item-wrapper-label{
+      flex: 1;
+      white-space: nowrap;
+      margin-right: 10*@hd;
+    }
+    .list-item-wrapper-content{
+      flex: 3;
+      .yonui-input{
+        input{
+          text-align: right;
+        }
+      }
+    }
+  }
 
 }
 div[uitype='Input'] {
