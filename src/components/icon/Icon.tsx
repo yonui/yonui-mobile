@@ -49,8 +49,8 @@ export default class Icon extends React.Component<IconProps, any> {
     )
   }
 
-  shouldComponentUpdate (nextProps) {
-    if (nextProps.nid !== undefined)
+  shouldComponentUpdate () {
+    if (this.props.nid !== undefined)
       defaultClass = ''
     return true
   }

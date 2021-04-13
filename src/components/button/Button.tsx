@@ -107,7 +107,9 @@ class Button extends React.Component<ButtonProps, any> {
           aria-hidden='true'
           type={iconType}
           size={size === 'small' ? 'xxs' : 'md'}
-          className={`${prefixCls}-icon`} />
+          className={`${prefixCls}-icon`}
+          nid={restProps.nid}
+        />
       )
     } else if (iconType) {
       const rawCls = iconType.props && iconType.props.className
