@@ -4,17 +4,19 @@
   background-color: @fill-base;
   font-size: 0;
   overflow: auto;
-  &.vertical{
-    padding: 10*@hd;
+  &.alignleft{
+    padding: 14*@hd 0;
     .yonui-mobile-tool-bars-wrapper{
+      white-space: nowrap;
+      padding: 0 5*@hd;
+      min-height: 32*@hd;
+      line-height: 1;
       .mdf-button{
-        &:not(:last-child){
-          margin-bottom: 10*@hd;
-        }
+        direction: ltr;
       }
     }
   }
-  &.horizontal{
+  &.alignright{
     padding: 14*@hd 0;
     .yonui-mobile-tool-bars-wrapper{
       // overflow: auto;
