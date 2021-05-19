@@ -9,16 +9,16 @@ const manifest: ComponentManifest = {
     {
       name: 'layout',
       type: FieldTypes.string,
-      defaultValue: 'horizontal',
+      defaultValue: 'alignright',
       showDesign: true,
       designConfig: {
-        label: '排列方式',
+        label: '对齐方式',
         type: EditTypes.Select,
         isRequired: false,
         props: {
           options: [
-            { text: '水平', value: 'horizontal' },
-            { text: '竖直', value: 'vertical' }
+            { text: '右对齐', value: 'alignright' },
+            { text: '左对齐', value: 'alignleft' }
           ]
         }
       }

@@ -161,6 +161,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
       [_className]: val?.length > 0
     })
     const _inputStyle: React.CSSProperties = { textAlign, ...inputStyle }
+    const showValue = displayValue !== undefined ? displayValue : ''
     // console.log('-------inputBox-render---------\n', 'val', val)
     // console.log('displayVal', displayVal)
     // console.log('displayValue', displayValue)
@@ -169,7 +170,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
         <input
           className='yonui-input-box'
           type={type}
-          value={displayValue}
+          value={showValue}
           onChange={this._onChange}
           onBlur={this._onBlur}
           style={_inputStyle}

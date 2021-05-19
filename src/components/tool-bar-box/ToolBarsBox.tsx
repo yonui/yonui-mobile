@@ -3,12 +3,12 @@ import classnames from 'classnames'
 interface ToolBarBoxProps extends React.defaultProps{
   children?: JSX.Element[] | JSX.Element
   length?: number
-  layout?: 'vertical' | 'horizontal'
+  layout?: 'alignright' | 'alignleft'
   runTime?: boolean
 }
 export default class ToolBarBox extends Component<ToolBarBoxProps> {
   static defaultProps = {
-    layout: 'horizontal'
+    layout: 'alignright'
   }
 
   render () {
