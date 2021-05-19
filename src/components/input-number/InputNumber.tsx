@@ -179,7 +179,7 @@ export default class Input extends Component<InputProps, InputState> {
       default: {
         res = {
           ...res,
-          type: 'text',
+          type: 'number',
           finalPattern: /^-?(\d+\.\d+|[1-9]\d*|0)$/,
           maxLength: 18
         }
