@@ -1,2 +1,3 @@
-import { TabBar } from 'antd-mobile'
+import TabBar from './TabBar'
+
 export default TabBar
