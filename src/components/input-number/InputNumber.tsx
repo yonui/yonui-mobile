@@ -39,7 +39,7 @@ export interface InputProps extends ListItemWrapperProps {
   visible?: boolean
   onFocus?: (value: string) => void
   onBlur?: (value: string) => void
-  onChange?: (value: string) => void
+  onChange?: (value: string | number) => void
   onClickClear?: (value: string) => void
   onError?: (value: string, pattern: { reg?: RegExp, text?: string}) => void
   onSuccess?: (value: string) => void
@@ -108,7 +108,7 @@ export default class Input extends Component<InputProps, InputState> {
   _onChange = (val: string) => {
     const value = !/^-$|^0$|\.0*$/.test(`${val}`) ? (Number(val) || '') : val;
     const { onChange } = this.props
-    onChange && onChange(value)
+    onChange?.(value)
     this.setState({
       _value: value,
       _showValue: value
@@ -117,7 +117,7 @@ export default class Input extends Component<InputProps, InputState> {
 
   _onFocus = (val: string) => {
     const { onFocus } = this.props
-    onFocus && onFocus(val)
+    onFocus?.(val)
     this.setState({
       _displayValue: '',
       isFocus: true
@@ -127,9 +127,9 @@ export default class Input extends Component<InputProps, InputState> {
   _onBlur = (val: string) => {
     const { onBlur, onChange } = this.props
     if (/\.$/.test(`${val}`)) {
-      onChange && onChange(Number(val) || '')
+      onChange?.(Number(val) || '')
     }
-    onBlur && onBlur(val)
+    onBlur?.(val)
     let _displayValue = this.changeValue(this.props)
     if (!val) _displayValue = ''
     this.setState({
@@ -141,7 +141,7 @@ export default class Input extends Component<InputProps, InputState> {
 
   _onClickClear = (val: string) => {
     const { onClickClear } = this.props
-    onClickClear && onClickClear(val)
+    onClickClear?.(val)
     this.setState({
       _displayValue: ''
     })
@@ -151,14 +151,14 @@ export default class Input extends Component<InputProps, InputState> {
     const { onError, onSuccess, mode } = this.props
     const { check } = this.state
     const _onError = (value: string, pattern: { reg?: RegExp, text?: string}) => {
-      onError && onError(value, pattern)
+      onError?.(value, pattern)
       this.setState({
         error: check && true,
         errorText: pattern.text
       })
     }
     const _onSuccess = (value: string) => {
-      onSuccess && onSuccess(value)
+      onSuccess?.(value)
       this.setState({
         error: check && false
       })
@@ -179,7 +179,7 @@ export default class Input extends Component<InputProps, InputState> {
       default: {
         res = {
           ...res,
-          type: 'text',
+          type: 'number',
           finalPattern: /^-?(\d+\.\d+|[1-9]\d*|0)$/,
           maxLength: 18
         }
@@ -213,7 +213,7 @@ export default class Input extends Component<InputProps, InputState> {
       const { precision = 2, min = -1 * Number.MAX_VALUE, max = Number.MAX_VALUE, maxLength = 24, mode } = this.props
       const normalCheck = NumberReg.normal.test(val) || !val
       const _precision = mode === 'int' ? 0 : precision
-      const precisionCheck = !val.includes('.') ? true : val.length - val.indexOf('.') - 1 <= _precision
+      const precisionCheck = !val?.includes('.') ? true : val?.length - val?.indexOf('.') - 1 <= _precision
       const sizeCheck = !final || !val || Number.isNaN(Number(val)) || (Number(val) >= Number(min) && Number(val) <= Number(max))
       const LengthCheck = maxLength >= val.length
       return normalCheck && precisionCheck && sizeCheck && LengthCheck

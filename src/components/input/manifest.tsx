@@ -37,13 +37,13 @@ const manifest: ComponentManifest = {
             { value: 'bankCard19', text: '19位银行卡' },
           ]
         },
-        label: '类型'
+        label: '文本类型'
       }
     },
     {
       name: 'check',
       type: FieldTypes.boolean,
-      defaultValue: false,
+      defaultValue: true,
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
@@ -118,7 +118,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '格式',
+        label: '格式校验',
         help: '正则字符串'
       }
     },
@@ -130,7 +130,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '格式错误提示文本',
+        label: '校验错误提示',
         help: '对应自定义格式不正确的情况'
       }
     },
@@ -181,7 +181,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '字符格式',
+        label: '显示格式',
         help: '根据掩码和占位码改变展示格式，如: ###-####-#### = 188-8888-8888, ###****### = 188****8888'
       }
     },
@@ -194,8 +194,26 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '有效范围',
+        label: '字符限制',
         help: '配置可输入的字符内容范围，例如：只能输入数字：^[0-9]*$， 只能输入字母：^[a-zA-Z]*$'
+      }
+    },
+    {
+      name: 'singleAlignType',
+      type: FieldTypes.string,
+      defaultValue: 'right',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        isRequired: false,
+        props: {
+          options: [
+            { text: '左对齐', value: 'left' },
+            { text: '单行集中', value: 'center' },
+            { text: '右对齐', value: 'right' }
+          ]
+        },
+        label: '单行对齐方式'
       }
     },
     // {
@@ -219,7 +237,7 @@ const manifest: ComponentManifest = {
     //     }
     //   }
     // },
-    ...getFilterProps(['errorText', 'labelStyle'])
+    ...getFilterProps(['singleLineCenter', 'errorText', 'labelStyle'])
   ],
   extension: [
     ExtensionProps.bIsNull,

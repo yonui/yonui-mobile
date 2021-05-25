@@ -1,5 +1,6 @@
 import React from 'react'
-import { NavBar, Icon } from 'antd-mobile'
+import { NavBar } from 'antd-mobile'
+import Icon from '../icon'
 
 export interface NavBarProps {
   rightIcon1?: string
@@ -20,6 +21,7 @@ export interface NavBarProps {
   onCloseClick?: () => void
   onTitleClick?: () => void
   mode: string
+  nid: string
   reghtIcons: any
   style?: React.CSSProperties
   autoShow: boolean
@@ -36,20 +38,20 @@ export default class MDFNavBar extends React.Component<NavBarProps, any> {
   }
 
   renderLeftContent = () => {
-    const { style = {}, backIcon, backIconText, closeIcon, closeIconText, onBackClick, onCloseClick } = this.props
+    const { style = {}, backIcon, backIconText, closeIcon, closeIconText, nid, onBackClick, onCloseClick } = this.props
     return <>
-      <Icon color={style.color ? style.color : defaultColor} type={backIcon} onClick={onBackClick} />
+      <Icon color={style.color ? style.color : defaultColor} type={backIcon} nid={nid} onClick={onBackClick} />
       {backIconText}
-      {closeIcon && <Icon color={style.color ? style.color : defaultColor} type={closeIcon} style={{ marginLeft: 15 }} onClick={onCloseClick} />}
+      {closeIcon && <Icon color={style.color ? style.color : defaultColor} type={closeIcon} nid={nid} style={{ marginLeft: 15 }} onClick={onCloseClick} />}
       {closeIconText}
     </>
   }
 
   renderCenterContent = () => {
-    const { style = {}, title, titleIcon, subTitle, onTitleClick } = this.props
+    const { style = {}, title, titleIcon, subTitle, nid, onTitleClick } = this.props
     return <>
       <div onClick={onTitleClick}>
-        <div style={{ color: style.color ? style.color : defaultColor }} className='title'>{title}{titleIcon && <Icon type={titleIcon} />}</div>
+        <div style={{ color: style.color ? style.color : defaultColor }} className='title'>{title}{titleIcon && <Icon type={titleIcon} nid={nid} />}</div>
         <div style={{ color: style.color ? style.color : subTitleDefaultColor }} className='sub-title'>{subTitle}</div>
       </div>
 
@@ -57,12 +59,12 @@ export default class MDFNavBar extends React.Component<NavBarProps, any> {
   }
 
   renderRightContent = () => {
-    const { style = {}, rightIcon1, rightIcon1Text, rightIcon2, rightIcon2Text, onRight1Click, onRight2Click, reghtIcons } = this.props
+    const { style = {}, rightIcon1, rightIcon1Text, rightIcon2, rightIcon2Text, nid, onRight1Click, onRight2Click, reghtIcons } = this.props
     if (reghtIcons) return reghtIcons
     return <>
-      {rightIcon1 && <Icon color={style.color ? style.color : defaultColor} type={rightIcon1} onClick={onRight1Click} />}
+      {rightIcon1 && <Icon color={style.color ? style.color : defaultColor} type={rightIcon1} nid={nid} onClick={onRight1Click} />}
       {rightIcon1Text}
-      {rightIcon2 && <Icon color={style.color ? style.color : defaultColor} type={rightIcon2} onClick={onRight2Click} style={{ marginLeft: 15 }} />}
+      {rightIcon2 && <Icon color={style.color ? style.color : defaultColor} type={rightIcon2} nid={nid} onClick={onRight2Click} style={{ marginLeft: 15 }} />}
       {rightIcon2Text}
     </>
   }

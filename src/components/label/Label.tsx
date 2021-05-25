@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import { Icon } from 'antd-mobile'
+import Icon from '../icon'
 export interface LabelProps extends React.defaultProps{
   label?: string // 文本
   spareLabel?: string
@@ -141,8 +141,8 @@ export default class Label extends React.PureComponent<LabelProps> {
     const sty: React.CSSProperties = { ...style, textAlign }
     const cls = classnames(className, 'yonui-tag')
     const tagsCls = classnames('yonui-mobile-tag-text', 'yonui-mobile-tag-clamp')
-    const leftIconEle = typeof leftIcon === 'string' ? <Icon type={leftIcon} size='xxs' /> : leftIcon
-    const rightIconEle = typeof rightIcon === 'string' ? <Icon type={rightIcon} size='xxs' /> : rightIcon
+    const leftIconEle = typeof leftIcon === 'string' ? <Icon type={leftIcon} nid={other.nid} size='xxs' /> : leftIcon
+    const rightIconEle = typeof rightIcon === 'string' ? <Icon type={rightIcon} nid={other.nid} size='xxs' /> : rightIcon
     if (!visible) return null
     return (
       <span className='yonui-tag-out'>

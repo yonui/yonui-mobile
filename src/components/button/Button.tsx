@@ -16,6 +16,7 @@ export interface ButtonProps extends React.defaultProps{
   icon?: React.ReactNode | string
   uimeta?: string
   meta?: object
+  browseClick?: boolean
   onClick?: React.MouseEventHandler<HTMLAnchorElement>
 }
 
@@ -57,7 +58,8 @@ class Button extends React.Component<ButtonProps, any> {
   }
 
   _onClick = e => {
-    const { onClick } = this.props
+    const { onClick, mReadOnly, disabled, browseClick } = this.props
+    if (disabled || (!browseClick && mReadOnly)) return
     onClick && onClick(e)
   }
 
@@ -107,7 +109,9 @@ class Button extends React.Component<ButtonProps, any> {
           aria-hidden='true'
           type={iconType}
           size={size === 'small' ? 'xxs' : 'md'}
-          className={`${prefixCls}-icon`} />
+          className={`${prefixCls}-icon`}
+          nid={restProps.nid}
+        />
       )
     } else if (iconType) {
       const rawCls = iconType.props && iconType.props.className
@@ -130,7 +134,7 @@ class Button extends React.Component<ButtonProps, any> {
           className={wrapCls}
           {...restProps}
           style={style}
-          onClick={disabled || mReadOnly ? undefined : this._onClick}
+          onClick={this._onClick}
           aria-disabled={disabled || mReadOnly}
           aria-visible={visible}>
           {iconEl}

@@ -3,26 +3,33 @@
 .yonui-mobile-tool-bars-2{
   background-color: @fill-base;
   font-size: 0;
-  overflow: auto;
-  &.vertical{
-    padding: 10*@hd;
-    .yonui-mobile-tool-bars-wrapper{
-      .mdf-button{
-        &:not(:last-child){
-          margin-bottom: 10*@hd;
-        }
-      }
-    }
-  }
-  &.horizontal{
+  position: relative;
+  min-height: 60*@hd;
+  overflow: hidden;
+  &.alignleft{
     padding: 14*@hd 0;
     .yonui-mobile-tool-bars-wrapper{
-      // overflow: auto;
       white-space: nowrap;
       padding: 0 5*@hd;
       min-height: 32*@hd;
+      line-height: 1;
+      .mdf-button{
+        direction: ltr;
+      }
+    }
+  }
+  &.alignright{
+    .yonui-mobile-tool-bars-wrapper{
+      width: 100%;
+      white-space: nowrap;
+      padding: 0.28rem 0.1rem;
+      position: absolute;
+      left: 0;
+      min-height: 32*@hd;
       direction: rtl;
       line-height: 1;
+      overflow-x: scroll;
+      overflow-y: hidden;
       //display: flex;
       //justify-content: space-evenly;
       .mdf-button{

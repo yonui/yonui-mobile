@@ -11,6 +11,12 @@ import '../style'
 import './demo.less'
 import { dateFormat } from '../../_utils'
 const now = new Date()
+
+const extra = {
+  '2021/05/26':{info:'zyhtest'},
+  '2021/05/27':{info:'zyhtest'},
+  '2021/05/28':{info:'zyhtest'},
+}
 export default class Demo1 extends Component<any, any> {
   originbodyScrollY = document.getElementsByTagName('body')[0].style.overflowY;
   constructor (props: any) {
@@ -77,6 +83,7 @@ export default class Demo1 extends Component<any, any> {
           defaultValue={[new Date(now), new Date(now.getFullYear(), now.getMonth(), now.getDate() + 5)]}
           minDate={new Date(+now - 5184000000)}
           maxDate={new Date(+now + 31536000000)}
+          dateExtra={extra}
         />
         {
           this.state.startTime &&

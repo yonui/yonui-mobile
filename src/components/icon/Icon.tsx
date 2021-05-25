@@ -15,6 +15,7 @@ export interface IconProps extends IconPropsType, SvgProps {
   visible?: boolean
 }
 let cls = null
+let defaultClass = ''
 export default class Icon extends React.Component<IconProps, any> {
   static defaultProps = {
     size: 'md',
@@ -24,7 +25,6 @@ export default class Icon extends React.Component<IconProps, any> {
   componentDidMount () {
     // loadSprite(this.props?.data?.penguin) // 测试demo
     const { nid, type, className, size } = this.props
-    let defaultClass = ''
     if (nid) { // 设计态
       loadSpriteForDesign(type)
     } else {
@@ -49,17 +49,22 @@ export default class Icon extends React.Component<IconProps, any> {
     )
   }
 
+  shouldComponentUpdate () {
+    if (this.props.nid !== undefined)
+      defaultClass = ''
+    return true
+  }
+
   render () {
     const { type, className, size, style, visible, ...restProps } = this.props
     if (!visible) return null
-    if (!cls) {
-      cls = classnames(
-        className,
-        'am-icon',
-        `am-icon-${type}`,
-        `am-icon-${size}`
-      )
-    }
+    cls = classnames(
+      className,
+      defaultClass,
+      'am-icon',
+      `am-icon-${type}`,
+      `am-icon-${size}`
+    )
     return (
       <svg
         className={cls}

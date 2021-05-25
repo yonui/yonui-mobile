@@ -4,6 +4,7 @@ export interface ListItemWrapperProps extends React.defaultProps {
   splitLine?: boolean
   singleLine?: boolean
   singleLineCenter?: boolean
+  singleAlignType?: string
   required?: boolean
   notRequired?: boolean
   label?: React.ReactNode
@@ -14,6 +15,7 @@ export interface ListItemWrapperProps extends React.defaultProps {
   contentStyle?: React.CSSProperties
   error?: boolean
   errorText?: React.ReactNode
+  regRuleText?: React.ReactNode
   showExtraLabelIcon?: boolean
   previewMode?: 'design' | 'edit' | 'browse'
   mReadOnly?: boolean
@@ -42,6 +44,7 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
       splitLine = true,
       singleLine,
       singleLineCenter,
+      singleAlignType,
       label,
       labelCls,
       labelStyle,
@@ -56,6 +59,7 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
       onClick,
       error,
       errorText,
+      regRuleText,
       showExtraLabelIcon,
       subLabel,
       notRequired = true,
@@ -82,7 +86,8 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
       },
       {
         'single-line-center': singleLineCenter
-      }
+      },
+      `${singleAlignType && singleLine ? ('single-line-' + singleAlignType) : ''}`
     )
     const errorCls = classnames('list-item-wrapper-error', {
       hidden: !error
@@ -104,7 +109,7 @@ export default class ListItemWrapper extends Component<ListItemWrapperProps> {
             {children}
           </div>
         </div>
-        <div className={errorCls}>{errorText || '填写信息有误!请重新填写'}</div>
+        <div className={errorCls}>{errorText || regRuleText || '填写信息有误!请重新填写'}</div>
       </div>
     )
   }

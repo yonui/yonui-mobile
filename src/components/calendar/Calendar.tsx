@@ -1,14 +1,25 @@
 import React, { Component } from 'react'
 import { Calendar } from 'antd-mobile'
 import { CalendarProps } from 'antd-mobile/lib/calendar/PropsType'
-export default class MyComponent extends Component<CalendarProps> {
-  constructor (props: Readonly<{}>) {
-    super(props)
-
-    this.state = {
-
-    }
+interface YonuiCalenderProps extends CalendarProps {
+  dateExtra: any
+}
+export default class MyComponent extends Component<YonuiCalenderProps> {
+  componentDidMount () {
+    const { dateExtra: extra } = this.props
+    Object.keys(extra).forEach((key) => {
+      const info = extra[key];
+      const date = new Date(key);
+      if (!Number.isNaN(+date) && !extra[+date]) {
+        extra[+date] = info;
+      }
+    })
+    this.extra = extra
   }
+
+  extra={}
+
+  getDateExtra = date => this.extra[+date]
 
   render () {
     const { maxDate, minDate, defaultDate, defaultValue, defaultTimeValue, type } = this.props
@@ -35,7 +46,9 @@ export default class MyComponent extends Component<CalendarProps> {
         defaultValue={defaultValue}
         defaultTimeValue={defaultTimeValueTrs}
         minDate={minDateTrs}
-        maxDate={maxDateTrs} />
+        maxDate={maxDateTrs}
+        getDateExtra={this.getDateExtra}
+      />
     )
   }
 }
