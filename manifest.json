@@ -28,10 +28,12 @@
 		"notice-bar-color": "#ffffff"
   },
 	"components": {
+		"CalenderPanel": "./src/components/calendar-panel",
 		"Icon": "./src/components/icon",
 		"Button": "./src/components/button",
 		"Carousel": "./src/components/carousel",
 		"CarouselItem": "./src/components/carousel-item",
+		"Calender": "./src/components/calendar",
 		"Divider": "./src/components/divider",
 		"Search": "./src/components/search",
 		"Flex": "./src/components/flex",

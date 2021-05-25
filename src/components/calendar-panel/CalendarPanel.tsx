@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Calendar, { CalendarProps } from 'react-calendar'
 import { Icon } from 'antd-mobile'
 export interface CalendarPanelProps extends CalendarProps {
+  dateInfo?: any
   style?: object
 }
 export default class CalendarPanel extends Component<CalendarPanelProps, any> {
@@ -13,6 +14,28 @@ export default class CalendarPanel extends Component<CalendarPanelProps, any> {
 
   onChange = (date: any) => {
     this.props.onChange && this.props.onChange(date)
+  }
+
+  onClickDay = (value) => {
+    console.log('clickDay', value)
+  }
+
+  getKey = (date) => {
+    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+  }
+
+  tileContent = ({ date, view }) => {
+    const { dateInfo } = this.props
+    const key = this.getKey(date)
+    const info = dateInfo[key]
+    return (view === 'month' && info?.info)
+  }
+
+  tileDisabled = ({ date, view }) => {
+    const { dateInfo } = this.props
+    const key = this.getKey(date)
+    const info = dateInfo[key]
+    return view === 'month' && info?.disable
   }
 
   render () {
@@ -37,7 +60,10 @@ export default class CalendarPanel extends Component<CalendarPanelProps, any> {
         <Calendar
           {...this.props}
           className={`am-calendar-panel ${this.props.selectRange ? 'am-calendar-panel-range' : ''}`}
+          onClickDay={this.onClickDay}
           onChange={this.onChange}
+          tileContent={this.tileContent}
+          tileDisabled={this.tileDisabled}
           value={value}
           tileClassName='am-calendar-panel-item'
           minDetail='year'
@@ -45,7 +71,8 @@ export default class CalendarPanel extends Component<CalendarPanelProps, any> {
           maxDate={maxDateTrs}
           locale='zh'
           prevLabel={<Icon type='left' />}
-          nextLabel={<Icon type='right' />} />
+          nextLabel={<Icon type='right' />}
+        />
       </div>
     )
   }
