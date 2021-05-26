@@ -45,11 +45,15 @@ export default class Demo1 extends Component<any, any> {
         <MyComponent
           value={date}
           visible={visible}
+          minuteStep={5}
           onDismiss={this.onDismiss}
           onOk={this.onOk}/>
         {
           this.state.date &&
-              <List.Item>结果: {dateFormat(this.state.date, 'yyyy-MM-dd hh:mm:ss')}</List.Item>
+          <div>
+            <List.Item>开始: {dateFormat(this.state.date[0], 'yyyy-MM-dd hh:mm:ss')}</List.Item>
+            <List.Item>结束: {dateFormat(this.state.date[1], 'yyyy-MM-dd hh:mm:ss')}</List.Item>
+          </div>   
         }
       </div>
 
