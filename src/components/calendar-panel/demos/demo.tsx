@@ -9,12 +9,12 @@ import '../style'
 import './demo.less'
 import { dateFormat } from '../../_utils'
 const now = new Date()
-const dateInfo = {
-  '2021-5-26': {info: 'zyh', disable: true},
-  '2021-5-27': {info: 'test'},
-  '2021-5-28': {info: '下标1', disable: true},
-  '2021-5-29': {disable: true},
-}
+// const dateInfo = {
+//   '2021-5-26': {info: 'zyh', disable: true},
+//   '2021-5-27': {info: 'test'},
+//   '2021-5-28': {info: '下标1', disable: true},
+//   '2021-5-29': {disable: true},
+// }
 export default class Demo1 extends Component<any, any> {
   constructor (props: any) {
     super(props)
@@ -25,23 +25,22 @@ export default class Demo1 extends Component<any, any> {
     }
   }
 
-  onChange = (flag: string, date: any) => {
-    this.setState({
-      [`${flag}`]: date
-    })
-    console.log(date)
+  onSelect = value => {
+    console.log('onSelect', value)
   }
 
+  onClick = value => {
+    console.log('onClick', value)
+  }
   render () {
     const { date, one, range } = this.state
-    console.log(range)
     return (
       <React.Fragment>
         <span>禁用日期</span>
         <MyComponent
           selectRange={true}
-          dateInfo={dateInfo}
-          onChange={this.onChange.bind(this, 'date')}
+          onSelect={this.onSelect}
+          dateInfo={{}}
           value={date}/>
       </React.Fragment>
     )

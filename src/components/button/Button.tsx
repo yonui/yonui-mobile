@@ -16,7 +16,7 @@ export interface ButtonProps extends React.defaultProps{
   icon?: React.ReactNode | string
   uimeta?: string
   meta?: object
-  browseClick?: boolean
+  cBrowseClick?: boolean
   onClick?: React.MouseEventHandler<HTMLAnchorElement>
 }
 
@@ -58,8 +58,8 @@ class Button extends React.Component<ButtonProps, any> {
   }
 
   _onClick = e => {
-    const { onClick, mReadOnly, disabled, browseClick } = this.props
-    if (disabled || (!browseClick && mReadOnly)) return
+    const { onClick, mReadOnly, disabled, cBrowseClick } = this.props
+    if (disabled || (!cBrowseClick && mReadOnly)) return
     onClick && onClick(e)
   }
 
