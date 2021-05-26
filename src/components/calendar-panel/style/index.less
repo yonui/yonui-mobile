@@ -3,6 +3,10 @@
 .mdf-calendar-panel {
   background: #fff;
 }
+.react-calendar__tile:enabled:hover,
+  .react-calendar__tile:enabled:focus {
+  background-color: transparent;
+}
 .@{CalendarPanelPrefixClass} {
   &.react-calendar {
     background: transparent
@@ -42,10 +46,12 @@
     //     }
     //   }  
     // }
-    .react-calendar__tile--active.am-calendar-panel-item {
+    .react-calendar__tile--active.am-calendar-panel-item, .react-calendar__tile--hasActive.am-calendar-panel-item {
       &.react-calendar__month-view__days__day{
         &.react-calendar__tile--rangeEnd{
+          background: linear-gradient(to left, transparent 50%, rgba(225,76,70,0.2) 50%);
           >abbr {
+            color: white;
             background-color: @brand-primary;
             width: 0.9rem;
             height: 0.9rem;
@@ -53,8 +59,12 @@
           }
         }
         &.react-calendar__tile--rangeStart{
-          border-radius: 50% 0 0 50%;
+          &.react-calendar__tile--rangeEnd{
+            background: transparent;
+          }
+          background: linear-gradient(to right, transparent 50%, rgba(225,76,70,0.2) 50%);
           >abbr {
+            color: white;
             background-color: @brand-primary;
             width: 0.9rem;
             height: 0.9rem;
@@ -108,7 +118,8 @@
       color: #fff;
     }
     &.@{CalendarPanelPrefixClass}-item {
-      background-color: rgba(225,76,70,0.5);
+      color: @color-text-base;
+      background-color: rgba(225,76,70,0.2);
       >abbr {
         background-color: rgba(255, 255, 255, 0);
       }  
@@ -116,10 +127,12 @@
   }
   .react-calendar__navigation__arrow {
     &.react-calendar__navigation__prev2-button {
-      display: none;
+      font-size: 15*@hd;
+      color: #666;
     }
     &.react-calendar__navigation__next2-button {
-      display: none;
+      font-size: 15*@hd;
+      color: #666;
     }
   }
 
@@ -129,7 +142,7 @@
   .react-calendar__tile:disabled {
     background-color: transparent;
     >abbr {
-      background:  rgba(160, 162, 168, 0.5)
+      background:  rgba(160, 162, 168, 0.2)
     }
   }
   // .react-calendar__tile:enabled:hover,
@@ -149,6 +162,8 @@
         top: 45*@hd;
         font-size: @font-size-icontext;
         height: @font-size-icontext;
+        width: 45*@hd;
+        text-align: center;
       }
       >abbr {
         display: flex;
