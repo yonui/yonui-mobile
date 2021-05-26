@@ -6,7 +6,16 @@
 
 # README
 
-# README
+# result 反馈页
+## 反馈页面
+**API**
+
+| result |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 设计器类型 | 默认值 | 说明 |
+| mode | string | 'success' |  模式 取值范围 ['success','wait','reject']|
+| message | string | '' |  文字描述|
+
 
 # empty 情感化页面空数据
 ## 情感化页面
@@ -20,17 +29,6 @@
 
 
 # README
-## tips 基础组件-徽标数
-**API**
-
-| label |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 类型 | 默认值 | 说明 |
-| text | string | - |  展示的数字或文案，当为数字时候，大于 overflowCount |
-| corner | boolean | false |  置于角落 |
-| dot | boolean | false |  不展示数字，只有一个小红点 |
-| overflowCount | number | - |  展示封顶的数字值 |
-
 
 # README
 label组件可用作标签等单纯的数据展示。
@@ -51,6 +49,23 @@ label组件可用作标签等单纯的数据展示。
 
 
 # README
+## tips 基础组件-徽标数
+**API**
+
+| label |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 类型 | 默认值 | 说明 |
+| text | string | - |  展示的数字或文案，当为数字时候，大于 overflowCount |
+| corner | boolean | false |  置于角落 |
+| dot | boolean | false |  不展示数字，只有一个小红点 |
+| overflowCount | number | - |  展示封顶的数字值 |
+
+
+# README
+
+# README
+
+# README
 ## navbar 导航栏
 **API**
 
@@ -63,11 +78,7 @@ label组件可用作标签等单纯的数据展示。
 
 # README
 
-# README
-
-# README
-
-# README
+包含noticebar和notice
 
 # README
 
@@ -102,7 +113,9 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 # README
 
-包含noticebar和notice
+# README
+
+# README
 
 # README
 ## Grid 宫格
@@ -123,13 +136,6 @@ interface dataType { text: string, value: string, disabled?: boolean }
 |activeStyle|	点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)	|{}/false|	{}|
 |activeClassName	|点击反馈的自定义类名	|string	||
 |itemStyle	|每个格子自定义样式	|object	|{}|
-
-
-# README
-
-# README
-
-- Tabs组件的专属容器子组件
 
 
 # README
@@ -237,34 +243,37 @@ interface dataType { text: string, value: string, disabled?: boolean }
 
 
 # README
-## Input 基础组件-输入框
-**API**
 
-| Input |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 类型 | 默认值 | 说明 |
-| type | string | text | 可以是银行卡bankCard; 手机号phone(此时最大长度固定为11,maxLength设置无效); 密码password; 数字number(为了尽量唤起带小数点的数字键盘，此类型并不是原生 number，而是'<'input type="text" pattern="[0-9]*"'/>'); digit(表示原生的 number 类型); money(带小数点的模拟的数字键盘) 以及其他标准 html input type 类型 |
-| label | string | - |  标签 |
-| defaultValue | string | - |  设置初始默认值 |
-| value | string | - |  value 值|
-| placeholder | string | '' |  placeholder |
-| labelNumber | number | 5 | 标签的文字个数，可用2-7之间的数字 |
-| maxLength |	number | 无。除money类型外，仅当text, email, search, password, tel, or url 有效。| 最大长度 |
-| required | boolean | false | 是否必填 |
-| editable | boolean | true | 是否可编辑 |
-| disabled | boolean | false | 是否禁用 |
-| clear | boolean | false | 是否带清除功能(仅editable为true,disabled为false才生效) |
-| singleLine | boolean | false | 是否单行展示 |
-| singleLineCenter | boolean | false | 是否单行展示，并集中对齐 |
-<!-- | extra	| string or node | '' | 右边注释 | -->
-| onChange | (val: string): void | - | change 事件触发的回调函数 |
-| onBlur | (val: string): void | - | blur 事件触发的回调函数 |	
-| onFocus |	(val: string): void	| - | focus 事件触发的回调函数 |
+- Tabs组件的专属容器子组件
 
 
 # README
 
 # README
+
+### API
+
+| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
+| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
+| *tabs*                    | tab数据源                      | 是   | array                                | []     |
+| *animated*                | 是否使用切换动画效果           | 否   | boolean                              | true   |
+| *initialPage*             | initialPage                    | 否   | number\|string                       |        |
+| *page*                    | 当前Tab下标或key值             | 否   | number\|string                       |        |
+| *pageSize*                | 单页最大标签数，超出后滑动展示 | 否   | number                               | 5      |
+| *swipeable*              | 是否可滑动切换内容             | 否   | boolean                              | false  |
+| *onChange*                | tab变化时触发                  | 否   | (tab: object, index: number) => void |        |
+| *onTabClick*              | tab点击时时触发                | 否   | (tab: object, index: number) => void |        |
+| *icons*                   | tab右侧图标                    | 否   | Array< JSX.Element > |        |
+| *gather*                  | tab是否集中分布                | 否   | boolean                              | false  |
+| *splitLine*               | 是否展示tab-bar下方的分隔符    | 否   | boolean                              | true   |
+| *abBarBackgroundColor*    | 标签栏背景色                   | 否   | string                               |        |
+| *tabBarActiveTextColor*   | 激活文字颜色                   | 否   | string                               |        |
+| *tabBarInactiveTextColor* | 非激活文字颜色                 | 否   | string                               |        |
+| *iconsOccupy* | icons是否占位 | 否 | boolean | true |
+| *iconsClassName* | icons区域类名 | 否 | string |  |
+| *iconsStyle* | icons区域样式 | 否 | CSSProperties |  |
+
+
 
 # README
 ## ListPanelPicker 基础组件-操作列表
@@ -298,16 +307,7 @@ onClick | 点击时回调 | (object: DataItem) => void | |
 
 # README
 
-# result 反馈页
-## 反馈页面
-**API**
-
-| result |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 设计器类型 | 默认值 | 说明 |
-| mode | string | 'success' |  模式 取值范围 ['success','wait','reject']|
-| message | string | '' |  文字描述|
-
+# README
 
 # README
 
@@ -341,51 +341,22 @@ interface InputNumberPorps {
 # README
 
 # README
-列表行容器组件，用来规范同类组件样式。
 
-### API
-
-| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
-| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
-| label  | 标题                            | 否   | string |  |
-| subLabel | 副标题文本 | 否   | string                               |  |
-| required | 是否必填 | 否   | boolean                     | false |
-| splitLine | 是否展示分割线             | 否   | boolean                 | true |
-| singleLine | 是否单行展示 | 否   | boolean | false |
-| labelCls | 标题className | 否 | string |  |
-| labelStyle | 标题style属性 | 否 | React.CSSProperties |  |
-| contentCls | 内容className | 否 | string | |
-| contentStyle | 内容style属性 | 否 | React.CSSProperties | |
-| error | 是否错误 | 否 | boolean | false |
-| errorText | 错误提示文本 | 否 | string | '填写信息有误!请重新填写' |
-| showExtraLabelIcon | 是否展示标题左侧图标 | 否 | boolean | false |
-| onClick | 行点击事件 | 否 | (*event*: React.MouseEvent<HTMLDivElement, MouseEvent>) => void | |
-
-
-
-# README
+一个简单的列表组件，支持下拉刷新和触底加载。大数据浏览时使用会产生性能问题。
 
 ### API
 
 | 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
 | ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
-| *tabs*                    | tab数据源                      | 是   | array                                | []     |
-| *animated*                | 是否使用切换动画效果           | 否   | boolean                              | true   |
-| *initialPage*             | initialPage                    | 否   | number\|string                       |        |
-| *page*                    | 当前Tab下标或key值             | 否   | number\|string                       |        |
-| *pageSize*                | 单页最大标签数，超出后滑动展示 | 否   | number                               | 5      |
-| *swipeable*              | 是否可滑动切换内容             | 否   | boolean                              | false  |
-| *onChange*                | tab变化时触发                  | 否   | (tab: object, index: number) => void |        |
-| *onTabClick*              | tab点击时时触发                | 否   | (tab: object, index: number) => void |        |
-| *icons*                   | tab右侧图标                    | 否   | Array< JSX.Element > |        |
-| *gather*                  | tab是否集中分布                | 否   | boolean                              | false  |
-| *splitLine*               | 是否展示tab-bar下方的分隔符    | 否   | boolean                              | true   |
-| *abBarBackgroundColor*    | 标签栏背景色                   | 否   | string                               |        |
-| *tabBarActiveTextColor*   | 激活文字颜色                   | 否   | string                               |        |
-| *tabBarInactiveTextColor* | 非激活文字颜色                 | 否   | string                               |        |
-| *iconsOccupy* | icons是否占位 | 否 | boolean | true |
-| *iconsClassName* | icons区域类名 | 否 | string |  |
-| *iconsStyle* | icons区域样式 | 否 | CSSProperties |  |
+| dataSource         | 列表数据源                 | 是   | array                                | []     |
+| pullToRefresh | 是否启用下拉刷新 | 否 | boolean | true |
+| footerText | 底部区域文本，为空时不展示底部文字 | 否 | string | '' |
+| split | 列表项之间的分隔符号，分为无、分割线和分隔块 | 否 | 'none'\|'line'\|'blank' | 'line' |
+| height | 列表高度 | 否 | number | - |
+| reserverdHeight | 列表底部预留高度，设置height属性时无效 | 否 | number | - |
+| renderRow | 渲染每一行数据的方法，参数为数据源的每一项 | 是 | (item: any, dataSource any[], index: number) => React.ReactChild | - |
+| onRefresh | 触发下拉刷新事件的回调 | 否 | () => void | - |
+| onReachFoot | 页面滑动到底部时的回调 | 否 | () => void | - |
 
 
 
@@ -414,10 +385,6 @@ type emailType = Array<{type: string}>
 
 # README
 
-# README
-
-# README
-
 ### API
 
 | 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
@@ -425,26 +392,6 @@ type emailType = Array<{type: string}>
 | *url*                    | 链接的url地址                      | 是   | string                                |      |
 | *width*                | iframe的样式宽度属性，默认为100%           | 否   | string                              |    |
 | *height*             | iframe的样式高度属性，默认为100%                    | 否   | string                       |        |
-
-
-# README
-
-一个简单的列表组件，支持下拉刷新和触底加载。大数据浏览时使用会产生性能问题。
-
-### API
-
-| 属性                      | 说明                           | 必填 | 类型                                 | 默认值 |
-| ------------------------- | ------------------------------ | ---- | ------------------------------------ | ------ |
-| dataSource         | 列表数据源                 | 是   | array                                | []     |
-| pullToRefresh | 是否启用下拉刷新 | 否 | boolean | true |
-| footerText | 底部区域文本，为空时不展示底部文字 | 否 | string | '' |
-| split | 列表项之间的分隔符号，分为无、分割线和分隔块 | 否 | 'none'\|'line'\|'blank' | 'line' |
-| height | 列表高度 | 否 | number | - |
-| reserverdHeight | 列表底部预留高度，设置height属性时无效 | 否 | number | - |
-| renderRow | 渲染每一行数据的方法，参数为数据源的每一项 | 是 | (item: any, dataSource any[], index: number) => React.ReactChild | - |
-| onRefresh | 触发下拉刷新事件的回调 | 否 | () => void | - |
-| onReachFoot | 页面滑动到底部时的回调 | 否 | () => void | - |
-
 
 
 # README
@@ -463,6 +410,59 @@ type emailType = Array<{type: string}>
 | disabled | 禁用 | 否 | boolean | -      |
 | onChange | 评分变化时间 | 否 | (value: number)=>void |        |
 
+
+
+# README
+
+# README
+
+# README
+列表行容器组件，用来规范同类组件样式。
+
+### API
+
+| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
+| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
+| label  | 标题                            | 否   | string |  |
+| subLabel | 副标题文本 | 否   | string                               |  |
+| required | 是否必填 | 否   | boolean                     | false |
+| splitLine | 是否展示分割线             | 否   | boolean                 | true |
+| singleLine | 是否单行展示 | 否   | boolean | false |
+| labelCls | 标题className | 否 | string |  |
+| labelStyle | 标题style属性 | 否 | React.CSSProperties |  |
+| contentCls | 内容className | 否 | string | |
+| contentStyle | 内容style属性 | 否 | React.CSSProperties | |
+| error | 是否错误 | 否 | boolean | false |
+| errorText | 错误提示文本 | 否 | string | '填写信息有误!请重新填写' |
+| showExtraLabelIcon | 是否展示标题左侧图标 | 否 | boolean | false |
+| onClick | 行点击事件 | 否 | (*event*: React.MouseEvent<HTMLDivElement, MouseEvent>) => void | |
+
+
+
+# README
+## Input 基础组件-输入框
+**API**
+
+| Input |  |  |  |
+| :---: | --- | --- | --- |
+| 属性 | 类型 | 默认值 | 说明 |
+| type | string | text | 可以是银行卡bankCard; 手机号phone(此时最大长度固定为11,maxLength设置无效); 密码password; 数字number(为了尽量唤起带小数点的数字键盘，此类型并不是原生 number，而是'<'input type="text" pattern="[0-9]*"'/>'); digit(表示原生的 number 类型); money(带小数点的模拟的数字键盘) 以及其他标准 html input type 类型 |
+| label | string | - |  标签 |
+| defaultValue | string | - |  设置初始默认值 |
+| value | string | - |  value 值|
+| placeholder | string | '' |  placeholder |
+| labelNumber | number | 5 | 标签的文字个数，可用2-7之间的数字 |
+| maxLength |	number | 无。除money类型外，仅当text, email, search, password, tel, or url 有效。| 最大长度 |
+| required | boolean | false | 是否必填 |
+| editable | boolean | true | 是否可编辑 |
+| disabled | boolean | false | 是否禁用 |
+| clear | boolean | false | 是否带清除功能(仅editable为true,disabled为false才生效) |
+| singleLine | boolean | false | 是否单行展示 |
+| singleLineCenter | boolean | false | 是否单行展示，并集中对齐 |
+<!-- | extra	| string or node | '' | 右边注释 | -->
+| onChange | (val: string): void | - | change 事件触发的回调函数 |
+| onBlur | (val: string): void | - | blur 事件触发的回调函数 |	
+| onFocus |	(val: string): void	| - | focus 事件触发的回调函数 |
 
 
 # README
