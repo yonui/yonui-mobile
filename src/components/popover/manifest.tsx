@@ -1,5 +1,6 @@
 
 import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
+
 // todo 未配置 onClick onChange
 const manifest: ComponentManifest = {
   name: 'Popover',
@@ -57,17 +58,15 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'overlayData',
+      name: 'data',
       type: FieldTypes.array,
       defaultValue: JSON.stringify([{ icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg', label: '选项' }]),
       showDesign: true,
       designConfig: {
-        label: 'pop内容',
-        isRequired: false,
         type: EditTypes.Json,
-        props: {
-
-        }
+        isRequired: false,
+        props: {},
+        label: 'pop内容',
       }
     },
     {
@@ -107,7 +106,6 @@ const manifest: ComponentManifest = {
         help: '当显隐状态变化时回调函数'
       }
     },
-
     {
       name: 'onSelect',
       type: FieldTypes.action,
