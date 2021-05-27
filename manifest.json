@@ -30,6 +30,7 @@
 	"components": {
 		"CalenderPanel": "./src/components/calendar-panel",
 		"DateTimePanel": "./src/components/date-panel-picker",
+		"Table": "./src/components/table",
 		"Icon": "./src/components/icon",
 		"Button": "./src/components/button",
 		"Carousel": "./src/components/carousel",

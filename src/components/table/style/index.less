@@ -1,0 +1,80 @@
+@import '../../_style/index.less';
+.yonui-table{
+  --order-color-1: @brand-primary;
+  --order-color-2: @brand-important;
+  --order-color-3: @brand-warning;
+  --order-color-4: @border-color-base;
+  width: 100%;
+  .yonui-table-container{
+    .yonui-table-content{
+      .yonui-table-thead{
+        background: aliceblue;
+        .yonui-table-cell{
+          padding: 0.1rem 0;
+          border: 0;
+          border-top: 1px solid @border-color-base;
+          .order-button{
+            margin-left: 10*@hd;
+            color: @border-color-next;
+            &:active{
+              color: @border-color-base;
+            }
+          }
+        }
+      }
+      .yonui-table-tbody{
+        .yonui-table-row{
+          .yonui-table-cell{
+            padding: 0.1rem 0;
+            border: 0;
+            border-top: 1px solid @border-color-base;
+            text-align: center;
+            .order-span{
+              display: inline-block;
+              position: relative;
+              width: 0.6rem;
+              height: 0.4rem;
+              border-radius: 3*@hd;
+              color: white;
+              background:var(--order-color-4);
+              &::after{
+                content: '';
+                display: inline-block;
+                box-sizing: border-box;
+                width: 0.2rem;
+                height: 0.2rem;
+                position: absolute;
+                top: 0.1rem;
+                right: -0.2rem;
+                border: solid 0.1rem;
+                border-color: transparent;
+                border-left-color: var(--order-color-4);
+              }
+              &-1{
+                background:var(--order-color-1);
+                &::after{
+                  border-left-color: var(--order-color-1);
+                }
+              }
+              &-2{
+                background:var(--order-color-2);
+                &::after{
+                  border-left-color: var(--order-color-2);
+                }
+              }
+              &-3{
+                background:var(--order-color-3);
+                &::after{
+                  border-left-color: var(--order-color-3);
+                }
+              }
+            }
+          }
+        }
+        .yonui-table-row:nth-child(even){
+          background: aliceblue;
+        }
+      }
+    }
+  }
+}
