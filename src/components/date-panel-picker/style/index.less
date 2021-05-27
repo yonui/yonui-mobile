@@ -40,12 +40,67 @@
     display: flex;
     align-items: center;
     .mid-text{
+      position: relative;
       height: 34*@hd;
       line-height: 34*@hd;
       font-size: @font-size-base;
-      border-top: 1px solid #dcdcdc;
-      border-bottom: 1px solid #dcdcdc;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
     }
   }
 }
-
+// 分割线样式
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+  screen and (   min--moz-device-pixel-ratio: 2),
+  screen and (     -o-min-device-pixel-ratio: 2/1),
+  screen and (        min-device-pixel-ratio: 2),
+  screen and (                min-resolution: 192dpi),
+  screen and (                min-resolution: 2dppx) {
+    html:not([data-scale]) .am-date-panel-picker .picker-area .mid-text{
+      border-top: none;
+      border-bottom: none;
+    }
+    html:not([data-scale]) .mid-text::before{
+      content: '';
+      position: absolute;
+      background-color: #dcdcdc;
+      display: block;
+      z-index: 1;
+      top: 0;
+      right: auto;
+      bottom: auto;
+      left: 0;
+      width: 100%;
+      height: 1PX;
+      transform-origin: 50% 50%;
+      transform: scaleY(0.5);
+    }
+    html:not([data-scale]) .mid-text::after{
+      content: '';
+      position: absolute;
+      background-color: #dcdcdc;
+      display: block;
+      z-index: 1;
+      top: auto;
+      right: auto;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1PX;
+      transform-origin: 50% 100%;
+      transform: scaleY(0.5);
+    }
+}
+@media screen and (-webkit-min-device-pixel-ratio: 3),
+  screen and (   min--moz-device-pixel-ratio: 3),
+  screen and (     -o-min-device-pixel-ratio: 3/1),
+  screen and (        min-device-pixel-ratio: 3),
+  screen and (                min-resolution: 384dpi),
+  screen and (                min-resolution: 3dppx) {
+    html:not([data-scale]) .mid-text::before{
+      transform: scaleY(0.3);
+    }
+    html:not([data-scale]) .mid-text::after{
+      transform: scaleY(0.3);
+    }
+}
