@@ -68,6 +68,7 @@ export default class DatePanelPicker extends Component<DatePanelPickerProps, any
         <div className='am-date-panel-picker'>
           <div className='operation'>
             <div className='item cancel' onClick={this.onDismiss}>取消</div>
+            <div>时间选择</div>
             <div className='item confirm' onClick={this.onOk}>确认</div>
           </div>
           <div className='picker-area'>
