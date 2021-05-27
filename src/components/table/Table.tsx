@@ -36,7 +36,7 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
     const { orderSpanColors = [] } = this.props
     const tableEle = document.querySelector('.yonui-table')
     for (let i = 0; i < orderSpanColors.length; i++) {
-      tableEle.style.setProperty(`--order-color-${i + 1}`, orderSpanColors[i])
+      orderSpanColors[i] && tableEle.style.setProperty(`--order-color-${i + 1}`, orderSpanColors[i])
     }
   }
 

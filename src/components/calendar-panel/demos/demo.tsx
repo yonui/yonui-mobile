@@ -9,10 +9,10 @@ import '../style'
 import './demo.less'
 import { dateFormat } from '../../_utils'
 const dateInfo = {
-   '2021-5-26': {info: 'zyh', disable: true},
+   '2021-5-1': {info: '劳动节', disable: true},
+   '2021-5-26': {info: 'zyh'},
    '2021-5-27': {info: 'test'},
-   '2021-5-28': {info: '下标1', disable: true},
-   '2021-5-29': {disable: true},
+   '2021-5-28': {info: '下标1'},
   }
 export default class Demo1 extends Component<any, any> {
   constructor (props: any) {
@@ -44,14 +44,14 @@ export default class Demo1 extends Component<any, any> {
     const { date, one, range } = this.state
     return (
       <React.Fragment>
-        <MyComponent
+        {/* <MyComponent
           selectRange={false}
           onSelect={this.onSelect}
           showHeader={true}
           onCancel={this.onCancel}
           onConfirm={this.onConfirm}
           dateInfo={{}}
-          value={date}/>
+          value={date}/> */}
         <MyComponent
           selectRange={true}
           dateInfo={dateInfo}

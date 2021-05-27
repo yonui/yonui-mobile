@@ -3,8 +3,9 @@
   --order-color-1: @brand-primary;
   --order-color-2: @brand-important;
   --order-color-3: @brand-warning;
-  --order-color-4: @border-color-base;
+  --order-color-4: transparent;
   width: 100%;
+  background: white;
   .yonui-table-container{
     .yonui-table-content{
       .yonui-table-thead{
@@ -35,7 +36,7 @@
               width: 0.6rem;
               height: 0.4rem;
               border-radius: 3*@hd;
-              color: white;
+              color: @color-text-caption;
               background:var(--order-color-4);
               &::after{
                 content: '';
@@ -52,18 +53,21 @@
               }
               &-1{
                 background:var(--order-color-1);
+                color: white;
                 &::after{
                   border-left-color: var(--order-color-1);
                 }
               }
               &-2{
                 background:var(--order-color-2);
+                color: white;
                 &::after{
                   border-left-color: var(--order-color-2);
                 }
               }
               &-3{
                 background:var(--order-color-3);
+                color: white;
                 &::after{
                   border-left-color: var(--order-color-3);
                 }
