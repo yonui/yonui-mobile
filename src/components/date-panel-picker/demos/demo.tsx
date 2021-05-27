@@ -45,7 +45,7 @@ export default class Demo1 extends Component<any, any> {
         <MyComponent
           value={date}
           visible={visible}
-          minuteStep={5}
+          minuteStep={10}
           onDismiss={this.onDismiss}
           onOk={this.onOk}/>
         {

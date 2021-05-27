@@ -2,6 +2,26 @@
 @CalendarPanelPrefixClass : am-calendar-panel;
 .mdf-calendar-panel {
   background: #fff;
+  .mdf-calendar-panel-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 12*@hd;
+    height: 44*@hd;
+    align-items: center;
+    // border-radius: 10*@hd 10*@hd 0 0;
+    border-radius: 10*@hd 10*@hd 0 0;
+    background: white;
+    .mdf-calendar-panel-header{
+      &-cancel{
+        color: @color-text-base;
+        font-size: 16*@hd;
+      }
+      &-confirm{
+        color: @brand-primary;
+        font-size: 16*@hd;
+      }
+    }
+  }
 }
 .react-calendar__tile:enabled:hover,
   .react-calendar__tile:enabled:focus {
@@ -49,7 +69,7 @@
     .react-calendar__tile--active.am-calendar-panel-item, .react-calendar__tile--hasActive.am-calendar-panel-item {
       &.react-calendar__month-view__days__day{
         &.react-calendar__tile--rangeEnd{
-          background: linear-gradient(to left, transparent 50%, rgba(225,76,70,0.2) 50%);
+          background: linear-gradient(to left, transparent 50%, rgba(225,76,70,0.1) 50%);
           >abbr {
             color: white;
             background-color: @brand-primary;
@@ -62,7 +82,7 @@
           &.react-calendar__tile--rangeEnd{
             background: transparent;
           }
-          background: linear-gradient(to right, transparent 50%, rgba(225,76,70,0.2) 50%);
+          background: linear-gradient(to right, transparent 50%, rgba(225,76,70,0.1) 50%);
           >abbr {
             color: white;
             background-color: @brand-primary;
@@ -119,7 +139,7 @@
     }
     &.@{CalendarPanelPrefixClass}-item {
       color: @color-text-base;
-      background-color: rgba(225,76,70,0.2);
+      background-color: rgba(225,76,70,0.1);
       >abbr {
         background-color: rgba(255, 255, 255, 0);
       }  

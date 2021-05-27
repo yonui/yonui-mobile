@@ -4,16 +4,21 @@ import Calendar, { CalendarProps } from 'react-calendar'
 export interface CalendarPanelProps extends CalendarProps {
   dateInfo?: any
   style?: object
+  showHeader?: boolean
   onSelect?: (value) => void
+  onCancel?: () => void
+  onConfirm?: (value) => void
 }
 export default class CalendarPanel extends Component<CalendarPanelProps, any> {
   constructor (props) {
     super(props)
-    const { dateInfo = {} } = props
+    const { dateInfo = {}, value } = props
     const disabledDates = this.getDisabledDays(dateInfo)
+    const selectedInfo = this.getSelectedInfo(value)
     this.state = {
       disabledDates: disabledDates,
-      value: props.value
+      value: value,
+      selectedInfo: selectedInfo
     }
   }
 
@@ -61,39 +66,67 @@ export default class CalendarPanel extends Component<CalendarPanelProps, any> {
     return view === 'month' && info?.disable
   }
 
-  // 获取信息
-  onChange = value => {
-    const { selectRange, onSelect } = this.props
-    // range
+  getSelectedInfo = (value) => {
+    const { selectRange } = this.props
+    let selectInfo
     if (selectRange) {
       const startDate = value[0]
       const endDate = value[1]
-      this.setState({
-        value: value
-      })
       const selectedDays = Math.round((endDate - startDate) / (24 * 60 * 60 * 1000))
-      const selectInfo = { start: startDate, end: endDate, days: selectedDays }
-      onSelect?.(selectInfo)
+      selectInfo = { start: startDate, end: endDate, days: selectedDays }
+    } else {
+      selectInfo = value
+    }
+    return selectInfo
+  }
+
+  // 获取信息
+  onChange = value => {
+    const { selectRange, onSelect } = this.props
+    this.setState({
+      value: value,
+      selectedInfo: value
+    })
+    // range
+    if (selectRange) {
+      const selectedInfo = this.getSelectedInfo(value)
+      this.setState({
+        selectedInfo: selectedInfo
+      })
+      onSelect?.(selectedInfo)
       if (this.hasDisabledDays(value)) {
         console.log('包含禁用日期')
         this.setState({
           value: null
         })
       }
-      // console.log('start:', startDate, 'end:', endDate, 'days:', selectedDays)
     } else {
       onSelect?.(value)
     }
   }
 
+  onCancel = () => {
+    const { onCancel } = this.props
+    onCancel?.()
+  }
+
+  onConfirm = () => {
+    const { onConfirm } = this.props
+    const { selectedInfo } = this.state
+    onConfirm?.(selectedInfo)
+  }
+
   render () {
-    const { selectRange, style } = this.props
+    const { selectRange, style, showHeader = false } = this.props
     let { returnValue = 'start' } = this.props
     const { value } = this.state
-    console.log('render-value', value)
     if (selectRange) returnValue = 'range'
     return (
       <div style={style} className='mdf-calendar-panel'>
+        {showHeader && <div className='mdf-calendar-panel-header'>
+          <span className='mdf-calendar-panel-header-cancel' onClick={this.onCancel}>取消</span>
+          <span className='mdf-calendar-panel-header-confirm' onClick={this.onConfirm}>确定</span>
+        </div>}
         <Calendar
           {...this.props}
           className='am-calendar-panel am-calendar-panel-range'

@@ -28,9 +28,18 @@ export default class Demo1 extends Component<any, any> {
     console.log('onSelect', value)
   }
 
-  onClick = value => {
-    console.log('onClick', value)
+  onClickDay = value => {
+    console.log('onClickDay', value)
   }
+
+  onConfirm = value => {
+    console.log('confirm', value)
+  }
+
+  onCancel = () => {
+    console.log('cancel')
+  }
+
   render () {
     const { date, one, range } = this.state
     return (
@@ -38,12 +47,19 @@ export default class Demo1 extends Component<any, any> {
         <MyComponent
           selectRange={false}
           onSelect={this.onSelect}
+          showHeader={true}
+          onCancel={this.onCancel}
+          onConfirm={this.onConfirm}
           dateInfo={{}}
           value={date}/>
         <MyComponent
           selectRange={true}
           dateInfo={dateInfo}
           onSelect={this.onSelect}
+          showHeader={true}
+          onCancel={this.onCancel}
+          onConfirm={this.onConfirm}
+          onClickDay={this.onClickDay}
           value={range}
         />
       </React.Fragment>
