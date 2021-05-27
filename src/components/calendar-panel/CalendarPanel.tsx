@@ -131,6 +131,7 @@ export default class CalendarPanel extends Component<CalendarPanelProps, any> {
           {...this.props}
           className='am-calendar-panel am-calendar-panel-range'
           returnValue={returnValue}
+          calendarType='US'
           onChange={this.onChange}
           tileClassName='am-calendar-panel-item'
           tileContent={this.tileContent}
