@@ -1,14 +1,22 @@
 import React, { Component } from 'react'
 import RCTable from 'rc-table'
+import { Icon } from 'antd-mobile'
 interface yonuiTableProps {
   columns: any
   data: any
   orderSpanColors?: any
   addOrderColumn?: boolean
+  loadMore?: () => void
   onSort?: (column) => void
 }
 interface yonuiTableStates {
   columns: any
+  showMore: boolean
+}
+
+const showText = {
+  showMoreText: '加载更多',
+  noMoreText: '已到达底部'
 }
 export default class Table extends Component<yonuiTableProps, yonuiTableStates> {
   constructor (props) {
@@ -20,6 +28,7 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
     }
     this.state = {
       columns: columns,
+      showMore: false
     }
   }
 
@@ -61,14 +70,28 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
     });
   }
 
+  loadMore = () => {
+    const { loadMore } = this.props
+    loadMore?.()
+  }
+
   render () {
-    const { columns } = this.state
+    const { columns, showMore } = this.state
     return (
-      <RCTable
-        prefixCls='yonui-table'
-        columns={columns}
-        data={this.props.data}
-      />
+      <div className='yonui-table-div'>
+        <RCTable
+          prefixCls='yonui-table'
+          columns={columns}
+          data={this.props.data}
+        />
+        {showMore && <div className='show-more' onClick={this.loadMore}>
+          <span>{showText.showMoreText}</span>
+          <Icon type='down' size='xxs' />
+        </div>}
+        {!showMore && <div className='no-more'>
+          <span>{showText.noMoreText}</span>
+        </div>}
+      </div>
     )
   }
 }
