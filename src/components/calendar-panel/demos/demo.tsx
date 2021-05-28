@@ -14,6 +14,7 @@ const dateInfo = {
    '2021-5-27': {info: 'test'},
    '2021-5-28': {info: '下标1'},
   }
+const selectColors = ['pink', 'skyblue']
 export default class Demo1 extends Component<any, any> {
   constructor (props: any) {
     super(props)
@@ -57,6 +58,7 @@ export default class Demo1 extends Component<any, any> {
           showHeader={true}
           dateInfo={dateInfo}
           value={range}
+          selectColors={[]}
           onSelect={this.onSelect}
           onCancel={this.onCancel}
           onConfirm={this.onConfirm}

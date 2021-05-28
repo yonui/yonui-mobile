@@ -5,6 +5,7 @@ export interface CalendarPanelProps extends CalendarProps {
   dateInfo?: any
   style?: object
   showHeader?: boolean
+  selectColors?: any
   onSelect?: (value) => void
   onCancel?: () => void
   onConfirm?: (value) => void
@@ -102,6 +103,19 @@ export default class CalendarPanel extends Component<CalendarPanelProps, any> {
       }
     } else {
       onSelect?.(value)
+    }
+  }
+
+  componentDidMount () {
+    this.setSelectColor()
+  }
+
+  setSelectColor = () => {
+    const { selectColors = [] } = this.props
+    const tableEle = document.querySelector('.am-calendar-panel')
+    if (tableEle) {
+      selectColors[0] && tableEle.style.setProperty('--select-start-end-color', selectColors[0])
+      selectColors[1] && tableEle.style.setProperty('--select-mid-color', selectColors[1])
     }
   }
 

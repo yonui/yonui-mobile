@@ -28,6 +28,8 @@
   background-color: transparent;
 }
 .@{CalendarPanelPrefixClass} {
+  --select-start-end-color: @brand-primary;
+  --select-mid-color: rgba(225,76,70,0.1);
   &.react-calendar {
     background: transparent
   }
@@ -69,10 +71,10 @@
     .react-calendar__tile--active.am-calendar-panel-item, .react-calendar__tile--hasActive.am-calendar-panel-item {
       &.react-calendar__month-view__days__day{
         &.react-calendar__tile--rangeEnd{
-          background: linear-gradient(to left, transparent 50%, rgba(225,76,70,0.1) 50%);
+          background: linear-gradient(to left, transparent 50%, var(--select-mid-color) 50%);
           >abbr {
             color: white;
-            background-color: @brand-primary;
+            background-color: var(--select-start-end-color);
             width: 0.9rem;
             height: 0.9rem;
             border-radius: 50%;
@@ -82,10 +84,10 @@
           &.react-calendar__tile--rangeEnd{
             background: transparent;
           }
-          background: linear-gradient(to right, transparent 50%, rgba(225,76,70,0.1) 50%);
+          background: linear-gradient(to right, transparent 50%, var(--select-mid-color) 50%);
           >abbr {
             color: white;
-            background-color: @brand-primary;
+            background-color: var(--select-start-end-color);
             width: 0.9rem;
             height: 0.9rem;
             border-radius: 50%;
@@ -139,7 +141,7 @@
     }
     &.@{CalendarPanelPrefixClass}-item {
       color: @color-text-base;
-      background-color: rgba(225,76,70,0.1);
+      background-color: var(--select-mid-color);
       >abbr {
         background-color: rgba(255, 255, 255, 0);
       }  
