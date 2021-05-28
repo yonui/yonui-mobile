@@ -87,7 +87,7 @@ export default class DatePanelPicker extends Component<DatePanelPickerProps, any
               onChange={date => this.onChange('end', date)}
               minuteStep={minuteStep}
               value={endDate}
-              minDate={minDateTrs}
+              minDate={startDate}
               maxDate={maxDateTrs}
               mode='time'
             />
