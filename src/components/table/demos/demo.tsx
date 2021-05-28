@@ -10,18 +10,18 @@ const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
-    width: 100,
+    width: 1
   },
   {
     title: 'Age',
     dataIndex: 'age',
-    width: 100,
-    orderField: true,
+    width: 1,
+    orderField: true
   },
   {
     title: 'Address',
     dataIndex: 'address',
-    width: 200,
+    width: 2
   }
 ];
 // 数据
@@ -46,9 +46,9 @@ export default class Demo extends Component {
       <div>
         <Table
         columns={columns}
-        addOrderColumn={true} // 添加序号列
-        orderSpanColors={[]}
         data={data}
+        addOrderColumn={false} // 添加序号列
+        orderSpanColors={[]}
         onSort={onSort}
         />
       </div>
