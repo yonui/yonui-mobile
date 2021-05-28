@@ -9,7 +9,7 @@ import '../style'
 import './demo.less'
 import { dateFormat } from '../../_utils'
 const dateInfo = {
-   '2021-5-1': {info: '劳动节', disable: true},
+   '2021-5-1': {info: '劳动节'},
    '2021-5-26': {info: 'zyh'},
    '2021-5-27': {info: 'test'},
    '2021-5-28': {info: '下标1'},
@@ -54,13 +54,13 @@ export default class Demo1 extends Component<any, any> {
           value={date}/> */}
         <MyComponent
           selectRange={true}
-          dateInfo={dateInfo}
-          onSelect={this.onSelect}
           showHeader={true}
+          dateInfo={dateInfo}
+          value={range}
+          onSelect={this.onSelect}
           onCancel={this.onCancel}
           onConfirm={this.onConfirm}
           onClickDay={this.onClickDay}
-          value={range}
         />
       </React.Fragment>
     )
