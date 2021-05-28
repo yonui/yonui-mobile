@@ -33,7 +33,7 @@ const data = [
   { name: 'Rose', age: 36, address: 'some where', key: '2' },
 ];
 // 标签颜色 [第一, 第二, 第三, 第四及以后]
-// const orderSpanColors = ['pink', 'skyblue', 'red', 'gray']
+const orderSpanColors = ['pink', 'skyblue', 'red', 'yellow']
 
 // 点击排序事件
 const onSort = (column) => {
