@@ -21,7 +21,7 @@ const columns = [
     title: 'Age',
     dataIndex: 'age',
     width: 1,
-    orderField: true
+    sortField: true
   },
   {
     title: 'Address',
@@ -45,6 +45,11 @@ const onSort = (column) => {
   console.log('order', column)
 }
 
+// 点击查看更多
+const onLoadMore = () => {
+  console.log('loadMore')
+}
+
 export default class Demo extends Component {
   render () {
     return (
@@ -52,9 +57,11 @@ export default class Demo extends Component {
         <Table
         columns={columns}
         data={data}
-        addOrderColumn={false} // 添加序号列
+        addOrderColumn={true} // 添加序号列
         orderSpanColors={[]}
         onSort={onSort}
+        showMore={true}
+        loadMore={onLoadMore}
         />
       </div>
     )

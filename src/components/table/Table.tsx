@@ -6,6 +6,7 @@ interface yonuiTableProps {
   data: any
   orderSpanColors?: any
   addOrderColumn?: boolean
+  showMore?: boolean
   loadMore?: () => void
   onSort?: (column) => void
 }
@@ -55,7 +56,7 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
       dateIndex: 'order',
       key: 'order',
       render: (value, row, index) => <span className={`order-span order-span-${index < 3 ? index + 1 : null}`}>{index}</span>,
-      width: 100,
+      width: 1,
     }
     columns.unshift(orderColumn)
   }
@@ -63,7 +64,7 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
   adaptColumns = columns => {
     columns.forEach(column => {
       if (column.key === undefined) column.key = column.dataIndex
-      if (column.orderField) {
+      if (column.sortField) {
         const title = column.title
         column.title = <span>{title}<span onClick={() => this.onSortButtonClick(column)} className='order-button'>⇅</span></span>
       }
@@ -76,7 +77,8 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
   }
 
   render () {
-    const { columns, showMore } = this.state
+    const { columns } = this.state
+    const { showMore } = this.props
     return (
       <div className='yonui-table-div'>
         <RCTable
