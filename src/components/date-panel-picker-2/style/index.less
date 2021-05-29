@@ -1,0 +1,28 @@
+@import '../../_style/index.less';
+.yonui-time-range {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  .yonui-time-range-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 12*@hd;
+    height: 44*@hd;
+    align-items: center;
+    border-radius: 10*@hd 10*@hd 0 0;
+    background: white;
+    .yonui-time-range-header{
+      &-cancel{
+        color: @color-text-base;
+        font-size: 16*@hd;
+      }
+      &-confirm{
+        color: @brand-primary;
+        font-size: 16*@hd;
+      }
+    }
+  }
+  .yonui-time-range-body{
+    display: flex;
+  }
+}

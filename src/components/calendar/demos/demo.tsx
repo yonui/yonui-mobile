@@ -13,7 +13,7 @@ import { dateFormat } from '../../_utils'
 const now = new Date()
 
 const extra = {
-  '2021/05/26':{info:'zyhtest'},
+  '2021/05/26':{info:'zyhtest', cellCls: 'zyh', cellRender: date => date.getDate()},
   '2021/05/27':{info:'zyhtest'},
   '2021/05/28':{info:'zyhtest'},
 }
@@ -79,7 +79,7 @@ export default class Demo1 extends Component<any, any> {
           onCancel={this.onCancel}
           onConfirm={this.onConfirm}
           onSelectHasDisableDate={this.onSelectHasDisableDate}
-          defaultDate={now}
+          // defaultDate={now}
           defaultValue={[new Date(now), new Date(now.getFullYear(), now.getMonth(), now.getDate() + 5)]}
           minDate={new Date(+now - 5184000000)}
           maxDate={new Date(+now + 31536000000)}
