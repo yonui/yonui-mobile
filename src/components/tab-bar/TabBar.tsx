@@ -20,7 +20,7 @@ export interface TabBarState {
 class yonuiTabBar extends React.Component<TabBarProps, TabBarState> {
   constructor (props: TabBarProps) {
     super(props);
-    const { itemList } = props
+    const { itemList = [] } = props
     const selectedTab = itemList.length ? itemList[0].key : ''
     this.state = { selectedTab: selectedTab };
   }
@@ -34,7 +34,7 @@ class yonuiTabBar extends React.Component<TabBarProps, TabBarState> {
   }
 
   render () {
-    const { itemList } = this.props
+    const { itemList = [] } = this.props
     const tablist = itemList.map(item => {
       return <TabBar.Item
         selected={this.state.selectedTab === item.key}

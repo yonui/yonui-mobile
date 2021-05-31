@@ -6,7 +6,7 @@ interface YonuiCalenderProps extends CalendarProps {
 }
 export default class MyComponent extends Component<YonuiCalenderProps> {
   componentDidMount () {
-    const { dateExtra: extra } = this.props
+    const { dateExtra: extra = {} } = this.props
     Object.keys(extra).forEach((key) => {
       const info = extra[key];
       const date = new Date(key);
