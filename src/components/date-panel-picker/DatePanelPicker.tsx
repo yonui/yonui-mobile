@@ -6,7 +6,7 @@ export interface DatePanelPickerProps{
   header?: string
   minDate?: Date | string
   maxDate?: Date | string
-  value?: Date | string
+  value?: string[]
   minuteStep?: number
   onDismiss: () => void
   onOk: (date: Object) => void
@@ -14,13 +14,16 @@ export interface DatePanelPickerProps{
 export default class DatePanelPicker extends Component<DatePanelPickerProps, any> {
   constructor (props: any) {
     super(props)
-    const { value, minDate } = props
-    const valueTrs = (value && typeof value === 'string') ? new Date(value.replace(/-/g, '/')) : value
-    const minDateTrs = (minDate && typeof minDate === 'string') ? new Date(minDate.replace(/-/g, '/')) : minDate
+    const { value = [] } = props
+    const now = new Date()
+    const nowDate = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`
+    const nowTime = `${now.getHours()}:${now.getMinutes()}`
+    const date = value[0] || nowDate
+    const startTime = value[1] || nowTime
+    const endTime = value[2] || nowTime
     this.state = {
-      date: valueTrs || (minDateTrs || new Date(2000, 1, 1, 0, 0, 0)),
-      startDate: new Date(),
-      endDate: new Date()
+      startDate: new Date(`${date} ${startTime}`),
+      endDate: new Date(`${date} ${endTime}`)
     }
   }
 
@@ -29,6 +32,12 @@ export default class DatePanelPicker extends Component<DatePanelPickerProps, any
       this.setState({
         startDate: date
       })
+      const { startDate, endDate } = this.state
+      if (startDate > endDate) {
+        this.setState({
+          endDate: startDate
+        })
+      }
     } else {
       this.setState({
         endDate: date
@@ -37,7 +46,6 @@ export default class DatePanelPicker extends Component<DatePanelPickerProps, any
   }
 
   valueTrans =(date) => {
-    console.log('trans', date)
     const { minuteStep = 30 } = this.props
     const minutes = date.getMinutes()
     const showMinutes = minutes - minutes % minuteStep
@@ -46,7 +54,10 @@ export default class DatePanelPicker extends Component<DatePanelPickerProps, any
 
   onOk = () => {
     const { startDate, endDate } = this.state
-    this.props.onOk && this.props.onOk([startDate, endDate])
+    const startTime = `${startDate.getHours()}:${startDate.getMinutes()}`
+    const endTime = `${endDate.getHours()}:${endDate.getMinutes()}`
+    const date = `${endDate.getFullYear()}-${endDate.getMonth()}-${endDate.getDate()}`
+    this.props.onOk && this.props.onOk([date, startTime, endTime])
   }
 
   onDismiss = () => {

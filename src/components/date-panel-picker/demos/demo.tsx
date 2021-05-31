@@ -30,10 +30,10 @@ export default class Demo1 extends Component<any, any> {
     })
   }
 
-  onOk = (date: Object) => {
+  onOk = (value) => {
+    console.log(value)
     this.setState({
-      visible: false,
-      date
+      visible: false
     })
   }
 
@@ -43,7 +43,7 @@ export default class Demo1 extends Component<any, any> {
       <div>
         <Button onClick={this.onClick}>显示</Button>
         <MyComponent
-          value={date}
+          value={['2021-5-30', '12:30', '14:30']}
           visible={visible}
           minuteStep={10}
           onDismiss={this.onDismiss}
