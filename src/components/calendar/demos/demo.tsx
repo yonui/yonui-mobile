@@ -68,14 +68,15 @@ export default class Demo1 extends Component<any, any> {
     })
   }
 
+  onClickDay = (res) => {
+    console.log('res', res)
+  }
+
   render () {
     return (
       <div>
-        {this.renderBtn('选择日期区间', 'Select Date Range')}
-        {this.renderBtn('选择日期', 'Select Date', { type: 'one' })}
         <MyComponent
-          {...this.state.config}
-          visible={this.state.show}
+          visible={true}
           onCancel={this.onCancel}
           onConfirm={this.onConfirm}
           onSelectHasDisableDate={this.onSelectHasDisableDate}
@@ -84,15 +85,8 @@ export default class Demo1 extends Component<any, any> {
           minDate={new Date(+now - 5184000000)}
           maxDate={new Date(+now + 31536000000)}
           dateExtra={extra}
+          onClickDay={this.onClickDay}
         />
-        {
-          this.state.startTime &&
-              <List.Item>Time1: {dateFormat(this.state.startTime, 'yyyy-MM-dd')}</List.Item>
-        }
-        {
-          this.state.endTime &&
-              <List.Item>Time2: {dateFormat(this.state.endTime, 'yyyy-MM-dd')}</List.Item>
-        }
       </div>
     )
   }

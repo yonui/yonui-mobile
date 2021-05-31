@@ -3,6 +3,7 @@ import { Calendar } from 'antd-mobile'
 import { CalendarProps } from 'antd-mobile/lib/calendar/PropsType'
 interface YonuiCalenderProps extends CalendarProps {
   dateExtra: any
+  onClickDay: any
 }
 export default class MyComponent extends Component<YonuiCalenderProps> {
   componentDidMount () {
@@ -18,6 +19,22 @@ export default class MyComponent extends Component<YonuiCalenderProps> {
   }
 
   extra={}
+
+  onSelect = (value, state) => {
+    let isRange = false
+    if (state[0] && state[1] === undefined) {
+      isRange = true
+    }
+    const range1 = value
+    const range2 = state[0]
+    const range = range1 < range2 ? [range1, range2] : [range2, range1]
+    const res = {
+      isRange: isRange,
+      range: range,
+      now: value
+    }
+    this.props.onClickDay?.(res)
+  }
 
   getDateExtra = date => this.extra[+date]
 
@@ -41,6 +58,7 @@ export default class MyComponent extends Component<YonuiCalenderProps> {
     return (
       <Calendar
         {...this.props}
+        onSelect={this.onSelect}
         prefixCls='am-calendar'
         defaultDate={defaultDateTrs}
         defaultValue={defaultValue}
