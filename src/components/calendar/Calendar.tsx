@@ -6,8 +6,15 @@ interface YonuiCalenderProps extends CalendarProps {
   onClickDay: any
 }
 export default class MyComponent extends Component<YonuiCalenderProps> {
+  constructor (props) {
+    super(props)
+    this.state = {
+      visible: false
+    }
+  }
+
   componentDidMount () {
-    const { dateExtra: extra = {} } = this.props
+    const { dateExtra: extra = {}, visible } = this.props
     Object.keys(extra).forEach((key) => {
       const info = extra[key];
       const date = new Date(key);
@@ -16,6 +23,16 @@ export default class MyComponent extends Component<YonuiCalenderProps> {
       }
     })
     this.extra = extra
+    this.setState({ visible: visible })
+  }
+
+  shouldComponentUpdate (nextProps) {
+    if (nextProps.visible !== this.props.visible) {
+      this.setState({
+        visible: nextProps.visible
+      })
+    }
+    return true
   }
 
   extra={}
@@ -39,7 +56,9 @@ export default class MyComponent extends Component<YonuiCalenderProps> {
   getDateExtra = date => this.extra[+date]
 
   render () {
-    const { maxDate, minDate, defaultDate, defaultValue, defaultTimeValue, type } = this.props
+    const { maxDate, minDate, defaultDate, defaultTimeValue, type, defaultValue } = this.props
+    const { visible } = this.state
+    console.log('visible', visible)
     const minDateTrs = (minDate && typeof minDate === 'string') ? new Date(minDate) : minDate
     const maxDateTrs = (maxDate && typeof maxDate === 'string') ? new Date(maxDate) : maxDate
     const defaultDateTrs = (defaultDate && typeof defaultDate === 'string') ? new Date(defaultDate) : defaultDate
@@ -58,6 +77,7 @@ export default class MyComponent extends Component<YonuiCalenderProps> {
     return (
       <Calendar
         {...this.props}
+        visible={visible}
         onSelect={this.onSelect}
         prefixCls='am-calendar'
         defaultDate={defaultDateTrs}

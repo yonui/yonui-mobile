@@ -13,9 +13,9 @@ import { dateFormat } from '../../_utils'
 const now = new Date()
 
 const extra = {
-  '2021/05/26':{info:'zyhtest', cellCls: 'zyh', cellRender: date => date.getDate()},
-  '2021/05/27':{info:'zyhtest'},
-  '2021/05/28':{info:'zyhtest'},
+  '2021/06/26':{info:'zyhtest', cellCls: 'zyh', cellRender: date => date.getDate()},
+  '2021/06/27':{info:'zyhtest'},
+  '2021/06/28':{info:'zyhtest'},
 }
 export default class Demo1 extends Component<any, any> {
   originbodyScrollY = document.getElementsByTagName('body')[0].style.overflowY;
@@ -75,8 +75,9 @@ export default class Demo1 extends Component<any, any> {
   render () {
     return (
       <div>
+        <span onClick={() => this.setState({show: true})}>显示日历</span>
         <MyComponent
-          visible={true}
+          visible={this.state.show}
           onCancel={this.onCancel}
           onConfirm={this.onConfirm}
           onSelectHasDisableDate={this.onSelectHasDisableDate}
