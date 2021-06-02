@@ -58,6 +58,7 @@ class Button extends React.Component<ButtonProps, any> {
   }
 
   _onClick = e => {
+    e.stopPropagation()
     const { onClick, mReadOnly, disabled, meta } = this.props
     const cBrowseClick = meta?.cBrowseClick
     if (disabled || (!cBrowseClick && mReadOnly)) return

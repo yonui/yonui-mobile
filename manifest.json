@@ -75,6 +75,7 @@
 		"TabBar": "./src/components/tab-bar",
 		"SimpleList": "./src/components/simple-list",
 		"Mobile": "./src/components/contact",
+		"Toast": "./src/components/toast",
 		"YonuiIframe": "./src/components/yonui-iframe",
 		"ListItemDisplay": "./src/components/list-item-display",
 		"Rate": "./src/components/rate",
