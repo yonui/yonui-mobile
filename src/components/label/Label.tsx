@@ -81,6 +81,7 @@ export default class Label extends React.PureComponent<LabelProps> {
           ? label
           : label ? '是' : '否'
       case 'optionwidget':
+      case 'radio':
         if (dataSource) {
           try {
             if (dataSource?.slice(0, 1) === '{' && dataSource?.slice(-1) === '}') {

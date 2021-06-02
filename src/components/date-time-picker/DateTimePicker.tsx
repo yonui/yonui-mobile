@@ -96,13 +96,22 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
   onConfirm = (dateTime?: Date) => {
     if (!dateTime) return
     const { onChangeDate, format, dateMode } = this.props
-    const _format = format || modeToFormat(dateMode)
-    // console.log(moment(dateTime), moment(dateTime).format('YYYY-MM-DD HH:mm'))
+    let _format = format || modeToFormat(dateMode)
+    _format = this._formatHandler(_format)
+    // console.log(moment(dateTime), moment(dateTime).format('YYYY-MM-DD HH:mm'))s
     onChangeDate?.(moment(dateTime).format(_format))
     this.setState({
       aVisible: false,
       _value: dateTime
     })
+  }
+
+  _formatHandler = (_format?: string) => {
+    if (_format === DateFormatMap.year || _format === DateFormatMap.month) {
+      return DateFormatMap.date
+    } else {
+      return _format
+    }
   }
 
   render () {
