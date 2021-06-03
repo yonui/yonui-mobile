@@ -3,8 +3,22 @@
 .@{CalendarPrefixClass} .single-month {
   .row {
     .cell {
+      .date-wrapper{
+        .date.important{
+            background: rgba(220,220,220,0.2);
+            border:none;
+            border-radius: 0;
+            &.date-selected{
+              border: none;
+              background: #E14C46;
+              color: #fff;
+              font-size: 0.34rem;
+            }
+        }        
+      }
       .info {
         height: @font-size-icontext + 5*@hd;
+        color: @brand-primary;
       }
     }
   }

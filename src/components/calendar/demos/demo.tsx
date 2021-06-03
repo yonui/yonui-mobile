@@ -13,9 +13,9 @@ import { dateFormat } from '../../_utils'
 const now = new Date()
 
 const extra = {
-  '2021/06/26':{info:'zyhtest', cellCls: 'zyh', cellRender: date => date.getDate()},
-  '2021/06/27':{info:'zyhtest'},
-  '2021/06/28':{info:'zyhtest'},
+  '2021/06/26':{info:'4h', cellRender: date => date.getDate()},
+  '2021/06/27':{info:'4h'},
+  '2021/06/28':{info:'4h'},
 }
 export default class Demo1 extends Component<any, any> {
   originbodyScrollY = document.getElementsByTagName('body')[0].style.overflowY;

@@ -9,6 +9,9 @@ import Flex from '../../flex'
 import '../style'
 import './demo.less'
 export default class Demo1 extends Component {
+  showToast() {
+    MyComponent.info('This is a toast tips !!!', 1);
+  }
   render () {
     const props = {
       type: 'normal',
@@ -16,7 +19,7 @@ export default class Demo1 extends Component {
     }
 
     return (
-      <div></div>
+      <div onClick={this.showToast}>提示</div>
     )
   }
 }

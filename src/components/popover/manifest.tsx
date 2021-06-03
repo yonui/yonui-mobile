@@ -92,35 +92,23 @@ const manifest: ComponentManifest = {
         props: {},
         label: '显示'
       }
-    },
+    }
+  ],
+  children: () => true,
+  events: [
     {
       name: 'onVisibleChange',
-      type: FieldTypes.action,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: 'onVisibleChange',
-        help: '当显隐状态变化时回调函数'
-      }
+      des: '当显隐状态变化时回调函数'
     },
     {
       name: 'onSelect',
-      type: FieldTypes.action,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: 'onSelect',
-        help: '选中回调函数'
-      }
+      des: '选中回调函数'
     }
   ],
-  children: () => true
+  transformers: [
+    'inherit',
+    ['bindEvent', { events: ['onVisibleChange', 'onSelect'] }],
+  ]
 }
 
 export default manifest
