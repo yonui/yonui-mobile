@@ -1,6 +1,6 @@
 {
   "name": "yonui-mobile",
-  "version": "0.4.171",
+  "version": "0.4.172",
   "description": "yonui mobile",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
