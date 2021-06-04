@@ -22,7 +22,7 @@ const showText = {
 export default class Table extends Component<yonuiTableProps, yonuiTableStates> {
   constructor (props) {
     super(props)
-    const { columns, addOrderColumn = true } = this.props
+    const { columns = [], addOrderColumn = true } = this.props
     this.adaptColumns(columns)
     if (addOrderColumn) {
       this.addOrderColumn(columns)
@@ -51,14 +51,20 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
   }
 
   addOrderColumn = columns => {
-    const orderColumn = {
-      title: '序号',
-      dateIndex: 'order',
-      key: 'order',
-      render: (value, row, index) => <span className={`order-span order-span-${index < 3 ? index + 1 : null}`}>{index}</span>,
-      width: 1,
+    let added = false
+    columns.forEach(column => {
+      if (column.dataIndex === 'order') added = true
+    })
+    if (!added) {
+      const orderColumn = {
+        title: '序号',
+        dateIndex: 'order',
+        key: 'order',
+        render: (value, row, index) => <span className={`order-span order-span-${index < 3 ? index + 1 : null}`}>{index}</span>,
+        width: 1,
+      }
+      columns.unshift(orderColumn)
     }
-    columns.unshift(orderColumn)
   }
 
   adaptColumns = columns => {

@@ -1,200 +1,32 @@
 @import '../../_style/index.less';
-@CalendarPanelPrefixClass : am-calendar-panel;
-.mdf-calendar-panel {
-  background: #fff;
-  .mdf-calendar-panel-header{
-    display: flex;
-    justify-content: space-between;
-    padding: 0 12*@hd;
-    height: 44*@hd;
-    align-items: center;
-    // border-radius: 10*@hd 10*@hd 0 0;
-    border-radius: 10*@hd 10*@hd 0 0;
-    background: white;
-    .mdf-calendar-panel-header{
-      &-cancel{
-        color: @color-text-base;
-        font-size: 16*@hd;
+@CalendarPrefixClass: am-calendar;
+.am-calendar-panel{
+  height: 100%;
+  .@{CalendarPrefixClass} .single-month {
+    .row {
+      .cell {
+        .info {
+          height: @font-size-icontext + 5*@hd;
+          color: @brand-primary;
+        }
       }
-      &-confirm{
-        color: @brand-primary;
-        font-size: 16*@hd;
+    }
+  }
+  .@{CalendarPrefixClass} {
+    position: relative;
+    height: 100%;
+    .mask{
+      display: none !important;
+    }
+    .header{
+      display: none;
+    }
+    .content{
+      position: absolute;
+      .confirm-panel{
+        display: none;
       }
     }
   }
 }
-.react-calendar__tile:enabled:hover,
-  .react-calendar__tile:enabled:focus {
-  background-color: transparent;
-}
-.@{CalendarPanelPrefixClass} {
-  --select-start-end-color: @brand-primary;
-  --select-mid-color: rgba(225,76,70,0.1);
-  &.react-calendar {
-    background: transparent
-  }
-  &.@{CalendarPanelPrefixClass}-range {
-    // .react-calendar__year-view__months__month:hover,.react-calendar__month-view__days__day:hover {
-    //   color: #fff;
-    // }
-    .react-calendar__tile--hover {
-      background-color: transparent;
-    }
-    // .react-calendar__tile:enabled:hover,
-    // .react-calendar__tile:enabled:focus {
-    //   background-color: @brand-primary;
-    // }
-    // .react-calendar__tile--hasActive,
-    // .react-calendar__tile--hasActive:enabled:hover,
-    // .react-calendar__tile--hasActive:enabled:focus {
-    //   &.react-calendar__year-view__months__month {
-    //     &.react-calendar__tile--rangeStart,&.react-calendar__tile--rangeEnd{
-    //       border-radius: 0;
-    //     }
-    //   }
-    //   &.react-calendar__month-view__days__day{
-    //     background-color: @brand-primary;
-    //     &.react-calendar__tile--rangeEnd{
-    //       border-radius: 0 50% 50% 0;
-    //       >abbr {
-    //         border-radius: 0;
-    //       }
-    //     }
-    //     &.react-calendar__tile--rangeStart{
-    //       border-radius: 50% 0 0 50%;
-    //       >abbr {
-    //         border-radius: 0;
-    //       }
-    //     }
-    //   }  
-    // }
-    .react-calendar__tile--active.am-calendar-panel-item, .react-calendar__tile--hasActive.am-calendar-panel-item {
-      &.react-calendar__month-view__days__day{
-        &.react-calendar__tile--rangeEnd{
-          background: linear-gradient(to left, transparent 50%, var(--select-mid-color) 50%);
-          >abbr {
-            color: white;
-            background-color: var(--select-start-end-color);
-            width: 0.9rem;
-            height: 0.9rem;
-            border-radius: 50%;
-          }
-        }
-        &.react-calendar__tile--rangeStart{
-          &.react-calendar__tile--rangeEnd{
-            background: transparent;
-          }
-          background: linear-gradient(to right, transparent 50%, var(--select-mid-color) 50%);
-          >abbr {
-            color: white;
-            background-color: var(--select-start-end-color);
-            width: 0.9rem;
-            height: 0.9rem;
-            border-radius: 50%;
-          }
-        }
-      }
-      
-    }
-  }
-  width: 100%;
-  .react-calendar__navigation button {
-    font-size: 15*@hd;
-    color: #666;
-  }
-  .react-calendar__navigation button[disabled] {
-    background: transparent;
-  }
-  .react-calendar__month-view__weekdays {
-    font-size: 12*@hd;
-    color: #333;
-  }
-  .react-calendar__month-view__days {
-    padding: 9*@hd 0;
-    color: #333;
-  }
-  .react-calendar__month-view__days__day--weekend {
-    color: #111;
-  }
-  // .react-calendar__tile--hasActive,
-  // .react-calendar__tile--hasActive:enabled:hover,
-  // .react-calendar__tile--hasActive:enabled:focus {
-  //   &.react-calendar__year-view__months__month {
-  //     background-color: @brand-primary;
-  //     >abbr {
-  //       font-size: 16*@hd;
-  //       color: #fff;
-  //     }
-  //   }
-  //   &.react-calendar__month-view__days__day{
-  //     background-color: transparent;
-  //     >abbr {
-  //         background-color: @brand-primary;
-  //         color: #fff;
-  //     }
-  //   }
-  //  
-  // }
-  .react-calendar__tile--active {
-    &.react-calendar__month-view__days__day--weekend {
-      color: #fff;
-    }
-    &.@{CalendarPanelPrefixClass}-item {
-      color: @color-text-base;
-      background-color: var(--select-mid-color);
-      >abbr {
-        background-color: rgba(255, 255, 255, 0);
-      }  
-    }
-  }
-  .react-calendar__navigation__arrow {
-    &.react-calendar__navigation__prev2-button {
-      font-size: 15*@hd;
-      color: #666;
-    }
-    &.react-calendar__navigation__next2-button {
-      font-size: 15*@hd;
-      color: #666;
-    }
-  }
 
-  .react-calendar__tile {
-    font-size: 16*@hd;
-  }
-  .react-calendar__tile:disabled {
-    background-color: transparent;
-    >abbr {
-      background:  rgba(160, 162, 168, 0.2)
-    }
-  }
-  // .react-calendar__tile:enabled:hover,
-  // .react-calendar__tile:enabled:focus {
-  //   background-color: transparent;
-  // }
-  .react-calendar__month-view__days__day{
-    &.@{CalendarPanelPrefixClass}-item {
-      padding: 0;
-      margin: 0 0 15*@hd 0;
-      overflow: unset !important;
-      position: relative;
-      .info{
-        display: inline-block;
-        position: absolute;
-        left: 0;
-        top: 45*@hd;
-        font-size: @font-size-icontext;
-        height: @font-size-icontext;
-        width: 45*@hd;
-        text-align: center;
-      }
-      >abbr {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 45*@hd;
-        height: 45*@hd;
-      }
-    }
-  }
-  
-}

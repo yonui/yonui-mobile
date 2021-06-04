@@ -1,158 +1,100 @@
-
 import React, { Component } from 'react'
-import Calendar, { CalendarProps } from 'react-calendar'
-export interface CalendarPanelProps extends CalendarProps {
-  dateInfo?: any
-  style?: object
-  showHeader?: boolean
-  selectColors?: any
-  onSelect?: (value) => void
-  onCancel?: () => void
-  onConfirm?: (value) => void
+import { Calendar } from 'antd-mobile'
+import { CalendarProps } from 'antd-mobile/lib/calendar/PropsType'
+interface YonuiCalenderProps extends CalendarProps {
+  dateExtra: any
+  onClickDay: any
 }
-export default class CalendarPanel extends Component<CalendarPanelProps, any> {
+export default class MyComponent extends Component<YonuiCalenderProps> {
   constructor (props) {
     super(props)
-    const { dateInfo = {}, value } = props
-    const disabledDates = this.getDisabledDays(dateInfo)
-    const selectedInfo = this.getSelectedInfo(value)
     this.state = {
-      disabledDates: disabledDates,
-      value: value,
-      selectedInfo: selectedInfo
+      visible: props.visible,
+      extra: props.dateExtra
     }
   }
 
-  getDisabledDays = (dateInfo) => {
-    const disabledDates = []
-    for (const key in dateInfo) {
-      if (dateInfo[key]?.disable) {
-        disabledDates.push(new Date(key))
-      }
-    }
-    return disabledDates
-  }
-
-  hasDisabledDays = (range) => {
-    const { disabledDates } = this.state
-    let hasDisabled = false
-    for (let i = 0; i < disabledDates.length; i++) {
-      if (range[0] <= disabledDates[i] && range[1] >= disabledDates[i]) {
-        hasDisabled = true
-        break
-      }
-    }
-    return hasDisabled
-  }
-
-  getKey = (date) => {
-    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
-  }
-
-  tileContent = ({ date, view }) => {
-    const { dateInfo = {} } = this.props
-    const key = this.getKey(date)
-    const info = dateInfo[key]
-    return (
-      <span className='info'>
-        {view === 'month' && info?.info}
-      </span>
-    )
-  }
-
-  tileDisabled = ({ date, view }) => {
-    const { dateInfo = {} } = this.props
-    const key = this.getKey(date)
-    const info = dateInfo[key]
-    return view === 'month' && info?.disable
-  }
-
-  getSelectedInfo = (value) => {
-    const { selectRange } = this.props
-    let selectInfo
-    if (selectRange) {
-      const startDate = value[0]
-      const endDate = value[1]
-      const selectedDays = Math.round((endDate - startDate) / (24 * 60 * 60 * 1000))
-      selectInfo = { start: startDate, end: endDate, days: selectedDays }
-    } else {
-      selectInfo = value
-    }
-    return selectInfo
-  }
-
-  // 获取信息
-  onChange = value => {
-    const { selectRange, onSelect } = this.props
-    this.setState({
-      value: value,
-      selectedInfo: value
-    })
-    // range
-    if (selectRange) {
-      const selectedInfo = this.getSelectedInfo(value)
+  shouldComponentUpdate (nextProps) {
+    if (Object.keys(nextProps.dateExtra).length !== Object.keys(this.props.dateExtra).length) {
       this.setState({
-        selectedInfo: selectedInfo
-      })
-      onSelect?.(selectedInfo)
-      if (this.hasDisabledDays(value)) {
-        console.log('包含禁用日期')
+        visible: !this.state.visible
+      }, () => {
         this.setState({
-          value: null
+          visible: !this.state.visible
         })
+      })
+    }
+    return true
+  }
+
+  extra = []
+
+  adaptExtra = () => {
+    const { dateExtra: extra = {} } = this.props
+    Object.keys(extra).forEach((key) => {
+      const info = extra[key];
+      const date = new Date(key);
+      if (!Number.isNaN(+date) && !extra[+date]) {
+        extra[+date] = info;
       }
-    } else {
-      onSelect?.(value)
+    })
+    this.extra = extra
+  }
+
+  onSelect = (value, state) => {
+    let isRange = false
+    if (state[0] && state[1] === undefined) {
+      isRange = true
     }
-  }
-
-  componentDidMount () {
-    this.setSelectColor()
-  }
-
-  setSelectColor = () => {
-    const { selectColors = [] } = this.props
-    const tableEle = document.querySelector('.am-calendar-panel')
-    if (tableEle) {
-      selectColors[0] && tableEle.style.setProperty('--select-start-end-color', selectColors[0])
-      selectColors[1] && tableEle.style.setProperty('--select-mid-color', selectColors[1])
+    const range1 = value
+    const range2 = state[0]
+    const range = range1 < range2 ? [range1, range2] : [range2, range1]
+    const res = {
+      isRange: isRange,
+      range: range,
+      now: value
     }
+    this.props.onClickDay?.(res)
   }
 
-  onCancel = () => {
-    const { onCancel } = this.props
-    onCancel?.()
-  }
-
-  onConfirm = () => {
-    const { onConfirm } = this.props
-    const { selectedInfo } = this.state
-    onConfirm?.(selectedInfo)
+  getDateExtra = date => {
+    console.log('this.extra', this.extra)
+    return this.extra[+date]
   }
 
   render () {
-    const { selectRange, style, showHeader = false } = this.props
-    let { returnValue = 'start' } = this.props
-    const { value } = this.state
-    if (selectRange) returnValue = 'range'
+    const { maxDate, minDate, defaultDate, defaultTimeValue, type, defaultValue, dateExtra } = this.props
+    const { visible } = this.state
+    this.adaptExtra()
+    console.log('extra', dateExtra, 'defaultValue', defaultValue)
+    const minDateTrs = (minDate && typeof minDate === 'string') ? new Date(minDate) : minDate
+    const maxDateTrs = (maxDate && typeof maxDate === 'string') ? new Date(maxDate) : maxDate
+    const defaultDateTrs = (defaultDate && typeof defaultDate === 'string') ? new Date(defaultDate) : defaultDate
+    const defaultTimeValueTrs = (defaultTimeValue && typeof defaultTimeValue === 'string') ? new Date(defaultTimeValue) : defaultTimeValue
+    if (defaultValue && defaultValue.length) {
+      defaultValue[0] = (typeof defaultValue[0] === 'string') ? new Date(defaultValue[0]) : defaultValue[0]
+      if (defaultValue[1]) {
+        if (type === 'one') {
+          delete defaultValue[1]
+          defaultValue.length = 1
+        } else {
+          defaultValue[1] = (typeof defaultValue[1] === 'string') ? new Date(defaultValue[1]) : defaultValue[1]
+        }
+      }
+    }
     return (
-      <div style={style} className='mdf-calendar-panel'>
-        {showHeader && <div className='mdf-calendar-panel-header'>
-          <span className='mdf-calendar-panel-header-cancel' onClick={this.onCancel}>取消</span>
-          <span className='mdf-calendar-panel-header-confirm' onClick={this.onConfirm}>确定</span>
-        </div>}
+      <div className='am-calendar-panel'>
         <Calendar
           {...this.props}
-          className='am-calendar-panel am-calendar-panel-range'
-          returnValue={returnValue}
-          calendarType='US'
-          onChange={this.onChange}
-          tileClassName='am-calendar-panel-item'
-          tileContent={this.tileContent}
-          tileDisabled={this.tileDisabled}
-          value={value}
-          minDetail='month'
-          locale='zh'
+          visible={visible}
+          onSelect={this.onSelect}
+          prefixCls='am-calendar'
+          defaultDate={defaultDateTrs}
+          defaultValue={defaultValue}
+          defaultTimeValue={defaultTimeValueTrs}
+          minDate={minDateTrs}
+          maxDate={maxDateTrs}
+          getDateExtra={this.getDateExtra}
         />
       </div>
     )

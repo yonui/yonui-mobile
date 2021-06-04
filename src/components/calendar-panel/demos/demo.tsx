@@ -2,69 +2,75 @@
  * @name: Demo Name
  * @description: Demo Description
  */
-import React, { Component } from 'react'
-import MyComponent from '../index'
-import { List } from 'antd-mobile'
-import '../style'
-import './demo.less'
-import { dateFormat } from '../../_utils'
-const dateInfo = {
-   '2021-5-1': {info: '劳动节'},
-   '2021-5-26': {info: 'zyh'},
-   '2021-5-27': {info: 'test'},
-   '2021-5-28': {info: '下标1'},
-  }
-const selectColors = ['pink', 'skyblue']
-export default class Demo1 extends Component<any, any> {
-  constructor (props: any) {
-    super(props)
-    this.state = {
-      date: new Date(),
-      one: new Date(),
-      range: [new Date(2021, 4, 20), new Date(2021, 4, 25)]
-    }
-  }
+ import React, { Component } from 'react'
+ import MyComponent from '../index'
+ import '../style'
+ import './demo.less'
+ import { dateFormat } from '../../_utils'
+ const now = new Date()
+ 
+ const extra = {
+   '2021/06/26':{info:'4h'},
+   '2021/06/27':{info:'4h'},
+   '2021/06/28':{info:'4h'},
+ }
+ export default class Demo1 extends Component<any, any> {
+   originbodyScrollY = document.getElementsByTagName('body')[0].style.overflowY;
+   constructor (props: any) {
+     super(props)
+     this.state = {
+       en: false,
+       show: false,
+       config: {},
+       extra: {},
+       pickTime: false
+     }
+   }
+ 
+   componentDidMount() {
+     setTimeout(() => {
+       this.setState({
+         extra: extra,
+         defaultValue: [new Date(now), new Date(now.getFullYear(), now.getMonth(), now.getDate() + 5)]
+       })
+     }, 1000)
+   }
 
-  onSelect = value => {
-    console.log('onSelect', value)
-  }
+   onClickDay = (res) => {
+     console.log('res', res)
+   }
 
-  onClickDay = value => {
-    console.log('onClickDay', value)
-  }
+   onTouchStart = (e) => {
+    const touch = e.touches[0]
+    const startY = touch.pageY
+    console.log(startY)
+   }
 
-  onConfirm = value => {
-    console.log('confirm', value)
-  }
+   onTouchMove = (e) => {
+     console.log('move')
+   }
 
-  onCancel = () => {
-    console.log('cancel')
-  }
-
-  render () {
-    const { date, one, range } = this.state
-    return (
-      <React.Fragment>
-        {/* <MyComponent
-          selectRange={false}
-          onSelect={this.onSelect}
-          showHeader={true}
-          onCancel={this.onCancel}
-          onConfirm={this.onConfirm}
-          dateInfo={{}}
-          value={date}/> */}
-        <MyComponent
-          selectRange={true}
-          showHeader={true}
-          dateInfo={dateInfo}
-          value={range}
-          selectColors={[]}
-          onSelect={this.onSelect}
-          onCancel={this.onCancel}
-          onConfirm={this.onConfirm}
-          onClickDay={this.onClickDay}
-        />
-      </React.Fragment>
-    )
-  }
-}
+   onTouchEnd = (e) => {
+    console.log('moveEnd')
+   }
+ 
+   render () {
+     return (
+       <div style={{ height: '100%' }} 
+       onTouchStart={this.onTouchStart}
+       onTouchMove={this.onTouchMove}
+       onTouchEnd={this.onTouchEnd}
+       >
+         <MyComponent
+           visible={true}
+           // defaultDate={now}
+           defaultValue={this.state.defaultValue}
+           dateExtra={this.state.extra}
+           onClickDay={this.onClickDay}
+           initalMonths={2}
+         />
+       </div>
+     )
+   }
+ }
+ 
