@@ -4,6 +4,7 @@ import { CalendarProps } from 'antd-mobile/lib/calendar/PropsType'
 interface YonuiCalenderProps extends CalendarProps {
   dateExtra: any
   onClickDay: any
+  onPull: any
 }
 export default class MyComponent extends Component<YonuiCalenderProps> {
   constructor (props) {
@@ -13,7 +14,10 @@ export default class MyComponent extends Component<YonuiCalenderProps> {
     this.state = {
       visible: false,
       extra: props.dateExtra,
-      now: new Date(now.getFullYear(), now.getMonth(), now.getDate())
+      now: new Date(now.getFullYear(), now.getMonth(), now.getDate()),
+      startY: 0,
+      touchDistance: 0,
+      monthNow: now.getMonth()
     }
   }
 
@@ -89,6 +93,46 @@ export default class MyComponent extends Component<YonuiCalenderProps> {
     return this.extra[+date]
   }
 
+  onTouchStart = (e) => {
+    e.preventDefault();
+    const touch = e.touches[0]
+    const startY = touch.pageY
+    this.setState({
+      startY: startY
+    })
+  }
+
+  // onTouchMove = (e) => {
+  //   e.preventDefault();
+  //   const touch = e.touches[0]
+  //   const moveY = touch.pageY
+  //   console.log('move', moveY)
+  // }
+
+  onTouchEnd = (e) => {
+    e.preventDefault()
+    const singleMonth = document.querySelector('.single-month')
+    const touch = e.changedTouches[0]
+    const startY = this.state.startY
+    const endY = touch.pageY
+    let touchDistance = this.state.touchDistance
+    console.log('一个月距离', singleMonth.clientHeight)
+    if (startY - endY > singleMonth.clientHeight) {
+      console.log('滑动距离超过一个月', startY - endY)
+    }
+    console.log('滑动距离小于一个月', startY - endY)
+    touchDistance = Math.floor(touchDistance + startY - endY)
+    this.setState({
+      touchDistance: touchDistance
+    })
+    console.log('相对初始位置距离', touchDistance)
+    // const wrapper = document.querySelector('.wrapper')
+    // console.log('moveEnd', wrapper.scrollTop)
+    const monthStart = this.props.defaultDate.getMonth() + 1
+    const monthNow = monthStart + touchDistance / singleMonth.clientHeight + 1
+    this.props.onPull?.(monthStart, Math.floor(monthNow))
+  }
+
   render () {
     const { maxDate, minDate, defaultDate, defaultTimeValue, type, defaultValue } = this.props
     const { visible } = this.state
@@ -109,7 +153,11 @@ export default class MyComponent extends Component<YonuiCalenderProps> {
     }
     if (!visible) return null
     return (
-      <div className='am-calendar-panel'>
+      <div
+        className='am-calendar-panel'
+        onTouchStart={this.onTouchStart}
+        onTouchEnd={this.onTouchEnd}
+      >
         <Calendar
           {...this.props}
           visible={visible}

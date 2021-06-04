@@ -10,7 +10,7 @@
  const now = new Date()
  
  const extra = {
-   '2021/06/26':{info:'4h'},
+   '2021/06/26':{info:'4h', disable: true},
    '2021/06/27':{info:'4h'},
    '2021/06/28':{info:'4h'},
    '2021/07/27':{info:'4h'},
@@ -42,37 +42,27 @@
      console.log('res', res)
    }
 
-   onTouchStart = (e) => {
-    const touch = e.touches[0]
-    const startY = touch.pageY
-    console.log(startY)
-   }
-
-   onTouchMove = (e) => {
-     console.log('move')
-   }
-
-   onTouchEnd = (e) => {
-     const wrapper = document.querySelector('.wrapper')
-     console.log('moveEnd', wrapper.scrollTop)
-     this.setState({
-       extra: {'2021/08/28':{info:'4h'}}
-     })
+   onPull = (monthStart, monthNow) => {
+       console.log('获取extra', monthStart, monthNow)
+       // setTimeout(() => {
+       //   this.setState({
+       //     extra: {'2021/8/2': {info: '新数据'}},
+       //     defaultDate: new Date('2021/8/8')
+       //    })
+       // }) 
    }
  
    render () {
      return (
-       <div style={{ height: '100%' }} 
-       onTouchStart={this.onTouchStart}
-       onTouchMove={this.onTouchMove}
-       onTouchEnd={this.onTouchEnd}
-       >
+       <div style={{ height: '100%' }} >
          <MyComponent
            visible={true}
            // defaultDate={now}
-           defaultValue={this.state.defaultValue}
+           // defaultValue={this.state.defaultValue}
+           defaultDate={this.state.defaultDate || now}
            dateExtra={this.state.extra}
            onClickDay={this.onClickDay}
+           onPull={this.onPull}
            initalMonths={6}
          />
        </div>
