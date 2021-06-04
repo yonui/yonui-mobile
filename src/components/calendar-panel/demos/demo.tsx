@@ -13,6 +13,8 @@
    '2021/06/26':{info:'4h'},
    '2021/06/27':{info:'4h'},
    '2021/06/28':{info:'4h'},
+   '2021/07/27':{info:'4h'},
+   '2021/07/28':{info:'4h'}
  }
  export default class Demo1 extends Component<any, any> {
    originbodyScrollY = document.getElementsByTagName('body')[0].style.overflowY;
@@ -51,7 +53,11 @@
    }
 
    onTouchEnd = (e) => {
-    console.log('moveEnd')
+     const wrapper = document.querySelector('.wrapper')
+     console.log('moveEnd', wrapper.scrollTop)
+     this.setState({
+       extra: {'2021/08/28':{info:'4h'}}
+     })
    }
  
    render () {
@@ -67,7 +73,7 @@
            defaultValue={this.state.defaultValue}
            dateExtra={this.state.extra}
            onClickDay={this.onClickDay}
-           initalMonths={2}
+           initalMonths={6}
          />
        </div>
      )
