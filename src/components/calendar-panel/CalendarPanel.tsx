@@ -8,12 +8,19 @@ interface YonuiCalenderProps extends CalendarProps {
 export default class MyComponent extends Component<YonuiCalenderProps> {
   constructor (props) {
     super(props)
+    this.adaptExtra(props.dateExtra)
     const now = new Date()
     this.state = {
-      visible: props.visible,
+      visible: false,
       extra: props.dateExtra,
       now: new Date(now.getFullYear(), now.getMonth(), now.getDate())
     }
+  }
+
+  componentDidMount () {
+    this.setState({
+      visible: true
+    })
   }
 
   shouldComponentUpdate (nextProps) {
@@ -62,7 +69,6 @@ export default class MyComponent extends Component<YonuiCalenderProps> {
   getDateExtra = date => {
     const now = this.state.now
     if (+now === +date) {
-      console.log('now', now, 'date', date)
       if (!this.extra[+date]) {
         this.extra[+date] = {}
       }
