@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Icon, Modal, Button } from 'antd-mobile'
+import { Modal, Button } from 'antd-mobile'
+import Icon from '../icon'
 import Wrapper, { getListItemProps } from '../list-item-wrapper'
 import classnames from 'classnames'
 interface dataType { text: string, value: string, disabled?: boolean }
