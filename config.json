@@ -26,7 +26,8 @@
     "ToolBar",
     "Divider",
     "Flex",
-    "YonuiIframe"
+    "YonuiIframe",
+    "popover"
   ],
   "staticPropsMap": {
     "ListView": "DataSource",

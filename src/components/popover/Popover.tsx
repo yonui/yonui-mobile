@@ -56,7 +56,7 @@ class PopoverControl extends React.Component<popProps, any> {
     }
     return (
       <Popover overlayClassName={popClassName} overlay={overlayDom} {...this.props} onSelect={this.onSelect}>
-        <div>{this.props.children}</div>
+        <span>{this.props.children}</span>
       </Popover>
     )
   }

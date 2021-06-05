@@ -60,7 +60,9 @@ const manifest: ComponentManifest = {
     {
       name: 'data',
       type: FieldTypes.array,
-      defaultValue: JSON.stringify([{ icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg', label: '选项' }]),
+      defaultValue: JSON.stringify([
+        { key: '1', icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg', text: '选项' }
+      ]),
       showDesign: true,
       designConfig: {
         type: EditTypes.Json,
@@ -72,7 +74,7 @@ const manifest: ComponentManifest = {
     {
       name: 'dark',
       type: FieldTypes.boolean,
-      defaultValue: true,
+      defaultValue: false,
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
@@ -84,7 +86,7 @@ const manifest: ComponentManifest = {
     {
       name: 'visible',
       type: FieldTypes.boolean,
-      defaultValue: true, // 备注：与antd相反，为了展示
+      defaultValue: false, // 备注：与antd相反，为了展示
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,
