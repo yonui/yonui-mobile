@@ -42,15 +42,15 @@
      console.log('res', res)
    }
 
-   onPull = (monthStart, monthNow) => {
-       console.log('获取extra', monthStart, monthNow)
-       // setTimeout(() => {
-       //   this.setState({
-       //     extra: {'2021/8/2': {info: '新数据'}},
-       //     defaultDate: new Date('2021/8/8')
-       //    })
-       // }) 
-   }
+   // onPull = (monthStart, monthNow) => {
+   //     console.log('获取extra', monthStart, monthNow)
+   //     setTimeout(() => {
+   //       this.setState({
+   //         extra: {'2021/8/2': {info: '新数据'}},
+   //         // defaultDate: new Date('2021/8/8')
+   //        })
+   //     }) 
+   // }
  
    render () {
      return (
@@ -62,8 +62,10 @@
            defaultDate={this.state.defaultDate || now}
            dateExtra={this.state.extra}
            onClickDay={this.onClickDay}
-           onPull={this.onPull}
+           // onPull={this.onPull}
            initalMonths={6}
+           maxDate={'2021-8-5'}
+           hintDays={["2021-6-3","2021-6-4"]}
          />
        </div>
      )

@@ -10,10 +10,24 @@
             border: none;
             border-radius: unset;
           }
+          .disable{
+            border-radius: 0;
+          }
         }
         .info {
           height: @font-size-icontext + 5*@hd;
           color: @brand-primary;
+        }
+        &.lightred{
+          .date{
+            background: rgba(225,76,70,0.1);
+            &.date-selected{
+              border: none;
+              background: #E14C46;
+              color: #fff;
+              font-size: 0.34rem;
+            }
+          }
         }
       }
     }
