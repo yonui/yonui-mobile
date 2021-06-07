@@ -68,6 +68,21 @@ export default class MyComponent extends Component<YonuiCalenderProps> {
       range: range,
       now: value
     }
+    if (+value === +this.state.now) {
+      const info = this.extra[+value].info
+      this.extra[+value].cellRender = date => {
+        return (
+          <>
+            <div className='date-wrapper'>
+              <span className='left' />
+              <div className='date date-selected selected-single'>今</div>
+              <span className='right' />
+            </div>
+            <div className='info'>{info}</div>
+          </>
+        )
+      }
+    }
     this.props.onClickDay?.(res)
   }
 
@@ -85,19 +100,19 @@ export default class MyComponent extends Component<YonuiCalenderProps> {
     if (+now === +date) {
       if (!this.extra[+date]) {
         this.extra[+date] = {}
-      }
-      const info = this.extra[+date].info
-      this.extra[+date].cellRender = date => {
-        return (
-          <>
-            <div className='date-wrapper'>
-              <span className='left' />
-              <div className='date'>今</div>
-              <span className='right' />
-            </div>
-            <div className='info'>{info}</div>
-          </>
-        )
+        const info = this.extra[+date].info
+        this.extra[+date].cellRender = date => {
+          return (
+            <>
+              <div className='date-wrapper'>
+                <span className='left' />
+                <div className='date'>今</div>
+                <span className='right' />
+              </div>
+              <div className='info'>{info}</div>
+            </>
+          )
+        }
       }
     }
     return this.extra[+date]
