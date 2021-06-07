@@ -4,6 +4,7 @@ import { CalendarProps } from 'antd-mobile/lib/calendar/PropsType'
 interface YonuiCalenderProps extends CalendarProps {
   dateExtra: any
   onClickDay: any
+  hintDays: string[]
   onPull: any
 }
 export default class MyComponent extends Component<YonuiCalenderProps> {
@@ -67,22 +68,14 @@ export default class MyComponent extends Component<YonuiCalenderProps> {
       range: range,
       now: value
     }
-    this.props.onClickDay?.(res)
-  }
-
-  getDateExtra = date => {
-    const now = this.state.now
-    if (+now === +date) {
-      if (!this.extra[+date]) {
-        this.extra[+date] = {}
-      }
-      const info = this.extra[+date].info
-      this.extra[+date].cellRender = date => {
+    if (+value === +this.state.now) {
+      const info = this.extra[+value].info
+      this.extra[+value].cellRender = date => {
         return (
           <>
             <div className='date-wrapper'>
               <span className='left' />
-              <div className='date'>今</div>
+              <div className='date date-selected selected-single'>今</div>
               <span className='right' />
             </div>
             <div className='info'>{info}</div>
@@ -90,17 +83,49 @@ export default class MyComponent extends Component<YonuiCalenderProps> {
         )
       }
     }
+    this.props.onClickDay?.(res)
+  }
+
+  getDateExtra = date => {
+    const now = this.state.now
+    const hintDays = this.props.hintDays || []
+    hintDays.forEach(hintDay => {
+      if (+new Date(hintDay) === +date) {
+        if (!this.extra[+date]) {
+          this.extra[+date] = {}
+        }
+        this.extra[+date].cellCls = 'lightred'
+      }
+    })
+    if (+now === +date) {
+      if (!this.extra[+date]) {
+        this.extra[+date] = {}
+        const info = this.extra[+date].info
+        this.extra[+date].cellRender = date => {
+          return (
+            <>
+              <div className='date-wrapper'>
+                <span className='left' />
+                <div className='date'>今</div>
+                <span className='right' />
+              </div>
+              <div className='info'>{info}</div>
+            </>
+          )
+        }
+      }
+    }
     return this.extra[+date]
   }
 
-  onTouchStart = (e) => {
-    e.preventDefault();
-    const touch = e.touches[0]
-    const startY = touch.pageY
-    this.setState({
-      startY: startY
-    })
-  }
+  // onTouchStart = (e) => {
+  //   e.preventDefault();
+  //   const touch = e.touches[0]
+  //   const startY = touch.pageY
+  //   this.setState({
+  //     startY: startY
+  //   })
+  // }
 
   // onTouchMove = (e) => {
   //   e.preventDefault();
@@ -109,29 +134,29 @@ export default class MyComponent extends Component<YonuiCalenderProps> {
   //   console.log('move', moveY)
   // }
 
-  onTouchEnd = (e) => {
-    e.preventDefault()
-    const singleMonth = document.querySelector('.single-month')
-    const touch = e.changedTouches[0]
-    const startY = this.state.startY
-    const endY = touch.pageY
-    let touchDistance = this.state.touchDistance
-    console.log('一个月距离', singleMonth.clientHeight)
-    if (startY - endY > singleMonth.clientHeight) {
-      console.log('滑动距离超过一个月', startY - endY)
-    }
-    console.log('滑动距离小于一个月', startY - endY)
-    touchDistance = Math.floor(touchDistance + startY - endY)
-    this.setState({
-      touchDistance: touchDistance
-    })
-    console.log('相对初始位置距离', touchDistance)
-    // const wrapper = document.querySelector('.wrapper')
-    // console.log('moveEnd', wrapper.scrollTop)
-    const monthStart = this.props.defaultDate.getMonth() + 1
-    const monthNow = monthStart + touchDistance / singleMonth.clientHeight + 1
-    this.props.onPull?.(monthStart, Math.floor(monthNow))
-  }
+  // onTouchEnd = (e) => {
+  //   e.preventDefault()
+  //   const singleMonth = document.querySelector('.single-month')
+  //   const touch = e.changedTouches[0]
+  //   const startY = this.state.startY
+  //   const endY = touch.pageY
+  //   let touchDistance = this.state.touchDistance
+  //   console.log('一个月距离', singleMonth.clientHeight)
+  //   if (startY - endY > singleMonth.clientHeight) {
+  //     console.log('滑动距离超过一个月', startY - endY)
+  //   }
+  //   console.log('滑动距离小于一个月', startY - endY)
+  //   touchDistance = Math.floor(touchDistance + startY - endY)
+  //   this.setState({
+  //     touchDistance: touchDistance
+  //   })
+  //   console.log('相对初始位置距离', touchDistance)
+  //   // const wrapper = document.querySelector('.wrapper')
+  //   // console.log('moveEnd', wrapper.scrollTop)
+  //   const monthStart = this.props.defaultDate.getMonth() + 1
+  //   const monthNow = monthStart + touchDistance / singleMonth.clientHeight + 1
+  //   this.props.onPull?.(monthStart, Math.floor(monthNow))
+  // }
 
   render () {
     const { maxDate, minDate, defaultDate, defaultTimeValue, type, defaultValue } = this.props
@@ -155,8 +180,8 @@ export default class MyComponent extends Component<YonuiCalenderProps> {
     return (
       <div
         className='am-calendar-panel'
-        onTouchStart={this.onTouchStart}
-        onTouchEnd={this.onTouchEnd}
+        // onTouchStart={this.onTouchStart}
+        // onTouchEnd={this.onTouchEnd}
       >
         <Calendar
           {...this.props}
