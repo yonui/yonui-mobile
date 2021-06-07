@@ -9,8 +9,9 @@ interface TabBarItem {
 }
 
 export interface TabBarProps {
+  activeKey?: string
   itemList?: TabBarItem[]
-  onSwitch?: (key?: string) => void
+  onSwitch?: (key?: string, item?: TabBarItem) => void
 }
 
 export interface TabBarState {
@@ -20,17 +21,29 @@ export interface TabBarState {
 class yonuiTabBar extends React.Component<TabBarProps, TabBarState> {
   constructor (props: TabBarProps) {
     super(props);
-    const { itemList = [] } = props
-    const selectedTab = itemList.length ? itemList[0].key : ''
-    this.state = { selectedTab: selectedTab };
+    const { activeKey, itemList = [] } = props
+    let selectedTab = activeKey
+    if (!selectedTab) {
+      selectedTab = itemList.length ? itemList[0].key : ''
+    }
+    this.state = { selectedTab };
   }
 
-  switchTab = (key) => {
+  shouldComponentUpdate (nextProps) {
+    if (nextProps.activeKey !== this.props.activeKey) {
+      this.setState({
+        selectedTab: nextProps.activeKey,
+      });
+    }
+    return true
+  }
+
+  switchTab = (item) => {
     const { onSwitch } = this.props
     this.setState({
-      selectedTab: key,
+      selectedTab: item.key,
     });
-    onSwitch?.(key)
+    onSwitch?.(item.key, item)
   }
 
   render () {
@@ -42,7 +55,7 @@ class yonuiTabBar extends React.Component<TabBarProps, TabBarState> {
         title={item.title}
         icon={item.icon}
         selectedIcon={item.selectedIcon}
-        onPress={() => { this.switchTab(item.key) }}
+        onPress={() => { this.switchTab(item) }}
       />
     })
     return (<TabBar tintColor='#E14C46'>
