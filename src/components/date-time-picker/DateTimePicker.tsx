@@ -9,7 +9,7 @@ export interface ListDatePickerProps extends ListItemWrapperProps{
   dateMode?: 'picker-date' | 'picker-time' | 'picker-datetime' | 'picker-year' | 'picker-month' | 'calendar-date' | 'calendar-datetime'
   minDate?: Date | string
   maxDate?: Date | string
-  defafultValue?: Date | string
+  defaultValue?: Date | string
   format?: string
   disabled?: boolean
   value?: Date | string
@@ -66,7 +66,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
     super(props)
     this.state = {
       aVisible: false,
-      _value: formatStringToDate(props.defafultValue)
+      _value: formatStringToDate(props.defaultValue)
     }
   }
 
@@ -118,6 +118,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
     const { label, required, value, minDate, maxDate, disabled, mReadOnly, style, dateMode, onCancel, format, extra, title, splitLine, labelCls: lbc, visible, ...restProps } = this.props
     const { aVisible, _value } = this.state
     if (!visible) return null
+    const defaultValue = (_value && typeof _value === 'string') ? new Date(_value) : _value
     let valueTrs
     if (dateMode === 'picker-time' && !/\/|-/.test(value + '')) {
       valueTrs = (value === '' || value === undefined) ? _value : formatStringToDate(`1970/01/01 ${value}`)
@@ -151,6 +152,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
           <Calendar
             // {...restProps}
             title='title'
+            defaultValue={[defaultValue]}
             minDate={minDateTrs}
             maxDate={maxDateTrs}
             visible={aVisible}
@@ -170,6 +172,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
       return (
         <DatePicker
           {...restProps}
+          defaultValue={defaultValue}
           title={title}
           extra={extra}
           format={format}

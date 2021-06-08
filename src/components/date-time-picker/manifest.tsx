@@ -63,7 +63,7 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'defafultValue',
+      name: 'defaultValue',
       type: FieldTypes.date,
       defaultValue: false,
       showDesign: true,
