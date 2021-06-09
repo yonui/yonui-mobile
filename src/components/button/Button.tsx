@@ -58,7 +58,7 @@ class Button extends React.Component<ButtonProps, any> {
   }
 
   _onClick = e => {
-    e.stopPropagation()
+    // e.stopPropagation()
     const { onClick, mReadOnly, disabled, meta } = this.props
     console.log('zyh-_____click')
     const cBrowseClick = meta?.cBrowseClick
