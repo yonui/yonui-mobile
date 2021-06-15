@@ -313,7 +313,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
   }
 
   render () {
-    const { mode, dataSource, tagSize, className, singleLine, checkedValue, model } = this.props
+    const { mode, dataSource, tagSize, className, singleLine, checkedValue} = this.props
     const { open } = this.state
     let radioArr: any
     switch (mode) {
@@ -331,12 +331,10 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
       }
     }
     const cls = classnames(className, 'yonui-radio')
-    const bIsNull = model?._get_data('bIsNull')
     const wrapperProps = getListItemProps(this.props, {
       className: cls,
       singleLine: singleLine,
-      labelCls: 'yonui-radio-label',
-      required: bIsNull === undefined ? undefined : !bIsNull
+      labelCls: 'yonui-radio-label'
     })
     // if (bIsNull !== undefined) wrapperProps.notRequired = undefined
     // console.log('wrapperProps', wrapperProps)

@@ -134,6 +134,9 @@ const manifest: ComponentManifest = {
     // }
   ],
   children: [],
+  propertyMap: {
+    bIsNull: 'notRequired'
+  },
   extension: [
     ExtensionProps.disabled,
     ExtensionProps.singleLine,
