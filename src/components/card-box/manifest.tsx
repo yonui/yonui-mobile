@@ -1,7 +1,8 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject, TypeProps, SysProps } from 'yonui-extension'
 const transformer = ({ meta, vm }) => {
   return (props) => {
-    props.mReadOnly = vm?.get('mActionList')?.getReadOnly()
+    const mReadOnly = vm?.get('mActionList')?.getReadOnly() || vm?.getGridModel()?.getReadOnly()
+    props.mReadOnly = mReadOnly
     const temp = []
     // const gridData = vm?.getGridModel()?.getData()
     const gridData = vm?.getGridModel()?.getSelectData()
