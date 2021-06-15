@@ -78,11 +78,11 @@ export default class Input extends Component<InputProps, InputState> {
       const _fixValue = multiply(value === 0 ? value : value || stateValue, scaleValue).toFixed(_precision)
       switch (mode) {
         case 'percent': {
-          preValue = `${prefix}${_fixValue}${suffix}%`
+          preValue = `${prefix}${_fixValue}%${suffix}`
           break
         }
         case 'permillage': {
-          preValue = `${prefix}${_fixValue}${suffix}‰`
+          preValue = `${prefix}${_fixValue}‰${suffix}`
           break
         }
         default: {
