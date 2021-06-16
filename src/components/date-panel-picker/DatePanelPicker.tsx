@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { DatePickerView, Modal } from 'antd-mobile'
 // import { DatePickerProps } from 'antd-mobile/lib/date-picker-view/PropsType'
-export interface DatePanelPickerProps{
+export interface DatePanelPickerProps {
   visible: boolean
-  header?: string
   minDate?: Date | string
   maxDate?: Date | string
   value?: string[]
@@ -66,7 +65,7 @@ export default class DatePanelPicker extends Component<DatePanelPickerProps, any
 
   render () {
     const { visible, minDate, maxDate, value, minuteStep = 30, ...restProps } = this.props
-    const { startDate, endDate} = this.state
+    const { startDate, endDate } = this.state
     this.valueTrans(startDate)
     this.valueTrans(endDate)
     const minDateTrs = (typeof minDate === 'string') ? new Date(minDate.replace(/-/g, '/')) : minDate
@@ -75,7 +74,8 @@ export default class DatePanelPicker extends Component<DatePanelPickerProps, any
       <Modal
         visible={visible}
         popup
-        animationType='slide-up'>
+        animationType='slide-up'
+      >
         <div className='am-date-panel-picker'>
           <div className='operation'>
             <div className='item cancel' onClick={this.onDismiss}>取消</div>

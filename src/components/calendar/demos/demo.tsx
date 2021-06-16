@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: Calendar
+ * @description: 日历选择
  */
 import React, { Component } from 'react'
 import MyComponent from '../index'
@@ -46,7 +46,7 @@ export default class Demo1 extends Component<any, any> {
     )
   }
 
-  onSelectHasDisableDate = (dates: Date) => {
+  onSelectHasDisableDate = (dates: Date[]) => {
     console.warn('onSelectHasDisableDate', dates)
   }
 

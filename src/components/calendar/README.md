@@ -13,11 +13,11 @@ prefixCls| 样式前缀 | string | rmc-calendar | false
 renderShortcut | 替换快捷选择栏 需要设置showShortcut: true | (select: (startDate?: Date, endDate?: Date) => void) => React.ReactNode | | false
 renderHeader | 替换标题栏 | () => React.ReactNode | | false
 showShortcut | 快捷日期选择 | boolean | false | false
-title | header title | string | {locale.title}|false
+title | header title | string | {locale.title} |false
 type | 选择类型 one: 单日 range: 日期区间 | 'one' \| 'range'| range | false
 visible | 是否显示 | boolean | false | false
 defaultDate | 显示开始日期 | Date | today | false
-getDateExtra | 日期扩展数据 | (date: Date) => Models.ExtraData | | false
+getDateExtra | 获取日期扩展数据 | (date: Date) => Models.ExtraData | | false
 infiniteOpt | 无限滚动优化（大范围选择）| boolean | false | false
 initalMonths | 初始化月个数 | number | 6 | false
 maxDate | 最大日期 | Date | | false
@@ -27,3 +27,5 @@ onSelectHasDisableDate | 选择区间包含不可用日期 | (date: Date[]) => v
 rowSize | 行大小 | 'normal' \| 'xl' | | false
 defaultValue | 默认日历选择范围 | \[Date, Date\] \| \[Date\] | | false
 defaultTimeValue | 默认时间选择值 | Date | | false
+dateExtra | 日期扩展数据 | Object(Eg: {'2017/07/15': { info: 'Disable', disable: true }}) | {} | false
+onClickDay | 选择日期时回调 | ({isRange?: boolean, range?: Date[], now?: Date[]}) => void | | false

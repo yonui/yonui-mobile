@@ -1,6 +1,6 @@
 /**
- * @name: Tab组件
- * @description: 页签
+ * @name: Table
+ * @description: 表格
  */
 import React, { Component } from 'react'
 import Table from '../index'

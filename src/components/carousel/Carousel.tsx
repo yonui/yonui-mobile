@@ -58,11 +58,13 @@ export default class MDFCarousel extends React.Component<CarouselProps, any> {
         style={{
           ...style,
           paddingBottom: ratio ? this.getPaddingBottom() : undefined
-        }}>
+        }}
+      >
         <Carousel
           autoplayInterval={autoplayInterval * 1000}
           selectedIndex={+selectedIndex}
-          {...otherProps}>{children}</Carousel>
+          {...otherProps}
+        >{children}</Carousel>
       </div>
     )
   }

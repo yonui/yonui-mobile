@@ -5,9 +5,8 @@ interface YonuiCalenderProps extends CalendarProps {
   dateExtra: any
   onClickDay: any
   hintDays: string[]
-  onPull: any
 }
-export default class MyComponent extends Component<YonuiCalenderProps> {
+export default class MyComponent extends Component<YonuiCalenderProps, any> {
   constructor (props) {
     super(props)
     this.adaptExtra(props.dateExtra)
@@ -165,7 +164,7 @@ export default class MyComponent extends Component<YonuiCalenderProps> {
     const maxDateTrs = (maxDate && typeof maxDate === 'string') ? new Date(maxDate) : maxDate
     const defaultDateTrs = (defaultDate && typeof defaultDate === 'string') ? new Date(defaultDate) : defaultDate
     const defaultTimeValueTrs = (defaultTimeValue && typeof defaultTimeValue === 'string') ? new Date(defaultTimeValue) : defaultTimeValue
-    if (defaultValue && defaultValue.length) {
+    if (defaultValue?.length) {
       defaultValue[0] = (typeof defaultValue[0] === 'string') ? new Date(defaultValue[0]) : defaultValue[0]
       if (defaultValue[1]) {
         if (type === 'one') {

@@ -1,6 +1,6 @@
 /**
  * @name: Button
- * @description: 按钮demo
+ * @description: 按钮
  */
 import React, { Component } from 'react';
 import Button from '../index';

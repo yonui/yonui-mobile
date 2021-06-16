@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: TabBottom
+ * @description: 底部标签栏
  */
 import React from 'react'
 import TabBar from '../index'

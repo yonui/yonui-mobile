@@ -1,6 +1,6 @@
 /**
  * @name: Icon
- * @description: 图片
+ * @description: 图标
  */
 import React, { Component } from 'react'
 import Icon from '../index'

@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: CalendarPanel
+ * @description: 日历面板
  */
  import React, { Component } from 'react'
  import MyComponent from '../index'
@@ -8,7 +8,7 @@
  import './demo.less'
  import { dateFormat } from '../../_utils'
  const now = new Date()
- 
+
  const extra = {
    '2021/06/26':{info:'4h', disable: true},
    '2021/06/27':{info:'4h'},
@@ -28,7 +28,7 @@
        pickTime: false
      }
    }
- 
+
    componentDidMount() {
      setTimeout(() => {
        this.setState({
@@ -49,9 +49,9 @@
    //         extra: {'2021/8/2': {info: '新数据'}},
    //         // defaultDate: new Date('2021/8/8')
    //        })
-   //     }) 
+   //     })
    // }
- 
+
    render () {
      return (
        <div style={{ height: '100%' }} >
@@ -71,4 +71,3 @@
      )
    }
  }
- 

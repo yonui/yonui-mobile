@@ -131,7 +131,8 @@ class Button extends React.Component<ButtonProps, any> {
     return (
       <TouchFeedback
         activeClassName={`${prefixCls}-active`}
-        disabled={disabled || mReadOnly}>
+        disabled={disabled || mReadOnly}
+      >
         <a
           uimeta={meta && JSON.stringify(meta)}
           role='button'
@@ -140,9 +141,10 @@ class Button extends React.Component<ButtonProps, any> {
           style={style}
           onClick={this._onClick}
           aria-disabled={disabled || mReadOnly}
-          aria-visible={visible}>
+          aria-visible={visible}
+        >
           {iconEl}
-          {(kids && kids.length) ? kids : content}
+          {(kids?.length) ? kids : content}
         </a>
       </TouchFeedback>
     )

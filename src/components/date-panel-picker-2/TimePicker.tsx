@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { PickerView } from 'antd-mobile'
 // import { DatePickerProps } from 'antd-mobile/lib/date-picker-view/PropsType'
-export interface TimePickerProps{
+export interface TimePickerProps {
   hoursData?: number[]
   minutesData?: number[]
   onConfirm?: (value) => void
