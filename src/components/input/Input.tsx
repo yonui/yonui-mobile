@@ -219,7 +219,7 @@ class Input extends Component<InputProps, InputState> {
     const { required, className, singleLine, inputStyle, onChange, onBlur, onFocus, value, model, style, visible, ...other } = this.props
     const { error, errorText, _displayValue } = this.state
     const cls = classnames('mdf-input', className)
-    const textAlign = this.props.singleAlignType && this.props.singleAlignType === 'right' ? 'right' : 'left'
+    const textAlign = singleLine && this.props.singleAlignType && this.props.singleAlignType === 'right' ? 'right' : 'left'
     const inputCls = classnames('mdf-input-content')
     const inputProps = this.getInputProps()
     const bIsNull = model?._get_data('bIsNull')

@@ -1,4 +1,5 @@
 import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps, TypeProps } from 'yonui-extension'
+import { getFilterProps } from '../list-item-wrapper/manifestProps'
 // todo 未配置 onClick onChange
 // const selectData = [
 //   { value: 'value1', text: '项目1' },
@@ -132,6 +133,7 @@ const manifest: ComponentManifest = {
     //     }
     //   }
     // }
+    ...getFilterProps(['singleLineCenter', 'errorText', 'labelStyle'])
   ],
   children: [],
   propertyMap: {
