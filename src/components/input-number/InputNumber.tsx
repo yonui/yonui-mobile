@@ -215,7 +215,7 @@ export default class Input extends Component<InputProps, InputState> {
       const _precision = mode === 'int' ? 0 : precision
       const precisionCheck = !val?.includes('.') ? true : val?.length - val?.indexOf('.') - 1 <= _precision
       const sizeCheck = !final || !val || Number.isNaN(Number(val)) || (Number(val) >= Number(min) && Number(val) <= Number(max))
-      const LengthCheck = maxLength >= val.length
+      const LengthCheck = maxLength >= val?.length
       return normalCheck && precisionCheck && sizeCheck && LengthCheck
     } else {
       return true
