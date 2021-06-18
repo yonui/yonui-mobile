@@ -1,6 +1,6 @@
 /**
- * @name: label
- * @description: 标签
+ * @name: Tips
+ * @description: 徽标
  */
 import React, { Component } from 'react'
 import MyComponent from '../index'

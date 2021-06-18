@@ -1,13 +1,12 @@
 /**
- * @name: TimeRangePiker
+ * @name: TimeRange
  * @description: 时间选择器
  */
+
 import React, { Component } from 'react'
 import MyComponent from '../index'
 import '../style'
 import './demo.less'
-// const nowTimeStamp = Date.now()
-// const now = new Date(nowTimeStamp)
 
 const hoursData = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
 const minutesData =  [0, 30, 40, 50]

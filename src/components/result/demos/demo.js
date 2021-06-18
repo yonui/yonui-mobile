@@ -1,6 +1,6 @@
 /**
- * @name: Button
- * @description: sss
+ * @name: Result
+ * @description: 反馈页面
  */
 import React, { Component } from 'react'
 import Result from '../index'

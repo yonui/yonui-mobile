@@ -2,14 +2,15 @@
  * @name: Calendar
  * @description: 日历选择
  */
+
 import React, { Component } from 'react'
 import MyComponent from '../index'
-import { Button, List } from 'antd-mobile'
+import { Button } from 'antd-mobile'
 import enUS from 'antd-mobile/lib/calendar/locale/en_US'
 import zhCN from 'antd-mobile/lib/calendar/locale/zh_CN'
 import '../style'
 import './demo.less'
-import { dateFormat } from '../../_utils'
+
 const now = new Date()
 
 const extra = {

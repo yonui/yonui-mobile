@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: Search
+ * @description: 搜索框
  */
 import React, { Component } from 'react'
 import Search from '../index'
