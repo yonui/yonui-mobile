@@ -15,7 +15,7 @@ export default class DatePanelPicker extends Component<DatePanelPickerProps, any
     super(props)
     const { value = [] } = props
     const now = new Date()
-    const nowDate = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`
+    const nowDate = `${now.getFullYear()}/${now.getMonth()}/${now.getDate()}`
     const nowTime = `${now.getHours()}:${now.getMinutes()}`
     const date = value[0] || nowDate
     const startTime = value[1] || nowTime
