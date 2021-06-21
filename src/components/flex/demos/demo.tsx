@@ -1,6 +1,6 @@
 /**
  * @name: Flex
- * @description: 布局容器
+ * @description: 流式布局
  */
 import React, { Component } from 'react'
 import { WhiteSpace } from "antd-mobile"

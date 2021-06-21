@@ -1,7 +1,8 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: Divider
+ * @description: 分割线
  */
+
 import React, { Component } from 'react'
 import MyComponent from '../index'
 import '../style';
@@ -15,7 +16,6 @@ export default class Demo extends Component {
             <MyComponent content="分割线" type="dotted"/>
             <MyComponent content="分割线" type="double"/>
             {/* <MyComponent /> */}
-
           </div>
         )
     }

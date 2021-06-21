@@ -67,7 +67,7 @@ export default class Demo1 extends Component {
           <MyComponent label={ '9.5' } suffix={'万元'} />
         </Flex>
         <Flex>
-          <MyComponent spareLabel={'哈哈哈'} label={ '1.5' } prefix={'&'} suffix={'*'} />
+          <MyComponent showTitle={true} spareLabel={'哈哈哈'} prefix={'&'} suffix={'*'} />
         </Flex>
       </div>
     )

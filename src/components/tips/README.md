@@ -1,11 +1,12 @@
 # README
-## tips 基础组件-徽标数
-**API**
+## Tips 基础组件-徽标
+## API
 
-| label |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 类型 | 默认值 | 说明 |
-| text | string | - |  展示的数字或文案，当为数字时候，大于 overflowCount |
-| corner | boolean | false |  置于角落 |
-| dot | boolean | false |  不展示数字，只有一个小红点 |
-| overflowCount | number | - |  展示封顶的数字值 |
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+size | 大小 | 'large'/'small' | 'small'  | false
+text | 展示的数字或文案 | string|number | 无 | false
+corner | 置于角落 | boolean | false | false
+dot | 不展示数字，只有一个小红点 | boolean | false | false
+overflowCount | 展示封顶的数字值 | number | 99 | false
+hot | 营销样式 | boolean | false | false
