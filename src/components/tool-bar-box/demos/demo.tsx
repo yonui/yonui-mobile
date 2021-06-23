@@ -1,6 +1,6 @@
 /**
- * @name: ToolBar
- * @description: Demo Description
+ * @name: Toolbar
+ * @description: 工具栏
  */
 import React, { Component } from 'react'
 import ToolBar from '../index'
@@ -67,7 +67,7 @@ export default class Demo1 extends Component<any, any> {
           <Button size='small'>Btn4</Button>
           <Button size='small'>Btn5</Button> */}
         </ToolBar>
-        <ToolBar layout='alignleft'>
+        <ToolBar layout='alignleft' runTime={true}>
           <Button mode='primary' size='small'>btn1</Button>
           <Button size='small' mode='toolbar-default'>Btn2</Button>
           {/* <Button size='small'>Btn3</Button> */}

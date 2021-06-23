@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: Checkbox
+ * @description: 复选框
  */
 import React, { Component } from 'react'
 import MyComponent from '../index'

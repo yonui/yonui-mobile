@@ -1,5 +1,5 @@
 /**
- * @name: Tab组件
+ * @name: Tab
  * @description: 页签
  */
 import React, { Component } from 'react'

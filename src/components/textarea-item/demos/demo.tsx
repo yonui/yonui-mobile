@@ -1,5 +1,5 @@
 /**
- * @name: TextareaItem
+ * @name: Textarea
  * @description: 多行文本
  */
 import React, { Component } from 'react'
@@ -13,6 +13,7 @@ export default class Demo1 extends Component {
         // placeholder="预设内容"
         label='123123'
         // maxLength={1000}
+        singleLine
         clear
         required
       />

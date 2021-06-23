@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: Popover
+ * @description: 气泡
  */
 import React, { Component } from 'react';
 import Popover from '../index';

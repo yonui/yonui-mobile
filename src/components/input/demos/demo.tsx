@@ -1,6 +1,6 @@
 /**
  * @name: Input
- * @description: 输入文本
+ * @description: 输入框
  */
 import React, { Component } from 'react'
 import MyComponent from '../index'

@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: Slider
+ * @description: 滑动输入条
  */
 import React, { Component } from 'react'
 import MyComponent from '../index'

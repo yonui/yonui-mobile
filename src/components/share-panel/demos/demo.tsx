@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: SharePanel
+ * @description: 分享栏
  */
 import React, { Component } from 'react'
 import Panel from '../index'

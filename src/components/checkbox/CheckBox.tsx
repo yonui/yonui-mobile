@@ -16,7 +16,6 @@ import CircleSelectedImg from './style/circleSelected.png'
 import CircleUnSelectedImg from './style/circleUnSelected.png'
 
 interface CheckboxControlProps extends React.defaultProps{
-  mode?: string
   defaultChecked?: boolean
   checked?: boolean
   disabled?: boolean

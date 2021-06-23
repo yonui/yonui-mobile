@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: Cardbox
+ * @description: 卡片容器
  */
 import React, { Component } from 'react'
 import MyComponent from '../index'
@@ -11,7 +11,7 @@ import './demo.less';
 const children = [<MyComponent onDelete={()=>{console.log('x')}}  label='标题'  displayStyle='extra'>
 <div>123123123</div>
 </MyComponent>,
-<MyComponent splitLine={false} onDelete={()=>{console.log('x')}}  label='标题' displayStyle='detail' selected showTitleExtraIcon>
+<MyComponent splitLine={true} onDelete={()=>{console.log('x')}}  label='标题' displayStyle='detail' selected showTitleExtraIcon>
 <div>123123123</div>
 </MyComponent>,
 <MyComponent onDelete={()=>{console.log('x')}}  label='标题' displayStyle='slideable'>
