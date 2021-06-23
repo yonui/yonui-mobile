@@ -1,5 +1,5 @@
 # README
-## TabBottom 基础组件-底部标签栏
+## TabBottom/TabBar 基础组件-底部标签栏
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

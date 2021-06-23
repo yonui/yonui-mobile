@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: DateTimePicker
+ * @description: 日期时间选择
  */
 import React, { Component } from 'react'
 import MyComponent from '../index'

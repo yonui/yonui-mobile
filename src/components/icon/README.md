@@ -9,4 +9,4 @@ color | 颜色 | string | 无 | false
 data | 内容 | string | 无 | false
 size | 尺寸 | 'xxs'/'xs'/'sm'/'md'/'lg'/'md' | 'md' |false
 visible | 是否可见 | boolean | true | false
-onClick | 单机时回调 | (): void | 无 | false
+onClick | 点击时回调 | (): void | 无 | false

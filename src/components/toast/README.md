@@ -1,11 +1,10 @@
 # README
-## tips 基础组件-徽标数
-**API**
+## Toast 基础组件-提示
+## API
 
-| label |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 类型 | 默认值 | 说明 |
-| text | string | - |  展示的数字或文案，当为数字时候，大于 overflowCount |
-| corner | boolean | false |  置于角落 |
-| dot | boolean | false |  不展示数字，只有一个小红点 |
-| overflowCount | number | - |  展示封顶的数字值 |
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+content | 提示内容 | React.Element/String | 无 | false
+duration | 自动关闭的延时，单位秒 | number | 3 | false
+onClose | 关闭后回调 | Function | 无 | false
+mask | 是否显示透明蒙层，防止触摸穿透 | boolean | true | false

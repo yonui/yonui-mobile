@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: GroupContainer
+ * @description: 容器
  */
 import React, { Component } from 'react'
 import MyComponent from '../index'

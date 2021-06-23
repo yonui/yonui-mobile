@@ -1,6 +1,6 @@
 /**
  * @name: InputBox
- * @description: 输入框母本
+ * @description: 输入框(只有框)
  */
 import React, { Component } from 'react'
 import MyComponent from '../index'
