@@ -86,6 +86,18 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'regRuleText',
+      type: FieldTypes.string,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '校验错误提示',
+        help: '对应自定义格式不正确的情况'
+      }
+    },
+    {
       name: 'min',
       type: FieldTypes.number,
       defaultValue: -2147483648,

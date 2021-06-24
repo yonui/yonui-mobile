@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import classnames from 'classnames'
 interface InputYonuiProps extends React.defaultProps {
   type?: 'text' | 'number' | 'tel' | 'password'
+  isNumber?: boolean
   pattern?: RegExp // 输入过程中的校验规则
   finalPattern?: RegExp | Array<{ reg: RegExp, text: string }> // onBlur时的校验规则
   value?: string | number
-  defaultValue?: string
+  defaultValue?: string | number
   textAlign?: 'left' | 'right' | 'center'
   placeholder?: string
   maxLength?: number
@@ -27,7 +28,7 @@ interface InputYonuiProps extends React.defaultProps {
 }
 
 interface InputYonuiState {
-  _value: string
+  _value: string | number
   _className: string
 }
 export default class InputYonui extends Component<InputYonuiProps, InputYonuiState> {
@@ -36,12 +37,23 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
   }
 
   state = {
-    _value: this.props.defaultValue,
+    _value: this.props.value || this.props.defaultValue,
     _className: ''
   }
 
+  inputref = React.createRef()
+  componentDidMount () {
+    const { disabled, mReadOnly } = this.props
+    if (!(disabled || mReadOnly)) {
+      this.inputref?.current?.focus()
+      this.inputref?.current?.blur()
+    }
+  }
+
   checkValue = (value: string, final?: boolean) => {
-    const { maxLength, pattern, onError, finalPattern, onSuccess, required, customCheck, check } = this.props
+    const { maxLength, pattern, onError, finalPattern, onSuccess, required, customCheck, check, isNumber = false } = this.props
+    // 暂时修改，数值前后缀与值分离后去除
+    if (isNumber) value = value.replace(/[^0-9.]*/g, '')
     if (check != undefined && !check) return true
     if (customCheck && !customCheck(value, false)) {
       console.log('customCheck error', value)
@@ -169,6 +181,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
       <div className={cls} style={style}>
         <input
           className='yonui-input-box'
+          ref={this.inputref as React.RefObject<HTMLInputElement>}
           type={type}
           value={showValue}
           onChange={this._onChange}

@@ -147,7 +147,7 @@ export default class Input extends Component<InputProps, InputState> {
   }
 
   getInputProps = () => {
-    const { onError, onSuccess, mode } = this.props
+    const { onError, onSuccess, mode, regRuleText } = this.props
     const { check } = this.state
     const _onError = (value: string, pattern: { reg?: RegExp, text?: string}) => {
       onError?.(value, pattern)
@@ -179,7 +179,10 @@ export default class Input extends Component<InputProps, InputState> {
         res = {
           ...res,
           type: 'text',
-          finalPattern: /^-?(\d+\.\d+|[1-9]\d*|0)$/,
+          finalPattern: [{
+            reg: /^-?(\d+\.\d+|[1-9]\d*|0)$/,
+            text: regRuleText
+          }],
           maxLength: 18
         }
         break
@@ -253,6 +256,7 @@ export default class Input extends Component<InputProps, InputState> {
     return (
       <Wrapper {...wrapperProps}>
         <YonuiInput
+          isNumber={true}
           className={inputCls}
           required={_required}
           textAlign={singleLine ? 'right' : 'left'}
