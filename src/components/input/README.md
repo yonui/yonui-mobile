@@ -1,24 +1,50 @@
-# README
-## Input 基础组件-输入框
-**API**
+# Input 基础组件-输入框
+## 如何使用
 
-| Input |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 类型 | 默认值 | 说明 |
-| type | string | text | 可以是银行卡bankCard; 手机号phone(此时最大长度固定为11,maxLength设置无效); 密码password; 数字number(为了尽量唤起带小数点的数字键盘，此类型并不是原生 number，而是'<'input type="text" pattern="[0-9]*"'/>'); digit(表示原生的 number 类型); money(带小数点的模拟的数字键盘) 以及其他标准 html input type 类型 |
-| label | string | - |  标签 |
-| defaultValue | string | - |  设置初始默认值 |
-| value | string | - |  value 值|
-| placeholder | string | '' |  placeholder |
-| labelNumber | number | 5 | 标签的文字个数，可用2-7之间的数字 |
-| maxLength |	number | 无。除money类型外，仅当text, email, search, password, tel, or url 有效。| 最大长度 |
-| required | boolean | false | 是否必填 |
-| editable | boolean | true | 是否可编辑 |
-| disabled | boolean | false | 是否禁用 |
-| clear | boolean | false | 是否带清除功能(仅editable为true,disabled为false才生效) |
-| singleLine | boolean | false | 是否单行展示 |
-| singleLineCenter | boolean | false | 是否单行展示，并集中对齐 |
-<!-- | extra	| string or node | '' | 右边注释 | -->
-| onChange | (val: string): void | - | change 事件触发的回调函数 |
-| onBlur | (val: string): void | - | blur 事件触发的回调函数 |	
-| onFocus |	(val: string): void	| - | focus 事件触发的回调函数 |
+```
+import { Input } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
+## API
+
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+subuitype | ui类型，根据不同的类型进行展示数据的格式化 | 'text'/'password'/'idCard'/'email'/'ipAddress'/'bankCard16'/'bankCard19'/'customized'/'' | 无 | false
+value | 初始值 | string | 无 | false
+defaultValue | 默认值 | string | 无 | false
+regRule | 最终校验正则规则 | string/RegExp | 无 | false
+regRuleText | 最终校验正则名称 | string | 无 | false
+check | 是否进行错误检查 | boolean | true | false
+formatReg | 数据格式化，value会按照formatReg的展示格式展示 | string | 无 | false
+hiddenChart | 配合formatReg使用，表示要隐藏的字符 | string | '' | false
+replaceChart | 配合formatReg使用，表示要替换的字符 | string | '' | false
+checkMask | 中间校验规则 | string | 无 | false
+inputStyle | 输入框样式 | React.CSSProperties | 无 | false
+onFocus | 获取焦点时回调 | (value: string) => void | 无 | false
+onBlur | 失去焦点时回调 | (value: string) => void | 无 | false
+onChange | 修改时回调 | (value: string) => void | 无 | false
+onClickClear | 点击清空时回调 | (value: string) => void | 无 | false
+onError | 校验错误时回调 | (value: string, pattern: { reg?: RegExp, text?: string }) => void | 无 | false
+onSuccess | 校验成功时回调 | React.CSSProperties | 无 | false
+visible | 是否可见 | boolean | true | false
+model | 运行态model | any | 无 | false
+singleLine | 是否单行展示 | boolean | false | false
+required | 是否必填 | boolean | false | false
+label | 标题 | string | '' | false
+subLabel | 副标题 | string | '' | false
+labelCls | 标题样式前缀 | string | 无 | false
+labelStyle | 标题样式style | React.CSSProperties | 无 | false
+contentCls | 内容样式前缀 | string | 无 | false
+contentStyle | 内容样式style | React.CSSProperties | 无 | false
+error | 是否不显示错误 | boolean | false | false
+errorText | 错误文案 | string | 无 | false
+showExtraLabelIcon | 标签是否显示icon | boolean | false | false
+onClick | 点击标签回调 | (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void | 无 | false
+className | 样式class | string | 无 | false
+style | 样式style | React.CSSProperties | 无 | false
+nid | 运行态id | string | 无 | false
+uitype | ui类型 | string | 无 | false

@@ -1,5 +1,14 @@
-# README
-## Div 基础组件-Div块
+# Div 基础组件-Div块
+## 如何使用
+
+```
+import { Div } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

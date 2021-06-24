@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: Radio
+ * @description: 选项
  */
 import React, { Component } from 'react';
 import Radio from '../index';
@@ -31,7 +31,7 @@ export default class Demo1 extends Component {
         ];
         return (
             <div>
-              <Radio dataSource={selectData} label='标题' mode='list'  onChange={this.onChange} tagSize='sm' multiple={false} singleLine checkedValue={this.state.value}/>
+              <Radio dataSource={selectData} label='标题' mode='list'  onChange={this.onChange} tagSize='sm' singleLine checkedValue={this.state.value}/>
               {/* <Radio dataSource={selectData} label='标题' mode='list' onChange={this.onChange}  />
               <Radio dataSource={selectData} label='标题' mode='tag'  onChange={this.onChange} tagSize='sm'  isMultiple/>
               <Radio dataSource={selectData} label='标题' mode='list' isMultiple /> */}

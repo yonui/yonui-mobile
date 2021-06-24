@@ -1,5 +1,5 @@
 /**
- * @name: TabBottom
+ * @name: TabBottom/TabBar
  * @description: 底部标签栏
  */
 import React from 'react'

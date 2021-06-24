@@ -1,6 +1,6 @@
 /**
  * @name: Loading
- * @description: Demo Description
+ * @description: 加载中
  */
 import React, { Component } from 'react'
 import Loading from '../index'

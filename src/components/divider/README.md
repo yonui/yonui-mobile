@@ -1,5 +1,14 @@
-# README
-## Divider 基础组件-分割线
+# Divider 基础组件-分割线
+## 如何使用
+
+```
+import { Divider } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

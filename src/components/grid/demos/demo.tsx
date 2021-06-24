@@ -1,6 +1,6 @@
 /**
  * @name: Grid
- * @description: 宫格组件
+ * @description: 宫格
  */
 import React, { Component } from 'react'
 import MyComponent from '../index'

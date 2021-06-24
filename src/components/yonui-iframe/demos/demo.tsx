@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: YonuiIframe
+ * @description: Iframe框
  */
 import React, { Component } from 'react'
 import MyComponent from '../index'

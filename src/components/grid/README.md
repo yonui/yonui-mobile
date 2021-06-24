@@ -1,23 +1,28 @@
-# README
-## Grid 宫格
-**API**
+# Grid 基础组件-宫格
+## 如何使用
 
-| Grid |  |  |  |
-| :---: | --- | --- | --- |
-| 属性 | 说明 | 类型 | 默认值 |
-|data	|传入的菜单数据|	Array<{icon, text}>|	[]|
-|onClick|	点击每个菜单的回调函数|	(el: Object, index: number): void	|-|
-|columnNum|	列数|	number|	4|
-|hasLine|	是否有边框|	boolean	|false|
-|outContent| 是否有外框内容,注(当outContent为true,renderItem方法无效) | boolean | false |
-|full|是否通栏| boolean | false |
-|transparent|是否透明|boolean|false|
-|isCarousel	|是否跑马灯|	boolean|	false|
-|mode|grid模式['image','number'] [图片,数字]| string | 'image' |
-|itemSize|item上icon的大小,可选sm,md,lg [小,中,大]| string | 'sm' |
-|carouselMaxRow	|如果是跑马灯, 一页跑马灯需要展示的行数|	number|	2|
-|renderItem	|自定义每个 grid 条目的创建函数	|(el, index) => React.Node	|-|
-|square|	每个格子是否固定为正方形|	boolean	|true|
-|activeStyle|	点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)	|{}/false|	{}|
-|activeClassName	|点击反馈的自定义类名	|string	||
-|itemStyle	|每个格子自定义样式	|object	|{}|
+```
+import { Grid } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
+## API
+
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+prefixCls | 样式前缀 | string | 'am-grid' | false
+className | 样式class | string | 无 | false
+square | 每个格子是否固定为正方形 | boolean | true | false
+activeClassName | 点击反馈的自定义class | string | 无 | false
+activeStyle | 点击反馈的自定义style(设为 false 时表示禁止点击反馈) | object/false | 无 | false
+itemStyle | 每个格子自定义样式 | object | 无 | false
+outContent | 图标外有边框 | boolean | false | false
+full | 是否占用全屏 | boolean | false | false
+mdfPrefixCls | 外层mdf样式前缀 | string | 'mdf-grid' | false
+itemSize | 图标尺寸 | string | 'sm' | false
+transparent | 是否继承父样式 | boolean | false | false
+mode | 模式 | string | 'image' | false
+style | 样式style | object | 无 | false

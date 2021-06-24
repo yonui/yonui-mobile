@@ -1,5 +1,14 @@
-# README
-## TimeRangePiker 基础组件-时间选择器
+# TimeRangePiker 基础组件-时间选择器
+## 如何使用
+
+```
+import { TimeRangePiker } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

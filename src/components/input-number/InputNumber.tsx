@@ -14,7 +14,6 @@ const multiply = (numA: number | string, numB: number | string) => {
 export interface InputProps extends ListItemWrapperProps {
   maxLength?: number
   mode?: 'normal' | 'percent' | 'permillage' | 'int'
-  subuitype?: string
   value?: string | number
   defaultValue?: string | number
   regRule?: string | RegExp

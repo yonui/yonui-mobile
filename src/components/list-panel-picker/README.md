@@ -1,12 +1,22 @@
-# README
-## ListPanelPicker 基础组件-操作列表
-**API**
+# ListPanelPicker 基础组件-底部弹出菜单
+## 如何使用
 
-| ListPanelPicker |  |  |  |
-| :---: | --- | --- | --- |
-属性 | 说明 | 类型 | 默认值 |
-visible | 是否显示 | boolean | false |
-header | 头部的值 | string | - |
-data | 传入的列表数据 | Array<{key, text, delete?}>,delete为true,操作列表项颜色为红色,key为主键,text为显示文本,不需要可以不写delete属性 | [] |
-onClose | 关闭时回调 | () => void | |
-onClick | 点击时回调 | (object: DataItem) => void | |
+```
+import { ListPanelPicker } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
+## API
+
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+visible | 是否展示 | boolean | 无 | false
+header | 头部标题 | string | 无 | false
+data | 数据 | DataItem[] | 无 | false
+onClose | 关闭时回调 | () => void | 无 | false
+onSelect | 选中时回调 | (object: DataItem) => void | 无 | false
+style | 样式style | object | 无 | false
+model | 运行态model | any | 无 | false

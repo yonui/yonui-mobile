@@ -1,21 +1,34 @@
-# README
-列表行容器组件，用来规范同类组件样式。
+# ListItemWrapper 基础组件-组件左侧标题
+## 如何使用
 
-### API
+```
+import { ListItemWrapper } from 'yonui-mobile';
 
-| 属性          | 说明                                            | 必填 | 类型                                                       | 默认值        |
-| ------------- | ----------------------------------------------- | ---- | ---------------------------------------------------------- | ------------- |
-| label  | 标题                            | 否   | string |  |
-| subLabel | 副标题文本 | 否   | string                               |  |
-| required | 是否必填 | 否   | boolean                     | false |
-| splitLine | 是否展示分割线             | 否   | boolean                 | true |
-| singleLine | 是否单行展示 | 否   | boolean | false |
-| labelCls | 标题className | 否 | string |  |
-| labelStyle | 标题style属性 | 否 | React.CSSProperties |  |
-| contentCls | 内容className | 否 | string | |
-| contentStyle | 内容style属性 | 否 | React.CSSProperties | |
-| error | 是否错误 | 否 | boolean | false |
-| errorText | 错误提示文本 | 否 | string | '填写信息有误!请重新填写' |
-| showExtraLabelIcon | 是否展示标题左侧图标 | 否 | boolean | false |
-| onClick | 行点击事件 | 否 | (*event*: React.MouseEvent<HTMLDivElement, MouseEvent>) => void | |
+```
 
+## 代码演示
+
+
+## API
+
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+singleLine | 是否单行展示 | boolean | false | false
+singleLineCenter | 是否单行居中 | boolean | false | false
+singleAlignType | 单行对齐方式 | string | 无 | false
+required | 是否必填 | boolean | false | false
+notRequired | 是否不必填 | boolean | true | false
+label | 标题 | string | '' | false
+subLabel | 副标题 | string | '' | false
+labelCls | 标题样式前缀 | string | 无 | false
+labelStyle | 标题样式style | React.CSSProperties | 无 | false
+contentCls | 内容样式前缀 | string | 无 | false
+contentStyle | 内容样式style | React.CSSProperties | 无 | false
+error | 是否不显示错误 | boolean | false | false
+errorText | 错误文案 | string | 无 | false
+regRuleText | 正则校验提示文案 | React.ReactNode | 无 | false
+showExtraLabelIcon | 标签是否显示icon | boolean | false | false
+previewMode | 预览模式 | 'design'/'edit'/'browse' | 无 | false
+mReadOnly | 是否只读 | boolean | false | false
+disabled | 是否禁用 | boolean | false | false
+onClick | 点击标签回调 | (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void | 无 | false

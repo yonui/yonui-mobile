@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: Menu
+ * @description: 菜单
  */
 import React, { Component } from 'react'
 import '../style'

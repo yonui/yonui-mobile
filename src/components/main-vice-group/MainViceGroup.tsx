@@ -8,8 +8,6 @@ interface MainViceGroupProps {
   style?: React.CSSProperties
   drawerHeight?: number
   onShow?: () => void
-  groupType?: string
-  drawerWidth?: number
   nid?: string
   // onPageWillUnmount?: () => void
 }

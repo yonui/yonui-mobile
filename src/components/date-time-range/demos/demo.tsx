@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: DateTimeRange
+ * @description: 时间范围选择
  */
 import React, { Component } from 'react'
 import MyComponent from '../index'
@@ -8,15 +8,14 @@ import '../../date-time-picker/style'
 import '../style';
 import './demo.less';
 const props = {
-  "enterDirection": 4,
   "minDate": "2000-01-31T16:00:00.000Z",
   "className": "",
   "required": false,
-  "mode": "default",
-  "startLabel": "开始时间",
+  "mode": "range",
+  "startLabel": "",
   "infiniteOpt": false,
-  "disabled": true,
-  "endLabel": "结束时间",
+  "disabled": false,
+  "endLabel": "",
   "defaultDate": "2020-04-24T16:00:00.000Z",
   "pickTime": false,
   "initalMonths": 6,
@@ -26,8 +25,10 @@ const props = {
   "maxDate": "2030-02-01T15:59:59.000Z",
   "defaultTimeValue": "",
   "label": "日期时间范围1",
-  // "value": [ ],
-  "children": []
+  "title": "haha",
+  "children": [],
+  "type": 'range',
+  "visible": true
 }
 export default class Demo extends Component<any, any> {
 

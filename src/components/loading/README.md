@@ -1,20 +1,27 @@
-# README
+# Loading 基础组件-加载中
+## 如何使用
 
-加载
+```
+import { Loading } from 'yonui-mobile';
+
+```
+
+## 代码演示
 
 
+## API
 
-### api
-
-| 属性      | 说明                      | 必填 | 类型                       | 默认值    |
-| --------- | ------------------------- | ---- | -------------------------- | --------- |
-| *show*    | 是否展示加载组件          | 否   | boolean                    | 'title'   |
-| *theme*   | 主题                      | 否   | 'primary'\|'dark'\|'light' | 'primary' |
-| *type*    | 加载类型                  | 否   | 'toast'\|'jump'\|'local'   | 'toast'   |
-| *percent* | type='jump'时的百分比     | 否   | number                     |           |
-| *inline*  | type='jump'时是否行内模式 | 否   | boolean                    | false     |
-| *content* | typr='toast'时文字内容    | 否   | string                     | ''        |
-| *size*    | type='local'时图标大小    | 否   | 'small' \| 'large'         | 'small'   |
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+content | 加载文案 | string | '' | false
+inline | 单行展示 | boolean | false | false
+size | 尺寸 | 'small'/'large' | 'small' | false
+show | 是否展示 | boolean | true | false
+type | 类型 | 'toast'/'jump'/'top'/'local' | 'toast' | false
+percent | 进度 | number | 50 | false
+theme | 主题 | 'dark'/'primary'/'light'/'' | '' | false
+className | 样式class | string | 无 | false
+style | 样式style | object | 无 | false
 
 
 

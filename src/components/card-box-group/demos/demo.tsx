@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: CardBoxGroup
+ * @description: 卡片容器组
  */
 import React, { Component } from 'react'
 import CardBoxGroup from '../index'

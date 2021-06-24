@@ -1,22 +1,24 @@
-# README
+# SharePanel 基础组件-分享栏
+## 如何使用
 
-### 活动面板
+```
+import { SharePanel } from 'yonui-mobile';
 
-分为固定模式和滑动模式。固定模式中，标题居中，选项内容平铺，每行最多显示5个；滑动模式中，标题居左，每个选项最小宽度为页面宽度的20%，超出部分可滑动展示。
+```
 
-### API
-
-| 属性             | 说明                                                         | 必填    | 类型                                                         | 默认值  |
-| ---------------- | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ | ------- |
-| show             | 是否显示                                                     | false   | boolean                                                      | false   |
-| title            | 标题                                                         | false   | string                                                       | ''      |
-| options          | 选项数组，可为一维数组或二维数组。icon字段为React.ReactNode或图片的url低值或base64编码。 | false   | Array<Array<{ icon: React.ReactNode , title: string }>> \|Array<{ icon: React.ReactNode |         |
-| cancelButtonText | 取消按钮文本内容                                             | false   | string                                                       | 取消    |
-| type             | 活动面板渲染模式                                             | false   | 'fixed'\|'slideable'                                         | 'fixed' |
-| onClose          | 点击取消、遮罩时的回调函数                                   | false   | ()=>void                                                     |         |
-| callback         | 点击选项内容时的回调函数。参数为选项所在列/行的下标，从0开始计数。当为一维数组时，row恒为0 | 发fasle | (col:number,row?:number)=>void                               |         |
+## 代码演示
 
 
+## API
 
-
-
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+className | 样式class | string | 无 | false
+style | 样式style | object | 无 | false
+show | 是否可见 | boolean | true | false
+onClose | 取消时回调 | () => void | 无 | false
+title | 标题 | string | '' | false
+cancelButtonText | 取消按钮文案 | string | '取消' | false
+options | 可选项 | Array<Array<{ icon: React.ReactNode, title: string }>>/Array<{ icon: React.ReactNode/string, title: string }> | 无 | false
+type | 类型('slideable': 跟随页面滑动，'fixed': 固定) | 'slideable'/'fixed' | 'fixed' | false
+callback | 选中后回调 | (col: number, row: number) => void | 无 | false

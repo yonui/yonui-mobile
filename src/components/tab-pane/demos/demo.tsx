@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: TabPane
+ * @description: 页签内容
  */
 import React, { Component } from 'react'
 import TabPane from '../index'

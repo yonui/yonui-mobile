@@ -17,10 +17,7 @@ interface RadioProps extends React.defaultProps {
   itemsStyle?: React.CSSProperties
   disabled?: boolean
   singleLine?: boolean
-  splitLine?: boolean
-  required?: boolean
   mReadOnly?: boolean
-  model?: any
 }
 const TextString = {
   cancel: '取消',

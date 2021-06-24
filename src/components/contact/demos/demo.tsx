@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: Mobile
+ * @description: 联系方式
  */
 import React, { Component, useState } from 'react'
 import MyComponent from '../index'
