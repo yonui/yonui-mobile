@@ -1,5 +1,14 @@
-# README
-## Carousel 基础组件-走马灯
+# Carousel 基础组件-走马灯
+## 如何使用
+
+```
+import { Carousel } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

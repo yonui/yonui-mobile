@@ -1,5 +1,14 @@
-# README
-## Toast 基础组件-提示
+# Toast 基础组件-提示
+## 如何使用
+
+```
+import { Toast } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

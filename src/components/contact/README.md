@@ -1,5 +1,14 @@
-# README
-## Mobile 基础组件-联系方式
+# Mobile 基础组件-联系方式
+## 如何使用
+
+```
+import { Mobile } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

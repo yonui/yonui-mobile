@@ -1,5 +1,14 @@
-# README
-## Button 基础组件-按钮
+# Button 基础组件-按钮
+## 如何使用
+
+```
+import { Button } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

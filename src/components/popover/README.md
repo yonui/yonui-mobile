@@ -1,5 +1,14 @@
-# README
-## Popover 基础组件-气泡
+# Popover 基础组件-气泡
+## 如何使用
+
+```
+import { Popover } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

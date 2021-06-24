@@ -1,5 +1,14 @@
-# README
-## TabBottom/TabBar 基础组件-底部标签栏
+# TabBottom/TabBar 基础组件-底部标签栏
+## 如何使用
+
+```
+import { TabBottom } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

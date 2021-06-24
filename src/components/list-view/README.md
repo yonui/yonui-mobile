@@ -1,5 +1,14 @@
-# README
-## ListView 基础组件-长列表
+# ListView 基础组件-长列表
+## 如何使用
+
+```
+import { ListView } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

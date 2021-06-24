@@ -1,5 +1,14 @@
-# README
-## Tab 基础组件-页签
+# Tab 基础组件-页签
+## 如何使用
+
+```
+import { Tab } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

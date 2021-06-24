@@ -1,5 +1,14 @@
-# README
-## DateTimePicker 基础组件-日期时间选择
+# DateTimePicker 基础组件-日期时间选择
+## 如何使用
+
+```
+import { DateTimePicker } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

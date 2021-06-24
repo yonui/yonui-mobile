@@ -1,5 +1,14 @@
-# README
-## Slider 基础组件-滑动输入条
+# Slider 基础组件-滑动输入条
+## 如何使用
+
+```
+import { Slider } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

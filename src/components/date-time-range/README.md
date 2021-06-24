@@ -1,5 +1,14 @@
-# README
-## DateTimeRange 基础组件-时间范围选择
+# DateTimeRange 基础组件-时间范围选择
+## 如何使用
+
+```
+import { DateTimeRange } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

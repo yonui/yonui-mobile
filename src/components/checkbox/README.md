@@ -1,5 +1,14 @@
-# README
-## Checkbox 基础组件-复选框
+# Checkbox 基础组件-复选框
+## 如何使用
+
+```
+import { Checkbox } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

@@ -1,5 +1,14 @@
-# README
-## InputNumber 基础组件-数字输入框
+# InputNumber 基础组件-数字输入框
+## 如何使用
+
+```
+import { InputNumber } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

@@ -1,5 +1,14 @@
-# README
-## ListPanelPicker 基础组件-底部弹出菜单
+# ListPanelPicker 基础组件-底部弹出菜单
+## 如何使用
+
+```
+import { ListPanelPicker } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

@@ -1,5 +1,14 @@
-# README
-## Notice 基础组件-通告栏
+# Notice 基础组件-通告栏
+## 如何使用
+
+```
+import { Notice } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

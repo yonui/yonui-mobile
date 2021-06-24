@@ -1,5 +1,14 @@
-# README
-## SimpleList 基础组件-简单列表组件
+# SimpleList 基础组件-简单列表组件
+## 如何使用
+
+```
+import { SimpleList } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

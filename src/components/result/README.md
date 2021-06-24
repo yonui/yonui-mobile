@@ -1,5 +1,14 @@
-# README
-## Result 基础组件-反馈页面
+# Result 基础组件-反馈页面
+## 如何使用
+
+```
+import { Result } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

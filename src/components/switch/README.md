@@ -1,5 +1,14 @@
-# README
-## Switch 基础组件-开关
+# Switch 基础组件-开关
+## 如何使用
+
+```
+import { Switch } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

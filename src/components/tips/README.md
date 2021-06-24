@@ -1,5 +1,14 @@
-# README
-## Tips 基础组件-徽标
+# Tips 基础组件-徽标
+## 如何使用
+
+```
+import { Tips } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

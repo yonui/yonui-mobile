@@ -1,5 +1,14 @@
-# README
-## Textarea 基础组件-多行文本
+# Textarea 基础组件-多行文本
+## 如何使用
+
+```
+import { Textarea } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

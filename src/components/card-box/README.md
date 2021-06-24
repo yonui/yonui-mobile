@@ -1,5 +1,14 @@
-# README
-## Cardbox 基础组件-卡片容器
+# Cardbox 基础组件-卡片容器
+## 如何使用
+
+```
+import { Cardbox } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选

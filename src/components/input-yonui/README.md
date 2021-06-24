@@ -1,5 +1,14 @@
-# README
-## InputBox 基础组件-输入框(只有框)
+# InputBox 基础组件-输入框(只有框)
+## 如何使用
+
+```
+import { InputBox } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
 ## API
 
 属性 | 说明 | 类型 | 默认值 | 必选
