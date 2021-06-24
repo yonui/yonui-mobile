@@ -55,7 +55,7 @@ export default class DatePanelPicker extends Component<DatePanelPickerProps, any
     const { startDate, endDate } = this.state
     const startTime = `${startDate.getHours()}:${startDate.getMinutes()}`
     const endTime = `${endDate.getHours()}:${endDate.getMinutes()}`
-    const date = `${endDate.getFullYear()}-${endDate.getMonth()}-${endDate.getDate()}`
+    const date = `${endDate.getFullYear()}/${endDate.getMonth()}/${endDate.getDate()}`
     this.props.onOk && this.props.onOk([date, startTime, endTime])
   }
 
