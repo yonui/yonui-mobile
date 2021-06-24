@@ -190,9 +190,23 @@ export default class Input extends Component<InputProps, InputState> {
   }
 
   _beforeRender = (val: string | number) => {
-    const { thousands } = this.props
+    const { thousands, precision = 2 } = this.props
     if (val !== undefined && thousands) {
       const valStr = val?.toString()
+      if (valStr && precision === 0) {
+        const intReg = /(\D*)(\d*)(\D*)/
+        let prefix = ''
+        let suffix = ''
+        const _valStr = valStr.replace(intReg, (match, p1, p2, p3) => {
+          // console.log(p1, p2, p3)
+          prefix = p1
+          suffix = p3
+          return p2
+        })
+        // console.log('before-render-val', val)
+        // console.log('before-render', `${prefix}${_valStr.replace(NumberReg.format, '$&,')}${suffix}`)
+        return `${prefix}${_valStr.replace(NumberReg.format, '$&,')}${suffix}`
+      }
       const integer = valStr.split('.')[0]
       const decimal = valStr.split('.')[1]
       return `${integer.replace(NumberReg.format, '$&,')}${valStr.includes('.') ? '.' + decimal : ''}`
