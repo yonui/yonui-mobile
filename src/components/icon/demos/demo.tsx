@@ -9,7 +9,7 @@ import '../style'
 import './demo.less'
 export default class Demo1 extends Component {
   renderIcon = () => {
-    return <Icon type={'penguin'} data={data}>value</Icon>
+    return <Icon type={'penguin'} url='https://upload.wikimedia.org/wikipedia/commons/1/12/Black_Paw.svg'>value</Icon>
   }
   render () {
     return (

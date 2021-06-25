@@ -13,18 +13,28 @@ export interface IconProps extends IconPropsType, SvgProps {
   size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg'
   onClick?: React.MouseEventHandler<SVGSVGElement>
   visible?: boolean
+  url?: string
 }
 let cls = null
 let defaultClass = ''
 export default class Icon extends React.Component<IconProps, any> {
+  constructor (props) {
+    super(props)
+    this.state = {
+      urlsvg: null,
+      urlinit: false
+    }
+  }
+
   static defaultProps = {
     size: 'md',
-    visible: true
+    visible: true,
   }
 
   componentDidMount () {
     // loadSprite(this.props?.data?.penguin) // 测试demo
-    const { nid, type, className, size } = this.props
+    const { nid, type, className, size, url } = this.props
+    if (url && !this.state.urlinit) this.initUrlSvg(url)
     if (nid) { // 设计态
       loadSpriteForDesign(type)
     } else {
@@ -49,6 +59,34 @@ export default class Icon extends React.Component<IconProps, any> {
     )
   }
 
+  initUrlSvg = (url) => {
+    const { className, size, style } = this.props
+    if (url) {
+      axios.get(url).then(res => {
+        try {
+          let a = res.data.split('<svg')[1]
+          const tempindex = a.indexOf('>')
+          a = a.substr(tempindex + 1)
+          a = a.split('</svg>')[0]
+          const cls = classnames(
+            className,
+            'am-icon',
+            `am-icon-${size}`
+          )
+          const urlsvg = (<svg dangerouslySetInnerHTML={{ __html: a }} />)
+          const newurlsvg = React.cloneElement(urlsvg, { className: cls, style: { ...style }, viewBox: '0 0 1024 1024' })
+          console.log(newurlsvg)
+          this.setState({
+            urlsvg: newurlsvg,
+            urlinit: true
+          })
+        } catch (e) {
+          console.log('处理url出错', e)
+        }
+      }).catch(e => console.log(e))
+    }
+  }
+
   shouldComponentUpdate () {
     if (this.props.nid !== undefined)
       defaultClass = ''
@@ -56,7 +94,8 @@ export default class Icon extends React.Component<IconProps, any> {
   }
 
   render () {
-    const { type, className, size, style, visible, ...restProps } = this.props
+    const { type, className, size, style, visible, url, ...restProps } = this.props
+    const { urlsvg } = this.state
     if (!visible) return null
     cls = classnames(
       className,
@@ -65,15 +104,18 @@ export default class Icon extends React.Component<IconProps, any> {
       `am-icon-${type}`,
       `am-icon-${size}`
     )
-    return (
-      <svg
-        className={cls}
-        {...restProps}
-        style={{
-          ...style
-        }}>
-        <use xlinkHref={`#${type}`} />
-      </svg>
-    )
+    if (url && urlsvg) {
+      return (
+        <>
+          {urlsvg}
+        </>
+      )
+    } else {
+      return (
+        <svg className={cls} {...restProps} style={{ ...style }}>
+          <use xlinkHref={`#${type}`} />
+        </svg>
+      )
+    }
   }
 }

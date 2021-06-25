@@ -62,6 +62,19 @@ const manifest: ComponentManifest = {
         },
         label: '图标大小'
       }
+    },
+    {
+      name: 'url',
+      type: FieldTypes.string,
+      defaultValue: '',
+      value: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '图标url'
+      }
     }
   ],
   propertyMap: {
