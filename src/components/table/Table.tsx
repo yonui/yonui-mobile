@@ -60,7 +60,7 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
         title: '序号',
         dateIndex: 'order',
         key: 'order',
-        render: (value, row, index) => <span className={`order-span order-span-${index < 3 ? index + 1 : null}`}>{index}</span>,
+        render: (value, row, index) => <span className={`order-span order-span-${index < 3 ? index + 1 : null}`}>{index + 1}</span>,
         width: 1,
       }
       columns.unshift(orderColumn)
