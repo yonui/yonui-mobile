@@ -16,6 +16,7 @@ interface InputYonuiProps extends React.defaultProps {
   disabled?: boolean
   mReadOnly?: boolean
   check?: boolean
+  model?: any
   customCheck?: (value: string, final?: boolean) => boolean
   onFocus?: (value: string) => void
   onBlur?: (value: string) => void
@@ -109,14 +110,17 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
 
   _onBlur = (event?: React.FocusEvent<HTMLInputElement>) => {
     const { _value } = this.state
-    const { onBlur } = this.props
+    const { onBlur, model } = this.props
     onBlur?.(_value)
     if (this.checkValue(_value, true)) {
+      model?.setCheckMsg?.('');
       setTimeout(() => {
         this.setState({
           _className: ''
         })
       }, 100)
+    } else {
+      model?.setCheckMsg?.('输入内容错误');
     }
   }
 

@@ -238,6 +238,7 @@ class Input extends Component<InputProps, InputState> {
           onClickClear={this._onClickClear}
           value={_displayValue || value}
           style={inputStyle}
+          model={model}
           {...other}
           {...inputProps}
         />
