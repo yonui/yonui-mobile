@@ -44,10 +44,24 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
 
   inputref = React.createRef()
   componentDidMount () {
-    const { disabled, mReadOnly } = this.props
+    const { disabled, mReadOnly, model } = this.props
+    const { _value } = this.state
     if (!(disabled || mReadOnly)) {
-      this.inputref?.current?.focus()
-      this.inputref?.current?.blur()
+      // this.inputref?.current?.focus()
+      // this.inputref?.current?.blur()
+      this.setState({
+        _className: 'yonui-input-focus'
+      })
+      if (this.checkValue(_value, true)) {
+        model?.setCheckMsg?.('');
+        setTimeout(() => {
+          this.setState({
+            _className: ''
+          })
+        }, 100)
+      } else {
+        model?.setCheckMsg?.('输入内容错误');
+      }
     }
   }
 
