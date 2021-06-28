@@ -260,7 +260,17 @@ const manifest: ComponentManifest = {
       }
     }
   ],
-  children: []
+  children: [],
+  events: [
+    {
+      name: 'onSelect',
+      des: '点击'
+    }
+  ],
+  transformers: [
+    'inherit',
+    ['bindEvent', { events: ['onSelect'] }],
+  ]
 
 }
 export default manifest

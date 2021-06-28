@@ -1,151 +1,45 @@
 @import '../../_style/index.less';
-@gridPrefixCls: am-grid;
-@mdfGridPrefixCls: mdf-grid;
-.@{mdfGridPrefixCls} {
-  height: auto;
-  background: #fff;
-  &.@{mdfGridPrefixCls}-transparent {// 背景透明
-    background: transparent;
-    .am-grid .am-flexbox {
-      background: transparent;
+.yonui-grid{
+  .yonui-grid-icon{
+    margin: auto;
+    &-lg{
+      height: 0.55rem;
+      width: 0.55rem;
+    }
+    &-md{
+      height: 0.48rem;
+      width: 0.48rem;
+    }
+    &-sm{
+      height: 0.4rem;
+      width: 0.4rem;
     }
   }
-  &.@{mdfGridPrefixCls}-not-full{// 通栏
-    margin: 0 12.5*@hd;
-    border-radius: 5*@hd;
+  .am-badge-text{
+    background-color: @brand-primary;
+    height: 0.28rem;
+    line-height: 0.28rem;
   }
-  &.mdf-grid-number {// 数字+文字
-    background: transparent;
+  .yonui-grid-text{
+    color: @color-text-caption;
+    font-size: @font-size-caption-sm;
   }
-  .@{gridPrefixCls} {
-    .am-carousel .am-carousel-wrap-dot-active > span {
-      background: @brand-primary!important;
-    }
-
-  }  
-}
-.@{gridPrefixCls} {
-  background: transparent;
-  .am-grid-carousel-page {
-    .am-flexbox {
-      background: transparent;
-    }
-  }
-  .am-flexbox {
-    background: transparent;
-  }
-  .custom-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
-  .out-content {
-    width: 60%;
-    height: 100%;
-    border-radius: 4*@hd;
-    background: #fff;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .custom-text {
-    font-size: 12*@hd;
-    margin-top: 5*@hd;
-  }
-  .custom-grid-icon {
-    width: 50%;
-  }
-  &.@{gridPrefixCls}-sm.@{gridPrefixCls}-square,&.@{gridPrefixCls}-sm{
-    .am-grid-item .am-grid-item-inner-content .am-grid-icon {
-      width: 28%!important;
-    }
-  }
-  &.@{gridPrefixCls}-md.@{gridPrefixCls}-square,&.@{gridPrefixCls}-md{
-    .am-grid-item .am-grid-item-inner-content .am-grid-icon {
-      width: 48%!important;
-    }
-  }
-  &.@{gridPrefixCls}-lg.@{gridPrefixCls}-square,&.@{gridPrefixCls}-lg{
-    .am-grid-item .am-grid-item-inner-content .am-grid-icon {
-      width: 68%!important;
-    }
-  }
-  &.@{gridPrefixCls}-outContent {// grid有内容框
-    .am-flexbox-item.am-grid-item {
-      padding-top: 10*@hd;
-      padding-bottom: 10*@hd;
-    }
-    .custom-item {
-      height: 100%;
-    }
-    &.am-grid-square {
-      .am-flexbox-item.am-grid-item {
-        padding-top: 0;
-        padding-bottom: 0;
+  .am-carousel .am-carousel-wrap{
+    .am-carousel-wrap-dot{
+      span{
+        height: 0.06rem;
+        width: 0.1rem;
+        border-radius: 0.02rem;
       }
-      .custom-item {
-        height: 80%;
+      &-active{
+        span{
+          background-color: @brand-primary;
+          width: 0.2rem;
+          height: 0.06rem;
+          border-radius: 0.02rem;
+        }
       }
-      .am-grid-carousel-page{
-        .am-flexbox-item.am-grid-item {
-          padding-top: 10*@hd;
-          padding-bottom: 10*@hd;
-        }
-        .custom-item {
-          height: 100%;
-        }
-      }    
     }
   }
-  &.@{gridPrefixCls}-number{
-    &.@{gridPrefixCls}-outContent {
-      .custom-item {
-        height: 100%;
-       }
-       .am-flexbox-item.am-grid-item {
-        padding-top: 10*@hd;
-        padding-bottom: 10*@hd;
-       }
-       .am-flexbox .am-flexbox-item .am-grid-item-content {
-         height: auto;
-       }
-    }
-    .custom-item {
-     height: 100%;;
-    }
-    .am-flexbox-item.am-grid-item {
-      padding: 0;
-    }
-    .am-flexbox .am-flexbox-item .am-grid-item-content {
-      height: auto;
-    }
-    .content-number{
-      font-size: 18*@hd;
-      color: #fff;
-    }
-    .custom-text {
-      color: #fff;
-    }
-  }
+  
 }
-div[uitype="Grid"] {
-  width: 100%;
-}
-.am-grid.am-grid-square.am-grid-carousel .am-grid-item::before {
-  display: none;
-  content: " ";
-  padding-bottom: 100%;
-}
-.am-grid.am-grid-square.am-grid-carousel .am-grid-item .am-grid-item-content {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.am-grid .am-flexbox .am-flexbox-item .am-grid-item-content .am-grid-item-inner-content {
-  height: auto;
-}
-

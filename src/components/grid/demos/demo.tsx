@@ -49,36 +49,18 @@ export default class Demo1 extends Component {
   render () {
     return (
       <div className='grid-demo'>
-        <div className="sub-title">数字模式</div>
+        <MyComponent data={data} />
         <MyComponent
           data={data}
-          full={false}
+          mode='badge'
+          columnNum={3}
+          isCarousel={true}
+          carouselMaxRow={1}
+        />
+        <MyComponent
+          data={data}
           mode='number'
-          style={{ background: 'linear-gradient(to bottom, rgb(228, 56, 56) 0%, rgb(255, 255, 255) 100%)' }}
-          isCarousel={true}
-          transparent={true}
-          columnNum={4}/>
-        <div className="sub-title">图片模式</div>
-        <MyComponent
-          full={false}
-          isCarousel={true}
-          data={data}
-          columnNum={4}/>
-        <div className="sub-title">图片模式---格子不是正方形</div>
-        <MyComponent
-          full={false}
-          square={false}
-          isCarousel={true}
-          data={data}
-          columnNum={4}/>
-        <div className="sub-title">图片有外边框</div>
-        <MyComponent
-          full={true}
-          isCarousel={true}
-          transparent={true}
-          data={data}
-          outContent={true}
-          columnNum={4}/>
+        />
       </div>
     )
   }
