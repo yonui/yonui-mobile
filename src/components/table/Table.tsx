@@ -91,6 +91,7 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
           prefixCls='yonui-table'
           columns={columns}
           data={this.props.data}
+          emptyText='暂无数据'
         />
         {showMore && <div className='show-more' onClick={this.loadMore}>
           <span>{showText.showMoreText}</span>
