@@ -6,15 +6,15 @@ import React, { Component } from 'react'
 import MyComponent from '../index'
 import '../style';
 import './demo.less';
-const data = [{
+const data = [/* {
     key: 1,
     icon: '',
     type: '通知',
     title: '小喇叭文本测试测试',
-    url: ''
-  },
+    url: 'https://www.baidu.com'
+  }, */
   {
-    key: 1,
+    key: 2,
     icon: '',
     type: '新公告',
     title: '小喇叭文本测试测试长度超出后滚动吧小喇叭文本测试测试长度超出后滚动吧',
@@ -23,7 +23,9 @@ const data = [{
 export default class Demo extends Component {
     render() {
         return (
-            <MyComponent data={data}/>
+            <MyComponent
+              data={data}
+            />
         )
     }
 }

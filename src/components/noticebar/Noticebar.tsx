@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { Carousel, NoticeBar } from 'antd-mobile'
 import defaultIcon from './style/notice.png'
 interface DataItem {
-  key: string | number
-  icon: string
-  type: string
-  title: string
-  url: string
+  key?: string | number
+  icon?: string
+  type?: string
+  title?: string
+  url?: string
 }
 
 interface YonuiNoticeBarProps {
@@ -38,7 +38,7 @@ export default class Noticebar extends Component<YonuiNoticeBarProps, any> {
             window.location.href = item.url
           }
         }}
-        marqueeProps={{ loop: true, style: { color: '#111', ...style } }}
+        marqueeProps={{ style: { color: '#111', ...style } }}
       >
         {item.title}
       </NoticeBar>
