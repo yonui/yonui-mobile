@@ -26,7 +26,7 @@
 		"hd": "0.02rem",
 		"notice-bar-fill": "rgba(17,17,17,0.5)",
 		"notice-bar-color": "#ffffff"
-  },
+	},
 	"components": {
 		"Calender": "./src/components/calendar",
 		"TimeRange": "./src/components/date-panel-picker-2",
@@ -62,8 +62,8 @@
 		"Loading": "./src/components/loading",
 		"Grid": "./src/components/grid",
 		"Textarea": "./src/components/textarea-item",
-    "Input": "./src/components/input",
-    "InputBox": "./src/components/input-yonui",
+		"Input": "./src/components/input",
+		"InputBox": "./src/components/input-yonui",
 		"Footer": "./src/components/footer",
 		"ListPanelPicker": "./src/components/list-panel-picker",
 		"CardBox": "./src/components/card-box",
@@ -80,6 +80,7 @@
 		"ListItemDisplay": "./src/components/list-item-display",
 		"Rate": "./src/components/rate",
 		"GroupContainer": "./src/components/main-vice-group",
-		"GroupRefer": "./src/components/group-refer"
+		"GroupRefer": "./src/components/group-refer",
+		"Noticebar": "./src/components/noticebar"
 	}
 }
