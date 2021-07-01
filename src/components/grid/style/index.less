@@ -1,10 +1,21 @@
 @import '../../_style/index.less';
 .yonui-grid-wrapper{
   overflow: hidden;
+  .yonui-grid-title{
+    font-size: 0.32rem;
+    color: @color-text-base;
+    font-weight: 400;
+    margin: 0.12rem 0.24rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    svg{
+      color: #d0d0d0
+    }
+  }
 }
 .yonui-grid{
   .yonui-grid-icon{
-    margin: auto;
     &-lg{
       height: 0.55rem;
       width: 0.55rem;
@@ -18,6 +29,12 @@
       width: 0.4rem;
     }
   }
+  .yonui-grid-item-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   .am-badge-text{
     background-color: @brand-primary;
     height: 0.28rem;
@@ -26,18 +43,23 @@
   .yonui-grid-text{
     color: @color-text-caption;
     font-size: @font-size-caption-sm;
+    max-width: 1.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0.12rem;
   }
   .am-carousel .am-carousel-wrap{
     .am-carousel-wrap-dot{
       span{
         height: 0.06rem;
-        width: 0.1rem;
+        width: 0.06rem;
         border-radius: 0.02rem;
       }
       &-active{
         span{
           background-color: @brand-primary;
-          width: 0.2rem;
+          width: 0.16rem;
           height: 0.06rem;
           border-radius: 0.02rem;
         }

@@ -124,30 +124,6 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'full',
-      type: FieldTypes.boolean,
-      defaultValue: true,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '是否通栏'
-      }
-    },
-    {
-      name: 'transparent',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '背景是否透明'
-      }
-    },
-    {
       name: 'isCarousel',
       type: FieldTypes.boolean,
       defaultValue: true,
@@ -173,19 +149,6 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'renderItem',
-      type: FieldTypes.action,
-      defaultValue: '',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: '创建函数',
-        help: '自定义每个 grid 条目的创建函数'
-      }
-    },
-    {
       name: 'square',
       type: FieldTypes.boolean,
       defaultValue: true,
@@ -199,19 +162,19 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'activeStyle',
-      type: FieldTypes.object,
-      defaultValue: JSON.stringify({}),
+      name: 'showHeader',
+      type: FieldTypes.boolean,
+      defaultValue: false,
       showDesign: true,
       designConfig: {
-        type: EditTypes.Json,
+        type: EditTypes.Bool,
+        isRequired: false,
         props: {},
-        label: 'activeStyle',
-        help: '点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)'
+        label: '显示标题'
       }
     },
     {
-      name: 'activeClassName',
+      name: 'gridTitle',
       type: FieldTypes.string,
       defaultValue: '',
       showDesign: true,
@@ -219,8 +182,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: 'activeClassName',
-        help: '点击反馈的自定义类名'
+        label: '宫格标题',
       }
     },
     {
@@ -243,7 +205,7 @@ const manifest: ComponentManifest = {
     {
       name: 'itemSize',
       type: FieldTypes.string,
-      defaultValue: 'sm',
+      defaultValue: 'lg',
       value: '',
       showDesign: true,
       designConfig: {
@@ -261,16 +223,21 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'itemStyle',
+      name: 'itemDir',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: 'column',
+      value: '',
       showDesign: true,
       designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: 'itemStyle',
-        help: '每个格子自定义样式'
+        type: EditTypes.Select,
+        props: {
+          options:
+            [
+              { value: 'column', text: '上下' },
+              { value: 'row', text: '左右' },
+            ]
+        },
+        label: '图标文字布局'
       }
     }
   ],
@@ -279,11 +246,15 @@ const manifest: ComponentManifest = {
     {
       name: 'onSelect',
       des: '点击'
+    },
+    {
+      name: 'onShowMore',
+      des: '查看更多'
     }
   ],
   transformers: [
     'inherit',
-    ['bindEvent', { events: ['onSelect'] }],
+    ['bindEvent', { events: ['onSelect', 'onShowMore'] }],
   ]
 
 }
