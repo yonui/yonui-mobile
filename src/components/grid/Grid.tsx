@@ -78,15 +78,17 @@ export default class GridComponent extends Component<GridComponentProps> {
   }
 
   render () {
-    const { data, onSelect } = this.props
+    const { data, onSelect, style } = this.props
     return (
-      <Grid
-        className='yonui-grid'
-        data={data}
-        {...this.getGridProps()}
-        renderItem={(item) => this.renderItem(item)}
-        onClick={(item) => onSelect(item)}
-      />
+      <div className='yonui-grid-wrapper' style={style}>
+        <Grid
+          className='yonui-grid'
+          data={data}
+          {...this.getGridProps()}
+          renderItem={(item) => this.renderItem(item)}
+          onClick={(item) => onSelect(item)}
+        />
+      </div>
     )
   }
 }
