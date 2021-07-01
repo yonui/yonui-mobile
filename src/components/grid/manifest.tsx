@@ -33,10 +33,24 @@ const nums = [
   5
 
 ]
+const keys = [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9
+]
+const urls = []
 const data = Array.from(new Array(9)).map((_val, i) => ({
   icon: image[i],
   text: texts[i],
-  number: nums[i]
+  number: nums[i],
+  key: keys[i],
+  url: urls[i]
 }))
 const manifest: ComponentManifest = {
   name: 'Grid',

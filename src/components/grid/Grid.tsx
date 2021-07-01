@@ -4,7 +4,7 @@ import { GridProps } from 'antd-mobile/lib/grid'
 import classnames from 'classnames'
 export interface GridComponentProps extends GridProps {
   mode?: string
-  style?: object
+  style?: any
   itemSize?: string
   onSelect?: (value: object) => void
 }
@@ -20,9 +20,29 @@ export default class GridComponent extends Component<GridComponentProps> {
     return res
   }
 
+  getLabelStyle = () => {
+    const { style = {} } = this.props
+    return {
+      fontSize: style.fontSize,
+      fontWeight: style.fontWeight,
+      fontStyle: style.fontStyle,
+      textDecoration: style.textDecoration
+    }
+  }
+
+  _onClick = (item) => {
+    const { onSelect } = this.props
+    if (onSelect) {
+      onSelect(item)
+    } else if (item.url) {
+      window.location.href = item.url
+    }
+  }
+
   renderItem = (item) => {
-    const { style: textStyle, mode = 'image', itemSize = 'lg' } = this.props
+    const { mode = 'image', itemSize = 'lg' } = this.props
     const gridIconCls = classnames('yonui-grid-icon', `yonui-grid-icon-${itemSize}`)
+    const textStyle = this.getLabelStyle()
     let gridItem = null
     switch (mode) {
       case 'image':
