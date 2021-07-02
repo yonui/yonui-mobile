@@ -7,6 +7,7 @@ export interface ButtonProps extends React.defaultProps{
   content?: string
   mode?: 'primary' | 'warning' | 'ghost' | 'default' | 'text' | 'toolbar-default' | 'toolbar-primary'
   type?: 'primary' | 'warning' | 'ghost' | 'default' | 'text' | 'toolbar-default' | 'toolbar-primary'
+  iconPosition?: 'top' | 'right' | 'bottom' | 'left'
   size?: 'large' | 'small'
   inline?: boolean
   disabled?: boolean
@@ -48,6 +49,7 @@ class Button extends React.Component<ButtonProps, any> {
     prefixCls: 'mdf-button',
     content: '',
     type: 'toolbar-primary',
+    iconPosition: 'left',
     size: 'small',
     inline: false,
     disabled: false,
@@ -74,6 +76,7 @@ class Button extends React.Component<ButtonProps, any> {
       content,
       mode,
       type,
+      iconPosition,
       size,
       inline,
       disabled,
@@ -102,7 +105,8 @@ class Button extends React.Component<ButtonProps, any> {
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-loading`]: loading,
-      [`${prefixCls}-icon`]: !!iconType
+      [`${prefixCls}-icon`]: !!iconType,
+      [`${prefixCls}-${size}-column`]: iconPosition === 'top' || iconPosition === 'bottom'
     })
 
     const kids = React.Children.map(children, insertSpace)
@@ -128,6 +132,20 @@ class Button extends React.Component<ButtonProps, any> {
         className: rawCls ? `${rawCls} ${cls}` : cls
       })
     }
+    const topPosition = <>
+      {iconEl}
+      {(kids?.length) ? kids : content}
+    </>
+    const rightPosition = <>
+      {(kids?.length) ? kids : content}{iconEl}
+    </>
+    const bottomPosition = <>
+      {(kids?.length) ? kids : content}
+      {iconEl}
+    </>
+    const leftPosition = <>
+      {iconEl}{(kids?.length) ? kids : content}
+    </>
     return (
       <TouchFeedback
         activeClassName={`${prefixCls}-active`}
@@ -143,8 +161,10 @@ class Button extends React.Component<ButtonProps, any> {
           aria-disabled={disabled || mReadOnly}
           aria-visible={visible}
         >
-          {iconEl}
-          {(kids?.length) ? kids : content}
+          {iconPosition === 'top' && topPosition}
+          {iconPosition === 'right' && rightPosition}
+          {iconPosition === 'bottom' && bottomPosition}
+          {iconPosition === 'left' && leftPosition}
         </a>
       </TouchFeedback>
     )

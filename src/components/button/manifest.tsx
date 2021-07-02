@@ -153,6 +153,35 @@ const manifest: ComponentManifest = {
           footer: true
         }
       }
+    },
+    {
+      name: 'iconPosition',
+      type: FieldTypes.string,
+      defaultValue: 'left',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        isRequired: true,
+        props: {
+          options: [{
+            value: 'top',
+            text: '上'
+          },
+          {
+            value: 'right',
+            text: '右'
+          },
+          {
+            value: 'bottom',
+            text: '下'
+          },
+          {
+            value: 'left',
+            text: '左'
+          }]
+        },
+        label: '图标位置'
+      }
     }
     // ,
     // {

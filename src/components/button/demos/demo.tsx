@@ -4,7 +4,7 @@
  */
 import React, { Component } from 'react';
 import Button from '../index';
-import { WhiteSpace } from 'antd-mobile';
+import { WhiteSpace, Icon } from 'antd-mobile';
 import '../style';
 import './demo.less';
 export default class Demo1 extends Component {
@@ -55,6 +55,22 @@ export default class Demo1 extends Component {
         <WhiteSpace/>
         <Button type="toolbar-default" >工具栏默认</Button>
         <Button type="toolbar-primary" >工具栏主按钮/D</Button>
+        <WhiteSpace/>
+        <Button icon={<Icon type='check'/>} iconPosition="top">图标在上边</Button>
+        <WhiteSpace/>
+        <Button icon={<Icon type='check'/>} iconPosition="right">图标在右边</Button>
+        <WhiteSpace/>
+        <Button icon={<Icon type='check'/>} iconPosition="bottom">图标在下边</Button>
+        <WhiteSpace/>
+        <Button icon={<Icon type='check'/>} iconPosition="left">图标在左边</Button>
+        <WhiteSpace/>
+        <Button icon={<Icon type='check'/>} size="large" iconPosition="top">图标在上边</Button>
+        <WhiteSpace/>
+        <Button icon={<Icon type='check'/>} size="large" iconPosition="right">图标在右边</Button>
+        <WhiteSpace/>
+        <Button icon={<Icon type='check'/>} size="large" iconPosition="bottom">图标在下边</Button>
+        <WhiteSpace/>
+        <Button icon={<Icon type='check'/>} size="large" iconPosition="left">图标在左边</Button>
       </div>
     )
   }
