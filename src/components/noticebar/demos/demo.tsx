@@ -6,13 +6,13 @@ import React, { Component } from 'react'
 import MyComponent from '../index'
 import '../style';
 import './demo.less';
-const data = [/* {
+const data = [{
     key: 1,
     icon: '',
     type: '通知',
     title: '小喇叭文本测试测试',
     url: 'https://www.baidu.com'
-  }, */
+  },
   {
     key: 2,
     icon: '',
@@ -25,6 +25,7 @@ export default class Demo extends Component {
         return (
             <MyComponent
               data={data}
+              titleEllipsis={true}
             />
         )
     }

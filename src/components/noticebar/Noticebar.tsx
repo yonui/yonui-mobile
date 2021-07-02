@@ -13,12 +13,19 @@ interface YonuiNoticeBarProps {
   data: DataItem[]
   noticeLoop?: boolean
   style?: object
+  titleEllipsis?: boolean
   onClick?: (value) => void
 }
 
 export default class Noticebar extends Component<YonuiNoticeBarProps, any> {
   renderNotice = () => {
-    const { data = [], onClick, style } = this.props
+    const { data = [], onClick, style, titleEllipsis = true } = this.props
+    const marqueeEllipsisStyle = titleEllipsis ? {
+      width: '100%',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis'
+    } : {}
+    const marqueeStyle = { color: '#111', ...marqueeEllipsisStyle, ...style }
     return data.map(item => (
       <NoticeBar
         className='yonui-notice'
@@ -38,7 +45,7 @@ export default class Noticebar extends Component<YonuiNoticeBarProps, any> {
             window.location.href = item.url
           }
         }}
-        marqueeProps={{ style: { color: '#111', ...style } }}
+        marqueeProps={{ loop: !titleEllipsis, style: marqueeStyle }}
       >
         {item.title}
       </NoticeBar>
@@ -51,6 +58,7 @@ export default class Noticebar extends Component<YonuiNoticeBarProps, any> {
         vertical
         dots={false}
         autoplay
+        autoplayInterval={3000}
         infinite
       >
         {this.renderNotice()}
