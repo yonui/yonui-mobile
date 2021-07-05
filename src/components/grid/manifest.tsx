@@ -174,6 +174,18 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'urlValid',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: 'url跳转'
+      }
+    },
+    {
       name: 'gridTitle',
       type: FieldTypes.string,
       defaultValue: '',

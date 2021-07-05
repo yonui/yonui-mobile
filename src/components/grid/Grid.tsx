@@ -9,6 +9,7 @@ export interface GridComponentProps extends GridProps {
   itemDir?: 'row' | 'column'
   showHeader?: boolean
   gridTitle?: string
+  urlValid?: boolean
   onSelect?: (value: object) => void
   onShowMore?: () => void
 }
@@ -47,11 +48,11 @@ export default class GridComponent extends Component<GridComponentProps> {
   }
 
   _onClick = (item) => {
-    const { onSelect } = this.props
-    if (onSelect) {
-      onSelect(item)
-    } else if (item.url) {
+    const { onSelect, urlValid } = this.props
+    if (urlValid && item.url) {
       window.location.href = item.url
+    } else {
+      onSelect?.(item)
     }
   }
 
