@@ -178,7 +178,7 @@ export default class Input extends Component<InputProps, InputState> {
       default: {
         res = {
           ...res,
-          type: 'text',
+          type: 'tel',
           finalPattern: [{
             reg: /^-?(\d+\.\d+|[1-9]\d*|0)$/,
             text: regRuleText
