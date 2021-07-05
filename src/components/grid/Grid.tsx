@@ -9,7 +9,7 @@ export interface GridComponentProps extends GridProps {
   itemDir?: 'row' | 'column'
   showHeader?: boolean
   gridTitle?: string
-  urlValid?: boolean
+  doAction?: boolean
   onSelect?: (value: object) => void
   onShowMore?: () => void
 }
@@ -29,6 +29,7 @@ export default class GridComponent extends Component<GridComponentProps> {
   getLabelStyle = () => {
     const { style = {} } = this.props
     return {
+      color: style.color,
       fontSize: style.fontSize,
       fontWeight: style.fontWeight,
       fontStyle: style.fontStyle,
@@ -40,6 +41,7 @@ export default class GridComponent extends Component<GridComponentProps> {
     const { style = {} } = this.props
     return {
       ...style,
+      color: 'umset',
       fontSize: 'unset',
       fontWeight: 'unset',
       fontStyle: 'unset',
@@ -48,8 +50,8 @@ export default class GridComponent extends Component<GridComponentProps> {
   }
 
   _onClick = (item) => {
-    const { onSelect, urlValid } = this.props
-    if (urlValid && item.url) {
+    const { onSelect, doAction } = this.props
+    if (!doAction && item.url) {
       window.location.href = item.url
     } else {
       onSelect?.(item)

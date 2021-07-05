@@ -174,7 +174,7 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'urlValid',
+      name: 'doAction',
       type: FieldTypes.boolean,
       defaultValue: false,
       showDesign: true,
@@ -182,7 +182,7 @@ const manifest: ComponentManifest = {
         type: EditTypes.Bool,
         isRequired: false,
         props: {},
-        label: 'url跳转'
+        label: '执行动作'
       }
     },
     {
