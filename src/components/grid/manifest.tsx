@@ -69,8 +69,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Json,
         isRequired: false,
         props: {},
-        label: '菜单数据',
-        help: '传入的菜单数据'
+        label: '数据',
+        help: '传入数据'
       }
     },
     // {
