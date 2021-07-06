@@ -69,8 +69,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Json,
         isRequired: false,
         props: {},
-        label: '菜单数据',
-        help: '传入的菜单数据'
+        label: '数据',
+        help: '传入数据'
       }
     },
     // {
@@ -171,6 +171,18 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '显示标题'
+      }
+    },
+    {
+      name: 'doAction',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '执行动作'
       }
     },
     {
