@@ -26,8 +26,7 @@
     "ToolBar",
     "Divider",
     "Flex",
-    "YonuiIframe",
-    "popover"
+    "YonuiIframe"
   ],
   "staticPropsMap": {
     "ListView": "DataSource",
@@ -66,7 +65,7 @@
     "NavBar": "daohang",
     "Div": "div",
     "Notice": "tishi",
-    "popover": "qipao",
+    "Popover": "qipao",
     "Radio": "xuanxiang",
     "Switch": "huadongkaiguan",
     "Menu": "caidan",

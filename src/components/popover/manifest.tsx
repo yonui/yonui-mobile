@@ -1,13 +1,12 @@
 
-import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
+import { ComponentManifest, UIObject, TypeProps, FieldTypes, EditTypes } from 'yonui-extension'
 
 // todo 未配置 onClick onChange
 const manifest: ComponentManifest = {
   name: 'Popover',
   label: '气泡',
-  description: '在点击控件或者某个区域后，浮出一个气泡菜单来做更多的操作。 如果设置了遮罩层，建议通过点击遮罩层的任一位置，进行退出。',
-  icon: 'cards',
   uiObject: UIObject.Containers,
+  type: TypeProps.LayoutContainer,
   props: [
     {
       name: 'placement',
@@ -20,14 +19,8 @@ const manifest: ComponentManifest = {
         props: {
           options:
             [
-              // { value: 'left', text: 'left' },
-              // { value: 'right', text: 'right' },
-              // { value: 'top', text: 'top' },
-              // { value: 'bottom', text: 'bottom' },
-              // { value: 'topLeft', text: 'topLeft' },
-              // { value: 'topRight', text: 'topRight' },
-              { value: 'bottomLeft', text: 'bottomLeft' },
-              { value: 'bottomRight', text: 'bottomRight' }
+              { value: 'bottomLeft', text: '左下' },
+              { value: 'bottomRight', text: '右下' }
             ]
         },
         label: '位置'
@@ -44,14 +37,8 @@ const manifest: ComponentManifest = {
         props: {
           options:
             [
-              // { value: 'left', text: 'left' },
-              // { value: 'right', text: 'right' },
-              // { value: 'top', text: 'top' },
-              // { value: 'bottom', text: 'bottom' },
-              // { value: 'topLeft', text: 'topLeft' },
-              { value: 'md', text: 'md' },
-              { value: 'sm', text: 'sm' }
-              // { value: 'bottomRight', text: 'bottomRight' }
+              { value: 'md', text: '中' },
+              { value: 'sm', text: '小' }
             ]
         },
         label: '大小'
@@ -86,7 +73,7 @@ const manifest: ComponentManifest = {
     {
       name: 'visible',
       type: FieldTypes.boolean,
-      defaultValue: false, // 备注：与antd相反，为了展示
+      defaultValue: false,
       showDesign: true,
       designConfig: {
         type: EditTypes.Bool,

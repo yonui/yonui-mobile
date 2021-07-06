@@ -5,8 +5,6 @@ import { PopoverPropsType } from 'antd-mobile/lib/popover/PropsType'
 
 const Item = Popover.Item
 
-// export declare type dataType = [icon, value] | [Date];
-
 export interface popProps extends PopoverPropsType, React.defaultProps {
   dark?: boolean
   data?: any[]
@@ -54,11 +52,9 @@ class PopoverControl extends React.Component<popProps, any> {
         }
       })
     }
-    return (
-      <Popover overlayClassName={popClassName} overlay={overlayDom} {...this.props} onSelect={this.onSelect}>
-        <span>{this.props.children}</span>
-      </Popover>
-    )
+    return <Popover overlayClassName={popClassName} overlay={overlayDom} {...this.props} onSelect={this.onSelect}>
+      <div className='yonui-popover-default-content'>{this.props.children}</div>
+    </Popover>
   }
 }
 

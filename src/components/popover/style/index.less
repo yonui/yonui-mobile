@@ -1,56 +1,56 @@
 @import '../../_style/index.less';
+
 @popoverPrefixCls: am-popover;
 
-.@{popoverPrefixCls}{
-  &-size-sm{
-    width: 90*@hd;
+.@{popoverPrefixCls} {
+  &-size-sm {
+    width: 90 * @hd;
   }
-  &-size-md{
-    width: 210*@hd;
+  &-size-md {
+    width: 210 * @hd;
   }
-  // .@{popoverPrefixCls}-content{
-  //   min-width: 90*@hd;
-  //   max-width: 210*@hd;
-  // }
 }
-.@{popoverPrefixCls} .@{popoverPrefixCls}-item{
-  // padding:  0  16*@hd;
-  padding:0;
-  &-container{
-    height: 44* @hd;
+
+.@{popoverPrefixCls} .@{popoverPrefixCls}-item {
+  padding: 0;
+
+  &-container {
+    height: 44 * @hd;
     display: flex;
     justify-content: left;
-    padding:0 16*@hd;
+    padding: 0 16 * @hd;
   }
-  &-icon,&-icon>img{
-    width: 20*@hd;
-    height: 20*@hd;
+
+  &-icon, &-icon>img {
+    width: 20 * @hd;
+    height: 20 * @hd;
     vertical-align: top;
   }
-  &-content{
+
+  &-content {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
 }
-// .@{popoverPrefixCls}-inner {
-//   &-wrapper {
-//     div:not(:last-child) {
-//       border-bottom: @border-width-sm solid @border-color-base;
-//     }
-//   }
-// }
 
-.@{popoverPrefixCls}.@{popoverPrefixCls}-dark{
-  .@{popoverPrefixCls}-arrow{
+.@{popoverPrefixCls} .@{popoverPrefixCls}-dark {
+  .@{popoverPrefixCls}-arrow {
     background-color: rgba(17, 17, 17, 1);
-
   }
-  .@{popoverPrefixCls}-inner{
+
+  .@{popoverPrefixCls}-inner {
     background-color: rgba(17, 17, 17, 1);
     color: rgba(255,255,255,1);
   }
-  .@{popoverPrefixCls}-inner-wrapper{
+
+  .@{popoverPrefixCls}-inner-wrapper {
     background-color: rgba(17, 17, 17, 1);
   }
+}
+
+.yonui-popover-default-content {
+  display: inline-block;
+  min-width: 0.5rem;
+  min-height: 0.5rem;
 }
