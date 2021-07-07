@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Carousel, NoticeBar } from 'antd-mobile'
+import { MarqueeProps } from 'antd-mobile/lib/notice-bar/Marquee'
 import defaultIcon from './style/notice.png'
 interface DataItem {
   key?: string | number
@@ -10,12 +11,12 @@ interface DataItem {
 }
 
 interface YonuiNoticeBarProps {
-  data: DataItem[]
+  data?: DataItem[]
   style?: object
-  titleEllipsis?: boolean
   autoplayInterval?: number
   speed?: number
   showNum?: number
+  lineClamp?: number
   doAction?: boolean
   onSelect?: (value) => void
 }
@@ -24,7 +25,7 @@ export default class Noticebar extends Component<YonuiNoticeBarProps, any> {
   getNoticeBarProps = () => {
     const { autoplayInterval = 3000, speed = 300 } = this.props
     return {
-      autoplayInterval: autoplayInterval,
+      autoplayInterval: autoplayInterval + speed,
       speed: speed
     }
   }
@@ -39,13 +40,33 @@ export default class Noticebar extends Component<YonuiNoticeBarProps, any> {
   }
 
   renderNotice = () => {
-    const { data = [], style, titleEllipsis = true, showNum = 3 } = this.props
-    const marqueeEllipsisStyle = titleEllipsis ? {
-      width: '100%',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis'
-    } : {}
-    const marqueeStyle = { color: '#111', ...marqueeEllipsisStyle, ...style }
+    const { data = [], style, showNum = 3, lineClamp } = this.props
+    const marqueeProps: MarqueeProps = {
+      loop: false,
+      style: {
+        display: '-webkit-box',
+        whiteSpace: 'break-spaces',
+        WebkitLineClamp: lineClamp,
+        ...style
+      }
+    }
+    if (showNum === 0 || data.length === 0) {
+      return (
+        <NoticeBar
+          style={{height: '1.5rem'}}
+          className='yonui-notice'
+          key={0}
+          mode='link'
+          icon={
+            <div className='yonui-notice-title'>
+              <img className='yonui-notice-title-icon' src={defaultIcon} />
+            </div>
+          }
+          marqueeProps={marqueeProps}
+        >
+          暂无公告
+        </NoticeBar>)
+    }
     return data.map((item, index) => {
       if (index >= showNum) return null
       return (
@@ -61,7 +82,7 @@ export default class Noticebar extends Component<YonuiNoticeBarProps, any> {
             </div>
           }
           onClick={() => this._onClick(item)}
-          marqueeProps={{ loop: !titleEllipsis, style: marqueeStyle }}
+          marqueeProps={marqueeProps}
         >
           {item.title}
         </NoticeBar>
@@ -71,15 +92,17 @@ export default class Noticebar extends Component<YonuiNoticeBarProps, any> {
 
   render () {
     return (
-      <Carousel
-        vertical
-        dots={false}
-        autoplay
-        infinite
-        {...this.getNoticeBarProps()}
-      >
-        {this.renderNotice()}
-      </Carousel>
+      <div className='yonui-noticebar'>
+        <Carousel
+          vertical
+          dots={false}
+          autoplay
+          infinite
+          {...this.getNoticeBarProps()}
+        >
+          {this.renderNotice()}
+        </Carousel>
+      </div>
     )
   }
 }

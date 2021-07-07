@@ -17,8 +17,8 @@ const data = Array.from(new Array(3)).map((_val, i) => ({
 // itle?: string
 // rl?: string
 const manifest: ComponentManifest = {
-  name: 'name',
-  label: 'label',
+  name: 'Noticebar',
+  label: '小喇叭',
   type: TypeProps.BasicControls,
   uiObject: UIObject.Controls,
   props: [
@@ -36,18 +36,6 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'titleEllipsis',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '标题省略'
-      }
-    },
-    {
       name: 'showNum',
       type: FieldTypes.number,
       defaultValue: 3,
@@ -57,6 +45,18 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '显示条数'
+      }
+    },
+    {
+      name: 'lineClamp',
+      type: FieldTypes.number,
+      defaultValue: 1,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Number,
+        isRequired: false,
+        props: {},
+        label: '省略行数'
       }
     },
     {
@@ -74,7 +74,7 @@ const manifest: ComponentManifest = {
     {
       name: 'speed',
       type: FieldTypes.number,
-      defaultValue: 1000,
+      defaultValue: 300,
       showDesign: true,
       designConfig: {
         type: EditTypes.Number,
