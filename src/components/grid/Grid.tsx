@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Grid, Badge, Icon } from 'antd-mobile'
 import { GridProps } from 'antd-mobile/lib/grid'
+import Popover from '../popover'
 import classnames from 'classnames'
 export interface GridComponentProps extends GridProps {
   mode?: string
@@ -9,7 +10,6 @@ export interface GridComponentProps extends GridProps {
   itemDir?: 'row' | 'column'
   showHeader?: boolean
   gridTitle?: string
-  doAction?: boolean
   onSelect?: (value: object) => void
   onShowMore?: () => void
 }
@@ -50,8 +50,9 @@ export default class GridComponent extends Component<GridComponentProps> {
   }
 
   _onClick = (item) => {
-    const { onSelect, doAction } = this.props
-    if (!doAction && item.url) {
+    const { onSelect } = this.props
+    if (item.pop) return
+    if (item.url) {
       window.location.href = item.url
     } else {
       onSelect?.(item)
@@ -98,9 +99,15 @@ export default class GridComponent extends Component<GridComponentProps> {
         break
     }
     return (
-      <div className='yonui-grid-item-wrapper' style={{ flexDirection: itemDir }}>
-        {gridItem}
-      </div>
+      item.pop
+        ? <Popover data={item.pop}>
+          <div className='yonui-grid-item-wrapper' style={{ flexDirection: itemDir }}>
+            {gridItem}
+          </div>
+        </Popover>
+        : <div className='yonui-grid-item-wrapper' style={{ flexDirection: itemDir }}>
+          {gridItem}
+        </div>
     )
   }
 

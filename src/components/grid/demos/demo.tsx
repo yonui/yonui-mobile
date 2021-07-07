@@ -40,10 +40,16 @@ const nums = [
   5
 
 ]
+const pops = [
+  [
+      { key: "1", icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg', url: 'https://www.baidu.com', text: '选项一二三四五六七八' }
+  ]
+]
 const data = Array.from(new Array(9)).map((_val, i) => ({
   icon: image[i],
   text: texts[i],
-  number: nums[i]
+  number: nums[i],
+  pop: pops[i]
 }))
 export default class Demo1 extends Component {
   render () {

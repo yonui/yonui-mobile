@@ -18,6 +18,7 @@ interface YonuiNoticeBarProps {
   showNum?: number
   lineClamp?: number
   doAction?: boolean
+  typeColor?: string
   onSelect?: (value) => void
 }
 
@@ -63,7 +64,7 @@ export default class Noticebar extends Component<YonuiNoticeBarProps, any> {
   }
 
   renderNotice = () => {
-    const { data = [], showNum = 3, lineClamp } = this.props
+    const { data = [], showNum = 3, lineClamp, typeColor } = this.props
     const marqueeProps: MarqueeProps = {
       loop: false,
       style: {
@@ -101,7 +102,7 @@ export default class Noticebar extends Component<YonuiNoticeBarProps, any> {
           icon={
             <div className='yonui-notice-title'>
               <img className='yonui-notice-title-icon' src={item.icon || defaultIcon} />
-              <span className='yonui-notice-title-text'>{item.type}</span>
+              <span className='yonui-notice-title-text' style={{ color: typeColor }}>{item.type}</span>
               <span className='split-line' />
             </div>
           }

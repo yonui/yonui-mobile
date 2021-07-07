@@ -95,6 +95,18 @@ const manifest: ComponentManifest = {
         label: '切换速度'
       }
     },
+    {
+      name: 'typeColor',
+      type: FieldTypes.string,
+      defaultValue: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '类型颜色'
+      }
+    },
   ],
   children: [],
   events: [
