@@ -17,7 +17,7 @@ const data = [{
     key: 2,
     icon: '',
     type: '新公告',
-    title: '小喇叭文本测试测试长度超出后滚动吧小喇叭文本测试测试长度超出后滚动吧',
+    title: '小喇叭文本测试测试长度超出后滚动吧小喇叭文本测试测试长度超出后滚动吧小喇叭文本测试测试长度超出后滚动吧小喇叭文本测试测试长度超出后滚动吧小喇叭文本测试测试长度超出后滚动吧小喇叭文本测试测试长度超出后滚动吧',
     url: ''
   },
   {
@@ -40,19 +40,19 @@ export default class Demo extends Component {
           <div style={{background: '#d3d3d3'}}>
             <MyComponent
               data={data}
-              titleEllipsis={true}
             />
             <div style={{height: '1rem'}}></div>
             <MyComponent
               data={[data[1]]}
-              titleEllipsis={true}
             />
             <div style={{height: '1rem'}}></div>
             <MyComponent
               data={[data[1]]}
-              titleEllipsis={false}
+              lineClamp={5}
             />
             <div style={{height: '1rem'}}></div>
+            <MyComponent
+            />
           </div>
         )
     }
