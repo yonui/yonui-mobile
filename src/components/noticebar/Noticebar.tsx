@@ -12,7 +12,7 @@ interface DataItem {
 
 interface YonuiNoticeBarProps {
   data?: DataItem[]
-  style?: object
+  style?: any
   autoplayInterval?: number
   speed?: number
   showNum?: number
@@ -30,6 +30,29 @@ export default class Noticebar extends Component<YonuiNoticeBarProps, any> {
     }
   }
 
+  getTextStyle = () => {
+    const { style = {} } = this.props
+    return {
+      color: style.color,
+      fontSize: style.fontSize,
+      fontWeight: style.fontWeight,
+      fontStyle: style.fontStyle,
+      textDecoration: style.textDecoration
+    }
+  }
+
+  getNoticeStyle = () => {
+    const { style = {} } = this.props
+    return {
+      ...style,
+      color: 'umset',
+      fontSize: 'unset',
+      fontWeight: 'unset',
+      fontStyle: 'unset',
+      textDecoration: 'unset'
+    }
+  }
+
   _onClick = (item) => {
     const { doAction, onSelect } = this.props
     if (!doAction && item.url) {
@@ -40,37 +63,38 @@ export default class Noticebar extends Component<YonuiNoticeBarProps, any> {
   }
 
   renderNotice = () => {
-    const { data = [], style, showNum = 3, lineClamp } = this.props
+    const { data = [], showNum = 3, lineClamp } = this.props
     const marqueeProps: MarqueeProps = {
       loop: false,
       style: {
         display: '-webkit-box',
         whiteSpace: 'break-spaces',
         WebkitLineClamp: lineClamp,
-        ...style
+        margin: '0.2rem 0',
+        ...this.getTextStyle()
       }
     }
     if (showNum === 0 || data.length === 0) {
       return (
         <NoticeBar
-          style={{height: '1.5rem'}}
+          style={this.getNoticeStyle()}
           className='yonui-notice'
           key={0}
           mode='link'
           icon={
             <div className='yonui-notice-title'>
               <img className='yonui-notice-title-icon' src={defaultIcon} />
+              <span className='yonui-notice-title-text'>暂无公告</span>
             </div>
           }
           marqueeProps={marqueeProps}
-        >
-          暂无公告
-        </NoticeBar>)
+        />)
     }
     return data.map((item, index) => {
       if (index >= showNum) return null
       return (
         <NoticeBar
+          style={this.getNoticeStyle()}
           className='yonui-notice'
           key={item.key}
           mode='link'

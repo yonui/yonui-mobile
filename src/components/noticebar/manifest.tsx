@@ -60,6 +60,18 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'doAction',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '执行动作'
+      }
+    },
+    {
       name: 'autoplayInterval',
       type: FieldTypes.number,
       defaultValue: 1000,
