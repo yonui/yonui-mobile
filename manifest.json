@@ -49,7 +49,7 @@
 		"Div": "./src/components/div",
 		"ListView": "./src/components/list-view",
 		"Notice": "./src/components/notice",
-		"Popover": "./src/components/popover",
+		"PopoverControl": "./src/components/popover",
 		"Radio": "./src/components/radio",
 		"Slider": "./src/components/slider",
 		"Switch": "./src/components/switch",

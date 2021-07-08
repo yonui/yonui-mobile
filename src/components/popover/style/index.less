@@ -1,56 +1,30 @@
 @import '../../_style/index.less';
 
-@popoverPrefixCls: am-popover;
-
-.@{popoverPrefixCls} {
-  &-size-sm {
-    width: 90 * @hd;
-  }
-  &-size-md {
-    width: 210 * @hd;
-  }
-}
-
-.@{popoverPrefixCls} .@{popoverPrefixCls}-item {
-  padding: 0;
-
-  &-container {
-    height: 44 * @hd;
-    display: flex;
-    justify-content: left;
-    padding: 0 16 * @hd;
-  }
-
-  &-icon, &-icon>img {
-    width: 20 * @hd;
-    height: 20 * @hd;
-    vertical-align: top;
-  }
-
-  &-content {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-}
-
-.@{popoverPrefixCls} .@{popoverPrefixCls}-dark {
-  .@{popoverPrefixCls}-arrow {
-    background-color: rgba(17, 17, 17, 1);
-  }
-
-  .@{popoverPrefixCls}-inner {
-    background-color: rgba(17, 17, 17, 1);
-    color: rgba(255,255,255,1);
-  }
-
-  .@{popoverPrefixCls}-inner-wrapper {
-    background-color: rgba(17, 17, 17, 1);
-  }
-}
-
 .yonui-popover-default-content {
   display: inline-block;
   min-width: 0.5rem;
   min-height: 0.5rem;
+  font-size: 0;
+}
+
+.yonui-popover-item {
+  height: 0.8rem;
+  margin: 0 0.2rem;
+  display: flex;
+  align-items: center;
+
+
+  .yonui-popover-item-text {
+    height: 100%;
+    flex: 1;
+    margin: 0 0.2rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 0.26rem;
+  }
+}
+
+.yonui-popover-item:last-child .yonui-popover-item-text {
+  border-bottom: 0
 }

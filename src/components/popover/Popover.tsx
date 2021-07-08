@@ -1,8 +1,7 @@
 import React from 'react'
 import { Popover } from 'antd-mobile'
-
-const Item = Popover.Item
 interface PopoverProps extends React.defaultProps {
+  children?: JSX.Element[] | JSX.Element
   data?: any[]
   onLoad?: any
   onSelect?: any
@@ -20,10 +19,14 @@ class PopoverControl extends React.Component<PopoverProps, PopoverState> {
 
   onSelect = (node: any, index?: number) => {
     const { onSelect } = this.props
-    onSelect ? onSelect(node, index) : this.toUrl(node)
     this.setState({
       visible: false
     })
+    if (node.url) {
+      this.toUrl(node)
+    } else {
+      onSelect?.(node, index)
+    }
   }
 
   toUrl = (node: any) => {
@@ -38,23 +41,17 @@ class PopoverControl extends React.Component<PopoverProps, PopoverState> {
     const { data, nid, uitype } = this.props
     const overlayDom: any = []
     if (data && Array.isArray(data)) {
-      data.forEach((item: any) => {
-        if (item.icon) {
-          overlayDom.push(<Item key={item.key} icon={<img src={item.icon || ''} className='am-icon am-icon-xs' alt='' />}>
-            {item.text || ''}
-          </Item>)
-        } else {
-          overlayDom.push(<Item key={item.key}>
-            {item.text || ''}
-          </Item>)
-        }
+      data.forEach((item: any, index: number) => {
+        const popItem = <div className='yonui-popover-item' key={item.key} onClick={() => this.onSelect(item, index)}>
+          {item.icon ? <img src={item.icon || ''} className='am-icon am-icon-xs' alt='' /> : null}
+          <div className='yonui-popover-item-text'>{item.text || ''}</div>
+        </div>
+        overlayDom.push(popItem)
       })
     }
-    return <div className='yonui-popover-default-content' nid={nid} uitype={uitype}>
-      <Popover visible={this.state.visible} overlay={overlayDom} onSelect={this.onSelect} onVisibleChange={() => alert('点击了')}>
-        <span>{this.props.children}</span>
-      </Popover>
-    </div>
+    return <Popover visible={this.state.visible} overlay={overlayDom} placement='bottom'>
+      <span className='yonui-popover-default-content' nid={nid} uitype={uitype}>{this.props.children}</span>
+    </Popover>
   }
 }
 
