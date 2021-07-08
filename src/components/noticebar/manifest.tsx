@@ -74,7 +74,6 @@ const manifest: ComponentManifest = {
     {
       name: 'autoplayInterval',
       type: FieldTypes.number,
-      defaultValue: 1000,
       showDesign: true,
       designConfig: {
         type: EditTypes.Number,
@@ -86,7 +85,6 @@ const manifest: ComponentManifest = {
     {
       name: 'speed',
       type: FieldTypes.number,
-      defaultValue: 300,
       showDesign: true,
       designConfig: {
         type: EditTypes.Number,
