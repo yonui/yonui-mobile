@@ -1,11 +1,10 @@
 
-import { ComponentManifest, TypeProps, UIObject, FieldTypes, EditTypes } from 'yonui-extension'
+import { ComponentManifest, UIObject, FieldTypes, EditTypes } from 'yonui-extension'
 
 const manifest: ComponentManifest = {
-  name: 'Popover',
+  name: 'PopoverControl',
   label: '气泡',
-  type: TypeProps.LayoutContainer,
-  uiObject: UIObject.Containers,
+  uiObject: UIObject.Controls,
   props: [
     {
       name: 'data',

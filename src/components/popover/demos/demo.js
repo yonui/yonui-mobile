@@ -17,14 +17,15 @@ export default class Demo1 extends Component {
       <div>
         <Popover
           data={[
-            { key: "1", icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg', text: '选项一二三四五六七八' },
+            { key: "1", icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg', text: '选项一二三' },
             { key: "2", icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg', text: '选项一' },
             { key: "3", icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg', text: '选项' }
           ]}
           onSelect={this.onSelect}
         >
-          <span style={{ "display": 'inline-block', 'line-height': 40 }}>popover</span>
+          <span style={{ "display": 'inline-block', 'font-size': '12px' }}>popover</span>
         </Popover>
+        <span style={{ "display": 'inline-block', 'font-size': '12px' }}>popover</span>
       </div>
     )
   }

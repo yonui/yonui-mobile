@@ -1,3 +1,3 @@
-import Popover from './Popover'
+import PopoverControl from './Popover'
 
-export default Popover
+export default PopoverControl
