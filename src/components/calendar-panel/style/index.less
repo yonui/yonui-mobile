@@ -9,9 +9,12 @@
           .date.important{
             border: none;
             border-radius: unset;
+            background: #F5F5F5;
+            box-shadow: #f5f5f5 0 0.4rem;
           }
           .disable{
-            border-radius: 0;
+            background: unset;
+            color: #ddd !important;
           }
         }
         .info {
@@ -29,9 +32,69 @@
             }
           }
         }
+        &.inRange{
+          .date-wrapper{
+            .date-selected{
+              border-radius: 0;
+              color: #333333;
+              background: rgba(242, 45, 50, 0.06);
+              box-shadow: unset;
+            }
+          }
+        }
+        &.today{
+          .date-wrapper{
+            .date{
+              border: solid 1px #E14C46;
+              border-radius: 100%;
+              color: #E14C46;
+              background: rgba(242, 45, 50, 0.06);
+            }
+          }
+        }
+        &.rangeStart{
+          .date-wrapper{
+            .date.date-selected{
+              border-radius: 100%;
+              background: linear-gradient(90deg, #FC4C2F 0%, #EE2233 100%);
+              color: #fff;
+              box-shadow: unset;
+            }
+            .right.date-selected{
+              background: rgba(242, 45, 50, 0.06);
+              box-shadow: rgba(242, 45, 50, 0.06) -0.2rem 0;
+            }
+          }
+        }
+        &.rangeEnd{
+          .date-wrapper{
+            .date.date-selected{
+              border-radius: 100%;
+              background: linear-gradient(90deg, #FC4C2F 0%, #EE2233 100%);
+              color: #fff;
+              box-shadow: unset;
+            }
+            .left.date-selected{
+              background: rgba(242, 45, 50, 0.06);
+              box-shadow: rgba(242, 45, 50, 0.06) 0.2rem 0;
+            }
+          }
+        }
       }
     }
   }
+
+  // .am-calendar .single-month .row .cell .date-wrapper .selected-middle,
+  // .am-calendar .single-month .row .cell .date-wrapper .date-selected.left,
+  // .am-calendar .single-month .row .cell .date-wrapper .date-selected.right{
+  //   color: #333333;
+  //   background: rgba(242, 45, 50, 0.06);
+  // }
+  // .date.grey.date-selected{
+  //   border: none;
+  //   border-radius: unset;
+  //   background: rgba(242, 45, 50, 0.06);
+  // }
   .@{CalendarPrefixClass} {
     position: relative;
     height: 100%;
@@ -47,6 +110,9 @@
         display: none;
       }
     }
+  }
+  .date{
+    font-weight: 500 !important;
   }
 }
 

@@ -17,7 +17,9 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
       now: new Date(now.getFullYear(), now.getMonth(), now.getDate()),
       startY: 0,
       touchDistance: 0,
-      monthNow: now.getMonth()
+      monthNow: now.getMonth(),
+      startDate: null,
+      endDate: null
     }
   }
 
@@ -55,6 +57,7 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
   }
 
   onSelect = (value, state) => {
+    this.setState({ startDate: null, endDate: null })
     let isRange = false
     if (state[0] && state[1] === undefined) {
       isRange = true
@@ -67,27 +70,42 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
       range: range,
       now: value
     }
-    if (+value === +this.state.now) {
-      const info = this.extra[+value].info
-      this.extra[+value].cellRender = date => {
-        return (
-          <>
-            <div className='date-wrapper'>
-              <span className='left' />
-              <div className='date date-selected selected-single'>今</div>
-              <span className='right' />
-            </div>
-            <div className='info'>{info}</div>
-          </>
-        )
-      }
-    }
+    this.setState({ startDate: range[0], endDate: range[1] })
     this.props.onClickDay?.(res)
   }
 
   getDateExtra = date => {
-    const now = this.state.now
     const hintDays = this.props.hintDays || []
+    const { startDate, endDate, now } = this.state
+    if (+now === +date) {
+      if (!this.extra[+date]) {
+        this.extra[+date] = {}
+      }
+      this.extra[+date].cellCls = 'today'
+    }
+    //
+    const isInRange = startDate < date && endDate > date
+    if (isInRange) {
+      if (!this.extra[+date]) {
+        this.extra[+date] = {}
+      }
+      this.extra[+date].cellCls = 'inRange'
+    }
+    //
+    if (startDate && +startDate === +date) {
+      if (!this.extra[+date]) {
+        this.extra[+date] = {}
+      }
+      this.extra[+date].cellCls = 'rangeStart'
+    }
+
+    if (endDate && +endDate === +date) {
+      if (!this.extra[+date]) {
+        this.extra[+date] = {}
+      }
+      this.extra[+date].cellCls = 'rangeEnd'
+    }
+
     hintDays.forEach(hintDay => {
       if (+new Date(hintDay) === +date) {
         if (!this.extra[+date]) {
@@ -96,24 +114,6 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
         this.extra[+date].cellCls = 'lightred'
       }
     })
-    if (+now === +date) {
-      if (!this.extra[+date]) {
-        this.extra[+date] = {}
-        const info = this.extra[+date].info
-        this.extra[+date].cellRender = date => {
-          return (
-            <>
-              <div className='date-wrapper'>
-                <span className='left' />
-                <div className='date'>今</div>
-                <span className='right' />
-              </div>
-              <div className='info'>{info}</div>
-            </>
-          )
-        }
-      }
-    }
     return this.extra[+date]
   }
 
