@@ -4,6 +4,7 @@ import { CalendarProps } from 'antd-mobile/lib/calendar/PropsType'
 interface YonuiCalenderProps extends CalendarProps {
   dateExtra: any
   onClickDay: any
+  scrollToBottom: boolean
   hintDays: string[]
 }
 export default class MyComponent extends Component<YonuiCalenderProps, any> {
@@ -26,7 +27,21 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
   componentDidMount () {
     this.setState({
       visible: true
+    }, () => {
+      this.scrollToBottom()
     })
+  }
+
+  scrollToBottom = () => {
+    const { scrollToBottom = false } = this.props
+    if (!scrollToBottom) return
+    try {
+      const months = document.querySelectorAll('.single-month')
+      const lastIndex = months.length - 1
+      months[lastIndex]?.scrollIntoView()
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   shouldComponentUpdate (nextProps) {
@@ -38,6 +53,8 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
       }, () => {
         this.setState({
           visible: !this.state.visible
+        }, () => {
+          this.scrollToBottom()
         })
       })
     }

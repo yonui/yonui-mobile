@@ -59,7 +59,8 @@
            visible={true}
            // defaultDate={now}
            // defaultValue={this.state.defaultValue}
-           defaultDate={this.state.defaultDate || now}
+           defaultDate={'2021/4/1'}
+           scrollToBottom={true}
            dateExtra={this.state.extra}
            onClickDay={this.onClickDay}
            // onPull={this.onPull}
