@@ -179,7 +179,7 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
   }
 
   render () {
-    const { className, style, type, value, textAlign, beforeRender, placeholder, inputStyle, bCanModify, disabled, mReadOnly } = this.props
+    const { className, style, type, value, textAlign, beforeRender, placeholder, inputStyle, bCanModify, disabled, mReadOnly, isNumber = false } = this.props
     const { _value, _className } = this.state
     const val = this.getVal(value, _value)
     const displayVal = beforeRender ? beforeRender(val) : val
@@ -195,12 +195,16 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
     // console.log('-------inputBox-render---------\n', 'val', val)
     // console.log('displayVal', displayVal)
     // console.log('displayValue', displayValue)
+    const other = isNumber ? {
+      inputmode: 'decimal'
+    } : {}
     return (
       <div className={cls} style={style}>
         <input
           className='yonui-input-box'
           ref={this.inputref as React.RefObject<HTMLInputElement>}
           type={type}
+          {...other}
           value={showValue}
           onChange={this._onChange}
           onBlur={this._onBlur}
