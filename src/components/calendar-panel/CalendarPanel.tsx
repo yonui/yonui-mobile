@@ -36,9 +36,11 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
     const { scrollToBottom = false } = this.props
     if (!scrollToBottom) return
     try {
-      const months = document.querySelectorAll('.single-month')
-      const lastIndex = months.length - 1
-      months[lastIndex]?.scrollIntoView()
+      setTimeout(() => {
+        const months = document.querySelectorAll('.single-month')
+        const lastIndex = months.length - 1
+        months[lastIndex]?.scrollIntoView()
+      }, 10)
     } catch (e) {
       console.log(e)
     }
