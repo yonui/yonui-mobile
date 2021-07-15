@@ -166,11 +166,11 @@ export default class Input extends Component<InputProps, InputState> {
       onSuccess: _onSuccess,
       onError: _onError
     }
-    if (mode === 'int') {
-      res = Object.assign(res, {
-        pattern: /^-?(\d*)$/
-      })
-    }
+    // if (mode === 'int') {
+    //   res = Object.assign(res, {
+    //     pattern: /^-?(\d*)$/
+    //   })
+    // }
     switch (mode) {
       case 'percent':
       case 'permillage':

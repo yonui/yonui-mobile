@@ -66,20 +66,23 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
   }
 
   checkValue = (value: string, final?: boolean) => {
-    const { maxLength, pattern, onError, finalPattern, onSuccess, required, customCheck, check, isNumber = false } = this.props
+    const { maxLength, pattern, onError, finalPattern, onSuccess, required, customCheck, check } = this.props
     // 暂时修改，数值前后缀与值分离后去除
-    if (isNumber && value) value = value.replace(/[^0-9.]*/g, '')
+    // if (isNumber && value) value = value.replace(/[^0-9.]*/g, '')
     if (check != undefined && !check) return true
     if (customCheck && !customCheck(value, false)) {
       console.log('customCheck error', value)
+      onError?.(value, { text: '' })
       return false
     }
     if (pattern && !pattern.test(value)) {
       console.log('pattern error')
+      onError?.(value, { text: '' })
       return false
     }
     if (maxLength && value?.length > maxLength) {
       console.log('length error')
+      onError?.(value, { text: '' })
       return false
     }
     if (final) {
