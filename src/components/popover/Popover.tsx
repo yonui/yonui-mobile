@@ -71,10 +71,21 @@ class PopoverControl extends React.Component<PopoverProps, PopoverState> {
     }
   }
 
+  optionHandle = (data) => {
+    return data.map(item => {
+      item.text = item.text.substr(0, 15)
+      return item
+    }).filter((item, index) => {
+      return index < 6
+    })
+  }
+
   render () {
-    const { data, nid, uitype } = this.props
+    const { nid, uitype } = this.props
+    let { data } = this.props
     const overlayDom: any = []
     let classname = 'yonui-popover-default-content'
+    data = this.optionHandle(data)
     if (data && Array.isArray(data)) {
       data.forEach((item: any, index: number) => {
         const popItem = <div className='yonui-popover-item' key={item.key} onClick={() => this.onSelect(item, index)}>
