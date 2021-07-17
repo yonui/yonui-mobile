@@ -81,7 +81,7 @@ export default class Icon extends React.Component<IconProps, any> {
   }
 
   getUrlSvg = () => {
-    const { className, size, nid, uitype, style } = this.props
+    const { className, size, nid, uitype, style, color } = this.props
     const { urlsvg } = this.state
     const cls = classnames(
       className,
@@ -89,7 +89,7 @@ export default class Icon extends React.Component<IconProps, any> {
       `am-icon-${size}`
     )
     const createsvg = (<svg dangerouslySetInnerHTML={{ __html: urlsvg }} />)
-    const newurlsvg = React.cloneElement(createsvg, { className: cls, nid: nid, uitype: uitype, style: { ...style }, viewBox: '0 0 1024 1024' })
+    const newurlsvg = React.cloneElement(createsvg, { className: cls, nid: nid, uitype: uitype, color: color, style: { ...style }, viewBox: '0 0 1024 1024' })
     return newurlsvg
   }
 
