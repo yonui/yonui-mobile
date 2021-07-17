@@ -14,6 +14,7 @@ export interface IconProps extends IconPropsType, SvgProps {
   onClick?: React.MouseEventHandler<SVGSVGElement>
   visible?: boolean
   url?: string
+  iconBaseUrl?: string
 }
 let cls = null
 let defaultClass = ''
@@ -21,8 +22,7 @@ export default class Icon extends React.Component<IconProps, any> {
   constructor (props) {
     super(props)
     this.state = {
-      urlsvg: null,
-      urlinit: false
+      urlsvg: null
     }
   }
 
@@ -34,7 +34,7 @@ export default class Icon extends React.Component<IconProps, any> {
   componentDidMount () {
     // loadSprite(this.props?.data?.penguin) // 测试demo
     const { nid, type, className, size, url } = this.props
-    if (url && !this.state.urlinit) this.initUrlSvg(url)
+    if (url && !this.state.urlinit) this.getSvgContent(url)
     if (nid) { // 设计态
       loadSpriteForDesign(type)
     } else {
@@ -59,37 +59,45 @@ export default class Icon extends React.Component<IconProps, any> {
     )
   }
 
-  initUrlSvg = (url) => {
-    const { className, size, style } = this.props
+  getSvgContent = (url) => {
+    const { iconBaseUrl } = this.props
     if (url) {
-      axios.get(url).then(res => {
+      axios.post(`${iconBaseUrl || 'https://build.yyuap.com'}/mobile-app/rest/v1/mobile/static/res`, { url: url }, { withCredentials: true }).then(res => {
         try {
           let a = res.data.split('<svg')[1]
           const tempindex = a.indexOf('>')
           a = a.substr(tempindex + 1)
           a = a.split('</svg>')[0]
-          const cls = classnames(
-            className,
-            'am-icon',
-            `am-icon-${size}`
-          )
-          const urlsvg = (<svg dangerouslySetInnerHTML={{ __html: a }} />)
-          const newurlsvg = React.cloneElement(urlsvg, { className: cls, style: { ...style }, viewBox: '0 0 1024 1024' })
-          console.log(newurlsvg)
           this.setState({
-            urlsvg: newurlsvg,
-            urlinit: true
+            urlsvg: a
           })
         } catch (e) {
-          console.log('处理url出错', e)
+          this.setState({ urlsvg: null })
         }
-      }).catch(e => console.log(e))
+      }).catch(e => {
+        this.setState({ urlsvg: null })
+      })
     }
   }
 
-  shouldComponentUpdate () {
+  getUrlSvg = () => {
+    const { className, size, nid, uitype, style } = this.props
+    const { urlsvg } = this.state
+    const cls = classnames(
+      className,
+      'am-icon',
+      `am-icon-${size}`
+    )
+    const createsvg = (<svg dangerouslySetInnerHTML={{ __html: urlsvg }} />)
+    const newurlsvg = React.cloneElement(createsvg, { className: cls, nid: nid, uitype: uitype, style: { ...style }, viewBox: '0 0 1024 1024' })
+    return newurlsvg
+  }
+
+  shouldComponentUpdate (nextProps) {
     if (this.props.nid !== undefined)
       defaultClass = ''
+    if (nextProps.url !== this.props.url)
+      this.getSvgContent(nextProps.url)
     return true
   }
 
@@ -107,7 +115,7 @@ export default class Icon extends React.Component<IconProps, any> {
     if (url && urlsvg) {
       return (
         <>
-          {urlsvg}
+          {this.getUrlSvg()}
         </>
       )
     } else {

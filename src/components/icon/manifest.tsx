@@ -75,6 +75,19 @@ const manifest: ComponentManifest = {
         props: {},
         label: '图标url'
       }
+    },
+    {
+      name: 'iconBaseUrl',
+      type: FieldTypes.string,
+      defaultValue: '',
+      value: '',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '图标url'
+      }
     }
   ],
   propertyMap: {
