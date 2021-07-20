@@ -270,7 +270,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
 
   getContent = (mode?: 'telephone' | 'mobilephone' | 'email', area?: boolean, isSelectEmail?: boolean) => {
     const { singleLine, value, required, disabled, mReadOnly, defaultValue, bIsNull, bCanModify } = this.props
-    const _required = bIsNull !== undefined ? bIsNull : required
+    const _required = bIsNull !== undefined ? !bIsNull : required
     const { emailType, country, countryNum, _value } = this.state
     const val = value !== undefined ? this.valueAdapt(2, value) : _value
     const telValue = this.valueAdapt(0, value);
