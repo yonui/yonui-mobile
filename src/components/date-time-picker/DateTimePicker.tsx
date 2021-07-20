@@ -22,6 +22,8 @@ export interface ListDatePickerProps extends ListItemWrapperProps{
 interface ListDatePickerState {
   aVisible?: boolean
   _value?: Date
+  minDate?: Date | string
+  maxDate?: Date | string
 }
 
 enum DateFormatMap {
@@ -66,8 +68,32 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
     super(props)
     this.state = {
       aVisible: false,
-      _value: formatStringToDate(props.defaultValue)
+      _value: formatStringToDate(props.defaultValue),
+      minDate: this.props.minDate,
+      maxDate: this.props.maxDate
     }
+  }
+
+  componentDidMount () {
+    if (this.props.model)
+      this.props.model.addListener(this);
+  }
+
+  componentDidUpdate () {
+    if (this.props.model)
+      this.props.model.addListener(this);
+  }
+
+  componentWillUnmount () {
+    if (this.props.model)
+      this.props.model.removeListener(this);
+  }
+
+  setRange (e) {
+    this.setState({
+      minDate: e?.minDate,
+      maxDate: e?.maxDate
+    })
   }
 
   onOpenCalendar = () => {
@@ -115,8 +141,8 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
   }
 
   render () {
-    const { label, required, value, minDate, maxDate, disabled, mReadOnly, style, dateMode, onCancel, format, extra, title, splitLine, labelCls: lbc, visible, ...restProps } = this.props
-    const { aVisible, _value } = this.state
+    const { label, required, value, disabled, mReadOnly, style, dateMode, onCancel, format, extra, title, splitLine, labelCls: lbc, visible, ...restProps } = this.props
+    const { aVisible, _value, minDate, maxDate } = this.state
     if (!visible) return null
     const defaultValue = (_value && typeof _value === 'string') ? new Date(_value) : _value
     let valueTrs
