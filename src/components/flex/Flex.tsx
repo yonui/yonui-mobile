@@ -38,6 +38,16 @@ export default class MDFFlex extends React.Component<MDFFlexProps, any> {
     return false
   }
 
+  componentDidMount () {
+    // const { meta, vm } = this.props
+    // vm.on('updateViewMeta', args => {
+    //   const { code } = args;
+    //   console.log('================= args: ', args)
+    //   if (code != meta.cGroupCode) return;
+    //   this.setState({ visible });
+    // }, undefined, true);
+  }
+
   render () {
     const { className, ...other } = this.props
     let cls = classnames(className, 'yonui-mobile-flex')

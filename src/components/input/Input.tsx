@@ -237,7 +237,7 @@ class Input extends Component<InputProps, InputState> {
           onFocus={this._onFocus}
           onClickClear={this._onClickClear}
           value={_displayValue || value}
-          style={inputStyle}
+          style={style || inputStyle}
           model={model}
           {...other}
           {...inputProps}

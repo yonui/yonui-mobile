@@ -1,5 +1,11 @@
 import { EditTypes, FieldTypes, ComponentManifest, UIObject, TypeProps } from 'yonui-extension'
-
+const transformer = ({ meta, vm }) => {
+  return (props) => {
+    props.meta = meta;
+    props.vm = vm;
+    return props;
+  };
+};
 const manifest: ComponentManifest = {
   name: 'Flex',
   label: '流式布局',
@@ -107,6 +113,7 @@ const manifest: ComponentManifest = {
   transformers: [
     'inherit',
     ['bindEvent', { events: ['onClick', 'onLongPress'] }],
+    transformer
   ]
 }
 
