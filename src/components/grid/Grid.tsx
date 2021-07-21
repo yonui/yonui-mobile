@@ -63,10 +63,21 @@ export default class GridComponent extends Component<GridComponentProps> {
     this.props.onShowMore?.()
   }
 
+  adaptItemNumber = (number) => {
+    let res = null
+    if (isNaN(Number(number))) {
+      res = number && number.length > 2 ? `${number.substr(0, 2)}...` : number
+    } else {
+      res = Math.max(0, Math.floor(number))
+    }
+    return res
+  }
+
   renderItem = (item) => {
     const { mode = 'image', itemSize = 'lg', itemDir = 'column' } = this.props
     const gridIconCls = classnames('yonui-grid-icon', `yonui-grid-icon-${itemSize}`)
     const textStyle = this.getLabelStyle()
+    item.number = this.adaptItemNumber(item.number)
     let gridItem = null
     switch (mode) {
       case 'image':
