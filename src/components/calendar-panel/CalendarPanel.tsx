@@ -1,14 +1,15 @@
 import React from 'react'
 
-const getMonthRow = () => {
-  const data = [1, 2, 3, 4, 5, 6, 7]
-  return (
-    <div className='row'>
-      {data.map((item, index) => {
-        return <div key={index} className='cell'>{index}</div>
-      })}
-    </div>
-  )
+const temp = (dateNum, firstDay) => {
+  const dateChildren = new Array(dateNum)
+  console.log('zzz', dateChildren)
+  for (let i = 0; i < dateNum; i++) {
+    dateChildren.push((<div style={{ flex: '0 0 14%', textAlign: 'center' }} key={i}>{i + 1}</div>))
+  }
+  for (let i = 0; i < firstDay.getDay(); i++) {
+    dateChildren.unshift((<div style={{ flex: '0 0 14%', textAlign: 'center' }} key={i} />))
+  }
+  return dateChildren
 }
 
 const getSingleMonth = (year, month) => {
@@ -20,26 +21,40 @@ const getSingleMonth = (year, month) => {
   const dateNum = (lastDay.getTime() - firstDay.getTime()) / (1000 * 60 * 60 * 24) + 1
   return (
     <div className='single-month'>
-      一个月的样式
       <div className='row'>
-        {`${year}年${month}月, 共${dateNum}天, 第一天${firstDay}星期${firstDay.getDay()}, 最后一天${lastDay}星期${lastDay.getDay()}`}
+        {`${year}年${month}月`}
       </div>
-      {getMonthRow()}
+      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
+        {temp(dateNum, firstDay)}
+      </div>
     </div>
   )
 }
 
-export default function CalendarPanel (props) {
-  const now = new Date()
-  const fullyear = now.getFullYear()
-  const month = now.getMonth() + 1
-  const date = now.getDate()
+const weekTitleText = {
+  0: '日',
+  1: '一',
+  2: '二',
+  3: '三',
+  4: '四',
+  5: '五',
+  6: '六',
+}
 
+const getWeekTitle = () => {
+  const weekTitle = new Array(7)
+  for (let i = 0; i < 7; i++) {
+    weekTitle.push((<div style={{ flex: '0 0 14%', textAlign: 'center' }} key={i}>{weekTitleText[i]}</div>))
+  }
+  return weekTitle
+}
+export default function CalendarPanel (props) {
   return (
     <div className='yonui-calendar-panel'>
-      <div className='calendar-panel-year-month'>{`${fullyear}年${month}月${date}日`}</div>
-      <div className='week-bar'>星期</div>
-      <div className='date-content'>日期
+      <div className='week-bar' style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
+        {getWeekTitle()}
+      </div>
+      <div className='date-content'>
         <div className='single-month'>
           {getSingleMonth(2020, 2)}
         </div>
