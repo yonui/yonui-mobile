@@ -29,4 +29,5 @@ multiple | 关联数据的数据源是否多选 | boolean | false | false
 dateMode | 关联数据的数据源若为日期类型,日期类型的格式 | string | 'picker-date' | false
 showZero | 标签为0时的显示开关 | boolean | false | false
 showTitle | 是否展示备用标签 | boolean | false | false
-
+className | 样式class | string | 无 | false
+style | 样式style | object | 无 | false

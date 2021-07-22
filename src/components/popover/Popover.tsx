@@ -3,7 +3,6 @@ import { Popover } from 'antd-mobile'
 interface PopoverProps extends React.defaultProps {
   children?: JSX.Element[] | JSX.Element
   data?: any[]
-  onLoad?: any
   onSelect?: any
 }
 interface PopoverState {

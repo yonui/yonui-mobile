@@ -31,20 +31,15 @@ onClickClear | 点击清空时回调 | (value: string) => void | 无 | false
 onError | 校验错误时回调 | (value: string, pattern: { reg?: RegExp, text?: string }) => void | 无 | false
 onSuccess | 校验成功时回调 | React.CSSProperties | 无 | false
 visible | 是否可见 | boolean | true | false
-model | 运行态model | any | 无 | false
+splitLine | 分割线 | boolean | false | false
 singleLine | 是否单行展示 | boolean | false | false
-required | 是否必填 | boolean | false | false
 label | 标题 | string | '' | false
 subLabel | 副标题 | string | '' | false
 labelCls | 标题样式前缀 | string | 无 | false
 labelStyle | 标题样式style | React.CSSProperties | 无 | false
 contentCls | 内容样式前缀 | string | 无 | false
 contentStyle | 内容样式style | React.CSSProperties | 无 | false
-error | 是否不显示错误 | boolean | false | false
-errorText | 错误文案 | string | 无 | false
 showExtraLabelIcon | 标签是否显示icon | boolean | false | false
 onClick | 点击标签回调 | (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void | 无 | false
 className | 样式class | string | 无 | false
 style | 样式style | React.CSSProperties | 无 | false
-nid | 运行态id | string | 无 | false
-uitype | ui类型 | string | 无 | false

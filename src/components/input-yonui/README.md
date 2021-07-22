@@ -14,6 +14,7 @@ import { InputBox } from 'yonui-mobile';
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
 type | 类型 | 'text'/'number'/'tel'/'password' | 'text' | false
+isNumber | 是否是数字 | boolean | false | false
 pattern | 输入过程中的校验规则 | RegExp | 无 | false
 finalPattern | 焦点离开时的校验规则 | RegExp | 无 | false
 value | 初始值 | string | 无 | false

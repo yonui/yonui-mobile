@@ -13,9 +13,6 @@ import { Popover } from 'yonui-mobile';
 
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
-dark | 是否是深色模式 | boolean | false | false
-data | 数据 | any[] | 无 | false
-overlayClassName | 样式类名 | string | 无 | false
-size | 尺寸 | string | 'sm' | false
-onVisibleChange | 气泡可见切换时回调 | any | 无 | false
-placement | 弹窗位置 | 'top'/'bottom'/'bottomLeft'/'left'/'right'/'topLeft'/'topRight'/'bottomRight' | 'bottomLeft' | false
+children | 子项 | JSX.Element[] | JSX.Element | 无 | false
+data | 选项数据 | any[] | 无 | false
+onSelect | 选中选项后回调 | any | 无 | false

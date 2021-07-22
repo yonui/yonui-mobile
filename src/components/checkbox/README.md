@@ -19,3 +19,4 @@ disabled | 是否禁用 | boolean | false | false
 type | 类型 | 'default'/'circle' | 'default' | false
 content | 内容 | string | 无 | false
 onChange | 改变后回调 | (value: boolean) => void | 无 | false
+className | 样式class | string | 无 | false
