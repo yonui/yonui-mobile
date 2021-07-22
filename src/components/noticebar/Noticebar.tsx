@@ -75,7 +75,7 @@ export default class Noticebar extends Component<YonuiNoticeBarProps, any> {
         ...this.getTextStyle()
       }
     }
-    if (showNum === 0 || data.length === 0) {
+    if (showNum <= 0 || data.length === 0) {
       return (
         <NoticeBar
           style={this.getNoticeStyle()}
