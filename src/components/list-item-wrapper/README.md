@@ -13,6 +13,7 @@ import { ListItemWrapper } from 'yonui-mobile';
 
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
+splitLine | 分割线 | boolean | false | false
 singleLine | 是否单行展示 | boolean | false | false
 singleLineCenter | 是否单行居中 | boolean | false | false
 singleAlignType | 单行对齐方式 | string | 无 | false
@@ -32,3 +33,5 @@ previewMode | 预览模式 | 'design'/'edit'/'browse' | 无 | false
 mReadOnly | 是否只读 | boolean | false | false
 disabled | 是否禁用 | boolean | false | false
 onClick | 点击标签回调 | (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void | 无 | false
+className| 样式class | string | 无 | false
+style | 样式 | React.CSSProperties | 无 | false

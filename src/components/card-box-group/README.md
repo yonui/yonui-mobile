@@ -16,3 +16,5 @@ import { CardBoxGroup } from 'yonui-mobile';
 splitLine | 是否有分割线 | boolean | false | false
 dataSource | 数据，若为空则直接渲染children | any[] | 无 | false
 renderRow | 每行的渲染函数 | (rowData: object, sectionID: number, rowID: number) => void | 无 | false
+className| 样式class | string | 无 | false
+style | 样式 | React.CSSProperties | 无 | false

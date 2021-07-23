@@ -19,3 +19,5 @@ extraIcon | 额外图标 | string | 无 | false
 extraText | 额外文案 | string | 无 | false
 showExtraLabelIcon | 展示标签额外图标 | string | 无 | false
 onClick | 点击后回调 | () => void | 无 | false
+className| 样式class | string | 无 | false
+style | 样式 | React.CSSProperties | 无 | false

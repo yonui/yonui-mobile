@@ -13,6 +13,7 @@ import { Cardbox } from 'yonui-mobile';
 
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
+btnText | 按钮文案 | string | '删除' | false
 onDelete | 删除时回调 | () => void | 无 | false
 onShowMore | 点击更多时回调 | () => void | 无 | false
 onCloseMore | 收起更多时回调 | () => void | 无 | false
@@ -24,4 +25,6 @@ displayStyle | 展示方式 | 'normal'/'detail'/'slideable'/'extra'/'editable'/'
 selected | 是否选中,displayStyle为editable时起作用 | boolean | 无 | false
 showDeleteIcon | 是否展示删除图标,displayStyle为detail时起作用 | boolean | true | false
 showTitleExtraIcon | 是否展示标题图标,displayStyle为detail时起作用 | boolean | false | false
+className| 样式class | string | 无 | false
+style | 样式 | React.CSSProperties | 无 | false
 

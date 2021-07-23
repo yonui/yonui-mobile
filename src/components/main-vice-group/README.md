@@ -18,4 +18,3 @@ className | 样式class | string | 无 | false
 style | 样式style | React.CSSProperties | 无 | false
 drawerHeight | 高度 | string | 无 | false
 onShow | 渲染后回调 | () => void | 无 | false
-nid | 组件id | string | 无 | false
