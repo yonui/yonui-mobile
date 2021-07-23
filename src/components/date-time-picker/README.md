@@ -36,8 +36,4 @@ contentStyle | 内容样式style | React.CSSProperties | 无 | false
 error | 是否不显示错误 | boolean | false | false
 errorText | 错误文案 | string | 无 | false
 showExtraLabelIcon | 标签是否显示icon | boolean | false | false
-onClick | 点击标签回调 | (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void | 无 | false
-className | 样式class | string | 无 | false
 style | 样式style | React.CSSProperties | 无 | false
-nid | 运行态id | string | 无 | false
-uitype | ui类型 | string | 无 | false

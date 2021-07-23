@@ -19,4 +19,3 @@ data | 数据 | DataItem[] | 无 | false
 onClose | 关闭时回调 | () => void | 无 | false
 onSelect | 选中时回调 | (object: DataItem) => void | 无 | false
 style | 样式style | object | 无 | false
-model | 运行态model | any | 无 | false
