@@ -1,8 +1,8 @@
-# YonuiIframe 基础组件-Iframe框
+# Noticebar 基础组件-小喇叭
 ## 如何使用
 
 ```
-import { YonuiIframe } from 'yonui-mobile';
+import { Noticebar } from 'yonui-mobile';
 
 ```
 
@@ -13,11 +13,11 @@ import { YonuiIframe } from 'yonui-mobile';
 
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
-label | 标签 | string | 无 | false
-subLabel | 副标签 | string | 无 | false
-extraIcon | 额外图标 | string | 无 | false
-extraText | 额外文案 | string | 无 | false
-showExtraLabelIcon | 展示标签额外图标 | string | 无 | false
-onClick | 点击后回调 | () => void | 无 | false
-className| 样式class | string | 无 | false
-style | 样式 | React.CSSProperties | 无 | false
+data | 数据 | DataItem[] | [] | false
+style | 样式 | any | 无 | false
+autoplayInterval | 自动播放间隔 | number | 3000 | false
+speed | 速度 | number | 300 | false
+showNum | 显示条数 | number | 3 | false
+lineClamp | 一条消息显示几行文字 | number | 1 | false
+typeColor | 喇叭后的标题颜色 | string | 无 | false
+onSelect | 点击后回调 | (value) => void | 无 | false

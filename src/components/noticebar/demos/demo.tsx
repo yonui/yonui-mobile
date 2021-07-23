@@ -1,6 +1,6 @@
 /**
- * @name: Demo Name
- * @description: Demo Description
+ * @name: Noticebar
+ * @description: 小喇叭
  */
 import React, { Component } from 'react'
 import MyComponent from '../index'
