@@ -22,6 +22,7 @@ export interface TabsProps extends DeafultTabsProps {
   mode?: 'normal' | 'transparent'
   nid?: string
   uitype?: string
+  vm?: any
 }
 export default class yonuiTabs extends Component<TabsProps, any> {
   static defaultProps = {
@@ -82,10 +83,11 @@ export default class yonuiTabs extends Component<TabsProps, any> {
   }
 
   renderTabClick = (tab, index) => {
-    this.setState({ tabPage: index })
-    if (this.props.onTabClick) {
-      this.props.onTabClick(tab, index)
-    }
+    const viewModel = this.props.vm
+    if (!viewModel?.execute('beforeTabActiveKeyChange', { index })) return;
+    this.setState({ tabPage: index }, () => {
+      viewModel?.execute('afterTabActiveKeyChange', { index })
+    })
   }
 
   renderTab = (tab) => {
