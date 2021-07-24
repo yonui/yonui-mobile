@@ -89,6 +89,8 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
       this.props.model.removeListener(this);
   }
 
+  // 可以通过model.doPropertyChange()调用该方法设置选择范围
+  // model.doPropertyChange('setRange', {minDate: '2021/7/6', maxDate: '2021/7/24'})
   setRange (e) {
     this.setState({
       minDate: e?.minDate,
