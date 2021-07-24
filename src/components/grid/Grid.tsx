@@ -14,6 +14,7 @@ export interface GridComponentProps extends GridProps {
   onShowMore?: () => void
 }
 export default class GridComponent extends Component<GridComponentProps> {
+  // 获取可配置属性
   getGridProps = () => {
     const { isCarousel, carouselMaxRow, hasLine = false, columnNum } = this.props
     const res = {
@@ -26,6 +27,7 @@ export default class GridComponent extends Component<GridComponentProps> {
     return res
   }
 
+  // 宫格文字样式
   getLabelStyle = () => {
     const { style = {} } = this.props
     return {
@@ -37,6 +39,7 @@ export default class GridComponent extends Component<GridComponentProps> {
     }
   }
 
+  // 宫格最外层样式, 文字样式排除
   getGridStyle = () => {
     const { style = {} } = this.props
     return {
@@ -49,7 +52,9 @@ export default class GridComponent extends Component<GridComponentProps> {
     }
   }
 
+  // 点击事件
   _onClick = (item) => {
+    // 点击事件的优先级, popover弹出框 > data中配置的跳转url > 动作绑定的onSelect事件
     const { onSelect } = this.props
     if (item.pop) return
     if (item.url) {
@@ -64,6 +69,9 @@ export default class GridComponent extends Component<GridComponentProps> {
   }
 
   adaptItemNumber = (number) => {
+    // 角标转换
+    // 数字以外的角标，最大长度2，其余部分省略号显示
+    // 数字角标，转换为大等于0的正整数
     let res = null
     if (isNaN(Number(number))) {
       res = number && number.length > 2 ? `${number.substr(0, 2)}...` : number
@@ -73,6 +81,7 @@ export default class GridComponent extends Component<GridComponentProps> {
     return res
   }
 
+  // 宫格子元素渲染函数
   renderItem = (item) => {
     const { mode = 'image', itemSize = 'lg', itemDir = 'column' } = this.props
     const gridIconCls = classnames('yonui-grid-icon', `yonui-grid-icon-${itemSize}`)
@@ -80,7 +89,7 @@ export default class GridComponent extends Component<GridComponentProps> {
     item.number = this.adaptItemNumber(item.number)
     let gridItem = null
     switch (mode) {
-      case 'image':
+      case 'image': // 只展示图标
         gridItem = (
           <>
             <img className={gridIconCls} src={item.icon} />
@@ -88,7 +97,7 @@ export default class GridComponent extends Component<GridComponentProps> {
           </>
         )
         break
-      case 'number':
+      case 'number': // 只展示数字
         gridItem = (
           <>
             <div className={gridIconCls}>{item.number}</div>
@@ -96,7 +105,7 @@ export default class GridComponent extends Component<GridComponentProps> {
           </>
         )
         break
-      case 'badge':
+      case 'badge': // 角标模式
         gridItem = (
           <>
             <Badge text={item.number} overflowCount={99}>
@@ -110,7 +119,7 @@ export default class GridComponent extends Component<GridComponentProps> {
         break
     }
     return (
-      item.pop
+      item.pop // data中该项是否配置了popover弹窗想
         ? <Popover data={item.pop}>
           <div className='yonui-grid-item-wrapper' style={{ flexDirection: itemDir }}>
             {gridItem}
@@ -122,9 +131,11 @@ export default class GridComponent extends Component<GridComponentProps> {
     )
   }
 
+  // 标题的显示更多按钮
   renderShowMoreIcon = () => {
     const { data = [], isCarousel = false, columnNum = 4, carouselMaxRow = 2 } = this.props
     const pageSize = columnNum * carouselMaxRow
+    // 当分页&&每页展示的子元素数量小于总数量时显示
     if (isCarousel && pageSize < data.length) {
       return <Icon type='right' size='sm' onClick={this.onShowMore} />
     }

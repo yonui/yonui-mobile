@@ -23,6 +23,7 @@ interface YonuiNoticeBarProps {
 }
 
 export default class Noticebar extends Component<YonuiNoticeBarProps, any> {
+  // 获取可配置的参数
   getNoticeBarProps = () => {
     const { autoplayInterval = 3000, speed = 300 } = this.props
     return {
@@ -31,6 +32,7 @@ export default class Noticebar extends Component<YonuiNoticeBarProps, any> {
     }
   }
 
+  // 获取文字样式
   getTextStyle = () => {
     const { style = {} } = this.props
     return {
@@ -42,6 +44,7 @@ export default class Noticebar extends Component<YonuiNoticeBarProps, any> {
     }
   }
 
+  // 获取外层总体样式, 排除文字样式
   getNoticeStyle = () => {
     const { style = {} } = this.props
     return {
@@ -54,7 +57,9 @@ export default class Noticebar extends Component<YonuiNoticeBarProps, any> {
     }
   }
 
+  // 点击事件
   _onClick = (item) => {
+    // 优先级 data中配置的url > 动作绑定的onSelect事件
     const { doAction, onSelect } = this.props
     if (!doAction && item.url) {
       window.location.href = item.url
@@ -63,8 +68,11 @@ export default class Noticebar extends Component<YonuiNoticeBarProps, any> {
     }
   }
 
+  // 每条消息的渲染函数
   renderNotice = () => {
     const { data = [], showNum = 3, lineClamp, typeColor } = this.props
+    // 消息的样式
+    // display、white-space、-webkit-line-clamp配合，实现超过某行省略显示(兼容性可能有问题)
     const marqueeProps: MarqueeProps = {
       loop: false,
       style: {
@@ -75,6 +83,7 @@ export default class Noticebar extends Component<YonuiNoticeBarProps, any> {
         ...this.getTextStyle()
       }
     }
+    // 消息展示数小等于0或data无数据时，显示暂无公告
     if (showNum <= 0 || data.length === 0) {
       return (
         <NoticeBar
@@ -112,7 +121,7 @@ export default class Noticebar extends Component<YonuiNoticeBarProps, any> {
           {item.title}
         </NoticeBar>
       )
-    })?.filter(item => item && item)
+    })?.filter(item => item && item) // 轮播元素过滤掉null
   }
 
   render () {

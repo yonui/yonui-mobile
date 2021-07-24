@@ -25,14 +25,14 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
   }
 
   componentDidMount () {
-    this.setState({
-      visible: true
-    }, () => {
+    this.setState({ visible: true }, () => {
       this.scrollToBottom()
     })
   }
 
   scrollToBottom = () => {
+    // 是否滚动到底部
+    // 获取单月节点，执行最后一个节点的scrollIntoView方法
     const { scrollToBottom = false } = this.props
     if (!scrollToBottom) return
     try {
@@ -50,12 +50,12 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
     // Object.keys(nextProps.dateExtra).length !== Object.keys(this.props.dateExtra).length
     if (JSON.stringify(nextProps.dateExtra) !== JSON.stringify(this.props.dateExtra)) {
       this.adaptExtra(nextProps.dateExtra)
-      this.setState({
-        visible: !this.state.visible
-      }, () => {
-        this.setState({
-          visible: !this.state.visible
-        }, () => {
+      // 暂时通过visible触发calendar重新执行getDateExtra, 其他属性变化不触发calendar重新执行, 其他方式？？？
+      // antd-mobile => calendar => rmc-calendar
+      const changeVisivle = () => ({ visible: !this.state.visible })
+      // setState回调中再次setState
+      this.setState(changeVisivle(), () => {
+        this.setState(changeVisivle(), () => {
           this.scrollToBottom()
         })
       })
@@ -66,6 +66,7 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
   extra = []
 
   adaptExtra = (extra = {}) => {
+    // extra中的角标信息
     Object.keys(extra).forEach((key) => {
       const info = extra[key];
       const date = new Date(key);
@@ -76,6 +77,7 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
   }
 
   onSelect = (value, state) => {
+    // 点击事件
     this.setState({ startDate: null, endDate: null })
     let isRange = false
     if (state[0] && state[1] === undefined) {
@@ -84,11 +86,13 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
     const range1 = value
     const range2 = state[0]
     const range = range1 < range2 ? [range1, range2] : [range2, range1]
+    // { isRange: boolean 是否范围选择, range: date[startDate, endDate] 选择的范围, now: date 当前点击的时间 }
     const res = {
       isRange: isRange,
       range: range,
       now: value
     }
+    // 范围选择的区间保存到state, getDateExtra中通过区间给cell添加class，修改选择样式
     this.setState({ startDate: range[0], endDate: range[1] })
     this.props.onClickDay?.(res)
   }
@@ -96,35 +100,8 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
   getDateExtra = date => {
     const hintDays = this.props.hintDays || []
     const { startDate, endDate, now } = this.state
-    if (+now === +date) {
-      if (!this.extra[+date]) {
-        this.extra[+date] = {}
-      }
-      this.extra[+date].cellCls = 'today'
-    }
-    //
-    const isInRange = startDate < date && endDate > date
-    if (isInRange) {
-      if (!this.extra[+date]) {
-        this.extra[+date] = {}
-      }
-      this.extra[+date].cellCls = 'inRange'
-    }
-    //
-    if (startDate && +startDate === +date) {
-      if (!this.extra[+date]) {
-        this.extra[+date] = {}
-      }
-      this.extra[+date].cellCls = 'rangeStart'
-    }
-
-    if (endDate && +endDate === +date) {
-      if (!this.extra[+date]) {
-        this.extra[+date] = {}
-      }
-      this.extra[+date].cellCls = 'rangeEnd'
-    }
-
+    // 样式优先级升高
+    // 浅红色样式
     hintDays.forEach(hintDay => {
       if (+new Date(hintDay) === +date) {
         if (!this.extra[+date]) {
@@ -133,6 +110,35 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
         this.extra[+date].cellCls = 'lightred'
       }
     })
+    // 当天样式
+    if (+now === +date) {
+      if (!this.extra[+date]) {
+        this.extra[+date] = {}
+      }
+      this.extra[+date].cellCls = 'today'
+    }
+    // 范围选择时在选择的范围内
+    const isInRange = startDate < date && endDate > date
+    if (isInRange) {
+      if (!this.extra[+date]) {
+        this.extra[+date] = {}
+      }
+      this.extra[+date].cellCls = 'inRange'
+    }
+    // 范围选择开始日期
+    if (startDate && +startDate === +date) {
+      if (!this.extra[+date]) {
+        this.extra[+date] = {}
+      }
+      this.extra[+date].cellCls = 'rangeStart'
+    }
+    // 范围选择结束日期
+    if (endDate && +endDate === +date) {
+      if (!this.extra[+date]) {
+        this.extra[+date] = {}
+      }
+      this.extra[+date].cellCls = 'rangeEnd'
+    }
     return this.extra[+date]
   }
 
