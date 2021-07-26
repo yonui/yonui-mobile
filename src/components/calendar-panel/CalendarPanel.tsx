@@ -17,13 +17,17 @@ function DateCell (props) {
 }
 
 function SingleMonthContent (props) {
-  const { firstDay, dateNum, onClick } = props
+  const { firstDay, dateNum, onClick, selectedDate } = props
   const dateChildren = []
   for (let i = 0; i < firstDay.getDay(); i++) {
     dateChildren.unshift(<DateCell key={`p${i}`} />)
   }
   for (let i = 0; i < dateNum; i++) {
-    dateChildren.push(<DateCell onClick={onClick} key={`d${i}`} date={i + 1} />)
+    if (selectedDate == (i + 1)) {
+      dateChildren.push(<DateCell onClick={onClick} classname='selected' key={`d${i}`} date={i + 1} />)
+    } else {
+      dateChildren.push(<DateCell onClick={onClick} key={`d${i}`} date={i + 1} />)
+    }
   }
   const dateArray = groupByNum(dateChildren, 7)
   return dateArray.map((row, rowIndex) => {
@@ -36,13 +40,18 @@ function SingleMonthContent (props) {
 }
 
 function SingleMonth (props) {
-  const { year, month, onClick } = props
+  const { year, month, onClick, selectedDate } = props
   const date = new Date(`${year}/${month}/1`)
   const newMonth = month + 1
   const nextDate = new Date(`${newMonth > 12 ? year + 1 : year}/${newMonth % 12}/1`)
   const firstDay = date
   const lastDay = new Date(nextDate.getTime() - 1000 * 60 * 60 * 24)
   const dateNum = (lastDay.getTime() - firstDay.getTime()) / (1000 * 60 * 60 * 24) + 1
+  const _onClick = (date) => {
+    onClick?.(`${year}/${month}/${date}`)
+  }
+  const selectedDateArr = selectedDate?.split('/') || []
+  const selected = selectedDateArr[0] == year && selectedDateArr[1] == month ? selectedDateArr[2] : ''
   return (
     <div className='single-month' style={{ display: 'flex', flexDirection: 'column' }}>
       <div className='title'>
@@ -52,7 +61,8 @@ function SingleMonth (props) {
         <SingleMonthContent
           dateNum={dateNum}
           firstDay={firstDay}
-          onClick={onClick}
+          onClick={_onClick}
+          selectedDate={selected}
         />
       </div>
     </div>
@@ -82,12 +92,13 @@ function WeekTitle (props) {
 }
 
 export default function CalendarPanel (props) {
+  // 记录选择日期
   const [selectedDate, setSelectedDate] = useState('')
   const _onClick = (date) => {
     console.log(`点击了${date}`)
     setSelectedDate(date)
-    console.log('selectedDate', selectedDate)
   }
+  console.log('selectedDate', selectedDate)
   return (
     <div className='yonui-calendar-panel'>
       <WeekTitle />
@@ -96,10 +107,12 @@ export default function CalendarPanel (props) {
           year={2020}
           month={2}
           onClick={_onClick}
+          selectedDate={selectedDate}
         />
         <SingleMonth
           year={2021}
           month={2}
+          onClick={_onClick}
         />
         <SingleMonth
           year={2021}
