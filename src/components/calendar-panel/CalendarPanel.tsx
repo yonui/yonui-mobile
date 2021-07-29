@@ -113,14 +113,19 @@ export default function CalendarPanel (props) {
           year={2021}
           month={2}
           onClick={_onClick}
+          selectedDate={selectedDate}
         />
         <SingleMonth
           year={2021}
           month={3}
+          onClick={_onClick}
+          selectedDate={selectedDate}
         />
         <SingleMonth
           year={2021}
           month={4}
+          onClick={_onClick}
+          selectedDate={selectedDate}
         />
       </div>
     </div>
