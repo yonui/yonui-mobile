@@ -238,8 +238,31 @@ export default class Input extends Component<InputProps, InputState> {
     }
   }
 
+  // 输入文字样式
+  getInputStyle = (style) => {
+    return {
+      color: style.color,
+      fontSize: style.fontSize,
+      fontWeight: style.fontWeight,
+      fontStyle: style.fontStyle,
+      textDecoration: style.textDecoration
+    }
+  }
+
+  // 外层wrapper样式
+  getWrapperStyle = (style) => {
+    return {
+      ...style,
+      color: 'umset',
+      fontSize: 'unset',
+      fontWeight: 'unset',
+      fontStyle: 'unset',
+      textDecoration: 'unset'
+    }
+  }
+
   render () {
-    const { mReadOnly, required, bIsNull, className, singleLine, nid, uitype, onChange, onBlur, onFocus, value, showExtraLabelIcon, inputBgColor, visible, ...other } = this.props
+    const { mReadOnly, required, bIsNull, className, singleLine, nid, uitype, onChange, onBlur, onFocus, value, showExtraLabelIcon, inputBgColor, visible, style, ...other } = this.props
     const { error, errorText, _displayValue } = this.state
     const cls = classnames('mdf-input', className)
     const inputCls = classnames('mdf-input-content')
@@ -254,7 +277,7 @@ export default class Input extends Component<InputProps, InputState> {
     //   this._onChange(String(showValue));
     // }
     return (
-      <Wrapper {...wrapperProps}>
+      <Wrapper {...wrapperProps} style={this.getWrapperStyle(style || {})}>
         <YonuiInput
           isNumber={true}
           className={inputCls}
@@ -267,7 +290,8 @@ export default class Input extends Component<InputProps, InputState> {
           value={showValue}
           {...other}
           {...inputProps}
-          style={{ backgroundColor: inputBgColor }}
+          // style={{ backgroundColor: inputBgColor }}
+          inputStyle={this.getInputStyle(style || {})}
           beforeRender={this._beforeRender}
           afterChange={this._afterChange}
           customCheck={this.checkFn}

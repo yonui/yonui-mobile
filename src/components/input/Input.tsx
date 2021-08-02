@@ -215,6 +215,29 @@ class Input extends Component<InputProps, InputState> {
     return res
   }
 
+  // 输入文字样式
+  getInputStyle = (style) => {
+    return {
+      color: style.color,
+      fontSize: style.fontSize,
+      fontWeight: style.fontWeight,
+      fontStyle: style.fontStyle,
+      textDecoration: style.textDecoration
+    }
+  }
+
+  // 外层wrapper样式
+  getWrapperStyle = (style) => {
+    return {
+      ...style,
+      color: 'umset',
+      fontSize: 'unset',
+      fontWeight: 'unset',
+      fontStyle: 'unset',
+      textDecoration: 'unset'
+    }
+  }
+
   render () {
     const { required, className, singleLine, inputStyle, onChange, onBlur, onFocus, value, model, style, visible, ...other } = this.props
     const { error, errorText, _displayValue } = this.state
@@ -227,7 +250,7 @@ class Input extends Component<InputProps, InputState> {
     // if (bIsNull !== undefined) wrapperProps.notRequired = undefined
     if (!visible) return null
     return (
-      <Wrapper {...wrapperProps}>
+      <Wrapper {...wrapperProps} style={this.getWrapperStyle(style || {})}>
         <YonuiInput
           className={inputCls}
           textAlign={textAlign}
@@ -237,7 +260,8 @@ class Input extends Component<InputProps, InputState> {
           onFocus={this._onFocus}
           onClickClear={this._onClickClear}
           value={_displayValue || value}
-          style={inputStyle}
+          // style={inputStyle}
+          inputStyle={this.getInputStyle(style || {})}
           model={model}
           {...other}
           {...inputProps}
