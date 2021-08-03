@@ -64,7 +64,7 @@ const manifest: ComponentManifest = {
     {
       name: 'minuteStep',
       type: FieldTypes.number,
-      defaultValue: 1,
+      defaultValue: 5,
       showDesign: true,
       designConfig: {
         type: EditTypes.Number,

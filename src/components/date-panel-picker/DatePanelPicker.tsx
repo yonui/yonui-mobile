@@ -7,6 +7,7 @@ export interface DatePanelPickerProps {
   maxDate?: Date | string
   value?: string[]
   minuteStep?: number
+  mode?: 'time' | 'datetime' | 'date' | 'year' | 'month'
   onDismiss: () => void
   onOk: (date: Object) => void
 }
@@ -64,7 +65,7 @@ export default class DatePanelPicker extends Component<DatePanelPickerProps, any
   }
 
   render () {
-    const { visible, minDate, maxDate, value, minuteStep = 30, ...restProps } = this.props
+    const { visible, minDate, maxDate, value, minuteStep = 5, mode = 'time', ...restProps } = this.props
     const { startDate, endDate } = this.state
     this.valueTrans(startDate)
     this.valueTrans(endDate)
@@ -90,7 +91,7 @@ export default class DatePanelPicker extends Component<DatePanelPickerProps, any
               value={startDate}
               minDate={minDateTrs}
               maxDate={maxDateTrs}
-              mode='time'
+              mode={mode}
             />
             <span className='mid-text'>到</span>
             <DatePickerView
@@ -100,10 +101,9 @@ export default class DatePanelPicker extends Component<DatePanelPickerProps, any
               value={endDate}
               minDate={startDate}
               maxDate={maxDateTrs}
-              mode='time'
+              mode={mode}
             />
           </div>
-
         </div>
       </Modal>
     )
