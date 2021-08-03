@@ -10,7 +10,7 @@ const manifest: ComponentManifest = {
     {
       name: 'mode',
       type: FieldTypes.string,
-      defaultValue: 'date',
+      defaultValue: '',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
@@ -40,17 +40,6 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'value',
-      type: FieldTypes.date,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Date,
-        isRequired: true,
-        props: {},
-        label: '当前选中时间'
-      }
-    },
-    {
       name: 'maxDate',
       type: FieldTypes.date,
       showDesign: true,
@@ -73,18 +62,6 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'use12Hours',
-      type: FieldTypes.boolean,
-      defaultValue: false,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '12小时制'
-      }
-    },
-    {
       name: 'minuteStep',
       type: FieldTypes.number,
       defaultValue: 1,
@@ -95,65 +72,21 @@ const manifest: ComponentManifest = {
         props: {},
         label: '分钟数递增步长设置'
       }
-    },
-    {
-      name: 'disabled',
-      type: FieldTypes.boolean,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '是否禁用'
-      }
-    },
-    {
-      name: 'onChange',
-      type: FieldTypes.action,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: 'change方法'
-      }
-    },
-    {
-      name: 'onValueChange',
-      type: FieldTypes.action,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: 'onValueChange',
-        help: '每列picker改变时的回调'
-      }
-    },
+    }
+  ],
+  events: [
     {
       name: 'onOk',
-      type: FieldTypes.action,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: 'onOk',
-        help: '选中回调'
-      }
+      des: '选中回调'
     },
     {
       name: 'onDismiss',
-      type: FieldTypes.action,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: 'onDismiss',
-        help: '取消回调'
-      }
+      des: '取消回调'
     }
+  ],
+  transformers: [
+    'inherit',
+    ['bindEvent', { events: ['onOk', 'onDismiss'] }],
   ]
 }
 export default manifest
