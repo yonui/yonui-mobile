@@ -251,7 +251,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     })
     return <>
       <span className={fontCls}>{propsDisplayValue || displayValue}</span>
-      {!disabled && !mReadOnly && <Icon className='radio-select-icon' type='right' color='#bfbfbf' onClick={this.onClickIcon} />}
+      {!disabled && !mReadOnly && <Icon className='radio-select-icon' type='right' color='#bfbfbf' />}
     </>
   }
 
@@ -310,7 +310,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
   }
 
   render () {
-    const { mode, dataSource, tagSize, className, singleLine, checkedValue} = this.props
+    const { mode, dataSource, tagSize, className, singleLine, checkedValue, disabled, mReadOnly} = this.props
     const { open } = this.state
     let radioArr: any
     switch (mode) {
@@ -331,15 +331,13 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
     const wrapperProps = getListItemProps(this.props, {
       className: cls,
       singleLine: singleLine,
-      labelCls: 'yonui-radio-label'
+      labelCls: 'yonui-radio-label',
+      onClick: !(disabled || mReadOnly) ? this.onClickIcon : undefined
     })
     // if (bIsNull !== undefined) wrapperProps.notRequired = undefined
     // console.log('wrapperProps', wrapperProps)
     return (
-      <Wrapper {...wrapperProps}>
-        <div className='yonui-radio-items'>
-          {radioArr}
-        </div>
+      <div>
         <Modal
           visible={open}
           popup
@@ -351,7 +349,12 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
         >
           {this.renderRaioList(dataSource, checkedValue)}
         </Modal>
-      </Wrapper>
+        <Wrapper {...wrapperProps}>
+          <div className='yonui-radio-items'>
+            {radioArr}
+          </div>
+        </Wrapper>
+      </div>
     )
   }
 }
