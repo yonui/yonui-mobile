@@ -20,6 +20,7 @@ const showText = {
   noMoreText: '已到达底部'
 }
 export default class Table extends Component<yonuiTableProps, yonuiTableStates> {
+  tableRef = null
   constructor (props) {
     super(props)
     const { columns = [], addOrderColumn = true } = this.props
@@ -44,9 +45,8 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
 
   setOrderSpanColor = () => {
     const { orderSpanColors = [] } = this.props
-    const tableEle = document.querySelector('.yonui-table')
     for (let i = 0; i < orderSpanColors.length; i++) {
-      orderSpanColors[i] && tableEle.style.setProperty(`--order-color-${i + 1}`, orderSpanColors[i])
+      orderSpanColors[i] && this.tableRef.children[0].style.setProperty(`--order-color-${i + 1}`, orderSpanColors[i])
     }
   }
 
@@ -86,7 +86,7 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
     const { columns } = this.state
     const { showMore } = this.props
     return (
-      <div className='yonui-table-div'>
+      <div className='yonui-table-div' ref={el => { this.tableRef = el }}>
         <RCTable
           prefixCls='yonui-table'
           columns={columns}

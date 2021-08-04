@@ -29,6 +29,28 @@ const columns = [
     width: 2
   }
 ];
+const columns1 = [
+  {
+    title: 'Name',
+    dataIndex: 'name',
+    width: 1,
+    render: (value, row, index ) => {
+      console.log('value:', value, 'row:', row, 'index:', index)
+      return value
+    }
+  },
+  {
+    title: 'Age',
+    dataIndex: 'age',
+    width: 1,
+    sortField: true
+  },
+  {
+    title: 'Address',
+    dataIndex: 'address',
+    width: 2
+  }
+];
 // 数据
 const data = [
   { name: 'Jack', age: 28, address: 'some where', key: '1' },
@@ -59,6 +81,15 @@ export default class Demo extends Component {
         data={data}
         addOrderColumn={true} // 添加序号列
         orderSpanColors={[]}
+        onSort={onSort}
+        showMore={true}
+        loadMore={onLoadMore}
+        />
+        <Table
+        columns={columns1}
+        data={data}
+        addOrderColumn={true} // 添加序号列
+        orderSpanColors={orderSpanColors}
         onSort={onSort}
         showMore={true}
         loadMore={onLoadMore}
