@@ -41,20 +41,7 @@ export default class Demo1 extends Component<any, any> {
     const { date, visible } = this.state
     return (
       <div>
-        <Button onClick={this.onClick}>显示</Button>
-        <MyComponent
-          value={['2021-5-30', '12:30', '14:30']}
-          visible={visible}
-          minuteStep={10}
-          onDismiss={this.onDismiss}
-          onOk={this.onOk}/>
-        {
-          this.state.date &&
-          <div>
-            <List.Item>开始: {dateFormat(this.state.date[0], 'yyyy-MM-dd hh:mm:ss')}</List.Item>
-            <List.Item>结束: {dateFormat(this.state.date[1], 'yyyy-MM-dd hh:mm:ss')}</List.Item>
-          </div>
-        }
+        <MyComponent />
       </div>
 
     )

@@ -1,4 +1,5 @@
 @import '../../_style/index.less';
+@import '../../list-item-wrapper/style/index.less';
 @DatePanelPickerPrefixCls: am-date-panel-picker;
 .@{DatePanelPickerPrefixCls} {
   .operation {
@@ -48,6 +49,19 @@
       border-bottom: 1px solid #ddd;
     }
   }
+}
+.time-range-picker-value{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #111111;
+    font-size: 15 * @hd;
+    &-disabled{
+      color: @color-text-disabled;
+    }
+    &-read-only{
+      color: #555
+    }
 }
 // 分割线样式
 @media screen and (-webkit-min-device-pixel-ratio: 2),

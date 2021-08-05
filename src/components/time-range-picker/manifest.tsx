@@ -1,8 +1,8 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
+import { FieldTypes, EditTypes, ComponentManifest, UIObject, ExtensionProps } from 'yonui-extension'
 const manifest: ComponentManifest = {
-  name: 'DatePanelPicker',
+  name: 'TimeRangePicker',
   uiObject: UIObject.Controls,
-  label: '日期范围',
+  label: '日期时间范围',
   description: '',
   type: 'basicControls',
   icon: 'date',
@@ -25,18 +25,6 @@ const manifest: ComponentManifest = {
           ]
         },
         label: '选择的类型'
-      }
-    },
-    {
-      name: 'visible',
-      type: FieldTypes.boolean,
-      defaultValue: true, // 设计器默认展示，实际antd默认false
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Bool,
-        isRequired: false,
-        props: {},
-        label: '是否显示'
       }
     },
     {
@@ -73,6 +61,18 @@ const manifest: ComponentManifest = {
         label: '分钟数递增步长设置'
       }
     }
+  ],
+  extension: [
+    ExtensionProps.bIsNull,
+    ExtensionProps.disabled,
+    // ExtensionProps.singleLine,
+    // ExtensionProps.splitLine,
+    ExtensionProps.bMustSelect,
+    ExtensionProps.formula,
+    ExtensionProps.isExport,
+    ExtensionProps.bCheck,
+    ExtensionProps.bVmExclude,
+    ExtensionProps.cStyle
   ],
   events: [
     {
