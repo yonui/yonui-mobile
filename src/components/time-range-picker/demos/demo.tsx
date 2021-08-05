@@ -1,5 +1,5 @@
 /**
- * @name: TimeRangePiker
+ * @name: TimeRangePicker
  * @description: 时间选择器
  */
 import React, { Component } from 'react'

@@ -1,2 +1,2 @@
-import TimeRangePiker from './TimeRangePicker'
-export default TimeRangePiker
+import TimeRangePicker from './TimeRangePicker'
+export default TimeRangePicker

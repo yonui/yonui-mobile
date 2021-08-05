@@ -1,8 +1,8 @@
-# TimeRangePiker 基础组件-时间选择器
+# TimeRangePicker 基础组件-时间选择器
 ## 如何使用
 
 ```
-import { TimeRangePiker } from 'yonui-mobile';
+import { TimeRangePicker } from 'yonui-mobile';
 
 ```
 

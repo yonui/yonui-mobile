@@ -8,8 +8,8 @@ import NavBar from './navbar/index';
 import NavBarManifest from './navbar/manifest';
 import CalenderPanel from './calendar-panel/index';
 import CalenderPanelManifest from './calendar-panel/manifest';
-import TimeRangePiker from './time-range-picker/index';
-import TimeRangePikerManifest from './time-range-picker/manifest';
+import TimeRangePicker from './time-range-picker/index';
+import TimeRangePickerManifest from './time-range-picker/manifest';
 import Button from './button/index';
 import ButtonManifest from './button/manifest';
 import Icon from './icon/index';
@@ -103,7 +103,7 @@ const CalenderComp = ReactWrapper(Calender, CalenderManifest)
 const TimeRangeComp = ReactWrapper(TimeRange, TimeRangeManifest)
 const NavBarComp = ReactWrapper(NavBar, NavBarManifest)
 const CalenderPanelComp = ReactWrapper(CalenderPanel, CalenderPanelManifest)
-const TimeRangePikerComp = ReactWrapper(TimeRangePiker, TimeRangePikerManifest)
+const TimeRangePickerComp = ReactWrapper(TimeRangePicker, TimeRangePickerManifest)
 const TabBottomComp = ReactWrapper(TabBar, TabBarManifest)
 const ButtonComp = ReactWrapper(Button, ButtonManifest)
 const IconComp = ReactWrapper(Icon, IconManifest)
@@ -155,7 +155,7 @@ export { TimeRangeComp as TimeRange };
 export { default as Table } from './table/index';
 export { NavBarComp as NavBar };
 export { CalenderPanelComp as CalenderPanel };
-export { TimeRangePikerComp as TimeRangePiker };
+export { TimeRangePickerComp as TimeRangePicker };
 export { TabBottomComp as TabBottom };
 export { ButtonComp as Button };
 export { IconComp as Icon };
