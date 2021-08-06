@@ -12,7 +12,7 @@ const columns = [
     title: 'Name',
     dataIndex: 'name',
     width: 1,
-    render: (value, row, index ) => {
+    render: (value, row, index) => {
       console.log('value:', value, 'row:', row, 'index:', index)
       return value
     }
@@ -34,7 +34,7 @@ const columns1 = [
     title: 'Name',
     dataIndex: 'name',
     width: 1,
-    render: (value, row, index ) => {
+    render: (value, row, index) => {
       console.log('value:', value, 'row:', row, 'index:', index)
       return value
     }
@@ -73,26 +73,26 @@ const onLoadMore = () => {
 }
 
 export default class Demo extends Component {
-  render () {
+  render() {
     return (
       <div>
         <Table
-        columns={columns}
-        data={data}
-        addOrderColumn={true} // 添加序号列
-        orderSpanColors={[]}
-        onSort={onSort}
-        showMore={true}
-        loadMore={onLoadMore}
+          columns={columns}
+          data={data}
+          addOrderColumn={true} // 添加序号列
+          orderSpanColors={[]}
+          onSort={onSort}
+          showMore={true}
+          loadMore={onLoadMore}
         />
         <Table
-        columns={columns1}
-        data={data}
-        addOrderColumn={true} // 添加序号列
-        orderSpanColors={orderSpanColors}
-        onSort={onSort}
-        showMore={true}
-        loadMore={onLoadMore}
+          columns={columns1}
+          data={data}
+          addOrderColumn={true} // 添加序号列
+          orderSpanColors={orderSpanColors}
+          onSort={onSort}
+          showMore={true}
+          loadMore={onLoadMore}
         />
       </div>
     )
