@@ -22,7 +22,7 @@ export interface NavBarProps {
   onTitleClick?: () => void
   mode: string
   nid: string
-  reghtIcons: any
+  rightIcons: any
   style?: React.CSSProperties
   autoShow: boolean
 }
@@ -59,8 +59,8 @@ export default class MDFNavBar extends React.Component<NavBarProps, any> {
   }
 
   renderRightContent = () => {
-    const { style = {}, rightIcon1, rightIcon1Text, rightIcon2, rightIcon2Text, nid, onRight1Click, onRight2Click, reghtIcons } = this.props
-    if (reghtIcons) return reghtIcons
+    const { style = {}, rightIcon1, rightIcon1Text, rightIcon2, rightIcon2Text, nid, onRight1Click, onRight2Click, rightIcons } = this.props
+    if (rightIcons) return rightIcons
     return <>
       {rightIcon1 && <Icon color={style.color ? style.color : defaultColor} type={rightIcon1} nid={nid} onClick={onRight1Click} />}
       {rightIcon1Text}

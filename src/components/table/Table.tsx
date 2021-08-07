@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import RCTable from 'rc-table'
 import { Icon } from 'antd-mobile'
 interface yonuiTableProps {
-  columns: any
-  data: any
-  orderSpanColors?: any
+  columns: any[]
+  data: any[]
+  orderSpanColors?: string[]
   addOrderColumn?: boolean
   showMore?: boolean
   loadMore?: () => void
