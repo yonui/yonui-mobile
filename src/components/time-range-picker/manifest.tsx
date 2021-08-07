@@ -10,7 +10,7 @@ const manifest: ComponentManifest = {
     {
       name: 'mode',
       type: FieldTypes.string,
-      defaultValue: '',
+      defaultValue: 'time',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
@@ -28,28 +28,6 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'maxDate',
-      type: FieldTypes.date,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Date,
-        isRequired: false,
-        props: {},
-        label: '最大可选日期'
-      }
-    },
-    {
-      name: 'minDate',
-      type: FieldTypes.date,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Date,
-        isRequired: false,
-        props: {},
-        label: '最小可选日期'
-      }
-    },
-    {
       name: 'minuteStep',
       type: FieldTypes.number,
       defaultValue: 5,
@@ -59,6 +37,30 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '分钟数递增步长设置'
+      }
+    },
+    {
+      name: 'startTime',
+      type: FieldTypes.string,
+      defaultValue: undefined,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '开始时间'
+      }
+    },
+    {
+      name: 'endTime',
+      type: FieldTypes.string,
+      defaultValue: undefined,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: '结束时间'
       }
     }
   ],

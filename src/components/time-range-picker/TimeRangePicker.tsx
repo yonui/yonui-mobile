@@ -13,6 +13,8 @@ export interface DatePanelPickerProps {
   mode?: 'time' | 'datetime' | 'date' | 'year' | 'month'
   disabled?: boolean
   mReadOnly?: boolean
+  startTime?: string
+  endTime?: string
   onDismiss?: () => void
   onOk?: (date: Object) => void
 }
@@ -28,13 +30,12 @@ const DateFormatMap = {
 export default class DatePanelPicker extends Component<DatePanelPickerProps, any> {
   constructor (props: any) {
     super(props)
-    const { value = [] } = props
     const now = new Date()
     const nowDate = `${now.getFullYear()}/${now.getMonth()}/${now.getDate()}`
     const nowTime = `${now.getHours()}:${now.getMinutes()}`
-    const date = value[0] || nowDate
-    const startTime = value[1] || nowTime
-    const endTime = value[2] || nowTime
+    const date = nowDate
+    const startTime = this.props.startTime || nowTime
+    const endTime = this.props.endTime || nowTime
     this.state = {
       startDate: new Date(`${date} ${startTime}`),
       endDate: new Date(`${date} ${endTime}`),
