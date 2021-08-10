@@ -4,7 +4,7 @@ import DeafultTabsProps from 'antd-mobile/lib/tabs/PropsType'
 import classnames from 'classnames'
 export interface TabsProps extends DeafultTabsProps {
   pageSize?: number
-  icons?: Array<JSX.Element | string > | JSX.Element | string
+  icons?: Array<JSX.Element | string> | JSX.Element | string
   splitLine?: boolean
   gather?: boolean
   className?: string
@@ -20,29 +20,20 @@ export interface TabsProps extends DeafultTabsProps {
   onIcon3Click?: () => void
   onTabClick?: (tab: any, index: number) => void
   mode?: 'normal' | 'transparent'
+  upesnStandard?: boolean
   nid?: string
   uitype?: string
   vm?: any
 }
 export default class yonuiTabs extends Component<TabsProps, any> {
   static defaultProps = {
-    renderTab: (tab: any) => {
-      return <div className='tabs-item-content'>
-        <span>{tab.title}</span>
-        <span className='tabs-item-content-underline' />
-      </div>
-    },
-    swipeable: false,
-    // splitLine: true,
-    // gather: false,
     iconsOccupy: true
   }
 
   constructor (props: any) {
     super(props)
-    const { tabPage } = props;
     this.state = {
-      tabPage: tabPage || 0// 用于记录运行态 选中位置
+      tabPage: 0
     }
   }
 
@@ -54,14 +45,14 @@ export default class yonuiTabs extends Component<TabsProps, any> {
     </span>
   }
 
-  renderIcons = (icons: Array<JSX.Element | string > | JSX.Element | string, className?: string, style?: object) => {
+  renderIcons = (icons: Array<JSX.Element | string> | JSX.Element | string, className?: string, style?: object) => {
     const cls = classnames(className, 'yonui-tabs-icons')
     return <span className={cls} style={style}>
       {Array.isArray(icons) ? icons.map(item => this.renderIcon(item)) : this.renderIcon(icons)}
     </span>
   }
 
-  // 适配设计器
+  // 包装右侧icon组
   getTabBarIcon = () => {
     const { icons, icon1, icon2, icon3, onIcon1Click, onIcon2Click, onIcon3Click } = this.props
     if (icons) return icons
@@ -94,7 +85,7 @@ export default class yonuiTabs extends Component<TabsProps, any> {
   }
 
   renderTab = (tab) => {
-    const { children, page, tabBarActiveTextColor } = this.props;
+    const { children, page, tabBarActiveTextColor, upesnStandard } = this.props;
     const tabIndex = tab.tabIndex;
     if (tabIndex >= 0) {
       const indexItem = children[tabIndex];
@@ -120,8 +111,9 @@ export default class yonuiTabs extends Component<TabsProps, any> {
             height: '100%'
           }}
         >
-          <span style={{ fontWeight: tabIndex === selectPage ? 'bolder' : 'normal' }}>{tab.title}</span>
-          {tabIndex === selectPage ? (<div style={{ width: widthPercentage, backgroundColor: tabBarActiveTextColor || '#E14C46', height: '4px', borderRadius: '2px', marginTop: '-6px' }} />) : null}
+          {upesnStandard && <div className='upesn-standard-tabs-item'>{tab.title}</div>}
+          {!upesnStandard && <span style={{ fontWeight: tabIndex === selectPage ? 'bolder' : 'normal' }}>{tab.title}</span>}
+          {!upesnStandard && tabIndex === selectPage ? (<div style={{ width: widthPercentage, backgroundColor: tabBarActiveTextColor || '#E14C46', height: '4px', borderRadius: '2px', marginTop: '-6px' }} />) : null}
         </div>
       );
     } else {
@@ -139,36 +131,44 @@ export default class yonuiTabs extends Component<TabsProps, any> {
 
   render () {
     let { nid, uitype, tabs, children, mode = 'normal', tabBarUnderlineStyle, pageSize, icons, icon1, icon2, icon3, splitLine, gather, style, className, iconsClassName, iconsStyle, iconsOccupy, tabBarBackgroundColor, ...other } = this.props
+    // 右侧icon组
     const tabBarIcon = this.getTabBarIcon()
+    // tab项
     tabs = this.parseObj(tabs)
+    // tab下划线样式
     tabBarUnderlineStyle = this.parseObj(tabBarUnderlineStyle)
     const underline = { display: 'none', ...tabBarUnderlineStyle }
     let tabsEle = null
     if (mode === 'normal') {
-      tabsEle = pageSize ? <Tabs
-        tabs={tabs}
-        tabBarBackgroundColor={tabBarBackgroundColor}
-        onTabClick={this._onTabClick}
-        tabBarUnderlineStyle={underline}
-        renderTabBar={(props: any) => <Tabs.DefaultTabBar {...props} page={pageSize} />}
-        {...other}
-      >{children}</Tabs> : <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>
+      if (pageSize) {
+        tabsEle = (
+          <Tabs
+            tabs={tabs}
+            tabBarBackgroundColor={tabBarBackgroundColor}
+            tabBarUnderlineStyle={underline}
+            renderTabBar={(props: any) => <Tabs.DefaultTabBar {...props} page={pageSize} />}
+            onTabClick={this._onTabClick}
+            {...other}
+          >{children}</Tabs>
+        )
+      } else {
+        tabsEle = <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>
+      }
     } else {
       splitLine = splitLine || false
       gather = true
-      tabsEle = <Tabs
-        tabs={tabs}
-        tabBarBackgroundColor={tabBarBackgroundColor}
-        renderTabBar={this.renderTabBar}
-        tabBarUnderlineStyle={underline}
-        onChange={this.renderTabClick}
-        {...other}
-        page={nid ? this.props.page : this.state.tabPage}
-      >{children}</Tabs>
+      tabsEle = (
+        <Tabs
+          tabs={tabs}
+          tabBarBackgroundColor={tabBarBackgroundColor}
+          tabBarUnderlineStyle={underline}
+          renderTabBar={this.renderTabBar}
+          onChange={this.renderTabClick}
+          {...other}
+          page={nid ? this.props.page : this.state.tabPage}
+        >{children}</Tabs>
+      )
     }
-    // const tabsEle = pageSize
-    //   ? <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} renderTabBar={(props: any) => <Tabs.DefaultTabBar {...props} page={pageSize} />}
-    //     {...other}>{children}</Tabs> : <Tabs tabs={tabs} tabBarBackgroundColor={tabBarBackgroundColor} tabBarUnderlineStyle={underline} {...other}>{children}</Tabs>
     const cls = classnames(
       className,
       'yonui-tabs',
@@ -178,7 +178,8 @@ export default class yonuiTabs extends Component<TabsProps, any> {
         'yonui-tabs-with-icons': tabBarIcon,
         'yonui-tabs-gather': gather,
         [`yonui-tabs-with-icons-${tabBarIcon ? (Array.isArray(tabBarIcon) ? tabBarIcon.length : 1) : 0}`]: iconsOccupy
-      })
+      }
+    )
     iconsStyle = { background: tabBarBackgroundColor, ...iconsStyle }
     const iconsEle = tabBarIcon ? this.renderIcons(tabBarIcon, iconsClassName, iconsStyle) : null
     return (
