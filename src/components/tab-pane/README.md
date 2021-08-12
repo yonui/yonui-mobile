@@ -17,7 +17,7 @@ children | 子项 | any | 无 | false
 key | key | string | 无 | true
 label | 标签 | string | 无 | false
 className | 样式class | string | 无 | false
-style | 样式style | object | 无 | false
+style | 样式style | React.CSSProperties | 无 | false
 minHeight | 最小高度 | string | 无 | false
 width | 宽度 | string | 无 | false
 bgColor | 背景颜色 | string | 无 | false

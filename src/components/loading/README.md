@@ -21,7 +21,6 @@ type | 类型 | 'toast'/'jump'/'top'/'local' | 'toast' | false
 percent | 进度 | number | 50 | false
 theme | 主题 | 'dark'/'primary'/'light'/'' | '' | false
 className | 样式class | string | 无 | false
-style | 样式style | object | 无 | false
-
+style | 样式style | React.CSSProperties | 无 | false
 
 
