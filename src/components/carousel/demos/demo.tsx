@@ -16,13 +16,11 @@ export default class Demo1 extends Component {
     }
   }
   setIndex = () => {
-    console.log(123)
     let { selectedIndex = 0 } = this.state
     console.log(selectedIndex++)
     this.setState({
       selectedIndex
     })
-    console.log(this.state.selectedIndex)
   }
   render () {
     return (

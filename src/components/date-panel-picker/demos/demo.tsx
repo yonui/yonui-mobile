@@ -8,10 +8,8 @@ import '../style'
 import './demo.less'
 import { Button, List } from 'antd-mobile'
 import { dateFormat } from '../../_utils'
-// const nowTimeStamp = Date.now()
-// const now = new Date(nowTimeStamp)
 export default class Demo1 extends Component<any, any> {
-  constructor (props: any) {
+  constructor(props: any) {
     super(props)
     this.state = {
       visible: false
@@ -37,8 +35,8 @@ export default class Demo1 extends Component<any, any> {
     })
   }
 
-  render () {
-    const { date, visible } = this.state
+  render() {
+    const { visible } = this.state
     return (
       <div>
         <Button onClick={this.onClick}>显示</Button>
@@ -47,14 +45,7 @@ export default class Demo1 extends Component<any, any> {
           visible={visible}
           minuteStep={10}
           onDismiss={this.onDismiss}
-          onOk={this.onOk}/>
-        {
-          this.state.date &&
-          <div>
-            <List.Item>开始: {dateFormat(this.state.date[0], 'yyyy-MM-dd hh:mm:ss')}</List.Item>
-            <List.Item>结束: {dateFormat(this.state.date[1], 'yyyy-MM-dd hh:mm:ss')}</List.Item>
-          </div>
-        }
+          onOk={this.onOk} />
       </div>
 
     )

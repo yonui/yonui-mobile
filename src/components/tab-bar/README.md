@@ -13,6 +13,6 @@ import { TabBottom } from 'yonui-mobile';
 
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
-activeKey | 活动的标签 | string | itemList[0] | false
-itemList | 显示的标签 | TabBarItem[] | [] | false
-onSwitch | 切换时的回调 | (key?: string, item?: TabBarItem) => void | 无 | false
+activeKey | 活动的标签 | string | itemList第一项的key | false
+itemList | 显示的标签 | any[] | [] | false
+onSwitch | 切换时的回调 | (key, item) => void | 无 | false
