@@ -11,11 +11,8 @@ export default class Demo extends Component {
     render() {
         return (
           <div>
-            <MyComponent content="分割线" style={{color: 'red', borderWidth: 40}}></MyComponent>
-            <MyComponent content="分割线" type="dashed"/>
-            <MyComponent content="分割线" type="dotted"/>
-            <MyComponent content="分割线" type="double"/>
-            {/* <MyComponent /> */}
+            <MyComponent content="分割线1"></MyComponent>
+            <MyComponent content="分割线2" width={5} color='red'></MyComponent>
           </div>
         )
     }

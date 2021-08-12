@@ -19,4 +19,4 @@ backgroundImage | 背景图片 | string | '' | false
 backgroundSize | 背景尺寸 | string | 'cover' | false
 children | 子项 | any[] | [] | false
 className | 样式class | string | 无 | false
-style | 样式style | object | 无 | false
+style | 样式style | React.CSSProperties | 无 | false

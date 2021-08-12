@@ -16,7 +16,7 @@ import { Checkbox } from 'yonui-mobile';
 defaultChecked | 默认选中 | boolean | false | false
 checked | 初始值 | boolean | false | false
 disabled | 是否禁用 | boolean | false | false
-type | 类型 | 'default'/'circle' | 'default' | false
+type | 类型 default: 默认样式 circle: 圆圈样式 | 'default'/'circle' | 'default' | false
 content | 内容 | string | 无 | false
-onChange | 改变后回调 | (value: boolean) => void | 无 | false
+onChange | 改变后回调 | (value) => void | 无 | false
 className | 样式class | string | 无 | false

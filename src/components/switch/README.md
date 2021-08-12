@@ -18,8 +18,8 @@ defaultValue | 默认值 | boolean | false | false
 checked | 初始值 | boolean | false | false
 visible | 是否可见 | boolean | true | false
 disabled | 是否禁用 | boolean | false | false
-onChange | 改变后回调 | (checked: bool): void | 无 | false
+onChange | 改变后回调 | (checked) => void | 无 | false
 color | 颜色 | string | '#4dd865' | false
 name | 名字 | string | 无 | false
-platform | 平台 | 'android'/'ios' | 'ios' | false
-onClick | 点击后回调 | (checked: bool): void | 无 | false
+platform | 平台特有样式 | 'android'/'ios' | 'ios' | false
+onClick | 点击后回调 | (checked) => void | 无 | false

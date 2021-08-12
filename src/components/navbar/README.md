@@ -31,5 +31,5 @@ onBackClick | 返回icon点击时回调 | () => void | 无 | false
 onCloseClick | 关闭icon点击时回调 | () => void | 无 | false
 mode | 模式 light: 白底黑字模式 其他: 默认模式 | string | 'light' | false
 rightIcons | 自定义右侧图标组 | any | 无 | false
-style | 样式style | Object | {} | false
+style | 样式style | React.CSSProperties | 无 | false
 autoShow | 是否展示（微信/友空间/ios/android）平台自有头部 | boolean | false | false

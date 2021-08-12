@@ -46,13 +46,13 @@ export default class Demo1 extends React.Component {
     return (
       <MyComponent
         ref={el => this.lv = el}
+        showSeparator={true}
         value={data}
         dataSource={this.state.dataSource}
         footerContent={''}
         initialListSize={2}
         footerContent={"加载中"}
       >
-
         <div>这是第一行</div>
         <div>
           <h3>这里第二行title</h3>

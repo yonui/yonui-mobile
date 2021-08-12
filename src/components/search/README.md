@@ -26,10 +26,8 @@ searchIconColor | 搜索图标颜色 | string | '' | false
 clearIconColor | 清除图标颜色 | string | '' | false
 solutionId | 搜索的值包装成的对象的solutionId | number | 无 | false
 term | 搜索的值包装成的对象的term | any | 无 | false
-onSubmit | 点击搜索时回调 | (value: object) => void | 无 | false
-onChange | 搜索框修改时回调 | (value: object) => void | 无 | false
+onSubmit | 点击搜索时回调 | (value) => void | 无 | false
+onChange | 搜索框修改时回调 | (value) => void | 无 | false
 onFocus | 获取焦点时回调 | () => void | 无 | false
 onBlur | 失去焦点时回调 | () => void | 无 | false
-onClear | 清空时回调 | (value: object) => void | 无 | false
-focus | 获取焦点的方法 | Function | 无 | false
-clear | 清空的方法 | Function | 无 | false
+onClear | 清空时回调 | (value) => void | 无 | false

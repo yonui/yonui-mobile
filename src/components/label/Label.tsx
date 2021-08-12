@@ -13,6 +13,7 @@ export interface LabelProps extends React.defaultProps{
   rightIcon?: React.ReactNode
   textClamp?: number
   textLangth?: number
+  textLength?: number
   visible?: boolean
   prefix: string
   suffix: string
@@ -135,7 +136,8 @@ export default class Label extends React.PureComponent<LabelProps> {
   }
 
   render () {
-    const { prefix, showTitle, suffix, label, style, className, textAlign, textClamp, textLangth, leftIcon, rightIcon, visible, ...other } = this.props
+    const { prefix, showTitle, suffix, label, style, className, textAlign, textClamp, textLangth, textLength, leftIcon, rightIcon, visible, ...other } = this.props
+    const tLength = textLangth || textLength
     let { spareLabel } = this.props
     spareLabel = showTitle ? spareLabel : ''
     const parseValue = this.adaptValue(label)
@@ -151,7 +153,7 @@ export default class Label extends React.PureComponent<LabelProps> {
           {leftIcon && leftIconEle}
           {prefix && <span className='yonui-mobile-tag-clamp' style={+textClamp ? { WebkitLineClamp: textClamp, textAlign: textAlign } : { whiteSpace: 'nowrap' }}>{prefix}</span>}
           <span className={tagsCls} style={+textClamp ? { WebkitLineClamp: textClamp, textAlign: textAlign } : { whiteSpace: 'nowrap' }}>
-            {(textLangth === undefined || +textLangth === 0 || (parseValue || spareLabel)?.length <= textLangth) ? (parseValue || spareLabel) : `${(parseValue || spareLabel)?.slice(0, textLangth)}...`}
+            {(tLength === undefined || +tLength === 0 || (parseValue || spareLabel)?.length <= tLength) ? (parseValue || spareLabel) : `${(parseValue || spareLabel)?.slice(0, tLength)}...`}
           </span>
           {suffix && <span className='yonui-mobile-tag-clamp' style={+textClamp ? { WebkitLineClamp: textClamp, textAlign: textAlign } : { whiteSpace: 'nowrap' }}>{suffix}</span>}
           {rightIcon && rightIconEle}

@@ -27,7 +27,7 @@ export default class Demo1 extends Component {
           }}
         />
         <MyComponent
-          title={'带标题'}
+          name={'aaa'}
           checked={this.state.checked}
           onChange={() => {
             this.setState({
