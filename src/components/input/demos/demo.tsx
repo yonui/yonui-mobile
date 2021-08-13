@@ -11,7 +11,7 @@ export default class Demo1 extends Component<any, any> {
     super(props)
 
     this.state = {
-       value: ''
+      value: ''
     }
   }
 
@@ -30,14 +30,13 @@ export default class Demo1 extends Component<any, any> {
     console.log('focus')
   }
 
-  render () {
+  render() {
     const props = {
       type: 'text',
-      // label: '标题标题标题标题标题标题标题',
-      // defaultValue: '输入框的值',
+      label: '标题标题标题标题标题标题标题',
+      defaultValue: '输入框的值',
       placeholder: '请输入',
-      // labelNumber: 0,
-      // required: true,
+      required: true,
       editable: true,
       disabled: false,
       clear: true
@@ -45,28 +44,28 @@ export default class Demo1 extends Component<any, any> {
     return (
       <div>
         <MyComponent {...props}
-        onChange={this.onChange }
-        onBlur={() => { this.onBlur() }}
-        onFocus={() => { this.onFocus() }}
-        label='标题'
-        subuitype='ipAddress'
+          onChange={this.onChange}
+          onBlur={() => { this.onBlur() }}
+          onFocus={() => { this.onFocus() }}
+          label='标题'
+          subuitype='ipAddress'
         />
         <MyComponent {...props}
-        onChange={ this.onChange }
-        onBlur={() => { this.onBlur() }}
-        onFocus={() => { this.onFocus() }}
-        singleLine
-        label='标题'
+          onChange={this.onChange}
+          onBlur={() => { this.onBlur() }}
+          onFocus={() => { this.onFocus() }}
+          singleLine
+          label='标题'
         />
         <MyComponent {...props}
-        onChange={ this.onChange }
-        onBlur={() => { this.onBlur() }}
-        onFocus={() => { this.onFocus() }}
-        value={this.state.value}
-        formatReg='### #### ####'
-        maxLength={11}
-        // defaultValue='123123'
-        checkMask='^[1-'
+          onChange={this.onChange}
+          onBlur={() => { this.onBlur() }}
+          onFocus={() => { this.onFocus() }}
+          value={this.state.value}
+          formatReg='### #### ####'
+          maxLength={11}
+          defaultValue='123123'
+          checkMask='^[1-'
         />
       </div>
     )

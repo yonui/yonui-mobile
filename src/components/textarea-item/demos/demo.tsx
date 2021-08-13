@@ -10,10 +10,10 @@ export default class Demo1 extends Component {
   render () {
     return (
       <MyComponent
-        // placeholder="预设内容"
+        placeholder="预设内容"
         label='123123'
-        // maxLength={1000}
-        singleLine
+        maxLength={1000}
+        singleLine={true}
         clear
         required
       />
