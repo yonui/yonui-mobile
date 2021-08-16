@@ -82,6 +82,7 @@
 		"Rate": "./src/components/rate",
 		"GroupContainer": "./src/components/main-vice-group",
 		"GroupRefer": "./src/components/group-refer",
-		"Noticebar": "./src/components/noticebar"
+		"Noticebar": "./src/components/noticebar",
+    "CustomSort": "./src/components/custom-sort"
 	}
 }
