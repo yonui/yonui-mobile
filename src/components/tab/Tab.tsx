@@ -19,6 +19,7 @@ export interface TabsProps extends DeafultTabsProps {
   onIcon2Click?: () => void
   onIcon3Click?: () => void
   onTabClick?: (tab: any, index: number) => void
+  afterTabActiveKeyChange?: (tab: any, index: number) => void
   mode?: 'normal' | 'transparent'
   upesnStandard?: boolean
   nid?: string
@@ -79,6 +80,9 @@ export default class yonuiTabs extends Component<TabsProps, any> {
     if (this.props.onTabClick) {
       this.props.onTabClick(tab, index)
     }
+    if (this.props.afterTabActiveKeyChange) {
+      this.props.afterTabActiveKeyChange(tab, index)
+    }
     this.setState({ tabPage: index }, () => {
       viewModel?.execute('afterTabActiveKeyChange', { index })
     })
@@ -129,6 +133,12 @@ export default class yonuiTabs extends Component<TabsProps, any> {
     }
   }
 
+  _onChange = (tab: any, index: number) => {
+    if (this.props.afterTabActiveKeyChange) {
+      this.props.afterTabActiveKeyChange(tab, index)
+    }
+  }
+
   render () {
     let { nid, uitype, tabs, children, mode = 'normal', tabBarUnderlineStyle, pageSize, icons, icon1, icon2, icon3, splitLine, gather, style, className, iconsClassName, iconsStyle, iconsOccupy, tabBarBackgroundColor, ...other } = this.props
     // 右侧icon组
@@ -148,6 +158,7 @@ export default class yonuiTabs extends Component<TabsProps, any> {
             tabBarUnderlineStyle={underline}
             renderTabBar={(props: any) => <Tabs.DefaultTabBar {...props} page={pageSize} />}
             onTabClick={this._onTabClick}
+            onChange={this._onChange}
             {...other}
           >{children}</Tabs>
         )
