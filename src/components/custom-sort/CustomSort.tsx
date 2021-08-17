@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Icon as Aicon } from 'antd-mobile';
 import Icon from '../icon'
 
 interface CustomSortProps {
   initialKey?: string
-  sortItems?: any[]
+  data?: any[]
   selectedColor?: string
   extraTextColor?: string
   modelMarginTop?: number
@@ -27,7 +28,7 @@ class CustomSort extends React.Component<CustomSortProps, CustomSortState> {
     super(props)
     let current = props.initialKey ? props.initialKey : ''
     if (!current) {
-      current = props.sortItems && props.sortItems.length > 0 ? props.sortItems[0].key : ''
+      current = props.data && props.data.length > 0 ? props.data[0].key : ''
     }
     this.state = {
       showMenu: false,
@@ -37,14 +38,14 @@ class CustomSort extends React.Component<CustomSortProps, CustomSortState> {
 
   getLabel = (key) => {
     let selectedItem
-    const { sortItems } = this.props
+    const { data } = this.props
     const recursion = (list) => {
       for (const item of list) {
         if (item.key === key) selectedItem = item
         if (item.children && item.children.length > 0) recursion(item.children)
       }
     }
-    recursion(sortItems)
+    recursion(data)
     return <>
       {selectedItem?.label}
       {selectedItem?.rightIcon && <Icon className='arrow' size='xs' type={selectedItem.rightIcon} />}
@@ -58,6 +59,7 @@ class CustomSort extends React.Component<CustomSortProps, CustomSortState> {
   };
 
   selectMenuItem = (item) => {
+    if (item.key === this.state.current) return
     const { onSelectItem } = this.props
     this.setState({
       current: item.key,
@@ -67,21 +69,20 @@ class CustomSort extends React.Component<CustomSortProps, CustomSortState> {
   }
 
   getModalContent = () => {
-    const { sortItems, modelMarginTop } = this.props
+    const { data, modelMarginTop } = this.props
     const sortNode = ReactDOM.findDOMNode(this.sortRef)
-    const data = this.renderData(sortItems)
     return (
       <>
         <div
           className='yonui-custom-sort-mask'
-          style={{ top: sortNode.parentNode.clientTop + sortNode.parentNode.clientHeight }}
+          style={{ top: sortNode.parentNode.parentNode.clientTop + sortNode.parentNode.parentNode.clientHeight }}
           onClick={this.switchShowMenu}
         />
         <div
           className='yonui-custom-sort-modal'
-          style={{ top: sortNode.parentNode.clientTop + sortNode.parentNode.clientHeight + modelMarginTop }}
+          style={{ top: sortNode.parentNode.parentNode.clientTop + sortNode.parentNode.parentNode.clientHeight + modelMarginTop }}
         >
-          {data}
+          {this.renderData(data)}
         </div>
       </>
     );
@@ -104,7 +105,7 @@ class CustomSort extends React.Component<CustomSortProps, CustomSortState> {
             {item.rightIcon && <Icon className='arrow' size='xs' type={item.rightIcon} />}
             {item.extraText !== undefined && <span className='sort-item-extra-text' style={{ color: item.key === this.state.current ? selectedColor : extraTextColor }}>{item.extraText}</span>}
           </div>
-          {item.key === this.state.current ? <Icon className='selected' type='icon-shuruzhengque' /> : null}
+          {item.key === this.state.current ? <Aicon className='selected' type='check' /> : null}
         </div>
         {item.children && item.children.length > 0 && <div className='sort-item-children'>{this.renderData(item.children)}</div>}
       </>
@@ -128,7 +129,7 @@ class CustomSort extends React.Component<CustomSortProps, CustomSortState> {
           <div className='yonui-custom-sort-content'>
             {this.getLabel(this.state.current)}
             <div className='yonui-custom-sort-arrow'>
-              {this.state.showMenu ? <Icon size='xs' type='icon-treearrow-down' /> : <Icon size='xs' type='icon-gridcaretarrowup' />}
+              {this.state.showMenu ? <Aicon size='xs' type='down' /> : <Aicon size='xs' type='up' />}
             </div>
           </div>
         </div>

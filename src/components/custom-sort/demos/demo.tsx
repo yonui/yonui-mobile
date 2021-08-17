@@ -10,61 +10,61 @@ import './demo.less'
 
 const sortItems = [
   {
-    key: '1',
-    label: '哈哈哈',
-    extraText: '(3)',
-    children: [
+    "key": "1",
+    "label": "哈哈哈1",
+    "extraText": "(1)",
+    "children": [
       {
-        key: '1-1',
-        label: '嘿嘿',
-        extraText: '(13)'
+        "key": "1-1",
+        "label": "哈哈哈1-1",
+        "extraText": "(2)",
       },
       {
-        key: '1-2',
-        label: '奥奥',
-        extraText: '(23)',
+        "key": "1-2",
+        "label": "哈哈哈1-2",
+        "extraText": "(3)",
       }
     ]
   },
   {
-    key: '2',
-    label: '嗯嗯嗯嗯',
-    extraText: '(33)'
+    "key": "2",
+    "label": "哈哈哈2",
+    "extraText": "(12)",
   },
   {
-    key: '3',
-    label: '嗯嗯嗯嗯',
-    extraText: '(33)'
+    "key": "3",
+    "label": "哈哈哈3",
+    "extraText": "(13)",
   },
   {
-    key: '4',
-    label: '嗯嗯嗯嗯',
-    extraText: '(33)'
+    "key": "4",
+    "label": "哈哈哈4",
+    "extraText": "(14)",
   },
   {
-    key: '5',
-    label: '嗯嗯嗯嗯',
-    extraText: '(33)'
+    "key": "5",
+    "label": "哈哈哈5",
+    "extraText": "(15)",
   },
   {
-    key: '6',
-    label: '嗯嗯嗯嗯',
-    extraText: '(33)'
+    "key": "6",
+    "label": "哈哈哈6",
+    "extraText": "(16)",
   },
   {
-    key: '7',
-    label: '嗯嗯嗯嗯',
-    extraText: '(33)'
+    "key": "7",
+    "label": "哈哈哈7",
+    "extraText": "(17)",
   },
   {
-    key: '8',
-    label: '嗯嗯嗯嗯',
-    extraText: '(33)'
+    "key": "8",
+    "label": "哈哈哈8",
+    "extraText": "(18)",
   },
   {
-    key: '9',
-    label: '嗯嗯嗯嗯',
-    extraText: '(33)'
+    "key": "9",
+    "label": "哈哈哈9",
+    "extraText": "(19)",
   }
 ]
 

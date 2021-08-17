@@ -19,9 +19,13 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'sortItems',
+      name: 'data',
       type: FieldTypes.array,
-      defaultValue: [],
+      defaultValue: JSON.stringify([
+        {
+          key: '1', label: '默认', extraText: '(0)'
+        }
+      ]),
       showDesign: true,
       designConfig: {
         type: EditTypes.Json,
