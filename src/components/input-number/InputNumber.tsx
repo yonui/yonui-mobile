@@ -66,6 +66,21 @@ export default class Input extends Component<InputProps, InputState> {
     }
   }
 
+  componentDidMount () {
+    if (this.props.model)
+      this.props.model.addListener(this);
+  }
+
+  componentDidUpdate () {
+    if (this.props.model)
+      this.props.model.addListener(this);
+  }
+
+  componentWillUnmount () {
+    if (this.props.model)
+      this.props.model.removeListener(this);
+  }
+
   changeValue = (props) => {
     const { _value: stateValue } = this.state
     const { value, mode, prefix, suffix, precision = 2, scaleValue = 1 } = props
@@ -271,6 +286,7 @@ export default class Input extends Component<InputProps, InputState> {
     const _required = bIsNull !== undefined ? !bIsNull : required
     const preValue = this.state.isFocus ? value : this.changeValue(this.props);
     const showValue = mReadOnly ? preValue : (this.state.isFocus ? _displayValue || preValue : preValue)
+    console.log('zyh-inputnumber-showValue', showValue, 'props', this.props)
     if (!visible) return null
     // 解决展示数据修改不触发onChange事件的问题
     // if (showValue && showValue != this.state._showValue) {
