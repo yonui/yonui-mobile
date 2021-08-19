@@ -1,6 +1,6 @@
 /**
  * @name: CustomSort
- * @description: 自定义排序
+ * @description: 自定义分组
  */
 
 import React, { Component } from 'react'

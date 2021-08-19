@@ -1,4 +1,4 @@
-# CustomSort 基础组件-自定义排序
+# CustomSort 基础组件-自定义分组
 ## 如何使用
 
 ```

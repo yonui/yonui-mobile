@@ -2,7 +2,7 @@ import { ComponentManifest, UIObject, TypeProps, FieldTypes, EditTypes } from 'y
 
 const manifest: ComponentManifest = {
   name: 'CustomSort',
-  label: '自定义排序',
+  label: '自定义分组',
   type: TypeProps.FunctionalControls,
   uiObject: UIObject.Controls,
   props: [
