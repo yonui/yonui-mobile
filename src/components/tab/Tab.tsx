@@ -21,13 +21,14 @@ export interface TabsProps extends DeafultTabsProps {
   onTabClick?: (tab: any, index: number) => void
   afterTabActiveKeyChange?: (tab: any, index: number) => void
   mode?: 'normal' | 'transparent'
-  upesnStandard?: boolean
+  standard?: string
   nid?: string
   uitype?: string
   vm?: any
 }
 export default class yonuiTabs extends Component<TabsProps, any> {
   static defaultProps = {
+    standard: 'default',
     iconsOccupy: true
   }
 
@@ -89,7 +90,7 @@ export default class yonuiTabs extends Component<TabsProps, any> {
   }
 
   renderTab = (tab) => {
-    const { children, page, tabBarActiveTextColor, upesnStandard } = this.props;
+    const { children, page, tabBarActiveTextColor, standard } = this.props;
     const tabIndex = tab.tabIndex;
     if (tabIndex >= 0) {
       const indexItem = children[tabIndex];
@@ -115,9 +116,9 @@ export default class yonuiTabs extends Component<TabsProps, any> {
             height: '100%'
           }}
         >
-          {upesnStandard && <div className='upesn-standard-tabs-item'>{tab.title}</div>}
-          {!upesnStandard && <span style={{ fontWeight: tabIndex === selectPage ? 'bolder' : 'normal' }}>{tab.title}</span>}
-          {!upesnStandard && tabIndex === selectPage ? (<div style={{ width: widthPercentage, backgroundColor: tabBarActiveTextColor || '#E14C46', height: '4px', borderRadius: '2px', marginTop: '-6px' }} />) : null}
+          {standard === 'default' && <div className='upesn-standard-tabs-item'>{tab.title}</div>}
+          {standard === 'upesn' && <span style={{ fontWeight: tabIndex === selectPage ? 'bolder' : 'normal' }}>{tab.title}</span>}
+          {standard === 'upesn' && tabIndex === selectPage ? (<div style={{ width: widthPercentage, backgroundColor: tabBarActiveTextColor || '#E14C46', height: '4px', borderRadius: '2px', marginTop: '-6px' }} />) : null}
         </div>
       );
     } else {
