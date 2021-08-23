@@ -33,7 +33,7 @@ pickTime | 是否可以选择时间 | boolean | true | false
 renderShortcut | 替换快捷选择栏，需要设置showShortcut: true | (select: (startDate?: Date, endDate?: Date) => void) => React.ReactNode | 无 | false
 renderHeader | 替换标题栏 | (prop: HeaderPropsType) => React.ReactNode | 无 | false
 showShortcut | 快捷日期选择 | boolean | false | false
-style | 样式style | string | 无 | false
+style | 样式style | React.CSSProperties | 无 | false
 title | 标题 | string | 无 | false
 type | 弹出日历样式 | 'one'/'range' | 'range' | false
 defaultDate | 显示开始日期 | Date | 无 | false
