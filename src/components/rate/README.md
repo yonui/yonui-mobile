@@ -19,4 +19,4 @@ value | 初始值 | string | 无 | false
 defaultValue | 默认值 | string | 无 | false
 disabled | 是否禁用 | boolean | false | false
 visible | 是否可见 | boolean | true | false
-onChange | 改变后回调 | (value: number) => void | 无 | false
+onChange | 改变后回调 | (value) => void | 无 | false

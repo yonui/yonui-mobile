@@ -11,14 +11,14 @@ const onChange = (v: any) => {
 
 }
 export default class Demo extends Component<any, any> {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       v: 1
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     setTimeout(() => {
       this.setState({
         v: 4
@@ -26,9 +26,9 @@ export default class Demo extends Component<any, any> {
     }, 4000);
   }
 
-    render() {
-        return (
-            <MyComponent count={5} allowHalf value={this.state.v} onChange={onChange}/>
-        )
-    }
+  render() {
+    return (
+      <MyComponent count={5} allowHalf value={this.state.v} onChange={onChange} />
+    )
+  }
 }

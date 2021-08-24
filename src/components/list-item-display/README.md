@@ -1,8 +1,8 @@
-# YonuiIframe 基础组件-Iframe框
+# ListItemDisplay 基础组件-列表项
 ## 如何使用
 
 ```
-import { YonuiIframe } from 'yonui-mobile';
+import { ListItemDisplay } from 'yonui-mobile';
 
 ```
 

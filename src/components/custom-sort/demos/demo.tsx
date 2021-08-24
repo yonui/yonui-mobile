@@ -78,7 +78,7 @@ export default class Demo extends Component {
       <div className="demo">
         <MyComponent
           initialKey='1'
-          sortItems={sortItems}
+          data={sortItems}
           selectedColor='red'
           extraTextColor='green'
           modelMarginTop={5}
