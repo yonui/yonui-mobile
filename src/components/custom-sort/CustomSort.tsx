@@ -91,11 +91,10 @@ class CustomSort extends React.Component<CustomSortProps, CustomSortState> {
   renderData = (data) => {
     const { selectedColor, extraTextColor } = this.props
     return data.map(item => {
-      return <>
+      return <div key={item.key}>
         <div
           className='sort-item'
           style={{ color: item.key === this.state.current ? selectedColor : '' }}
-          key={item.key}
           onClick={() => {
             this.selectMenuItem(item);
           }}
@@ -108,7 +107,7 @@ class CustomSort extends React.Component<CustomSortProps, CustomSortState> {
           {item.key === this.state.current ? <Aicon className='selected' type='check' /> : null}
         </div>
         {item.children && item.children.length > 0 && <div className='sort-item-children'>{this.renderData(item.children)}</div>}
-      </>
+      </div>
     })
   }
 

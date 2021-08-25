@@ -77,6 +77,10 @@ const manifest: ComponentManifest = {
       des: '选择某项时'
     }
   ],
+  transformers: [
+    'inherit',
+    ['bindEvent', { events: ['onSelectItem'] }],
+  ],
   children: () => true
 };
 
