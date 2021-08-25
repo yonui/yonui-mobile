@@ -15,7 +15,8 @@ const manifest: ComponentManifest = {
         type: EditTypes.Text,
         isRequired: false,
         props: {},
-        label: '初始选中'
+        label: '初始选中',
+        help: '组件渲染时默认选中选项对应的key'
       }
     },
     {
@@ -48,6 +49,7 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '数据',
+        help: 'key为每项唯一key,rightIcon为label右侧icon,extraText为icon右侧额外文本'
       }
     },
     {
