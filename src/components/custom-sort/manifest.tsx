@@ -23,7 +23,23 @@ const manifest: ComponentManifest = {
       type: FieldTypes.array,
       defaultValue: JSON.stringify([
         {
-          key: '1', label: '默认', extraText: '(0)'
+          key: '1', // 唯一key
+          label: '主1', // 每项名称
+          rightIcon: 'icon-no3', // 名称右侧icon,没有则不渲染
+          extraText: '(1)', // icon后额外文本,没有则不渲染
+          // 子项
+          children: [
+            {
+              key: '1-1',
+              label: '哈哈哈1-1',
+              extraText: '(2)',
+            },
+            {
+              key: '1-2',
+              label: '哈哈哈1-2',
+              extraText: '(3)',
+            }
+          ]
         }
       ]),
       showDesign: true,
