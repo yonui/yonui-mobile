@@ -41,7 +41,7 @@ class CustomSort extends React.Component<CustomSortProps, CustomSortState> {
     const { data } = this.props
     const recursion = (list) => {
       for (const item of list) {
-        if (item.key === key) selectedItem = item
+        if (item.key == key) selectedItem = item
         if (item.children && item.children.length > 0) recursion(item.children)
       }
     }
@@ -59,7 +59,7 @@ class CustomSort extends React.Component<CustomSortProps, CustomSortState> {
   };
 
   selectMenuItem = (item) => {
-    if (item.key === this.state.current) return
+    if (item.key == this.state.current) return
     const { onSelectItem } = this.props
     this.setState({
       current: item.key,
@@ -94,7 +94,7 @@ class CustomSort extends React.Component<CustomSortProps, CustomSortState> {
       return <div key={item.key}>
         <div
           className='sort-item'
-          style={{ color: item.key === this.state.current ? selectedColor : '' }}
+          style={{ color: item.key == this.state.current ? selectedColor : '' }}
           onClick={() => {
             this.selectMenuItem(item);
           }}
@@ -102,9 +102,9 @@ class CustomSort extends React.Component<CustomSortProps, CustomSortState> {
           <div className='sort-item-content'>
             {item.label}
             {item.rightIcon && <Icon className='arrow' size='xs' type={item.rightIcon} />}
-            {item.extraText !== undefined && <span className='sort-item-extra-text' style={{ color: item.key === this.state.current ? selectedColor : extraTextColor }}>{item.extraText}</span>}
+            {item.extraText !== undefined && <span className='sort-item-extra-text' style={{ color: item.key == this.state.current ? selectedColor : extraTextColor }}>{item.extraText}</span>}
           </div>
-          {item.key === this.state.current ? <Aicon className='selected' type='check' /> : null}
+          {item.key == this.state.current ? <Aicon className='selected' type='check' /> : null}
         </div>
         {item.children && item.children.length > 0 && <div className='sort-item-children'>{this.renderData(item.children)}</div>}
       </div>
