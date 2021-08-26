@@ -75,12 +75,12 @@ class CustomSort extends React.Component<CustomSortProps, CustomSortState> {
       <>
         <div
           className='yonui-custom-sort-mask'
-          style={{ top: sortNode.parentNode.parentNode.clientTop + sortNode.parentNode.parentNode.clientHeight }}
+          style={{ top: sortNode.parentNode.parentNode.offsetTop + sortNode.parentNode.parentNode.offsetHeight }}
           onClick={this.switchShowMenu}
         />
         <div
           className='yonui-custom-sort-modal'
-          style={{ top: sortNode.parentNode.parentNode.clientTop + sortNode.parentNode.parentNode.clientHeight + modelMarginTop }}
+          style={{ top: sortNode.parentNode.parentNode.offsetTop + sortNode.parentNode.parentNode.offsetHeight + modelMarginTop }}
         >
           {this.renderData(data)}
         </div>
