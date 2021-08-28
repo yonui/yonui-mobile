@@ -23,6 +23,9 @@ export interface LabelProps extends React.defaultProps{
   dateMode: string
   showZero: boolean
   showTitle: boolean
+  uimeta?: string
+  meta?: any
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>
 }
 
 export default class Label extends React.PureComponent<LabelProps> {
@@ -135,8 +138,15 @@ export default class Label extends React.PureComponent<LabelProps> {
     }
   }
 
+  _onClick = e => {
+    // e.stopPropagation()
+    const { onClick, meta } = this.props
+    e.uimeta = meta
+    onClick?.(e)
+  }
+
   render () {
-    const { prefix, showTitle, suffix, label, style, className, textAlign, textClamp, textLangth, textLength, leftIcon, rightIcon, visible, ...other } = this.props
+    const { prefix, showTitle, suffix, label, style, className, textAlign, textClamp, textLangth, textLength, leftIcon, rightIcon, visible, meta, onClick, ...other } = this.props
     const tLength = textLangth || textLength
     let { spareLabel } = this.props
     spareLabel = showTitle ? spareLabel : ''
@@ -152,7 +162,7 @@ export default class Label extends React.PureComponent<LabelProps> {
         <span className={cls} style={sty} {...other}>
           {leftIcon && leftIconEle}
           {prefix && <span className='yonui-mobile-tag-clamp' style={+textClamp ? { WebkitLineClamp: textClamp, textAlign: textAlign } : { whiteSpace: 'nowrap' }}>{prefix}</span>}
-          <span className={tagsCls} style={+textClamp ? { WebkitLineClamp: textClamp, textAlign: textAlign } : { whiteSpace: 'nowrap' }}>
+          <span onClick={this._onClick} className={tagsCls} style={+textClamp ? { WebkitLineClamp: textClamp, textAlign: textAlign } : { whiteSpace: 'nowrap' }}>
             {(tLength === undefined || +tLength === 0 || (parseValue || spareLabel)?.length <= tLength) ? (parseValue || spareLabel) : `${(parseValue || spareLabel)?.slice(0, tLength)}...`}
           </span>
           {suffix && <span className='yonui-mobile-tag-clamp' style={+textClamp ? { WebkitLineClamp: textClamp, textAlign: textAlign } : { whiteSpace: 'nowrap' }}>{suffix}</span>}

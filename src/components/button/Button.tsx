@@ -64,6 +64,7 @@ class Button extends React.Component<ButtonProps, any> {
     const { onClick, mReadOnly, disabled, meta } = this.props
     const cBrowseClick = meta?.cBrowseClick
     if (disabled || (!cBrowseClick && mReadOnly)) return
+    e.uimeta = meta
     onClick?.(e)
   }
 
