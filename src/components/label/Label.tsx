@@ -153,7 +153,7 @@ export default class Label extends React.PureComponent<LabelProps> {
     const parseValue = this.adaptValue(label)
     const sty: React.CSSProperties = { ...style, textAlign }
     const cls = classnames(className, 'yonui-tag')
-    const tagsCls = classnames('yonui-mobile-tag-text', 'yonui-mobile-tag-clamp')
+    const tagsCls = classnames('includes-meta', 'yonui-mobile-tag-text', 'yonui-mobile-tag-clamp')
     const leftIconEle = typeof leftIcon === 'string' ? <Icon type={leftIcon} nid={other.nid} size='xxs' /> : leftIcon
     const rightIconEle = typeof rightIcon === 'string' ? <Icon type={rightIcon} nid={other.nid} size='xxs' /> : rightIcon
     if (!visible) return null
