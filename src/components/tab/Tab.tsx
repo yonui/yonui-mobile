@@ -89,6 +89,12 @@ export default class yonuiTabs extends Component<TabsProps, any> {
     })
   }
 
+  gotoPage = (page) => {
+    this.setState({
+      tabPage: page
+    })
+  }
+
   renderTab = (tab) => {
     const { children, page, tabBarActiveTextColor, standard } = this.props;
     const tabIndex = tab.tabIndex;
