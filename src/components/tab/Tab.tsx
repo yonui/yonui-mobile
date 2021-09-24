@@ -21,6 +21,7 @@ export interface TabsProps extends DeafultTabsProps {
   onTabClick?: (tab: any, index: number) => void
   afterTabActiveKeyChange?: (tab: any, index: number) => void
   mode?: 'normal' | 'transparent'
+  visible?: boolean
   standard?: string
   nid?: string
   uitype?: string
@@ -29,7 +30,8 @@ export interface TabsProps extends DeafultTabsProps {
 export default class yonuiTabs extends Component<TabsProps, any> {
   static defaultProps = {
     standard: 'default',
-    iconsOccupy: true
+    iconsOccupy: true,
+    visible: true
   }
 
   constructor (props: any) {
@@ -147,7 +149,8 @@ export default class yonuiTabs extends Component<TabsProps, any> {
   }
 
   render () {
-    let { nid, uitype, tabs, children, mode = 'normal', tabBarUnderlineStyle, pageSize, icons, icon1, icon2, icon3, splitLine, gather, style, className, iconsClassName, iconsStyle, iconsOccupy, tabBarBackgroundColor, ...other } = this.props
+    let { nid, uitype, tabs, children, mode = 'normal', tabBarUnderlineStyle, pageSize, icons, icon1, icon2, icon3, splitLine, gather, style, className, iconsClassName, iconsStyle, iconsOccupy, tabBarBackgroundColor, visible, ...other } = this.props
+    if (!visible) return null
     // 右侧icon组
     const tabBarIcon = this.getTabBarIcon()
     // tab项

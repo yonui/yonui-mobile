@@ -5,6 +5,7 @@ import { Flex } from 'antd-mobile'
 export interface MDFFlexProps {
   style?: React.CSSProperties
   className?: string
+  visible?: boolean
   // nid?: string
   onClick: () => void
   onLongPress: () => void
@@ -12,6 +13,10 @@ export interface MDFFlexProps {
 export default class MDFFlex extends React.Component<MDFFlexProps, any> {
   static Item: any
   timeOutEvent: any
+  static defaultProps = {
+    visible: true
+  }
+
   onClick = () => {
     this.props.onClick && this.props.onClick()
   }
@@ -49,7 +54,8 @@ export default class MDFFlex extends React.Component<MDFFlexProps, any> {
   }
 
   render () {
-    const { className, ...other } = this.props
+    const { className, visible, ...other } = this.props
+    if (!visible) return null
     let cls = classnames(className, 'yonui-mobile-flex')
     const nid = this.props.nid
     console.log('flexNid', nid)
