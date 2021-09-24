@@ -21,7 +21,7 @@ export interface ListDatePickerProps extends ListItemWrapperProps{
 }
 interface ListDatePickerState {
   aVisible?: boolean
-  _value?: Date
+  _value?: Date | string
   minDate?: Date | string
   maxDate?: Date | string
 }
@@ -146,7 +146,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
     const { label, required, value, disabled, mReadOnly, style, dateMode, onCancel, format, extra, title, splitLine, labelCls: lbc, visible, ...restProps } = this.props
     const { aVisible, _value, minDate, maxDate } = this.state
     if (!visible) return null
-    const defaultValue = (_value && typeof _value === 'string') ? new Date(_value) : _value
+    const defaultValue = (_value && typeof _value === 'string') ? new Date(_value.replace(/-/g, '/')) : _value
     let valueTrs
     if (dateMode === 'picker-time' && !/\/|-/.test(value + '')) {
       valueTrs = (value === '' || value === undefined) ? _value : formatStringToDate(`1970/01/01 ${value}`)
