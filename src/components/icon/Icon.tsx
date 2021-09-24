@@ -60,9 +60,9 @@ export default class Icon extends React.Component<IconProps, any> {
   }
 
   getSvgContent = (url) => {
-    const { iconBaseUrl } = this.props
     if (url) {
-      axios.post(`${iconBaseUrl || 'https://build.yyuap.com'}/mobile-app/rest/v1/mobile/static/res`, { url: url }, { withCredentials: true }).then(res => {
+      const tempurl = new URL(url)
+      axios.post(`${tempurl.origin || 'https://bip-daily.yyuap.com'}/iuap-yonbuilder-mobile/rest/v1/mobile/static/res`, { url: url }, { withCredentials: true }).then(res => {
         try {
           let a = res.data.split('<svg')[1]
           const tempindex = a.indexOf('>')
