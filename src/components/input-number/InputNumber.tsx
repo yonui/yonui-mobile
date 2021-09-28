@@ -286,7 +286,7 @@ export default class Input extends Component<InputProps, InputState> {
     const _required = bIsNull !== undefined ? !bIsNull : required
     const preValue = this.state.isFocus ? value : this.changeValue(this.props);
     const showValue = mReadOnly ? preValue : (this.state.isFocus ? _displayValue || preValue : preValue)
-    console.log('zyh-inputnumber-showValue', showValue, 'props', this.props)
+    // console.log('zyh-inputnumber-showValue', showValue, 'props', this.props)
     if (!visible) return null
     // 解决展示数据修改不触发onChange事件的问题
     // if (showValue && showValue != this.state._showValue) {
