@@ -156,6 +156,8 @@ export default class Search extends React.Component<SearchProps, any> {
         const result = res.resultStr;
         _self.setState({
           value: result
+        }, () => {
+          _self.onSearchText()
         })
       },
       fail: function (err) {
