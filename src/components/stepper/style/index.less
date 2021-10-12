@@ -1,0 +1,26 @@
+@import '../../_style/index.less';
+.stepper-wrapper{
+  display: flex;
+  width: 100px;
+  justify-content: space-between;
+  border-radius: @radius-lg;
+  background: #dcdcdc;
+  overflow: hidden;
+  .stepper-input-wrapper{
+    width: 50px;
+    overflow: hidden;
+    .stepper-input{
+      width: 100%;
+      border: none;
+      text-align: center;
+      background: transparent;
+    }
+  }
+  .stepper-minus-wrapper{
+    padding-left: 10px;
+  }
+  .stepper-plus-wrapper{
+    padding-right: 10px;
+  }
+}
+

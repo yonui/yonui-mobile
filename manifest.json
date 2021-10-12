@@ -83,6 +83,7 @@
 		"GroupContainer": "./src/components/main-vice-group",
 		"GroupRefer": "./src/components/group-refer",
 		"Noticebar": "./src/components/noticebar",
-    "CustomSort": "./src/components/custom-sort"
+		"CustomSort": "./src/components/custom-sort",
+		"Stepper": "./src/components/stepper"
 	}
 }
