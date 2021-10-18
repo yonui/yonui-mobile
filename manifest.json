@@ -84,6 +84,7 @@
 		"GroupRefer": "./src/components/group-refer",
 		"Noticebar": "./src/components/noticebar",
 		"CustomSort": "./src/components/custom-sort",
-		"Stepper": "./src/components/stepper"
+		"Stepper": "./src/components/stepper",
+    "Hyperlinks": "./src/components/hyperlinks"
 	}
 }
