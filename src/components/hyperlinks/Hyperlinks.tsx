@@ -1,10 +1,14 @@
 import React from 'react'
 import { TextareaItem } from 'antd-mobile'
+import Label from '../label'
 import YonuiInput from '../input-yonui'
 import ListItemWrapper from '../list-item-wrapper'
 const { getListItemProps } = ListItemWrapper
-
-export interface HyperlinksProps {
+interface Hyperlinks {
+  linkText?: string
+  linkAddress?: string
+}
+export interface HyperlinksProps extends React.defaultProps {
   defaultLinkText?: string
   defaultLinkAddress?: string
   linkTextPlaceholder?: string
@@ -15,20 +19,21 @@ export interface HyperlinksProps {
   bCanModify?: boolean
   mReadOnly?: boolean
   visible?: boolean
-  onChange?: (value: object) => void
+  value?: Hyperlinks
+  onChange?: (value: Hyperlinks) => void
 }
-
 export interface HyperlinksState {
   linkText: string
   linkAddress: string
 }
-
 class ListDatePicker extends React.Component<HyperlinksProps, HyperlinksState> {
   constructor (props: HyperlinksProps) {
     super(props)
+    const linkText = props.value?.linkText
+    const linkAddress = props.value?.linkAddress
     this.state = {
-      linkText: props.defaultLinkText,
-      linkAddress: props.defaultLinkAddress
+      linkText: linkText !== undefined ? linkText : props.defaultLinkText,
+      linkAddress: linkAddress !== undefined ? linkAddress : props.defaultLinkAddress
     }
   }
 
@@ -54,8 +59,12 @@ class ListDatePicker extends React.Component<HyperlinksProps, HyperlinksState> {
     })
   }
 
+  onClick = () => {
+    console.log('============跳转到', this.state.linkAddress)
+  }
+
   render () {
-    const { defaultLinkText, defaultLinkAddress, linkTextPlaceholder, linkAddressPlaceholder, required, notRequired, disabled, bCanModify, mReadOnly, visible = true } = this.props
+    const { linkTextPlaceholder, linkAddressPlaceholder, required, notRequired, disabled, bCanModify, mReadOnly, visible = true, nid } = this.props
     if (!visible) return null
     const _required = required ?? !notRequired
     const wrapperProps = getListItemProps(this.props, {
@@ -63,14 +72,35 @@ class ListDatePicker extends React.Component<HyperlinksProps, HyperlinksState> {
       required: _required
     })
     const _disabled = disabled || (bCanModify !== undefined ? !bCanModify : bCanModify)
-    return (
-      <ListItemWrapper {...wrapperProps}>
-        <div className='yonui-mobile-hyperlinks-content'>
-          <YonuiInput textAlign='left' value={defaultLinkText} placeholder={linkTextPlaceholder} mReadOnly={mReadOnly} disabled={_disabled} />
-          <TextareaItem value={defaultLinkAddress} placeholder={linkAddressPlaceholder} readOnly={mReadOnly} disabled={_disabled} rows={1} autoHeight />
-        </div>
-      </ListItemWrapper>
-    )
+    if (nid) { // 设计态
+      return (
+        <ListItemWrapper {...wrapperProps}>
+          <div className='yonui-mobile-hyperlinks-content'>
+            <YonuiInput textAlign='left' value={this.state.linkText} placeholder={linkTextPlaceholder} disabled={_disabled} />
+            <TextareaItem value={this.state.linkAddress} placeholder={linkAddressPlaceholder} disabled={_disabled} rows={1} autoHeight />
+          </div>
+        </ListItemWrapper>
+      )
+    } else { // 运行态
+      if (mReadOnly) { // 浏览态
+        return (
+          <ListItemWrapper {...wrapperProps}>
+            <div className='yonui-mobile-hyperlinks-content'>
+              <Label controlType='hyperlinks' label={this.state.linkText} onClick={this.onClick} />
+            </div>
+          </ListItemWrapper>
+        )
+      } else { // 编辑态
+        return (
+          <ListItemWrapper {...wrapperProps}>
+            <div className='yonui-mobile-hyperlinks-content'>
+              <YonuiInput textAlign='left' value={this.state.linkText} placeholder={linkTextPlaceholder} disabled={_disabled} />
+              <TextareaItem value={this.state.linkAddress} placeholder={linkAddressPlaceholder} disabled={_disabled} rows={1} autoHeight />
+            </div>
+          </ListItemWrapper>
+        )
+      }
+    }
   }
 }
 export default ListDatePicker

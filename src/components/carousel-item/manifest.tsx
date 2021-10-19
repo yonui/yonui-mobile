@@ -4,11 +4,11 @@ import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extens
 const manifest: ComponentManifest = {
   name: 'CarouselItem',
   label: '轮播页',
-  uiObject: UIObject.Containers,
+  uiObject: UIObject.Controls,
   icon: 'arrow',
   props: [
     {
-      name: 'backgroundColor',
+      name: 'bgColor',
       type: FieldTypes.string,
       defaultValue: 'transparent',
       showDesign: true,

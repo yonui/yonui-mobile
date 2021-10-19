@@ -67,13 +67,14 @@ export default class Search extends React.Component<SearchProps, any> {
     }
   }
 
-  UNSAFE_componentWillReceiveProps (nextProps: SearchProps) {
-    if ('value' in nextProps || 'defaultVlaue' in nextProps) {
-      this.setState({
-        value: nextProps.value ?? nextProps.defaultValue
-      })
-    }
-  }
+  // 扫码搜索之后扫码的值不会更新到输入框中，所以注释掉这段
+  // UNSAFE_componentWillReceiveProps (nextProps: SearchProps) {
+  //   if ('value' in nextProps || 'defaultVlaue' in nextProps) {
+  //     this.setState({
+  //       value: nextProps.value ?? nextProps.defaultValue
+  //     })
+  //   }
+  // }
 
   // props
   onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -197,6 +198,7 @@ export default class Search extends React.Component<SearchProps, any> {
     const clearCls = classnames(`${prefixCls}-clear`, {
       [`${prefixCls}-clear-show`]: !!(focus && value && value.length > 0)
     })
+    console.log('================', value)
     return (
       <div
         className={prefixCls}

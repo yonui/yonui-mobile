@@ -121,6 +121,8 @@ export default class Label extends React.PureComponent<LabelProps> {
         return label?.split(' ')[0]
       case 'numberwidget':
         return showZero ? label?.toString() : label
+      case 'hyperlinks':
+        return label
       default :
         try {
           if (label?.slice(0, 1) === '{' && label?.slice(-1) === '}') {
@@ -153,7 +155,8 @@ export default class Label extends React.PureComponent<LabelProps> {
     const parseValue = this.adaptValue(label)
     const sty: React.CSSProperties = { ...style, textAlign }
     const cls = classnames(className, 'yonui-tag')
-    const tagsCls = classnames('includes-meta', 'yonui-mobile-tag-text', 'yonui-mobile-tag-clamp')
+    const hyperlinksCls = this.props.controlType === 'hyperlinks' ? 'yonui-mobile-tag-hyperlinks-text' : ''
+    const tagsCls = classnames(hyperlinksCls, 'includes-meta', 'yonui-mobile-tag-text', 'yonui-mobile-tag-clamp')
     const leftIconEle = typeof leftIcon === 'string' ? <Icon type={leftIcon} nid={other.nid} size='xxs' /> : leftIcon
     const rightIconEle = typeof rightIcon === 'string' ? <Icon type={rightIcon} nid={other.nid} size='xxs' /> : rightIcon
     if (!visible) return null
