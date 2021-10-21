@@ -113,6 +113,17 @@ const manifest: ComponentManifest = {
         label: '允许修改'
       }
     },
+    {
+      name: 'isHTML',
+      type: FieldTypes.boolean,
+      showDesign: false,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '是否富文本'
+      }
+    },
     // {
     //   name: 'required',
     //   type: FieldTypes.boolean,

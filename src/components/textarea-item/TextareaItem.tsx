@@ -13,6 +13,7 @@ interface TextareaProps extends TextAreaItemPropsType, React.defaultProps, ListI
   bCanModify?: boolean
   mReadOnly?: boolean
   visible?: boolean
+  isHTML?: boolean
 }
 interface TextareaState {
   requiredError: boolean
@@ -55,8 +56,19 @@ export default class MyComponent extends Component<TextareaProps, TextareaState>
     return value?.toString() || _value
   }
 
+  getHTMLElement = () => {
+    const { value } = this.props
+    try {
+      const createElement = (<div dangerouslySetInnerHTML={{ __html: value }} />)
+      const newElement = React.cloneElement(createElement, { className: 'html-content' })
+      return newElement
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
   render () {
-    const { label, className, mReadOnly, style, nid, uitype, required, maxLength, splitLine, rows = 3, errorText, onBlur, subLabel, showExtraLabelIcon, visible = true, ...other } = this.props
+    const { label, className, mReadOnly, style, nid, uitype, required, maxLength, splitLine, rows = 3, isHTML, errorText, onBlur, subLabel, showExtraLabelIcon, visible = true, ...other } = this.props
     // other.disabled = other.disabled || other.mReadOnly || (other.bCanModify !== undefined ? !other.bCanModify : other.bCanModify)
     const { requiredError } = this.state
     const cls = classnames(className, 'yonui-textarea')
@@ -68,14 +80,15 @@ export default class MyComponent extends Component<TextareaProps, TextareaState>
     if (!visible) return null
     return (
       <Wrapper {...wrapperProps}>
-        <TextareaItem
+        {!isHTML && <TextareaItem
           editable={!mReadOnly}
           rows={rows}
           {...other}
           count={maxLength}
           onBlur={this._onBlur}
           onChange={this._onChange}
-        />
+        />}
+        {isHTML && this.getHTMLElement()}
       </Wrapper>
     )
   }
