@@ -1,7 +1,7 @@
 @import '../../_style/index.less';
+@import '../../label/style/index.less';
+@import '../../input-yonui/style/index.less';
 @import '../../list-item-wrapper/style/index.less';
-@import '../../input/style/index.less';
-@import '../../textarea-item/style/index.less';
 
 .yonui-mobile-hyperlinks {
   .list-item-wrapper-label {
@@ -17,8 +17,18 @@
     width: 100%;
   }
 
+  .yonui-mobile-hyperlinks-label {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
   .am-list-item {
     padding: 1px 2px;
+  }
+
+  .am-textarea-item .am-textarea-control textarea {
+    text-align: right;
   }
 }
 

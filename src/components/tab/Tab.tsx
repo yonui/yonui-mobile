@@ -29,7 +29,7 @@ export interface TabsProps extends DeafultTabsProps {
 }
 export default class yonuiTabs extends Component<TabsProps, any> {
   static defaultProps = {
-    standard: 'default',
+    standard: 'upesn',
     iconsOccupy: true,
     visible: true
   }
@@ -126,7 +126,7 @@ export default class yonuiTabs extends Component<TabsProps, any> {
         >
           {standard === 'upesn' && <div className='upesn-standard-tabs-item'>{tab.title}</div>}
           {standard === 'default' && <span style={{ fontWeight: tabIndex === selectPage ? 'bolder' : 'normal' }}>{tab.title}</span>}
-          {standard === 'default' && tabIndex === selectPage ? (<div style={{ width: widthPercentage, backgroundColor: tabBarActiveTextColor || '#E14C46', height: '4px', borderRadius: '2px', marginTop: '-6px' }} />) : null}
+          {standard === 'default' && tabIndex === selectPage ? (<div style={{ width: widthPercentage, backgroundColor: tabBarActiveTextColor || '#E14C46', height: '4px', borderRadius: '2px', marginTop: '-12px' }} />) : null}
         </div>
       );
     } else {
@@ -149,7 +149,7 @@ export default class yonuiTabs extends Component<TabsProps, any> {
   }
 
   render () {
-    let { nid, uitype, tabs, children, mode = 'normal', tabBarUnderlineStyle, pageSize, icons, icon1, icon2, icon3, splitLine, gather, style, className, iconsClassName, iconsStyle, iconsOccupy, tabBarBackgroundColor, visible, ...other } = this.props
+    let { nid, uitype, tabs, children, mode = 'normal', standard, tabBarUnderlineStyle, pageSize, icons, icon1, icon2, icon3, splitLine, gather, style, className, iconsClassName, iconsStyle, iconsOccupy, tabBarBackgroundColor, visible, ...other } = this.props
     if (!visible) return null
     // 右侧icon组
     const tabBarIcon = this.getTabBarIcon()
@@ -198,6 +198,7 @@ export default class yonuiTabs extends Component<TabsProps, any> {
       {
         'yonui-tabs-with-icons': tabBarIcon,
         'yonui-tabs-gather': gather,
+        'upesn-standard-tabs': mode !== 'normal' && standard === 'upesn',
         [`yonui-tabs-with-icons-${tabBarIcon ? (Array.isArray(tabBarIcon) ? tabBarIcon.length : 1) : 0}`]: iconsOccupy
       }
     )

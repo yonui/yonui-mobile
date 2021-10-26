@@ -1,17 +1,24 @@
 @import '../../_style/index.less';
 @tabsPrefixCls: am-tabs;
-@iconSize: 0.87*50*@hd;
-.tabs-item-content{
+@iconSize: 0.72*50*@hd;
+
+.tabs-item-content {
   position: relative;
   text-align: center;
   min-width: 2em;
 }
-.@{tabsPrefixCls}-default-bar-tab .upesn-standard-tabs-item{
-  font-size: 0.28rem;
+
+.@{tabsPrefixCls}-default-bar-top .@{tabsPrefixCls}-default-bar-tab {
+  border-bottom:  none;
 }
-.@{tabsPrefixCls}-default-bar-tab-active{
-  .tabs-item-content{
-    &-underline{
+
+.@{tabsPrefixCls}-default-bar-tab {
+  height: @iconSize;
+}
+
+.@{tabsPrefixCls}-default-bar-tab-active {
+  .tabs-item-content {
+    &-underline {
       display: block;
       width: 50%;
       border-top: 3*@hd solid @brand-primary;
@@ -24,15 +31,66 @@
       z-index: 2;
     }
   }
-  .upesn-standard-tabs-item{
+}
+
+.yonui-tabs {
+  background-color: transparent;
+
+  &.yonui-tabs-transparent {
+    background-color: transparent;
+
+    &.yonui-tabs-gather {
+      .am-tabs-default-bar {
+        justify-content: start;
+
+        .am-tabs-default-bar-tab {
+          padding: 0 12*@hd;
+          text-align: -webkit-center;
+        }
+      }
+
+      .tabs-item-content {
+        margin: 0 10*@hd;
+      }
+    }
+  }
+
+  .am-tabs-content-wrap-animated {
+    will-change: auto;
+  }
+}
+
+.yonui-tabs-split-line {
+  .am-tabs-tab-bar-wrap,
+  .yonui-tabs-icons {
+    border-bottom: 1*@hd solid @border-color-base;
+  }
+}
+
+.upesn-standard-tabs {
+  .@{tabsPrefixCls}-default-bar-tab {
+    width: auto !important;
+    line-height: @iconSize;
+  }
+
+  .@{tabsPrefixCls}-default-bar-tab:first-child{
+    padding-left: 0.32rem !important;
+  }
+
+  .upesn-standard-tabs-item {
+    font-size: 0.28rem;
+  }
+
+  .@{tabsPrefixCls}-default-bar-tab-active .upesn-standard-tabs-item {
     font-size: 0.34rem;
     font-weight: bold;
     color: #111111;
   }
-  .upesn-standard-tabs-item:before {
+
+  .@{tabsPrefixCls}-default-bar-tab-active .upesn-standard-tabs-item:before {
     content: '';
     position: absolute;
-    bottom: 0.03rem;
+    bottom: 0.04rem;
     left: 50%;
     height: 0.06rem;
     width: 0.24rem;
@@ -40,10 +98,11 @@
     background: linear-gradient(45deg, #FC4C2F 0%, #EE2233 100%);
     transform: translateX(-0.16rem);
   }
-  .upesn-standard-tabs-item:after {
+
+  .@{tabsPrefixCls}-default-bar-tab-active .upesn-standard-tabs-item:after {
     content: '';
     position: absolute;
-    bottom: 0.03rem !important;
+    bottom: 0.04rem !important;
     left: 50% !important;
     height: 0.06rem !important;
     width: 0.06rem !important;
@@ -52,51 +111,20 @@
     transform: translateX(0.1rem) !important;
   }
 }
-.yonui-tabs{
-  background-color: transparent;
-  &.yonui-tabs-transparent{
-    background-color: transparent;
-    &.yonui-tabs-gather{
-      .am-tabs-default-bar{
-        justify-content: start;
-        .am-tabs-default-bar-tab{
-          padding: 0 12*@hd;
-          text-align: -webkit-center;
-          &:not(:first-child)::before{
-            content: "";
-            position: absolute;
-            background-color: #ddd;
-            display: block;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            width: 1*@hd;
-            height: 100%;
-            transform: scale(0.3, 0.5);
-            transform-origin: center;
-          }
-        }
-      }
-    }
-  }
 
-  .am-tabs-content-wrap-animated{
-    will-change: auto;
-  }
-}
-
-.yonui-tabs-with-icons{
+.yonui-tabs-with-icons {
   position: relative;
 
-  .yonui-tabs-icons{
+  .yonui-tabs-icons {
     background-color: #ffffff;
     position: absolute;
     right: 0;
     top: 0;
     z-index: 1;
-    .yonui-tabs-icon{
+
+    .yonui-tabs-icon {
       display: inline-flex;
-      width: @iconSize;
+      width: 0.92rem;
       height: @iconSize;
       justify-content: center;
       align-items: center;
@@ -104,78 +132,63 @@
     }
   }
 }
-.yonui-tabs-with-icons-1{
-  .@{tabsPrefixCls}-tab-bar-wrap{
+
+.yonui-tabs-with-icons-1 {
+  .@{tabsPrefixCls}-tab-bar-wrap {
     width: calc(~'100% - @{iconSize}');
   }
 }
 
-.yonui-tabs-with-icons-2{
-  .@{tabsPrefixCls}-tab-bar-wrap{
+.yonui-tabs-with-icons-2 {
+  .@{tabsPrefixCls}-tab-bar-wrap {
     width: calc(~'100% - @{iconSize}*2');
   }
 }
-.yonui-tabs-with-icons-3{
-  .@{tabsPrefixCls}-tab-bar-wrap{
+
+.yonui-tabs-with-icons-3 {
+  .@{tabsPrefixCls}-tab-bar-wrap {
     width: calc(~'100% - @{iconSize}*3');
   }
 }
 
-.yonui-tabs-gather{
-  .am-tabs-default-bar{
-    justify-content: center;
-    // .am-tabs-default-bar-tab{
-    //   width: auto !important;
-    // }
-    .tabs-item-content{
-      margin: 0 10*@hd;
-    }
-  }
-  // .am-tabs-default-bar-top .am-tabs-default-bar-content, .am-tabs-default-bar-bottom .am-tabs-default-bar-content{
-  //   width: auto;
-  // }
-}
-.yonui-tabs-split-line{
-  .am-tabs-tab-bar-wrap,.yonui-tabs-icons{
-    border-bottom: 1*@hd solid @border-color-base;
-  }
-}
-html:not([data-scale]) .@{tabsPrefixCls}-default-bar-top .@{tabsPrefixCls}-default-bar-tab::after{
-    display: none;
+html:not([data-scale]) .@{tabsPrefixCls}-default-bar-top .@{tabsPrefixCls}-default-bar-tab::after {
+  display: none;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 2),
-  screen and (   min--moz-device-pixel-ratio: 2),
-  screen and (     -o-min-device-pixel-ratio: 2/1),
-  screen and (        min-device-pixel-ratio: 2),
-  screen and (                min-resolution: 192dpi),
-  screen and (                min-resolution: 2dppx) {
-    html:not([data-scale]) .am-tabs-default-bar-top .am-tabs-default-bar-tab{
-      border-bottom: none;
-    }
-    html:not([data-scale]) .am-tabs-default-bar-top .am-tabs-default-bar-tab::after {
-      content: '';
-      position: absolute;
-      background-color: #dcdcdc;
-      display: block;
-      z-index: 1;
-      top: auto;
-      right: auto;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      transform-origin: 50% 100%;
-      transform: scaleY(0.3);
-    }
+screen and (min--moz-device-pixel-ratio: 2),
+screen and (-o-min-device-pixel-ratio: 2/1),
+screen and (min-device-pixel-ratio: 2),
+screen and (min-resolution: 192dpi),
+screen and (min-resolution: 2dppx) {
+  html:not([data-scale]) .am-tabs-default-bar-top .am-tabs-default-bar-tab {
+    border-bottom: none;
+  }
+
+  html:not([data-scale]) .am-tabs-default-bar-top .am-tabs-default-bar-tab::after {
+    content: '';
+    position: absolute;
+    background-color: #dcdcdc;
+    display: block;
+    z-index: 1;
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    transform-origin: 50% 100%;
+    transform: scaleY(0.3);
+  }
 }
+
 @media screen and (-webkit-min-device-pixel-ratio: 3),
-  screen and (   min--moz-device-pixel-ratio: 3),
-  screen and (     -o-min-device-pixel-ratio: 3/1),
-  screen and (        min-device-pixel-ratio: 3),
-  screen and (                min-resolution: 384dpi),
-  screen and (                min-resolution: 3dppx) {
-    html:not([data-scale]) .am-tabs-default-bar-top .am-tabs-default-bar-tab::after {
-      transform: scaleY(0.3);
-    }
+screen and (min--moz-device-pixel-ratio: 3),
+screen and (-o-min-device-pixel-ratio: 3/1),
+screen and (min-device-pixel-ratio: 3),
+screen and (min-resolution: 384dpi),
+screen and (min-resolution: 3dppx) {
+  html:not([data-scale]) .am-tabs-default-bar-top .am-tabs-default-bar-tab::after {
+    transform: scaleY(0.3);
+  }
 }

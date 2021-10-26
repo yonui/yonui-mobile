@@ -1,28 +1,33 @@
 @import '../../_style/index.less';
 @import '../../button/style/index.less';
-.yonui-mobile-tool-bars-2{
+
+.yonui-mobile-tool-bars-2 {
   background-color: @fill-base;
   font-size: 0;
   position: relative;
-  min-height: 60*@hd;
+  min-height: 36*@hd;
   overflow: hidden;
-  &.alignleft{
-    padding: 14*@hd 0;
-    .yonui-mobile-tool-bars-wrapper{
+
+  &.alignleft {
+    padding: 2*@hd 0;
+
+    .yonui-mobile-tool-bars-wrapper {
       white-space: nowrap;
-      padding: 0 5*@hd;
+      padding: 0 8*@hd;
       min-height: 32*@hd;
       line-height: 1;
-      .mdf-button{
+
+      .mdf-button {
         direction: ltr;
       }
     }
   }
-  &.alignright{
-    .yonui-mobile-tool-bars-wrapper{
+
+  &.alignright {
+    .yonui-mobile-tool-bars-wrapper {
       width: 100%;
       white-space: nowrap;
-      padding: 0.28rem 0.1rem;
+      padding: 2*@hd 8*@hd;
       position: absolute;
       left: 0;
       min-height: 32*@hd;
@@ -30,36 +35,20 @@
       line-height: 1;
       overflow-x: scroll;
       overflow-y: hidden;
-      //display: flex;
-      //justify-content: space-evenly;
-      .mdf-button{
+
+      .mdf-button {
         direction: ltr;
-        //margin: 0 5*@hd;
-        //display: inline-flex;
-        //align-items: center;
-        //justify-content: center;
-        //width: 100%;
-        //padding: 0;
-        // &.mdf-button-default{
-        //   background-color: @toolbars-next-btn;
-        //   color: @toolbars-next-btn-color;
-        //   &::before{
-        //     border-color: @toolbars-next-btn;
-        //   }
-        //   &.mdf-button-active{
-        //     background-color: @default-button-fill-tap;
-        //   }
-        // }
       }
     }
   }
 
 
-  &.yonui-mobile-tool-bars-runtime{
-    .yonui-mobile-tool-bars-wrapper{
+  &.yonui-mobile-tool-bars-runtime {
+    .yonui-mobile-tool-bars-wrapper {
       min-height: 0;
     }
-    &.length-0{
+
+    &.length-0 {
       padding: 0;
     }
   }
@@ -67,50 +56,39 @@
 
 .tool-bars-wrapper-item-common {
   display: inline-flex;
-  margin: 0 5*@hd;
+  margin: 0 8*@hd;
   padding: 0;
 }
-.yonui-mobile-tool-bars-wrapper>:only-child{
+
+.yonui-mobile-tool-bars-wrapper>:only-child {
   .tool-bars-wrapper-item-common;
-  width: calc(~'100% - 10*@{hd}');
-}
-.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(2),
-.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(2) ~ .mdf-button,
-.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(2) ~ div {
-  .tool-bars-wrapper-item-common;
-  width: calc(~'50% - 10*@{hd}');
-}
-.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(3),
-.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(3) ~ .mdf-button,
-.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(3) ~ div {
-  .tool-bars-wrapper-item-common;
-  width: calc(~'33.33% - 10*@{hd}');
-}
-.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(4),
-.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(4) ~ .mdf-button,
-.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(4) ~ div {
-  .tool-bars-wrapper-item-common;
-  width: calc(~'25% - 10*@{hd}');
-}
-.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(n+5),
-.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(n+5) ~ .mdf-button,
-.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(n+5) ~ div {
-  .tool-bars-wrapper-item-common;
-  width: calc(~'22% - 10*@{hd}');
+  width: calc(~'100% - 16*@{hd}');
 }
 
-    // &.length-1 .mdf-button{
-    //   width: calc(~'100% - 10*@{hd}')
-    // }
-    // &.length-2 .mdf-button{
-    //   width: calc(~'50% - 10*@{hd}')
-    // }
-    // &.length-3 .mdf-button{
-    //   width: calc(~'33.33% - 10*@{hd}')
-    // }
-    // &.length-4 .mdf-button{
-    //   width: calc(~'25% - 10*@{hd}')
-    // }
-    // &.length-5 .mdf-button{
-    //   width: calc(~'22% - 10*@{hd}')
-    // }
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(2),
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(2)~.mdf-button,
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(2)~div {
+  .tool-bars-wrapper-item-common;
+  width: calc(~'50% - 16*@{hd}');
+}
+
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(3),
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(3)~.mdf-button,
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(3)~div {
+  .tool-bars-wrapper-item-common;
+  width: calc(~'33.33% - 16*@{hd}');
+}
+
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(4),
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(4)~.mdf-button,
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(4)~div {
+  .tool-bars-wrapper-item-common;
+  width: calc(~'25% - 16*@{hd}');
+}
+
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(n+5),
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(n+5)~.mdf-button,
+.yonui-mobile-tool-bars-wrapper>:first-child:nth-last-child(n+5)~div {
+  .tool-bars-wrapper-item-common;
+  width: calc(~'22% - 16*@{hd}');
+}

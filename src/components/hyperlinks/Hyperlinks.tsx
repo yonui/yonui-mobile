@@ -60,7 +60,7 @@ class ListDatePicker extends React.Component<HyperlinksProps, HyperlinksState> {
   }
 
   onClick = () => {
-    console.log('============跳转到', this.state.linkAddress)
+    this.state.linkAddress && (window.location.href = this.state.linkAddress)
   }
 
   render () {
@@ -85,7 +85,7 @@ class ListDatePicker extends React.Component<HyperlinksProps, HyperlinksState> {
       if (mReadOnly) { // 浏览态
         return (
           <ListItemWrapper {...wrapperProps}>
-            <div className='yonui-mobile-hyperlinks-content'>
+            <div className='yonui-mobile-hyperlinks-label'>
               <Label controlType='hyperlinks' label={this.state.linkText} onClick={this.onClick} />
             </div>
           </ListItemWrapper>
@@ -94,8 +94,8 @@ class ListDatePicker extends React.Component<HyperlinksProps, HyperlinksState> {
         return (
           <ListItemWrapper {...wrapperProps}>
             <div className='yonui-mobile-hyperlinks-content'>
-              <YonuiInput textAlign='left' value={this.state.linkText} placeholder={linkTextPlaceholder} disabled={_disabled} />
-              <TextareaItem value={this.state.linkAddress} placeholder={linkAddressPlaceholder} disabled={_disabled} rows={1} autoHeight />
+              <YonuiInput textAlign='right' value={this.state.linkText} placeholder={linkTextPlaceholder} disabled={_disabled} onChange={this.onLinkTextChange} />
+              <TextareaItem value={this.state.linkAddress} placeholder={linkAddressPlaceholder} disabled={_disabled} rows={1} autoHeight onChange={this.onLinkAddressChange} />
             </div>
           </ListItemWrapper>
         )

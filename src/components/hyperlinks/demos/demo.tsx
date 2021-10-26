@@ -13,7 +13,7 @@ export default class Demo extends Component {
   }
   render() {
     return (
-      <MyComponent label='标题' defaultLinkText='名称' defaultLinkAddress='www.baidu.com' linkTextPlaceholder='placeholder1' LinkAddressPlaceholder='placeholder2' onChange={this.onChange}/>
+      <MyComponent label='标题' singleLineCenter mReadOnly defaultLinkText='名称' defaultLinkAddress='www.baidu.com' linkTextPlaceholder='placeholder1' LinkAddressPlaceholder='placeholder2' onChange={this.onChange}/>
     )
   }
 }
