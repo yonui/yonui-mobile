@@ -121,12 +121,13 @@ export default class yonuiTabs extends Component<TabsProps, any> {
             textOverflow: 'ellipsis',
             overflow: 'hidden',
             whiteSpace: 'nowrap',
-            height: '100%'
+            height: '0.72rem',
+            lineHeight: '0.72rem'
           }}
         >
           {standard === 'upesn' && <div className='upesn-standard-tabs-item'>{tab.title}</div>}
           {standard === 'default' && <span style={{ fontWeight: tabIndex === selectPage ? 'bolder' : 'normal' }}>{tab.title}</span>}
-          {standard === 'default' && tabIndex === selectPage ? (<div style={{ width: widthPercentage, backgroundColor: tabBarActiveTextColor || '#E14C46', height: '4px', borderRadius: '2px', marginTop: '-12px' }} />) : null}
+          {standard === 'default' && tabIndex === selectPage ? (<div style={{ width: widthPercentage, backgroundColor: tabBarActiveTextColor || '#E14C46', height: '4px', borderRadius: '2px', marginTop: '-6px' }} />) : null}
         </div>
       );
     } else {
