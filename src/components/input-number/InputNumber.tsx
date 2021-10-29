@@ -279,7 +279,7 @@ export default class Input extends Component<InputProps, InputState> {
   render () {
     const { mReadOnly, required, bIsNull, className, singleLine, nid, uitype, onChange, onBlur, onFocus, value, showExtraLabelIcon, inputBgColor, visible, style, ...other } = this.props
     const { error, errorText, _displayValue } = this.state
-    const cls = classnames('mdf-input', className)
+    const cls = classnames('mdf-input', 'mdf-input-number', className)
     const inputCls = classnames('mdf-input-content')
     const inputProps = this.getInputProps()
     const wrapperProps = getListItemProps(this.props, { className: cls, error, errorText })

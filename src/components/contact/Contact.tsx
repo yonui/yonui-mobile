@@ -364,7 +364,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
             disabled={disabled || (bCanModify !== undefined ? !bCanModify : bCanModify)}
             defaultValue={defaultValue}
           />
-          <span> - </span>
+          <span style={{ lineHeight: 1.5, fontSize: '0.3rem' }}> - </span>
           <Input
             type='tel'
             textAlign='left'
