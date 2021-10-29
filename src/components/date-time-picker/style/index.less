@@ -50,6 +50,13 @@
 
 @ListDatePickerPrefixClass: date-time-picker;
 .@{ListDatePickerPrefixClass} {
+  .list-item-wrapper-label {
+    flex: 1;
+    margin-right: 0.2rem;
+  }
+  .list-item-wrapper-content {
+    flex: 3
+  }
   &.no-arrow {
     .am-list-item {
       .am-list-line {
@@ -93,9 +100,10 @@
     align-items: center;
   }
   &-value{
+    width: 100%;
     align-items: center;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     color: #111111;
     font-size: 15 * @hd;
     &-disabled{
@@ -188,7 +196,7 @@
     }
     html:not([data-scale]) .am-picker-col-indicator::after{
       transform: scaleY(0.3);
-    } 
+    }
     html:not([data-scale]) .am-picker-popup-header::after {
       transform: scaleY(0.3);
     }

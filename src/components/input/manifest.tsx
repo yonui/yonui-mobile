@@ -201,7 +201,7 @@ const manifest: ComponentManifest = {
     {
       name: 'singleAlignType',
       type: FieldTypes.string,
-      defaultValue: 'right',
+      defaultValue: 'left',
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,

@@ -4,6 +4,14 @@
   background-color: @fill-base;
   position: relative;
 
+  .list-item-wrapper-label {
+    flex: 1;
+    margin-right: 0.2rem;
+  }
+  .list-item-wrapper-content {
+    flex: 3
+  }
+
   &.single-line{
     padding: 6*@hd 12*@hd;
   }
@@ -153,7 +161,7 @@
           background-color: #fff;
         }
       }
-  
+
       &-content{
         max-height: 70vh;
         overflow: scroll;
@@ -170,7 +178,7 @@
           }
         }
       }
-  
+
       &-footer{
         background-color: #fff;
         display: flex;
@@ -210,7 +218,7 @@
             right: 0;
         }
       }
-  
+
     }
     .am-modal-content{
       background-color: transparent;
@@ -218,7 +226,7 @@
     &::-webkit-scrollbar{
       display: none;
     }
-  }  
+  }
 }
 .yonui-radio-modal{
   border-radius: 10*@hd 10*@hd 0 0;

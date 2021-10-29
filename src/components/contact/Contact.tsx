@@ -269,7 +269,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
   }
 
   getContent = (mode?: 'telephone' | 'mobilephone' | 'email', area?: boolean, isSelectEmail?: boolean) => {
-    const { singleLine, value, required, disabled, mReadOnly, defaultValue, bIsNull, bCanModify } = this.props
+    const { value, required, disabled, mReadOnly, defaultValue, bIsNull, bCanModify } = this.props
     const _required = bIsNull !== undefined ? !bIsNull : required
     const { emailType, country, countryNum, _value } = this.state
     const val = value !== undefined ? this.valueAdapt(2, value) : _value
@@ -277,11 +277,10 @@ export default class Contact extends Component<ContactProps, ContactState> {
     const editable = !mReadOnly && !disabled
     switch (mode) {
       case 'email': {
-        const inputTextAlign = singleLine ? 'right' : 'left'
         const selectEmail = (
           <div className='yonui-monile-contact-content e-mail'>
             <Input
-              textAlign={inputTextAlign}
+              textAlign='left'
               placeholder='name'
               onChange={(value) => { this.textOnChange(value) }}
               onBlur={this._onBlur}
@@ -301,7 +300,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
           </div>)
         const email = (
           <Input
-            textAlign={inputTextAlign}
+            textAlign='left'
             placeholder='name@email.com'
             onChange={(value) => { this.textOnChange(value) }}
             onSuccess={this.onSuccess}
@@ -319,6 +318,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
           <div className='yonui-monile-contact-content mobile-phone'>
             <Input
               type='tel'
+              textAlign='left'
               placeholder='000 0000 0000'
               value={val}
               onChange={(value) => { this.textOnChange(value) }}
@@ -350,6 +350,7 @@ export default class Contact extends Component<ContactProps, ContactState> {
         const contact = (<div className='yonui-monile-contact-content telephone'>
           <Input
             type='tel'
+            textAlign='left'
             value={telValue.T}
             placeholder='座机号码'
             onChange={(value) => { this.telTextOnChange(value) }}
@@ -362,11 +363,11 @@ export default class Contact extends Component<ContactProps, ContactState> {
             mReadOnly={mReadOnly}
             disabled={disabled || (bCanModify !== undefined ? !bCanModify : bCanModify)}
             defaultValue={defaultValue}
-            textAlign='right'
           />
           <span> - </span>
           <Input
             type='tel'
+            textAlign='left'
             value={telValue.L}
             placeholder='分机号码'
             onChange={(value) => { this.exTextOnChange(value) }}

@@ -298,7 +298,7 @@ export default class Input extends Component<InputProps, InputState> {
           isNumber={true}
           className={inputCls}
           required={_required}
-          textAlign={singleLine ? 'right' : 'left'}
+          textAlign='left'
           onBlur={this._onBlur}
           onChange={this._onChange}
           onFocus={this._onFocus}
