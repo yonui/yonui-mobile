@@ -31,6 +31,7 @@ interface InputYonuiProps extends React.defaultProps {
 interface InputYonuiState {
   _value: string | number
   _className: string
+  isFocus: boolean
 }
 export default class InputYonui extends Component<InputYonuiProps, InputYonuiState> {
   static defaultProps = {
@@ -39,20 +40,31 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
 
   state = {
     _value: this.props.value || this.props.defaultValue,
-    _className: ''
+    _className: '',
+    isFocus: false
   }
 
   inputref = React.createRef()
   componentDidMount () {
+    this.doCheck(this.state._value)
+  }
+
+  shouldComponentUpdate (nextProps, nextState) {
+    if (!this.state.isFocus && !nextState.isFocus && this.props.value !== nextProps.value) {
+      this.doCheck(nextProps.value)
+    }
+    return true
+  }
+
+  doCheck = (value) => {
     const { disabled, mReadOnly, model } = this.props
-    const { _value } = this.state
     if (!(disabled || mReadOnly)) {
       // this.inputref?.current?.focus()
       // this.inputref?.current?.blur()
       this.setState({
         _className: 'yonui-input-focus'
       })
-      if (this.checkValue(_value, true)) {
+      if (this.checkValue(value, true)) {
         model?.setCheckMsg?.('');
         setTimeout(() => {
           this.setState({
@@ -133,7 +145,8 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
       model?.setCheckMsg?.('');
       setTimeout(() => {
         this.setState({
-          _className: ''
+          _className: '',
+          isFocus: false
         })
       }, 100)
     } else {
@@ -145,7 +158,8 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
     const { onFocus } = this.props
     onFocus?.(event.target.value)
     this.setState({
-      _className: 'yonui-input-focus'
+      _className: 'yonui-input-focus',
+      isFocus: true
     })
   }
 
