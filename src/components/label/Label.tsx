@@ -120,7 +120,6 @@ export default class Label extends React.PureComponent<LabelProps> {
       case 'datepicker':
         return label?.split(' ')[0]
       case 'numberwidget':
-        return showZero ? label?.toString() : label
       case 'hyperlinks':
         return label
       default :
@@ -135,7 +134,13 @@ export default class Label extends React.PureComponent<LabelProps> {
           if (typeof label === 'boolean') {
             return label ? '是' : '否'
           }
-          return showZero ? label?.toString() : label
+          if (typeof label === 'number') {
+            if (label === 0) {
+              return showZero ? '0' : ' '
+            } else {
+              return label
+            }
+          }
         }
     }
   }
