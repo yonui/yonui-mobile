@@ -99,7 +99,7 @@
     "moment": "^2.25.3",
     "mtl-js-sdk": "^5.0.6",
     "rc-rate": "^2.6.0",
-    "rc-table": "^7.14.0",
+    "rc-table": "~7.14.0",
     "react": "^16.12.0",
     "react-calendar": "^2.19.2",
     "react-dom": "^16.12.0",
