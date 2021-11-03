@@ -9,11 +9,11 @@ import './demo.less'
 const now = new Date()
 
 const extra = {
-  '2021/06/26': { info: '4h', disable: true },
-  '2021/06/27': { info: '4h' },
-  '2021/06/28': { info: '4h' },
-  '2021/07/27': { info: '4h' },
-  '2021/07/28': { info: '4h' }
+  '2021/08/26': { info: '4h', disable: true },
+  '2021/08/27': { info: '4h' },
+  '2021/08/28': { info: '4h' },
+  '2021/09/27': { info: '4h' },
+  '2021/09/28': { info: '4h' }
 }
 export default class Demo1 extends Component<any, any> {
   originbodyScrollY = document.getElementsByTagName('body')[0].style.overflowY;
@@ -51,7 +51,8 @@ export default class Demo1 extends Component<any, any> {
           dateExtra={this.state.extra}
           onClickDay={this.onClickDay}
           initalMonths={6}
-          maxDate={'2021-8-5'}
+          minDate={'2021-8-5'}
+          maxDate={'2021-10-5'}
           hintDays={["2021-6-3", "2021-6-4"]}
           type='one'
           color='green'

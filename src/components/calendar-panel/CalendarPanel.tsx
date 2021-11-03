@@ -27,7 +27,6 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
   }
 
   componentDidMount () {
-    this.setTextColor()
     this.setState({ visible: true }, () => {
       this.scrollToBottom()
     })
@@ -35,11 +34,11 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
 
   setTextColor = () => {
     const { color = '#EE2233' } = this.props
-    this.tableRef && this.tableRef.children[0].style.setProperty('--order-color-1', color)
-    this.setState({ startDate: null, endDate: null })
+    this.tableRef && this.tableRef.style.setProperty('--order-color-1', color)
   }
 
   scrollToBottom = () => {
+    this.setTextColor()
     // 是否滚动到底部
     // 获取单月节点，执行最后一个节点的scrollIntoView方法
     const { scrollToBottom = false } = this.props
@@ -86,7 +85,6 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
   }
 
   onSelect = (value, state) => {
-    this.setTextColor()
     // 点击事件
     this.setState({ startDate: null, endDate: null })
     let isRange = false
