@@ -1,11 +1,11 @@
-import { FieldTypes, EditTypes, ComponentManifest, UIObject } from 'yonui-extension'
+import { FieldTypes, EditTypes, TypeProps, ComponentManifest, UIObject } from 'yonui-extension'
 const now = new Date()
 const manifest: ComponentManifest = {
   name: 'CalendarPanel',
   label: '日历',
   uiObject: UIObject.Controls,
   description: '',
-  type: 'basicControls',
+  type: TypeProps.FunctionalControls,
   icon: 'date',
   props: [
     {
@@ -201,6 +201,17 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '默认时间选择值'
+      }
+    },
+    {
+      name: 'color',
+      type: FieldTypes.string,
+      defaultValue: '#E14C46',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Color,
+        props: {},
+        label: '颜色'
       }
     },
     {

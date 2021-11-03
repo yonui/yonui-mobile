@@ -1,5 +1,8 @@
 @import '../../_style/index.less';
 @CalendarPrefixClass: am-calendar;
+.am-calendar {
+  --order-color-2: @brand-primary;
+}
 .am-calendar-panel{
   height: 100%;
   .@{CalendarPrefixClass} .single-month {
@@ -19,7 +22,7 @@
         }
         .info {
           height: @font-size-icontext + 5*@hd;
-          color: @brand-primary;
+          color: var(--order-color-1);
         }
         &.lightred{
           .date{
@@ -59,6 +62,16 @@
               background: linear-gradient(90deg, #FC4C2F 0%, #EE2233 100%);
               color: #fff;
               box-shadow: unset;
+              &.selected-single{
+                background: rgba(255, 255, 255, 0.07);
+                border: 2px solid #EE2233;
+                color: #EE2233;
+              }
+              &.selected-start {
+                background: rgba(255, 255, 255, 0.07);
+                border: 2px solid #EE2233;
+                color: #EE2233;
+              }
             }
             .right.date-selected{
               background: rgba(242, 45, 50, 0.06);
@@ -73,6 +86,16 @@
               background: linear-gradient(90deg, #FC4C2F 0%, #EE2233 100%);
               color: #fff;
               box-shadow: unset;
+              &.selected-single{
+                background: rgba(255, 255, 255, 0.07);
+                border: 2px solid #EE2233;
+                color: #EE2233;
+              }
+              &.selected-end{
+                background: rgba(255, 255, 255, 0.07);
+                border: 2px solid #EE2233;
+                color: #EE2233;
+              }
             }
             .left.date-selected{
               background: rgba(242, 45, 50, 0.06);

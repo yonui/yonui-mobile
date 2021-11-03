@@ -6,14 +6,16 @@ interface YonuiCalenderProps extends CalendarProps {
   onClickDay: any
   scrollToBottom: boolean
   hintDays: string[]
+  color: any
 }
 export default class MyComponent extends Component<YonuiCalenderProps, any> {
+  tableRef = null
   constructor (props) {
     super(props)
     this.adaptExtra(props.dateExtra)
     const now = new Date()
     this.state = {
-      visible: false,
+      visible: props.visible,
       extra: props.dateExtra,
       now: new Date(now.getFullYear(), now.getMonth(), now.getDate()),
       startY: 0,
@@ -25,9 +27,16 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
   }
 
   componentDidMount () {
+    this.setTextColor()
     this.setState({ visible: true }, () => {
       this.scrollToBottom()
     })
+  }
+
+  setTextColor = () => {
+    const { color = '#EE2233' } = this.props
+    this.tableRef && this.tableRef.children[0].style.setProperty('--order-color-1', color)
+    this.setState({ startDate: null, endDate: null })
   }
 
   scrollToBottom = () => {
@@ -77,6 +86,7 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
   }
 
   onSelect = (value, state) => {
+    this.setTextColor()
     // 点击事件
     this.setState({ startDate: null, endDate: null })
     let isRange = false
@@ -164,6 +174,7 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
     return (
       <div
         className='am-calendar-panel'
+        ref={el => { this.tableRef = el }}
         // onTouchStart={this.onTouchStart}
         // onTouchEnd={this.onTouchEnd}
       >

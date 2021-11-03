@@ -53,6 +53,8 @@ export default class Demo1 extends Component<any, any> {
           initalMonths={6}
           maxDate={'2021-8-5'}
           hintDays={["2021-6-3", "2021-6-4"]}
+          type='one'
+          color='green'
         />
       </div>
     )
