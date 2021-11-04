@@ -1,6 +1,6 @@
 import { FieldTypes, EditTypes, TypeProps, ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
-  name: 'CalendarPanel',
+  name: 'CalenderPanel',
   label: '日历',
   uiObject: UIObject.Controls,
   description: '',
@@ -63,8 +63,8 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'extra',
-      type: FieldTypes.array,
+      name: 'dateExtra',
+      type: FieldTypes.object,
       defaultValue: {},
       showDesign: true,
       designConfig: {
@@ -76,7 +76,7 @@ const manifest: ComponentManifest = {
       }
     },
     {
-      name: 'color',
+      name: 'textColor',
       type: FieldTypes.string,
       defaultValue: '#E14C46',
       showDesign: true,
@@ -85,41 +85,18 @@ const manifest: ComponentManifest = {
         props: {},
         label: '颜色'
       }
-    },
-    {
-      name: 'onCancel',
-      type: FieldTypes.action,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: false,
-        props: {},
-        label: 'cancel回调'
-      }
-    },
-    {
-      name: 'onConfirm',
-      type: FieldTypes.action,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: true,
-        props: {},
-        label: 'confirm回调'
-      }
-    },
-    {
-      name: 'onSelect',
-      type: FieldTypes.action,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: true,
-        props: {},
-        label: 'select回调'
-      }
     }
   ],
-  children: []
+  children: [],
+  events: [
+    {
+      name: 'onClickDay',
+      des: '选择'
+    }
+  ],
+  transformers: [
+    'inherit',
+    ['bindEvent', { events: ['onClickDay'] }],
+  ]
 }
 export default manifest

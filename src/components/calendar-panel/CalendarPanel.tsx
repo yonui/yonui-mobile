@@ -6,7 +6,7 @@ interface YonuiCalenderProps extends CalendarProps {
   onClickDay: any
   scrollToBottom: boolean
   hintDays: string[]
-  color: any
+  textColor: any
 }
 export default class MyComponent extends Component<YonuiCalenderProps, any> {
   tableRef = null
@@ -33,15 +33,15 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
   }
 
   setTextColor = () => {
-    const { color = '#EE2233' } = this.props
-    this.tableRef && this.tableRef.style.setProperty('--order-color-1', color)
+    const { textColor = '#EE2233' } = this.props
+    this.tableRef && this.tableRef.style.setProperty('--order-color-1', textColor)
   }
 
   scrollToBottom = () => {
     this.setTextColor()
     // 是否滚动到底部
     // 获取单月节点，执行最后一个节点的scrollIntoView方法
-    const { scrollToBottom = false } = this.props
+    const { scrollToBottom = true } = this.props
     if (!scrollToBottom) return
     try {
       setTimeout(() => {
@@ -74,6 +74,10 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
   extra = []
 
   adaptExtra = (extra = {}) => {
+    console.log('-----CalendarPanel  adaptExtra')
+    console.log(extra)
+    console.log(this.props)
+    console.log('-----CalendarPanel  adaptExtra')
     // extra中的角标信息
     Object.keys(extra).forEach((key) => {
       const info = extra[key];
@@ -102,6 +106,9 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
     }
     // 范围选择的区间保存到state, getDateExtra中通过区间给cell添加class，修改选择样式
     this.setState({ startDate: range[0], endDate: range[1] })
+    console.log('-------------')
+    console.log(res)
+    console.log('-------------')
     this.props.onClickDay?.(res)
   }
 
@@ -155,7 +162,7 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
     const { visible } = this.state
     const minDateTrs = (minDate && typeof minDate === 'string') ? new Date(minDate) : minDate
     const maxDateTrs = (maxDate && typeof maxDate === 'string') ? new Date(maxDate) : maxDate
-    const defaultDateTrs = (defaultDate && typeof defaultDate === 'string') ? new Date(defaultDate) : defaultDate
+    const defaultDateTrs = (defaultDate && typeof defaultDate === 'string') ? new Date(defaultDate) : (defaultDate || minDateTrs)
     const defaultTimeValueTrs = (defaultTimeValue && typeof defaultTimeValue === 'string') ? new Date(defaultTimeValue) : defaultTimeValue
     if (defaultValue?.length) {
       defaultValue[0] = (typeof defaultValue[0] === 'string') ? new Date(defaultValue[0]) : defaultValue[0]
