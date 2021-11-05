@@ -46,11 +46,14 @@ export default class InputYonui extends Component<InputYonuiProps, InputYonuiSta
 
   inputref = React.createRef()
   componentDidMount () {
-    this.doCheck(this.state._value)
+    if (this.state._value !== '' && this.state._value !== undefined) this.doCheck(this.state._value)
   }
 
   shouldComponentUpdate (nextProps, nextState) {
-    if (!this.state.isFocus && !nextState.isFocus && this.props.value !== nextProps.value) {
+    const focused = this.state.isFocus || nextState.isFocus
+    const isEqual = this.props.value === nextProps.value
+    const isEmpty = this.props.value === undefined && nextProps.value === ''
+    if (!focused && !isEqual && !isEmpty) {
       this.doCheck(nextProps.value)
     }
     return true

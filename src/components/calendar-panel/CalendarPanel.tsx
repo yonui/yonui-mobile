@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { Calendar } from 'antd-mobile'
 import { CalendarProps } from 'antd-mobile/lib/calendar/PropsType'
-interface YonuiCalenderProps extends CalendarProps {
+interface YonuiCalendarProps extends CalendarProps {
   dateExtra: any
-  onClickDay: any
+  onClickDay?: (item: object) => void
   scrollToBottom: boolean
   hintDays: string[]
   textColor: any
 }
-export default class MyComponent extends Component<YonuiCalenderProps, any> {
+export default class MyComponent extends Component<YonuiCalendarProps, any> {
   tableRef = null
   constructor (props) {
     super(props)
@@ -74,10 +74,6 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
   extra = []
 
   adaptExtra = (extra = {}) => {
-    console.log('-----CalendarPanel  adaptExtra')
-    console.log(extra)
-    console.log(this.props)
-    console.log('-----CalendarPanel  adaptExtra')
     // extra中的角标信息
     Object.keys(extra).forEach((key) => {
       const info = extra[key];
@@ -106,9 +102,6 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
     }
     // 范围选择的区间保存到state, getDateExtra中通过区间给cell添加class，修改选择样式
     this.setState({ startDate: range[0], endDate: range[1] })
-    console.log('-------------')
-    console.log(res)
-    console.log('-------------')
     this.props.onClickDay?.(res)
   }
 
@@ -158,7 +151,7 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
   }
 
   render () {
-    const { maxDate, minDate, defaultDate, defaultTimeValue, type, defaultValue } = this.props
+    const { maxDate, minDate, defaultDate, defaultTimeValue, defaultValue } = this.props
     const { visible } = this.state
     const minDateTrs = (minDate && typeof minDate === 'string') ? new Date(minDate) : minDate
     const maxDateTrs = (maxDate && typeof maxDate === 'string') ? new Date(maxDate) : maxDate
@@ -167,14 +160,16 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
     if (defaultValue?.length) {
       defaultValue[0] = (typeof defaultValue[0] === 'string') ? new Date(defaultValue[0]) : defaultValue[0]
       if (defaultValue[1]) {
-        if (type === 'one') {
-          delete defaultValue[1]
-          defaultValue.length = 1
-        } else {
-          defaultValue[1] = (typeof defaultValue[1] === 'string') ? new Date(defaultValue[1]) : defaultValue[1]
-        }
+        delete defaultValue[1]
+        defaultValue.length = 1
       }
     }
+    // 月份间隔
+    const maxYear = new Date(maxDateTrs).getFullYear();
+    const maxMonth = new Date(maxDateTrs).getMonth();
+    const minYear = new Date(minDateTrs).getFullYear();
+    const minMonth = new Date(minDateTrs).getMonth();
+    const initalMonths = (maxYear - minYear) * 12 + maxMonth - minMonth + 1;
     if (!visible) return null
     return (
       <div
@@ -187,12 +182,14 @@ export default class MyComponent extends Component<YonuiCalenderProps, any> {
           {...this.props}
           visible={visible}
           onSelect={this.onSelect}
+          initalMonths={initalMonths}
           prefixCls='am-calendar'
           defaultDate={defaultDateTrs}
           defaultValue={defaultValue}
           defaultTimeValue={defaultTimeValueTrs}
           minDate={minDateTrs}
           maxDate={maxDateTrs}
+          type='one'
           getDateExtra={this.getDateExtra}
         />
       </div>

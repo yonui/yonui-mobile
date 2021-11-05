@@ -1,6 +1,6 @@
 import { FieldTypes, EditTypes, TypeProps, ComponentManifest, UIObject } from 'yonui-extension'
 const manifest: ComponentManifest = {
-  name: 'CalenderPanel',
+  name: 'CalendarPanel',
   label: '日历',
   uiObject: UIObject.Controls,
   description: '',
@@ -17,23 +17,6 @@ const manifest: ComponentManifest = {
         isRequired: false,
         props: {},
         label: '样式前缀'
-      }
-    },
-    {
-      name: 'type',
-      type: FieldTypes.string,
-      defaultValue: 'one',
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Select,
-        isRequired: false,
-        props: {
-          options: [
-            { value: 'one', text: '单日' },
-            { value: 'range', text: '日期区间' }
-          ]
-        },
-        label: '选择类型'
       }
     },
     {
@@ -65,7 +48,6 @@ const manifest: ComponentManifest = {
     {
       name: 'dateExtra',
       type: FieldTypes.object,
-      defaultValue: {},
       showDesign: true,
       designConfig: {
         type: EditTypes.Json,
@@ -96,7 +78,7 @@ const manifest: ComponentManifest = {
   ],
   transformers: [
     'inherit',
-    ['bindEvent', { events: ['onClickDay'] }],
+    ['bindEvent', { events: ['onClickDay'] }]
   ]
 }
 export default manifest

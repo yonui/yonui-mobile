@@ -50,11 +50,11 @@ export default class Demo1 extends Component<any, any> {
           scrollToBottom={true}
           dateExtra={this.state.extra}
           onClickDay={this.onClickDay}
-          initalMonths={6}
+          initalMonths={10}
           minDate={'2021-8-5'}
-          maxDate={'2021-10-5'}
+          maxDate={'2021-12-5'}
           hintDays={["2021-6-3", "2021-6-4"]}
-          type='one'
+          type='range'
           textColor='blue'
         />
       </div>
