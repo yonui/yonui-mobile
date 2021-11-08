@@ -184,6 +184,18 @@ const manifest: ComponentManifest = {
         label: '显示名称',
         help: '值为空时是否显示名称'
       }
+    },
+    {
+      name: 'openHyperlinks',
+      type: FieldTypes.boolean,
+      defaultValue: true,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '跳转链接',
+      }
     }
   ]
 }

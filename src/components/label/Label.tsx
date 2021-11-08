@@ -23,6 +23,7 @@ export interface LabelProps extends React.defaultProps{
   dateMode: string
   showZero: boolean
   showTitle: boolean
+  openHyperlinks?: boolean
   uimeta?: string
   meta?: any
   onClick?: React.MouseEventHandler<HTMLAnchorElement>
@@ -121,7 +122,7 @@ export default class Label extends React.PureComponent<LabelProps> {
         return label?.split(' ')[0]
       case 'numberwidget':
       case 'hyperlinks':
-        return label
+        return label ? JSON.parse(label).linkText : ''
       default :
         try {
           if (label?.slice(0, 1) === '{' && label?.slice(-1) === '}') {
@@ -147,9 +148,14 @@ export default class Label extends React.PureComponent<LabelProps> {
 
   _onClick = e => {
     // e.stopPropagation()
-    const { onClick, meta } = this.props
-    e.uimeta = meta
-    onClick?.(e)
+    const { controlType, label, openHyperlinks, onClick, meta } = this.props
+    if (controlType === 'hyperlinks' && openHyperlinks) {
+      const linkAddress = label ? JSON.parse(label).linkAddress : ''
+      linkAddress && (window.location.href = linkAddress)
+    } else {
+      e.uimeta = meta
+      onClick?.(e)
+    }
   }
 
   render () {

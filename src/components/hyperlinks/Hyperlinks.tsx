@@ -4,10 +4,6 @@ import Label from '../label'
 import YonuiInput from '../input-yonui'
 import ListItemWrapper from '../list-item-wrapper'
 const { getListItemProps } = ListItemWrapper
-interface Hyperlinks {
-  linkText?: string
-  linkAddress?: string
-}
 export interface HyperlinksProps extends React.defaultProps {
   defaultLinkText?: string
   defaultLinkAddress?: string
@@ -17,10 +13,10 @@ export interface HyperlinksProps extends React.defaultProps {
   required?: boolean
   disabled?: boolean
   bCanModify?: boolean
-  mReadOnly?: boolean
+  readOnly?: boolean
   visible?: boolean
-  value?: Hyperlinks
-  onChange?: (value: Hyperlinks) => void
+  value?: string
+  onChange?: (value: string) => void
 }
 export interface HyperlinksState {
   linkText: string
@@ -29,11 +25,10 @@ export interface HyperlinksState {
 class ListDatePicker extends React.Component<HyperlinksProps, HyperlinksState> {
   constructor (props: HyperlinksProps) {
     super(props)
-    const linkText = props.value?.linkText
-    const linkAddress = props.value?.linkAddress
+    const value = props.value ? JSON.parse(props.value) : {}
     this.state = {
-      linkText: linkText !== undefined ? linkText : props.defaultLinkText,
-      linkAddress: linkAddress !== undefined ? linkAddress : props.defaultLinkAddress
+      linkText: value.linkText !== undefined ? value.linkText : props.defaultLinkText,
+      linkAddress: value.linkAddress !== undefined ? value.linkText : props.defaultLinkAddress
     }
   }
 
@@ -42,10 +37,10 @@ class ListDatePicker extends React.Component<HyperlinksProps, HyperlinksState> {
     this.setState({
       linkText: value
     })
-    onChange?.({
-      linkText: this.state.linkText,
+    onChange?.(JSON.stringify({
+      linkText: value,
       linkAddress: this.state.linkAddress
-    })
+    }))
   }
 
   onLinkAddressChange = (value) => {
@@ -53,10 +48,10 @@ class ListDatePicker extends React.Component<HyperlinksProps, HyperlinksState> {
     this.setState({
       linkAddress: value
     })
-    onChange?.({
+    onChange?.(JSON.stringify({
       linkText: this.state.linkText,
-      linkAddress: this.state.linkAddress
-    })
+      linkAddress: value
+    }))
   }
 
   onClick = () => {
@@ -64,25 +59,25 @@ class ListDatePicker extends React.Component<HyperlinksProps, HyperlinksState> {
   }
 
   render () {
-    const { linkTextPlaceholder, linkAddressPlaceholder, required, notRequired, disabled, bCanModify, mReadOnly, visible = true, nid } = this.props
+    const { linkTextPlaceholder, linkAddressPlaceholder, required, notRequired, disabled, bCanModify, readOnly, visible = true, nid } = this.props
     if (!visible) return null
     const _required = required ?? !notRequired
     const wrapperProps = getListItemProps(this.props, {
       className: 'yonui-mobile-hyperlinks',
       required: _required
     })
-    const _disabled = disabled || (bCanModify !== undefined ? !bCanModify : bCanModify)
+    const browse = disabled || readOnly || (bCanModify !== undefined ? !bCanModify : bCanModify)
     if (nid) { // 设计态
       return (
         <ListItemWrapper {...wrapperProps}>
           <div className='yonui-mobile-hyperlinks-content'>
-            <YonuiInput textAlign='left' value={this.state.linkText} placeholder={linkTextPlaceholder} disabled={_disabled} />
-            <TextareaItem value={this.state.linkAddress} placeholder={linkAddressPlaceholder} disabled={_disabled} rows={1} autoHeight />
+            <YonuiInput textAlign='left' value={this.state.linkText} placeholder={linkTextPlaceholder} disabled={browse} />
+            <TextareaItem value={this.state.linkAddress} placeholder={browse ? '' : linkAddressPlaceholder} disabled={browse} rows={1} autoHeight />
           </div>
         </ListItemWrapper>
       )
     } else { // 运行态
-      if (mReadOnly) { // 浏览态
+      if (browse) { // 浏览态
         return (
           <ListItemWrapper {...wrapperProps}>
             <div className='yonui-mobile-hyperlinks-label'>
@@ -94,8 +89,8 @@ class ListDatePicker extends React.Component<HyperlinksProps, HyperlinksState> {
         return (
           <ListItemWrapper {...wrapperProps}>
             <div className='yonui-mobile-hyperlinks-content'>
-              <YonuiInput textAlign='right' value={this.state.linkText} placeholder={linkTextPlaceholder} disabled={_disabled} onChange={this.onLinkTextChange} />
-              <TextareaItem value={this.state.linkAddress} placeholder={linkAddressPlaceholder} disabled={_disabled} rows={1} autoHeight onChange={this.onLinkAddressChange} />
+              <YonuiInput textAlign='left' value={this.state.linkText} placeholder={linkTextPlaceholder} onChange={this.onLinkTextChange} />
+              <TextareaItem value={this.state.linkAddress} rows={1} autoHeight onChange={this.onLinkAddressChange} />
             </div>
           </ListItemWrapper>
         )

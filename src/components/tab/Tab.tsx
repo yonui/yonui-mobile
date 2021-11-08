@@ -121,8 +121,8 @@ export default class yonuiTabs extends Component<TabsProps, any> {
             textOverflow: 'ellipsis',
             overflow: 'hidden',
             whiteSpace: 'nowrap',
-            height: '0.72rem',
-            lineHeight: '0.72rem'
+            height: '0.9rem',
+            lineHeight: '0.9rem'
           }}
         >
           {standard === 'upesn' && <div className='upesn-standard-tabs-item'>{tab.title}</div>}
