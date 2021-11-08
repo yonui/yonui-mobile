@@ -32,7 +32,7 @@
 		"TimeRange": "./src/components/date-panel-picker-2",
 		"Table": "./src/components/table",
 		"NavBar": "./src/components/navbar",
-		"CalenderPanel": "./src/components/calendar-panel",
+		"CalendarPanel": "./src/components/calendar-panel",
 		"TimeRangePiker": "./src/components/date-panel-picker",
 		"TimeRangePicker": "./src/components/time-range-picker",
 		"TabBottom": "./src/components/tab-bar",

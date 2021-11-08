@@ -189,7 +189,6 @@ export default class MyComponent extends Component<YonuiCalendarProps, any> {
           defaultTimeValue={defaultTimeValueTrs}
           minDate={minDateTrs}
           maxDate={maxDateTrs}
-          type='one'
           getDateExtra={this.getDateExtra}
         />
       </div>
