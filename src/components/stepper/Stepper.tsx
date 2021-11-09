@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 export default (props) => {
-  const { max, min, step, defaultValue = 0, style } = props;
+  const { max, min, step, defaultValue = 0, style = {} } = props;
 
   const maxNum = Number(max) || 100
   const minNum = Number(min) || 0

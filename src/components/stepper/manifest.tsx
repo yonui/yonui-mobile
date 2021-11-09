@@ -1,14 +1,14 @@
 import { ComponentManifest, TypeProps, UIObject, FieldTypes, EditTypes } from 'yonui-extension'
 const manifest: ComponentManifest = {
   name: 'stepper',
-  label: 'label',
-  type: TypeProps.BasicControls,
+  label: '数量选择',
+  type: TypeProps.FunctionalControls,
   uiObject: UIObject.Controls,
   props: [
     {
       name: 'stepType',
       type: FieldTypes.string,
-      defaultValue: 'ios',
+      defaultValue: 1,
       showDesign: true,
       designConfig: {
         type: EditTypes.Select,
@@ -24,11 +24,11 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'max',
-      type: FieldTypes.date,
+      type: FieldTypes.number,
       defaultValue: 100,
       showDesign: true,
       designConfig: {
-        type: EditTypes.Date,
+        type: EditTypes.Number,
         isRequired: false,
         props: {},
         label: '最大值',
@@ -37,11 +37,11 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'min',
-      type: FieldTypes.date,
+      type: FieldTypes.number,
       defaultValue: 0,
       showDesign: true,
       designConfig: {
-        type: EditTypes.Date,
+        type: EditTypes.Number,
         isRequired: false,
         props: {},
         label: '最小值',
@@ -50,7 +50,7 @@ const manifest: ComponentManifest = {
     },
     {
       name: 'defaultValue',
-      type: FieldTypes.array,
+      type: FieldTypes.number,
       defaultValue: 0,
       designConfig: {
         type: EditTypes.Number,
@@ -83,19 +83,18 @@ const manifest: ComponentManifest = {
         label: '禁用'
       }
     },
+  ],
+  children: [],
+  events: [
     {
       name: 'onChange',
-      type: FieldTypes.action,
-      showDesign: true,
-      designConfig: {
-        type: EditTypes.Text,
-        isRequired: true,
-        props: {},
-        label: 'onChange'
-      }
+      des: '值改变'
     }
   ],
-  children: []
+  transformers: [
+    'inherit',
+    ['bindEvent', { events: ['onChange'] }]
+  ]
 }
 
 export default manifest
