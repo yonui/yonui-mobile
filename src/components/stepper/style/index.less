@@ -1,26 +1,58 @@
 @import '../../_style/index.less';
 .stepper-wrapper{
   display: flex;
-  width: 100px;
+  width: 2rem;
   justify-content: space-between;
-  border-radius: @radius-lg;
-  background: #dcdcdc;
+  border-radius: 0.25rem;
+  background: #f6f6f6;
   overflow: hidden;
+  align-items: center;
+  height: 0.5rem;
+  font-size: 14px;
+  font-family: 'DINAlternate-Bold, DINAlternate';
+  font-weight: bold;
+  color: #555555;
   .stepper-input-wrapper{
-    width: 50px;
     overflow: hidden;
     .stepper-input{
       width: 100%;
       border: none;
       text-align: center;
       background: transparent;
+      padding: 0 0.2rem;
+      font-size: inherit;
+      color: inherit;
+      font-style: inherit;
+      font-weight: inherit;
+      text-decoration: inherit;
+    }
+    .stepper-input::-webkit-outer-spin-button,
+    .stepper-input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+    .stepper-input[type="number"]{
+      -moz-appearance: textfield;
     }
   }
-  .stepper-minus-wrapper{
-    padding-left: 10px;
+  .stepper-minus-wrapper,.stepper-plus-wrapper{
+    color: #555555;
+    pointer-events: auto;
+    font-weight: bold;
+    font-style: initial;
   }
-  .stepper-plus-wrapper{
-    padding-right: 10px;
+  .stepper-minus-wrapper-disabled,.stepper-plus-wrapper-disabled{
+    color: #d0d0d0;
+    pointer-events: none;
+    font-weight: bold;
+    font-style: initial;
   }
+
+  .stepper-minus-wrapper, .stepper-minus-wrapper-disabled{
+    padding-left: 0.2rem;
+  }
+  .stepper-plus-wrapper, .stepper-plus-wrapper-disabled{
+    padding-right: 0.2rem;
+  }
+
 }
 
