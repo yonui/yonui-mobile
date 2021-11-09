@@ -121,8 +121,6 @@ export default class Label extends React.PureComponent<LabelProps> {
       case 'datepicker':
         return label?.split(' ')[0]
       case 'numberwidget':
-      case 'hyperlinks':
-        return label ? this.parseValue(label).linkText : ''
       default :
         try {
           if (label?.slice(0, 1) === '{' && label?.slice(-1) === '}') {
@@ -152,8 +150,9 @@ export default class Label extends React.PureComponent<LabelProps> {
   _onClick = e => {
     // e.stopPropagation()
     const { label, openHyperlinks, onClick, meta } = this.props
-    if (openHyperlinks && this.parseValue(label).linkAddress) {
-      window.location.href = this.parseValue(label).linkAddress
+    if (openHyperlinks && label?.slice(0, 1) === '{' && label?.slice(-1) === '}') {
+      const obj = this.parseValue(label)
+      obj.linkAddress && (window.location.href = obj.linkAddress)
     } else {
       e.uimeta = meta
       onClick?.(e)

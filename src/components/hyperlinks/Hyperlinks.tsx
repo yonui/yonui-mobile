@@ -28,7 +28,7 @@ class ListDatePicker extends React.Component<HyperlinksProps, HyperlinksState> {
     const value = props.value ? JSON.parse(props.value) : {}
     this.state = {
       linkText: value.linkText !== undefined ? value.linkText : props.defaultLinkText,
-      linkAddress: value.linkAddress !== undefined ? value.linkText : props.defaultLinkAddress
+      linkAddress: value.linkAddress !== undefined ? value.linkAddress : props.defaultLinkAddress
     }
   }
 
