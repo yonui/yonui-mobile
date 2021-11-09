@@ -122,11 +122,14 @@ export default class Label extends React.PureComponent<LabelProps> {
         return label?.split(' ')[0]
       case 'numberwidget':
       case 'hyperlinks':
-        return label ? JSON.parse(label).linkText : ''
+        return label ? this.parseValue(label).linkText : ''
       default :
         try {
           if (label?.slice(0, 1) === '{' && label?.slice(-1) === '}') {
             const obj = this.parseValue(label)
+            if (obj.linkText) {
+              return obj.linkText
+            }
             return obj.address || obj.identity || `${obj.T}${obj.T && obj.L && '-'}${obj.L}`
           } else {
             return label
@@ -148,10 +151,9 @@ export default class Label extends React.PureComponent<LabelProps> {
 
   _onClick = e => {
     // e.stopPropagation()
-    const { controlType, label, openHyperlinks, onClick, meta } = this.props
-    if (controlType === 'hyperlinks' && openHyperlinks) {
-      const linkAddress = label ? JSON.parse(label).linkAddress : ''
-      linkAddress && (window.location.href = linkAddress)
+    const { label, openHyperlinks, onClick, meta } = this.props
+    if (openHyperlinks && this.parseValue(label).linkAddress) {
+      window.location.href = this.parseValue(label).linkAddress
     } else {
       e.uimeta = meta
       onClick?.(e)
@@ -159,14 +161,14 @@ export default class Label extends React.PureComponent<LabelProps> {
   }
 
   render () {
-    const { prefix, showTitle, suffix, label, style, className, textAlign, textClamp, textLangth, textLength, leftIcon, rightIcon, visible, meta, onClick, ...other } = this.props
+    const { prefix, showTitle, suffix, label, openHyperlinks, style, className, textAlign, textClamp, textLangth, textLength, leftIcon, rightIcon, visible, meta, onClick, ...other } = this.props
     const tLength = textLangth || textLength
     let { spareLabel } = this.props
     spareLabel = showTitle ? spareLabel : ''
     const parseValue = this.adaptValue(label)
     const sty: React.CSSProperties = { ...style, textAlign }
     const cls = classnames(className, 'yonui-tag')
-    const hyperlinksCls = this.props.controlType === 'hyperlinks' ? 'yonui-mobile-label-hyperlinks-text' : ''
+    const hyperlinksCls = openHyperlinks && this.parseValue(label).linkAddress ? 'yonui-mobile-label-hyperlinks-text' : ''
     const tagsCls = classnames(hyperlinksCls, 'includes-meta', 'yonui-mobile-tag-text', 'yonui-mobile-tag-clamp')
     const leftIconEle = typeof leftIcon === 'string' ? <Icon type={leftIcon} nid={other.nid} size='xxs' /> : leftIcon
     const rightIconEle = typeof rightIcon === 'string' ? <Icon type={rightIcon} nid={other.nid} size='xxs' /> : rightIcon
