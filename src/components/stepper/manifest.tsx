@@ -1,6 +1,6 @@
 import { ComponentManifest, TypeProps, UIObject, FieldTypes, EditTypes } from 'yonui-extension'
 const manifest: ComponentManifest = {
-  name: 'stepper',
+  name: 'Stepper',
   label: '数量选择',
   type: TypeProps.FunctionalControls,
   uiObject: UIObject.Controls,
@@ -93,7 +93,7 @@ const manifest: ComponentManifest = {
   ],
   transformers: [
     'inherit',
-    ['bindEvent', { events: ['onChange'] }]
+    ['bindEvent', { events: ['onChange'] }],
   ]
 }
 

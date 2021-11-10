@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 export default (props) => {
-  const { max, min, step, defaultValue = 0, style = {} } = props;
+  const { max, min, step, defaultValue = 0, style = {}, disabled = false } = props;
 
   const maxNum = Number(max) || 100
   const minNum = Number(min) || 0
@@ -55,6 +55,7 @@ export default (props) => {
     setNum(changNum)
     props.onChange && props.onChange(changNum)
   }
+  // 是否取消交互
   let minClassname = 'stepper-minus-wrapper';
   let maxClassname = 'stepper-plus-wrapper';
   if (num <= minNum) {
@@ -64,9 +65,8 @@ export default (props) => {
     maxClassname = `${maxClassname}-disabled`
   }
   const { textDecoration } = style
-  delete style.textDecoration;
   return (
-    <div className='stepper-wrapper' style={style}>
+    <div className='stepper-wrapper' style={{ ...style, textDecoration: 'none', pointerEvents: disabled ? 'none' : 'auto' }}>
       <div className={minClassname}>
         <span onClick={onMinus}>-</span>
       </div>
