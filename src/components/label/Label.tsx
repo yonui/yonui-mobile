@@ -151,6 +151,7 @@ export default class Label extends React.PureComponent<LabelProps> {
     // e.stopPropagation()
     const { label, openHyperlinks, onClick, meta } = this.props
     if (openHyperlinks && label?.slice(0, 1) === '{' && label?.slice(-1) === '}') {
+      e.stopPropagation()
       const obj = this.parseValue(label)
       obj.linkAddress && (window.location.href = obj.linkAddress)
     } else {
@@ -167,7 +168,7 @@ export default class Label extends React.PureComponent<LabelProps> {
     const parseValue = this.adaptValue(label)
     const sty: React.CSSProperties = { ...style, textAlign }
     const cls = classnames(className, 'yonui-tag')
-    const hyperlinksCls = openHyperlinks && this.parseValue(label).linkAddress ? 'yonui-mobile-label-hyperlinks-text' : ''
+    const hyperlinksCls = this.props.controlType === 'hyperlinks' || (openHyperlinks && this.parseValue(label).linkAddress) ? 'yonui-mobile-label-hyperlinks-text' : ''
     const tagsCls = classnames(hyperlinksCls, 'includes-meta', 'yonui-mobile-tag-text', 'yonui-mobile-tag-clamp')
     const leftIconEle = typeof leftIcon === 'string' ? <Icon type={leftIcon} nid={other.nid} size='xxs' /> : leftIcon
     const rightIconEle = typeof rightIcon === 'string' ? <Icon type={rightIcon} nid={other.nid} size='xxs' /> : rightIcon

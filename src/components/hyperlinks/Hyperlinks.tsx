@@ -25,10 +25,29 @@ export interface HyperlinksState {
 class ListDatePicker extends React.Component<HyperlinksProps, HyperlinksState> {
   constructor (props: HyperlinksProps) {
     super(props)
-    const value = props.value ? JSON.parse(props.value) : {}
+    const value = props.value ? this.parseValue(props.value) : {}
     this.state = {
       linkText: value.linkText !== undefined ? value.linkText : props.defaultLinkText,
       linkAddress: value.linkAddress !== undefined ? value.linkAddress : props.defaultLinkAddress
+    }
+  }
+
+  shouldComponentUpdate (nextProps) {
+    if (nextProps.value !== this.props.value) {
+      const value = this.parseValue(nextProps.value)
+      this.setState({
+        linkText: value.linkText,
+        linkAddress: value.linkAddress
+      })
+    }
+    return true
+  }
+
+  parseValue = (value) => {
+    try {
+      return JSON.parse(value)
+    } catch {
+      return {}
     }
   }
 
@@ -90,7 +109,7 @@ class ListDatePicker extends React.Component<HyperlinksProps, HyperlinksState> {
           <ListItemWrapper {...wrapperProps}>
             <div className='yonui-mobile-hyperlinks-content'>
               <YonuiInput textAlign='left' value={this.state.linkText} placeholder={linkTextPlaceholder} onChange={this.onLinkTextChange} />
-              <TextareaItem value={this.state.linkAddress} rows={1} autoHeight onChange={this.onLinkAddressChange} />
+              <TextareaItem value={this.state.linkAddress} placeholder={linkAddressPlaceholder} rows={1} autoHeight onChange={this.onLinkAddressChange} />
             </div>
           </ListItemWrapper>
         )
