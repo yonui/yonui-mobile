@@ -53,11 +53,11 @@ const columns1 = [
 ];
 // 数据
 const data = [
-  { name: 'Jack', age: 28, address: 'some where', key: '1' },
-  { name: 'Rose', age: 36, address: 'some where', key: '2' },
-  { name: 'Jack', age: 28, address: 'some where', key: '3' },
-  { name: 'Rose', age: 36, address: 'some where', key: '4' },
-  { name: 'Rose', age: 36, address: 'some where', key: '5' },
+  { name: 'Jack', age: 28, address: 'some where', key: '2' },
+  { name: 'Rose', age: 36, address: 'some where',address1: 'some where', key: '3' },
+  { name: 'Jack', age: 28, address: 'some where',address1: 'some where', key: '4' },
+  { name: 'Rose', age: 36, address: 'some where',address1: 'some where', key: '5' },
+  { name: 'Rose', age: 36, address: 'some where',address1: 'some where', key: '6' },
 ];
 // 标签颜色 [第一, 第二, 第三, 第四及以后]
 const orderSpanColors = ['pink', 'skyblue', 'red', 'yellow']
@@ -75,24 +75,28 @@ const onLoadMore = () => {
 export default class Demo extends Component {
   render() {
     return (
-      <div>
+      <div style={{background:'red'}}>
         <Table
+          title='标题242341234sdfaf'
+          // startOrder={2}
           columns={columns}
           data={data}
           addOrderColumn={true} // 添加序号列
-          orderSpanColors={[]}
+          // orderSpanColors={orderSpanColors}
           onSort={onSort}
           showMore={true}
+          highlighted={true}
           loadMore={onLoadMore}
         />
         <Table
           columns={columns1}
           data={data}
           addOrderColumn={true} // 添加序号列
-          orderSpanColors={orderSpanColors}
+          // orderSpanColors={orderSpanColors}
           onSort={onSort}
           showMore={true}
           loadMore={onLoadMore}
+          style={{height: '3.3rem'}}
         />
       </div>
     )

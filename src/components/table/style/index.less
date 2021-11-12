@@ -1,14 +1,30 @@
 @import '../../_style/index.less';
 .yonui-table-div{
   width: 100%;
+  border-radius: 0.2rem;
+  background-color: white;
+  overflow: auto;
+  .yonui-table-title{
+    font-size: @font-size-subhead;
+    font-family: 'PingFangSC-Medium, PingFang SC';
+    font-weight: 500;
+    color: #111111;
+    height: 0.9rem;
+    align-items: center;
+    display: flex;
+    padding-left: 0.24rem;
+  }
   .show-more, .no-more{
     display: flex;
     align-items: center;
     justify-content: center;
     background: white;
-    border-top: 1px solid @border-color-base;
-    color: @color-text-secondary;
-    font-size: @font-size-base;
+    border: 1px solid @border-color-base;
+    font-size: @font-size-caption-sm;
+    font-family: 'PingFangSC-Regular, PingFang SC';
+    font-weight: 400;
+    color: @color-text-caption;
+    height: 0.64rem;
   }
 }
 .yonui-table{
@@ -16,22 +32,30 @@
   --order-color-2: @brand-important;
   --order-color-3: @brand-warning;
   --order-color-4: transparent;
+  --order-text-color: white;
   width: 100%;
   background: white;
   table{
     width: 100%;
     table-layout: fixed !important;
+    border-collapse: collapse;
   }
   .yonui-table-container{
     .yonui-table-content{
       .yonui-table-thead{
-        background: aliceblue;
+        height: 0.64rem;
+        background: #F7F9FD;
+        box-shadow: 0px -1px 0px 0px #DBE0E5;
         .yonui-table-cell{
+          font-size: 13px;
+          font-family: 'PingFangSC-Regular, PingFang SC';
+          font-weight: 400;
           padding: 0.1rem 0;
           border: 0;
-          border-top: 1px solid @border-color-base;
+          border: 1px solid @border-color-base;
+          color: @color-text-paragraph;
           .order-button{
-            margin-left: 10*@hd;
+            padding: 0 10*@hd;
             color: @border-color-next;
             &:active{
               color: @border-color-base;
@@ -41,18 +65,19 @@
       }
       .yonui-table-tbody{
         .yonui-table-row{
+          height: 0.6rem;
           .yonui-table-cell{
             padding: 0.1rem 0;
             border: 0;
-            border-top: 1px solid @border-color-base;
+            border: 1px solid @border-color-base;
             text-align: center;
+            color: @color-text-paragraph;
             .order-span{
               display: inline-block;
               position: relative;
               width: 0.6rem;
-              height: 0.4rem;
               border-radius: 3*@hd;
-              color: @color-text-caption;
+              color: @color-text-paragraph;
               background:var(--order-color-4);
               &::after{
                 content: '';
@@ -69,21 +94,21 @@
               }
               &-1{
                 background:var(--order-color-1);
-                color: white;
+                color: var(--order-text-color);
                 &::after{
                   border-left-color: var(--order-color-1);
                 }
               }
               &-2{
                 background:var(--order-color-2);
-                color: white;
+                color: var(--order-text-color);
                 &::after{
                   border-left-color: var(--order-color-2);
                 }
               }
               &-3{
                 background:var(--order-color-3);
-                color: white;
+                color: var(--order-text-color);
                 &::after{
                   border-left-color: var(--order-color-3);
                 }
@@ -91,9 +116,9 @@
             }
           }
         }
-        .yonui-table-row:nth-child(even){
-          background: aliceblue;
-        }
+        // .yonui-table-row:nth-child(even){
+        //   background: aliceblue;
+        // }
       }
     }
   }

@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 import RCTable from 'rc-table'
 import { Icon } from 'antd-mobile'
 interface yonuiTableProps {
+  title?: string
   columns: any[]
   data: any[]
-  orderSpanColors?: string[]
   addOrderColumn?: boolean
+  startOrder?: number
   showMore?: boolean
+  highlighted?: boolean
+  style?: object
   loadMore?: () => void
   onSort?: (column) => void
 }
@@ -30,7 +33,7 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
     }
     this.state = {
       columns: columns,
-      showMore: false
+      showMore: true
     }
   }
 
@@ -40,17 +43,25 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
 
   onSortButtonClick = (column) => {
     const { onSort } = this.props
-    onSort?.(column)
+    const selected = column.selected ? column.selected : false;
+    column.selected = !selected
+    onSort?.({ ...column, selected: !selected })
   }
 
+  // 颜色
   setOrderSpanColor = () => {
-    const { orderSpanColors = [] } = this.props
-    for (let i = 0; i < orderSpanColors.length; i++) {
-      orderSpanColors[i] && this.tableRef.children[0].style.setProperty(`--order-color-${i + 1}`, orderSpanColors[i])
+    const { highlighted = false } = this.props
+    if (!highlighted) {
+      for (let i = 0; i < 3; i++) {
+        this.tableRef && this.tableRef.children[1].style.setProperty(`--order-color-${i + 1}`, 'transparent')
+      }
     }
+    this.tableRef && this.tableRef.children[1].style.setProperty('--order-text-color', highlighted ? 'white' : '#333')
   }
 
+  // 添加序号
   addOrderColumn = columns => {
+    const { startOrder = 1 } = this.props
     let added = false
     columns.forEach(column => {
       if (column.dataIndex === 'order') added = true
@@ -60,18 +71,21 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
         title: '序号',
         dateIndex: 'order',
         key: 'order',
-        render: (value, row, index) => <span className={`order-span order-span-${index < 3 ? index + 1 : null}`}>{index + 1}</span>,
+        render: (value, row, index) => <span className={`order-span order-span-${index < 3 ? index + 1 : null}`}>{index + startOrder}</span>, // 序号
         width: 1,
       }
       columns.unshift(orderColumn)
     }
   }
 
+  // 添加排序
   adaptColumns = columns => {
     columns.forEach(column => {
       if (column.key === undefined) column.key = column.dataIndex
+      if (column.width === undefined) column.width = 1
       if (column.sortField) {
         const title = column.title
+        column.selected = false;
         column.title = <span>{title}<span onClick={() => this.onSortButtonClick(column)} className='order-button'>⇅</span></span>
       }
     });
@@ -84,9 +98,11 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
 
   render () {
     const { columns } = this.state
-    const { showMore } = this.props
+    const { showMore, title, style = {} } = this.props
+    const height = title ? '5.4rem' : '4.5rem'; // 是否显示表头
     return (
-      <div className='yonui-table-div' ref={el => { this.tableRef = el }}>
+      <div className='yonui-table-div' ref={el => { this.tableRef = el }} style={{ height, ...style }}>
+        <div className='yonui-table-title' style={{ display: title ? 'flex' : 'none' }}>{title}</div>
         <RCTable
           prefixCls='yonui-table'
           columns={columns}
