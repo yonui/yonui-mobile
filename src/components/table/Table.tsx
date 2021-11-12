@@ -15,7 +15,6 @@ interface yonuiTableProps {
 }
 interface yonuiTableStates {
   columns: any
-  showMore: boolean
 }
 
 const showText = {
@@ -32,8 +31,7 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
       this.addOrderColumn(columns)
     }
     this.state = {
-      columns: columns,
-      showMore: true
+      columns: columns
     }
   }
 
@@ -98,7 +96,7 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
 
   render () {
     const { columns } = this.state
-    const { showMore, title, style = {} } = this.props
+    const { showMore = true, title, style = {} } = this.props
     const height = title ? '5.4rem' : '4.5rem'; // 是否显示表头
     return (
       <div className='yonui-table-div' ref={el => { this.tableRef = el }} style={{ height, ...style }}>

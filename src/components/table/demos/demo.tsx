@@ -84,7 +84,7 @@ export default class Demo extends Component {
           addOrderColumn={true} // 添加序号列
           // orderSpanColors={orderSpanColors}
           onSort={onSort}
-          showMore={true}
+          // showMore={true}
           highlighted={true}
           loadMore={onLoadMore}
         />
@@ -94,7 +94,7 @@ export default class Demo extends Component {
           addOrderColumn={true} // 添加序号列
           // orderSpanColors={orderSpanColors}
           onSort={onSort}
-          showMore={true}
+          // showMore={true}
           loadMore={onLoadMore}
           style={{height: '3.3rem'}}
         />
