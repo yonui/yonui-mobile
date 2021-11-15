@@ -216,27 +216,112 @@ const manifest: ComponentManifest = {
         label: '单行对齐方式'
       }
     },
-    // {
-    //   name: 'inputStyle',
-    //   type: FieldTypes.action,
-    //   showDesign: true,
-    //   designConfig: {
-    //     label: '输入框样式',
-    //     type: EditTypes.IframeModal,
-    //     help: '',
-    //     props: {
-    //       caption: '输入框样式',
-    //       iframeUrl: '/CssSelect?iframeId=inputStyle',
-    //       iframeId: 'mobileCssIframeModalinputStyle',
-    //       iframeContext: 'mobileCssIframeModal',
-    //       addText: '新增样式',
-    //       editText: '修改样式',
-    //       message: true,
-    //       isRequired: false,
-    //       footer: true
-    //     }
-    //   }
-    // },
+    {
+      name: 'name',
+      type: FieldTypes.string,
+      showDesign: false,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: 'name属性',
+        help: 'textarea 的 name'
+      }
+    },
+    {
+      name: 'rows',
+      type: FieldTypes.number,
+      defaultValue: 3,
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Number,
+        isRequired: true,
+        props: {},
+        label: '控件高度'
+      }
+    },
+    {
+      name: 'value',
+      type: FieldTypes.string,
+      showDesign: false,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: true,
+        props: {},
+        label: '值'
+      }
+    },
+    {
+      name: 'editable',
+      type: FieldTypes.boolean,
+      showDesign: false,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '允许修改'
+      }
+    },
+    {
+      name: 'isHTML',
+      type: FieldTypes.boolean,
+      showDesign: false,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '是否富文本'
+      }
+    },
+    {
+      name: 'autoHeight',
+      type: FieldTypes.boolean,
+      showDesign: true,
+      defaultValue: false,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '高度自适应',
+        help: '高度自适应, autoHeight 和 rows 请二选一'
+      }
+    },
+    {
+      name: 'clear',
+      type: FieldTypes.boolean,
+      showDesign: false,
+      defaultValue: false,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '清除功能'
+      }
+    },
+    {
+      name: 'onErrorClick',
+      type: FieldTypes.action,
+      showDesign: false,
+      designConfig: {
+        type: EditTypes.Text,
+        isRequired: false,
+        props: {},
+        label: 'onErrorClick',
+        help: '点击报错 icon 触发的回调'
+      }
+    },
+    {
+      name: 'multilineMode',
+      type: FieldTypes.boolean,
+      showDesign: false,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: 'multilineMode',
+        help: '多行模式'
+      }
+    },
     ...getFilterProps(['singleLineCenter', 'errorText', 'labelStyle'])
   ],
   extension: [

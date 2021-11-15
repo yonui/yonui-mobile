@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import { InputItem } from 'antd-mobile'
 // import { InputItemPropsType } from 'antd-mobile/lib/input-item/PropsType'
 import YonuiInput from '../input-yonui'
+import Textarea from '../textarea-item'
 import classnames from 'classnames'
 import Wrapper, { ListItemWrapperProps, getListItemProps } from '../list-item-wrapper'
 import { decodeValue } from '../_utils'
@@ -36,9 +37,9 @@ interface InputState {
 class Input extends Component<InputProps, InputState> {
   constructor (props: InputProps) {
     super(props)
-    const { value, formatReg, hiddenChart, replaceChart, defaultValue } = props
+    const { multilineMode, value, formatReg, hiddenChart, replaceChart, defaultValue } = props
     const _value = value || defaultValue
-    const _displayValue = formatReg && _value ? decodeValue(_value, formatReg, hiddenChart, replaceChart) : ''
+    const _displayValue = !multilineMode && formatReg && _value ? decodeValue(_value, formatReg, hiddenChart, replaceChart) : ''
     this.state = {
       error: false,
       errorText: '',
@@ -239,35 +240,42 @@ class Input extends Component<InputProps, InputState> {
   }
 
   render () {
-    const { required, className, singleLine, inputStyle, onChange, onBlur, onFocus, value, model, style, visible, ...other } = this.props
-    const { error, errorText, _displayValue } = this.state
-    const cls = classnames('mdf-input', className)
-    const textAlign = singleLine && this.props.singleAlignType && this.props.singleAlignType === 'right' ? 'right' : 'left'
-    const inputCls = classnames('mdf-input-content')
-    const inputProps = this.getInputProps()
-    const bIsNull = model?._get_data('bIsNull')
-    const wrapperProps = getListItemProps(this.props, { error, errorText, className: cls, required: bIsNull === undefined ? undefined : !bIsNull })
-    // if (bIsNull !== undefined) wrapperProps.notRequired = undefined
-    if (!visible) return null
-    return (
-      <Wrapper {...wrapperProps} style={this.getWrapperStyle(style || {})}>
-        <YonuiInput
-          className={inputCls}
-          textAlign={textAlign}
-          required={required}
-          onBlur={this._onBlur}
-          onChange={this._onChange}
-          onFocus={this._onFocus}
-          onClickClear={this._onClickClear}
-          value={_displayValue || value}
-          // style={inputStyle}
-          inputStyle={this.getInputStyle(style || {})}
-          model={model}
-          {...other}
-          {...inputProps}
-        />
-      </Wrapper>
-    )
+    const { multilineMode = false, required, className, singleLine, inputStyle, onChange, onBlur, onFocus, value, model, style, visible, ...other } = this.props
+    console.log('++++++++++++++++++++++++++++++')
+    console.log(this.props)
+    console.log('++++++++++++++++++++++++++++++')
+    if (multilineMode) {
+      return (<Textarea {...this.props} />)
+    } else {
+      const { error, errorText, _displayValue } = this.state
+      const cls = classnames('mdf-input', className)
+      const textAlign = singleLine && this.props.singleAlignType && this.props.singleAlignType === 'right' ? 'right' : 'left'
+      const inputCls = classnames('mdf-input-content')
+      const inputProps = this.getInputProps()
+      const bIsNull = model?._get_data('bIsNull')
+      const wrapperProps = getListItemProps(this.props, { error, errorText, className: cls, required: bIsNull === undefined ? undefined : !bIsNull })
+      // if (bIsNull !== undefined) wrapperProps.notRequired = undefined
+      if (!visible) return null
+      return (
+        <Wrapper {...wrapperProps} style={this.getWrapperStyle(style || {})}>
+          <YonuiInput
+            className={inputCls}
+            textAlign={textAlign}
+            required={required}
+            onBlur={this._onBlur}
+            onChange={this._onChange}
+            onFocus={this._onFocus}
+            onClickClear={this._onClickClear}
+            value={_displayValue || value}
+            // style={inputStyle}
+            inputStyle={this.getInputStyle(style || {})}
+            model={model}
+            {...other}
+            {...inputProps}
+          />
+        </Wrapper>
+      )
+    }
   }
 }
 export default Input

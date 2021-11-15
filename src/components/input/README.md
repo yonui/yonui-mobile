@@ -42,3 +42,13 @@ showExtraLabelIcon | 标签是否显示icon | boolean | false | false
 onClick | 点击标签回调 | (e) => void | 无 | false
 className | 样式class | string | 无 | false
 style | 样式style | React.CSSProperties | 无 | false
+
+maxLength | 计数功能和最长字数限制 | number | 无 | false
+mReadOnly | 是否只读 | boolean | false | false
+name | 文本框name | string | 无 | false
+placeholder | 占位符 | string | 无 | false
+clear | 是否可清空 | boolean | false | false
+rows | 显示几行 | number | 3 | false
+autoHeight | 高度自适应, autoHeight 和 rows 请二选一 | boolean | false | false
+disabled | 是否禁用 | boolean | false | false
+multilineMode | 多行模式 | boolean | false | false
