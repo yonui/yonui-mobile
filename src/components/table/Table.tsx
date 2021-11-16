@@ -23,19 +23,14 @@ const showText = {
 }
 export default class Table extends Component<yonuiTableProps, yonuiTableStates> {
   tableRef = null
-  constructor (props) {
-    super(props)
+
+  // 处理数据  添加序号
+  changColumns = () => {
     const { columns = [], addOrderColumn = true } = this.props
     this.adaptColumns(columns)
     if (addOrderColumn) {
-      this.addOrderColumn(columns)
+      this.addOrderColumn()
     }
-    this.state = {
-      columns: columns
-    }
-  }
-
-  componentDidMount () {
     this.setOrderSpanColor()
   }
 
@@ -58,8 +53,8 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
   }
 
   // 添加序号
-  addOrderColumn = columns => {
-    const { startOrder = 1 } = this.props
+  addOrderColumn = () => {
+    const { startOrder = 1, columns } = this.props
     let added = false
     columns.forEach(column => {
       if (column.dataIndex === 'order') added = true
@@ -95,8 +90,8 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
   }
 
   render () {
-    const { columns } = this.state
-    const { showMore = true, title, style = {} } = this.props
+    this.changColumns()
+    const { showMore = true, title, style = {}, columns } = this.props
     const height = title ? '5.4rem' : '4.5rem'; // 是否显示表头
     return (
       <div className='yonui-table-div' ref={el => { this.tableRef = el }} style={{ height, ...style }}>

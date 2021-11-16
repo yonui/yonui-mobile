@@ -98,7 +98,8 @@ import GroupRefer from './group-refer/index';
 import GroupReferManifest from './group-refer/manifest';
 import Noticebar from './noticebar/index';
 import NoticebarManifest from './noticebar/manifest';
-
+import Hyperlinks from './hyperlinks/index';
+import HyperlinksManifest from './hyperlinks/manifest';
 const CalenderComp = ReactWrapper(Calender, CalenderManifest)
 const TimeRangeComp = ReactWrapper(TimeRange, TimeRangeManifest)
 const NavBarComp = ReactWrapper(NavBar, NavBarManifest)
@@ -149,7 +150,9 @@ const RateComp = ReactWrapper(Rate, RateManifest)
 const GroupContainerComp = ReactWrapper(GroupContainer, GroupContainerManifest)
 const GroupReferComp = ReactWrapper(GroupRefer, GroupReferManifest)
 const NoticebarComp = ReactWrapper(Noticebar, NoticebarManifest)
+const HyperlinksComp = ReactWrapper(Hyperlinks, HyperlinksManifest)
 
+export { HyperlinksComp as Hyperlinks }
 export { CalenderComp as Calender };
 export { TimeRangeComp as TimeRange };
 export { default as Table } from './table/index';

@@ -7,15 +7,11 @@ import Table from '../index'
 import '../style'
 // 表头
 // width为列宽比
-const columns = [
+var columnsss = [
   {
     title: 'Name',
     dataIndex: 'name',
-    width: 1,
-    render: (value, row, index) => {
-      console.log('value:', value, 'row:', row, 'index:', index)
-      return value
-    }
+    width: 1
   },
   {
     title: 'Age',
@@ -49,15 +45,21 @@ const columns1 = [
     title: 'Address',
     dataIndex: 'address',
     width: 2
+  },
+  {
+    title: 'Address1',
+    dataIndex: 'address',
+    width: 2
   }
 ];
 // 数据
 const data = [
   { name: 'Jack', age: 28, address: 'some where', key: '2' },
-  { name: 'Rose', age: 36, address: 'some where',address1: 'some where', key: '3' },
-  { name: 'Jack', age: 28, address: 'some where',address1: 'some where', key: '4' },
-  { name: 'Rose', age: 36, address: 'some where',address1: 'some where', key: '5' },
-  { name: 'Rose', age: 36, address: 'some where',address1: 'some where', key: '6' },
+  { name: 'Rose', age: 36, address: 'some where', key: '3' },
+  { name: 'Jack', age: 28, address: 'some where', key: '4' },
+  { name: 'Rose', age: 36, address: 'some where', key: '5' },
+  { name: 'Rose', age: 36, address: 'some where', key: '6' },
+  { name: 'Rose', age: 38, address: 'some where', key: '7' }
 ];
 // 标签颜色 [第一, 第二, 第三, 第四及以后]
 const orderSpanColors = ['pink', 'skyblue', 'red', 'yellow']
@@ -73,7 +75,25 @@ const onLoadMore = () => {
 }
 
 export default class Demo extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      columns: columnsss
+    }
+  }
+
+  componentDidMount () {
+    setTimeout(() => {
+      this.setState({ columns: columns1 })
+    }, 10000);
+
+    setTimeout(() => {
+      this.setState({ columns: columns1 })
+    }, 11000);
+  }
+
   render() {
+    const { columns } = this.state
     return (
       <div style={{background:'red'}}>
         <Table
@@ -88,7 +108,7 @@ export default class Demo extends Component {
           highlighted={true}
           loadMore={onLoadMore}
         />
-        <Table
+        {/* <Table
           columns={columns1}
           data={data}
           addOrderColumn={true} // 添加序号列
@@ -97,7 +117,7 @@ export default class Demo extends Component {
           // showMore={true}
           loadMore={onLoadMore}
           style={{height: '3.3rem'}}
-        />
+        /> */}
       </div>
     )
   }
