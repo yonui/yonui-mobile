@@ -62,7 +62,7 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
     if (!added) {
       const orderColumn = {
         title: '序号',
-        dateIndex: 'order',
+        dataIndex: 'order',
         key: 'order',
         render: (value, row, index) => <span className={`order-span order-span-${index < 3 ? index + 1 : null}`}>{index + startOrder}</span>, // 序号
         width: 1,
@@ -77,7 +77,10 @@ export default class Table extends Component<yonuiTableProps, yonuiTableStates> 
       if (column.key === undefined) column.key = column.dataIndex
       if (column.width === undefined) column.width = 1
       if (column.sortField) {
-        const title = column.title
+        let title = column.title
+        if (typeof (title) == 'object') {
+          title = title.props?.children[0]
+        }
         column.selected = false;
         column.title = <span>{title}<span onClick={() => this.onSortButtonClick(column)} className='order-button'>⇅</span></span>
       }
