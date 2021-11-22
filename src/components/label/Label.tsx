@@ -150,7 +150,7 @@ export default class Label extends React.PureComponent<LabelProps> {
   _onClick = e => {
     // e.stopPropagation()
     const { label, openHyperlinks, onClick, meta } = this.props
-    if (openHyperlinks && label?.slice(0, 1) === '{' && label?.slice(-1) === '}') {
+    if (openHyperlinks && label?.slice(0, 1) === '{' && label?.slice(-1) === '}' && this.parseValue(label).linkAddress) {
       e.stopPropagation()
       const obj = this.parseValue(label)
       obj.linkAddress && (window.location.href = obj.linkAddress)

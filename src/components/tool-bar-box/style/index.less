@@ -5,58 +5,30 @@
   background-color: @fill-base;
   font-size: 0;
   position: relative;
-  min-height: 36*@hd;
+  height: 49*@hd;
   overflow: hidden;
 
-  &.alignleft {
-    padding: 2*@hd 0;
-
-    .yonui-mobile-tool-bars-wrapper {
-      white-space: nowrap;
-      padding: 0 8*@hd;
-      min-height: 32*@hd;
-      line-height: 1;
-
-      .mdf-button {
-        direction: ltr;
-      }
-    }
+  .yonui-mobile-tool-bars-wrapper {
+    padding: 0 8*@hd;
+    position: absolute;
+    left: 0;
+	  top: 0;
+	  right: 0;
+	  bottom: -17px;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
   }
 
-  &.alignright {
-    .yonui-mobile-tool-bars-wrapper {
-      width: 100%;
-      white-space: nowrap;
-      padding: 2*@hd 8*@hd;
-      position: absolute;
-      left: 0;
-      min-height: 32*@hd;
-      direction: rtl;
-      line-height: 1;
-      overflow-x: scroll;
-      overflow-y: hidden;
-
-      .mdf-button {
-        direction: ltr;
-      }
-    }
-  }
-
-
-  &.yonui-mobile-tool-bars-runtime {
-    .yonui-mobile-tool-bars-wrapper {
-      min-height: 0;
-    }
-
-    &.length-0 {
-      padding: 0;
-    }
+  &.alignright .yonui-mobile-tool-bars-wrapper {
+    flex-direction: row-reverse;
   }
 }
 
 .tool-bars-wrapper-item-common {
-  display: inline-flex;
-  margin: 0 8*@hd;
+  flex-shrink: 0;
+  margin: 0 8*@hd 17px 8*@hd;
   padding: 0;
 }
 
