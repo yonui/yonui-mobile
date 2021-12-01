@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Modal, Button } from 'antd-mobile'
 import Icon from '../icon'
 import Wrapper, { getListItemProps } from '../list-item-wrapper'
+import Label from '../label'
 import classnames from 'classnames'
 interface dataType { text: string, value: string, disabled?: boolean }
 interface RadioProps extends React.defaultProps {
@@ -18,6 +19,7 @@ interface RadioProps extends React.defaultProps {
   disabled?: boolean
   singleLine?: boolean
   mReadOnly?: boolean
+  bEnumLabel?: boolean
 }
 const TextString = {
   cancel: '取消',
@@ -310,8 +312,15 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
   }
 
   render () {
-    const { mode, dataSource, tagSize, className, singleLine, checkedValue, disabled, mReadOnly} = this.props
+    const { mode, dataSource, tagSize, className, singleLine, checkedValue, disabled, mReadOnly, bEnumLabel } = this.props
     const { open } = this.state
+    if (bEnumLabel) {
+      const ds = {}
+      dataSource.forEach(item => {
+        ds[item.value] = item.text
+      })
+      return <Label {...this.props} controlType='optionwidget' label={checkedValue} dataSource={JSON.stringify(ds)} />
+    }
     let radioArr: any
     switch (mode) {
       case 'tag': {

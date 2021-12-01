@@ -91,6 +91,18 @@ const manifest: ComponentManifest = {
         label: '选中值'
       }
     },
+    {
+      name: 'bEnumLabel',
+      type: FieldTypes.boolean,
+      defaultValue: false,
+      showDesign: false,
+      designConfig: {
+        type: EditTypes.Bool,
+        isRequired: false,
+        props: {},
+        label: '展示成标签'
+      }
+    },
     // {
     //   name: 'labelStyle',
     //   type: FieldTypes.object,
