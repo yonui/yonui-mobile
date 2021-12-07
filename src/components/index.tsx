@@ -100,6 +100,8 @@ import Noticebar from './noticebar/index';
 import NoticebarManifest from './noticebar/manifest';
 import Hyperlinks from './hyperlinks/index';
 import HyperlinksManifest from './hyperlinks/manifest';
+import Modal from './modal/index';
+import ModalManifest from './modal/manifest';
 const CalenderComp = ReactWrapper(Calender, CalenderManifest)
 const TimeRangeComp = ReactWrapper(TimeRange, TimeRangeManifest)
 const NavBarComp = ReactWrapper(NavBar, NavBarManifest)
@@ -151,6 +153,7 @@ const GroupContainerComp = ReactWrapper(GroupContainer, GroupContainerManifest)
 const GroupReferComp = ReactWrapper(GroupRefer, GroupReferManifest)
 const NoticebarComp = ReactWrapper(Noticebar, NoticebarManifest)
 const HyperlinksComp = ReactWrapper(Hyperlinks, HyperlinksManifest)
+const ModalComp = ReactWrapper(Modal, ModalManifest)
 
 export { HyperlinksComp as Hyperlinks }
 export { CalenderComp as Calender };
@@ -207,3 +210,4 @@ export { RateComp as Rate };
 export { GroupContainerComp as GroupContainer };
 export { GroupReferComp as GroupRefer };
 export { NoticebarComp as Noticebar };
+export { ModalComp as Modal };
