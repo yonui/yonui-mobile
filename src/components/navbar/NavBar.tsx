@@ -50,7 +50,7 @@ export default class MDFNavBar extends React.Component<NavBarProps, any> {
   renderCenterContent = () => {
     const { style = {}, title, titleIcon, subTitle, nid, onTitleClick } = this.props
     return <>
-      <div onClick={onTitleClick}>
+      <div className='content' onClick={onTitleClick}>
         <div style={{ color: style.color ? style.color : defaultColor }} className='title'>{title}{titleIcon && <Icon type={titleIcon} nid={nid} />}</div>
         <div style={{ color: style.color ? style.color : subTitleDefaultColor }} className='sub-title'>{subTitle}</div>
       </div>
