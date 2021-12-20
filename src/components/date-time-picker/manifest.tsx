@@ -30,6 +30,12 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'singleAlignType',
+      type: FieldTypes.string,
+      defaultValue: 'left',
+      showDesign: true
+    },
+    {
       name: 'value',
       type: FieldTypes.date,
       showDesign: false,

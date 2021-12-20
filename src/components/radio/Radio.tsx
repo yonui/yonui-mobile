@@ -18,6 +18,7 @@ interface RadioProps extends React.defaultProps {
   disabled?: boolean
   singleLine?: boolean
   mReadOnly?: boolean
+  singleAlignType?: string
 }
 const TextString = {
   cancel: '取消',
@@ -310,7 +311,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
   }
 
   render () {
-    const { mode, dataSource, tagSize, className, singleLine, checkedValue, disabled, mReadOnly} = this.props
+    const { mode, dataSource, tagSize, className, singleLine, checkedValue, disabled, mReadOnly, singleAlignType = 'left' } = this.props
     const { open } = this.state
     let radioArr: any
     switch (mode) {
@@ -332,6 +333,7 @@ export default class RadioControl extends Component<RadioProps, RadioState> {
       className: cls,
       singleLine: singleLine,
       labelCls: 'yonui-radio-label',
+      contentCls: `list-item-wrapper-content-${singleAlignType}`,
       onClick: !(disabled || mReadOnly || mode === 'tag') ? this.onClickIcon : undefined
     })
     // if (bIsNull !== undefined) wrapperProps.notRequired = undefined

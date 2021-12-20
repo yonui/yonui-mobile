@@ -281,6 +281,7 @@ export default class Input extends Component<InputProps, InputState> {
     const { error, errorText, _displayValue } = this.state
     const cls = classnames('mdf-input', 'mdf-input-number', className)
     const inputCls = classnames('mdf-input-content')
+    const textAlign = singleLine && this.props.singleAlignType && this.props.singleAlignType === 'right' ? 'right' : 'left'
     const inputProps = this.getInputProps()
     const wrapperProps = getListItemProps(this.props, { className: cls, error, errorText })
     const _required = bIsNull !== undefined ? !bIsNull : required
@@ -298,7 +299,7 @@ export default class Input extends Component<InputProps, InputState> {
           isNumber={true}
           className={inputCls}
           required={_required}
-          textAlign='left'
+          textAlign={textAlign}
           onBlur={this._onBlur}
           onChange={this._onChange}
           onFocus={this._onFocus}
