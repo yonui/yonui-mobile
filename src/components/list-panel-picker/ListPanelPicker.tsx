@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Modal, Button } from 'antd-mobile'
+import { isJSON } from '../_utils'
 export interface DataItem {
   text?: any
   [key: string]: any
@@ -8,7 +9,7 @@ export interface DataItem {
 export interface ListPanelPickerProps {
   visible: boolean
   header?: string
-  data: DataItem[]
+  data: any
   onClose: () => void
   onSelect: (object: DataItem) => void
   style?: object
@@ -58,12 +59,13 @@ export default class ListPanelPicker extends Component<ListPanelPickerProps, Lis
   render () {
     const { data, header, style } = this.props
     const { open } = this.state
+    const adaptedData = isJSON(data) ? JSON.parse(data) : data
     return (
       <Modal visible={open} popup animationType='slide-up' style={style} className='mdf-modal'>
         <div className='am-list-panel-picker'>
           {header && <div className='header'>{header}</div>}
           <div className='content'>
-            {data && data.map((i, index) => (
+            {adaptedData.map((i, index) => (
               <div key={index} className={`content-item ${i.delete ? 'delete' : ''}`} onClick={() => { this.onClick(i) }}>{i && i.text}</div>
             ))}
           </div>

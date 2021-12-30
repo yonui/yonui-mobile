@@ -157,6 +157,179 @@ onSort | 某列排序时回调 | (column) => void | 无 | false
 
 
 
+# Button 基础组件-按钮
+## 如何使用
+
+```
+import { Button } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
+## API
+
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+prefixCls | 样式前缀 | string | 'mdf-button' | false
+content | 按钮内文字 | string | '' | false
+mode | 按钮模式 | 'primary'/'warning'/'ghost'/'default'/'text'/'toolbar-default'/'toolbar-primary' | 无 | false
+type | 按钮类型,优先级低于mode | 'primary'/'warning'/'ghost'/'default'/'text'/'toolbar-default'/'toolbar-primary' | 'toolbar-primary' | false
+iconPosition | 图标位置 | 'top'/'right'/'bottom'/'left' | 'left' | false
+size | 按钮尺寸 | 'large'/'small' | 'small' | false
+inline | 是否行内 | boolean | false | false
+disabled | 是否禁用 | boolean | false | false
+mReadOnly | 是否只读 | boolean | false | false
+visible | 是否可见 | boolean | true | false
+loading | 是否显示loading图标 | boolean | false | false
+icon | 图标 | React.ReactNode/string | string | null | false
+onClick | 点击后回调 | (e) => void | 无 | false
+className| 样式class | string | 无 | false
+style | 样式style | React.CSSProperties | 无 | false
+
+
+# NavBar 基础组件-导航栏
+## 如何使用
+
+```
+import { NavBar } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
+## API
+
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+rightIcon1 | 右一icon的type | string | 无 | false
+rightIcon2 | 右二icon的type | string | 无 | false
+rightIcon1Text | 右一icon右侧文字 | string | 无 | false
+rightIcon2Text | 右二icon右侧文字 | string | 无 | false
+onRight1Click | 右一icon点击时回调 | () => void | 无 | false
+onRight2Click | 右二icon点击时回调 | () => void | 无 | false
+title | 标题 | string | '标题' | false
+subTitle | 副标题 | string | 无 | false
+titleIcon | 标题右侧icon的type | string | 无 | false
+onTitleClick | 点击标题区域时回调 | () => void | 无 | false
+backIcon | 左侧返回icon的type | string | 'left' | false
+backIconText | 左侧返回icon右侧文字 | string | 无 | false
+closeIcon | 关闭icon | string | 无 | false
+closeIconText | 关闭icon右侧文字 | string | 无 | false
+onBackClick | 返回icon点击时回调 | () => void | 无 | false
+onCloseClick | 关闭icon点击时回调 | () => void | 无 | false
+mode | 模式 light: 白底黑字模式 其他: 默认模式 | string | 'light' | false
+rightIcons | 自定义右侧图标组 | any | 无 | false
+style | 样式style | React.CSSProperties | 无 | false
+autoShow | 是否展示（微信/友空间/ios/android）平台自有头部 | boolean | false | false
+
+
+# Icon 基础组件-图标
+## 如何使用
+
+```
+import { Icon } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
+## API
+
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+type | 类型 | string | 无 | true
+color | 颜色 | string | 无 | false
+data | svg的data属性，数据为空icon不展示 | string | 无 | false
+size | 尺寸 | 'xxs'/'xs'/'sm'/'md'/'lg'/'md' | 'md' |false
+onClick | 点击时回调 | (): void | 无 | false
+visible | 是否可见 | boolean | true | false
+url | 图标路径 | string | 无 | false
+iconBaseUrl | 图标地址的服务器地址 | string | 无 | false
+
+
+# Divider 基础组件-分割线
+## 如何使用
+
+```
+import { Divider } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
+## API
+
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+content | 内容 | string | '' | false
+prefixCls | 样式前缀 | string | 'mdf-divider' | false
+width | 线宽 | number | 1 | false
+color | 颜色 | string | '#d0d0d0' | false
+visible | 是否可见 | boolean | true | false
+style | 样式style | React.CSSProperties | 无 | false
+
+
+# Search 基础组件-搜索框
+## 如何使用
+
+```
+import { Search } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
+## API
+
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+prefixCls | 样式前缀 | string | 'mdf-search' | false
+value | 初始值 | string | '' | false
+defaultValue | 默认值 | string | '' | false
+placeholder | 占位 | string | '输入进行搜索' | false
+maxLength | 最长长度 | string | '' | false
+autoFocus | 自动获取焦点 | boolean | false | false
+disabled | 禁用 | boolean | false | false
+color | 字体颜色 | string | '' | false
+backgroundColor | 背景颜色 | string | '' | false
+searchIconColor | 搜索图标颜色 | string | '' | false
+clearIconColor | 清除图标颜色 | string | '' | false
+solutionId | 搜索的值包装成的对象的solutionId | number | 无 | false
+term | 搜索的值包装成的对象的term | any | 无 | false
+onSubmit | 点击搜索时回调 | (value) => void | 无 | false
+onChange | 搜索框修改时回调 | (value) => void | 无 | false
+onFocus | 获取焦点时回调 | () => void | 无 | false
+onBlur | 失去焦点时回调 | () => void | 无 | false
+onClear | 清空时回调 | (value) => void | 无 | false
+
+
+# Flex 基础组件-流式布局
+## 如何使用
+
+```
+import { Flex } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
+## API
+
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+style | 样式style | React.CSSProperties | 无 | false
+className | 样式class | string | 无 | false
+onClick | 点击后回调 | () => void | 无 | false
+onLongPress | 长按后回调 | () => void | 无 | false
+
+
 # CalendarPanel 基础组件-日历面板 
 ## 如何使用
 
@@ -199,11 +372,11 @@ scrollToBottom | 是否自动滚到底部 | boolean | false | false
 hintDays | 应用默认样式(浅红色)的日期 | string[] | [] | false
 
 
-# Carousel 基础组件-走马灯
+# Empty 基础组件-空页面
 ## 如何使用
 
 ```
-import { Carousel } from 'yonui-mobile';
+import { Empty } from 'yonui-mobile';
 
 ```
 
@@ -214,60 +387,9 @@ import { Carousel } from 'yonui-mobile';
 
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
-prefixCls | carousel的class | string | 'am-carousel' | false
-selectedIndex | 手动设置当前显示的索引 | number | 0 | false
-dots | 是否显示面板指示点 | Boolean | true | false
-vertical | 是否垂直显示 | Boolean | false | false
-autoplay | 是否自动切换 | Boolean | false | false
-autoplayInterval | 自动切换的时间间隔 | Number | 3 | false
-infinite | 是否循环播放 | Boolean | false | false
-dotStyle | 指示点样式 | Object | 无 | false
-dotActiveStyle | 当前激活的指示点样式 | Object | 无 | false
-frameOverflow | slider-frame的overflow样式 | 'visible'/'hidden' | 'hidden' | false
-cellSpacing | 项目之间的间距,以px为单位 | number | 无 | false
-slideWidth | 手动设置项目宽度,可以是"20px"，也可以是百分比"0.8" | string | 无 | false
-swipeSpeed | 滑动灵敏度 | number | 12 | false
-ratio | 长宽比例 | string | 4:2 | false
-children | 子项 | any[] | [] | false
-className| 样式class | string | 无 | false
-style | 样式 | React.CSSProperties | 无 | false
-
-
-# NavBar 基础组件-导航栏
-## 如何使用
-
-```
-import { NavBar } from 'yonui-mobile';
-
-```
-
-## 代码演示
-
-
-## API
-
-属性 | 说明 | 类型 | 默认值 | 必选
-----|-----|------|------|------
-rightIcon1 | 右一icon的type | string | 无 | false
-rightIcon2 | 右二icon的type | string | 无 | false
-rightIcon1Text | 右一icon右侧文字 | string | 无 | false
-rightIcon2Text | 右二icon右侧文字 | string | 无 | false
-onRight1Click | 右一icon点击时回调 | () => void | 无 | false
-onRight2Click | 右二icon点击时回调 | () => void | 无 | false
-title | 标题 | string | '标题' | false
-subTitle | 副标题 | string | 无 | false
-titleIcon | 标题右侧icon的type | string | 无 | false
-onTitleClick | 点击标题区域时回调 | () => void | 无 | false
-backIcon | 左侧返回icon的type | string | 'left' | false
-backIconText | 左侧返回icon右侧文字 | string | 无 | false
-closeIcon | 关闭icon | string | 无 | false
-closeIconText | 关闭icon右侧文字 | string | 无 | false
-onBackClick | 返回icon点击时回调 | () => void | 无 | false
-onCloseClick | 关闭icon点击时回调 | () => void | 无 | false
-mode | 模式 light: 白底黑字模式 其他: 默认模式 | string | 'light' | false
-rightIcons | 自定义右侧图标组 | any | 无 | false
+mode | 模式 noData: 无数据 client: 404 blankPage: 空白页 error: 错误 review: 审核中 server: 500 noNetwork: 无网络 | 'noData'/'client'/'blankPage'/'error'/'review'/'server'/'noNetwork' | 'noData' | false
+message | 显示信息 | string | '暂无文件' | false
 style | 样式style | React.CSSProperties | 无 | false
-autoShow | 是否展示（微信/友空间/ios/android）平台自有头部 | boolean | false | false
 
 
 # CarouselItem 基础组件-走马灯Item
@@ -294,105 +416,6 @@ className | 样式class | string | 无 | false
 style | 样式style | React.CSSProperties | 无 | false
 
 
-# Search 基础组件-搜索框
-## 如何使用
-
-```
-import { Search } from 'yonui-mobile';
-
-```
-
-## 代码演示
-
-
-## API
-
-属性 | 说明 | 类型 | 默认值 | 必选
-----|-----|------|------|------
-prefixCls | 样式前缀 | string | 'mdf-search' | false
-value | 初始值 | string | '' | false
-defaultValue | 默认值 | string | '' | false
-placeholder | 占位 | string | '输入进行搜索' | false
-maxLength | 最长长度 | string | '' | false
-autoFocus | 自动获取焦点 | boolean | false | false
-disabled | 禁用 | boolean | false | false
-color | 字体颜色 | string | '' | false
-backgroundColor | 背景颜色 | string | '' | false
-searchIconColor | 搜索图标颜色 | string | '' | false
-clearIconColor | 清除图标颜色 | string | '' | false
-solutionId | 搜索的值包装成的对象的solutionId | number | 无 | false
-term | 搜索的值包装成的对象的term | any | 无 | false
-onSubmit | 点击搜索时回调 | (value) => void | 无 | false
-onChange | 搜索框修改时回调 | (value) => void | 无 | false
-onFocus | 获取焦点时回调 | () => void | 无 | false
-onBlur | 失去焦点时回调 | () => void | 无 | false
-onClear | 清空时回调 | (value) => void | 无 | false
-
-
-# Divider 基础组件-分割线
-## 如何使用
-
-```
-import { Divider } from 'yonui-mobile';
-
-```
-
-## 代码演示
-
-
-## API
-
-属性 | 说明 | 类型 | 默认值 | 必选
-----|-----|------|------|------
-content | 内容 | string | '' | false
-prefixCls | 样式前缀 | string | 'mdf-divider' | false
-width | 线宽 | number | 1 | false
-color | 颜色 | string | '#d0d0d0' | false
-visible | 是否可见 | boolean | true | false
-style | 样式style | React.CSSProperties | 无 | false
-
-
-# Flex 基础组件-流式布局
-## 如何使用
-
-```
-import { Flex } from 'yonui-mobile';
-
-```
-
-## 代码演示
-
-
-## API
-
-属性 | 说明 | 类型 | 默认值 | 必选
-----|-----|------|------|------
-style | 样式style | React.CSSProperties | 无 | false
-className | 样式class | string | 无 | false
-onClick | 点击后回调 | () => void | 无 | false
-onLongPress | 长按后回调 | () => void | 无 | false
-
-
-# Empty 基础组件-空页面
-## 如何使用
-
-```
-import { Empty } from 'yonui-mobile';
-
-```
-
-## 代码演示
-
-
-## API
-
-属性 | 说明 | 类型 | 默认值 | 必选
-----|-----|------|------|------
-mode | 模式 noData: 无数据 client: 404 blankPage: 空白页 error: 错误 review: 审核中 server: 500 noNetwork: 无网络 | 'noData'/'client'/'blankPage'/'error'/'review'/'server'/'noNetwork' | 'noData' | false
-message | 显示信息 | string | '暂无文件' | false
-style | 样式style | React.CSSProperties | 无 | false
-
-
 # Tips 基础组件-徽标
 ## 如何使用
 
@@ -414,31 +437,6 @@ corner | 置于角落 | boolean | false | false
 dot | 不展示数字，只有一个小红点 | boolean | false | false
 overflowCount | 展示封顶的数字值 | number | 99 | false
 hot | 营销样式 | boolean | false | false
-
-
-# Icon 基础组件-图标
-## 如何使用
-
-```
-import { Icon } from 'yonui-mobile';
-
-```
-
-## 代码演示
-
-
-## API
-
-属性 | 说明 | 类型 | 默认值 | 必选
-----|-----|------|------|------
-type | 类型 | string | 无 | true
-color | 颜色 | string | 无 | false
-data | svg的data属性，数据为空icon不展示 | string | 无 | false
-size | 尺寸 | 'xxs'/'xs'/'sm'/'md'/'lg'/'md' | 'md' |false
-onClick | 点击时回调 | (): void | 无 | false
-visible | 是否可见 | boolean | true | false
-url | 图标路径 | string | 无 | false
-iconBaseUrl | 图标地址的服务器地址 | string | 无 | false
 
 
 # Label 基础组件-标签
@@ -498,26 +496,6 @@ className | 样式class | string | 无 | false
 style | 样式style | React.CSSProperties | 无 | false
 
 
-# Result 基础组件-反馈页面
-## 如何使用
-
-```
-import { Result } from 'yonui-mobile';
-
-```
-
-## 代码演示
-
-
-## API
-
-属性 | 说明 | 类型 | 默认值 | 必选
-----|-----|------|------|------
-mode | 模式 success: 成功 wait: 等待 reject: 驳回 | string | 'success' | false
-message | 文字描述 | string | '成功' | false
-style | 样式 | React.CSSProperties | 无 | false
-
-
 # ListView 基础组件-长列表
 ## 如何使用
 
@@ -548,6 +526,26 @@ pageSize | 每次渲染的行数 | number | 4 | false
 value | 如果value不为空,说明是受控组件,渲染时取children里的数据 | any[] | 无 | false
 showPullToReresh | 是否开启下拉刷新功能 | boolean | true | false
 placeholdHeight | 页面底部文案高度 | number | 0 | false
+
+
+# Popover 基础组件-气泡
+## 如何使用
+
+```
+import { Popover } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
+## API
+
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+children | 子项 | JSX.Element[] | 无 | false
+data | 选项数据 | any[] | 无 | false
+onSelect | 选中选项后回调 | any | 无 | false
 
 
 # Radio 基础组件-选项
@@ -654,11 +652,11 @@ height | 筛选组件的高度 | number | document.documentElement.clientHeight 
 multiSelect | 是否支持菜单多选 | boolean | false | false
 
 
-# Button 基础组件-按钮
+# Checkbox 基础组件-复选框
 ## 如何使用
 
 ```
-import { Button } from 'yonui-mobile';
+import { Checkbox } from 'yonui-mobile';
 
 ```
 
@@ -669,21 +667,37 @@ import { Button } from 'yonui-mobile';
 
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
-prefixCls | 样式前缀 | string | 'mdf-button' | false
-content | 按钮内文字 | string | '' | false
-mode | 按钮模式 | 'primary'/'warning'/'ghost'/'default'/'text'/'toolbar-default'/'toolbar-primary' | 无 | false
-type | 按钮类型,优先级低于mode | 'primary'/'warning'/'ghost'/'default'/'text'/'toolbar-default'/'toolbar-primary' | 'toolbar-primary' | false
-iconPosition | 图标位置 | 'top'/'right'/'bottom'/'left' | 'left' | false
-size | 按钮尺寸 | 'large'/'small' | 'small' | false
-inline | 是否行内 | boolean | false | false
+defaultChecked | 默认选中 | boolean | false | false
+checked | 初始值 | boolean | false | false
 disabled | 是否禁用 | boolean | false | false
-mReadOnly | 是否只读 | boolean | false | false
-visible | 是否可见 | boolean | true | false
-loading | 是否显示loading图标 | boolean | false | false
-icon | 图标 | React.ReactNode/string | string | null | false
-onClick | 点击后回调 | (e) => void | 无 | false
-className| 样式class | string | 无 | false
-style | 样式style | React.CSSProperties | 无 | false
+type | 类型 default: 默认样式 circle: 圆圈样式 | 'default'/'circle' | 'default' | false
+content | 内容 | string | 无 | false
+onChange | 改变后回调 | (value) => void | 无 | false
+className | 样式class | string | 无 | false
+
+
+# Notice 基础组件-通告栏
+## 如何使用
+
+```
+import { Notice } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
+## API
+
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+mode | 模式 空: 无按钮 modal: 弹窗 link: 带链接按钮 closable: 带关闭按钮 light: 白底带链接按钮 pop: 气泡式 | string | 无 | false
+className | 样式类名 | string | '' | false
+title | 弹窗标题 | string | 'Title' | false
+content | 内容 | React.ReactChild | 无 | false
+noticeModalShow | 弹窗是否可见 | boolean | false | false
+icon | 开始位置设置图标 | React.ReactNode | 无 | false
+onClick | 点击后回调 | () => void | 无 | false
 
 
 # Tab 基础组件-页签
@@ -747,11 +761,11 @@ iconsStyle | icon样式style | React.CSSProperties | 无 | false
 
 
 
-# Popover 基础组件-气泡
+# Toolbar 基础组件-工具栏
 ## 如何使用
 
 ```
-import { Popover } from 'yonui-mobile';
+import { Toolbar } from 'yonui-mobile';
 
 ```
 
@@ -762,59 +776,11 @@ import { Popover } from 'yonui-mobile';
 
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
-children | 子项 | JSX.Element[] | 无 | false
-data | 选项数据 | any[] | 无 | false
-onSelect | 选中选项后回调 | any | 无 | false
-
-
-# TabPane 基础组件-页签内容
-## 如何使用
-
-```
-import { TabPane } from 'yonui-mobile';
-
-```
-
-## 代码演示
-
-
-## API
-
-属性 | 说明 | 类型 | 默认值 | 必选
-----|-----|------|------|------
-children | 子项 | any | 无 | false
-key | key | string | 无 | true
-label | 标签 | string | 无 | false
+children | 子项 | JSX.Element[]/JSX.Element | 无 | false
+layout | 对其方式 | 'alignright'/'alignleft' | 'alignright' | false
+runTime | 运行态样式开关 | boolean | false | false
 className | 样式class | string | 无 | false
 style | 样式style | React.CSSProperties | 无 | false
-minHeight | 最小高度 | string | 无 | false
-width | 宽度 | string | 无 | false
-bgColor | 背景颜色 | string | 无 | false
-marginBottom | 下边距 | string | 无 | false
-
-
-# Checkbox 基础组件-复选框
-## 如何使用
-
-```
-import { Checkbox } from 'yonui-mobile';
-
-```
-
-## 代码演示
-
-
-## API
-
-属性 | 说明 | 类型 | 默认值 | 必选
-----|-----|------|------|------
-defaultChecked | 默认选中 | boolean | false | false
-checked | 初始值 | boolean | false | false
-disabled | 是否禁用 | boolean | false | false
-type | 类型 default: 默认样式 circle: 圆圈样式 | 'default'/'circle' | 'default' | false
-content | 内容 | string | 无 | false
-onChange | 改变后回调 | (value) => void | 无 | false
-className | 样式class | string | 无 | false
 
 
 # SharePanel 基础组件-分享栏
@@ -841,6 +807,26 @@ cancelButtonText | 取消按钮文案 | string | '取消' | false
 options | 可选项 | Array<Array<{ icon: React.ReactNode, title: string }>>/Array<{ icon: React.ReactNode/string, title: string }> | 无 | false
 type | 类型 slideable: 可滑动 fixed: 固定 | 'slideable'/'fixed' | 'fixed' | false
 callback | 选中后回调 | (col, row) => void | 无 | false
+
+
+# Result 基础组件-反馈页面
+## 如何使用
+
+```
+import { Result } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
+## API
+
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+mode | 模式 success: 成功 wait: 等待 reject: 驳回 | string | 'success' | false
+message | 文字描述 | string | '成功' | false
+style | 样式 | React.CSSProperties | 无 | false
 
 
 # Loading 基础组件-加载中
@@ -871,11 +857,11 @@ style | 样式style | React.CSSProperties | 无 | false
 
 
 
-# Toolbar 基础组件-工具栏
+# Carousel 基础组件-走马灯
 ## 如何使用
 
 ```
-import { Toolbar } from 'yonui-mobile';
+import { Carousel } from 'yonui-mobile';
 
 ```
 
@@ -886,41 +872,23 @@ import { Toolbar } from 'yonui-mobile';
 
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
-children | 子项 | JSX.Element[]/JSX.Element | 无 | false
-layout | 对其方式 | 'alignright'/'alignleft' | 'alignright' | false
-runTime | 运行态样式开关 | boolean | false | false
-className | 样式class | string | 无 | false
-style | 样式style | React.CSSProperties | 无 | false
-
-
-# Grid 基础组件-宫格
-## 如何使用
-
-```
-import { Grid } from 'yonui-mobile';
-
-```
-
-## 代码演示
-
-
-## API
-
-属性 | 说明 | 类型 | 默认值 | 必选
-----|-----|------|------|------
-mode | 模式 image: 展示图标 number: 展示数字 badge: 展示角标 | string | 'image' | false
-style | 样式style | React.CSSProperties | 无 | false
-itemSize | 图标尺寸 | 'lg'/'md'/'sm' | 'lg' | false
-itemDir | 图标排列方向 | 'row'/'column' | 'column' | false
-showHeader | 是否展示头部 | boolean | false | false
-gridTitle | 宫格标题 | string | 无 | false
-onSelect | 点击某项回调 | (value) => void | 无 | false
-onShowMore | 点击更多回调 | () => void | 无 | false
-data | 传入的菜单数据 | Array<{icon, text}> | [] | false
-columnNum | 列数 | number | 4 | false
-hasLine | 是否有边框 | boolean | false | false
-isCarousel | 是否跑马灯形式 | boolean | false | false
-carouselMaxRow | 如果是跑马灯,一页跑马灯需要展示的数量 | number | 2 | false
+prefixCls | carousel的class | string | 'am-carousel' | false
+selectedIndex | 手动设置当前显示的索引 | number | 0 | false
+dots | 是否显示面板指示点 | Boolean | true | false
+vertical | 是否垂直显示 | Boolean | false | false
+autoplay | 是否自动切换 | Boolean | false | false
+autoplayInterval | 自动切换的时间间隔 | Number | 3 | false
+infinite | 是否循环播放 | Boolean | false | false
+dotStyle | 指示点样式 | Object | 无 | false
+dotActiveStyle | 当前激活的指示点样式 | Object | 无 | false
+frameOverflow | slider-frame的overflow样式 | 'visible'/'hidden' | 'hidden' | false
+cellSpacing | 项目之间的间距,以px为单位 | number | 无 | false
+slideWidth | 手动设置项目宽度,可以是"20px"，也可以是百分比"0.8" | string | 无 | false
+swipeSpeed | 滑动灵敏度 | number | 12 | false
+ratio | 长宽比例 | string | 4:2 | false
+children | 子项 | any[] | [] | false
+className| 样式class | string | 无 | false
+style | 样式 | React.CSSProperties | 无 | false
 
 
 # Textarea 基础组件-多行文本
@@ -1013,6 +981,56 @@ showExtraLabelIcon | 标签是否显示icon | boolean | false | false
 onClick | 点击标签回调 | (e) => void | 无 | false
 className | 样式class | string | 无 | false
 style | 样式style | React.CSSProperties | 无 | false
+
+
+# Footer 基础组件-页面底部
+## 如何使用
+
+```
+import { Footer } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
+## API
+
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+children | 子项 | React.ReactChildren | 无 | false
+className | 样式class | string | 无 | false
+style | 样式style | React.CSSProperties | 无 | false
+
+
+# Grid 基础组件-宫格
+## 如何使用
+
+```
+import { Grid } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
+## API
+
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+mode | 模式 image: 展示图标 number: 展示数字 badge: 展示角标 | string | 'image' | false
+style | 样式style | React.CSSProperties | 无 | false
+itemSize | 图标尺寸 | 'lg'/'md'/'sm' | 'lg' | false
+itemDir | 图标排列方向 | 'row'/'column' | 'column' | false
+showHeader | 是否展示头部 | boolean | false | false
+gridTitle | 宫格标题 | string | 无 | false
+onSelect | 点击某项回调 | (value) => void | 无 | false
+onShowMore | 点击更多回调 | () => void | 无 | false
+data | 传入的菜单数据 | Array<{icon, text}> | [] | false
+columnNum | 列数 | number | 4 | false
+hasLine | 是否有边框 | boolean | false | false
+isCarousel | 是否跑马灯形式 | boolean | false | false
+carouselMaxRow | 如果是跑马灯,一页跑马灯需要展示的数量 | number | 2 | false
 
 
 # ListPanelPicker 基础组件-底部弹出菜单
@@ -1132,47 +1150,6 @@ className| 样式class | string | 无 | false
 style | 样式style | React.CSSProperties | 无 | false
 
 
-# InputBox 基础组件-输入框(只有框)
-## 如何使用
-
-```
-import { InputBox } from 'yonui-mobile';
-
-```
-
-## 代码演示
-
-
-## API
-
-属性 | 说明 | 类型 | 默认值 | 必选
-----|-----|------|------|------
-type | 类型 | 'text'/'number'/'tel'/'password' | 'text' | false
-isNumber | 输入模式,决定弹什么键盘 | boolean | false | false
-pattern | 输入过程中的校验规则 | RegExp | 无 | false
-finalPattern | 焦点离开时的校验规则 | RegExp | 无 | false
-value | 初始值 | string | 无 | false
-defaultValue | 默认值 | string | 无 | false
-textAlign | 文字对齐方向 | 'left'/'right'/'center' | 'left' | false
-placeholder | 占位符 | string | 无 | false
-maxLength | 最长长度 | number | 无 | false
-inputStyle | 输入框样式 | React.CSSProperties | 无 | false
-required | 是否必填 | boolean | false | false
-bCanModify | 是否可修改 | boolean | 无 | false
-disabled | 是否可修改 | boolean | 无 | false
-mReadOnly | 是否可修改 | boolean | 无 | false
-check | 是否启用校验 | boolean | 无 | false
-customCheck | 自定义校验函数 | (value, final) => boolean | 无 | false
-onFocus | 获取焦点时回调 | (value) => void | 无 | false
-onBlur | 失去焦点时回调 | (value) => void | 无 | false
-onChange | 修改时回调 | (value) => void | 无 | false
-onClickClear | 点击清空时回调 | (value) => void | 无 | false
-onError | 校验错误时回调 | (value, pattern) => void | 无 | false
-onSuccess | 校验成功时回调 | (value) => void | 无 | false
-beforeRender | 渲染前处理函数 | (value) => string | 无 | false
-afterChange | 值修改后对值的处理 | (value) => string | 无 | false
-
-
 # DateTimeRange 基础组件-时间范围选择
 ## 如何使用
 
@@ -1284,11 +1261,11 @@ className | 样式class | string | 无 | false
 style | 样式style | React.CSSProperties | 无 | false
 
 
-# TabBottom/TabBar 基础组件-底部标签栏
+# TabPane 基础组件-页签内容
 ## 如何使用
 
 ```
-import { TabBottom } from 'yonui-mobile';
+import { TabPane } from 'yonui-mobile';
 
 ```
 
@@ -1299,16 +1276,22 @@ import { TabBottom } from 'yonui-mobile';
 
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
-activeKey | 活动的标签 | string | itemList第一项的key | false
-itemList | 显示的标签 | any[] | [] | false
-onSwitch | 切换时的回调 | (key, item) => void | 无 | false
+children | 子项 | any | 无 | false
+key | key | string | 无 | true
+label | 标签 | string | 无 | false
+className | 样式class | string | 无 | false
+style | 样式style | React.CSSProperties | 无 | false
+minHeight | 最小高度 | string | 无 | false
+width | 宽度 | string | 无 | false
+bgColor | 背景颜色 | string | 无 | false
+marginBottom | 下边距 | string | 无 | false
 
 
-# SimpleList 基础组件-简单列表组件
+# InputBox 基础组件-输入框(只有框)
 ## 如何使用
 
 ```
-import { SimpleList } from 'yonui-mobile';
+import { InputBox } from 'yonui-mobile';
 
 ```
 
@@ -1319,97 +1302,30 @@ import { SimpleList } from 'yonui-mobile';
 
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
-dataSource | 数据 | any[] | 无 | false
-renderRow | 每行渲染函数,如果传此参数择按照此项展开,没有择渲染childern | (rowData, sectionId, rowId) => React.ReactChild | 无 | false
-onRefresh | 下拉刷新时回调 | () => void | 无 | false
-onReachFoot | 下拉到底回调 | () => void | 无 | false
-pullToRefresh | 是否下拉刷新 | boolean | true | false
-loadingText | 等待时文案 | string | '' | false
-completeText | 完成时文案 | string | '' | false
-reservedHeight | 上部保留高度 | number | 0 | false
-children | 子项 | React.ReactChildren | 无 | false
-editable | 可编辑 | boolean | false | false
-hasMore | 是否展示更多 | boolean | true | false
-
-
-# Toast 基础组件-提示
-## 如何使用
-
-```
-import { Toast } from 'yonui-mobile';
-
-```
-
-## 代码演示
-
-
-## API
-
-属性 | 说明 | 类型 | 默认值 | 必选
-----|-----|------|------|------
-content | 提示内容 | React.Element/String | 无 | false
-duration | 自动关闭的延时,单位秒 | number | 3 | false
-onClose | 关闭后回调 | () => void | 无 | false
-mask | 是否显示透明蒙层,防止触摸穿透 | boolean | true | false
-
-
-# Notice 基础组件-通告栏
-## 如何使用
-
-```
-import { Notice } from 'yonui-mobile';
-
-```
-
-## 代码演示
-
-
-## API
-
-属性 | 说明 | 类型 | 默认值 | 必选
-----|-----|------|------|------
-mode | 模式 空: 无按钮 modal: 弹窗 link: 带链接按钮 closable: 带关闭按钮 light: 白底带链接按钮 pop: 气泡式 | string | 无 | false
-className | 样式类名 | string | '' | false
-title | 弹窗标题 | string | 'Title' | false
-content | 内容 | React.ReactChild | 无 | false
-noticeModalShow | 弹窗是否可见 | boolean | false | false
-icon | 开始位置设置图标 | React.ReactNode | 无 | false
-onClick | 点击后回调 | () => void | 无 | false
-
-
-# Mobile 基础组件-联系方式
-## 如何使用
-
-```
-import { Mobile } from 'yonui-mobile';
-
-```
-
-## 代码演示
-
-
-## API
-
-属性 | 说明 | 类型 | 默认值 | 必选
-----|-----|------|------|------
-label | 标签 | string | '电话' | false
-singleLine | 是否单行展示 | boolean | true | false
-area | 是否选择国际区号 | boolean | false | false
-isSelect | 是否选择邮箱后缀 | boolean | 无 | false
-mode | 模式 | 'telephone'/'mobilephone'/'email' | 'telephone' | false
-dataSource | 数据源 | dataSourceType | 无 | false
-emailDataSource | 邮箱数据源 | emailType | 无 | false
-onChange | 变化后回调 | (value) => void | 无 | false
-onBlur | 失去焦点是回调 | (value) => void | 无 | false
-onFocus | 获取焦点时回调 | (value) => void | 无 | false
-required | 是否必填 | boolean | false | false
-bIsNull | 是否允许为空 | boolean | false | false
+type | 类型 | 'text'/'number'/'tel'/'password' | 'text' | false
+isNumber | 输入模式,决定弹什么键盘 | boolean | false | false
+pattern | 输入过程中的校验规则 | RegExp | 无 | false
+finalPattern | 焦点离开时的校验规则 | RegExp | 无 | false
 value | 初始值 | string | 无 | false
 defaultValue | 默认值 | string | 无 | false
-disabled | 是否禁用 | boolean | false | false
-bCanModify | 是否可修改 | boolean | true | false
-notVerify | 是否不需要校验 | boolean | false | false
-visible | 是否可见 | boolean | true | false
+textAlign | 文字对齐方向 | 'left'/'right'/'center' | 'left' | false
+placeholder | 占位符 | string | 无 | false
+maxLength | 最长长度 | number | 无 | false
+inputStyle | 输入框样式 | React.CSSProperties | 无 | false
+required | 是否必填 | boolean | false | false
+bCanModify | 是否可修改 | boolean | 无 | false
+disabled | 是否可修改 | boolean | 无 | false
+mReadOnly | 是否可修改 | boolean | 无 | false
+check | 是否启用校验 | boolean | 无 | false
+customCheck | 自定义校验函数 | (value, final) => boolean | 无 | false
+onFocus | 获取焦点时回调 | (value) => void | 无 | false
+onBlur | 失去焦点时回调 | (value) => void | 无 | false
+onChange | 修改时回调 | (value) => void | 无 | false
+onClickClear | 点击清空时回调 | (value) => void | 无 | false
+onError | 校验错误时回调 | (value, pattern) => void | 无 | false
+onSuccess | 校验成功时回调 | (value) => void | 无 | false
+beforeRender | 渲染前处理函数 | (value) => string | 无 | false
+afterChange | 值修改后对值的处理 | (value) => string | 无 | false
 
 
 # ListItemWrapper 基础组件-组件左侧标题
@@ -1447,6 +1363,62 @@ className| 样式class | string | 无 | false
 style | 样式 | React.CSSProperties | 无 | false
 
 
+# Mobile 基础组件-联系方式
+## 如何使用
+
+```
+import { Mobile } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
+## API
+
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+label | 标签 | string | '电话' | false
+singleLine | 是否单行展示 | boolean | true | false
+area | 是否选择国际区号 | boolean | false | false
+isSelect | 是否选择邮箱后缀 | boolean | 无 | false
+mode | 模式 | 'telephone'/'mobilephone'/'email' | 'telephone' | false
+dataSource | 数据源 | dataSourceType | 无 | false
+emailDataSource | 邮箱数据源 | emailType | 无 | false
+onChange | 变化后回调 | (value) => void | 无 | false
+onBlur | 失去焦点是回调 | (value) => void | 无 | false
+onFocus | 获取焦点时回调 | (value) => void | 无 | false
+required | 是否必填 | boolean | false | false
+bIsNull | 是否允许为空 | boolean | false | false
+value | 初始值 | string | 无 | false
+defaultValue | 默认值 | string | 无 | false
+disabled | 是否禁用 | boolean | false | false
+bCanModify | 是否可修改 | boolean | true | false
+notVerify | 是否不需要校验 | boolean | false | false
+visible | 是否可见 | boolean | true | false
+
+
+# Toast 基础组件-提示
+## 如何使用
+
+```
+import { Toast } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
+## API
+
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+content | 提示内容 | React.Element/String | 无 | false
+duration | 自动关闭的延时,单位秒 | number | 3 | false
+onClose | 关闭后回调 | () => void | 无 | false
+mask | 是否显示透明蒙层,防止触摸穿透 | boolean | true | false
+
+
 # ListItemDisplay 基础组件-列表项
 ## 如何使用
 
@@ -1470,6 +1442,26 @@ showExtraLabelIcon | 展示标签额外图标 | string | 无 | false
 onClick | 点击后回调 | () => void | 无 | false
 className| 样式class | string | 无 | false
 style | 样式 | React.CSSProperties | 无 | false
+
+
+# TabBottom/TabBar 基础组件-底部标签栏
+## 如何使用
+
+```
+import { TabBottom } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
+## API
+
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+activeKey | 活动的标签 | string | itemList第一项的key | false
+itemList | 显示的标签 | any[] | [] | false
+onSwitch | 切换时的回调 | (key, item) => void | 无 | false
 
 
 # Rate 基础组件-评分
@@ -1518,6 +1510,24 @@ drawerHeight | 高度 | string | 无 | false
 onShow | 渲染后回调 | () => void | 无 | false
 
 
+# GroupRefer 基础组件-引用
+## 如何使用
+
+```
+import { GroupRefer } from 'yonui-mobile';
+
+```
+
+## 代码演示
+
+
+## API
+
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+style | 样式 | React.CSSProperties | 无 | false
+
+
 # Noticebar 基础组件-小喇叭
 ## 如何使用
 
@@ -1543,11 +1553,11 @@ typeColor | 喇叭后的标题颜色 | string | 无 | false
 onSelect | 点击后回调 | (value) => void | 无 | false
 
 
-# Footer 基础组件-页面底部
+# SimpleList 基础组件-简单列表组件
 ## 如何使用
 
 ```
-import { Footer } from 'yonui-mobile';
+import { SimpleList } from 'yonui-mobile';
 
 ```
 
@@ -1558,9 +1568,17 @@ import { Footer } from 'yonui-mobile';
 
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
+dataSource | 数据 | any[] | 无 | false
+renderRow | 每行渲染函数,如果传此参数择按照此项展开,没有择渲染childern | (rowData, sectionId, rowId) => React.ReactChild | 无 | false
+onRefresh | 下拉刷新时回调 | () => void | 无 | false
+onReachFoot | 下拉到底回调 | () => void | 无 | false
+pullToRefresh | 是否下拉刷新 | boolean | true | false
+loadingText | 等待时文案 | string | '' | false
+completeText | 完成时文案 | string | '' | false
+reservedHeight | 上部保留高度 | number | 0 | false
 children | 子项 | React.ReactChildren | 无 | false
-className | 样式class | string | 无 | false
-style | 样式style | React.CSSProperties | 无 | false
+editable | 可编辑 | boolean | false | false
+hasMore | 是否展示更多 | boolean | true | false
 
 
 # CustomSort 基础组件-自定义分组
@@ -1608,22 +1626,4 @@ className | 样式class | string | 无 | false
 # README
 
 # README
-
-# GroupRefer 基础组件-引用
-## 如何使用
-
-```
-import { GroupRefer } from 'yonui-mobile';
-
-```
-
-## 代码演示
-
-
-## API
-
-属性 | 说明 | 类型 | 默认值 | 必选
-----|-----|------|------|------
-style | 样式 | React.CSSProperties | 无 | false
-
 
