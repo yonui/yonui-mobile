@@ -13,6 +13,7 @@ interface TextareaProps extends TextAreaItemPropsType, React.defaultProps, ListI
   bCanModify?: boolean
   mReadOnly?: boolean
   visible?: boolean
+  isHTML?: boolean
 }
 interface TextareaState {
   requiredError: boolean
@@ -28,6 +29,41 @@ export default class MyComponent extends Component<TextareaProps, TextareaState>
     this.state = {
       _value: this.props.defaultValue || '',
       requiredError: false
+    }
+  }
+
+  componentDidMount () {
+    this.addClickToImg()
+  }
+
+  shouldComponentUpdate () {
+    this.addClickToImg()
+    return true
+  }
+
+  addClickToImg = () => {
+    const { isHTML } = this.props
+    try {
+      if (isHTML) {
+        const images = document.querySelectorAll('.html-content img')
+        for (let i = 0; i < images.length; i++) {
+          images[i].onclick = (e) => {
+            console.log(e.target.currentSrc)
+            window?.mtl?.previewImage({
+              current: e.target.currentSrc,
+              urls: [e.target.currentSrc],
+              success: function (res) {
+                console.log('success', res)
+              },
+              fail: function (err) {
+                console.log('err', err)
+              }
+            })
+          }
+        }
+      }
+    } catch (e) {
+      console.log(e)
     }
   }
 
@@ -55,27 +91,40 @@ export default class MyComponent extends Component<TextareaProps, TextareaState>
     return value?.toString() || _value
   }
 
+  getHTMLElement = () => {
+    const { value } = this.props
+    try {
+      const createElement = (<div dangerouslySetInnerHTML={{ __html: value }} />)
+      const newElement = React.cloneElement(createElement, { className: 'html-content' })
+      return newElement
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
   render () {
-    const { label, className, mReadOnly, style, nid, uitype, required, maxLength, splitLine, rows = 3, errorText, onBlur, subLabel, showExtraLabelIcon, visible = true, ...other } = this.props
+    const { label, className, mReadOnly, style, nid, uitype, required, maxLength, splitLine, rows = 3, isHTML, visible = true, singleLine, ...other } = this.props
     // other.disabled = other.disabled || other.mReadOnly || (other.bCanModify !== undefined ? !other.bCanModify : other.bCanModify)
     const { requiredError } = this.state
     const cls = classnames(className, 'yonui-textarea')
     const wrapperProps = getListItemProps(this.props, {
       className: cls,
-      error: requiredError
+      error: requiredError,
+      singleLine: isHTML ? false : singleLine
     })
     other.value = this.getVal()
     if (!visible) return null
     return (
       <Wrapper {...wrapperProps}>
-        <TextareaItem
+        {!isHTML && <TextareaItem
           editable={!mReadOnly}
           rows={rows}
           {...other}
           count={maxLength}
           onBlur={this._onBlur}
           onChange={this._onChange}
-        />
+        />}
+        {isHTML && this.getHTMLElement()}
       </Wrapper>
     )
   }
