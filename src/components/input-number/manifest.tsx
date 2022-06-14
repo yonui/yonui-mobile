@@ -180,6 +180,24 @@ const manifest: ComponentManifest = {
       }
     },
     {
+      name: 'singleAlignType',
+      type: FieldTypes.string,
+      defaultValue: 'left',
+      showDesign: true,
+      designConfig: {
+        type: EditTypes.Select,
+        isRequired: false,
+        props: {
+          options: [
+            { text: '左对齐', value: 'left' },
+            { text: '单行集中', value: 'center' },
+            { text: '右对齐', value: 'right' }
+          ]
+        },
+        label: '单行对齐方式'
+      }
+    },
+    {
       name: 'placeholder',
       type: FieldTypes.string,
       defaultValue: '请输入',

@@ -277,7 +277,10 @@ export default class Input extends Component<InputProps, InputState> {
   }
 
   render () {
-    const { mReadOnly, required, bIsNull, className, singleLine, nid, uitype, onChange, onBlur, onFocus, value, showExtraLabelIcon, inputBgColor, visible, style, ...other } = this.props
+    const {
+      mReadOnly, required, bIsNull, className, singleLine,
+      singleAlignType, nid, uitype, onChange, onBlur, onFocus, value, showExtraLabelIcon, inputBgColor, visible, style, ...other
+    } = this.props
     const { error, errorText, _displayValue } = this.state
     const cls = classnames('mdf-input', className)
     const inputCls = classnames('mdf-input-content')
@@ -286,7 +289,6 @@ export default class Input extends Component<InputProps, InputState> {
     const _required = bIsNull !== undefined ? !bIsNull : required
     const preValue = this.state.isFocus ? value : this.changeValue(this.props);
     const showValue = mReadOnly ? preValue : (this.state.isFocus ? _displayValue || preValue : preValue)
-    console.log('zyh-inputnumber-showValue', showValue, 'props', this.props)
     if (!visible) return null
     // 解决展示数据修改不触发onChange事件的问题
     // if (showValue && showValue != this.state._showValue) {
@@ -298,7 +300,7 @@ export default class Input extends Component<InputProps, InputState> {
           isNumber={true}
           className={inputCls}
           required={_required}
-          textAlign={singleLine ? 'right' : 'left'}
+          textAlign={singleAlignType === 'right' ? 'right' : 'left'}
           onBlur={this._onBlur}
           onChange={this._onChange}
           onFocus={this._onFocus}

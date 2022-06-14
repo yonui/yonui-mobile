@@ -3,6 +3,7 @@ import Input from '../input-yonui'
 interface InputIdentityProps {
   type?: 'idCard' | 'bankCard'
   value?: string
+  singleAlignType?: string
   onChange?: (value?: string) => void
 }
 const regExpMap = {
@@ -46,7 +47,7 @@ export default class InputIdentity extends Component<InputIdentityProps> {
   }
 
   render () {
-    const { type = 'idCard', value, onChange } = this.props
+    const { type = 'idCard', value, onChange, singleAlignType } = this.props
     const pattern = regExpMap[type].inputPatternReg
     const finalPattern = regExpMap[type].finalPatternReg
     return (
@@ -60,7 +61,7 @@ export default class InputIdentity extends Component<InputIdentityProps> {
           pattern={pattern}
           finalPattern={finalPattern}
           onError={(val) => { console.log(val) }}
-          textAlign='right'
+          textAlign={singleAlignType === 'right' ? 'right' : 'left'}
           beforeRender={this.beforeInputRender(type)}
           afterChange={this.afterInputRender(type)}
           onChange={onChange}

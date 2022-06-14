@@ -143,7 +143,7 @@ class ListDatePicker extends React.Component<ListDatePickerProps, ListDatePicker
   }
 
   render () {
-    const { label, required, value, disabled, mReadOnly, style, dateMode, onCancel, format, extra, title, splitLine, labelCls: lbc, visible, ...restProps } = this.props
+    const { label, required, value, disabled, mReadOnly, style, dateMode, onCancel, format, extra, title, splitLine, singleAlignType, labelCls: lbc, visible, ...restProps } = this.props
     const { aVisible, _value, minDate, maxDate } = this.state
     if (!visible) return null
     const defaultValue = (_value && typeof _value === 'string') ? new Date(_value) : _value
